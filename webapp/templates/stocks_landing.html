@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Stock Rankings -- US & India | Degen Predictions{% endblock %}
+{% block description %}Predicted 6-month forward return rankings for US and India stocks, from a walk-forward-validated machine-learning model.{% endblock %}
+{% block keywords %}stock predictions, stock market predictions, AI stock predictions, US stock rankings, India stock rankings, S&P 500 predictions, Nifty 50 predictions, machine learning stock picks, best stocks to invest in, stock forecast{% endblock %}
+{% block content %}
+<a href="/">&larr; Back</a>
+<div class="leagues-hero">
+    <h1>Pick a Market</h1>
+    <p class="muted">Choose a market to see ranked stocks.</p>
+</div>
+
+<div class="league-grid">
+    <a class="league-card" href="/stocks/us" style="--league-color: #1565c0;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>US STOCKS</h2>
+            <p class="league-desc">S&amp;P 500 constituents, ranked by predicted 6-month return.</p>
+            <span class="league-cta">See Rankings</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">US</span></div>
+    </a>
+    <a class="league-card" href="/stocks/india" style="--league-color: #ff9933;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>INDIA STOCKS</h2>
+            <p class="league-desc">NIFTY 50 constituents, ranked by predicted 6-month return.</p>
+            <span class="league-cta">See Rankings</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">IN</span></div>
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,381 @@
+RoundNumber,DateUtc,HomeTeam,AwayTeam,P_Home_Win,P_Draw,P_Away_Win,Predicted_Result,P_BTTS_Yes,BTTS_Prediction,P_Over_2.5_Goals,Goals_Prediction,Exp_Total_Corners,P_Home_More_Corners,More_Corners_Prediction,Favorite_Team,P_Favorite_Avoids_Defeat,Favorite_Avoids_Defeat_Prediction,Data_Confidence
+1,2026-08-21 19:00:00Z,Arsenal,Coventry,0.526,0.234,0.239,Arsenal,0.511,Yes,0.563,Over 2.5,10.61,0.725,Arsenal,Arsenal,0.738,Yes,Low (promoted/new team)
+1,2026-08-22 11:30:00Z,Hull,Man United,0.219,0.268,0.513,Man United,0.512,Yes,0.438,Under 2.5,11.05,0.477,Man United,Man United,0.739,Yes,Low (promoted/new team)
+1,2026-08-22 14:00:00Z,Everton,Crystal Palace,0.472,0.248,0.279,Everton,0.561,Yes,0.538,Over 2.5,10.34,0.596,Everton,Everton,0.635,Yes,OK
+1,2026-08-22 14:00:00Z,Ipswich,Sunderland,0.275,0.28,0.446,Sunderland,0.498,No,0.487,Under 2.5,10.39,0.388,Sunderland,Sunderland,0.662,Yes,OK
+1,2026-08-22 14:00:00Z,Nott'm Forest,Leeds,0.469,0.226,0.305,Nott'm Forest,0.621,Yes,0.646,Over 2.5,10.79,0.605,Nott'm Forest,Nott'm Forest,0.702,Yes,OK
+1,2026-08-22 16:30:00Z,Brentford,Tottenham,0.395,0.249,0.356,Brentford,0.634,Yes,0.707,Over 2.5,10.14,0.49,Tottenham,Brentford,0.773,Yes,OK
+1,2026-08-23 13:00:00Z,Brighton,Aston Villa,0.417,0.212,0.37,Brighton,0.57,Yes,0.674,Over 2.5,10.04,0.56,Brighton,Aston Villa,0.604,Yes,OK
+1,2026-08-23 13:00:00Z,Man City,Bournemouth,0.626,0.179,0.195,Man City,0.583,Yes,0.733,Over 2.5,10.13,0.701,Man City,Man City,0.69,Yes,OK
+1,2026-08-23 15:30:00Z,Newcastle,Liverpool,0.288,0.239,0.473,Liverpool,0.648,Yes,0.681,Over 2.5,9.91,0.42,Liverpool,Liverpool,0.732,Yes,OK
+1,2026-08-24 19:00:00Z,Fulham,Chelsea,0.355,0.295,0.351,Fulham,0.583,Yes,0.598,Over 2.5,9.93,0.527,Fulham,Chelsea,0.632,Yes,OK
+2,2026-08-28 19:00:00Z,Crystal Palace,Man City,0.169,0.193,0.638,Man City,0.594,Yes,0.673,Over 2.5,9.97,0.259,Man City,Man City,0.817,Yes,OK
+2,2026-08-29 11:30:00Z,Liverpool,Nott'm Forest,0.523,0.227,0.25,Liverpool,0.603,Yes,0.683,Over 2.5,10.67,0.694,Liverpool,Liverpool,0.733,Yes,OK
+2,2026-08-29 14:00:00Z,Bournemouth,Everton,0.533,0.217,0.25,Bournemouth,0.613,Yes,0.659,Over 2.5,10.39,0.688,Bournemouth,Bournemouth,0.688,Yes,OK
+2,2026-08-29 14:00:00Z,Coventry,Hull,0.387,0.281,0.331,Coventry,0.469,No,0.309,Under 2.5,11.68,0.56,Coventry,Coventry,0.641,Yes,Low (promoted/new team)
+2,2026-08-29 16:30:00Z,Tottenham,Newcastle,0.417,0.216,0.367,Tottenham,0.582,Yes,0.698,Over 2.5,10.29,0.52,Tottenham,Newcastle,0.546,Yes,OK
+2,2026-08-30 13:00:00Z,Chelsea,Brighton,0.382,0.259,0.359,Chelsea,0.547,Yes,0.609,Over 2.5,9.94,0.565,Chelsea,Brighton,0.688,Yes,OK
+2,2026-08-30 13:00:00Z,Leeds,Brentford,0.403,0.225,0.372,Leeds,0.555,Yes,0.629,Over 2.5,10.92,0.509,Leeds,Brentford,0.762,Yes,OK
+2,2026-08-30 13:00:00Z,Sunderland,Fulham,0.326,0.286,0.388,Fulham,0.599,Yes,0.524,Over 2.5,9.99,0.464,Fulham,Fulham,0.657,Yes,OK
+2,2026-08-30 15:30:00Z,Man United,Ipswich,0.62,0.196,0.183,Man United,0.488,No,0.58,Over 2.5,10.59,0.733,Man United,Man United,0.787,Yes,OK
+2,2026-08-31 19:00:00Z,Aston Villa,Arsenal,0.224,0.236,0.54,Arsenal,0.659,Yes,0.681,Over 2.5,10.07,0.289,Arsenal,Arsenal,0.827,Yes,OK
+3,2026-09-04 19:00:00Z,Ipswich,Liverpool,0.186,0.191,0.624,Liverpool,0.445,No,0.518,Over 2.5,10.35,0.31,Liverpool,Liverpool,0.785,Yes,OK
+3,2026-09-05 11:30:00Z,Newcastle,Bournemouth,0.404,0.225,0.371,Newcastle,0.613,Yes,0.658,Over 2.5,10.19,0.469,Bournemouth,Bournemouth,0.609,Yes,OK
+3,2026-09-05 14:00:00Z,Brentford,Sunderland,0.475,0.263,0.262,Brentford,0.533,Yes,0.591,Over 2.5,10.37,0.498,Sunderland,Brentford,0.708,Yes,OK
+3,2026-09-05 14:00:00Z,Brighton,Leeds,0.522,0.194,0.284,Brighton,0.54,Yes,0.636,Over 2.5,10.63,0.706,Brighton,Brighton,0.614,Yes,OK
+3,2026-09-05 14:00:00Z,Fulham,Crystal Palace,0.495,0.235,0.27,Fulham,0.546,Yes,0.554,Over 2.5,10.17,0.696,Fulham,Fulham,0.622,Yes,OK
+3,2026-09-05 14:00:00Z,Man City,Coventry,0.573,0.214,0.214,Man City,0.518,Yes,0.621,Over 2.5,10.38,0.71,Man City,Man City,0.765,Yes,Low (promoted/new team)
+3,2026-09-05 14:00:00Z,Nott'm Forest,Tottenham,0.362,0.252,0.386,Tottenham,0.619,Yes,0.653,Over 2.5,9.95,0.51,Nott'm Forest,Nott'm Forest,0.74,Yes,OK
+3,2026-09-05 16:30:00Z,Hull,Aston Villa,0.287,0.287,0.426,Aston Villa,0.542,Yes,0.428,Under 2.5,11.08,0.477,Aston Villa,Aston Villa,0.748,Yes,Low (promoted/new team)
+3,2026-09-06 13:00:00Z,Everton,Man United,0.234,0.225,0.541,Man United,0.577,Yes,0.645,Over 2.5,10.16,0.42,Man United,Man United,0.767,Yes,OK
+3,2026-09-06 15:30:00Z,Arsenal,Chelsea,0.5,0.256,0.244,Arsenal,0.578,Yes,0.632,Over 2.5,10.1,0.73,Arsenal,Arsenal,0.744,Yes,OK
+4,2026-09-12 14:00:00Z,Bournemouth,Brentford,0.518,0.201,0.281,Bournemouth,0.593,Yes,0.678,Over 2.5,10.89,0.704,Bournemouth,Bournemouth,0.686,Yes,OK
+4,2026-09-12 14:00:00Z,Aston Villa,Nott'm Forest,0.465,0.239,0.296,Aston Villa,0.665,Yes,0.665,Over 2.5,10.71,0.602,Aston Villa,Aston Villa,0.718,Yes,OK
+4,2026-09-12 14:00:00Z,Chelsea,Hull,0.485,0.24,0.276,Chelsea,0.566,Yes,0.507,Over 2.5,10.54,0.623,Chelsea,Chelsea,0.671,Yes,Low (promoted/new team)
+4,2026-09-12 14:00:00Z,Crystal Palace,Ipswich,0.434,0.271,0.295,Crystal Palace,0.513,Yes,0.53,Over 2.5,10.37,0.626,Crystal Palace,Crystal Palace,0.788,Yes,OK
+4,2026-09-12 14:00:00Z,Liverpool,Fulham,0.473,0.279,0.249,Liverpool,0.561,Yes,0.619,Over 2.5,9.99,0.621,Liverpool,Liverpool,0.689,Yes,OK
+4,2026-09-12 16:30:00Z,Tottenham,Everton,0.433,0.227,0.34,Tottenham,0.541,Yes,0.67,Over 2.5,10.49,0.641,Tottenham,Everton,0.576,Yes,OK
+4,2026-09-12 19:00:00Z,Sunderland,Arsenal,0.159,0.197,0.644,Arsenal,0.633,Yes,0.62,Over 2.5,9.87,0.283,Arsenal,Arsenal,0.865,Yes,OK
+4,2026-09-13 13:00:00Z,Coventry,Brighton,0.254,0.289,0.457,Brighton,0.464,No,0.423,Under 2.5,11.07,0.477,Brighton,Brighton,0.712,Yes,Low (promoted/new team)
+4,2026-09-13 15:30:00Z,Man United,Man City,0.345,0.232,0.424,Man City,0.563,Yes,0.708,Over 2.5,9.89,0.391,Man City,Man City,0.702,Yes,OK
+4,2026-09-14 19:00:00Z,Leeds,Newcastle,0.385,0.23,0.385,Leeds,0.663,Yes,0.651,Over 2.5,10.28,0.393,Newcastle,Newcastle,0.697,Yes,OK
+5,2026-09-18 19:00:00Z,Brentford,Chelsea,0.412,0.272,0.316,Brentford,0.644,Yes,0.688,Over 2.5,10.22,0.452,Chelsea,Brentford,0.748,Yes,OK
+5,2026-09-19 11:30:00Z,Tottenham,Aston Villa,0.36,0.221,0.419,Aston Villa,0.554,Yes,0.705,Over 2.5,10.16,0.523,Tottenham,Aston Villa,0.617,Yes,OK
+5,2026-09-19 14:00:00Z,Brighton,Arsenal,0.235,0.245,0.519,Arsenal,0.627,Yes,0.661,Over 2.5,9.65,0.368,Arsenal,Arsenal,0.816,Yes,OK
+5,2026-09-19 14:00:00Z,Everton,Ipswich,0.482,0.256,0.262,Everton,0.543,Yes,0.527,Over 2.5,10.44,0.632,Everton,Everton,0.773,Yes,OK
+5,2026-09-19 14:00:00Z,Leeds,Crystal Palace,0.45,0.255,0.295,Leeds,0.586,Yes,0.554,Over 2.5,10.3,0.546,Leeds,Crystal Palace,0.664,Yes,OK
+5,2026-09-19 14:00:00Z,Man City,Sunderland,0.593,0.209,0.197,Man City,0.536,Yes,0.669,Over 2.5,10.36,0.742,Man City,Man City,0.773,Yes,OK
+5,2026-09-19 14:00:00Z,Newcastle,Hull,0.446,0.252,0.302,Newcastle,0.55,Yes,0.55,Over 2.5,10.65,0.587,Newcastle,Newcastle,0.723,Yes,Low (promoted/new team)
+5,2026-09-19 16:30:00Z,Nott'm Forest,Coventry,0.421,0.254,0.325,Nott'm Forest,0.542,Yes,0.537,Over 2.5,10.8,0.548,Nott'm Forest,Nott'm Forest,0.745,Yes,Low (promoted/new team)
+5,2026-09-20 13:00:00Z,Bournemouth,Liverpool,0.333,0.227,0.44,Liverpool,0.68,Yes,0.717,Over 2.5,9.89,0.469,Liverpool,Liverpool,0.698,Yes,OK
+5,2026-09-20 15:30:00Z,Fulham,Man United,0.241,0.213,0.546,Man United,0.559,Yes,0.636,Over 2.5,10.03,0.551,Fulham,Man United,0.669,Yes,OK
+6,2026-10-10 14:00:00Z,Arsenal,Leeds,0.602,0.187,0.211,Arsenal,0.56,Yes,0.673,Over 2.5,10.82,0.788,Arsenal,Arsenal,0.729,Yes,OK
+6,2026-10-10 14:00:00Z,Aston Villa,Brentford,0.509,0.199,0.292,Aston Villa,0.6,Yes,0.656,Over 2.5,11.09,0.64,Aston Villa,Aston Villa,0.706,Yes,OK
+6,2026-10-10 14:00:00Z,Chelsea,Bournemouth,0.453,0.224,0.323,Chelsea,0.586,Yes,0.626,Over 2.5,10.05,0.581,Chelsea,Bournemouth,0.602,Yes,OK
+6,2026-10-10 14:00:00Z,Coventry,Newcastle,0.345,0.274,0.381,Newcastle,0.576,Yes,0.456,Under 2.5,11.05,0.453,Newcastle,Newcastle,0.697,Yes,Low (promoted/new team)
+6,2026-10-10 14:00:00Z,Crystal Palace,Nott'm Forest,0.311,0.253,0.437,Nott'm Forest,0.645,Yes,0.63,Over 2.5,10.29,0.448,Nott'm Forest,Nott'm Forest,0.721,Yes,OK
+6,2026-10-10 14:00:00Z,Hull,Everton,0.386,0.28,0.334,Hull,0.527,Yes,0.473,Under 2.5,11.12,0.552,Hull,Everton,0.701,Yes,Low (promoted/new team)
+6,2026-10-10 14:00:00Z,Ipswich,Fulham,0.25,0.275,0.475,Fulham,0.488,No,0.521,Over 2.5,10.17,0.335,Fulham,Fulham,0.704,Yes,OK
+6,2026-10-10 14:00:00Z,Liverpool,Man City,0.31,0.244,0.445,Man City,0.568,Yes,0.706,Over 2.5,9.78,0.369,Man City,Man City,0.708,Yes,OK
+6,2026-10-10 14:00:00Z,Man United,Tottenham,0.505,0.232,0.262,Man United,0.553,Yes,0.685,Over 2.5,9.98,0.617,Man United,Man United,0.773,Yes,OK
+6,2026-10-10 14:00:00Z,Sunderland,Brighton,0.241,0.253,0.505,Brighton,0.515,Yes,0.504,Over 2.5,10.04,0.418,Brighton,Brighton,0.741,Yes,OK
+7,2026-10-17 14:00:00Z,Bournemouth,Sunderland,0.493,0.253,0.254,Bournemouth,0.567,Yes,0.604,Over 2.5,10.31,0.625,Bournemouth,Bournemouth,0.691,Yes,OK
+7,2026-10-17 14:00:00Z,Brentford,Liverpool,0.292,0.225,0.482,Liverpool,0.68,Yes,0.728,Over 2.5,10.27,0.402,Liverpool,Liverpool,0.83,Yes,OK
+7,2026-10-17 14:00:00Z,Brighton,Crystal Palace,0.551,0.209,0.24,Brighton,0.527,Yes,0.588,Over 2.5,10.08,0.723,Brighton,Brighton,0.66,Yes,OK
+7,2026-10-17 14:00:00Z,Everton,Chelsea,0.338,0.272,0.39,Chelsea,0.61,Yes,0.613,Over 2.5,10.12,0.378,Chelsea,Chelsea,0.652,Yes,OK
+7,2026-10-17 14:00:00Z,Fulham,Hull,0.427,0.24,0.332,Fulham,0.543,Yes,0.512,Over 2.5,10.5,0.641,Fulham,Fulham,0.695,Yes,Low (promoted/new team)
+7,2026-10-17 14:00:00Z,Leeds,Man United,0.238,0.23,0.532,Man United,0.614,Yes,0.662,Over 2.5,10.22,0.414,Man United,Man United,0.792,Yes,OK
+7,2026-10-17 14:00:00Z,Man City,Ipswich,0.647,0.184,0.169,Man City,0.525,Yes,0.634,Over 2.5,10.53,0.754,Man City,Man City,0.786,Yes,OK
+7,2026-10-17 14:00:00Z,Newcastle,Aston Villa,0.372,0.232,0.396,Aston Villa,0.631,Yes,0.671,Over 2.5,10.18,0.439,Aston Villa,Aston Villa,0.657,Yes,OK
+7,2026-10-17 14:00:00Z,Nott'm Forest,Arsenal,0.189,0.222,0.589,Arsenal,0.659,Yes,0.661,Over 2.5,10.0,0.266,Arsenal,Arsenal,0.84,Yes,OK
+7,2026-10-17 14:00:00Z,Tottenham,Coventry,0.392,0.259,0.349,Tottenham,0.574,Yes,0.614,Over 2.5,10.55,0.61,Tottenham,Coventry,0.653,Yes,Low (promoted/new team)
+8,2026-10-24 14:00:00Z,Arsenal,Everton,0.596,0.201,0.204,Arsenal,0.55,Yes,0.667,Over 2.5,10.7,0.79,Arsenal,Arsenal,0.773,Yes,OK
+8,2026-10-24 14:00:00Z,Aston Villa,Man City,0.248,0.224,0.528,Man City,0.585,Yes,0.692,Over 2.5,10.01,0.315,Man City,Man City,0.744,Yes,OK
+8,2026-10-24 14:00:00Z,Chelsea,Tottenham,0.444,0.254,0.301,Chelsea,0.566,Yes,0.637,Over 2.5,9.89,0.62,Chelsea,Chelsea,0.68,Yes,OK
+8,2026-10-24 14:00:00Z,Coventry,Fulham,0.319,0.303,0.378,Fulham,0.51,Yes,0.332,Under 2.5,11.03,0.48,Fulham,Fulham,0.632,Yes,Low (promoted/new team)
+8,2026-10-24 14:00:00Z,Crystal Palace,Newcastle,0.337,0.232,0.43,Newcastle,0.641,Yes,0.628,Over 2.5,10.11,0.415,Newcastle,Newcastle,0.677,Yes,OK
+8,2026-10-24 14:00:00Z,Hull,Brentford,0.354,0.262,0.384,Brentford,0.519,Yes,0.441,Under 2.5,11.66,0.542,Hull,Brentford,0.685,Yes,Low (promoted/new team)
+8,2026-10-24 14:00:00Z,Ipswich,Nott'm Forest,0.246,0.266,0.488,Nott'm Forest,0.51,Yes,0.573,Over 2.5,11.22,0.39,Nott'm Forest,Nott'm Forest,0.72,Yes,OK
+8,2026-10-24 14:00:00Z,Liverpool,Brighton,0.41,0.267,0.324,Liverpool,0.507,Yes,0.643,Over 2.5,9.99,0.606,Liverpool,Liverpool,0.69,Yes,OK
+8,2026-10-24 14:00:00Z,Man United,Bournemouth,0.575,0.198,0.227,Man United,0.564,Yes,0.668,Over 2.5,10.2,0.641,Man United,Man United,0.622,Yes,OK
+8,2026-10-24 14:00:00Z,Sunderland,Leeds,0.423,0.237,0.34,Sunderland,0.624,Yes,0.576,Over 2.5,10.63,0.592,Sunderland,Sunderland,0.628,Yes,OK
+9,2026-10-31 15:00:00Z,Bournemouth,Leeds,0.524,0.21,0.266,Bournemouth,0.615,Yes,0.652,Over 2.5,10.54,0.689,Bournemouth,Bournemouth,0.686,Yes,OK
+9,2026-10-31 15:00:00Z,Aston Villa,Fulham,0.418,0.28,0.302,Aston Villa,0.637,Yes,0.585,Over 2.5,10.22,0.507,Aston Villa,Aston Villa,0.731,Yes,OK
+9,2026-10-31 15:00:00Z,Brentford,Nott'm Forest,0.45,0.243,0.307,Brentford,0.676,Yes,0.68,Over 2.5,10.58,0.512,Brentford,Brentford,0.754,Yes,OK
+9,2026-10-31 15:00:00Z,Chelsea,Man United,0.35,0.24,0.41,Man United,0.595,Yes,0.65,Over 2.5,9.93,0.574,Chelsea,Man United,0.646,Yes,OK
+9,2026-10-31 15:00:00Z,Coventry,Sunderland,0.322,0.32,0.358,Sunderland,0.454,No,0.321,Under 2.5,11.02,0.521,Coventry,Sunderland,0.678,Yes,Low (promoted/new team)
+9,2026-10-31 15:00:00Z,Hull,Ipswich,0.402,0.331,0.267,Hull,0.462,No,0.336,Under 2.5,11.3,0.633,Hull,Hull,0.755,Yes,Low (promoted/new team)
+9,2026-10-31 15:00:00Z,Liverpool,Arsenal,0.283,0.272,0.445,Arsenal,0.626,Yes,0.657,Over 2.5,9.74,0.353,Arsenal,Arsenal,0.767,Yes,OK
+9,2026-10-31 15:00:00Z,Man City,Brighton,0.49,0.246,0.264,Man City,0.548,Yes,0.694,Over 2.5,10.0,0.659,Man City,Man City,0.759,Yes,OK
+9,2026-10-31 15:00:00Z,Newcastle,Everton,0.504,0.226,0.269,Newcastle,0.591,Yes,0.615,Over 2.5,10.39,0.622,Newcastle,Newcastle,0.686,Yes,OK
+9,2026-10-31 15:00:00Z,Tottenham,Crystal Palace,0.453,0.234,0.313,Tottenham,0.538,Yes,0.608,Over 2.5,10.31,0.644,Tottenham,Crystal Palace,0.579,Yes,OK
+10,2026-11-07 15:00:00Z,Arsenal,Hull,0.526,0.234,0.239,Arsenal,0.511,Yes,0.563,Over 2.5,10.61,0.725,Arsenal,Arsenal,0.738,Yes,Low (promoted/new team)
+10,2026-11-07 15:00:00Z,Brighton,Brentford,0.521,0.185,0.294,Brighton,0.558,Yes,0.664,Over 2.5,11.03,0.727,Brighton,Brighton,0.683,Yes,OK
+10,2026-11-07 15:00:00Z,Crystal Palace,Liverpool,0.219,0.214,0.567,Liverpool,0.642,Yes,0.657,Over 2.5,9.89,0.374,Liverpool,Liverpool,0.786,Yes,OK
+10,2026-11-07 15:00:00Z,Everton,Coventry,0.41,0.252,0.338,Everton,0.531,Yes,0.545,Over 2.5,10.96,0.537,Everton,Everton,0.779,Yes,Low (promoted/new team)
+10,2026-11-07 15:00:00Z,Fulham,Newcastle,0.423,0.229,0.348,Fulham,0.58,Yes,0.63,Over 2.5,10.23,0.594,Fulham,Newcastle,0.595,Yes,OK
+10,2026-11-07 15:00:00Z,Ipswich,Bournemouth,0.25,0.248,0.503,Bournemouth,0.521,Yes,0.562,Over 2.5,10.61,0.369,Bournemouth,Bournemouth,0.672,Yes,OK
+10,2026-11-07 15:00:00Z,Leeds,Tottenham,0.362,0.25,0.388,Tottenham,0.604,Yes,0.625,Over 2.5,9.98,0.483,Tottenham,Leeds,0.747,Yes,OK
+10,2026-11-07 15:00:00Z,Man United,Aston Villa,0.567,0.194,0.239,Man United,0.587,Yes,0.71,Over 2.5,10.21,0.661,Man United,Man United,0.638,Yes,OK
+10,2026-11-07 15:00:00Z,Nott'm Forest,Man City,0.199,0.212,0.589,Man City,0.595,Yes,0.685,Over 2.5,9.97,0.274,Man City,Man City,0.805,Yes,OK
+10,2026-11-07 15:00:00Z,Sunderland,Chelsea,0.298,0.291,0.412,Chelsea,0.617,Yes,0.553,Over 2.5,9.97,0.438,Chelsea,Chelsea,0.67,Yes,OK
+11,2026-11-21 15:00:00Z,Bournemouth,Nott'm Forest,0.479,0.24,0.281,Bournemouth,0.683,Yes,0.67,Over 2.5,10.43,0.655,Bournemouth,Bournemouth,0.729,Yes,OK
+11,2026-11-21 15:00:00Z,Aston Villa,Sunderland,0.471,0.259,0.27,Aston Villa,0.53,Yes,0.579,Over 2.5,10.5,0.547,Aston Villa,Aston Villa,0.764,Yes,OK
+11,2026-11-21 15:00:00Z,Brentford,Everton,0.515,0.217,0.268,Brentford,0.592,Yes,0.662,Over 2.5,10.41,0.555,Brentford,Brentford,0.71,Yes,OK
+11,2026-11-21 15:00:00Z,Chelsea,Leeds,0.524,0.21,0.266,Chelsea,0.583,Yes,0.603,Over 2.5,10.59,0.715,Chelsea,Chelsea,0.618,Yes,OK
+11,2026-11-21 15:00:00Z,Coventry,Crystal Palace,0.405,0.289,0.306,Coventry,0.503,Yes,0.338,Under 2.5,11.33,0.563,Coventry,Crystal Palace,0.64,Yes,Low (promoted/new team)
+11,2026-11-21 15:00:00Z,Hull,Brighton,0.254,0.289,0.457,Brighton,0.464,No,0.423,Under 2.5,11.07,0.477,Brighton,Brighton,0.712,Yes,Low (promoted/new team)
+11,2026-11-21 15:00:00Z,Liverpool,Man United,0.407,0.246,0.348,Liverpool,0.562,Yes,0.693,Over 2.5,9.96,0.647,Liverpool,Liverpool,0.68,Yes,OK
+11,2026-11-21 15:00:00Z,Man City,Fulham,0.537,0.256,0.208,Man City,0.582,Yes,0.683,Over 2.5,10.0,0.69,Man City,Man City,0.734,Yes,OK
+11,2026-11-21 15:00:00Z,Newcastle,Arsenal,0.214,0.242,0.545,Arsenal,0.624,Yes,0.628,Over 2.5,9.93,0.276,Arsenal,Arsenal,0.843,Yes,OK
+11,2026-11-21 15:00:00Z,Tottenham,Ipswich,0.487,0.25,0.263,Tottenham,0.505,Yes,0.615,Over 2.5,10.44,0.7,Tottenham,Tottenham,0.706,Yes,OK
+12,2026-11-28 15:00:00Z,Arsenal,Man City,0.396,0.264,0.339,Arsenal,0.557,Yes,0.662,Over 2.5,9.94,0.621,Arsenal,Arsenal,0.739,Yes,OK
+12,2026-11-28 15:00:00Z,Brighton,Newcastle,0.505,0.203,0.291,Brighton,0.6,Yes,0.687,Over 2.5,10.29,0.639,Brighton,Brighton,0.599,Yes,OK
+12,2026-11-28 15:00:00Z,Crystal Palace,Hull,0.369,0.249,0.382,Hull,0.529,Yes,0.466,Under 2.5,10.68,0.504,Crystal Palace,Crystal Palace,0.72,Yes,Low (promoted/new team)
+12,2026-11-28 15:00:00Z,Everton,Liverpool,0.255,0.225,0.52,Liverpool,0.627,Yes,0.668,Over 2.5,10.1,0.364,Liverpool,Liverpool,0.736,Yes,OK
+12,2026-11-28 15:00:00Z,Fulham,Bournemouth,0.378,0.225,0.397,Bournemouth,0.545,Yes,0.617,Over 2.5,10.11,0.53,Fulham,Bournemouth,0.595,Yes,OK
+12,2026-11-28 15:00:00Z,Ipswich,Aston Villa,0.226,0.232,0.542,Aston Villa,0.467,No,0.521,Over 2.5,10.59,0.353,Aston Villa,Aston Villa,0.773,Yes,OK
+12,2026-11-28 15:00:00Z,Leeds,Coventry,0.418,0.254,0.328,Leeds,0.519,Yes,0.499,Under 2.5,10.92,0.521,Leeds,Leeds,0.744,Yes,Low (promoted/new team)
+12,2026-11-28 15:00:00Z,Man United,Brentford,0.6,0.181,0.219,Man United,0.534,Yes,0.668,Over 2.5,11.1,0.728,Man United,Man United,0.732,Yes,OK
+12,2026-11-28 15:00:00Z,Nott'm Forest,Chelsea,0.361,0.278,0.361,Chelsea,0.646,Yes,0.646,Over 2.5,9.99,0.483,Chelsea,Chelsea,0.711,Yes,OK
+12,2026-11-28 15:00:00Z,Sunderland,Tottenham,0.322,0.275,0.403,Tottenham,0.592,Yes,0.56,Over 2.5,10.0,0.498,Tottenham,Sunderland,0.715,Yes,OK
+13,2026-12-02 20:00:00Z,Bournemouth,Brighton,0.38,0.262,0.359,Bournemouth,0.6,Yes,0.655,Over 2.5,10.0,0.549,Bournemouth,Bournemouth,0.711,Yes,OK
+13,2026-12-02 20:00:00Z,Aston Villa,Everton,0.523,0.217,0.259,Aston Villa,0.609,Yes,0.67,Over 2.5,10.61,0.612,Aston Villa,Aston Villa,0.702,Yes,OK
+13,2026-12-02 20:00:00Z,Brentford,Arsenal,0.207,0.231,0.563,Arsenal,0.688,Yes,0.71,Over 2.5,10.42,0.269,Arsenal,Arsenal,0.878,Yes,OK
+13,2026-12-02 20:00:00Z,Chelsea,Crystal Palace,0.546,0.219,0.236,Chelsea,0.601,Yes,0.562,Over 2.5,10.13,0.715,Chelsea,Chelsea,0.69,Yes,OK
+13,2026-12-02 20:00:00Z,Coventry,Ipswich,0.402,0.331,0.267,Coventry,0.462,No,0.336,Under 2.5,11.3,0.633,Coventry,Coventry,0.755,Yes,Low (promoted/new team)
+13,2026-12-02 20:00:00Z,Hull,Nott'm Forest,0.323,0.291,0.386,Nott'm Forest,0.545,Yes,0.425,Under 2.5,11.17,0.509,Hull,Nott'm Forest,0.719,Yes,Low (promoted/new team)
+13,2026-12-02 20:00:00Z,Liverpool,Sunderland,0.519,0.236,0.245,Liverpool,0.5,Yes,0.605,Over 2.5,10.37,0.671,Liverpool,Liverpool,0.745,Yes,OK
+13,2026-12-02 20:00:00Z,Man City,Leeds,0.664,0.161,0.176,Man City,0.6,Yes,0.709,Over 2.5,10.61,0.764,Man City,Man City,0.749,Yes,OK
+13,2026-12-02 20:00:00Z,Newcastle,Man United,0.278,0.235,0.488,Man United,0.59,Yes,0.662,Over 2.5,10.1,0.437,Man United,Man United,0.744,Yes,OK
+13,2026-12-02 20:00:00Z,Tottenham,Fulham,0.369,0.274,0.357,Tottenham,0.56,Yes,0.644,Over 2.5,10.04,0.483,Fulham,Fulham,0.597,Yes,OK
+14,2026-12-05 15:00:00Z,Bournemouth,Hull,0.474,0.248,0.278,Bournemouth,0.584,Yes,0.561,Over 2.5,10.66,0.622,Bournemouth,Bournemouth,0.743,Yes,Low (promoted/new team)
+14,2026-12-05 15:00:00Z,Aston Villa,Crystal Palace,0.532,0.219,0.249,Aston Villa,0.611,Yes,0.593,Over 2.5,10.42,0.654,Aston Villa,Aston Villa,0.72,Yes,OK
+14,2026-12-05 15:00:00Z,Brentford,Man City,0.23,0.216,0.554,Man City,0.609,Yes,0.74,Over 2.5,10.36,0.266,Man City,Man City,0.848,Yes,OK
+14,2026-12-05 15:00:00Z,Chelsea,Liverpool,0.378,0.231,0.392,Liverpool,0.615,Yes,0.666,Over 2.5,9.77,0.506,Chelsea,Liverpool,0.62,Yes,OK
+14,2026-12-05 15:00:00Z,Everton,Fulham,0.353,0.294,0.353,Fulham,0.617,Yes,0.577,Over 2.5,10.15,0.423,Fulham,Fulham,0.645,Yes,OK
+14,2026-12-05 15:00:00Z,Leeds,Ipswich,0.505,0.249,0.246,Leeds,0.511,Yes,0.547,Over 2.5,10.4,0.611,Leeds,Leeds,0.792,Yes,OK
+14,2026-12-05 15:00:00Z,Man United,Coventry,0.551,0.222,0.227,Man United,0.505,Yes,0.567,Over 2.5,10.47,0.627,Man United,Man United,0.754,Yes,Low (promoted/new team)
+14,2026-12-05 15:00:00Z,Newcastle,Sunderland,0.452,0.269,0.279,Newcastle,0.549,Yes,0.548,Over 2.5,10.38,0.558,Newcastle,Newcastle,0.717,Yes,OK
+14,2026-12-05 15:00:00Z,Nott'm Forest,Brighton,0.292,0.255,0.452,Brighton,0.579,Yes,0.621,Over 2.5,10.14,0.426,Brighton,Brighton,0.718,Yes,OK
+14,2026-12-05 15:00:00Z,Tottenham,Arsenal,0.232,0.224,0.544,Arsenal,0.631,Yes,0.686,Over 2.5,10.04,0.331,Arsenal,Arsenal,0.771,Yes,OK
+15,2026-12-12 15:00:00Z,Arsenal,Bournemouth,0.564,0.209,0.227,Arsenal,0.53,Yes,0.681,Over 2.5,10.34,0.737,Arsenal,Arsenal,0.704,Yes,OK
+15,2026-12-12 15:00:00Z,Brighton,Everton,0.527,0.206,0.267,Brighton,0.546,Yes,0.647,Over 2.5,10.43,0.711,Brighton,Brighton,0.652,Yes,OK
+15,2026-12-12 15:00:00Z,Coventry,Aston Villa,0.287,0.287,0.426,Aston Villa,0.542,Yes,0.428,Under 2.5,11.08,0.477,Aston Villa,Aston Villa,0.748,Yes,Low (promoted/new team)
+15,2026-12-12 15:00:00Z,Crystal Palace,Man United,0.209,0.226,0.565,Man United,0.605,Yes,0.638,Over 2.5,10.11,0.435,Man United,Man United,0.808,Yes,OK
+15,2026-12-12 15:00:00Z,Fulham,Brentford,0.424,0.21,0.366,Fulham,0.559,Yes,0.598,Over 2.5,10.99,0.692,Fulham,Brentford,0.676,Yes,OK
+15,2026-12-12 15:00:00Z,Hull,Tottenham,0.33,0.288,0.381,Tottenham,0.511,Yes,0.433,Under 2.5,10.86,0.53,Hull,Hull,0.706,Yes,Low (promoted/new team)
+15,2026-12-12 15:00:00Z,Ipswich,Newcastle,0.267,0.243,0.49,Newcastle,0.46,No,0.462,Under 2.5,10.85,0.33,Newcastle,Newcastle,0.713,Yes,OK
+15,2026-12-12 15:00:00Z,Liverpool,Leeds,0.561,0.199,0.24,Liverpool,0.569,Yes,0.662,Over 2.5,10.65,0.747,Liverpool,Liverpool,0.709,Yes,OK
+15,2026-12-12 15:00:00Z,Man City,Chelsea,0.553,0.237,0.211,Man City,0.617,Yes,0.718,Over 2.5,9.9,0.707,Man City,Man City,0.75,Yes,OK
+15,2026-12-12 15:00:00Z,Sunderland,Nott'm Forest,0.307,0.26,0.433,Nott'm Forest,0.608,Yes,0.581,Over 2.5,10.36,0.525,Sunderland,Nott'm Forest,0.678,Yes,OK
+16,2026-12-19 15:00:00Z,Bournemouth,Coventry,0.474,0.248,0.278,Bournemouth,0.584,Yes,0.561,Over 2.5,10.66,0.622,Bournemouth,Bournemouth,0.743,Yes,Low (promoted/new team)
+16,2026-12-19 15:00:00Z,Arsenal,Man United,0.445,0.255,0.3,Arsenal,0.554,Yes,0.688,Over 2.5,10.19,0.727,Arsenal,Arsenal,0.741,Yes,OK
+16,2026-12-19 15:00:00Z,Brentford,Newcastle,0.476,0.218,0.307,Brentford,0.668,Yes,0.708,Over 2.5,10.46,0.481,Newcastle,Brentford,0.738,Yes,OK
+16,2026-12-19 15:00:00Z,Brighton,Ipswich,0.531,0.23,0.24,Brighton,0.512,Yes,0.578,Over 2.5,10.35,0.729,Brighton,Brighton,0.76,Yes,OK
+16,2026-12-19 15:00:00Z,Chelsea,Aston Villa,0.439,0.216,0.345,Chelsea,0.61,Yes,0.658,Over 2.5,9.97,0.582,Chelsea,Aston Villa,0.576,Yes,OK
+16,2026-12-19 15:00:00Z,Leeds,Fulham,0.334,0.294,0.372,Fulham,0.624,Yes,0.598,Over 2.5,10.1,0.387,Fulham,Fulham,0.69,Yes,OK
+16,2026-12-19 15:00:00Z,Liverpool,Tottenham,0.458,0.247,0.294,Liverpool,0.537,Yes,0.68,Over 2.5,9.96,0.631,Liverpool,Liverpool,0.784,Yes,OK
+16,2026-12-19 15:00:00Z,Man City,Hull,0.573,0.214,0.214,Man City,0.518,Yes,0.621,Over 2.5,10.38,0.71,Man City,Man City,0.765,Yes,Low (promoted/new team)
+16,2026-12-19 15:00:00Z,Nott'm Forest,Everton,0.474,0.234,0.292,Nott'm Forest,0.591,Yes,0.616,Over 2.5,10.32,0.581,Nott'm Forest,Nott'm Forest,0.691,Yes,OK
+16,2026-12-19 15:00:00Z,Sunderland,Crystal Palace,0.441,0.259,0.3,Sunderland,0.594,Yes,0.474,Under 2.5,10.26,0.61,Sunderland,Sunderland,0.618,Yes,OK
+17,2026-12-26 15:00:00Z,Aston Villa,Leeds,0.522,0.208,0.269,Aston Villa,0.631,Yes,0.658,Over 2.5,10.85,0.633,Aston Villa,Aston Villa,0.677,Yes,OK
+17,2026-12-26 15:00:00Z,Coventry,Chelsea,0.328,0.313,0.359,Chelsea,0.563,Yes,0.445,Under 2.5,10.9,0.429,Chelsea,Chelsea,0.669,Yes,Low (promoted/new team)
+17,2026-12-26 15:00:00Z,Crystal Palace,Arsenal,0.164,0.192,0.643,Arsenal,0.645,Yes,0.647,Over 2.5,9.96,0.257,Arsenal,Arsenal,0.869,Yes,OK
+17,2026-12-26 15:00:00Z,Everton,Sunderland,0.409,0.276,0.315,Everton,0.521,Yes,0.545,Over 2.5,10.34,0.508,Everton,Everton,0.657,Yes,OK
+17,2026-12-26 15:00:00Z,Fulham,Brighton,0.296,0.244,0.46,Brighton,0.484,No,0.587,Over 2.5,9.97,0.501,Fulham,Brighton,0.723,Yes,OK
+17,2026-12-26 15:00:00Z,Hull,Liverpool,0.237,0.269,0.494,Liverpool,0.54,Yes,0.431,Under 2.5,10.88,0.431,Liverpool,Liverpool,0.746,Yes,Low (promoted/new team)
+17,2026-12-26 15:00:00Z,Ipswich,Brentford,0.271,0.229,0.5,Brentford,0.517,Yes,0.546,Over 2.5,11.59,0.447,Brentford,Brentford,0.74,Yes,OK
+17,2026-12-26 15:00:00Z,Man United,Nott'm Forest,0.577,0.214,0.209,Man United,0.606,Yes,0.676,Over 2.5,10.78,0.67,Man United,Man United,0.727,Yes,OK
+17,2026-12-26 15:00:00Z,Newcastle,Man City,0.24,0.229,0.531,Man City,0.579,Yes,0.68,Over 2.5,9.94,0.278,Man City,Man City,0.772,Yes,OK
+17,2026-12-26 15:00:00Z,Tottenham,Bournemouth,0.385,0.227,0.388,Bournemouth,0.542,Yes,0.683,Over 2.5,10.27,0.547,Tottenham,Bournemouth,0.581,Yes,OK
+18,2026-12-30 20:00:00Z,Aston Villa,Liverpool,0.311,0.229,0.46,Liverpool,0.659,Yes,0.698,Over 2.5,10.03,0.43,Liverpool,Liverpool,0.725,Yes,OK
+18,2026-12-30 20:00:00Z,Coventry,Brentford,0.354,0.262,0.384,Brentford,0.519,Yes,0.441,Under 2.5,11.66,0.542,Coventry,Brentford,0.685,Yes,Low (promoted/new team)
+18,2026-12-30 20:00:00Z,Crystal Palace,Bournemouth,0.312,0.223,0.465,Bournemouth,0.621,Yes,0.656,Over 2.5,10.18,0.412,Bournemouth,Bournemouth,0.692,Yes,OK
+18,2026-12-30 20:00:00Z,Everton,Man City,0.195,0.203,0.602,Man City,0.562,Yes,0.668,Over 2.5,10.11,0.256,Man City,Man City,0.765,Yes,OK
+18,2026-12-30 20:00:00Z,Fulham,Arsenal,0.195,0.196,0.608,Arsenal,0.59,Yes,0.61,Over 2.5,9.83,0.345,Arsenal,Arsenal,0.805,Yes,OK
+18,2026-12-30 20:00:00Z,Hull,Leeds,0.404,0.268,0.328,Hull,0.543,Yes,0.409,Under 2.5,11.5,0.596,Hull,Leeds,0.663,Yes,Low (promoted/new team)
+18,2026-12-30 20:00:00Z,Ipswich,Chelsea,0.24,0.286,0.473,Chelsea,0.543,Yes,0.505,Over 2.5,10.17,0.32,Chelsea,Chelsea,0.715,Yes,OK
+18,2026-12-30 20:00:00Z,Man United,Sunderland,0.561,0.224,0.215,Man United,0.492,No,0.6,Over 2.5,10.41,0.644,Man United,Man United,0.75,Yes,OK
+18,2026-12-30 20:00:00Z,Newcastle,Nott'm Forest,0.434,0.252,0.314,Newcastle,0.635,Yes,0.673,Over 2.5,10.57,0.578,Newcastle,Newcastle,0.713,Yes,OK
+18,2026-12-30 20:00:00Z,Tottenham,Brighton,0.303,0.248,0.449,Brighton,0.516,Yes,0.666,Over 2.5,10.01,0.497,Brighton,Brighton,0.686,Yes,OK
+19,2027-01-02 15:00:00Z,Bournemouth,Aston Villa,0.45,0.22,0.33,Bournemouth,0.656,Yes,0.703,Over 2.5,10.06,0.605,Bournemouth,Aston Villa,0.655,Yes,OK
+19,2027-01-02 15:00:00Z,Arsenal,Ipswich,0.579,0.222,0.199,Arsenal,0.487,No,0.565,Over 2.5,10.79,0.769,Arsenal,Arsenal,0.832,Yes,OK
+19,2027-01-02 15:00:00Z,Brentford,Crystal Palace,0.532,0.231,0.237,Brentford,0.612,Yes,0.609,Over 2.5,10.4,0.562,Brentford,Brentford,0.654,Yes,OK
+19,2027-01-02 15:00:00Z,Brighton,Man United,0.322,0.223,0.455,Man United,0.548,Yes,0.675,Over 2.5,9.99,0.538,Brighton,Man United,0.659,Yes,OK
+19,2027-01-02 15:00:00Z,Chelsea,Newcastle,0.5,0.21,0.29,Chelsea,0.615,Yes,0.656,Over 2.5,10.15,0.626,Chelsea,Chelsea,0.564,Yes,OK
+19,2027-01-02 15:00:00Z,Leeds,Everton,0.431,0.237,0.332,Leeds,0.603,Yes,0.61,Over 2.5,10.27,0.516,Leeds,Everton,0.672,Yes,OK
+19,2027-01-02 15:00:00Z,Liverpool,Coventry,0.504,0.238,0.258,Liverpool,0.511,Yes,0.542,Over 2.5,10.49,0.658,Liverpool,Liverpool,0.758,Yes,Low (promoted/new team)
+19,2027-01-02 15:00:00Z,Man City,Tottenham,0.521,0.235,0.244,Man City,0.553,Yes,0.711,Over 2.5,9.89,0.663,Man City,Man City,0.801,Yes,OK
+19,2027-01-02 15:00:00Z,Nott'm Forest,Fulham,0.376,0.3,0.323,Nott'm Forest,0.649,Yes,0.638,Over 2.5,10.06,0.474,Fulham,Nott'm Forest,0.725,Yes,OK
+19,2027-01-02 15:00:00Z,Sunderland,Hull,0.398,0.247,0.355,Sunderland,0.57,Yes,0.436,Under 2.5,10.57,0.523,Sunderland,Sunderland,0.737,Yes,Low (promoted/new team)
+20,2027-01-06 20:00:00Z,Arsenal,Brentford,0.583,0.184,0.233,Arsenal,0.556,Yes,0.696,Over 2.5,11.23,0.801,Arsenal,Arsenal,0.788,Yes,OK
+20,2027-01-06 20:00:00Z,Brighton,Bournemouth,0.454,0.207,0.339,Brighton,0.548,Yes,0.659,Over 2.5,10.07,0.564,Brighton,Bournemouth,0.566,Yes,OK
+20,2027-01-06 20:00:00Z,Crystal Palace,Chelsea,0.302,0.278,0.421,Chelsea,0.632,Yes,0.604,Over 2.5,9.93,0.365,Chelsea,Chelsea,0.686,Yes,OK
+20,2027-01-06 20:00:00Z,Everton,Aston Villa,0.331,0.229,0.44,Aston Villa,0.606,Yes,0.628,Over 2.5,10.25,0.407,Aston Villa,Aston Villa,0.67,Yes,OK
+20,2027-01-06 20:00:00Z,Fulham,Tottenham,0.366,0.257,0.378,Tottenham,0.541,Yes,0.611,Over 2.5,9.91,0.586,Fulham,Fulham,0.73,Yes,OK
+20,2027-01-06 20:00:00Z,Ipswich,Coventry,0.255,0.256,0.488,Coventry,0.502,Yes,0.471,Under 2.5,10.72,0.354,Coventry,Coventry,0.707,Yes,Low (promoted/new team)
+20,2027-01-06 20:00:00Z,Leeds,Man City,0.202,0.215,0.583,Man City,0.588,Yes,0.674,Over 2.5,10.19,0.249,Man City,Man City,0.824,Yes,OK
+20,2027-01-06 20:00:00Z,Man United,Newcastle,0.594,0.191,0.216,Man United,0.615,Yes,0.703,Over 2.5,10.39,0.669,Man United,Man United,0.66,Yes,OK
+20,2027-01-06 20:00:00Z,Nott'm Forest,Hull,0.421,0.254,0.325,Nott'm Forest,0.542,Yes,0.537,Over 2.5,10.8,0.548,Nott'm Forest,Nott'm Forest,0.745,Yes,Low (promoted/new team)
+20,2027-01-06 20:00:00Z,Sunderland,Liverpool,0.208,0.206,0.586,Liverpool,0.609,Yes,0.582,Over 2.5,9.93,0.409,Liverpool,Liverpool,0.751,Yes,OK
+21,2027-01-16 15:00:00Z,Bournemouth,Ipswich,0.534,0.24,0.226,Bournemouth,0.539,Yes,0.592,Over 2.5,10.51,0.712,Bournemouth,Bournemouth,0.803,Yes,OK
+21,2027-01-16 15:00:00Z,Aston Villa,Man United,0.29,0.234,0.476,Man United,0.612,Yes,0.701,Over 2.5,10.21,0.471,Man United,Man United,0.733,Yes,OK
+21,2027-01-16 15:00:00Z,Brentford,Brighton,0.318,0.26,0.422,Brighton,0.603,Yes,0.659,Over 2.5,10.36,0.444,Brighton,Brighton,0.787,Yes,OK
+21,2027-01-16 15:00:00Z,Chelsea,Sunderland,0.509,0.241,0.25,Chelsea,0.555,Yes,0.566,Over 2.5,10.21,0.66,Chelsea,Chelsea,0.638,Yes,OK
+21,2027-01-16 15:00:00Z,Coventry,Everton,0.386,0.28,0.334,Coventry,0.527,Yes,0.473,Under 2.5,11.12,0.552,Coventry,Everton,0.701,Yes,Low (promoted/new team)
+21,2027-01-16 15:00:00Z,Hull,Arsenal,0.193,0.257,0.55,Arsenal,0.551,Yes,0.44,Under 2.5,10.91,0.347,Arsenal,Arsenal,0.792,Yes,Low (promoted/new team)
+21,2027-01-16 15:00:00Z,Liverpool,Crystal Palace,0.582,0.202,0.217,Liverpool,0.568,Yes,0.621,Over 2.5,10.21,0.746,Liverpool,Liverpool,0.754,Yes,OK
+21,2027-01-16 15:00:00Z,Man City,Nott'm Forest,0.618,0.195,0.187,Man City,0.611,Yes,0.728,Over 2.5,10.71,0.739,Man City,Man City,0.757,Yes,OK
+21,2027-01-16 15:00:00Z,Newcastle,Fulham,0.409,0.291,0.3,Newcastle,0.64,Yes,0.614,Over 2.5,10.11,0.5,Fulham,Newcastle,0.683,Yes,OK
+21,2027-01-16 15:00:00Z,Tottenham,Leeds,0.445,0.22,0.335,Tottenham,0.546,Yes,0.659,Over 2.5,10.71,0.681,Tottenham,Leeds,0.588,Yes,OK
+22,2027-01-23 15:00:00Z,Arsenal,Newcastle,0.574,0.205,0.221,Arsenal,0.613,Yes,0.699,Over 2.5,10.49,0.759,Arsenal,Arsenal,0.683,Yes,OK
+22,2027-01-23 15:00:00Z,Brighton,Man City,0.274,0.227,0.499,Man City,0.579,Yes,0.701,Over 2.5,9.72,0.388,Man City,Man City,0.746,Yes,OK
+22,2027-01-23 15:00:00Z,Crystal Palace,Tottenham,0.317,0.256,0.427,Tottenham,0.612,Yes,0.629,Over 2.5,9.9,0.47,Tottenham,Crystal Palace,0.754,Yes,OK
+22,2027-01-23 15:00:00Z,Everton,Brentford,0.406,0.22,0.374,Everton,0.546,Yes,0.613,Over 2.5,10.97,0.548,Everton,Brentford,0.701,Yes,OK
+22,2027-01-23 15:00:00Z,Fulham,Aston Villa,0.346,0.222,0.432,Aston Villa,0.564,Yes,0.632,Over 2.5,10.1,0.536,Fulham,Aston Villa,0.632,Yes,OK
+22,2027-01-23 15:00:00Z,Ipswich,Hull,0.255,0.256,0.488,Hull,0.502,Yes,0.471,Under 2.5,10.72,0.354,Hull,Hull,0.707,Yes,Low (promoted/new team)
+22,2027-01-23 15:00:00Z,Leeds,Chelsea,0.335,0.269,0.396,Chelsea,0.638,Yes,0.624,Over 2.5,10.04,0.385,Chelsea,Chelsea,0.7,Yes,OK
+22,2027-01-23 15:00:00Z,Man United,Liverpool,0.445,0.239,0.316,Man United,0.637,Yes,0.72,Over 2.5,9.87,0.571,Man United,Liverpool,0.684,Yes,OK
+22,2027-01-23 15:00:00Z,Nott'm Forest,Bournemouth,0.378,0.231,0.391,Bournemouth,0.637,Yes,0.684,Over 2.5,10.21,0.461,Bournemouth,Bournemouth,0.681,Yes,OK
+22,2027-01-23 15:00:00Z,Sunderland,Coventry,0.398,0.247,0.355,Sunderland,0.57,Yes,0.436,Under 2.5,10.57,0.523,Sunderland,Sunderland,0.737,Yes,Low (promoted/new team)
+23,2027-01-30 15:00:00Z,Bournemouth,Fulham,0.434,0.288,0.278,Bournemouth,0.638,Yes,0.631,Over 2.5,10.07,0.572,Bournemouth,Bournemouth,0.702,Yes,OK
+23,2027-01-30 15:00:00Z,Aston Villa,Ipswich,0.52,0.235,0.245,Aston Villa,0.525,Yes,0.564,Over 2.5,10.61,0.681,Aston Villa,Aston Villa,0.796,Yes,OK
+23,2027-01-30 15:00:00Z,Brentford,Man United,0.275,0.228,0.497,Man United,0.643,Yes,0.708,Over 2.5,10.42,0.437,Man United,Man United,0.81,Yes,OK
+23,2027-01-30 15:00:00Z,Chelsea,Nott'm Forest,0.486,0.233,0.28,Chelsea,0.607,Yes,0.641,Over 2.5,10.41,0.662,Chelsea,Chelsea,0.639,Yes,OK
+23,2027-01-30 15:00:00Z,Coventry,Leeds,0.404,0.268,0.328,Coventry,0.543,Yes,0.409,Under 2.5,11.5,0.596,Coventry,Leeds,0.663,Yes,Low (promoted/new team)
+23,2027-01-30 15:00:00Z,Hull,Crystal Palace,0.405,0.289,0.306,Hull,0.503,Yes,0.338,Under 2.5,11.33,0.563,Hull,Crystal Palace,0.64,Yes,Low (promoted/new team)
+23,2027-01-30 15:00:00Z,Liverpool,Everton,0.562,0.206,0.232,Liverpool,0.544,Yes,0.693,Over 2.5,10.54,0.731,Liverpool,Liverpool,0.737,Yes,OK
+23,2027-01-30 15:00:00Z,Man City,Arsenal,0.361,0.3,0.339,Man City,0.65,Yes,0.695,Over 2.5,9.73,0.471,Arsenal,Arsenal,0.79,Yes,OK
+23,2027-01-30 15:00:00Z,Newcastle,Brighton,0.319,0.261,0.419,Brighton,0.55,Yes,0.606,Over 2.5,10.07,0.451,Brighton,Brighton,0.722,Yes,OK
+23,2027-01-30 15:00:00Z,Tottenham,Sunderland,0.387,0.252,0.36,Tottenham,0.519,Yes,0.587,Over 2.5,10.32,0.592,Tottenham,Sunderland,0.646,Yes,OK
+24,2027-02-06 15:00:00Z,Arsenal,Liverpool,0.445,0.254,0.301,Arsenal,0.597,Yes,0.693,Over 2.5,9.93,0.677,Arsenal,Arsenal,0.702,Yes,OK
+24,2027-02-06 15:00:00Z,Brighton,Hull,0.487,0.226,0.287,Brighton,0.539,Yes,0.556,Over 2.5,10.28,0.646,Brighton,Brighton,0.687,Yes,Low (promoted/new team)
+24,2027-02-06 15:00:00Z,Crystal Palace,Coventry,0.369,0.249,0.382,Coventry,0.529,Yes,0.466,Under 2.5,10.68,0.504,Crystal Palace,Crystal Palace,0.72,Yes,Low (promoted/new team)
+24,2027-02-06 15:00:00Z,Everton,Newcastle,0.384,0.23,0.386,Newcastle,0.611,Yes,0.647,Over 2.5,10.26,0.405,Newcastle,Newcastle,0.642,Yes,OK
+24,2027-02-06 15:00:00Z,Fulham,Man City,0.201,0.191,0.608,Man City,0.539,Yes,0.658,Over 2.5,9.85,0.349,Man City,Man City,0.755,Yes,OK
+24,2027-02-06 15:00:00Z,Ipswich,Tottenham,0.225,0.251,0.523,Tottenham,0.546,Yes,0.551,Over 2.5,10.22,0.376,Tottenham,Tottenham,0.751,Yes,OK
+24,2027-02-06 15:00:00Z,Leeds,Bournemouth,0.356,0.231,0.413,Bournemouth,0.614,Yes,0.657,Over 2.5,10.27,0.446,Bournemouth,Bournemouth,0.655,Yes,OK
+24,2027-02-06 15:00:00Z,Man United,Chelsea,0.504,0.258,0.238,Man United,0.58,Yes,0.666,Over 2.5,9.9,0.632,Man United,Man United,0.681,Yes,OK
+24,2027-02-06 15:00:00Z,Nott'm Forest,Brentford,0.44,0.22,0.34,Nott'm Forest,0.574,Yes,0.652,Over 2.5,11.0,0.583,Nott'm Forest,Brentford,0.72,Yes,OK
+24,2027-02-06 15:00:00Z,Sunderland,Aston Villa,0.277,0.227,0.496,Aston Villa,0.61,Yes,0.594,Over 2.5,10.05,0.454,Aston Villa,Aston Villa,0.701,Yes,OK
+25,2027-02-10 20:00:00Z,Aston Villa,Bournemouth,0.482,0.211,0.307,Aston Villa,0.628,Yes,0.646,Over 2.5,10.33,0.547,Aston Villa,Aston Villa,0.644,Yes,OK
+25,2027-02-10 20:00:00Z,Coventry,Liverpool,0.237,0.269,0.494,Liverpool,0.54,Yes,0.431,Under 2.5,10.88,0.431,Liverpool,Liverpool,0.746,Yes,Low (promoted/new team)
+25,2027-02-10 20:00:00Z,Crystal Palace,Brentford,0.353,0.225,0.421,Brentford,0.585,Yes,0.633,Over 2.5,10.83,0.487,Brentford,Brentford,0.717,Yes,OK
+25,2027-02-10 20:00:00Z,Everton,Leeds,0.462,0.226,0.312,Everton,0.579,Yes,0.599,Over 2.5,10.77,0.59,Everton,Everton,0.647,Yes,OK
+25,2027-02-10 20:00:00Z,Fulham,Nott'm Forest,0.401,0.248,0.351,Fulham,0.572,Yes,0.616,Over 2.5,10.56,0.633,Fulham,Nott'm Forest,0.716,Yes,OK
+25,2027-02-10 20:00:00Z,Hull,Sunderland,0.322,0.32,0.358,Sunderland,0.454,No,0.321,Under 2.5,11.02,0.521,Hull,Sunderland,0.678,Yes,Low (promoted/new team)
+25,2027-02-10 20:00:00Z,Ipswich,Arsenal,0.154,0.19,0.656,Arsenal,0.49,No,0.536,Over 2.5,10.14,0.237,Arsenal,Arsenal,0.846,Yes,OK
+25,2027-02-10 20:00:00Z,Man United,Brighton,0.456,0.26,0.284,Man United,0.506,Yes,0.64,Over 2.5,10.05,0.576,Man United,Man United,0.711,Yes,OK
+25,2027-02-10 20:00:00Z,Newcastle,Chelsea,0.406,0.269,0.325,Newcastle,0.617,Yes,0.627,Over 2.5,9.97,0.503,Newcastle,Chelsea,0.657,Yes,OK
+25,2027-02-10 20:00:00Z,Tottenham,Man City,0.24,0.222,0.538,Man City,0.569,Yes,0.726,Over 2.5,10.02,0.337,Man City,Man City,0.727,Yes,OK
+26,2027-02-20 15:00:00Z,Bournemouth,Crystal Palace,0.549,0.223,0.228,Bournemouth,0.614,Yes,0.603,Over 2.5,10.2,0.711,Bournemouth,Bournemouth,0.708,Yes,OK
+26,2027-02-20 15:00:00Z,Arsenal,Fulham,0.484,0.284,0.231,Arsenal,0.54,Yes,0.634,Over 2.5,10.2,0.714,Arsenal,Arsenal,0.742,Yes,OK
+26,2027-02-20 15:00:00Z,Brentford,Coventry,0.454,0.244,0.302,Brentford,0.537,Yes,0.536,Over 2.5,11.23,0.509,Brentford,Brentford,0.75,Yes,Low (promoted/new team)
+26,2027-02-20 15:00:00Z,Brighton,Tottenham,0.412,0.241,0.348,Brighton,0.525,Yes,0.667,Over 2.5,9.79,0.599,Brighton,Brighton,0.746,Yes,OK
+26,2027-02-20 15:00:00Z,Chelsea,Ipswich,0.548,0.228,0.225,Chelsea,0.542,Yes,0.547,Over 2.5,10.39,0.722,Chelsea,Chelsea,0.711,Yes,OK
+26,2027-02-20 15:00:00Z,Leeds,Aston Villa,0.316,0.239,0.445,Aston Villa,0.621,Yes,0.655,Over 2.5,10.23,0.428,Aston Villa,Aston Villa,0.741,Yes,OK
+26,2027-02-20 15:00:00Z,Liverpool,Hull,0.504,0.238,0.258,Liverpool,0.511,Yes,0.542,Over 2.5,10.49,0.658,Liverpool,Liverpool,0.758,Yes,Low (promoted/new team)
+26,2027-02-20 15:00:00Z,Man City,Newcastle,0.633,0.176,0.191,Man City,0.639,Yes,0.749,Over 2.5,10.33,0.723,Man City,Man City,0.697,Yes,OK
+26,2027-02-20 15:00:00Z,Nott'm Forest,Man United,0.241,0.229,0.531,Man United,0.63,Yes,0.683,Over 2.5,10.13,0.441,Man United,Man United,0.765,Yes,OK
+26,2027-02-20 15:00:00Z,Sunderland,Everton,0.418,0.252,0.331,Sunderland,0.616,Yes,0.541,Over 2.5,10.26,0.573,Sunderland,Everton,0.662,Yes,OK
+27,2027-02-27 15:00:00Z,Aston Villa,Chelsea,0.422,0.263,0.315,Aston Villa,0.64,Yes,0.653,Over 2.5,10.09,0.541,Aston Villa,Aston Villa,0.673,Yes,OK
+27,2027-02-27 15:00:00Z,Coventry,Bournemouth,0.338,0.256,0.406,Bournemouth,0.51,Yes,0.402,Under 2.5,11.05,0.495,Bournemouth,Bournemouth,0.662,Yes,Low (promoted/new team)
+27,2027-02-27 15:00:00Z,Crystal Palace,Sunderland,0.372,0.27,0.359,Crystal Palace,0.522,Yes,0.512,Over 2.5,10.17,0.438,Sunderland,Sunderland,0.688,Yes,OK
+27,2027-02-27 15:00:00Z,Everton,Nott'm Forest,0.361,0.254,0.385,Nott'm Forest,0.606,Yes,0.623,Over 2.5,10.49,0.5,Everton,Nott'm Forest,0.703,Yes,OK
+27,2027-02-27 15:00:00Z,Fulham,Leeds,0.472,0.22,0.308,Fulham,0.55,Yes,0.573,Over 2.5,10.62,0.708,Fulham,Fulham,0.642,Yes,OK
+27,2027-02-27 15:00:00Z,Hull,Man City,0.191,0.251,0.558,Man City,0.502,Yes,0.443,Under 2.5,10.99,0.344,Man City,Man City,0.779,Yes,Low (promoted/new team)
+27,2027-02-27 15:00:00Z,Ipswich,Brighton,0.189,0.237,0.573,Brighton,0.385,No,0.451,Under 2.5,10.19,0.326,Brighton,Brighton,0.728,Yes,OK
+27,2027-02-27 15:00:00Z,Man United,Arsenal,0.308,0.258,0.434,Arsenal,0.623,Yes,0.662,Over 2.5,9.81,0.368,Arsenal,Arsenal,0.774,Yes,OK
+27,2027-02-27 15:00:00Z,Newcastle,Brentford,0.477,0.214,0.309,Newcastle,0.584,Yes,0.654,Over 2.5,10.98,0.616,Newcastle,Brentford,0.691,Yes,OK
+27,2027-02-27 15:00:00Z,Tottenham,Liverpool,0.293,0.217,0.489,Liverpool,0.592,Yes,0.722,Over 2.5,10.0,0.462,Liverpool,Liverpool,0.67,Yes,OK
+28,2027-03-03 20:00:00Z,Bournemouth,Tottenham,0.422,0.246,0.332,Bournemouth,0.615,Yes,0.694,Over 2.5,10.01,0.588,Bournemouth,Bournemouth,0.756,Yes,OK
+28,2027-03-03 20:00:00Z,Arsenal,Crystal Palace,0.621,0.192,0.187,Arsenal,0.542,Yes,0.6,Over 2.5,10.47,0.791,Arsenal,Arsenal,0.78,Yes,OK
+28,2027-03-03 20:00:00Z,Brentford,Ipswich,0.511,0.26,0.229,Brentford,0.534,Yes,0.588,Over 2.5,10.47,0.62,Brentford,Brentford,0.801,Yes,OK
+28,2027-03-03 20:00:00Z,Brighton,Fulham,0.435,0.269,0.296,Brighton,0.536,Yes,0.609,Over 2.5,9.86,0.591,Brighton,Brighton,0.678,Yes,OK
+28,2027-03-03 20:00:00Z,Chelsea,Coventry,0.485,0.24,0.276,Chelsea,0.566,Yes,0.507,Over 2.5,10.54,0.623,Chelsea,Chelsea,0.671,Yes,Low (promoted/new team)
+28,2027-03-03 20:00:00Z,Leeds,Hull,0.418,0.254,0.328,Leeds,0.519,Yes,0.499,Under 2.5,10.92,0.521,Leeds,Leeds,0.744,Yes,Low (promoted/new team)
+28,2027-03-03 20:00:00Z,Liverpool,Aston Villa,0.516,0.209,0.275,Liverpool,0.598,Yes,0.691,Over 2.5,10.11,0.693,Liverpool,Liverpool,0.654,Yes,OK
+28,2027-03-03 20:00:00Z,Man City,Everton,0.653,0.174,0.173,Man City,0.578,Yes,0.727,Over 2.5,10.53,0.765,Man City,Man City,0.752,Yes,OK
+28,2027-03-03 20:00:00Z,Nott'm Forest,Newcastle,0.422,0.233,0.345,Nott'm Forest,0.675,Yes,0.68,Over 2.5,10.26,0.519,Nott'm Forest,Newcastle,0.696,Yes,OK
+28,2027-03-03 20:00:00Z,Sunderland,Man United,0.19,0.206,0.605,Man United,0.582,Yes,0.559,Over 2.5,10.09,0.447,Man United,Man United,0.757,Yes,OK
+29,2027-03-13 15:00:00Z,Bournemouth,Newcastle,0.507,0.214,0.278,Bournemouth,0.681,Yes,0.695,Over 2.5,10.17,0.64,Bournemouth,Bournemouth,0.661,Yes,OK
+29,2027-03-13 15:00:00Z,Aston Villa,Hull,0.473,0.239,0.289,Aston Villa,0.532,Yes,0.511,Over 2.5,10.83,0.578,Aston Villa,Aston Villa,0.778,Yes,Low (promoted/new team)
+29,2027-03-13 15:00:00Z,Chelsea,Arsenal,0.29,0.269,0.441,Arsenal,0.648,Yes,0.654,Over 2.5,9.75,0.333,Arsenal,Arsenal,0.778,Yes,OK
+29,2027-03-13 15:00:00Z,Coventry,Man City,0.191,0.251,0.558,Man City,0.502,Yes,0.443,Under 2.5,10.99,0.344,Man City,Man City,0.779,Yes,Low (promoted/new team)
+29,2027-03-13 15:00:00Z,Crystal Palace,Fulham,0.313,0.271,0.416,Fulham,0.626,Yes,0.607,Over 2.5,10.03,0.401,Fulham,Fulham,0.676,Yes,OK
+29,2027-03-13 15:00:00Z,Leeds,Brighton,0.272,0.242,0.486,Brighton,0.552,Yes,0.578,Over 2.5,10.18,0.367,Brighton,Brighton,0.715,Yes,OK
+29,2027-03-13 15:00:00Z,Liverpool,Ipswich,0.576,0.214,0.21,Liverpool,0.487,No,0.572,Over 2.5,10.56,0.752,Liverpool,Liverpool,0.794,Yes,OK
+29,2027-03-13 15:00:00Z,Man United,Everton,0.606,0.195,0.199,Man United,0.551,Yes,0.679,Over 2.5,10.6,0.698,Man United,Man United,0.732,Yes,OK
+29,2027-03-13 15:00:00Z,Sunderland,Brentford,0.347,0.224,0.429,Brentford,0.601,Yes,0.594,Over 2.5,10.77,0.567,Sunderland,Brentford,0.692,Yes,OK
+29,2027-03-13 15:00:00Z,Tottenham,Nott'm Forest,0.383,0.242,0.375,Tottenham,0.58,Yes,0.681,Over 2.5,10.51,0.582,Tottenham,Nott'm Forest,0.634,Yes,OK
+30,2027-03-20 15:00:00Z,Arsenal,Sunderland,0.524,0.247,0.229,Arsenal,0.496,No,0.608,Over 2.5,10.6,0.751,Arsenal,Arsenal,0.731,Yes,OK
+30,2027-03-20 15:00:00Z,Brentford,Bournemouth,0.406,0.226,0.368,Brentford,0.633,Yes,0.689,Over 2.5,10.45,0.453,Bournemouth,Bournemouth,0.726,Yes,OK
+30,2027-03-20 15:00:00Z,Brighton,Coventry,0.487,0.226,0.287,Brighton,0.539,Yes,0.556,Over 2.5,10.28,0.646,Brighton,Brighton,0.687,Yes,Low (promoted/new team)
+30,2027-03-20 15:00:00Z,Everton,Tottenham,0.36,0.256,0.384,Tottenham,0.582,Yes,0.631,Over 2.5,10.01,0.496,Tottenham,Everton,0.751,Yes,OK
+30,2027-03-20 15:00:00Z,Fulham,Liverpool,0.262,0.218,0.52,Liverpool,0.581,Yes,0.649,Over 2.5,9.87,0.482,Liverpool,Liverpool,0.68,Yes,OK
+30,2027-03-20 15:00:00Z,Hull,Chelsea,0.328,0.313,0.359,Chelsea,0.563,Yes,0.445,Under 2.5,10.9,0.429,Chelsea,Chelsea,0.669,Yes,Low (promoted/new team)
+30,2027-03-20 15:00:00Z,Ipswich,Crystal Palace,0.315,0.28,0.405,Crystal Palace,0.496,No,0.371,Under 2.5,10.79,0.428,Crystal Palace,Crystal Palace,0.616,Yes,OK
+30,2027-03-20 15:00:00Z,Man City,Man United,0.508,0.233,0.259,Man City,0.604,Yes,0.737,Over 2.5,9.94,0.691,Man City,Man City,0.77,Yes,OK
+30,2027-03-20 15:00:00Z,Newcastle,Leeds,0.492,0.221,0.286,Newcastle,0.616,Yes,0.641,Over 2.5,10.67,0.636,Newcastle,Newcastle,0.663,Yes,OK
+30,2027-03-20 15:00:00Z,Nott'm Forest,Aston Villa,0.339,0.238,0.423,Aston Villa,0.652,Yes,0.685,Over 2.5,10.28,0.434,Aston Villa,Aston Villa,0.724,Yes,OK
+31,2027-04-10 14:00:00Z,Bournemouth,Man City,0.265,0.223,0.512,Man City,0.644,Yes,0.716,Over 2.5,9.9,0.322,Man City,Man City,0.738,Yes,OK
+31,2027-04-10 14:00:00Z,Aston Villa,Brighton,0.363,0.259,0.377,Brighton,0.531,Yes,0.631,Over 2.5,10.19,0.499,Brighton,Aston Villa,0.747,Yes,OK
+31,2027-04-10 14:00:00Z,Chelsea,Fulham,0.449,0.277,0.273,Chelsea,0.591,Yes,0.597,Over 2.5,9.97,0.602,Chelsea,Chelsea,0.647,Yes,OK
+31,2027-04-10 14:00:00Z,Coventry,Arsenal,0.193,0.257,0.55,Arsenal,0.551,Yes,0.44,Under 2.5,10.91,0.347,Arsenal,Arsenal,0.792,Yes,Low (promoted/new team)
+31,2027-04-10 14:00:00Z,Crystal Palace,Everton,0.405,0.241,0.354,Crystal Palace,0.602,Yes,0.584,Over 2.5,10.21,0.502,Crystal Palace,Everton,0.647,Yes,OK
+31,2027-04-10 14:00:00Z,Leeds,Nott'm Forest,0.353,0.261,0.386,Nott'm Forest,0.662,Yes,0.643,Over 2.5,10.49,0.471,Nott'm Forest,Nott'm Forest,0.75,Yes,OK
+31,2027-04-10 14:00:00Z,Liverpool,Newcastle,0.544,0.209,0.247,Liverpool,0.611,Yes,0.701,Over 2.5,10.21,0.689,Liverpool,Liverpool,0.652,Yes,OK
+31,2027-04-10 14:00:00Z,Man United,Hull,0.551,0.222,0.227,Man United,0.505,Yes,0.567,Over 2.5,10.47,0.627,Man United,Man United,0.754,Yes,Low (promoted/new team)
+31,2027-04-10 14:00:00Z,Sunderland,Ipswich,0.432,0.291,0.277,Sunderland,0.542,Yes,0.479,Under 2.5,10.37,0.625,Sunderland,Sunderland,0.764,Yes,OK
+31,2027-04-10 14:00:00Z,Tottenham,Brentford,0.418,0.211,0.371,Tottenham,0.551,Yes,0.692,Over 2.5,11.01,0.637,Tottenham,Brentford,0.668,Yes,OK
+32,2027-04-17 14:00:00Z,Arsenal,Aston Villa,0.538,0.212,0.25,Arsenal,0.592,Yes,0.687,Over 2.5,10.34,0.758,Arsenal,Arsenal,0.697,Yes,OK
+32,2027-04-17 14:00:00Z,Brentford,Leeds,0.511,0.21,0.279,Brentford,0.628,Yes,0.659,Over 2.5,10.86,0.548,Brentford,Brentford,0.699,Yes,OK
+32,2027-04-17 14:00:00Z,Brighton,Chelsea,0.447,0.256,0.298,Brighton,0.558,Yes,0.648,Over 2.5,9.75,0.608,Brighton,Brighton,0.657,Yes,OK
+32,2027-04-17 14:00:00Z,Everton,Bournemouth,0.362,0.231,0.408,Bournemouth,0.59,Yes,0.624,Over 2.5,10.36,0.409,Bournemouth,Bournemouth,0.661,Yes,OK
+32,2027-04-17 14:00:00Z,Fulham,Sunderland,0.448,0.267,0.285,Fulham,0.504,Yes,0.54,Over 2.5,10.35,0.62,Fulham,Fulham,0.698,Yes,OK
+32,2027-04-17 14:00:00Z,Hull,Coventry,0.387,0.281,0.331,Hull,0.469,No,0.309,Under 2.5,11.68,0.56,Hull,Hull,0.641,Yes,Low (promoted/new team)
+32,2027-04-17 14:00:00Z,Ipswich,Man United,0.164,0.187,0.649,Man United,0.456,No,0.553,Over 2.5,10.33,0.345,Man United,Man United,0.774,Yes,OK
+32,2027-04-17 14:00:00Z,Man City,Crystal Palace,0.674,0.167,0.159,Man City,0.583,Yes,0.665,Over 2.5,10.19,0.787,Man City,Man City,0.801,Yes,OK
+32,2027-04-17 14:00:00Z,Newcastle,Tottenham,0.391,0.249,0.36,Newcastle,0.587,Yes,0.64,Over 2.5,9.9,0.528,Newcastle,Newcastle,0.74,Yes,OK
+32,2027-04-17 14:00:00Z,Nott'm Forest,Liverpool,0.25,0.236,0.514,Liverpool,0.653,Yes,0.691,Over 2.5,10.05,0.4,Liverpool,Liverpool,0.786,Yes,OK
+33,2027-04-24 14:00:00Z,Bournemouth,Arsenal,0.235,0.238,0.526,Arsenal,0.703,Yes,0.695,Over 2.5,9.92,0.296,Arsenal,Arsenal,0.803,Yes,OK
+33,2027-04-24 14:00:00Z,Aston Villa,Coventry,0.473,0.239,0.289,Aston Villa,0.532,Yes,0.511,Over 2.5,10.83,0.578,Aston Villa,Aston Villa,0.778,Yes,Low (promoted/new team)
+33,2027-04-24 14:00:00Z,Brentford,Fulham,0.416,0.29,0.294,Brentford,0.678,Yes,0.65,Over 2.5,10.22,0.459,Fulham,Brentford,0.718,Yes,OK
+33,2027-04-24 14:00:00Z,Chelsea,Man City,0.312,0.244,0.443,Man City,0.584,Yes,0.671,Over 2.5,9.81,0.338,Man City,Man City,0.69,Yes,OK
+33,2027-04-24 14:00:00Z,Everton,Brighton,0.276,0.249,0.474,Brighton,0.532,Yes,0.593,Over 2.5,10.2,0.387,Brighton,Brighton,0.715,Yes,OK
+33,2027-04-24 14:00:00Z,Leeds,Liverpool,0.251,0.227,0.522,Liverpool,0.651,Yes,0.665,Over 2.5,10.03,0.365,Liverpool,Liverpool,0.778,Yes,OK
+33,2027-04-24 14:00:00Z,Man United,Crystal Palace,0.63,0.185,0.185,Man United,0.544,Yes,0.616,Over 2.5,10.24,0.718,Man United,Man United,0.71,Yes,OK
+33,2027-04-24 14:00:00Z,Newcastle,Ipswich,0.521,0.245,0.233,Newcastle,0.531,Yes,0.54,Over 2.5,10.53,0.676,Newcastle,Newcastle,0.78,Yes,OK
+33,2027-04-24 14:00:00Z,Nott'm Forest,Sunderland,0.43,0.273,0.297,Nott'm Forest,0.537,Yes,0.584,Over 2.5,10.36,0.519,Nott'm Forest,Nott'm Forest,0.707,Yes,OK
+33,2027-04-24 14:00:00Z,Tottenham,Hull,0.392,0.259,0.349,Tottenham,0.574,Yes,0.614,Over 2.5,10.55,0.61,Tottenham,Hull,0.653,Yes,Low (promoted/new team)
+34,2027-05-01 14:00:00Z,Arsenal,Tottenham,0.46,0.258,0.282,Arsenal,0.507,Yes,0.638,Over 2.5,10.13,0.685,Arsenal,Arsenal,0.776,Yes,OK
+34,2027-05-01 14:00:00Z,Brighton,Nott'm Forest,0.474,0.227,0.299,Brighton,0.578,Yes,0.65,Over 2.5,10.61,0.667,Brighton,Brighton,0.666,Yes,OK
+34,2027-05-01 14:00:00Z,Coventry,Man United,0.219,0.268,0.513,Man United,0.512,Yes,0.438,Under 2.5,11.05,0.477,Man United,Man United,0.739,Yes,Low (promoted/new team)
+34,2027-05-01 14:00:00Z,Crystal Palace,Aston Villa,0.276,0.224,0.5,Aston Villa,0.631,Yes,0.639,Over 2.5,10.08,0.403,Aston Villa,Aston Villa,0.715,Yes,OK
+34,2027-05-01 14:00:00Z,Fulham,Everton,0.482,0.222,0.296,Fulham,0.569,Yes,0.597,Over 2.5,10.46,0.694,Fulham,Fulham,0.64,Yes,OK
+34,2027-05-01 14:00:00Z,Hull,Bournemouth,0.338,0.256,0.406,Bournemouth,0.51,Yes,0.402,Under 2.5,11.05,0.495,Bournemouth,Bournemouth,0.662,Yes,Low (promoted/new team)
+34,2027-05-01 14:00:00Z,Ipswich,Leeds,0.287,0.252,0.461,Leeds,0.525,Yes,0.534,Over 2.5,11.32,0.414,Leeds,Leeds,0.68,Yes,OK
+34,2027-05-01 14:00:00Z,Liverpool,Chelsea,0.468,0.266,0.267,Liverpool,0.581,Yes,0.665,Over 2.5,9.84,0.646,Liverpool,Liverpool,0.712,Yes,OK
+34,2027-05-01 14:00:00Z,Man City,Brentford,0.643,0.163,0.195,Man City,0.598,Yes,0.728,Over 2.5,11.04,0.781,Man City,Man City,0.807,Yes,OK
+34,2027-05-01 14:00:00Z,Sunderland,Newcastle,0.339,0.236,0.425,Newcastle,0.599,Yes,0.583,Over 2.5,10.15,0.436,Newcastle,Newcastle,0.648,Yes,OK
+35,2027-05-08 14:00:00Z,Bournemouth,Man United,0.311,0.229,0.46,Man United,0.657,Yes,0.689,Over 2.5,10.06,0.517,Bournemouth,Man United,0.706,Yes,OK
+35,2027-05-08 14:00:00Z,Brentford,Aston Villa,0.371,0.225,0.404,Aston Villa,0.654,Yes,0.708,Over 2.5,10.42,0.426,Aston Villa,Aston Villa,0.741,Yes,OK
+35,2027-05-08 14:00:00Z,Brighton,Sunderland,0.479,0.251,0.27,Brighton,0.487,No,0.568,Over 2.5,10.21,0.641,Brighton,Brighton,0.711,Yes,OK
+35,2027-05-08 14:00:00Z,Everton,Hull,0.41,0.252,0.338,Everton,0.531,Yes,0.545,Over 2.5,10.96,0.537,Everton,Everton,0.779,Yes,Low (promoted/new team)
+35,2027-05-08 14:00:00Z,Fulham,Ipswich,0.483,0.259,0.258,Fulham,0.498,No,0.541,Over 2.5,10.42,0.714,Fulham,Fulham,0.758,Yes,OK
+35,2027-05-08 14:00:00Z,Leeds,Arsenal,0.185,0.211,0.604,Arsenal,0.662,Yes,0.652,Over 2.5,10.2,0.245,Arsenal,Arsenal,0.847,Yes,OK
+35,2027-05-08 14:00:00Z,Man City,Liverpool,0.504,0.237,0.259,Man City,0.664,Yes,0.743,Over 2.5,9.78,0.652,Man City,Man City,0.761,Yes,OK
+35,2027-05-08 14:00:00Z,Newcastle,Coventry,0.446,0.252,0.302,Newcastle,0.55,Yes,0.55,Over 2.5,10.65,0.587,Newcastle,Newcastle,0.723,Yes,Low (promoted/new team)
+35,2027-05-08 14:00:00Z,Nott'm Forest,Crystal Palace,0.49,0.245,0.266,Nott'm Forest,0.608,Yes,0.576,Over 2.5,10.25,0.607,Nott'm Forest,Nott'm Forest,0.715,Yes,OK
+35,2027-05-08 14:00:00Z,Tottenham,Chelsea,0.349,0.264,0.387,Chelsea,0.559,Yes,0.662,Over 2.5,10.06,0.484,Chelsea,Chelsea,0.597,Yes,OK
+36,2027-05-15 14:00:00Z,Arsenal,Nott'm Forest,0.553,0.224,0.223,Arsenal,0.576,Yes,0.702,Over 2.5,10.86,0.772,Arsenal,Arsenal,0.742,Yes,OK
+36,2027-05-15 14:00:00Z,Aston Villa,Newcastle,0.487,0.214,0.299,Aston Villa,0.662,Yes,0.695,Over 2.5,10.43,0.585,Aston Villa,Aston Villa,0.68,Yes,OK
+36,2027-05-15 14:00:00Z,Chelsea,Everton,0.536,0.216,0.248,Chelsea,0.569,Yes,0.608,Over 2.5,10.3,0.695,Chelsea,Chelsea,0.669,Yes,OK
+36,2027-05-15 14:00:00Z,Coventry,Tottenham,0.33,0.288,0.381,Tottenham,0.511,Yes,0.433,Under 2.5,10.86,0.53,Coventry,Coventry,0.706,Yes,Low (promoted/new team)
+36,2027-05-15 14:00:00Z,Crystal Palace,Brighton,0.242,0.239,0.52,Brighton,0.533,Yes,0.598,Over 2.5,10.06,0.374,Brighton,Brighton,0.746,Yes,OK
+36,2027-05-15 14:00:00Z,Hull,Fulham,0.319,0.303,0.378,Fulham,0.51,Yes,0.332,Under 2.5,11.03,0.48,Fulham,Fulham,0.632,Yes,Low (promoted/new team)
+36,2027-05-15 14:00:00Z,Ipswich,Man City,0.152,0.179,0.669,Man City,0.413,No,0.568,Over 2.5,10.19,0.227,Man City,Man City,0.814,Yes,OK
+36,2027-05-15 14:00:00Z,Liverpool,Brentford,0.551,0.191,0.258,Liverpool,0.557,Yes,0.687,Over 2.5,11.01,0.746,Liverpool,Liverpool,0.754,Yes,OK
+36,2027-05-15 14:00:00Z,Man United,Leeds,0.617,0.182,0.201,Man United,0.57,Yes,0.672,Over 2.5,10.71,0.724,Man United,Man United,0.694,Yes,OK
+36,2027-05-15 14:00:00Z,Sunderland,Bournemouth,0.309,0.235,0.456,Bournemouth,0.608,Yes,0.589,Over 2.5,10.19,0.46,Bournemouth,Bournemouth,0.672,Yes,OK
+37,2027-05-23 14:00:00Z,Bournemouth,Chelsea,0.436,0.271,0.292,Bournemouth,0.618,Yes,0.647,Over 2.5,9.95,0.583,Bournemouth,Bournemouth,0.644,Yes,OK
+37,2027-05-23 14:00:00Z,Brentford,Hull,0.454,0.244,0.302,Brentford,0.537,Yes,0.536,Over 2.5,11.23,0.509,Brentford,Brentford,0.75,Yes,Low (promoted/new team)
+37,2027-05-23 14:00:00Z,Brighton,Liverpool,0.337,0.222,0.441,Liverpool,0.599,Yes,0.693,Over 2.5,9.77,0.511,Brighton,Liverpool,0.684,Yes,OK
+37,2027-05-23 14:00:00Z,Everton,Arsenal,0.188,0.213,0.599,Arsenal,0.625,Yes,0.651,Over 2.5,10.14,0.252,Arsenal,Arsenal,0.827,Yes,OK
+37,2027-05-23 14:00:00Z,Fulham,Coventry,0.427,0.24,0.332,Fulham,0.543,Yes,0.512,Over 2.5,10.5,0.641,Fulham,Fulham,0.695,Yes,Low (promoted/new team)
+37,2027-05-23 14:00:00Z,Leeds,Sunderland,0.365,0.27,0.365,Sunderland,0.515,Yes,0.551,Over 2.5,10.29,0.46,Sunderland,Sunderland,0.681,Yes,OK
+37,2027-05-23 14:00:00Z,Man City,Aston Villa,0.602,0.183,0.215,Man City,0.634,Yes,0.747,Over 2.5,10.15,0.716,Man City,Man City,0.715,Yes,OK
+37,2027-05-23 14:00:00Z,Newcastle,Crystal Palace,0.514,0.235,0.251,Newcastle,0.589,Yes,0.555,Over 2.5,10.27,0.643,Newcastle,Newcastle,0.695,Yes,OK
+37,2027-05-23 14:00:00Z,Nott'm Forest,Ipswich,0.503,0.251,0.247,Nott'm Forest,0.551,Yes,0.557,Over 2.5,10.42,0.662,Nott'm Forest,Nott'm Forest,0.8,Yes,OK
+37,2027-05-23 14:00:00Z,Tottenham,Man United,0.273,0.219,0.508,Man United,0.564,Yes,0.701,Over 2.5,10.08,0.521,Tottenham,Man United,0.67,Yes,OK
+38,2027-05-30 15:00:00Z,Arsenal,Brighton,0.435,0.274,0.292,Arsenal,0.495,No,0.613,Over 2.5,10.18,0.687,Arsenal,Arsenal,0.732,Yes,OK
+38,2027-05-30 15:00:00Z,Aston Villa,Tottenham,0.405,0.248,0.347,Aston Villa,0.603,Yes,0.665,Over 2.5,10.05,0.534,Aston Villa,Aston Villa,0.798,Yes,OK
+38,2027-05-30 15:00:00Z,Chelsea,Brentford,0.516,0.195,0.289,Chelsea,0.569,Yes,0.625,Over 2.5,10.89,0.716,Chelsea,Brentford,0.677,Yes,OK
+38,2027-05-30 15:00:00Z,Coventry,Nott'm Forest,0.323,0.291,0.386,Nott'm Forest,0.545,Yes,0.425,Under 2.5,11.17,0.509,Coventry,Nott'm Forest,0.719,Yes,Low (promoted/new team)
+38,2027-05-30 15:00:00Z,Crystal Palace,Leeds,0.416,0.233,0.352,Crystal Palace,0.607,Yes,0.608,Over 2.5,10.53,0.515,Crystal Palace,Crystal Palace,0.642,Yes,OK
+38,2027-05-30 15:00:00Z,Hull,Newcastle,0.345,0.274,0.381,Newcastle,0.576,Yes,0.456,Under 2.5,11.05,0.453,Newcastle,Newcastle,0.697,Yes,Low (promoted/new team)
+38,2027-05-30 15:00:00Z,Ipswich,Everton,0.301,0.258,0.441,Everton,0.526,Yes,0.482,Under 2.5,11.24,0.437,Everton,Everton,0.669,Yes,OK
+38,2027-05-30 15:00:00Z,Liverpool,Bournemouth,0.532,0.211,0.257,Liverpool,0.542,Yes,0.657,Over 2.5,10.13,0.671,Liverpool,Liverpool,0.634,Yes,OK
+38,2027-05-30 15:00:00Z,Man United,Fulham,0.506,0.274,0.22,Man United,0.588,Yes,0.631,Over 2.5,10.05,0.593,Man United,Man United,0.714,Yes,OK
+38,2027-05-30 15:00:00Z,Sunderland,Man City,0.162,0.193,0.645,Man City,0.554,Yes,0.585,Over 2.5,9.94,0.274,Man City,Man City,0.796,Yes,OK

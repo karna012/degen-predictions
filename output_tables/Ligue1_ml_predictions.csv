@@ -1,0 +1,307 @@
+RoundNumber,DateUtc,HomeTeam,AwayTeam,P_Home_Win,P_Draw,P_Away_Win,Predicted_Result,P_BTTS_Yes,BTTS_Prediction,P_Over_2.5_Goals,Goals_Prediction,Exp_Total_Corners,P_Home_More_Corners,More_Corners_Prediction,Favorite_Team,P_Favorite_Avoids_Defeat,Favorite_Avoids_Defeat_Prediction,Data_Confidence
+1,2026-08-21 18:45:00Z,Marseille,Strasbourg,0.546,0.209,0.245,Marseille,0.56,Yes,0.617,Over 2.5,9.48,0.531,Marseille,Marseille,0.594,Yes,OK
+1,2026-08-22 15:15:00Z,Lens,Auxerre,0.612,0.204,0.183,Lens,0.528,Yes,0.626,Over 2.5,9.56,0.644,Lens,Lens,0.765,Yes,OK
+1,2026-08-22 18:45:00Z,Le Mans FC,Brest,0.424,0.269,0.307,Le Mans FC,0.459,No,0.436,Under 2.5,9.13,0.509,Le Mans FC,Brest,0.557,Yes,Low (promoted/new team)
+1,2026-08-22 18:45:00Z,Nice,Lorient,0.384,0.291,0.325,Nice,0.595,Yes,0.532,Over 2.5,9.6,0.547,Nice,Lorient,0.653,Yes,OK
+1,2026-08-22 18:45:00Z,Toulouse,Lyon,0.293,0.27,0.437,Lyon,0.58,Yes,0.508,Over 2.5,9.51,0.519,Toulouse,Lyon,0.635,Yes,OK
+1,2026-08-22 18:45:00Z,Troyes,Paris FC,0.321,0.282,0.397,Paris FC,0.553,Yes,0.518,Over 2.5,9.7,0.356,Paris FC,Paris FC,0.687,Yes,OK
+1,2026-08-23 13:00:00Z,Angers,Lille,0.24,0.277,0.483,Lille,0.502,Yes,0.523,Over 2.5,9.15,0.331,Lille,Lille,0.708,Yes,OK
+1,2026-08-23 15:15:00Z,Le Havre,Monaco,0.264,0.248,0.488,Monaco,0.532,Yes,0.512,Over 2.5,9.48,0.334,Monaco,Monaco,0.682,Yes,OK
+1,2026-08-23 18:45:00Z,Paris SG,Rennes,0.582,0.206,0.212,Paris SG,0.574,Yes,0.636,Over 2.5,9.35,0.615,Paris SG,Paris SG,0.719,Yes,OK
+2,2026-08-28 18:45:00Z,Lille,Paris SG,0.272,0.253,0.475,Paris SG,0.569,Yes,0.541,Over 2.5,9.34,0.437,Paris SG,Paris SG,0.698,Yes,OK
+2,2026-08-29 15:15:00Z,Strasbourg,Lens,0.269,0.252,0.48,Lens,0.604,Yes,0.602,Over 2.5,9.39,0.419,Lens,Lens,0.661,Yes,OK
+2,2026-08-29 18:45:00Z,Auxerre,Angers,0.482,0.21,0.308,Auxerre,0.472,No,0.459,Under 2.5,9.54,0.596,Auxerre,Auxerre,0.61,Yes,OK
+2,2026-08-29 18:45:00Z,Brest,Toulouse,0.4,0.288,0.312,Brest,0.562,Yes,0.531,Over 2.5,9.56,0.507,Brest,Toulouse,0.655,Yes,OK
+2,2026-08-29 18:45:00Z,Lorient,Troyes,0.55,0.236,0.214,Lorient,0.488,No,0.529,Over 2.5,9.85,0.604,Lorient,Lorient,0.699,Yes,OK
+2,2026-08-29 18:45:00Z,Lyon,Le Havre,0.541,0.273,0.186,Lyon,0.585,Yes,0.558,Over 2.5,9.48,0.602,Lyon,Lyon,0.754,Yes,OK
+2,2026-08-30 13:00:00Z,Paris FC,Nice,0.457,0.27,0.273,Paris FC,0.501,Yes,0.512,Over 2.5,9.62,0.607,Paris FC,Paris FC,0.699,Yes,OK
+2,2026-08-30 15:15:00Z,Rennes,Le Mans FC,0.472,0.279,0.25,Rennes,0.486,No,0.515,Over 2.5,9.45,0.542,Rennes,Rennes,0.583,Yes,Low (promoted/new team)
+2,2026-08-30 18:45:00Z,Monaco,Marseille,0.454,0.26,0.286,Monaco,0.568,Yes,0.573,Over 2.5,9.56,0.534,Monaco,Marseille,0.64,Yes,OK
+3,2026-09-04 22:00:00Z,Angers,Rennes,0.289,0.261,0.449,Rennes,0.499,No,0.604,Over 2.5,9.12,0.382,Rennes,Rennes,0.63,Yes,OK
+3,2026-09-04 22:00:00Z,Le Havre,Brest,0.395,0.28,0.325,Le Havre,0.503,Yes,0.456,Under 2.5,9.66,0.521,Le Havre,Brest,0.632,Yes,OK
+3,2026-09-04 22:00:00Z,Lens,Lorient,0.606,0.216,0.178,Lens,0.592,Yes,0.655,Over 2.5,9.53,0.639,Lens,Lens,0.736,Yes,OK
+3,2026-09-04 22:00:00Z,Lyon,Auxerre,0.518,0.275,0.208,Lyon,0.527,Yes,0.507,Over 2.5,9.41,0.588,Lyon,Lyon,0.671,Yes,OK
+3,2026-09-04 22:00:00Z,Marseille,Paris FC,0.572,0.212,0.216,Marseille,0.566,Yes,0.609,Over 2.5,9.63,0.588,Marseille,Marseille,0.662,Yes,OK
+3,2026-09-04 22:00:00Z,Nice,Le Mans FC,0.4,0.311,0.289,Nice,0.495,No,0.499,Under 2.5,9.56,0.538,Nice,Nice,0.564,Yes,Low (promoted/new team)
+3,2026-09-04 22:00:00Z,Paris SG,Monaco,0.572,0.199,0.228,Paris SG,0.556,Yes,0.581,Over 2.5,9.33,0.59,Paris SG,Paris SG,0.721,Yes,OK
+3,2026-09-04 22:00:00Z,Toulouse,Lille,0.294,0.264,0.442,Lille,0.488,No,0.488,Under 2.5,9.63,0.406,Lille,Lille,0.669,Yes,OK
+3,2026-09-04 22:00:00Z,Troyes,Strasbourg,0.261,0.277,0.462,Strasbourg,0.589,Yes,0.584,Over 2.5,9.69,0.376,Strasbourg,Strasbourg,0.639,Yes,OK
+4,2026-09-11 22:00:00Z,Auxerre,Nice,0.433,0.254,0.313,Auxerre,0.51,Yes,0.443,Under 2.5,9.49,0.539,Auxerre,Auxerre,0.659,Yes,OK
+4,2026-09-11 22:00:00Z,Brest,Paris SG,0.207,0.279,0.514,Paris SG,0.573,Yes,0.593,Over 2.5,9.65,0.307,Paris SG,Paris SG,0.737,Yes,OK
+4,2026-09-11 22:00:00Z,Le Havre,Angers,0.46,0.224,0.316,Le Havre,0.465,No,0.472,Under 2.5,9.59,0.539,Le Havre,Le Havre,0.558,Yes,OK
+4,2026-09-11 22:00:00Z,Le Mans FC,Lens,0.223,0.242,0.535,Lens,0.536,Yes,0.517,Over 2.5,8.68,0.319,Lens,Lens,0.64,Yes,Low (promoted/new team)
+4,2026-09-11 22:00:00Z,Lille,Troyes,0.62,0.19,0.19,Lille,0.489,No,0.54,Over 2.5,9.66,0.683,Lille,Lille,0.735,Yes,OK
+4,2026-09-11 22:00:00Z,Lorient,Toulouse,0.418,0.315,0.267,Lorient,0.512,Yes,0.495,Under 2.5,9.59,0.549,Lorient,Toulouse,0.655,Yes,OK
+4,2026-09-11 22:00:00Z,Paris FC,Lyon,0.283,0.288,0.429,Lyon,0.544,Yes,0.52,Over 2.5,9.56,0.538,Paris FC,Lyon,0.633,Yes,OK
+4,2026-09-11 22:00:00Z,Rennes,Marseille,0.412,0.248,0.341,Rennes,0.595,Yes,0.608,Over 2.5,9.61,0.507,Rennes,Marseille,0.638,Yes,OK
+4,2026-09-11 22:00:00Z,Strasbourg,Monaco,0.432,0.262,0.306,Strasbourg,0.585,Yes,0.563,Over 2.5,9.31,0.484,Monaco,Monaco,0.594,Yes,OK
+5,2026-09-18 22:00:00Z,Angers,Troyes,0.439,0.252,0.309,Angers,0.48,No,0.542,Over 2.5,9.63,0.548,Angers,Angers,0.599,Yes,OK
+5,2026-09-18 22:00:00Z,Auxerre,Brest,0.432,0.265,0.303,Auxerre,0.522,Yes,0.432,Under 2.5,9.62,0.537,Auxerre,Auxerre,0.642,Yes,OK
+5,2026-09-18 22:00:00Z,Le Mans FC,Lorient,0.388,0.284,0.328,Le Mans FC,0.471,No,0.438,Under 2.5,8.78,0.501,Le Mans FC,Lorient,0.535,Yes,Low (promoted/new team)
+5,2026-09-18 22:00:00Z,Lyon,Rennes,0.494,0.259,0.247,Lyon,0.563,Yes,0.588,Over 2.5,9.45,0.581,Lyon,Lyon,0.6,Yes,OK
+5,2026-09-18 22:00:00Z,Marseille,Paris SG,0.309,0.248,0.443,Paris SG,0.547,Yes,0.579,Over 2.5,9.55,0.386,Paris SG,Paris SG,0.698,Yes,OK
+5,2026-09-18 22:00:00Z,Monaco,Lens,0.385,0.259,0.356,Monaco,0.57,Yes,0.573,Over 2.5,9.49,0.472,Lens,Lens,0.668,Yes,OK
+5,2026-09-18 22:00:00Z,Nice,Lille,0.256,0.26,0.484,Lille,0.565,Yes,0.495,Under 2.5,9.65,0.373,Lille,Lille,0.688,Yes,OK
+5,2026-09-18 22:00:00Z,Paris FC,Strasbourg,0.359,0.284,0.356,Paris FC,0.562,Yes,0.542,Over 2.5,9.59,0.545,Paris FC,Strasbourg,0.568,Yes,OK
+5,2026-09-18 22:00:00Z,Toulouse,Le Havre,0.481,0.275,0.244,Toulouse,0.56,Yes,0.595,Over 2.5,9.63,0.538,Toulouse,Toulouse,0.663,Yes,OK
+6,2026-10-09 22:00:00Z,Brest,Angers,0.497,0.217,0.286,Brest,0.488,No,0.541,Over 2.5,9.63,0.524,Brest,Brest,0.618,Yes,OK
+6,2026-10-09 22:00:00Z,Lens,Lyon,0.522,0.228,0.25,Lens,0.582,Yes,0.625,Over 2.5,9.44,0.606,Lens,Lens,0.614,Yes,OK
+6,2026-10-09 22:00:00Z,Lille,Le Havre,0.587,0.219,0.194,Lille,0.576,Yes,0.537,Over 2.5,9.53,0.651,Lille,Lille,0.775,Yes,OK
+6,2026-10-09 22:00:00Z,Lorient,Paris FC,0.441,0.291,0.268,Lorient,0.588,Yes,0.511,Over 2.5,9.53,0.543,Lorient,Paris FC,0.684,Yes,OK
+6,2026-10-09 22:00:00Z,Monaco,Toulouse,0.529,0.248,0.223,Monaco,0.527,Yes,0.522,Over 2.5,9.51,0.555,Monaco,Monaco,0.63,Yes,OK
+6,2026-10-09 22:00:00Z,Nice,Strasbourg,0.262,0.258,0.48,Strasbourg,0.587,Yes,0.562,Over 2.5,9.64,0.422,Strasbourg,Strasbourg,0.642,Yes,OK
+6,2026-10-09 22:00:00Z,Paris SG,Le Mans FC,0.587,0.229,0.184,Paris SG,0.478,No,0.587,Over 2.5,9.36,0.617,Paris SG,Paris SG,0.631,Yes,Low (promoted/new team)
+6,2026-10-09 22:00:00Z,Rennes,Auxerre,0.473,0.243,0.284,Rennes,0.519,Yes,0.521,Over 2.5,9.4,0.535,Rennes,Rennes,0.632,Yes,OK
+6,2026-10-09 22:00:00Z,Troyes,Marseille,0.236,0.283,0.481,Marseille,0.577,Yes,0.617,Over 2.5,9.76,0.338,Marseille,Marseille,0.73,Yes,OK
+7,2026-10-16 22:00:00Z,Angers,Marseille,0.236,0.286,0.478,Marseille,0.579,Yes,0.611,Over 2.5,9.14,0.349,Marseille,Marseille,0.728,Yes,OK
+7,2026-10-16 22:00:00Z,Le Havre,Auxerre,0.382,0.28,0.338,Le Havre,0.502,Yes,0.428,Under 2.5,9.49,0.489,Auxerre,Auxerre,0.647,Yes,OK
+7,2026-10-16 22:00:00Z,Le Mans FC,Toulouse,0.386,0.271,0.343,Le Mans FC,0.47,No,0.428,Under 2.5,8.75,0.489,Toulouse,Toulouse,0.559,Yes,Low (promoted/new team)
+7,2026-10-16 22:00:00Z,Lille,Brest,0.587,0.223,0.19,Lille,0.55,Yes,0.529,Over 2.5,9.4,0.681,Lille,Lille,0.748,Yes,OK
+7,2026-10-16 22:00:00Z,Lorient,Monaco,0.296,0.276,0.427,Monaco,0.577,Yes,0.564,Over 2.5,9.43,0.436,Monaco,Monaco,0.656,Yes,OK
+7,2026-10-16 22:00:00Z,Lyon,Nice,0.549,0.254,0.197,Lyon,0.597,Yes,0.541,Over 2.5,9.44,0.548,Lyon,Lyon,0.716,Yes,OK
+7,2026-10-16 22:00:00Z,Paris FC,Rennes,0.357,0.259,0.384,Rennes,0.516,Yes,0.555,Over 2.5,9.62,0.537,Paris FC,Rennes,0.596,Yes,OK
+7,2026-10-16 22:00:00Z,Strasbourg,Paris SG,0.224,0.277,0.499,Paris SG,0.575,Yes,0.599,Over 2.5,9.45,0.379,Paris SG,Paris SG,0.725,Yes,OK
+7,2026-10-16 22:00:00Z,Troyes,Lens,0.21,0.254,0.536,Lens,0.586,Yes,0.611,Over 2.5,9.73,0.309,Lens,Lens,0.73,Yes,OK
+8,2026-10-23 22:00:00Z,Angers,Lorient,0.296,0.305,0.399,Lorient,0.567,Yes,0.525,Over 2.5,9.14,0.423,Lorient,Lorient,0.645,Yes,OK
+8,2026-10-23 22:00:00Z,Auxerre,Le Mans FC,0.421,0.295,0.284,Auxerre,0.553,Yes,0.449,Under 2.5,9.45,0.551,Auxerre,Auxerre,0.551,Yes,Low (promoted/new team)
+8,2026-10-23 22:00:00Z,Brest,Nice,0.452,0.257,0.291,Brest,0.584,Yes,0.551,Over 2.5,9.54,0.491,Nice,Brest,0.662,Yes,OK
+8,2026-10-23 22:00:00Z,Lens,Paris FC,0.595,0.21,0.195,Lens,0.594,Yes,0.662,Over 2.5,9.65,0.644,Lens,Lens,0.684,Yes,OK
+8,2026-10-23 22:00:00Z,Marseille,Le Havre,0.606,0.207,0.187,Marseille,0.543,Yes,0.659,Over 2.5,9.51,0.581,Marseille,Marseille,0.763,Yes,OK
+8,2026-10-23 22:00:00Z,Monaco,Lille,0.428,0.263,0.309,Monaco,0.492,No,0.475,Under 2.5,9.53,0.499,Lille,Lille,0.664,Yes,OK
+8,2026-10-23 22:00:00Z,Paris SG,Lyon,0.542,0.221,0.237,Paris SG,0.583,Yes,0.633,Over 2.5,9.28,0.605,Paris SG,Paris SG,0.718,Yes,OK
+8,2026-10-23 22:00:00Z,Rennes,Strasbourg,0.438,0.238,0.324,Rennes,0.6,Yes,0.574,Over 2.5,9.49,0.529,Rennes,Rennes,0.583,Yes,OK
+8,2026-10-23 22:00:00Z,Toulouse,Troyes,0.555,0.223,0.222,Toulouse,0.513,Yes,0.538,Over 2.5,9.93,0.563,Toulouse,Toulouse,0.692,Yes,OK
+9,2026-10-30 23:00:00Z,Le Havre,Paris SG,0.198,0.273,0.529,Paris SG,0.474,No,0.561,Over 2.5,9.6,0.355,Paris SG,Paris SG,0.771,Yes,OK
+9,2026-10-30 23:00:00Z,Lille,Lens,0.409,0.251,0.341,Lille,0.598,Yes,0.559,Over 2.5,9.51,0.554,Lille,Lens,0.628,Yes,OK
+9,2026-10-30 23:00:00Z,Lorient,Brest,0.474,0.289,0.237,Lorient,0.578,Yes,0.5,Over 2.5,9.63,0.563,Lorient,Lorient,0.669,Yes,OK
+9,2026-10-30 23:00:00Z,Lyon,Angers,0.587,0.221,0.191,Lyon,0.53,Yes,0.533,Over 2.5,9.53,0.611,Lyon,Lyon,0.718,Yes,OK
+9,2026-10-30 23:00:00Z,Marseille,Toulouse,0.566,0.219,0.216,Marseille,0.559,Yes,0.601,Over 2.5,9.56,0.574,Marseille,Marseille,0.625,Yes,OK
+9,2026-10-30 23:00:00Z,Nice,Rennes,0.298,0.24,0.462,Rennes,0.567,Yes,0.588,Over 2.5,9.58,0.424,Rennes,Rennes,0.648,Yes,OK
+9,2026-10-30 23:00:00Z,Paris FC,Monaco,0.318,0.272,0.41,Monaco,0.551,Yes,0.524,Over 2.5,9.57,0.528,Paris FC,Monaco,0.656,Yes,OK
+9,2026-10-30 23:00:00Z,Strasbourg,Auxerre,0.491,0.262,0.247,Strasbourg,0.552,Yes,0.517,Over 2.5,9.3,0.527,Strasbourg,Strasbourg,0.64,Yes,OK
+9,2026-10-30 23:00:00Z,Troyes,Le Mans FC,0.317,0.32,0.363,Le Mans FC,0.504,Yes,0.465,Under 2.5,9.72,0.362,Le Mans FC,Le Mans FC,0.593,Yes,Low (promoted/new team)
+10,2026-11-06 23:00:00Z,Angers,Nice,0.32,0.283,0.397,Nice,0.569,Yes,0.543,Over 2.5,9.15,0.452,Nice,Nice,0.672,Yes,OK
+10,2026-11-06 23:00:00Z,Auxerre,Paris FC,0.402,0.259,0.338,Auxerre,0.534,Yes,0.421,Under 2.5,9.54,0.531,Auxerre,Paris FC,0.666,Yes,OK
+10,2026-11-06 23:00:00Z,Brest,Lyon,0.267,0.272,0.461,Lyon,0.602,Yes,0.539,Over 2.5,9.45,0.419,Lyon,Lyon,0.649,Yes,OK
+10,2026-11-06 23:00:00Z,Le Havre,Lorient,0.365,0.291,0.344,Le Havre,0.587,Yes,0.451,Under 2.5,9.52,0.516,Le Havre,Lorient,0.628,Yes,OK
+10,2026-11-06 23:00:00Z,Le Mans FC,Monaco,0.277,0.25,0.474,Monaco,0.478,No,0.492,Under 2.5,8.67,0.323,Monaco,Monaco,0.572,Yes,Low (promoted/new team)
+10,2026-11-06 23:00:00Z,Lens,Marseille,0.524,0.223,0.253,Lens,0.557,Yes,0.612,Over 2.5,9.7,0.602,Lens,Lens,0.66,Yes,OK
+10,2026-11-06 23:00:00Z,Paris SG,Troyes,0.642,0.182,0.176,Paris SG,0.494,No,0.655,Over 2.5,9.76,0.61,Paris SG,Paris SG,0.72,Yes,OK
+10,2026-11-06 23:00:00Z,Rennes,Lille,0.391,0.246,0.363,Rennes,0.532,Yes,0.492,Under 2.5,9.63,0.499,Lille,Lille,0.657,Yes,OK
+10,2026-11-06 23:00:00Z,Toulouse,Strasbourg,0.357,0.271,0.372,Strasbourg,0.554,Yes,0.511,Over 2.5,9.58,0.531,Toulouse,Strasbourg,0.588,Yes,OK
+11,2026-11-20 23:00:00Z,Lens,Toulouse,0.605,0.21,0.185,Lens,0.554,Yes,0.641,Over 2.5,9.65,0.641,Lens,Lens,0.717,Yes,OK
+11,2026-11-20 23:00:00Z,Lille,Lyon,0.469,0.25,0.281,Lille,0.596,Yes,0.522,Over 2.5,9.15,0.606,Lille,Lille,0.588,Yes,OK
+11,2026-11-20 23:00:00Z,Lorient,Rennes,0.335,0.261,0.404,Rennes,0.505,Yes,0.598,Over 2.5,9.48,0.474,Rennes,Rennes,0.62,Yes,OK
+11,2026-11-20 23:00:00Z,Marseille,Le Mans FC,0.572,0.235,0.193,Marseille,0.488,No,0.573,Over 2.5,9.48,0.564,Marseille,Marseille,0.618,Yes,Low (promoted/new team)
+11,2026-11-20 23:00:00Z,Monaco,Auxerre,0.539,0.239,0.222,Monaco,0.516,Yes,0.512,Over 2.5,9.46,0.563,Monaco,Monaco,0.652,Yes,OK
+11,2026-11-20 23:00:00Z,Nice,Paris SG,0.202,0.282,0.516,Paris SG,0.572,Yes,0.571,Over 2.5,9.67,0.361,Paris SG,Paris SG,0.774,Yes,OK
+11,2026-11-20 23:00:00Z,Paris FC,Angers,0.525,0.228,0.246,Paris FC,0.469,No,0.515,Over 2.5,9.67,0.622,Paris FC,Paris FC,0.752,Yes,OK
+11,2026-11-20 23:00:00Z,Strasbourg,Brest,0.502,0.264,0.234,Strasbourg,0.561,Yes,0.561,Over 2.5,9.55,0.576,Strasbourg,Strasbourg,0.63,Yes,OK
+11,2026-11-20 23:00:00Z,Troyes,Le Havre,0.324,0.295,0.381,Le Havre,0.54,Yes,0.586,Over 2.5,9.7,0.436,Le Havre,Le Havre,0.655,Yes,OK
+12,2026-11-27 23:00:00Z,Angers,Lens,0.207,0.258,0.535,Lens,0.576,Yes,0.607,Over 2.5,9.11,0.329,Lens,Lens,0.739,Yes,OK
+12,2026-11-27 23:00:00Z,Auxerre,Marseille,0.255,0.255,0.49,Marseille,0.556,Yes,0.531,Over 2.5,9.57,0.367,Marseille,Marseille,0.706,Yes,OK
+12,2026-11-27 23:00:00Z,Brest,Paris FC,0.421,0.266,0.314,Brest,0.576,Yes,0.532,Over 2.5,9.66,0.498,Paris FC,Paris FC,0.673,Yes,OK
+12,2026-11-27 23:00:00Z,Le Havre,Strasbourg,0.259,0.255,0.486,Strasbourg,0.513,Yes,0.508,Over 2.5,9.53,0.383,Strasbourg,Strasbourg,0.643,Yes,OK
+12,2026-11-27 23:00:00Z,Le Mans FC,Lille,0.263,0.247,0.49,Lille,0.467,No,0.433,Under 2.5,8.59,0.32,Lille,Lille,0.589,Yes,Low (promoted/new team)
+12,2026-11-27 23:00:00Z,Lyon,Monaco,0.476,0.264,0.261,Lyon,0.569,Yes,0.558,Over 2.5,9.36,0.55,Lyon,Lyon,0.599,Yes,OK
+12,2026-11-27 23:00:00Z,Nice,Troyes,0.49,0.234,0.276,Nice,0.474,No,0.548,Over 2.5,9.98,0.566,Nice,Nice,0.656,Yes,OK
+12,2026-11-27 23:00:00Z,Paris SG,Lorient,0.604,0.21,0.186,Paris SG,0.582,Yes,0.639,Over 2.5,9.4,0.637,Paris SG,Paris SG,0.718,Yes,OK
+12,2026-11-27 23:00:00Z,Toulouse,Rennes,0.367,0.242,0.391,Rennes,0.518,Yes,0.526,Over 2.5,9.57,0.514,Toulouse,Rennes,0.603,Yes,OK
+13,2026-12-04 23:00:00Z,Lens,Le Havre,0.619,0.207,0.174,Lens,0.557,Yes,0.679,Over 2.5,9.59,0.66,Lens,Lens,0.784,Yes,OK
+13,2026-12-04 23:00:00Z,Lille,Auxerre,0.578,0.218,0.204,Lille,0.501,Yes,0.513,Over 2.5,9.34,0.63,Lille,Lille,0.744,Yes,OK
+13,2026-12-04 23:00:00Z,Marseille,Nice,0.588,0.208,0.204,Marseille,0.574,Yes,0.593,Over 2.5,9.46,0.533,Marseille,Marseille,0.714,Yes,OK
+13,2026-12-04 23:00:00Z,Monaco,Angers,0.615,0.193,0.192,Monaco,0.486,No,0.549,Over 2.5,9.51,0.599,Monaco,Monaco,0.756,Yes,OK
+13,2026-12-04 23:00:00Z,Paris FC,Le Mans FC,0.433,0.313,0.254,Paris FC,0.48,No,0.516,Over 2.5,9.6,0.589,Paris FC,Paris FC,0.579,Yes,Low (promoted/new team)
+13,2026-12-04 23:00:00Z,Rennes,Brest,0.484,0.25,0.265,Rennes,0.569,Yes,0.547,Over 2.5,9.51,0.571,Rennes,Rennes,0.685,Yes,OK
+13,2026-12-04 23:00:00Z,Strasbourg,Lorient,0.475,0.282,0.243,Strasbourg,0.603,Yes,0.555,Over 2.5,9.41,0.575,Strasbourg,Strasbourg,0.629,Yes,OK
+13,2026-12-04 23:00:00Z,Toulouse,Paris SG,0.227,0.281,0.492,Paris SG,0.557,Yes,0.529,Over 2.5,9.64,0.406,Paris SG,Paris SG,0.739,Yes,OK
+13,2026-12-04 23:00:00Z,Troyes,Lyon,0.248,0.286,0.465,Lyon,0.592,Yes,0.536,Over 2.5,9.63,0.394,Lyon,Lyon,0.68,Yes,OK
+14,2026-12-11 23:00:00Z,Angers,Strasbourg,0.254,0.276,0.47,Strasbourg,0.556,Yes,0.573,Over 2.5,9.18,0.373,Strasbourg,Strasbourg,0.606,Yes,OK
+14,2026-12-11 23:00:00Z,Auxerre,Toulouse,0.381,0.276,0.342,Auxerre,0.525,Yes,0.429,Under 2.5,9.59,0.523,Auxerre,Toulouse,0.645,Yes,OK
+14,2026-12-11 23:00:00Z,Brest,Troyes,0.521,0.223,0.256,Brest,0.508,Yes,0.549,Over 2.5,9.99,0.54,Brest,Brest,0.631,Yes,OK
+14,2026-12-11 23:00:00Z,Le Havre,Le Mans FC,0.381,0.317,0.302,Le Havre,0.477,No,0.459,Under 2.5,9.52,0.467,Le Mans FC,Le Mans FC,0.525,Yes,Low (promoted/new team)
+14,2026-12-11 23:00:00Z,Lorient,Lille,0.276,0.284,0.44,Lille,0.501,Yes,0.487,Under 2.5,9.53,0.404,Lille,Lille,0.676,Yes,OK
+14,2026-12-11 23:00:00Z,Lyon,Marseille,0.447,0.278,0.276,Lyon,0.593,Yes,0.598,Over 2.5,9.62,0.554,Lyon,Lyon,0.648,Yes,OK
+14,2026-12-11 23:00:00Z,Nice,Lens,0.223,0.247,0.531,Lens,0.591,Yes,0.592,Over 2.5,9.55,0.345,Lens,Lens,0.735,Yes,OK
+14,2026-12-11 23:00:00Z,Paris SG,Paris FC,0.614,0.196,0.19,Paris SG,0.583,Yes,0.661,Over 2.5,9.51,0.641,Paris SG,Paris SG,0.707,Yes,OK
+14,2026-12-11 23:00:00Z,Rennes,Monaco,0.433,0.233,0.335,Rennes,0.579,Yes,0.57,Over 2.5,9.4,0.515,Rennes,Rennes,0.612,Yes,OK
+15,2027-01-01 23:00:00Z,Brest,Marseille,0.255,0.271,0.474,Marseille,0.597,Yes,0.618,Over 2.5,9.65,0.352,Marseille,Marseille,0.696,Yes,OK
+15,2027-01-01 23:00:00Z,Le Mans FC,Lyon,0.259,0.265,0.477,Lyon,0.518,Yes,0.437,Under 2.5,8.52,0.359,Lyon,Lyon,0.568,Yes,Low (promoted/new team)
+15,2027-01-01 23:00:00Z,Lens,Paris SG,0.326,0.255,0.419,Paris SG,0.545,Yes,0.602,Over 2.5,9.62,0.459,Paris SG,Paris SG,0.693,Yes,OK
+15,2027-01-01 23:00:00Z,Lille,Strasbourg,0.51,0.228,0.262,Lille,0.588,Yes,0.556,Over 2.5,9.3,0.61,Lille,Lille,0.587,Yes,OK
+15,2027-01-01 23:00:00Z,Lorient,Auxerre,0.461,0.289,0.25,Lorient,0.569,Yes,0.498,Under 2.5,9.47,0.534,Lorient,Lorient,0.668,Yes,OK
+15,2027-01-01 23:00:00Z,Monaco,Nice,0.556,0.235,0.209,Monaco,0.578,Yes,0.545,Over 2.5,9.43,0.548,Monaco,Monaco,0.725,Yes,OK
+15,2027-01-01 23:00:00Z,Paris FC,Le Havre,0.45,0.284,0.266,Paris FC,0.554,Yes,0.583,Over 2.5,9.66,0.608,Paris FC,Paris FC,0.701,Yes,OK
+15,2027-01-01 23:00:00Z,Toulouse,Angers,0.548,0.213,0.239,Toulouse,0.489,No,0.522,Over 2.5,9.65,0.568,Toulouse,Toulouse,0.684,Yes,OK
+15,2027-01-01 23:00:00Z,Troyes,Rennes,0.298,0.261,0.441,Rennes,0.537,Yes,0.611,Over 2.5,9.71,0.391,Rennes,Rennes,0.664,Yes,OK
+16,2027-01-15 23:00:00Z,Angers,Paris SG,0.193,0.296,0.511,Paris SG,0.545,Yes,0.592,Over 2.5,9.13,0.348,Paris SG,Paris SG,0.74,Yes,OK
+16,2027-01-15 23:00:00Z,Auxerre,Troyes,0.516,0.217,0.267,Auxerre,0.497,No,0.476,Under 2.5,9.78,0.579,Auxerre,Auxerre,0.715,Yes,OK
+16,2027-01-15 23:00:00Z,Lyon,Lorient,0.512,0.284,0.205,Lyon,0.595,Yes,0.525,Over 2.5,9.39,0.592,Lyon,Lyon,0.671,Yes,OK
+16,2027-01-15 23:00:00Z,Marseille,Lille,0.476,0.229,0.295,Marseille,0.52,Yes,0.512,Over 2.5,9.65,0.496,Lille,Lille,0.666,Yes,OK
+16,2027-01-15 23:00:00Z,Monaco,Brest,0.553,0.248,0.199,Monaco,0.557,Yes,0.554,Over 2.5,9.5,0.612,Monaco,Monaco,0.718,Yes,OK
+16,2027-01-15 23:00:00Z,Nice,Le Havre,0.409,0.28,0.311,Nice,0.577,Yes,0.596,Over 2.5,9.65,0.56,Nice,Nice,0.681,Yes,OK
+16,2027-01-15 23:00:00Z,Paris FC,Toulouse,0.422,0.292,0.286,Paris FC,0.543,Yes,0.504,Over 2.5,9.68,0.574,Paris FC,Paris FC,0.654,Yes,OK
+16,2027-01-15 23:00:00Z,Rennes,Lens,0.369,0.253,0.379,Lens,0.605,Yes,0.597,Over 2.5,9.44,0.455,Lens,Lens,0.657,Yes,OK
+16,2027-01-15 23:00:00Z,Strasbourg,Le Mans FC,0.475,0.302,0.223,Strasbourg,0.5,Yes,0.566,Over 2.5,9.35,0.529,Strasbourg,Strasbourg,0.562,Yes,Low (promoted/new team)
+17,2027-01-22 23:00:00Z,Le Havre,Rennes,0.297,0.239,0.464,Rennes,0.475,No,0.544,Over 2.5,9.51,0.378,Rennes,Rennes,0.635,Yes,OK
+17,2027-01-22 23:00:00Z,Le Mans FC,Angers,0.479,0.213,0.308,Le Mans FC,0.462,No,0.468,Under 2.5,8.94,0.52,Le Mans FC,Le Mans FC,0.542,Yes,Low (promoted/new team)
+17,2027-01-22 23:00:00Z,Lens,Brest,0.619,0.208,0.173,Lens,0.567,Yes,0.665,Over 2.5,9.67,0.651,Lens,Lens,0.783,Yes,OK
+17,2027-01-22 23:00:00Z,Lille,Paris FC,0.552,0.224,0.225,Lille,0.571,Yes,0.527,Over 2.5,9.59,0.674,Lille,Lille,0.635,Yes,OK
+17,2027-01-22 23:00:00Z,Lorient,Marseille,0.263,0.29,0.447,Marseille,0.583,Yes,0.598,Over 2.5,9.57,0.424,Marseille,Marseille,0.696,Yes,OK
+17,2027-01-22 23:00:00Z,Paris SG,Auxerre,0.608,0.2,0.192,Paris SG,0.523,Yes,0.625,Over 2.5,9.31,0.619,Paris SG,Paris SG,0.743,Yes,OK
+17,2027-01-22 23:00:00Z,Strasbourg,Lyon,0.379,0.294,0.326,Strasbourg,0.596,Yes,0.543,Over 2.5,9.3,0.512,Strasbourg,Lyon,0.596,Yes,OK
+17,2027-01-22 23:00:00Z,Toulouse,Nice,0.489,0.258,0.254,Toulouse,0.548,Yes,0.519,Over 2.5,9.6,0.552,Toulouse,Toulouse,0.667,Yes,OK
+17,2027-01-22 23:00:00Z,Troyes,Monaco,0.265,0.271,0.464,Monaco,0.571,Yes,0.584,Over 2.5,9.65,0.335,Monaco,Monaco,0.676,Yes,OK
+18,2027-01-29 23:00:00Z,Angers,Le Havre,0.366,0.301,0.333,Angers,0.528,Yes,0.535,Over 2.5,9.04,0.502,Angers,Le Havre,0.643,Yes,OK
+18,2027-01-29 23:00:00Z,Brest,Strasbourg,0.287,0.263,0.45,Strasbourg,0.59,Yes,0.582,Over 2.5,9.55,0.432,Strasbourg,Strasbourg,0.596,Yes,OK
+18,2027-01-29 23:00:00Z,Le Mans FC,Nice,0.432,0.255,0.314,Le Mans FC,0.497,No,0.451,Under 2.5,8.96,0.499,Nice,Nice,0.558,Yes,Low (promoted/new team)
+18,2027-01-29 23:00:00Z,Lyon,Lille,0.417,0.288,0.295,Lyon,0.574,Yes,0.472,Under 2.5,9.58,0.522,Lyon,Lille,0.624,Yes,OK
+18,2027-01-29 23:00:00Z,Marseille,Troyes,0.639,0.179,0.182,Marseille,0.485,No,0.623,Over 2.5,9.8,0.586,Marseille,Marseille,0.725,Yes,OK
+18,2027-01-29 23:00:00Z,Monaco,Paris SG,0.267,0.276,0.457,Paris SG,0.517,Yes,0.554,Over 2.5,9.46,0.385,Paris SG,Paris SG,0.708,Yes,OK
+18,2027-01-29 23:00:00Z,Paris FC,Auxerre,0.444,0.278,0.278,Paris FC,0.502,Yes,0.497,Under 2.5,9.61,0.611,Paris FC,Paris FC,0.662,Yes,OK
+18,2027-01-29 23:00:00Z,Rennes,Lorient,0.465,0.256,0.279,Rennes,0.6,Yes,0.536,Over 2.5,9.49,0.563,Rennes,Rennes,0.635,Yes,OK
+18,2027-01-29 23:00:00Z,Toulouse,Lens,0.253,0.244,0.503,Lens,0.557,Yes,0.526,Over 2.5,9.63,0.371,Lens,Lens,0.689,Yes,OK
+19,2027-02-05 23:00:00Z,Auxerre,Monaco,0.274,0.242,0.484,Monaco,0.511,Yes,0.494,Under 2.5,9.44,0.381,Monaco,Monaco,0.645,Yes,OK
+19,2027-02-05 23:00:00Z,Le Havre,Toulouse,0.317,0.278,0.405,Toulouse,0.528,Yes,0.448,Under 2.5,9.6,0.451,Toulouse,Toulouse,0.671,Yes,OK
+19,2027-02-05 23:00:00Z,Lens,Angers,0.655,0.17,0.175,Lens,0.481,No,0.67,Over 2.5,9.63,0.663,Lens,Lens,0.749,Yes,OK
+19,2027-02-05 23:00:00Z,Lorient,Le Mans FC,0.45,0.323,0.227,Lorient,0.502,Yes,0.491,Under 2.5,9.49,0.528,Lorient,Lorient,0.578,Yes,Low (promoted/new team)
+19,2027-02-05 23:00:00Z,Nice,Brest,0.416,0.275,0.309,Nice,0.557,Yes,0.538,Over 2.5,9.64,0.537,Nice,Brest,0.643,Yes,OK
+19,2027-02-05 23:00:00Z,Paris SG,Marseille,0.549,0.212,0.239,Paris SG,0.573,Yes,0.615,Over 2.5,9.41,0.564,Paris SG,Paris SG,0.741,Yes,OK
+19,2027-02-05 23:00:00Z,Rennes,Lyon,0.408,0.255,0.337,Rennes,0.597,Yes,0.532,Over 2.5,9.43,0.526,Rennes,Lyon,0.593,Yes,OK
+19,2027-02-05 23:00:00Z,Strasbourg,Paris FC,0.499,0.254,0.246,Strasbourg,0.552,Yes,0.553,Over 2.5,9.45,0.553,Strasbourg,Strasbourg,0.657,Yes,OK
+19,2027-02-05 23:00:00Z,Troyes,Lille,0.249,0.282,0.469,Lille,0.56,Yes,0.474,Under 2.5,9.72,0.32,Lille,Lille,0.698,Yes,OK
+20,2027-02-12 23:00:00Z,Auxerre,Strasbourg,0.272,0.242,0.486,Strasbourg,0.53,Yes,0.496,Under 2.5,9.49,0.445,Strasbourg,Strasbourg,0.581,Yes,OK
+20,2027-02-12 23:00:00Z,Brest,Rennes,0.325,0.243,0.432,Rennes,0.539,Yes,0.604,Over 2.5,9.56,0.423,Rennes,Rennes,0.605,Yes,OK
+20,2027-02-12 23:00:00Z,Le Mans FC,Paris SG,0.211,0.257,0.532,Paris SG,0.532,Yes,0.539,Over 2.5,8.71,0.334,Paris SG,Paris SG,0.647,Yes,Low (promoted/new team)
+20,2027-02-12 23:00:00Z,Lille,Nice,0.587,0.214,0.199,Lille,0.576,Yes,0.529,Over 2.5,9.29,0.641,Lille,Lille,0.746,Yes,OK
+20,2027-02-12 23:00:00Z,Lorient,Le Havre,0.469,0.294,0.237,Lorient,0.593,Yes,0.522,Over 2.5,9.53,0.55,Lorient,Lorient,0.652,Yes,OK
+20,2027-02-12 23:00:00Z,Lyon,Lens,0.394,0.283,0.324,Lyon,0.591,Yes,0.59,Over 2.5,9.5,0.482,Lens,Lens,0.66,Yes,OK
+20,2027-02-12 23:00:00Z,Marseille,Angers,0.642,0.17,0.187,Marseille,0.522,Yes,0.62,Over 2.5,9.55,0.618,Marseille,Marseille,0.74,Yes,OK
+20,2027-02-12 23:00:00Z,Paris FC,Troyes,0.524,0.238,0.238,Paris FC,0.485,No,0.53,Over 2.5,9.95,0.614,Paris FC,Paris FC,0.751,Yes,OK
+20,2027-02-12 23:00:00Z,Toulouse,Monaco,0.333,0.253,0.414,Monaco,0.546,Yes,0.503,Over 2.5,9.52,0.471,Monaco,Monaco,0.624,Yes,OK
+21,2027-02-19 23:00:00Z,Angers,Paris FC,0.308,0.279,0.413,Paris FC,0.496,No,0.521,Over 2.5,9.17,0.374,Paris FC,Paris FC,0.667,Yes,OK
+21,2027-02-19 23:00:00Z,Le Havre,Lyon,0.247,0.266,0.487,Lyon,0.542,Yes,0.454,Under 2.5,9.47,0.37,Lyon,Lyon,0.68,Yes,OK
+21,2027-02-19 23:00:00Z,Lille,Lorient,0.568,0.23,0.202,Lille,0.579,Yes,0.516,Over 2.5,9.32,0.67,Lille,Lille,0.695,Yes,OK
+21,2027-02-19 23:00:00Z,Monaco,Le Mans FC,0.531,0.271,0.198,Monaco,0.502,Yes,0.536,Over 2.5,9.43,0.584,Monaco,Monaco,0.622,Yes,Low (promoted/new team)
+21,2027-02-19 23:00:00Z,Nice,Auxerre,0.402,0.272,0.326,Nice,0.537,Yes,0.502,Over 2.5,9.56,0.509,Nice,Auxerre,0.647,Yes,OK
+21,2027-02-19 23:00:00Z,Paris SG,Brest,0.616,0.205,0.179,Paris SG,0.57,Yes,0.659,Over 2.5,9.42,0.653,Paris SG,Paris SG,0.75,Yes,OK
+21,2027-02-19 23:00:00Z,Rennes,Toulouse,0.47,0.241,0.289,Rennes,0.562,Yes,0.533,Over 2.5,9.55,0.569,Rennes,Rennes,0.637,Yes,OK
+21,2027-02-19 23:00:00Z,Strasbourg,Marseille,0.399,0.281,0.32,Strasbourg,0.597,Yes,0.603,Over 2.5,9.48,0.481,Marseille,Marseille,0.652,Yes,OK
+21,2027-02-19 23:00:00Z,Lens,Troyes,0.652,0.178,0.17,Lens,0.488,No,0.664,Over 2.5,9.9,0.648,Lens,Lens,0.737,Yes,OK
+22,2027-02-26 23:00:00Z,Auxerre,Lille,0.261,0.248,0.49,Lille,0.527,Yes,0.439,Under 2.5,9.53,0.378,Lille,Lille,0.683,Yes,OK
+22,2027-02-26 23:00:00Z,Brest,Monaco,0.285,0.256,0.459,Monaco,0.575,Yes,0.582,Over 2.5,9.46,0.371,Monaco,Monaco,0.648,Yes,OK
+22,2027-02-26 23:00:00Z,Le Mans FC,Paris FC,0.392,0.261,0.347,Le Mans FC,0.528,Yes,0.434,Under 2.5,8.9,0.44,Paris FC,Paris FC,0.586,Yes,Low (promoted/new team)
+22,2027-02-26 23:00:00Z,Lorient,Angers,0.521,0.233,0.245,Lorient,0.497,No,0.52,Over 2.5,9.57,0.574,Lorient,Lorient,0.637,Yes,OK
+22,2027-02-26 23:00:00Z,Lyon,Toulouse,0.504,0.281,0.215,Lyon,0.561,Yes,0.526,Over 2.5,9.55,0.577,Lyon,Lyon,0.629,Yes,OK
+22,2027-02-26 23:00:00Z,Marseille,Rennes,0.54,0.219,0.241,Marseille,0.536,Yes,0.601,Over 2.5,9.44,0.569,Marseille,Marseille,0.632,Yes,OK
+22,2027-02-26 23:00:00Z,Paris SG,Lens,0.515,0.213,0.272,Paris SG,0.582,Yes,0.591,Over 2.5,9.35,0.542,Paris SG,Paris SG,0.675,Yes,OK
+22,2027-02-26 23:00:00Z,Strasbourg,Le Havre,0.516,0.264,0.219,Strasbourg,0.577,Yes,0.624,Over 2.5,9.44,0.556,Strasbourg,Strasbourg,0.71,Yes,OK
+22,2027-02-26 23:00:00Z,Troyes,Nice,0.338,0.284,0.378,Nice,0.545,Yes,0.525,Over 2.5,9.72,0.362,Nice,Nice,0.662,Yes,OK
+23,2027-03-05 23:00:00Z,Angers,Auxerre,0.313,0.289,0.398,Auxerre,0.508,Yes,0.5,Under 2.5,8.91,0.393,Auxerre,Auxerre,0.632,Yes,OK
+23,2027-03-05 23:00:00Z,Le Havre,Nice,0.398,0.271,0.331,Le Havre,0.499,No,0.465,Under 2.5,9.53,0.512,Le Havre,Nice,0.658,Yes,OK
+23,2027-03-05 23:00:00Z,Lens,Strasbourg,0.56,0.208,0.232,Lens,0.588,Yes,0.662,Over 2.5,9.55,0.635,Lens,Lens,0.608,Yes,OK
+23,2027-03-05 23:00:00Z,Lille,Marseille,0.468,0.246,0.286,Lille,0.57,Yes,0.565,Over 2.5,9.55,0.598,Lille,Lille,0.647,Yes,OK
+23,2027-03-05 23:00:00Z,Monaco,Lyon,0.455,0.266,0.279,Monaco,0.583,Yes,0.534,Over 2.5,9.41,0.534,Monaco,Lyon,0.593,Yes,OK
+23,2027-03-05 23:00:00Z,Paris FC,Brest,0.455,0.281,0.264,Paris FC,0.543,Yes,0.505,Over 2.5,9.69,0.638,Paris FC,Paris FC,0.67,Yes,OK
+23,2027-03-05 23:00:00Z,Rennes,Paris SG,0.281,0.283,0.436,Paris SG,0.577,Yes,0.575,Over 2.5,9.54,0.412,Paris SG,Paris SG,0.711,Yes,OK
+23,2027-03-05 23:00:00Z,Toulouse,Le Mans FC,0.456,0.305,0.238,Toulouse,0.504,Yes,0.511,Over 2.5,9.6,0.514,Toulouse,Toulouse,0.564,Yes,Low (promoted/new team)
+23,2027-03-05 23:00:00Z,Troyes,Lorient,0.309,0.305,0.386,Lorient,0.581,Yes,0.514,Over 2.5,9.68,0.37,Lorient,Lorient,0.647,Yes,OK
+24,2027-03-12 23:00:00Z,Auxerre,Paris SG,0.203,0.26,0.537,Paris SG,0.577,Yes,0.551,Over 2.5,9.5,0.351,Paris SG,Paris SG,0.753,Yes,OK
+24,2027-03-12 23:00:00Z,Brest,Lille,0.272,0.265,0.463,Lille,0.524,Yes,0.496,Under 2.5,9.62,0.339,Lille,Lille,0.662,Yes,OK
+24,2027-03-12 23:00:00Z,Le Havre,Lens,0.213,0.24,0.548,Lens,0.546,Yes,0.553,Over 2.5,9.59,0.323,Lens,Lens,0.776,Yes,OK
+24,2027-03-12 23:00:00Z,Le Mans FC,Rennes,0.305,0.249,0.446,Rennes,0.461,No,0.523,Over 2.5,8.7,0.34,Rennes,Rennes,0.556,Yes,Low (promoted/new team)
+24,2027-03-12 23:00:00Z,Lyon,Troyes,0.586,0.229,0.185,Lyon,0.481,No,0.547,Over 2.5,9.81,0.605,Lyon,Lyon,0.711,Yes,OK
+24,2027-03-12 23:00:00Z,Marseille,Monaco,0.538,0.208,0.254,Marseille,0.531,Yes,0.56,Over 2.5,9.43,0.534,Marseille,Marseille,0.608,Yes,OK
+24,2027-03-12 23:00:00Z,Nice,Toulouse,0.37,0.29,0.339,Nice,0.565,Yes,0.527,Over 2.5,9.61,0.517,Nice,Toulouse,0.668,Yes,OK
+24,2027-03-12 23:00:00Z,Paris FC,Lorient,0.426,0.296,0.278,Paris FC,0.577,Yes,0.502,Over 2.5,9.59,0.589,Paris FC,Paris FC,0.677,Yes,OK
+24,2027-03-12 23:00:00Z,Strasbourg,Angers,0.557,0.219,0.224,Strasbourg,0.504,Yes,0.553,Over 2.5,9.48,0.586,Strasbourg,Strasbourg,0.691,Yes,OK
+25,2027-03-19 23:00:00Z,Angers,Le Mans FC,0.319,0.321,0.36,Le Mans FC,0.472,No,0.544,Over 2.5,9.1,0.418,Le Mans FC,Le Mans FC,0.56,Yes,Low (promoted/new team)
+25,2027-03-19 23:00:00Z,Lens,Lille,0.518,0.217,0.266,Lens,0.518,Yes,0.52,Over 2.5,9.73,0.592,Lens,Lens,0.667,Yes,OK
+25,2027-03-19 23:00:00Z,Lorient,Nice,0.474,0.279,0.247,Lorient,0.572,Yes,0.499,Under 2.5,9.5,0.537,Lorient,Lorient,0.672,Yes,OK
+25,2027-03-19 23:00:00Z,Marseille,Lyon,0.508,0.23,0.263,Marseille,0.55,Yes,0.577,Over 2.5,9.43,0.536,Marseille,Lyon,0.612,Yes,OK
+25,2027-03-19 23:00:00Z,Monaco,Le Havre,0.572,0.237,0.191,Monaco,0.55,Yes,0.582,Over 2.5,9.49,0.599,Monaco,Monaco,0.774,Yes,OK
+25,2027-03-19 23:00:00Z,Paris SG,Strasbourg,0.582,0.199,0.219,Paris SG,0.591,Yes,0.67,Over 2.5,9.41,0.615,Paris SG,Paris SG,0.73,Yes,OK
+25,2027-03-19 23:00:00Z,Rennes,Paris FC,0.479,0.233,0.288,Rennes,0.581,Yes,0.528,Over 2.5,9.53,0.547,Rennes,Rennes,0.653,Yes,OK
+25,2027-03-19 23:00:00Z,Toulouse,Brest,0.489,0.268,0.243,Toulouse,0.561,Yes,0.515,Over 2.5,9.69,0.593,Toulouse,Toulouse,0.651,Yes,OK
+25,2027-03-19 23:00:00Z,Troyes,Auxerre,0.333,0.294,0.373,Auxerre,0.572,Yes,0.497,Under 2.5,9.66,0.34,Auxerre,Auxerre,0.632,Yes,OK
+26,2027-04-02 22:00:00Z,Angers,Monaco,0.258,0.273,0.47,Monaco,0.513,Yes,0.578,Over 2.5,8.98,0.334,Monaco,Monaco,0.653,Yes,OK
+26,2027-04-02 22:00:00Z,Auxerre,Lens,0.223,0.231,0.546,Lens,0.568,Yes,0.53,Over 2.5,9.57,0.326,Lens,Lens,0.724,Yes,OK
+26,2027-04-02 22:00:00Z,Brest,Lorient,0.419,0.285,0.296,Brest,0.606,Yes,0.536,Over 2.5,9.51,0.506,Brest,Lorient,0.643,Yes,OK
+26,2027-04-02 22:00:00Z,Le Havre,Troyes,0.476,0.234,0.29,Le Havre,0.468,No,0.482,Under 2.5,9.87,0.559,Le Havre,Le Havre,0.603,Yes,OK
+26,2027-04-02 22:00:00Z,Le Mans FC,Marseille,0.251,0.264,0.485,Marseille,0.51,Yes,0.519,Over 2.5,8.75,0.336,Marseille,Marseille,0.636,Yes,Low (promoted/new team)
+26,2027-04-02 22:00:00Z,Lille,Rennes,0.514,0.231,0.255,Lille,0.558,Yes,0.564,Over 2.5,9.22,0.618,Lille,Lille,0.597,Yes,OK
+26,2027-04-02 22:00:00Z,Nice,Lyon,0.25,0.268,0.482,Lyon,0.593,Yes,0.539,Over 2.5,9.49,0.422,Lyon,Lyon,0.683,Yes,OK
+26,2027-04-02 22:00:00Z,Paris FC,Paris SG,0.222,0.299,0.48,Paris SG,0.546,Yes,0.537,Over 2.5,9.71,0.38,Paris SG,Paris SG,0.74,Yes,OK
+26,2027-04-02 22:00:00Z,Strasbourg,Toulouse,0.476,0.274,0.25,Strasbourg,0.574,Yes,0.532,Over 2.5,9.44,0.543,Strasbourg,Strasbourg,0.627,Yes,OK
+27,2027-04-09 22:00:00Z,Le Mans FC,Auxerre,0.404,0.259,0.337,Le Mans FC,0.467,No,0.425,Under 2.5,8.7,0.469,Auxerre,Auxerre,0.551,Yes,Low (promoted/new team)
+27,2027-04-09 22:00:00Z,Lille,Toulouse,0.545,0.23,0.225,Lille,0.544,Yes,0.514,Over 2.5,9.59,0.639,Lille,Lille,0.624,Yes,OK
+27,2027-04-09 22:00:00Z,Lorient,Lens,0.231,0.257,0.511,Lens,0.551,Yes,0.585,Over 2.5,9.57,0.37,Lens,Lens,0.688,Yes,OK
+27,2027-04-09 22:00:00Z,Lyon,Strasbourg,0.483,0.269,0.248,Lyon,0.603,Yes,0.566,Over 2.5,9.5,0.581,Lyon,Lyon,0.582,Yes,OK
+27,2027-04-09 22:00:00Z,Marseille,Brest,0.586,0.217,0.197,Marseille,0.576,Yes,0.624,Over 2.5,9.52,0.587,Marseille,Marseille,0.7,Yes,OK
+27,2027-04-09 22:00:00Z,Monaco,Rennes,0.502,0.246,0.252,Monaco,0.493,No,0.571,Over 2.5,9.48,0.575,Monaco,Rennes,0.615,Yes,OK
+27,2027-04-09 22:00:00Z,Nice,Paris FC,0.389,0.268,0.343,Nice,0.556,Yes,0.528,Over 2.5,9.65,0.521,Nice,Paris FC,0.657,Yes,OK
+27,2027-04-09 22:00:00Z,Paris SG,Le Havre,0.619,0.198,0.183,Paris SG,0.562,Yes,0.658,Over 2.5,9.4,0.634,Paris SG,Paris SG,0.748,Yes,OK
+27,2027-04-09 22:00:00Z,Troyes,Angers,0.381,0.239,0.38,Troyes,0.509,Yes,0.507,Over 2.5,9.78,0.491,Angers,Angers,0.628,Yes,OK
+28,2027-04-16 22:00:00Z,Angers,Lyon,0.241,0.291,0.469,Lyon,0.586,Yes,0.53,Over 2.5,9.0,0.377,Lyon,Lyon,0.674,Yes,OK
+28,2027-04-16 22:00:00Z,Auxerre,Lorient,0.406,0.279,0.315,Auxerre,0.567,Yes,0.437,Under 2.5,9.48,0.54,Auxerre,Lorient,0.622,Yes,OK
+28,2027-04-16 22:00:00Z,Brest,Le Mans FC,0.43,0.305,0.265,Brest,0.522,Yes,0.488,Under 2.5,9.53,0.493,Le Mans FC,Brest,0.576,Yes,Low (promoted/new team)
+28,2027-04-16 22:00:00Z,Le Havre,Marseille,0.239,0.264,0.497,Marseille,0.527,Yes,0.553,Over 2.5,9.59,0.349,Marseille,Marseille,0.741,Yes,OK
+28,2027-04-16 22:00:00Z,Lens,Nice,0.621,0.2,0.179,Lens,0.573,Yes,0.646,Over 2.5,9.49,0.637,Lens,Lens,0.766,Yes,OK
+28,2027-04-16 22:00:00Z,Monaco,Strasbourg,0.5,0.24,0.26,Monaco,0.56,Yes,0.552,Over 2.5,9.49,0.554,Monaco,Monaco,0.598,Yes,OK
+28,2027-04-16 22:00:00Z,Paris SG,Lille,0.546,0.203,0.251,Paris SG,0.545,Yes,0.522,Over 2.5,9.44,0.589,Paris SG,Paris SG,0.652,Yes,OK
+28,2027-04-16 22:00:00Z,Rennes,Troyes,0.545,0.211,0.244,Rennes,0.464,No,0.553,Over 2.5,9.88,0.566,Rennes,Rennes,0.667,Yes,OK
+28,2027-04-16 22:00:00Z,Toulouse,Paris FC,0.479,0.26,0.261,Toulouse,0.566,Yes,0.506,Over 2.5,9.63,0.527,Toulouse,Paris FC,0.675,Yes,OK
+29,2027-04-23 22:00:00Z,Le Mans FC,Le Havre,0.431,0.256,0.313,Le Mans FC,0.467,No,0.446,Under 2.5,8.79,0.521,Le Mans FC,Le Mans FC,0.564,Yes,Low (promoted/new team)
+29,2027-04-23 22:00:00Z,Lille,Monaco,0.498,0.231,0.271,Lille,0.573,Yes,0.533,Over 2.5,9.18,0.593,Lille,Lille,0.591,Yes,OK
+29,2027-04-23 22:00:00Z,Lorient,Paris SG,0.208,0.29,0.502,Paris SG,0.553,Yes,0.572,Over 2.5,9.56,0.363,Paris SG,Paris SG,0.743,Yes,OK
+29,2027-04-23 22:00:00Z,Lyon,Brest,0.54,0.267,0.193,Lyon,0.586,Yes,0.533,Over 2.5,9.56,0.604,Lyon,Lyon,0.72,Yes,OK
+29,2027-04-23 22:00:00Z,Marseille,Auxerre,0.576,0.213,0.21,Marseille,0.498,No,0.561,Over 2.5,9.43,0.554,Marseille,Marseille,0.707,Yes,OK
+29,2027-04-23 22:00:00Z,Nice,Angers,0.463,0.225,0.312,Nice,0.496,No,0.539,Over 2.5,9.67,0.58,Nice,Nice,0.612,Yes,OK
+29,2027-04-23 22:00:00Z,Paris FC,Lens,0.243,0.26,0.497,Lens,0.586,Yes,0.557,Over 2.5,9.62,0.393,Lens,Lens,0.698,Yes,OK
+29,2027-04-23 22:00:00Z,Strasbourg,Rennes,0.462,0.261,0.277,Strasbourg,0.555,Yes,0.596,Over 2.5,9.39,0.531,Strasbourg,Rennes,0.59,Yes,OK
+29,2027-04-23 22:00:00Z,Troyes,Toulouse,0.303,0.305,0.392,Toulouse,0.525,Yes,0.513,Over 2.5,9.71,0.361,Toulouse,Toulouse,0.667,Yes,OK
+30,2027-04-30 22:00:00Z,Auxerre,Lyon,0.259,0.256,0.485,Lyon,0.533,Yes,0.437,Under 2.5,9.42,0.416,Lyon,Lyon,0.632,Yes,OK
+30,2027-04-30 22:00:00Z,Le Havre,Paris FC,0.318,0.257,0.425,Paris FC,0.545,Yes,0.436,Under 2.5,9.56,0.444,Paris FC,Paris FC,0.715,Yes,OK
+30,2027-04-30 22:00:00Z,Lens,Le Mans FC,0.585,0.238,0.177,Lens,0.489,No,0.611,Over 2.5,9.55,0.647,Lens,Lens,0.659,Yes,Low (promoted/new team)
+30,2027-04-30 22:00:00Z,Monaco,Lorient,0.527,0.256,0.216,Monaco,0.591,Yes,0.543,Over 2.5,9.47,0.587,Monaco,Monaco,0.675,Yes,OK
+30,2027-04-30 22:00:00Z,Paris SG,Angers,0.649,0.17,0.181,Paris SG,0.54,Yes,0.665,Over 2.5,9.46,0.639,Paris SG,Paris SG,0.738,Yes,OK
+30,2027-04-30 22:00:00Z,Rennes,Nice,0.49,0.237,0.273,Rennes,0.585,Yes,0.552,Over 2.5,9.48,0.537,Rennes,Rennes,0.671,Yes,OK
+30,2027-04-30 22:00:00Z,Strasbourg,Lille,0.376,0.283,0.341,Strasbourg,0.561,Yes,0.505,Over 2.5,9.51,0.461,Lille,Lille,0.654,Yes,OK
+30,2027-04-30 22:00:00Z,Toulouse,Marseille,0.284,0.269,0.447,Marseille,0.541,Yes,0.542,Over 2.5,9.67,0.453,Marseille,Marseille,0.689,Yes,OK
+30,2027-04-30 22:00:00Z,Troyes,Brest,0.333,0.295,0.372,Brest,0.518,Yes,0.518,Over 2.5,9.8,0.38,Brest,Brest,0.645,Yes,OK
+31,2027-05-07 22:00:00Z,Angers,Toulouse,0.29,0.296,0.414,Toulouse,0.497,No,0.514,Over 2.5,9.08,0.37,Toulouse,Toulouse,0.66,Yes,OK
+31,2027-05-07 22:00:00Z,Brest,Auxerre,0.44,0.269,0.291,Brest,0.556,Yes,0.507,Over 2.5,9.51,0.489,Auxerre,Auxerre,0.648,Yes,OK
+31,2027-05-07 22:00:00Z,Le Mans FC,Troyes,0.51,0.224,0.266,Le Mans FC,0.478,No,0.484,Under 2.5,9.39,0.543,Le Mans FC,Le Mans FC,0.653,Yes,Low (promoted/new team)
+31,2027-05-07 22:00:00Z,Lens,Monaco,0.553,0.207,0.241,Lens,0.56,Yes,0.561,Over 2.5,9.45,0.608,Lens,Lens,0.621,Yes,OK
+31,2027-05-07 22:00:00Z,Lorient,Strasbourg,0.295,0.281,0.424,Strasbourg,0.574,Yes,0.578,Over 2.5,9.48,0.51,Lorient,Strasbourg,0.592,Yes,OK
+31,2027-05-07 22:00:00Z,Lyon,Paris SG,0.275,0.307,0.418,Paris SG,0.557,Yes,0.563,Over 2.5,9.5,0.442,Paris SG,Paris SG,0.71,Yes,OK
+31,2027-05-07 22:00:00Z,Nice,Marseille,0.241,0.267,0.492,Marseille,0.593,Yes,0.598,Over 2.5,9.68,0.378,Marseille,Marseille,0.716,Yes,OK
+31,2027-05-07 22:00:00Z,Paris FC,Lille,0.283,0.28,0.438,Lille,0.52,Yes,0.499,Under 2.5,9.65,0.452,Lille,Lille,0.682,Yes,OK
+31,2027-05-07 22:00:00Z,Rennes,Le Havre,0.503,0.239,0.258,Rennes,0.558,Yes,0.562,Over 2.5,9.52,0.568,Rennes,Rennes,0.705,Yes,OK
+32,2027-05-15 22:00:00Z,Auxerre,Rennes,0.311,0.234,0.455,Rennes,0.482,No,0.526,Over 2.5,9.47,0.438,Rennes,Rennes,0.616,Yes,OK
+32,2027-05-15 22:00:00Z,Brest,Le Havre,0.448,0.276,0.276,Brest,0.556,Yes,0.603,Over 2.5,9.54,0.546,Brest,Brest,0.68,Yes,OK
+32,2027-05-15 22:00:00Z,Lille,Angers,0.624,0.18,0.196,Lille,0.494,No,0.529,Over 2.5,9.41,0.693,Lille,Lille,0.763,Yes,OK
+32,2027-05-15 22:00:00Z,Lyon,Le Mans FC,0.512,0.302,0.186,Lyon,0.506,Yes,0.483,Under 2.5,9.38,0.598,Lyon,Lyon,0.63,Yes,Low (promoted/new team)
+32,2027-05-15 22:00:00Z,Marseille,Lens,0.443,0.239,0.318,Marseille,0.552,Yes,0.589,Over 2.5,9.51,0.446,Lens,Lens,0.648,Yes,OK
+32,2027-05-15 22:00:00Z,Monaco,Paris FC,0.54,0.238,0.223,Monaco,0.551,Yes,0.543,Over 2.5,9.6,0.569,Monaco,Monaco,0.694,Yes,OK
+32,2027-05-15 22:00:00Z,Paris SG,Nice,0.619,0.194,0.187,Paris SG,0.575,Yes,0.639,Over 2.5,9.3,0.594,Paris SG,Paris SG,0.75,Yes,OK
+32,2027-05-15 22:00:00Z,Strasbourg,Troyes,0.558,0.225,0.217,Strasbourg,0.482,No,0.574,Over 2.5,9.79,0.622,Strasbourg,Strasbourg,0.668,Yes,OK
+32,2027-05-15 22:00:00Z,Toulouse,Lorient,0.468,0.281,0.25,Toulouse,0.571,Yes,0.504,Over 2.5,9.57,0.555,Toulouse,Toulouse,0.675,Yes,OK
+33,2027-05-21 22:00:00Z,Angers,Brest,0.312,0.294,0.393,Brest,0.484,No,0.539,Over 2.5,9.32,0.452,Brest,Brest,0.649,Yes,OK
+33,2027-05-21 22:00:00Z,Le Havre,Lille,0.247,0.256,0.497,Lille,0.513,Yes,0.456,Under 2.5,9.55,0.323,Lille,Lille,0.718,Yes,OK
+33,2027-05-21 22:00:00Z,Le Mans FC,Strasbourg,0.276,0.246,0.477,Strasbourg,0.528,Yes,0.501,Over 2.5,8.72,0.364,Strasbourg,Strasbourg,0.527,Yes,Low (promoted/new team)
+33,2027-05-21 22:00:00Z,Lens,Rennes,0.557,0.216,0.227,Lens,0.536,Yes,0.628,Over 2.5,9.51,0.623,Lens,Lens,0.644,Yes,OK
+33,2027-05-21 22:00:00Z,Lorient,Lyon,0.274,0.292,0.434,Lyon,0.578,Yes,0.51,Over 2.5,9.42,0.47,Lyon,Lyon,0.643,Yes,OK
+33,2027-05-21 22:00:00Z,Nice,Monaco,0.265,0.252,0.483,Monaco,0.575,Yes,0.562,Over 2.5,9.5,0.388,Monaco,Monaco,0.684,Yes,OK
+33,2027-05-21 22:00:00Z,Paris FC,Marseille,0.287,0.286,0.427,Marseille,0.508,Yes,0.562,Over 2.5,9.7,0.523,Paris FC,Marseille,0.664,Yes,OK
+33,2027-05-21 22:00:00Z,Toulouse,Auxerre,0.475,0.268,0.256,Toulouse,0.495,No,0.493,Under 2.5,9.58,0.525,Toulouse,Toulouse,0.642,Yes,OK
+33,2027-05-21 22:00:00Z,Troyes,Paris SG,0.198,0.296,0.506,Paris SG,0.534,Yes,0.573,Over 2.5,9.78,0.342,Paris SG,Paris SG,0.728,Yes,OK
+34,2027-05-28 22:00:00Z,Auxerre,Le Havre,0.428,0.263,0.309,Auxerre,0.553,Yes,0.481,Under 2.5,9.52,0.555,Auxerre,Auxerre,0.668,Yes,OK
+34,2027-05-28 22:00:00Z,Brest,Lens,0.229,0.246,0.524,Lens,0.588,Yes,0.613,Over 2.5,9.58,0.308,Lens,Lens,0.704,Yes,OK
+34,2027-05-28 22:00:00Z,Lille,Le Mans FC,0.559,0.246,0.194,Lille,0.504,Yes,0.495,Under 2.5,9.26,0.673,Lille,Lille,0.662,Yes,Low (promoted/new team)
+34,2027-05-28 22:00:00Z,Lyon,Paris FC,0.519,0.26,0.22,Lyon,0.567,Yes,0.523,Over 2.5,9.56,0.593,Lyon,Lyon,0.639,Yes,OK
+34,2027-05-28 22:00:00Z,Marseille,Lorient,0.567,0.224,0.208,Marseille,0.559,Yes,0.615,Over 2.5,9.46,0.591,Marseille,Marseille,0.631,Yes,OK
+34,2027-05-28 22:00:00Z,Monaco,Troyes,0.612,0.201,0.187,Monaco,0.491,No,0.573,Over 2.5,9.82,0.617,Monaco,Monaco,0.733,Yes,OK
+34,2027-05-28 22:00:00Z,Paris SG,Toulouse,0.608,0.202,0.191,Paris SG,0.555,Yes,0.621,Over 2.5,9.42,0.605,Paris SG,Paris SG,0.733,Yes,OK
+34,2027-05-28 22:00:00Z,Rennes,Angers,0.545,0.203,0.252,Rennes,0.509,Yes,0.542,Over 2.5,9.58,0.575,Rennes,Rennes,0.689,Yes,OK
+34,2027-05-28 22:00:00Z,Strasbourg,Nice,0.502,0.255,0.243,Strasbourg,0.578,Yes,0.555,Over 2.5,9.33,0.54,Strasbourg,Strasbourg,0.65,Yes,OK

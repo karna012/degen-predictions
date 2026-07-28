@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#0a0e27">
+
+    <!-- Performance & Mobile Optimization -->
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9692020533590575"
+     crossorigin="anonymous"></script>
+    <title>{% block title %}Degen Predictions - ML & AI Sports, Crypto, Stocks, Real Estate & Metals Forecasts{% endblock %}</title>
+    <meta name="description" content="{% block description %}Free ML & AI predictions for sports, crypto, stocks, Dubai real estate, and metals & gemstones. Ensemble ML models trained on historical data with AI-enhanced validation and market cycles.{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}machine learning predictions, ML predictions, AI predictions, football predictions, crypto predictions, stock predictions, Dubai real estate ROI, metals prediction, gold price forecast, silver forecast, gemstone prices, property investment calculator, sports forecasting, cryptocurrency rankings, stock market predictions, real estate valuation, commodity forecasting, ensemble models{% endblock %}">
+    <link rel="canonical" href="{% block canonical %}https://degenpredictions.com{{ request.path }}{% endblock %}">
+
+    <meta property="og:site_name" content="Degen Predictions">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ self.title() }}">
+    <meta property="og:description" content="{{ self.description() }}">
+    <meta property="og:url" content="{{ self.canonical() }}">
+    <meta property="og:image" content="https://degenpredictions.com{{ url_for('static', filename='logo.png') }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ self.title() }}">
+    <meta name="twitter:description" content="{{ self.description() }}">
+    <meta name="twitter:image" content="https://degenpredictions.com{{ url_for('static', filename='logo.png') }}">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Degen Predictions",
+        "url": "https://degenpredictions.com",
+        "description": "Free ML & AI-powered predictions for sports, cryptocurrency, stocks, Dubai real estate, and metals & gemstones. Ensemble ML models trained on historical data with AI-enhanced walk-forward validation.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://degenpredictions.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Degen Predictions",
+        "url": "https://degenpredictions.com",
+        "logo": "https://degenpredictions.com/static/logo.png",
+        "description": "ML & AI-powered prediction platform for sports, crypto, stocks, real estate, and metals & gemstones",
+        "sameAs": ["https://twitter.com/degenpredictions"],
+        "service": [
+            {
+                "@type": "Service",
+                "name": "Sports Predictions",
+                "description": "ML & AI-powered football and baseball match predictions using ensemble models",
+                "url": "https://degenpredictions.com/sports"
+            },
+            {
+                "@type": "Service",
+                "name": "Crypto Predictions",
+                "description": "ML-ranked cryptocurrency assets by AI-predicted 6-month forward return",
+                "url": "https://degenpredictions.com/crypto"
+            },
+            {
+                "@type": "Service",
+                "name": "Stock Predictions",
+                "description": "ML & AI stock rankings for US and India by predicted return",
+                "url": "https://degenpredictions.com/stocks"
+            },
+            {
+                "@type": "Service",
+                "name": "Dubai Real Estate ROI Calculator",
+                "description": "ML & AI property investment return predictions for Dubai - capital appreciation and rental yield forecasts with infrastructure development factors",
+                "url": "https://degenpredictions.com/dubai"
+            },
+            {
+                "@type": "Service",
+                "name": "Metals & Gemstones Price Predictions",
+                "description": "ML & AI price forecasts for precious metals (gold, silver, platinum), industrial metals (copper, lithium, nickel), and gemstones. Investment calculators with market cycle multipliers.",
+                "url": "https://degenpredictions.com/metals"
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+          media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ static_version('style.css') }}" fetchpriority="high">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='favicon-48.png') }}?v={{ static_version('favicon-48.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon-96.png') }}?v={{ static_version('favicon-96.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='favicon-192.png') }}?v={{ static_version('favicon-192.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon-192.png') }}?v={{ static_version('favicon-192.png') }}">
+</head>
+<body>
+    <div id="react-bg-root" aria-hidden="true"></div>
+    <header class="site-header">
+        <a class="brand" href="/">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Degen Predictions" class="brand-logo" data-keyout-black>
+            <span class="brand-text">DEGEN <span class="brand-accent">PREDICTIONS</span></span>
+        </a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/sports">Sports</a>
+            <a href="/crypto">Crypto</a>
+            <a href="/stocks">Stocks</a>
+            <a href="/dubai">Dubai Real Estate</a>
+            <a href="/metals">Metals & Stones</a>
+            {% if accounts_enabled %}
+                {% if current_user.is_authenticated %}
+                <a href="/logout">Log Out ({{ current_user.name }})</a>
+                {% else %}
+                <a href="/login">Log In</a>
+                <a href="/signup">Sign Up</a>
+                {% endif %}
+            {% endif %}
+        </nav>
+    </header>
+
+    <button type="button" id="donate-fab" onclick="openDonateModal()" aria-label="Support the Work with a crypto donation">
+        <span class="donate-fab-icon" aria-hidden="true">&#9733;</span>
+        <span>Support the Work</span>
+    </button>
+    <div id="toast-stack" class="toast-stack"></div>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                {% for category, message in messages %}
+                showToast({{ message|tojson }}, {{ category|tojson }});
+                {% endfor %}
+            });
+        </script>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="site-footer">
+        <p class="footer-disclaimer">
+            Degen Predictions is an educational/research project covering sports, crypto, stocks, and Dubai real estate.
+            Predictions and rankings are generated from historical data using machine learning (ML) and AI models --
+            they are estimates, not certainties, and can be wrong. Nothing on this site is betting advice,
+            financial/investment advice, or real estate investment advice. This site does not promote or facilitate
+            sports betting, gambling, trading, or real estate transactions.
+        </p>
+        <div class="footer-links">
+            <a href="/{{ current_league_key }}/about">About</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="/terms">Terms &amp; Conditions</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="/privacy">Privacy Policy</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="/contact">Contact Us</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="/feedback">Feedback</a>
+            <span class="footer-sep">&middot;</span>
+            <span class="footer-copyright">&copy; {{ current_year }} Degen Predictions. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <div id="donate-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; padding:1rem;">
+        <div class="card" style="max-width:440px; width:100%; max-height:88vh; overflow-y:auto; position:relative; padding:1.5rem;">
+            <button type="button" onclick="closeDonateModal()" aria-label="Close"
+                    style="position:absolute; top:0.6rem; right:0.7rem; background:none; border:none; color:inherit; font-size:1.5rem; line-height:1; cursor:pointer; opacity:0.7;">&times;</button>
+            <h2 style="margin-top:0;">Support the Work</h2>
+            <p class="muted" style="font-size:0.92rem;">
+                Every contribution is genuinely appreciated and goes directly toward improving this site --
+                more accurate analysis, new features, and ongoing security updates. Donations are entirely
+                optional and used responsibly; the site remains free for everyone either way.
+            </p>
+
+            <label for="donate-coin-select" style="display:block; margin:1rem 0 0.4rem; font-weight:600;">Choose a cryptocurrency</label>
+            <select id="donate-coin-select" onchange="renderDonateCoin(this.value)"
+                    style="width:100%; padding:0.6rem 0.8rem; border-radius:8px; border:1px solid var(--border, #444); background:var(--card-bg, #1a1a1a); color:inherit; font-size:0.95rem;">
+                <option value="">-- Select --</option>
+                <option value="btc">BTC -- Bitcoin</option>
+                <option value="eth">ETH -- Ethereum (ERC-20)</option>
+                <option value="bnb">BNB (BEP-20)</option>
+                <option value="usdt">USDT (ERC-20)</option>
+                <option value="usdc">USDC (ERC-20)</option>
+                <option value="sol">SOL -- Solana</option>
+            </select>
+
+            <div id="donate-coin-detail" style="display:none; margin-top:1.25rem; text-align:center;">
+                <p style="font-weight:600; margin-bottom:0.75rem;">
+                    <span id="donate-coin-name"></span>
+                    <span id="donate-coin-network" class="muted" style="font-weight:400;"></span>
+                </p>
+                <img id="donate-qr-img" src="" alt="Donation address QR code" width="200" height="200"
+                     style="border-radius:8px; background:#fff; padding:8px;">
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:0.5rem; background:var(--card-bg, #1a1a1a); border:1px solid var(--border, #444); border-radius:8px; padding:0.55rem 0.7rem;">
+                    <code id="donate-address-text" style="flex:1; min-width:0; word-break:break-all; text-align:left; font-size:0.82rem;"></code>
+                    <button type="button" onclick="copyDonateAddress()" class="predict-btn" style="white-space:nowrap; padding:0.4rem 0.7rem; font-size:0.85rem; width:auto; flex-shrink:0; min-height:0;">Copy</button>
+                </div>
+                <p id="donate-copied-msg" class="muted" style="display:none; margin-top:0.4rem; color:#4caf50;">Copied to clipboard!</p>
+            </div>
+
+            <p class="muted" style="font-size:0.8rem; margin-top:1.5rem; border-top:1px solid var(--border, #444); padding-top:0.75rem;">
+                Always double-check the address (and network) before sending -- crypto transactions cannot be reversed
+                once confirmed. Only send BTC to the BTC address, ETH/BNB/USDT/USDC to the correct EVM network, and SOL
+                to the SOL address.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const DONATE_COINS = {
+            btc: {label: "BTC", network: "Bitcoin", address: "bc1qlyx4dkcmlkex3ynh6wh5uvxer49eg6pr4s9ndk"},
+            eth: {label: "ETH", network: "ERC-20", address: "0x59991B5209DAc03005376Ef23298D23e06460Cbc"},
+            bnb: {label: "BNB", network: "BEP-20", address: "0x59991B5209DAc03005376Ef23298D23e06460Cbc"},
+            usdt: {label: "USDT", network: "ERC-20", address: "0x59991B5209DAc03005376Ef23298D23e06460Cbc"},
+            usdc: {label: "USDC", network: "ERC-20", address: "0x59991B5209DAc03005376Ef23298D23e06460Cbc"},
+            sol: {label: "SOL", network: "Solana", address: "Cfn6hQfCMSF3WEr82WjpHRGUV8bYUuoQPPqdUwHqzM8s"},
+        };
+
+        function openDonateModal() {
+            document.getElementById("donate-modal-overlay").style.display = "flex";
+        }
+
+        function closeDonateModal() {
+            document.getElementById("donate-modal-overlay").style.display = "none";
+        }
+
+        function renderDonateCoin(key) {
+            const detail = document.getElementById("donate-coin-detail");
+            if (!key || !DONATE_COINS[key]) {
+                detail.style.display = "none";
+                return;
+            }
+            const coin = DONATE_COINS[key];
+            document.getElementById("donate-coin-name").textContent = coin.label;
+            document.getElementById("donate-coin-network").textContent = ` (${coin.network})`;
+            document.getElementById("donate-qr-img").src = "/static/donate/" + key + ".png";
+            document.getElementById("donate-address-text").textContent = coin.address;
+            document.getElementById("donate-copied-msg").style.display = "none";
+            detail.style.display = "block";
+        }
+
+        function copyDonateAddress() {
+            const text = document.getElementById("donate-address-text").textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                document.getElementById("donate-copied-msg").style.display = "block";
+            });
+        }
+
+        document.getElementById("donate-modal-overlay").addEventListener("click", function (e) {
+            if (e.target === this) closeDonateModal();
+        });
+    </script>
+
+    <script>
+        function showToast(message, category) {
+            const stack = document.getElementById("toast-stack");
+            if (!stack) return;
+            const toast = document.createElement("div");
+            toast.className = `toast toast-${category || "info"}`;
+            toast.textContent = message;
+            stack.appendChild(toast);
+            requestAnimationFrame(() => toast.classList.add("toast-in"));
+            setTimeout(() => {
+                toast.classList.remove("toast-in");
+                toast.classList.add("toast-out");
+                toast.addEventListener("transitionend", () => toast.remove(), { once: true });
+            }, 4500);
+        }
+
+        function animateNumber(el, from, to, prefix) {
+            prefix = prefix || "$";
+            const duration = 500;
+            const start = performance.now();
+            function tick(now) {
+                const t = Math.min(1, (now - start) / duration);
+                const eased = 1 - Math.pow(1 - t, 3);
+                const value = from + (to - from) * eased;
+                el.textContent = `${prefix}${value.toFixed(2)}`;
+                if (t < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        /* The logo art was generated on a solid near-black background. CSS
+           mix-blend-mode only hides pixels that are exactly pure black, so
+           compression/gradient noise near black still shows as a faint box.
+           This does a real chroma-key: any near-black pixel becomes fully
+           transparent, with a soft feathered ramp so the cutout edge is
+           smooth instead of a hard silhouette. */
+        function keyOutBlack(img, threshold, feather) {
+            const canvas = document.createElement("canvas");
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+            let data;
+            try {
+                data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            } catch (e) {
+                return; // tainted canvas (shouldn't happen for same-origin static files)
+            }
+            const px = data.data;
+            for (let i = 0; i < px.length; i += 4) {
+                const lum = (px[i] + px[i + 1] + px[i + 2]) / 3;
+                if (lum <= threshold) {
+                    px[i + 3] = 0;
+                } else if (lum < threshold + feather) {
+                    const t = (lum - threshold) / feather;
+                    px[i + 3] = Math.round(px[i + 3] * t);
+                }
+            }
+            ctx.putImageData(data, 0, 0);
+            img.src = canvas.toDataURL("image/png");
+        }
+
+        function initLogoKeyOut() {
+            document.querySelectorAll("img[data-keyout-black]").forEach((img) => {
+                const run = () => keyOutBlack(img, 26, 34);
+                if (img.complete) run();
+                else img.addEventListener("load", run, { once: true });
+            });
+        }
+        initLogoKeyOut();
+    </script>
+    <script defer src="{{ url_for('static', filename='react.production.min.js') }}?v={{ static_version('react.production.min.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='react-dom.production.min.js') }}?v={{ static_version('react-dom.production.min.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='space-bg.js') }}?v={{ static_version('space-bg.js') }}"></script>
+</body>
+</html>

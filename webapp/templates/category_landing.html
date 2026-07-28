@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Degen Predictions -- ML & AI Sports, Crypto, Stocks, Real Estate & Metals Forecasts{% endblock %}
+{% block description %}Free ML & AI-powered predictions for sports, crypto, stocks, Dubai real estate, metals & gemstones. Price forecasts and investment calculators trained on historical data with real market cycles.{% endblock %}
+{% block content %}
+<div class="leagues-hero">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Degen Predictions" class="leagues-hero-logo" data-keyout-black>
+    <h1>ML & AI-Powered Predictions Across Sports, Crypto, Stocks, Real Estate & Metals</h1>
+    <p class="muted">Pick a category to see machine learning (ML) forecasts powered by advanced AI models trained on real historical data.</p>
+</div>
+
+<div class="league-grid">
+    <a class="league-card" href="/sports" style="--league-color: #2e7d32;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>SPORTS</h2>
+            <p class="league-desc">ML & AI match predictions for football and baseball. Result, goals/runs, and more.</p>
+            <span class="league-cta">Explore</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">&#9917;</span></div>
+    </a>
+    <a class="league-card" href="/crypto" style="--league-color: #f7931a;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>CRYPTO</h2>
+            <p class="league-desc">ML-ranked crypto assets by AI-predicted 6-month forward return.</p>
+            <span class="league-cta">Explore</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">&#8383;</span></div>
+    </a>
+    <a class="league-card" href="/stocks" style="--league-color: #1565c0;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>STOCKS</h2>
+            <p class="league-desc">ML & AI stock rankings for US and India. Predicted 6-month forward return.</p>
+            <span class="league-cta">Explore</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">$</span></div>
+    </a>
+    <a class="league-card" href="/dubai" style="--league-color: #d4a574;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>DUBAI REAL ESTATE</h2>
+            <p class="league-desc">ML & AI property ROI predictions. Capital appreciation + rental yield forecasts.</p>
+            <span class="league-cta">Calculate ROI</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">🏢</span></div>
+    </a>
+    <a class="league-card" href="/metals" style="--league-color: #c9a961;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>METALS & STONES</h2>
+            <p class="league-desc">ML & AI price forecasts for precious metals, industrial metals, and gemstones in USD.</p>
+            <span class="league-cta">Predict Returns</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">💎</span></div>
+    </a>
+</div>
+{% endblock %}

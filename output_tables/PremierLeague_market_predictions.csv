@@ -1,0 +1,381 @@
+HomeTeam,AwayTeam,Exp_Home_Goals,Exp_Away_Goals,Exp_Total_Goals,P_Home_Win,P_Draw,P_Away_Win,Predicted_Result,P_BTTS_Yes,BTTS_Prediction,P_Over_2.5_Goals,Goals_Prediction,Exp_Home_Corners,Exp_Away_Corners,Exp_Total_Corners,P_Home_More_Corners,More_Corners_Prediction,Data_Confidence
+Arsenal,Coventry,2.7,0.88,3.58,0.758,0.145,0.096,Arsenal,0.545,Yes,0.693,Over 2.5,5.62,3.75,9.37,0.599,Arsenal,Low (promoted/new team)
+Hull,Man Utd,1.6,1.33,2.93,0.437,0.244,0.319,Hull,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Man Utd,Low (promoted/new team)
+Everton,Crystal Palace,1.25,1.24,2.49,0.368,0.271,0.361,Everton,0.506,Yes,0.453,Under 2.5,5.27,4.77,10.04,0.525,Everton,OK
+Ipswich,Sunderland,0.66,1.54,2.2,0.158,0.256,0.586,Sunderland,0.379,No,0.376,Under 2.5,4.84,4.63,9.47,0.511,Ipswich,OK
+Nott'm Forest,Leeds,1.86,1.03,2.89,0.566,0.226,0.208,Nott'm Forest,0.544,Yes,0.552,Over 2.5,5.0,4.61,9.61,0.52,Nott'm Forest,OK
+Brentford,Spurs,2.01,1.39,3.4,0.519,0.216,0.265,Brentford,0.65,Yes,0.66,Over 2.5,4.64,4.81,9.45,0.491,Spurs,Low (promoted/new team)
+Brighton,Aston Villa,1.7,1.33,3.03,0.462,0.237,0.301,Brighton,0.601,Yes,0.583,Over 2.5,5.71,4.56,10.27,0.556,Brighton,OK
+Man City,Bournemouth,3.83,1.14,4.97,0.84,0.094,0.067,Man City,0.666,Yes,0.871,Over 2.5,6.93,3.82,10.76,0.645,Man City,OK
+Newcastle,Liverpool,2.07,2.15,4.22,0.385,0.201,0.414,Liverpool,0.772,Yes,0.792,Over 2.5,5.11,5.49,10.6,0.482,Liverpool,OK
+Fulham,Chelsea,1.53,1.88,3.42,0.316,0.223,0.461,Chelsea,0.665,Yes,0.663,Over 2.5,5.11,5.15,10.27,0.498,Chelsea,OK
+Crystal Palace,Man City,0.88,2.13,3.01,0.145,0.196,0.659,Man City,0.517,Yes,0.579,Over 2.5,4.36,5.5,9.87,0.442,Man City,OK
+Liverpool,Nott'm Forest,3.15,0.94,4.09,0.805,0.118,0.078,Liverpool,0.582,Yes,0.773,Over 2.5,6.83,3.92,10.75,0.635,Liverpool,OK
+Bournemouth,Everton,1.43,0.92,2.35,0.488,0.269,0.243,Bournemouth,0.457,No,0.416,Under 2.5,6.22,4.47,10.69,0.582,Bournemouth,OK
+Coventry,Hull,1.6,1.33,2.93,0.437,0.244,0.319,Coventry,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Hull,Low (promoted/new team)
+Spurs,Newcastle,1.52,1.62,3.14,0.361,0.236,0.403,Newcastle,0.627,Yes,0.608,Over 2.5,5.39,5.3,10.69,0.504,Spurs,Low (promoted/new team)
+Chelsea,Brighton,1.98,1.5,3.48,0.488,0.218,0.294,Chelsea,0.67,Yes,0.675,Over 2.5,5.88,4.34,10.21,0.576,Chelsea,OK
+Leeds,Brentford,1.31,1.81,3.11,0.278,0.23,0.492,Brentford,0.609,Yes,0.601,Over 2.5,6.05,4.36,10.41,0.582,Leeds,OK
+Sunderland,Fulham,1.25,1.06,2.31,0.406,0.281,0.312,Sunderland,0.467,No,0.407,Under 2.5,4.6,4.92,9.52,0.483,Fulham,OK
+Man Utd,Ipswich,2.0,1.12,3.12,0.577,0.214,0.208,Man Utd,0.583,Yes,0.603,Over 2.5,6.43,4.51,10.95,0.588,Man Utd,Low (promoted/new team)
+Aston Villa,Arsenal,1.28,2.02,3.3,0.24,0.215,0.545,Arsenal,0.626,Yes,0.641,Over 2.5,4.88,4.96,9.84,0.496,Arsenal,OK
+Ipswich,Liverpool,0.62,4.13,4.76,0.021,0.051,0.928,Liverpool,0.457,No,0.849,Over 2.5,4.0,6.12,10.12,0.395,Liverpool,OK
+Newcastle,Bournemouth,2.8,1.52,4.32,0.641,0.168,0.191,Newcastle,0.735,Yes,0.805,Over 2.5,6.3,4.81,11.11,0.567,Newcastle,OK
+Brentford,Sunderland,1.85,0.92,2.78,0.593,0.224,0.183,Brentford,0.508,Yes,0.525,Over 2.5,5.18,4.24,9.42,0.55,Brentford,OK
+Brighton,Leeds,2.28,1.05,3.33,0.649,0.189,0.162,Brighton,0.585,Yes,0.647,Over 2.5,5.75,3.96,9.71,0.592,Brighton,OK
+Fulham,Crystal Palace,1.61,1.31,2.92,0.444,0.244,0.312,Fulham,0.585,Yes,0.559,Over 2.5,5.61,4.66,10.27,0.546,Fulham,OK
+Man City,Coventry,3.23,0.9,4.13,0.82,0.111,0.07,Man City,0.571,Yes,0.779,Over 2.5,6.05,3.58,9.63,0.628,Man City,Low (promoted/new team)
+Nott'm Forest,Spurs,1.47,1.21,2.68,0.431,0.257,0.312,Nott'm Forest,0.541,Yes,0.502,Over 2.5,4.48,4.92,9.4,0.477,Spurs,Low (promoted/new team)
+Hull,Aston Villa,1.5,1.44,2.94,0.392,0.246,0.362,Hull,0.592,Yes,0.563,Over 2.5,5.47,5.29,10.76,0.509,Hull,Low (promoted/new team)
+Everton,Man Utd,1.36,1.26,2.62,0.392,0.262,0.346,Everton,0.532,Yes,0.486,Under 2.5,4.69,4.89,9.58,0.49,Man Utd,Low (promoted/new team)
+Arsenal,Chelsea,2.37,1.23,3.6,0.626,0.188,0.186,Arsenal,0.642,Yes,0.697,Over 2.5,5.7,4.13,9.82,0.58,Arsenal,OK
+Bournemouth,Brentford,1.46,1.35,2.81,0.399,0.252,0.349,Bournemouth,0.568,Yes,0.532,Over 2.5,6.29,4.7,10.99,0.572,Bournemouth,OK
+Aston Villa,Nott'm Forest,2.41,1.34,3.75,0.61,0.188,0.202,Aston Villa,0.673,Yes,0.723,Over 2.5,6.18,4.24,10.42,0.593,Aston Villa,OK
+Chelsea,Hull,2.01,1.17,3.18,0.569,0.214,0.216,Chelsea,0.596,Yes,0.615,Over 2.5,5.52,4.28,9.8,0.563,Chelsea,Low (promoted/new team)
+Crystal Palace,Ipswich,1.85,1.04,2.89,0.564,0.226,0.21,Crystal Palace,0.545,Yes,0.553,Over 2.5,6.11,4.11,10.22,0.598,Crystal Palace,OK
+Liverpool,Fulham,2.71,0.87,3.58,0.761,0.144,0.095,Liverpool,0.543,Yes,0.694,Over 2.5,6.15,4.3,10.45,0.588,Liverpool,OK
+Spurs,Everton,1.49,1.04,2.53,0.476,0.26,0.264,Spurs,0.5,Yes,0.463,Under 2.5,5.97,4.72,10.69,0.558,Spurs,Low (promoted/new team)
+Sunderland,Arsenal,0.77,1.71,2.49,0.166,0.236,0.598,Arsenal,0.441,No,0.453,Under 2.5,3.98,5.25,9.24,0.431,Arsenal,OK
+Coventry,Brighton,1.57,1.72,3.29,0.354,0.23,0.416,Brighton,0.65,Yes,0.638,Over 2.5,5.36,5.05,10.41,0.515,Coventry,Low (promoted/new team)
+Man Utd,Man City,0.95,2.29,3.25,0.142,0.184,0.674,Man City,0.553,Yes,0.629,Over 2.5,4.69,5.9,10.59,0.443,Man City,Low (promoted/new team)
+Leeds,Newcastle,1.3,1.92,3.23,0.259,0.222,0.519,Newcastle,0.622,Yes,0.625,Over 2.5,5.41,4.7,10.1,0.535,Leeds,OK
+Brentford,Chelsea,1.76,1.95,3.71,0.354,0.215,0.432,Chelsea,0.711,Yes,0.717,Over 2.5,4.72,5.18,9.9,0.477,Chelsea,OK
+Spurs,Aston Villa,1.5,1.44,2.94,0.392,0.246,0.362,Spurs,0.592,Yes,0.563,Over 2.5,5.47,5.29,10.76,0.509,Spurs,Low (promoted/new team)
+Brighton,Arsenal,1.07,2.01,3.08,0.197,0.213,0.589,Arsenal,0.569,Yes,0.594,Over 2.5,4.94,4.77,9.72,0.509,Brighton,OK
+Everton,Ipswich,1.7,1.06,2.76,0.524,0.24,0.236,Everton,0.534,Yes,0.521,Over 2.5,6.12,4.4,10.53,0.582,Everton,OK
+Leeds,Crystal Palace,1.26,1.55,2.81,0.309,0.249,0.442,Crystal Palace,0.564,Yes,0.533,Over 2.5,5.59,4.28,9.88,0.566,Leeds,OK
+Man City,Sunderland,2.98,0.6,3.58,0.847,0.105,0.047,Man City,0.428,No,0.693,Over 2.5,6.59,3.02,9.6,0.686,Man City,OK
+Newcastle,Hull,2.36,1.2,3.57,0.631,0.187,0.181,Newcastle,0.634,Yes,0.691,Over 2.5,5.41,4.57,9.98,0.542,Newcastle,Low (promoted/new team)
+Nott'm Forest,Coventry,1.47,1.21,2.68,0.431,0.257,0.312,Nott'm Forest,0.541,Yes,0.502,Over 2.5,4.48,4.92,9.4,0.477,Coventry,Low (promoted/new team)
+Bournemouth,Liverpool,1.34,2.11,3.45,0.24,0.209,0.551,Liverpool,0.648,Yes,0.669,Over 2.5,4.95,5.67,10.61,0.466,Liverpool,OK
+Fulham,Man Utd,1.75,1.34,3.09,0.472,0.234,0.295,Fulham,0.609,Yes,0.596,Over 2.5,5.03,4.78,9.81,0.513,Fulham,Low (promoted/new team)
+Arsenal,Leeds,3.41,0.75,4.16,0.863,0.09,0.047,Arsenal,0.51,Yes,0.783,Over 2.5,6.14,3.44,9.58,0.641,Arsenal,OK
+Aston Villa,Brentford,2.06,1.42,3.47,0.524,0.213,0.263,Aston Villa,0.661,Yes,0.674,Over 2.5,6.2,4.41,10.62,0.584,Aston Villa,OK
+Chelsea,Bournemouth,2.38,1.48,3.86,0.577,0.193,0.231,Chelsea,0.7,Yes,0.74,Over 2.5,6.41,4.52,10.93,0.586,Chelsea,OK
+Coventry,Newcastle,1.52,1.62,3.14,0.361,0.236,0.403,Newcastle,0.627,Yes,0.608,Over 2.5,5.39,5.3,10.69,0.504,Coventry,Low (promoted/new team)
+Crystal Palace,Nott'm Forest,1.65,1.34,2.99,0.449,0.24,0.311,Crystal Palace,0.597,Yes,0.575,Over 2.5,5.68,4.39,10.07,0.564,Crystal Palace,OK
+Hull,Everton,1.49,1.04,2.53,0.476,0.26,0.264,Hull,0.5,Yes,0.463,Under 2.5,5.97,4.72,10.69,0.558,Hull,Low (promoted/new team)
+Ipswich,Fulham,0.69,2.33,3.02,0.092,0.165,0.743,Fulham,0.448,No,0.581,Over 2.5,4.63,5.37,9.99,0.463,Fulham,OK
+Liverpool,Man City,1.69,1.49,3.17,0.425,0.234,0.34,Liverpool,0.631,Yes,0.614,Over 2.5,5.51,5.04,10.55,0.522,Liverpool,OK
+Man Utd,Spurs,1.6,1.33,2.93,0.437,0.244,0.319,Man Utd,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Spurs,Low (promoted/new team)
+Sunderland,Brighton,1.28,1.36,2.64,0.351,0.262,0.387,Brighton,0.536,Yes,0.49,Under 2.5,4.63,4.8,9.44,0.491,Brighton,OK
+Bournemouth,Sunderland,1.41,0.78,2.2,0.518,0.273,0.209,Bournemouth,0.411,No,0.376,Under 2.5,5.79,4.18,9.97,0.581,Bournemouth,OK
+Brentford,Liverpool,1.76,2.48,4.24,0.272,0.19,0.537,Liverpool,0.758,Yes,0.794,Over 2.5,4.34,5.73,10.07,0.431,Liverpool,OK
+Brighton,Crystal Palace,1.66,1.21,2.87,0.48,0.242,0.278,Brighton,0.568,Yes,0.547,Over 2.5,5.81,4.15,9.96,0.583,Brighton,OK
+Everton,Chelsea,1.19,1.77,2.96,0.256,0.234,0.51,Chelsea,0.578,Yes,0.569,Over 2.5,4.77,5.26,10.03,0.475,Chelsea,OK
+Fulham,Hull,1.75,1.34,3.09,0.472,0.234,0.295,Fulham,0.609,Yes,0.596,Over 2.5,5.03,4.78,9.81,0.513,Fulham,Low (promoted/new team)
+Leeds,Man Utd,1.37,1.58,2.95,0.33,0.244,0.426,Man Utd,0.592,Yes,0.565,Over 2.5,5.02,4.4,9.41,0.533,Leeds,Low (promoted/new team)
+Man City,Ipswich,4.05,0.76,4.81,0.908,0.062,0.03,Man City,0.522,Yes,0.855,Over 2.5,7.48,3.1,10.58,0.707,Man City,OK
+Newcastle,Aston Villa,2.22,1.3,3.52,0.584,0.2,0.216,Newcastle,0.648,Yes,0.683,Over 2.5,5.89,4.86,10.75,0.548,Newcastle,OK
+Nott'm Forest,Arsenal,0.87,1.97,2.84,0.159,0.211,0.63,Arsenal,0.501,Yes,0.541,Over 2.5,4.19,5.42,9.61,0.436,Arsenal,OK
+Spurs,Coventry,1.6,1.33,2.93,0.437,0.244,0.319,Spurs,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Coventry,Low (promoted/new team)
+Arsenal,Everton,2.52,0.68,3.21,0.773,0.147,0.08,Arsenal,0.455,No,0.621,Over 2.5,6.58,3.48,10.06,0.654,Arsenal,OK
+Aston Villa,Man City,1.29,2.13,3.42,0.226,0.207,0.567,Man City,0.639,Yes,0.665,Over 2.5,4.86,5.36,10.21,0.475,Man City,OK
+Chelsea,Spurs,2.01,1.17,3.18,0.569,0.214,0.216,Chelsea,0.596,Yes,0.615,Over 2.5,5.52,4.28,9.8,0.563,Chelsea,Low (promoted/new team)
+Coventry,Fulham,1.54,1.34,2.88,0.419,0.248,0.333,Coventry,0.58,Yes,0.549,Over 2.5,5.33,5.17,10.49,0.508,Coventry,Low (promoted/new team)
+Crystal Palace,Newcastle,1.41,1.5,2.91,0.356,0.247,0.397,Newcastle,0.588,Yes,0.557,Over 2.5,5.07,4.9,9.97,0.508,Crystal Palace,OK
+Hull,Brentford,1.52,1.52,3.04,0.381,0.241,0.379,Hull,0.611,Yes,0.587,Over 2.5,6.04,4.96,10.99,0.549,Hull,Low (promoted/new team)
+Ipswich,Nott'm Forest,0.8,2.51,3.31,0.098,0.156,0.746,Nott'm Forest,0.504,Yes,0.641,Over 2.5,5.31,4.99,10.3,0.516,Ipswich,OK
+Liverpool,Brighton,2.77,1.11,3.89,0.719,0.154,0.127,Liverpool,0.63,Yes,0.744,Over 2.5,6.18,4.19,10.37,0.596,Liverpool,OK
+Man Utd,Bournemouth,1.89,1.69,3.58,0.432,0.219,0.349,Man Utd,0.692,Yes,0.693,Over 2.5,5.89,5.24,11.13,0.529,Man Utd,Low (promoted/new team)
+Sunderland,Leeds,1.64,0.9,2.54,0.549,0.246,0.205,Sunderland,0.478,No,0.467,Under 2.5,4.8,4.44,9.24,0.519,Sunderland,OK
+Bournemouth,Leeds,1.93,1.01,2.94,0.588,0.218,0.193,Bournemouth,0.543,Yes,0.563,Over 2.5,5.77,4.44,10.21,0.565,Bournemouth,OK
+Aston Villa,Fulham,2.07,1.25,3.32,0.564,0.21,0.226,Aston Villa,0.624,Yes,0.645,Over 2.5,5.49,4.62,10.12,0.543,Aston Villa,OK
+Brentford,Nott'm Forest,2.24,1.5,3.75,0.543,0.202,0.255,Brentford,0.695,Yes,0.722,Over 2.5,5.65,4.6,10.24,0.551,Brentford,OK
+Chelsea,Man Utd,2.01,1.17,3.18,0.569,0.214,0.216,Chelsea,0.596,Yes,0.615,Over 2.5,5.52,4.28,9.8,0.563,Chelsea,Low (promoted/new team)
+Coventry,Sunderland,1.47,0.88,2.36,0.509,0.264,0.226,Coventry,0.453,No,0.419,Under 2.5,5.54,4.43,9.97,0.555,Coventry,Low (promoted/new team)
+Hull,Ipswich,2.0,1.12,3.12,0.577,0.214,0.208,Hull,0.583,Yes,0.603,Over 2.5,6.43,4.51,10.95,0.588,Hull,Low (promoted/new team)
+Liverpool,Arsenal,1.68,1.41,3.08,0.44,0.237,0.323,Liverpool,0.614,Yes,0.595,Over 2.5,5.53,4.64,10.17,0.544,Liverpool,OK
+Man City,Brighton,3.18,1.16,4.34,0.766,0.13,0.104,Man City,0.658,Yes,0.806,Over 2.5,6.4,3.64,10.04,0.638,Man City,OK
+Newcastle,Everton,2.21,0.94,3.14,0.661,0.191,0.148,Newcastle,0.542,Yes,0.608,Over 2.5,6.38,4.29,10.67,0.598,Newcastle,OK
+Spurs,Crystal Palace,1.47,1.31,2.78,0.411,0.253,0.336,Spurs,0.562,Yes,0.525,Over 2.5,5.58,4.88,10.46,0.533,Spurs,Low (promoted/new team)
+Arsenal,Hull,2.7,0.88,3.58,0.758,0.145,0.096,Arsenal,0.545,Yes,0.693,Over 2.5,5.62,3.75,9.37,0.599,Arsenal,Low (promoted/new team)
+Brighton,Brentford,1.72,1.41,3.13,0.451,0.234,0.314,Brighton,0.62,Yes,0.605,Over 2.5,6.27,4.23,10.5,0.597,Brighton,OK
+Crystal Palace,Liverpool,1.3,2.21,3.5,0.218,0.202,0.58,Liverpool,0.646,Yes,0.679,Over 2.5,4.37,5.52,9.89,0.442,Liverpool,OK
+Everton,Coventry,1.36,1.26,2.62,0.392,0.262,0.346,Everton,0.532,Yes,0.486,Under 2.5,4.69,4.89,9.58,0.49,Coventry,Low (promoted/new team)
+Fulham,Newcastle,1.67,1.63,3.29,0.393,0.231,0.376,Fulham,0.652,Yes,0.639,Over 2.5,5.43,5.07,10.5,0.517,Fulham,OK
+Ipswich,Bournemouth,0.84,2.93,3.78,0.078,0.126,0.795,Bournemouth,0.54,Yes,0.727,Over 2.5,5.19,5.44,10.63,0.488,Bournemouth,OK
+Leeds,Spurs,1.37,1.58,2.95,0.33,0.244,0.426,Spurs,0.592,Yes,0.565,Over 2.5,5.02,4.4,9.41,0.533,Leeds,Low (promoted/new team)
+Man Utd,Aston Villa,1.5,1.44,2.94,0.392,0.246,0.362,Man Utd,0.592,Yes,0.563,Over 2.5,5.47,5.29,10.76,0.509,Man Utd,Low (promoted/new team)
+Nott'm Forest,Man City,0.88,2.08,2.96,0.148,0.2,0.652,Man City,0.512,Yes,0.568,Over 2.5,4.17,5.82,9.99,0.417,Man City,OK
+Sunderland,Chelsea,1.14,1.48,2.62,0.292,0.258,0.45,Chelsea,0.526,Yes,0.487,Under 2.5,4.36,5.12,9.48,0.46,Chelsea,OK
+Bournemouth,Nott'm Forest,1.71,1.28,2.99,0.475,0.238,0.288,Bournemouth,0.591,Yes,0.574,Over 2.5,6.26,4.53,10.79,0.58,Bournemouth,OK
+Aston Villa,Sunderland,1.99,0.82,2.81,0.646,0.207,0.147,Aston Villa,0.485,No,0.534,Over 2.5,5.71,3.89,9.6,0.595,Aston Villa,OK
+Brentford,Everton,1.87,1.08,2.96,0.558,0.225,0.217,Brentford,0.56,Yes,0.567,Over 2.5,5.6,4.53,10.14,0.553,Brentford,OK
+Chelsea,Leeds,2.54,1.0,3.54,0.708,0.165,0.127,Chelsea,0.581,Yes,0.686,Over 2.5,6.04,3.97,10.02,0.603,Chelsea,OK
+Coventry,Crystal Palace,1.47,1.31,2.78,0.411,0.253,0.336,Coventry,0.562,Yes,0.525,Over 2.5,5.58,4.88,10.46,0.533,Coventry,Low (promoted/new team)
+Hull,Brighton,1.57,1.72,3.29,0.354,0.23,0.416,Brighton,0.65,Yes,0.638,Over 2.5,5.36,5.05,10.41,0.515,Hull,Low (promoted/new team)
+Liverpool,Man Utd,2.82,0.86,3.68,0.777,0.136,0.087,Liverpool,0.544,Yes,0.711,Over 2.5,5.82,4.14,9.96,0.585,Liverpool,Low (promoted/new team)
+Man City,Fulham,3.11,0.91,4.02,0.804,0.119,0.077,Man City,0.57,Yes,0.763,Over 2.5,6.37,3.75,10.12,0.63,Man City,OK
+Newcastle,Arsenal,1.4,1.96,3.36,0.276,0.219,0.505,Arsenal,0.648,Yes,0.653,Over 2.5,5.12,5.07,10.2,0.502,Newcastle,OK
+Spurs,Ipswich,2.0,1.12,3.12,0.577,0.214,0.208,Spurs,0.583,Yes,0.603,Over 2.5,6.43,4.51,10.95,0.588,Spurs,Low (promoted/new team)
+Arsenal,Man City,1.62,1.51,3.12,0.405,0.237,0.358,Arsenal,0.624,Yes,0.604,Over 2.5,5.3,4.65,9.96,0.533,Arsenal,OK
+Brighton,Newcastle,1.72,1.5,3.22,0.432,0.232,0.336,Brighton,0.637,Yes,0.624,Over 2.5,5.63,4.57,10.19,0.552,Brighton,OK
+Crystal Palace,Hull,1.48,1.24,2.72,0.428,0.255,0.316,Crystal Palace,0.548,Yes,0.51,Over 2.5,4.67,4.6,9.27,0.504,Crystal Palace,Low (promoted/new team)
+Everton,Liverpool,1.19,2.25,3.44,0.192,0.196,0.612,Liverpool,0.622,Yes,0.667,Over 2.5,4.39,5.81,10.2,0.43,Liverpool,OK
+Fulham,Bournemouth,2.07,1.69,3.77,0.469,0.211,0.321,Fulham,0.713,Yes,0.725,Over 2.5,5.92,5.02,10.94,0.541,Fulham,OK
+Ipswich,Aston Villa,0.67,2.5,3.17,0.079,0.148,0.772,Aston Villa,0.448,No,0.613,Over 2.5,4.78,5.49,10.26,0.465,Aston Villa,OK
+Leeds,Coventry,1.37,1.58,2.95,0.33,0.244,0.426,Coventry,0.592,Yes,0.565,Over 2.5,5.02,4.4,9.41,0.533,Leeds,Low (promoted/new team)
+Man Utd,Brentford,1.52,1.52,3.04,0.381,0.241,0.379,Man Utd,0.611,Yes,0.587,Over 2.5,6.04,4.96,10.99,0.549,Man Utd,Low (promoted/new team)
+Nott'm Forest,Chelsea,1.29,1.7,2.99,0.29,0.238,0.472,Chelsea,0.592,Yes,0.575,Over 2.5,4.56,5.29,9.85,0.463,Chelsea,OK
+Sunderland,Spurs,1.3,1.05,2.35,0.422,0.277,0.301,Sunderland,0.474,No,0.418,Under 2.5,4.28,4.75,9.03,0.474,Spurs,Low (promoted/new team)
+Bournemouth,Brighton,1.5,1.52,3.03,0.375,0.242,0.383,Brighton,0.608,Yes,0.583,Over 2.5,5.61,4.8,10.41,0.539,Bournemouth,OK
+Aston Villa,Everton,2.01,0.97,2.98,0.616,0.21,0.174,Aston Villa,0.537,Yes,0.572,Over 2.5,6.13,4.18,10.31,0.595,Aston Villa,OK
+Brentford,Arsenal,1.19,2.26,3.45,0.191,0.195,0.614,Arsenal,0.624,Yes,0.67,Over 2.5,4.35,5.31,9.66,0.45,Arsenal,OK
+Chelsea,Crystal Palace,1.85,1.14,3.0,0.539,0.227,0.233,Chelsea,0.574,Yes,0.576,Over 2.5,6.1,4.17,10.26,0.594,Chelsea,OK
+Coventry,Ipswich,2.0,1.12,3.12,0.577,0.214,0.208,Coventry,0.583,Yes,0.603,Over 2.5,6.43,4.51,10.95,0.588,Coventry,Low (promoted/new team)
+Hull,Nott'm Forest,1.78,1.44,3.23,0.457,0.23,0.313,Hull,0.635,Yes,0.626,Over 2.5,6.01,4.79,10.8,0.557,Hull,Low (promoted/new team)
+Liverpool,Sunderland,2.6,0.57,3.18,0.808,0.132,0.06,Liverpool,0.404,No,0.615,Over 2.5,6.36,3.57,9.93,0.641,Liverpool,OK
+Man City,Leeds,4.08,0.77,4.85,0.908,0.062,0.03,Man City,0.528,Yes,0.859,Over 2.5,6.57,3.27,9.84,0.667,Man City,OK
+Newcastle,Man Utd,2.36,1.2,3.57,0.631,0.187,0.181,Newcastle,0.634,Yes,0.691,Over 2.5,5.41,4.57,9.98,0.542,Newcastle,Low (promoted/new team)
+Spurs,Fulham,1.54,1.34,2.88,0.419,0.248,0.333,Spurs,0.58,Yes,0.549,Over 2.5,5.33,5.17,10.49,0.508,Spurs,Low (promoted/new team)
+Bournemouth,Hull,1.53,1.18,2.71,0.453,0.253,0.294,Bournemouth,0.543,Yes,0.509,Over 2.5,5.25,4.75,10.0,0.525,Bournemouth,Low (promoted/new team)
+Aston Villa,Crystal Palace,1.99,1.22,3.2,0.552,0.217,0.231,Aston Villa,0.607,Yes,0.621,Over 2.5,5.75,4.34,10.08,0.57,Aston Villa,OK
+Brentford,Man City,1.2,2.39,3.59,0.178,0.185,0.637,Man City,0.635,Yes,0.695,Over 2.5,4.33,5.71,10.04,0.431,Man City,OK
+Chelsea,Liverpool,1.76,2.08,3.84,0.333,0.209,0.457,Liverpool,0.725,Yes,0.738,Over 2.5,5.22,5.2,10.42,0.501,Chelsea,OK
+Everton,Fulham,1.31,1.27,2.58,0.376,0.265,0.359,Everton,0.524,Yes,0.475,Under 2.5,5.02,5.06,10.07,0.498,Fulham,OK
+Leeds,Ipswich,1.71,1.33,3.04,0.465,0.236,0.299,Leeds,0.603,Yes,0.586,Over 2.5,6.45,3.91,10.36,0.622,Leeds,OK
+Man Utd,Coventry,1.6,1.33,2.93,0.437,0.244,0.319,Man Utd,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Coventry,Low (promoted/new team)
+Newcastle,Sunderland,2.18,0.8,2.98,0.69,0.186,0.124,Newcastle,0.488,No,0.572,Over 2.5,5.95,4.0,9.96,0.598,Newcastle,OK
+Nott'm Forest,Brighton,1.44,1.56,3.01,0.353,0.242,0.404,Brighton,0.604,Yes,0.578,Over 2.5,4.84,4.97,9.81,0.493,Brighton,OK
+Spurs,Arsenal,0.95,2.17,3.12,0.154,0.195,0.652,Arsenal,0.543,Yes,0.602,Over 2.5,4.71,5.5,10.21,0.461,Arsenal,Low (promoted/new team)
+Arsenal,Bournemouth,3.2,1.11,4.31,0.779,0.125,0.096,Arsenal,0.643,Yes,0.803,Over 2.5,6.5,3.99,10.5,0.62,Arsenal,OK
+Brighton,Everton,1.68,0.96,2.65,0.544,0.242,0.214,Brighton,0.503,Yes,0.493,Under 2.5,6.2,3.99,10.19,0.608,Brighton,OK
+Coventry,Aston Villa,1.5,1.44,2.94,0.392,0.246,0.362,Coventry,0.592,Yes,0.563,Over 2.5,5.47,5.29,10.76,0.509,Coventry,Low (promoted/new team)
+Crystal Palace,Man Utd,1.48,1.24,2.72,0.428,0.255,0.316,Crystal Palace,0.548,Yes,0.51,Over 2.5,4.67,4.6,9.27,0.504,Crystal Palace,Low (promoted/new team)
+Fulham,Brentford,1.67,1.53,3.2,0.414,0.234,0.353,Fulham,0.635,Yes,0.619,Over 2.5,6.07,4.73,10.8,0.562,Fulham,OK
+Hull,Spurs,1.6,1.33,2.93,0.437,0.244,0.319,Hull,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Spurs,Low (promoted/new team)
+Ipswich,Newcastle,0.68,2.81,3.49,0.064,0.123,0.813,Newcastle,0.464,No,0.677,Over 2.5,4.7,5.5,10.19,0.461,Newcastle,OK
+Liverpool,Leeds,3.56,0.74,4.3,0.877,0.082,0.041,Liverpool,0.507,Yes,0.8,Over 2.5,6.34,3.83,10.17,0.624,Liverpool,OK
+Man City,Chelsea,2.83,1.27,4.1,0.697,0.157,0.146,Man City,0.676,Yes,0.775,Over 2.5,6.13,3.96,10.08,0.608,Man City,OK
+Sunderland,Nott'm Forest,1.45,1.14,2.59,0.443,0.26,0.297,Sunderland,0.521,Yes,0.48,Under 2.5,5.29,4.54,9.82,0.538,Sunderland,OK
+Bournemouth,Coventry,1.53,1.18,2.71,0.453,0.253,0.294,Bournemouth,0.543,Yes,0.509,Over 2.5,5.25,4.75,10.0,0.525,Bournemouth,Low (promoted/new team)
+Arsenal,Man Utd,2.7,0.88,3.58,0.758,0.145,0.096,Arsenal,0.545,Yes,0.693,Over 2.5,5.62,3.75,9.37,0.599,Arsenal,Low (promoted/new team)
+Brentford,Newcastle,1.91,1.69,3.6,0.437,0.218,0.345,Brentford,0.695,Yes,0.698,Over 2.5,5.03,5.11,10.14,0.496,Newcastle,OK
+Brighton,Ipswich,2.26,1.04,3.3,0.65,0.19,0.161,Brighton,0.578,Yes,0.64,Over 2.5,6.67,3.78,10.45,0.638,Brighton,OK
+Chelsea,Aston Villa,1.89,1.26,3.15,0.523,0.224,0.253,Chelsea,0.608,Yes,0.609,Over 2.5,6.0,4.57,10.57,0.568,Chelsea,OK
+Leeds,Fulham,1.31,1.59,2.91,0.316,0.245,0.44,Fulham,0.583,Yes,0.556,Over 2.5,5.34,4.57,9.91,0.539,Leeds,OK
+Liverpool,Spurs,2.82,0.86,3.68,0.777,0.136,0.087,Liverpool,0.544,Yes,0.711,Over 2.5,5.82,4.14,9.96,0.585,Liverpool,Low (promoted/new team)
+Man City,Hull,3.23,0.9,4.13,0.82,0.111,0.07,Man City,0.571,Yes,0.779,Over 2.5,6.05,3.58,9.63,0.628,Man City,Low (promoted/new team)
+Nott'm Forest,Everton,1.37,0.94,2.32,0.467,0.274,0.258,Nott'm Forest,0.456,No,0.408,Under 2.5,5.45,4.64,10.09,0.54,Nott'm Forest,OK
+Sunderland,Crystal Palace,1.2,1.03,2.23,0.398,0.288,0.315,Sunderland,0.45,No,0.385,Under 2.5,4.85,4.63,9.49,0.512,Sunderland,OK
+Aston Villa,Leeds,2.72,1.06,3.78,0.723,0.154,0.123,Aston Villa,0.611,Yes,0.728,Over 2.5,5.69,4.15,9.83,0.578,Aston Villa,OK
+Coventry,Chelsea,1.4,1.87,3.27,0.288,0.225,0.487,Chelsea,0.638,Yes,0.635,Over 2.5,5.08,5.37,10.45,0.486,Chelsea,Low (promoted/new team)
+Crystal Palace,Arsenal,0.88,2.01,2.89,0.156,0.207,0.637,Arsenal,0.507,Yes,0.552,Over 2.5,4.38,5.11,9.49,0.462,Arsenal,OK
+Everton,Sunderland,1.25,0.84,2.09,0.461,0.292,0.248,Everton,0.405,No,0.348,Under 2.5,5.23,4.32,9.55,0.547,Everton,OK
+Fulham,Brighton,1.72,1.72,3.44,0.386,0.225,0.389,Brighton,0.674,Yes,0.668,Over 2.5,5.39,4.83,10.22,0.527,Fulham,OK
+Hull,Liverpool,1.4,2.38,3.78,0.217,0.192,0.592,Liverpool,0.683,Yes,0.727,Over 2.5,4.7,5.92,10.62,0.442,Liverpool,Low (promoted/new team)
+Ipswich,Brentford,0.68,2.64,3.32,0.073,0.137,0.791,Brentford,0.459,No,0.645,Over 2.5,5.34,5.15,10.49,0.509,Ipswich,OK
+Man Utd,Nott'm Forest,1.78,1.44,3.23,0.457,0.23,0.313,Man Utd,0.635,Yes,0.626,Over 2.5,6.01,4.79,10.8,0.557,Man Utd,Low (promoted/new team)
+Newcastle,Man City,1.41,2.07,3.48,0.261,0.212,0.527,Man City,0.661,Yes,0.676,Over 2.5,5.1,5.47,10.57,0.483,Man City,OK
+Spurs,Bournemouth,1.89,1.69,3.58,0.432,0.219,0.349,Spurs,0.692,Yes,0.693,Over 2.5,5.89,5.24,11.13,0.529,Spurs,Low (promoted/new team)
+Aston Villa,Liverpool,1.89,2.21,4.1,0.337,0.202,0.461,Liverpool,0.756,Yes,0.777,Over 2.5,4.87,5.38,10.24,0.475,Liverpool,OK
+Coventry,Brentford,1.52,1.52,3.04,0.381,0.241,0.379,Coventry,0.611,Yes,0.587,Over 2.5,6.04,4.96,10.99,0.549,Coventry,Low (promoted/new team)
+Crystal Palace,Bournemouth,1.75,1.57,3.32,0.425,0.229,0.346,Crystal Palace,0.654,Yes,0.644,Over 2.5,5.56,4.84,10.4,0.535,Crystal Palace,OK
+Everton,Man City,0.81,2.17,2.98,0.127,0.188,0.684,Man City,0.492,No,0.572,Over 2.5,4.38,5.79,10.17,0.43,Man City,OK
+Fulham,Arsenal,1.04,2.18,3.22,0.17,0.197,0.633,Arsenal,0.573,Yes,0.623,Over 2.5,4.74,5.28,10.02,0.473,Arsenal,OK
+Hull,Leeds,2.02,1.14,3.15,0.577,0.213,0.21,Hull,0.589,Yes,0.61,Over 2.5,5.52,4.69,10.21,0.541,Hull,Low (promoted/new team)
+Ipswich,Chelsea,0.62,3.26,3.88,0.041,0.09,0.87,Chelsea,0.447,No,0.743,Over 2.5,4.38,5.57,9.95,0.44,Chelsea,OK
+Man Utd,Sunderland,1.47,0.88,2.36,0.509,0.264,0.226,Man Utd,0.453,No,0.419,Under 2.5,5.54,4.43,9.97,0.555,Man Utd,Low (promoted/new team)
+Newcastle,Nott'm Forest,2.64,1.3,3.94,0.659,0.171,0.17,Newcastle,0.677,Yes,0.753,Over 2.5,6.42,4.36,10.78,0.596,Newcastle,OK
+Spurs,Brighton,1.57,1.72,3.29,0.354,0.23,0.416,Brighton,0.65,Yes,0.638,Over 2.5,5.36,5.05,10.41,0.515,Spurs,Low (promoted/new team)
+Bournemouth,Aston Villa,1.44,1.27,2.71,0.41,0.256,0.334,Bournemouth,0.549,Yes,0.509,Over 2.5,5.72,5.03,10.76,0.532,Bournemouth,OK
+Arsenal,Ipswich,3.39,0.74,4.12,0.863,0.091,0.047,Arsenal,0.504,Yes,0.778,Over 2.5,7.05,3.26,10.31,0.683,Arsenal,OK
+Brentford,Crystal Palace,1.85,1.36,3.21,0.489,0.227,0.284,Brentford,0.627,Yes,0.622,Over 2.5,5.21,4.69,9.91,0.526,Brentford,OK
+Brighton,Man Utd,1.81,1.23,3.04,0.508,0.231,0.261,Brighton,0.592,Yes,0.585,Over 2.5,5.23,4.27,9.5,0.551,Brighton,Low (promoted/new team)
+Chelsea,Newcastle,1.92,1.42,3.33,0.493,0.222,0.285,Chelsea,0.646,Yes,0.647,Over 2.5,5.92,4.58,10.49,0.564,Chelsea,OK
+Leeds,Everton,1.28,1.23,2.51,0.375,0.269,0.355,Leeds,0.511,Yes,0.458,Under 2.5,5.98,4.12,10.11,0.592,Leeds,OK
+Liverpool,Coventry,2.82,0.86,3.68,0.777,0.136,0.087,Liverpool,0.544,Yes,0.711,Over 2.5,5.82,4.14,9.96,0.585,Liverpool,Low (promoted/new team)
+Man City,Spurs,3.23,0.9,4.13,0.82,0.111,0.07,Man City,0.571,Yes,0.779,Over 2.5,6.05,3.58,9.63,0.628,Man City,Low (promoted/new team)
+Nott'm Forest,Fulham,1.41,1.22,2.63,0.415,0.261,0.325,Nott'm Forest,0.533,Yes,0.49,Under 2.5,4.81,5.09,9.89,0.486,Fulham,OK
+Sunderland,Hull,1.3,1.05,2.35,0.422,0.277,0.301,Sunderland,0.474,No,0.418,Under 2.5,4.28,4.75,9.03,0.474,Hull,Low (promoted/new team)
+Arsenal,Brentford,2.58,1.0,3.58,0.714,0.162,0.125,Arsenal,0.584,Yes,0.694,Over 2.5,6.65,3.71,10.36,0.642,Arsenal,OK
+Brighton,Bournemouth,2.14,1.56,3.7,0.51,0.208,0.282,Brighton,0.697,Yes,0.714,Over 2.5,6.12,4.51,10.63,0.576,Brighton,OK
+Crystal Palace,Chelsea,1.3,1.74,3.04,0.286,0.235,0.479,Chelsea,0.599,Yes,0.585,Over 2.5,4.75,4.98,9.73,0.489,Chelsea,OK
+Everton,Aston Villa,1.28,1.36,2.64,0.351,0.262,0.388,Aston Villa,0.536,Yes,0.491,Under 2.5,5.16,5.18,10.34,0.499,Aston Villa,OK
+Fulham,Spurs,1.75,1.34,3.09,0.472,0.234,0.295,Fulham,0.609,Yes,0.596,Over 2.5,5.03,4.78,9.81,0.513,Fulham,Low (promoted/new team)
+Ipswich,Coventry,0.71,2.32,3.03,0.098,0.168,0.734,Coventry,0.46,No,0.583,Over 2.5,4.3,5.2,9.5,0.453,Coventry,Low (promoted/new team)
+Leeds,Man City,0.82,2.72,3.54,0.087,0.14,0.773,Man City,0.522,Yes,0.686,Over 2.5,4.7,5.3,10.01,0.47,Man City,OK
+Man Utd,Newcastle,1.52,1.62,3.14,0.361,0.236,0.403,Newcastle,0.627,Yes,0.608,Over 2.5,5.39,5.3,10.69,0.504,Man Utd,Low (promoted/new team)
+Nott'm Forest,Hull,1.47,1.21,2.68,0.431,0.257,0.312,Nott'm Forest,0.541,Yes,0.502,Over 2.5,4.48,4.92,9.4,0.477,Hull,Low (promoted/new team)
+Sunderland,Liverpool,1.14,1.88,3.02,0.229,0.225,0.546,Liverpool,0.576,Yes,0.581,Over 2.5,3.97,5.67,9.65,0.412,Liverpool,OK
+Bournemouth,Ipswich,1.92,0.99,2.91,0.589,0.22,0.192,Bournemouth,0.537,Yes,0.556,Over 2.5,6.68,4.26,10.94,0.611,Bournemouth,OK
+Aston Villa,Man Utd,2.16,1.24,3.4,0.583,0.204,0.213,Aston Villa,0.629,Yes,0.66,Over 2.5,5.17,4.46,9.62,0.537,Aston Villa,Low (promoted/new team)
+Brentford,Brighton,1.97,1.79,3.76,0.43,0.213,0.357,Brentford,0.717,Yes,0.725,Over 2.5,4.99,4.86,9.86,0.507,Brentford,OK
+Chelsea,Sunderland,1.86,0.77,2.63,0.631,0.219,0.15,Chelsea,0.455,No,0.489,Under 2.5,6.06,3.72,9.78,0.62,Chelsea,OK
+Coventry,Everton,1.49,1.04,2.53,0.476,0.26,0.264,Coventry,0.5,Yes,0.463,Under 2.5,5.97,4.72,10.69,0.558,Coventry,Low (promoted/new team)
+Hull,Arsenal,0.95,2.17,3.12,0.154,0.195,0.652,Arsenal,0.543,Yes,0.602,Over 2.5,4.71,5.5,10.21,0.461,Arsenal,Low (promoted/new team)
+Liverpool,Crystal Palace,2.6,0.85,3.44,0.748,0.152,0.1,Liverpool,0.529,Yes,0.668,Over 2.5,6.4,4.02,10.42,0.614,Liverpool,OK
+Man City,Nott'm Forest,3.61,0.98,4.59,0.845,0.095,0.06,Man City,0.606,Yes,0.834,Over 2.5,7.06,3.37,10.43,0.677,Man City,OK
+Newcastle,Fulham,2.27,1.21,3.49,0.612,0.195,0.193,Newcastle,0.63,Yes,0.676,Over 2.5,5.74,4.74,10.48,0.548,Newcastle,OK
+Spurs,Leeds,2.02,1.14,3.15,0.577,0.213,0.21,Spurs,0.589,Yes,0.61,Over 2.5,5.52,4.69,10.21,0.541,Spurs,Low (promoted/new team)
+Arsenal,Newcastle,2.58,1.07,3.64,0.699,0.166,0.136,Arsenal,0.605,Yes,0.704,Over 2.5,6.01,4.05,10.06,0.597,Arsenal,OK
+Brighton,Man City,1.08,2.12,3.2,0.185,0.203,0.612,Man City,0.581,Yes,0.62,Over 2.5,4.92,5.17,10.09,0.488,Man City,OK
+Crystal Palace,Spurs,1.48,1.24,2.72,0.428,0.255,0.316,Crystal Palace,0.548,Yes,0.51,Over 2.5,4.67,4.6,9.27,0.504,Crystal Palace,Low (promoted/new team)
+Everton,Brentford,1.3,1.44,2.73,0.34,0.256,0.404,Brentford,0.554,Yes,0.515,Over 2.5,5.73,4.85,10.57,0.542,Everton,OK
+Fulham,Aston Villa,1.65,1.44,3.09,0.425,0.238,0.337,Fulham,0.616,Yes,0.596,Over 2.5,5.51,5.06,10.57,0.521,Fulham,OK
+Ipswich,Hull,0.71,2.32,3.03,0.098,0.168,0.734,Hull,0.46,No,0.583,Over 2.5,4.3,5.2,9.5,0.453,Hull,Low (promoted/new team)
+Leeds,Chelsea,1.2,2.23,3.42,0.196,0.198,0.606,Chelsea,0.623,Yes,0.665,Over 2.5,5.1,4.77,9.87,0.516,Leeds,OK
+Man Utd,Liverpool,1.4,2.38,3.78,0.217,0.192,0.592,Liverpool,0.683,Yes,0.727,Over 2.5,4.7,5.92,10.62,0.442,Liverpool,Low (promoted/new team)
+Nott'm Forest,Bournemouth,1.74,1.53,3.28,0.429,0.23,0.341,Nott'm Forest,0.647,Yes,0.636,Over 2.5,5.37,5.16,10.53,0.51,Nott'm Forest,OK
+Sunderland,Coventry,1.3,1.05,2.35,0.422,0.277,0.301,Sunderland,0.474,No,0.418,Under 2.5,4.28,4.75,9.03,0.474,Coventry,Low (promoted/new team)
+Bournemouth,Fulham,1.47,1.19,2.66,0.436,0.257,0.307,Bournemouth,0.536,Yes,0.497,Under 2.5,5.58,4.91,10.49,0.532,Bournemouth,OK
+Aston Villa,Ipswich,2.7,1.04,3.75,0.723,0.155,0.122,Aston Villa,0.604,Yes,0.722,Over 2.5,6.6,3.97,10.57,0.625,Aston Villa,OK
+Brentford,Man Utd,2.01,1.39,3.4,0.519,0.216,0.265,Brentford,0.65,Yes,0.66,Over 2.5,4.64,4.81,9.45,0.491,Man Utd,Low (promoted/new team)
+Chelsea,Nott'm Forest,2.25,1.26,3.51,0.596,0.198,0.206,Chelsea,0.641,Yes,0.681,Over 2.5,6.53,4.07,10.6,0.616,Chelsea,OK
+Coventry,Leeds,2.02,1.14,3.15,0.577,0.213,0.21,Coventry,0.589,Yes,0.61,Over 2.5,5.52,4.69,10.21,0.541,Coventry,Low (promoted/new team)
+Hull,Crystal Palace,1.47,1.31,2.78,0.411,0.253,0.336,Hull,0.562,Yes,0.525,Over 2.5,5.58,4.88,10.46,0.533,Hull,Low (promoted/new team)
+Liverpool,Everton,2.63,0.67,3.3,0.791,0.137,0.072,Liverpool,0.455,No,0.641,Over 2.5,6.79,3.86,10.65,0.637,Liverpool,OK
+Man City,Arsenal,1.92,1.47,3.39,0.483,0.221,0.296,Man City,0.657,Yes,0.658,Over 2.5,5.75,4.09,9.84,0.585,Man City,OK
+Newcastle,Brighton,2.32,1.55,3.87,0.549,0.197,0.253,Newcastle,0.711,Yes,0.743,Over 2.5,5.77,4.62,10.39,0.555,Newcastle,OK
+Spurs,Sunderland,1.47,0.88,2.36,0.509,0.264,0.226,Spurs,0.453,No,0.419,Under 2.5,5.54,4.43,9.97,0.555,Spurs,Low (promoted/new team)
+Arsenal,Liverpool,2.37,1.56,3.93,0.556,0.195,0.25,Arsenal,0.717,Yes,0.752,Over 2.5,5.31,4.67,9.99,0.532,Arsenal,OK
+Brighton,Hull,1.81,1.23,3.04,0.508,0.231,0.261,Brighton,0.592,Yes,0.585,Over 2.5,5.23,4.27,9.5,0.551,Brighton,Low (promoted/new team)
+Crystal Palace,Coventry,1.48,1.24,2.72,0.428,0.255,0.316,Crystal Palace,0.548,Yes,0.51,Over 2.5,4.67,4.6,9.27,0.504,Crystal Palace,Low (promoted/new team)
+Everton,Newcastle,1.29,1.53,2.83,0.322,0.249,0.429,Newcastle,0.569,Yes,0.537,Over 2.5,5.08,5.19,10.27,0.495,Newcastle,OK
+Fulham,Man City,1.05,2.3,3.35,0.158,0.187,0.655,Man City,0.584,Yes,0.65,Over 2.5,4.72,5.68,10.4,0.454,Man City,OK
+Ipswich,Spurs,0.71,2.32,3.03,0.098,0.168,0.734,Spurs,0.46,No,0.583,Over 2.5,4.3,5.2,9.5,0.453,Spurs,Low (promoted/new team)
+Leeds,Bournemouth,1.62,2.0,3.62,0.315,0.215,0.47,Bournemouth,0.694,Yes,0.701,Over 2.5,5.9,4.64,10.54,0.56,Leeds,OK
+Man Utd,Chelsea,1.4,1.87,3.27,0.288,0.225,0.487,Chelsea,0.638,Yes,0.635,Over 2.5,5.08,5.37,10.45,0.486,Chelsea,Low (promoted/new team)
+Nott'm Forest,Brentford,1.4,1.38,2.79,0.378,0.254,0.368,Nott'm Forest,0.565,Yes,0.527,Over 2.5,5.52,4.87,10.39,0.531,Nott'm Forest,OK
+Sunderland,Aston Villa,1.22,1.13,2.36,0.382,0.279,0.339,Sunderland,0.479,No,0.42,Under 2.5,4.75,5.04,9.79,0.485,Aston Villa,OK
+Aston Villa,Bournemouth,2.55,1.57,4.13,0.589,0.184,0.227,Aston Villa,0.731,Yes,0.78,Over 2.5,6.06,4.7,10.75,0.563,Aston Villa,OK
+Coventry,Liverpool,1.4,2.38,3.78,0.217,0.192,0.592,Liverpool,0.683,Yes,0.727,Over 2.5,4.7,5.92,10.62,0.442,Liverpool,Low (promoted/new team)
+Crystal Palace,Brentford,1.41,1.41,2.82,0.375,0.252,0.373,Crystal Palace,0.572,Yes,0.536,Over 2.5,5.71,4.56,10.27,0.556,Crystal Palace,OK
+Everton,Leeds,1.72,1.08,2.79,0.523,0.239,0.238,Everton,0.541,Yes,0.529,Over 2.5,5.21,4.58,9.79,0.532,Everton,OK
+Fulham,Nott'm Forest,1.95,1.45,3.4,0.494,0.219,0.287,Fulham,0.657,Yes,0.661,Over 2.5,6.04,4.56,10.61,0.57,Fulham,OK
+Hull,Sunderland,1.47,0.88,2.36,0.509,0.264,0.226,Hull,0.453,No,0.419,Under 2.5,5.54,4.43,9.97,0.555,Hull,Low (promoted/new team)
+Ipswich,Arsenal,0.42,3.77,4.19,0.016,0.052,0.933,Arsenal,0.337,No,0.785,Over 2.5,4.01,5.7,9.71,0.413,Arsenal,OK
+Man Utd,Brighton,1.57,1.72,3.29,0.354,0.23,0.416,Brighton,0.65,Yes,0.638,Over 2.5,5.36,5.05,10.41,0.515,Man Utd,Low (promoted/new team)
+Newcastle,Chelsea,2.07,1.69,3.76,0.469,0.211,0.32,Newcastle,0.713,Yes,0.725,Over 2.5,5.5,4.94,10.44,0.526,Newcastle,OK
+Spurs,Man City,0.95,2.29,3.25,0.142,0.184,0.674,Man City,0.553,Yes,0.629,Over 2.5,4.69,5.9,10.59,0.443,Man City,Low (promoted/new team)
+Bournemouth,Crystal Palace,1.41,1.16,2.57,0.427,0.263,0.31,Bournemouth,0.518,Yes,0.473,Under 2.5,5.83,4.63,10.46,0.557,Bournemouth,OK
+Arsenal,Fulham,2.6,0.88,3.48,0.742,0.154,0.105,Arsenal,0.543,Yes,0.676,Over 2.5,5.94,3.92,9.86,0.603,Arsenal,OK
+Brentford,Coventry,2.01,1.39,3.4,0.519,0.216,0.265,Brentford,0.65,Yes,0.66,Over 2.5,4.64,4.81,9.45,0.491,Coventry,Low (promoted/new team)
+Brighton,Spurs,1.81,1.23,3.04,0.508,0.231,0.261,Brighton,0.592,Yes,0.585,Over 2.5,5.23,4.27,9.5,0.551,Brighton,Low (promoted/new team)
+Chelsea,Ipswich,2.52,0.98,3.5,0.708,0.166,0.126,Chelsea,0.575,Yes,0.679,Over 2.5,6.96,3.79,10.75,0.647,Chelsea,OK
+Leeds,Aston Villa,1.29,1.71,2.99,0.289,0.238,0.473,Aston Villa,0.592,Yes,0.575,Over 2.5,5.49,4.69,10.18,0.539,Leeds,OK
+Liverpool,Hull,2.82,0.86,3.68,0.777,0.136,0.087,Liverpool,0.544,Yes,0.711,Over 2.5,5.82,4.14,9.96,0.585,Liverpool,Low (promoted/new team)
+Man City,Newcastle,3.08,1.1,4.17,0.766,0.132,0.102,Man City,0.635,Yes,0.785,Over 2.5,6.44,3.88,10.32,0.624,Man City,OK
+Nott'm Forest,Man Utd,1.47,1.21,2.68,0.431,0.257,0.312,Nott'm Forest,0.541,Yes,0.502,Over 2.5,4.48,4.92,9.4,0.477,Man Utd,Low (promoted/new team)
+Sunderland,Everton,1.21,0.82,2.03,0.453,0.297,0.25,Sunderland,0.393,No,0.333,Under 2.5,5.24,4.47,9.72,0.54,Sunderland,OK
+Aston Villa,Chelsea,1.89,1.75,3.64,0.42,0.218,0.362,Aston Villa,0.701,Yes,0.703,Over 2.5,5.25,4.83,10.08,0.521,Aston Villa,OK
+Coventry,Bournemouth,1.89,1.69,3.58,0.432,0.219,0.349,Coventry,0.692,Yes,0.693,Over 2.5,5.89,5.24,11.13,0.529,Coventry,Low (promoted/new team)
+Crystal Palace,Sunderland,1.37,0.82,2.19,0.497,0.278,0.225,Crystal Palace,0.417,No,0.374,Under 2.5,5.21,4.04,9.25,0.564,Crystal Palace,OK
+Everton,Nott'm Forest,1.52,1.36,2.88,0.41,0.248,0.342,Everton,0.581,Yes,0.55,Over 2.5,5.7,4.68,10.38,0.549,Everton,OK
+Fulham,Leeds,2.21,1.14,3.35,0.615,0.198,0.187,Fulham,0.606,Yes,0.651,Over 2.5,5.56,4.47,10.02,0.554,Fulham,OK
+Hull,Man City,0.95,2.29,3.25,0.142,0.184,0.674,Man City,0.553,Yes,0.629,Over 2.5,4.69,5.9,10.59,0.443,Man City,Low (promoted/new team)
+Ipswich,Brighton,0.7,2.98,3.69,0.058,0.113,0.829,Brighton,0.478,No,0.711,Over 2.5,4.66,5.25,9.91,0.47,Brighton,OK
+Man Utd,Arsenal,0.95,2.17,3.12,0.154,0.195,0.652,Arsenal,0.543,Yes,0.602,Over 2.5,4.71,5.5,10.21,0.461,Arsenal,Low (promoted/new team)
+Newcastle,Brentford,2.26,1.37,3.63,0.574,0.199,0.227,Newcastle,0.669,Yes,0.702,Over 2.5,6.45,4.52,10.98,0.588,Newcastle,OK
+Spurs,Liverpool,1.4,2.38,3.78,0.217,0.192,0.592,Liverpool,0.683,Yes,0.727,Over 2.5,4.7,5.92,10.62,0.442,Liverpool,Low (promoted/new team)
+Bournemouth,Spurs,1.53,1.18,2.71,0.453,0.253,0.294,Bournemouth,0.543,Yes,0.509,Over 2.5,5.25,4.75,10.0,0.525,Bournemouth,Low (promoted/new team)
+Arsenal,Crystal Palace,2.49,0.86,3.35,0.729,0.162,0.109,Arsenal,0.529,Yes,0.65,Over 2.5,6.19,3.64,9.83,0.63,Arsenal,OK
+Brentford,Ipswich,2.52,1.17,3.68,0.666,0.175,0.159,Brentford,0.633,Yes,0.712,Over 2.5,6.07,4.32,10.39,0.584,Brentford,OK
+Brighton,Fulham,1.74,1.24,2.98,0.49,0.236,0.274,Brighton,0.586,Yes,0.572,Over 2.5,5.56,4.44,10.0,0.556,Brighton,OK
+Chelsea,Coventry,2.01,1.17,3.18,0.569,0.214,0.216,Chelsea,0.596,Yes,0.615,Over 2.5,5.52,4.28,9.8,0.563,Chelsea,Low (promoted/new team)
+Leeds,Hull,1.37,1.58,2.95,0.33,0.244,0.426,Hull,0.592,Yes,0.565,Over 2.5,5.02,4.4,9.41,0.533,Leeds,Low (promoted/new team)
+Liverpool,Aston Villa,2.65,0.93,3.59,0.739,0.153,0.108,Liverpool,0.563,Yes,0.694,Over 2.5,6.3,4.42,10.72,0.587,Liverpool,OK
+Man City,Everton,3.01,0.7,3.72,0.832,0.111,0.057,Man City,0.48,No,0.716,Over 2.5,7.01,3.31,10.32,0.68,Man City,OK
+Nott'm Forest,Newcastle,1.4,1.47,2.87,0.36,0.249,0.392,Newcastle,0.581,Yes,0.548,Over 2.5,4.87,5.22,10.09,0.483,Newcastle,OK
+Sunderland,Man Utd,1.3,1.05,2.35,0.422,0.277,0.301,Sunderland,0.474,No,0.418,Under 2.5,4.28,4.75,9.03,0.474,Man Utd,Low (promoted/new team)
+Bournemouth,Newcastle,1.46,1.44,2.89,0.381,0.248,0.371,Bournemouth,0.585,Yes,0.552,Over 2.5,5.64,5.04,10.69,0.528,Bournemouth,OK
+Aston Villa,Hull,2.16,1.24,3.4,0.583,0.204,0.213,Aston Villa,0.629,Yes,0.66,Over 2.5,5.17,4.46,9.62,0.537,Aston Villa,Low (promoted/new team)
+Chelsea,Arsenal,1.2,1.9,3.09,0.239,0.224,0.537,Arsenal,0.593,Yes,0.597,Over 2.5,5.23,4.79,10.02,0.522,Chelsea,OK
+Coventry,Man City,0.95,2.29,3.25,0.142,0.184,0.674,Man City,0.553,Yes,0.629,Over 2.5,4.69,5.9,10.59,0.443,Man City,Low (promoted/new team)
+Crystal Palace,Fulham,1.42,1.24,2.67,0.412,0.259,0.329,Crystal Palace,0.541,Yes,0.499,Under 2.5,5.0,4.77,9.77,0.512,Crystal Palace,OK
+Leeds,Brighton,1.34,2.04,3.38,0.251,0.214,0.535,Brighton,0.643,Yes,0.657,Over 2.5,5.37,4.45,9.82,0.547,Leeds,OK
+Liverpool,Ipswich,3.53,0.73,4.26,0.877,0.082,0.041,Liverpool,0.502,Yes,0.795,Over 2.5,7.26,3.65,10.9,0.665,Liverpool,OK
+Man Utd,Everton,1.49,1.04,2.53,0.476,0.26,0.264,Man Utd,0.5,Yes,0.463,Under 2.5,5.97,4.72,10.69,0.558,Man Utd,Low (promoted/new team)
+Sunderland,Brentford,1.24,1.2,2.44,0.373,0.274,0.353,Sunderland,0.497,No,0.442,Under 2.5,5.31,4.71,10.02,0.53,Sunderland,OK
+Spurs,Nott'm Forest,1.78,1.44,3.23,0.457,0.23,0.313,Spurs,0.635,Yes,0.626,Over 2.5,6.01,4.79,10.8,0.557,Spurs,Low (promoted/new team)
+Arsenal,Sunderland,2.5,0.58,3.08,0.792,0.142,0.067,Arsenal,0.405,No,0.594,Over 2.5,6.15,3.19,9.34,0.659,Arsenal,OK
+Brentford,Bournemouth,2.38,1.76,4.14,0.518,0.195,0.286,Brentford,0.751,Yes,0.781,Over 2.5,5.53,5.05,10.58,0.522,Brentford,OK
+Brighton,Coventry,1.81,1.23,3.04,0.508,0.231,0.261,Brighton,0.592,Yes,0.585,Over 2.5,5.23,4.27,9.5,0.551,Brighton,Low (promoted/new team)
+Everton,Spurs,1.36,1.26,2.62,0.392,0.262,0.346,Everton,0.532,Yes,0.486,Under 2.5,4.69,4.89,9.58,0.49,Spurs,Low (promoted/new team)
+Fulham,Liverpool,1.53,2.39,3.92,0.241,0.193,0.566,Liverpool,0.712,Yes,0.75,Over 2.5,4.73,5.7,10.43,0.454,Liverpool,OK
+Hull,Chelsea,1.4,1.87,3.27,0.288,0.225,0.487,Chelsea,0.638,Yes,0.635,Over 2.5,5.08,5.37,10.45,0.486,Chelsea,Low (promoted/new team)
+Ipswich,Crystal Palace,0.66,2.27,2.93,0.091,0.169,0.74,Crystal Palace,0.432,No,0.56,Over 2.5,4.88,5.08,9.96,0.49,Crystal Palace,OK
+Man City,Man Utd,3.23,0.9,4.13,0.82,0.111,0.07,Man City,0.571,Yes,0.779,Over 2.5,6.05,3.58,9.63,0.628,Man City,Low (promoted/new team)
+Newcastle,Leeds,2.98,1.03,4.01,0.767,0.134,0.099,Newcastle,0.61,Yes,0.763,Over 2.5,5.94,4.26,10.19,0.582,Newcastle,OK
+Nott'm Forest,Aston Villa,1.38,1.31,2.69,0.389,0.259,0.353,Nott'm Forest,0.546,Yes,0.504,Over 2.5,4.95,5.21,10.16,0.488,Aston Villa,OK
+Bournemouth,Man City,0.91,2.03,2.95,0.161,0.206,0.633,Man City,0.521,Yes,0.565,Over 2.5,4.94,5.65,10.59,0.467,Man City,OK
+Aston Villa,Brighton,2.12,1.6,3.72,0.498,0.209,0.293,Aston Villa,0.702,Yes,0.718,Over 2.5,5.52,4.51,10.03,0.551,Aston Villa,OK
+Chelsea,Fulham,1.94,1.17,3.11,0.551,0.22,0.229,Chelsea,0.591,Yes,0.601,Over 2.5,5.85,4.45,10.3,0.568,Chelsea,OK
+Coventry,Arsenal,0.95,2.17,3.12,0.154,0.195,0.652,Arsenal,0.543,Yes,0.602,Over 2.5,4.71,5.5,10.21,0.461,Arsenal,Low (promoted/new team)
+Crystal Palace,Everton,1.38,0.96,2.34,0.465,0.273,0.262,Crystal Palace,0.463,No,0.416,Under 2.5,5.64,4.33,9.97,0.566,Crystal Palace,OK
+Leeds,Nott'm Forest,1.53,1.71,3.24,0.345,0.232,0.424,Nott'm Forest,0.642,Yes,0.628,Over 2.5,6.03,4.19,10.21,0.59,Leeds,OK
+Liverpool,Newcastle,2.69,1.05,3.74,0.72,0.157,0.124,Liverpool,0.606,Yes,0.72,Over 2.5,6.21,4.43,10.65,0.584,Liverpool,OK
+Man Utd,Hull,1.6,1.33,2.93,0.437,0.244,0.319,Man Utd,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Hull,Low (promoted/new team)
+Sunderland,Ipswich,1.63,0.89,2.52,0.549,0.247,0.204,Sunderland,0.472,No,0.46,Under 2.5,5.71,4.26,9.97,0.573,Sunderland,OK
+Spurs,Brentford,1.52,1.52,3.04,0.381,0.241,0.379,Spurs,0.611,Yes,0.587,Over 2.5,6.04,4.96,10.99,0.549,Spurs,Low (promoted/new team)
+Arsenal,Aston Villa,2.54,0.94,3.49,0.719,0.162,0.119,Arsenal,0.563,Yes,0.677,Over 2.5,6.09,4.04,10.13,0.601,Arsenal,OK
+Brentford,Leeds,2.54,1.19,3.72,0.666,0.174,0.16,Brentford,0.64,Yes,0.718,Over 2.5,5.16,4.5,9.66,0.534,Brentford,OK
+Brighton,Chelsea,1.58,1.73,3.32,0.354,0.229,0.417,Chelsea,0.654,Yes,0.644,Over 2.5,5.31,4.64,9.96,0.534,Brighton,OK
+Everton,Bournemouth,1.61,1.6,3.21,0.386,0.234,0.38,Everton,0.638,Yes,0.621,Over 2.5,5.58,5.13,10.71,0.521,Everton,OK
+Fulham,Sunderland,1.61,0.89,2.5,0.544,0.249,0.207,Fulham,0.472,No,0.457,Under 2.5,5.57,4.21,9.78,0.57,Fulham,OK
+Hull,Coventry,1.6,1.33,2.93,0.437,0.244,0.319,Hull,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Coventry,Low (promoted/new team)
+Ipswich,Man Utd,0.71,2.32,3.03,0.098,0.168,0.734,Man Utd,0.46,No,0.583,Over 2.5,4.3,5.2,9.5,0.453,Man Utd,Low (promoted/new team)
+Man City,Crystal Palace,2.97,0.88,3.86,0.793,0.126,0.081,Man City,0.557,Yes,0.74,Over 2.5,6.62,3.47,10.09,0.656,Man City,OK
+Newcastle,Spurs,2.36,1.2,3.57,0.631,0.187,0.181,Newcastle,0.634,Yes,0.691,Over 2.5,5.41,4.57,9.98,0.542,Newcastle,Low (promoted/new team)
+Nott'm Forest,Liverpool,1.29,2.16,3.45,0.222,0.205,0.573,Liverpool,0.641,Yes,0.669,Over 2.5,4.18,5.84,10.02,0.417,Liverpool,OK
+Bournemouth,Arsenal,0.91,1.92,2.83,0.172,0.217,0.611,Arsenal,0.51,Yes,0.538,Over 2.5,4.96,5.25,10.21,0.486,Arsenal,OK
+Aston Villa,Coventry,2.16,1.24,3.4,0.583,0.204,0.213,Aston Villa,0.629,Yes,0.66,Over 2.5,5.17,4.46,9.62,0.537,Aston Villa,Low (promoted/new team)
+Brentford,Fulham,1.93,1.4,3.33,0.5,0.221,0.279,Brentford,0.644,Yes,0.647,Over 2.5,4.96,4.98,9.94,0.499,Fulham,OK
+Chelsea,Man City,1.2,2.01,3.21,0.225,0.215,0.559,Man City,0.606,Yes,0.622,Over 2.5,5.21,5.18,10.4,0.501,Chelsea,OK
+Everton,Brighton,1.34,1.62,2.96,0.315,0.242,0.443,Brighton,0.592,Yes,0.568,Over 2.5,5.05,4.94,9.99,0.505,Everton,OK
+Leeds,Liverpool,1.2,2.82,4.02,0.135,0.154,0.71,Liverpool,0.656,Yes,0.764,Over 2.5,4.71,5.32,10.03,0.47,Liverpool,OK
+Man Utd,Crystal Palace,1.47,1.31,2.78,0.411,0.253,0.336,Man Utd,0.562,Yes,0.525,Over 2.5,5.58,4.88,10.46,0.533,Man Utd,Low (promoted/new team)
+Newcastle,Ipswich,2.96,1.01,3.97,0.767,0.135,0.098,Newcastle,0.604,Yes,0.757,Over 2.5,6.85,4.08,10.93,0.627,Newcastle,OK
+Nott'm Forest,Sunderland,1.36,0.8,2.16,0.498,0.28,0.222,Nott'm Forest,0.41,No,0.367,Under 2.5,5.02,4.35,9.37,0.536,Nott'm Forest,OK
+Spurs,Hull,1.6,1.33,2.93,0.437,0.244,0.319,Spurs,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Hull,Low (promoted/new team)
+Arsenal,Spurs,2.7,0.88,3.58,0.758,0.145,0.096,Arsenal,0.545,Yes,0.693,Over 2.5,5.62,3.75,9.37,0.599,Arsenal,Low (promoted/new team)
+Brighton,Nott'm Forest,2.02,1.33,3.35,0.533,0.215,0.252,Brighton,0.639,Yes,0.651,Over 2.5,6.24,4.06,10.3,0.606,Brighton,OK
+Coventry,Man Utd,1.6,1.33,2.93,0.437,0.244,0.319,Coventry,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Man Utd,Low (promoted/new team)
+Crystal Palace,Aston Villa,1.39,1.33,2.72,0.385,0.257,0.358,Crystal Palace,0.553,Yes,0.512,Over 2.5,5.15,4.89,10.04,0.513,Crystal Palace,OK
+Fulham,Everton,1.63,1.04,2.67,0.511,0.247,0.242,Fulham,0.521,Yes,0.5,Under 2.5,6.0,4.5,10.5,0.571,Fulham,OK
+Hull,Bournemouth,1.89,1.69,3.58,0.432,0.219,0.349,Hull,0.692,Yes,0.693,Over 2.5,5.89,5.24,11.13,0.529,Hull,Low (promoted/new team)
+Ipswich,Leeds,0.9,1.98,2.88,0.164,0.211,0.625,Leeds,0.512,Yes,0.549,Over 2.5,4.82,4.89,9.71,0.497,Leeds,OK
+Liverpool,Chelsea,2.47,1.22,3.69,0.648,0.18,0.172,Liverpool,0.644,Yes,0.712,Over 2.5,5.9,4.51,10.41,0.567,Liverpool,OK
+Man City,Brentford,3.08,1.03,4.11,0.779,0.128,0.093,Man City,0.613,Yes,0.777,Over 2.5,7.08,3.54,10.62,0.667,Man City,OK
+Sunderland,Newcastle,1.24,1.28,2.52,0.356,0.269,0.375,Newcastle,0.513,Yes,0.461,Under 2.5,4.67,5.05,9.72,0.481,Newcastle,OK
+Bournemouth,Man Utd,1.53,1.18,2.71,0.453,0.253,0.294,Bournemouth,0.543,Yes,0.509,Over 2.5,5.25,4.75,10.0,0.525,Bournemouth,Low (promoted/new team)
+Brentford,Aston Villa,1.89,1.5,3.39,0.47,0.223,0.308,Brentford,0.659,Yes,0.658,Over 2.5,5.11,5.1,10.21,0.501,Brentford,OK
+Brighton,Sunderland,1.67,0.82,2.49,0.575,0.242,0.182,Brighton,0.453,No,0.452,Under 2.5,5.77,3.7,9.48,0.609,Brighton,OK
+Everton,Hull,1.36,1.26,2.62,0.392,0.262,0.346,Everton,0.532,Yes,0.486,Under 2.5,4.69,4.89,9.58,0.49,Hull,Low (promoted/new team)
+Fulham,Ipswich,2.19,1.13,3.32,0.615,0.199,0.186,Fulham,0.6,Yes,0.644,Over 2.5,6.47,4.29,10.76,0.601,Fulham,OK
+Leeds,Arsenal,0.81,2.57,3.39,0.096,0.151,0.753,Arsenal,0.514,Yes,0.657,Over 2.5,4.72,4.9,9.63,0.491,Arsenal,OK
+Man City,Liverpool,2.83,1.61,4.44,0.63,0.169,0.202,Man City,0.753,Yes,0.819,Over 2.5,5.74,4.5,10.25,0.561,Man City,OK
+Newcastle,Coventry,2.36,1.2,3.57,0.631,0.187,0.181,Newcastle,0.634,Yes,0.691,Over 2.5,5.41,4.57,9.98,0.542,Newcastle,Low (promoted/new team)
+Nott'm Forest,Crystal Palace,1.35,1.19,2.54,0.406,0.266,0.328,Nott'm Forest,0.516,Yes,0.467,Under 2.5,5.06,4.8,9.86,0.513,Nott'm Forest,OK
+Spurs,Chelsea,1.4,1.87,3.27,0.288,0.225,0.487,Chelsea,0.638,Yes,0.635,Over 2.5,5.08,5.37,10.45,0.486,Chelsea,Low (promoted/new team)
+Arsenal,Nott'm Forest,3.02,0.95,3.97,0.786,0.127,0.086,Arsenal,0.583,Yes,0.757,Over 2.5,6.63,3.54,10.16,0.652,Arsenal,OK
+Aston Villa,Newcastle,2.06,1.51,3.56,0.504,0.213,0.283,Aston Villa,0.679,Yes,0.691,Over 2.5,5.56,4.75,10.31,0.539,Aston Villa,OK
+Chelsea,Everton,1.88,0.91,2.79,0.601,0.221,0.177,Chelsea,0.505,Yes,0.527,Over 2.5,6.49,4.01,10.5,0.618,Chelsea,OK
+Coventry,Spurs,1.6,1.33,2.93,0.437,0.244,0.319,Coventry,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Spurs,Low (promoted/new team)
+Crystal Palace,Brighton,1.45,1.59,3.05,0.35,0.24,0.41,Brighton,0.611,Yes,0.587,Over 2.5,5.03,4.65,9.69,0.519,Crystal Palace,OK
+Hull,Fulham,1.54,1.34,2.88,0.419,0.248,0.333,Hull,0.58,Yes,0.549,Over 2.5,5.33,5.17,10.49,0.508,Hull,Low (promoted/new team)
+Ipswich,Man City,0.43,3.98,4.41,0.013,0.044,0.942,Man City,0.341,No,0.812,Over 2.5,3.99,6.1,10.09,0.396,Man City,OK
+Liverpool,Brentford,2.69,0.99,3.68,0.734,0.153,0.114,Liverpool,0.585,Yes,0.71,Over 2.5,6.86,4.09,10.95,0.626,Liverpool,OK
+Man Utd,Leeds,2.02,1.14,3.15,0.577,0.213,0.21,Man Utd,0.589,Yes,0.61,Over 2.5,5.52,4.69,10.21,0.541,Man Utd,Low (promoted/new team)
+Sunderland,Bournemouth,1.54,1.33,2.87,0.423,0.248,0.33,Sunderland,0.579,Yes,0.548,Over 2.5,5.16,4.99,10.16,0.508,Sunderland,OK
+Bournemouth,Chelsea,1.34,1.66,3.0,0.309,0.239,0.451,Chelsea,0.598,Yes,0.577,Over 2.5,5.33,5.12,10.45,0.51,Bournemouth,OK
+Brentford,Hull,2.01,1.39,3.4,0.519,0.216,0.265,Brentford,0.65,Yes,0.66,Over 2.5,4.64,4.81,9.45,0.491,Hull,Low (promoted/new team)
+Brighton,Liverpool,1.58,2.2,3.78,0.277,0.205,0.518,Liverpool,0.706,Yes,0.728,Over 2.5,4.93,5.19,10.12,0.487,Liverpool,OK
+Everton,Arsenal,0.81,2.05,2.86,0.137,0.2,0.663,Arsenal,0.483,No,0.544,Over 2.5,4.4,5.4,9.79,0.449,Arsenal,OK
+Fulham,Coventry,1.75,1.34,3.09,0.472,0.234,0.295,Fulham,0.609,Yes,0.596,Over 2.5,5.03,4.78,9.81,0.513,Fulham,Low (promoted/new team)
+Leeds,Sunderland,1.26,1.05,2.31,0.411,0.281,0.308,Leeds,0.466,No,0.407,Under 2.5,5.55,3.83,9.39,0.592,Leeds,OK
+Man City,Aston Villa,3.04,0.97,4.01,0.784,0.127,0.088,Man City,0.592,Yes,0.763,Over 2.5,6.52,3.87,10.39,0.628,Man City,OK
+Newcastle,Crystal Palace,2.18,1.18,3.36,0.6,0.201,0.199,Newcastle,0.614,Yes,0.652,Over 2.5,5.99,4.45,10.44,0.574,Newcastle,OK
+Nott'm Forest,Ipswich,1.84,1.02,2.86,0.566,0.227,0.207,Nott'm Forest,0.538,Yes,0.545,Over 2.5,5.91,4.43,10.34,0.572,Nott'm Forest,OK
+Spurs,Man Utd,1.6,1.33,2.93,0.437,0.244,0.319,Spurs,0.587,Yes,0.561,Over 2.5,5.0,5.0,10.0,0.5,Man Utd,Low (promoted/new team)
+Arsenal,Brighton,2.66,1.13,3.79,0.698,0.163,0.139,Arsenal,0.629,Yes,0.729,Over 2.5,5.97,3.81,9.78,0.611,Arsenal,OK
+Aston Villa,Spurs,2.16,1.24,3.4,0.583,0.204,0.213,Aston Villa,0.629,Yes,0.66,Over 2.5,5.17,4.46,9.62,0.537,Aston Villa,Low (promoted/new team)
+Chelsea,Brentford,1.92,1.33,3.25,0.513,0.222,0.265,Chelsea,0.628,Yes,0.631,Over 2.5,6.56,4.24,10.8,0.607,Chelsea,OK
+Coventry,Nott'm Forest,1.78,1.44,3.23,0.457,0.23,0.313,Coventry,0.635,Yes,0.626,Over 2.5,6.01,4.79,10.8,0.557,Coventry,Low (promoted/new team)
+Crystal Palace,Leeds,1.87,1.06,2.93,0.564,0.225,0.211,Crystal Palace,0.552,Yes,0.56,Over 2.5,5.19,4.29,9.49,0.548,Crystal Palace,OK
+Hull,Newcastle,1.52,1.62,3.14,0.361,0.236,0.403,Newcastle,0.627,Yes,0.608,Over 2.5,5.39,5.3,10.69,0.504,Hull,Low (promoted/new team)
+Ipswich,Everton,0.67,1.8,2.47,0.132,0.221,0.647,Everton,0.406,No,0.448,Under 2.5,5.27,4.92,10.19,0.517,Ipswich,OK
+Liverpool,Bournemouth,3.34,1.09,4.44,0.798,0.116,0.086,Liverpool,0.642,Yes,0.818,Over 2.5,6.71,4.38,11.09,0.605,Liverpool,OK
+Man Utd,Fulham,1.54,1.34,2.88,0.419,0.248,0.333,Man Utd,0.58,Yes,0.549,Over 2.5,5.33,5.17,10.49,0.508,Man Utd,Low (promoted/new team)
+Sunderland,Man City,0.78,1.81,2.59,0.156,0.225,0.619,Man City,0.452,No,0.479,Under 2.5,3.97,5.65,9.62,0.412,Man City,OK

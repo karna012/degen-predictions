@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Sports Predictions -- Football & Baseball | Degen Predictions{% endblock %}
+{% block description %}Free AI-powered football and baseball predictions -- pick a sport to see leagues.{% endblock %}
+{% block content %}
+<div class="leagues-hero">
+    <h1>Pick a Sport</h1>
+    <p class="muted">Choose a sport to see leagues and predictions.</p>
+</div>
+
+<div class="league-grid">
+    <a class="league-card" href="/sports/soccer" style="--league-color: #2e7d32;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>SOCCER</h2>
+            <p class="league-desc">Premier League, La Liga, Serie A, Bundesliga, Ligue 1.</p>
+            <span class="league-cta">Get Predictions</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">&#9917;</span></div>
+    </a>
+    <a class="league-card" href="/sports/baseball" style="--league-color: #041e42;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>BASEBALL</h2>
+            <p class="league-desc">MLB and NPB.</p>
+            <span class="league-cta">Get Predictions</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">&#9918;</span></div>
+    </a>
+    <a class="league-card" href="/sports/cricket" style="--league-color: #7b2ff7;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>CRICKET</h2>
+            <p class="league-desc">The Hundred and Major League Cricket.</p>
+            <span class="league-cta">Get Predictions</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">&#127951;</span></div>
+    </a>
+</div>
+{% endblock %}

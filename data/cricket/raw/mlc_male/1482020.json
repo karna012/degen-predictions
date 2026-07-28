@@ -1,0 +1,2693 @@
+{
+  "meta": {
+    "data_version": "1.2.0",
+    "created": "2025-07-07",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Lauderhill",
+    "dates": [
+      "2025-07-06"
+    ],
+    "event": {
+      "name": "Major League Cricket",
+      "match_number": 29
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "officials": {
+      "match_referees": [
+        "JJ Crowe"
+      ],
+      "reserve_umpires": [
+        "R Samuels"
+      ],
+      "tv_umpires": [
+        "M Erasmus"
+      ],
+      "umpires": [
+        "BV Taylor",
+        "WR Knights"
+      ]
+    },
+    "outcome": {
+      "winner": "Washington Freedom",
+      "by": {
+        "wickets": 6
+      }
+    },
+    "overs": 20,
+    "player_of_match": [
+      "GJ Maxwell"
+    ],
+    "players": {
+      "MI New York": [
+        "MD Patel",
+        "Kunwarjeet Singh",
+        "N Pooran",
+        "Tajinder Singh",
+        "Sharad Lumba",
+        "D Potgieter",
+        "FA Allen",
+        "H Richards",
+        "Sunny Patel",
+        "T Luus",
+        "NP Kenjige"
+      ],
+      "Washington Freedom": [
+        "MJ Owen",
+        "R Ravindra",
+        "AGS Gous",
+        "MS Chapman",
+        "GJ Maxwell",
+        "GD Phillips",
+        "Mukhtar Ahmed",
+        "AJ Pienaar",
+        "J Edwards",
+        "IG Holland",
+        "SN Netravalkar"
+      ]
+    },
+    "registry": {
+      "people": {
+        "AGS Gous": "d1305df0",
+        "AJ Pienaar": "647a48da",
+        "BV Taylor": "99760152",
+        "D Potgieter": "60fbf53a",
+        "FA Allen": "b52ffbbd",
+        "GD Phillips": "9a46c4e5",
+        "GJ Maxwell": "b681e71e",
+        "H Richards": "a0095f0e",
+        "IG Holland": "4167f30b",
+        "J Edwards": "f787e0eb",
+        "JJ Crowe": "2e760301",
+        "Kunwarjeet Singh": "b0af303d",
+        "M Erasmus": "15d3c895",
+        "MD Patel": "25d7f1ac",
+        "MJ Owen": "f2c936d7",
+        "MS Chapman": "7fa12533",
+        "Mukhtar Ahmed": "456f6d99",
+        "N Pooran": "3241e3fd",
+        "NP Kenjige": "f7d267f7",
+        "R Ravindra": "ba5e1069",
+        "R Samuels": "8a8bc9f6",
+        "SN Netravalkar": "c8a3f688",
+        "Sharad Lumba": "03c29939",
+        "Sunny Patel": "db481029",
+        "T Luus": "a0b76243",
+        "Tajinder Singh": "f9d99806",
+        "WR Knights": "63cbf8d8"
+      }
+    },
+    "season": "2025",
+    "team_type": "club",
+    "teams": [
+      "MI New York",
+      "Washington Freedom"
+    ],
+    "toss": {
+      "decision": "bat",
+      "winner": "MI New York"
+    },
+    "venue": "Central Broward Regional Park Stadium Turf Ground, Lauderhill"
+  },
+  "innings": [
+    {
+      "team": "MI New York",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "MD Patel",
+              "bowler": "SN Netravalkar",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "MD Patel",
+              "review": {
+                "by": "Washington Freedom",
+                "umpire": "WR Knights",
+                "batter": "Kunwarjeet Singh",
+                "decision": "struck down",
+                "type": "wicket"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "MD Patel",
+              "bowler": "SN Netravalkar",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "MD Patel",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "MD Patel",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "MD Patel",
+                  "fielders": [
+                    {
+                      "name": "GD Phillips"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "N Pooran",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "N Pooran",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "N Pooran",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "N Pooran",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "J Edwards",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "N Pooran",
+              "bowler": "J Edwards",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "N Pooran",
+              "bowler": "J Edwards",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "N Pooran",
+              "bowler": "J Edwards",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "N Pooran",
+                  "fielders": [
+                    {
+                      "name": "R Ravindra"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "Tajinder Singh",
+              "bowler": "J Edwards",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "Tajinder Singh",
+              "bowler": "J Edwards",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "Tajinder Singh",
+              "bowler": "J Edwards",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "Tajinder Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "review": {
+                "by": "Washington Freedom",
+                "umpire": "BV Taylor",
+                "batter": "Tajinder Singh",
+                "decision": "struck down",
+                "type": "wicket"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "Tajinder Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "Tajinder Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "J Edwards",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "J Edwards",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "J Edwards",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "J Edwards",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "J Edwards",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "J Edwards",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "Tajinder Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "Tajinder Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "SN Netravalkar",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "MJ Owen",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "Tajinder Singh",
+              "bowler": "MJ Owen",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "MJ Owen",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "Tajinder Singh",
+              "bowler": "MJ Owen",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "Tajinder Singh",
+              "bowler": "MJ Owen",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "Tajinder Singh",
+              "bowler": "MJ Owen",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "Tajinder Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "Tajinder Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Tajinder Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "Tajinder Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Tajinder Singh",
+                  "fielders": [
+                    {
+                      "name": "Mukhtar Ahmed"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "Sharad Lumba",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "review": {
+                "by": "MI New York",
+                "umpire": "BV Taylor",
+                "batter": "Sharad Lumba",
+                "decision": "struck down"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Sharad Lumba",
+                  "kind": "lbw"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "J Edwards",
+              "non_striker": "D Potgieter",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "D Potgieter",
+              "bowler": "J Edwards",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "D Potgieter",
+              "bowler": "J Edwards",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "D Potgieter",
+              "bowler": "J Edwards",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "D Potgieter",
+              "bowler": "J Edwards",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "J Edwards",
+              "non_striker": "D Potgieter",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "D Potgieter",
+              "bowler": "GJ Maxwell",
+              "non_striker": "Kunwarjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "D Potgieter",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "D Potgieter",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "D Potgieter",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "D Potgieter",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GJ Maxwell",
+              "non_striker": "D Potgieter",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "Kunwarjeet Singh",
+              "bowler": "GD Phillips",
+              "non_striker": "D Potgieter",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Kunwarjeet Singh",
+                  "fielders": [
+                    {
+                      "name": "MJ Owen"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "FA Allen",
+              "bowler": "GD Phillips",
+              "non_striker": "D Potgieter",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "D Potgieter",
+              "bowler": "GD Phillips",
+              "non_striker": "FA Allen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "D Potgieter",
+                  "kind": "bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "H Richards",
+              "bowler": "GD Phillips",
+              "non_striker": "FA Allen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "FA Allen",
+              "bowler": "GD Phillips",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "FA Allen",
+              "bowler": "GD Phillips",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "H Richards",
+              "bowler": "R Ravindra",
+              "non_striker": "FA Allen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "FA Allen",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "H Richards",
+              "bowler": "R Ravindra",
+              "non_striker": "FA Allen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "H Richards",
+              "bowler": "R Ravindra",
+              "non_striker": "FA Allen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "FA Allen",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "FA Allen",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "H Richards",
+              "bowler": "MJ Owen",
+              "non_striker": "FA Allen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "FA Allen",
+              "bowler": "MJ Owen",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "FA Allen",
+              "bowler": "MJ Owen",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "FA Allen",
+              "bowler": "MJ Owen",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "H Richards",
+              "bowler": "MJ Owen",
+              "non_striker": "FA Allen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "H Richards",
+              "bowler": "MJ Owen",
+              "non_striker": "FA Allen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "FA Allen",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "FA Allen",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "FA Allen",
+                  "kind": "caught and bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "Sunny Patel",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "H Richards",
+              "bowler": "R Ravindra",
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "Sunny Patel",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "Sunny Patel",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "Sunny Patel",
+              "bowler": "IG Holland",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "Sunny Patel",
+              "bowler": "IG Holland",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "Sunny Patel",
+              "bowler": "IG Holland",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "H Richards",
+              "bowler": "IG Holland",
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "Sunny Patel",
+              "bowler": "IG Holland",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "Sunny Patel",
+              "bowler": "IG Holland",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "Sunny Patel",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "Sunny Patel",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "H Richards",
+              "bowler": "R Ravindra",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "H Richards",
+              "bowler": "R Ravindra",
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "Sunny Patel",
+              "bowler": "R Ravindra",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "H Richards",
+              "bowler": "R Ravindra",
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "H Richards",
+              "bowler": "R Ravindra",
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "Sunny Patel",
+              "bowler": "IG Holland",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "Sunny Patel",
+              "bowler": "IG Holland",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "H Richards",
+              "bowler": "IG Holland",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "H Richards",
+              "bowler": "IG Holland",
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "Sunny Patel",
+              "bowler": "IG Holland",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "Sunny Patel",
+              "bowler": "IG Holland",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "H Richards",
+              "bowler": "IG Holland",
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "H Richards",
+              "bowler": "SN Netravalkar",
+              "non_striker": "Sunny Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "Sunny Patel",
+              "bowler": "SN Netravalkar",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Sunny Patel",
+                  "fielders": [
+                    {
+                      "name": "GJ Maxwell"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "T Luus",
+              "bowler": "SN Netravalkar",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "H Richards",
+              "bowler": "SN Netravalkar",
+              "non_striker": "T Luus",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "H Richards",
+              "bowler": "SN Netravalkar",
+              "non_striker": "T Luus",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "H Richards",
+              "bowler": "SN Netravalkar",
+              "non_striker": "T Luus",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 4.6,
+          "type": "mandatory"
+        }
+      ]
+    },
+    {
+      "team": "Washington Freedom",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "MJ Owen",
+              "bowler": "Tajinder Singh",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "R Ravindra",
+              "bowler": "Tajinder Singh",
+              "non_striker": "MJ Owen",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "MJ Owen",
+              "bowler": "Tajinder Singh",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "MJ Owen",
+              "bowler": "Tajinder Singh",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "MJ Owen",
+              "bowler": "Tajinder Singh",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "R Ravindra",
+              "bowler": "Tajinder Singh",
+              "non_striker": "MJ Owen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "R Ravindra",
+              "bowler": "T Luus",
+              "non_striker": "MJ Owen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "MJ Owen",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "MJ Owen",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "MJ Owen",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "MJ Owen",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "MJ Owen",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "MJ Owen",
+                  "kind": "bowled"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "R Ravindra",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "R Ravindra",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "R Ravindra",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "R Ravindra",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "R Ravindra",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "AGS Gous",
+              "bowler": "NP Kenjige",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 4,
+                "extras": 1,
+                "total": 5
+              }
+            },
+            {
+              "actual_delivery": "3.1",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.1",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "R Ravindra",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "AGS Gous",
+              "bowler": "NP Kenjige",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "AGS Gous",
+              "bowler": "NP Kenjige",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "AGS Gous",
+              "bowler": "NP Kenjige",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "AGS Gous",
+              "bowler": "NP Kenjige",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "AGS Gous",
+              "bowler": "NP Kenjige",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "AGS Gous",
+              "bowler": "Sunny Patel",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "R Ravindra",
+              "bowler": "Sunny Patel",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "R Ravindra",
+              "bowler": "Sunny Patel",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "AGS Gous",
+              "bowler": "Sunny Patel",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "AGS Gous",
+              "bowler": "Sunny Patel",
+              "non_striker": "R Ravindra",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "R Ravindra",
+              "bowler": "Sunny Patel",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "R Ravindra",
+              "bowler": "FA Allen",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "R Ravindra",
+                  "fielders": [
+                    {
+                      "name": "H Richards"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "MS Chapman",
+              "bowler": "FA Allen",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "MS Chapman",
+              "bowler": "FA Allen",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "MS Chapman",
+              "bowler": "FA Allen",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "MS Chapman",
+              "bowler": "FA Allen",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "AGS Gous",
+              "bowler": "FA Allen",
+              "non_striker": "MS Chapman",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "AGS Gous",
+              "bowler": "Tajinder Singh",
+              "non_striker": "MS Chapman",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "AGS Gous",
+              "bowler": "Tajinder Singh",
+              "non_striker": "MS Chapman",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "MS Chapman",
+              "bowler": "Tajinder Singh",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "MS Chapman",
+              "bowler": "Tajinder Singh",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "AGS Gous",
+              "bowler": "Tajinder Singh",
+              "non_striker": "MS Chapman",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "MS Chapman",
+              "bowler": "Tajinder Singh",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "AGS Gous",
+              "bowler": "Sunny Patel",
+              "non_striker": "MS Chapman",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "MS Chapman",
+              "bowler": "Sunny Patel",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "MS Chapman",
+              "bowler": "Sunny Patel",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "MS Chapman",
+              "bowler": "Sunny Patel",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "MS Chapman",
+              "bowler": "Sunny Patel",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "MS Chapman",
+              "bowler": "Sunny Patel",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "MS Chapman",
+              "bowler": "D Potgieter",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "MS Chapman",
+              "bowler": "D Potgieter",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "MS Chapman",
+              "bowler": "D Potgieter",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "AGS Gous",
+              "bowler": "D Potgieter",
+              "non_striker": "MS Chapman",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "AGS Gous",
+              "bowler": "D Potgieter",
+              "non_striker": "MS Chapman",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "MS Chapman",
+              "bowler": "D Potgieter",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "MS Chapman",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "MS Chapman",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "MS Chapman",
+                  "fielders": [
+                    {
+                      "name": "H Richards"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "GJ Maxwell",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "GJ Maxwell",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "GJ Maxwell",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "GJ Maxwell",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "GJ Maxwell",
+              "bowler": "T Luus",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "GJ Maxwell",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "GJ Maxwell",
+              "bowler": "T Luus",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "GJ Maxwell",
+                  "fielders": [
+                    {
+                      "name": "MD Patel"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "GD Phillips",
+              "bowler": "T Luus",
+              "extras": {
+                "byes": 1
+              },
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "GD Phillips",
+              "bowler": "T Luus",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "GD Phillips",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "AGS Gous",
+              "bowler": "NP Kenjige",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "AGS Gous",
+              "bowler": "NP Kenjige",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "GD Phillips",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "GD Phillips",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "GD Phillips",
+              "bowler": "NP Kenjige",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "GD Phillips",
+              "bowler": "T Luus",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "AGS Gous",
+              "bowler": "T Luus",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "GD Phillips",
+              "bowler": "FA Allen",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "GD Phillips",
+              "bowler": "FA Allen",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "GD Phillips",
+              "bowler": "FA Allen",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "GD Phillips",
+              "bowler": "FA Allen",
+              "non_striker": "AGS Gous",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "AGS Gous",
+              "bowler": "FA Allen",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "AGS Gous",
+              "bowler": "FA Allen",
+              "non_striker": "GD Phillips",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 4.6,
+          "type": "mandatory"
+        }
+      ],
+      "target": {
+        "overs": 18,
+        "runs": 113
+      }
+    }
+  ]
+}

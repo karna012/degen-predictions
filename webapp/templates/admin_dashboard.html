@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard | Degen Predictions{% endblock %}
+{% block description %}Internal traffic dashboard.{% endblock %}
+{% block content %}
+<h1>Admin Dashboard</h1>
+<p class="muted">Server-side request log -- no cookies, no third-party analytics. Excludes static
+    assets and this dashboard's own requests. <a href="/results">Prediction accuracy &rarr;</a></p>
+<p class="muted">
+    <a href="/results?refresh=1" class="predict-btn" style="display:inline-block; text-decoration:none;">
+        &#128260; Force-refresh Predicted vs Actual now
+    </a>
+    <span style="margin-left:0.5rem;">(normally auto-refreshes every 3 hours; this recomputes immediately --
+        takes a few seconds since it re-fetches live news sentiment for recent matchups)</span>
+</p>
+
+<h2 style="margin-top:1.5rem;">User Feedback &amp; Suggestions ({{ feedback_count }} total)</h2>
+{% if feedback_list %}
+<div class="table-wrap" style="margin-bottom:2rem;">
+<table>
+    <thead><tr><th>Time (UTC)</th><th>Time (IST)</th><th>Name</th><th>Email</th><th>Message</th><th>Page</th><th>IP</th><th>Location</th></tr></thead>
+    <tbody>
+    {% for f in feedback_list %}
+    <tr>
+        <td style="white-space:nowrap;">{{ f.ts[:19].replace('T', ' ') }}</td>
+        <td style="white-space:nowrap;">{{ f.ts_ist }}</td>
+        <td>{{ f.name or '-' }}</td>
+        <td>{{ f.email or '-' }}</td>
+        <td style="max-width:320px;">
+            <div class="feedback-msg" style="max-height:4.5em; overflow-y:auto; white-space:pre-wrap; word-break:break-word; line-height:1.5em; cursor:pointer;"
+                 onclick="this.style.maxHeight = this.style.maxHeight === 'none' ? '4.5em' : 'none';"
+                 title="Click to expand/collapse">{{ f.message }}</div>
+        </td>
+        <td style="max-width:200px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ f.page or '-' }}</td>
+        <td>{{ f.ip }}</td>
+        <td style="white-space:nowrap;">{{ f.location }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted" style="margin-bottom:2rem;">No feedback submitted yet.</p>
+{% endif %}
+
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    <div class="card">
+        <h2>Last 30 Days</h2>
+        <p>Page views: <strong>{{ summary.total_visits }}</strong></p>
+        <p>Unique visitors: <strong>{{ summary.unique_visitors }}</strong></p>
+    </div>
+    <div class="card">
+        <h2>Last 24 Hours</h2>
+        <p>Page views: <strong>{{ summary.today_visits }}</strong></p>
+        <p>Unique visitors: <strong>{{ summary.today_unique_visitors }}</strong></p>
+    </div>
+</div>
+
+<h2 style="margin-top:2rem;">Daily Traffic (last 14 days)</h2>
+{% if daily %}
+<div class="table-wrap">
+<table>
+    <thead><tr><th>Day</th><th>Page Views</th><th>Unique Visitors</th><th></th></tr></thead>
+    <tbody>
+    {% set max_visits = (daily | map(attribute='visits') | list | max) if daily else 1 %}
+    {% for d in daily %}
+    <tr>
+        <td>{{ d.day }}</td>
+        <td>{{ d.visits }}</td>
+        <td>{{ d.unique_visitors }}</td>
+        <td style="width:200px;">
+            <div class="bar"><div class="bar-fill home" style="width: {{ (d.visits / max_visits * 100) if max_visits else 0 }}%"></div></div>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted">No traffic recorded yet.</p>
+{% endif %}
+
+<h2 style="margin-top:2.5rem;">Top Pages (last 30 days)</h2>
+{% if top_pages %}
+<div class="table-wrap">
+<table>
+    <thead><tr><th>Path</th><th>Views</th></tr></thead>
+    <tbody>
+    {% for p in top_pages %}
+    <tr><td>{{ p.path }}</td><td>{{ p.visits }}</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted">No traffic recorded yet.</p>
+{% endif %}
+
+<h2 style="margin-top:2.5rem;">Top Visitors by IP (last 30 days)</h2>
+{% if top_visitors %}
+<div class="table-wrap">
+<table>
+    <thead><tr><th>IP</th><th>Location</th><th>Requests</th><th>Distinct Pages</th>
+        <th>First Seen (UTC)</th><th>First Seen (IST)</th><th>Last Seen (UTC)</th><th>Last Seen (IST)</th></tr></thead>
+    <tbody>
+    {% for v in top_visitors %}
+    <tr>
+        <td>{{ v.ip }}</td><td style="white-space:nowrap;">{{ v.location }}</td>
+        <td>{{ v.visits }}</td><td>{{ v.distinct_pages }}</td>
+        <td style="white-space:nowrap;">{{ v.first_seen[:19].replace('T', ' ') }}</td>
+        <td style="white-space:nowrap;">{{ v.first_seen_ist }}</td>
+        <td style="white-space:nowrap;">{{ v.last_seen[:19].replace('T', ' ') }}</td>
+        <td style="white-space:nowrap;">{{ v.last_seen_ist }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted">No traffic recorded yet.</p>
+{% endif %}
+
+<h2 style="margin-top:2.5rem;">Recent Requests (last 100)</h2>
+{% if recent %}
+<div class="table-wrap">
+<table>
+    <thead><tr><th>Time (UTC)</th><th>Time (IST)</th><th>IP</th><th>Location</th><th>Method</th><th>Path</th><th>Status</th><th>Referrer</th><th>User Agent</th></tr></thead>
+    <tbody>
+    {% for r in recent %}
+    <tr>
+        <td style="white-space:nowrap;">{{ r.ts[:19].replace('T', ' ') }}</td>
+        <td style="white-space:nowrap;">{{ r.ts_ist }}</td>
+        <td>{{ r.ip }}</td>
+        <td style="white-space:nowrap;">{{ r.location }}</td>
+        <td>{{ r.method }}</td>
+        <td>{{ r.path }}</td>
+        <td>{{ r.status }}</td>
+        <td>{{ r.referrer or '-' }}</td>
+        <td style="max-width:260px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ r.user_agent or '-' }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted">No traffic recorded yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block title %}Metals & Gemstones Market Insights | Historical Trends & Forecasts{% endblock %}
+{% block description %}Explore metal and gemstone market trends, historical prices, volatility analysis, and ML & AI price forecasts. Current USD pricing and risk metrics.{% endblock %}
+{% block keywords %}metal prices, gold prices, silver prices, copper prices, market trends, commodity analysis, volatility, precious metals market, industrial metals, gemstone values{% endblock %}
+{% block content %}
+
+<div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/">&larr; Back to categories</a>
+    <a href="/metals" style="color: #c9a961; text-decoration: none; font-weight: 600;">💰 Price Calculator →</a>
+</div>
+
+<h1>Metals & Gemstones Market Insights</h1>
+<p class="muted">Current prices, volatility analysis, and historical trends for precious metals, industrial metals, and gemstones.</p>
+
+<!-- Precious Metals Section -->
+<section style="margin-top: 2rem;">
+    <h2 style="color: #c9a961; border-bottom: 2px solid #c9a961; padding-bottom: 0.5rem;">🏆 Precious Metals</h2>
+
+    <div class="table-wrap" style="margin-top: 1rem;">
+    <table>
+        <thead><tr>
+            <th>Metal</th>
+            <th>Current Price</th>
+            <th>Annual Volatility</th>
+            <th>Expected Appreciation</th>
+            <th>Risk Level</th>
+        </tr></thead>
+        <tbody>
+        {% for metal_name, metal_data in market_stats.precious.items() %}
+        <tr>
+            <td><strong>{{ metal_name }}</strong></td>
+            <td>${{ "{:,.2f}".format(metal_data.current_price) }} / {{ metal_data.unit.split('/')[-1] }}</td>
+            <td>{{ "{:.1f}".format(metal_data.volatility * 100) }}%</td>
+            <td>+{{ "{:.1f}".format(metal_data.appreciation * 100) }}% p.a.</td>
+            <td>
+                {% if metal_data.volatility > 0.15 %}
+                <span style="color: #ff6b6b; font-weight: bold;">High</span>
+                {% elif metal_data.volatility > 0.10 %}
+                <span style="color: #ffa500; font-weight: bold;">Medium</span>
+                {% else %}
+                <span style="color: #4CAF50; font-weight: bold;">Low</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <p class="muted" style="margin-top: 1rem; font-size: 0.9rem;">
+        💡 <strong>Precious metals</strong> are traditional inflation hedges. Gold and silver show strong long-term appreciation. Platinum and Palladium are used in industrial applications, making them more volatile.
+    </p>
+</section>
+
+<!-- Industrial Metals Section -->
+<section style="margin-top: 2rem;">
+    <h2 style="color: #c9a961; border-bottom: 2px solid #c9a961; padding-bottom: 0.5rem;">⚙️ Industrial Metals</h2>
+
+    <div class="table-wrap" style="margin-top: 1rem;">
+    <table>
+        <thead><tr>
+            <th>Metal</th>
+            <th>Current Price</th>
+            <th>Annual Volatility</th>
+            <th>Expected Appreciation</th>
+            <th>Risk Level</th>
+        </tr></thead>
+        <tbody>
+        {% for metal_name, metal_data in market_stats.industrial.items() %}
+        <tr>
+            <td><strong>{{ metal_name }}</strong></td>
+            <td>${{ "{:,.2f}".format(metal_data.current_price) }} / {{ metal_data.unit.split('/')[-1] }}</td>
+            <td>{{ "{:.1f}".format(metal_data.volatility * 100) }}%</td>
+            <td>+{{ "{:.1f}".format(metal_data.appreciation * 100) }}% p.a.</td>
+            <td>
+                {% if metal_data.volatility > 0.15 %}
+                <span style="color: #ff6b6b; font-weight: bold;">High</span>
+                {% elif metal_data.volatility > 0.10 %}
+                <span style="color: #ffa500; font-weight: bold;">Medium</span>
+                {% else %}
+                <span style="color: #4CAF50; font-weight: bold;">Low</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <p class="muted" style="margin-top: 1rem; font-size: 0.9rem;">
+        💡 <strong>Industrial metals</strong> follow economic cycles. Copper, Aluminum, and Nickel are essential for construction and manufacturing. Lithium shows highest growth due to battery demand.
+    </p>
+</section>
+
+<!-- Gemstones Section -->
+<section style="margin-top: 2rem;">
+    <h2 style="color: #c9a961; border-bottom: 2px solid #c9a961; padding-bottom: 0.5rem;">💎 Gemstones</h2>
+
+    <div class="table-wrap" style="margin-top: 1rem;">
+    <table>
+        <thead><tr>
+            <th>Gemstone</th>
+            <th>Current Price</th>
+            <th>Annual Volatility</th>
+            <th>Expected Appreciation</th>
+            <th>Risk Level</th>
+        </tr></thead>
+        <tbody>
+        {% for metal_name, metal_data in market_stats.gemstones.items() %}
+        <tr>
+            <td><strong>{{ metal_name }}</strong></td>
+            <td>${{ "{:,.2f}".format(metal_data.current_price) }} / {{ metal_data.unit.split('/')[-1] }}</td>
+            <td>{{ "{:.1f}".format(metal_data.volatility * 100) }}%</td>
+            <td>+{{ "{:.1f}".format(metal_data.appreciation * 100) }}% p.a.</td>
+            <td>
+                {% if metal_data.volatility > 0.15 %}
+                <span style="color: #ff6b6b; font-weight: bold;">High</span>
+                {% elif metal_data.volatility > 0.10 %}
+                <span style="color: #ffa500; font-weight: bold;">Medium</span>
+                {% else %}
+                <span style="color: #4CAF50; font-weight: bold;">Low</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <p class="muted" style="margin-top: 1rem; font-size: 0.9rem;">
+        💡 <strong>Gemstones</strong> are luxury assets with lower volatility. Prices are determined by the 4 Cs: Color, Clarity, Carat weight, and Cut. Collectibility adds to long-term value.
+    </p>
+</section>
+
+<!-- Investment Guide -->
+<section style="margin-top: 3rem; padding: 2rem; background: rgba(201, 169, 97, 0.1); border-radius: 8px; border: 1px solid #c9a961;">
+    <h2 style="margin-top: 0; color: #c9a961;">📚 Investment Guide</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        <div>
+            <h3 style="color: #c9a961; margin-top: 0;">Precious Metals</h3>
+            <ul style="line-height: 2;">
+                <li>Hedge against inflation</li>
+                <li>Low correlation with stocks</li>
+                <li>Physical & ETF options</li>
+                <li>Long-term holding recommended</li>
+                <li>Tax implications vary by region</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="color: #c9a961; margin-top: 0;">Industrial Metals</h3>
+            <ul style="line-height: 2;">
+                <li>Follow economic cycles</li>
+                <li>Supply/demand driven</li>
+                <li>Futures & commodity ETFs</li>
+                <li>Higher volatility</li>
+                <li>Geopolitical factors matter</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="color: #c9a961; margin-top: 0;">Gemstones</h3>
+            <ul style="line-height: 2;">
+                <li>Rare & collectible</li>
+                <li>Quality matters greatly</li>
+                <li>Authentication crucial</li>
+                <li>Limited liquidity</li>
+                <li>Long-term wealth storage</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #c9a961 0%, #8b7355 100%); border-radius: 8px; text-align: center; color: white;">
+    <h3 style="margin-top: 0;">Ready to Calculate Your Returns?</h3>
+    <p>Use our ML & AI-powered calculator to forecast prices and investment returns.</p>
+    <a href="/metals" style="display: inline-block; background: white; color: #c9a961; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">
+        Launch Calculator →
+    </a>
+</div>
+
+<p style="text-align: center; margin-top: 3rem; color: var(--muted, #999); font-size: 0.9rem;">
+    Degen Predictions is an educational research platform. Not financial or investment advice.
+    Commodity prices are volatile. Always consult with financial professionals before investing.
+</p>
+
+{% endblock %}

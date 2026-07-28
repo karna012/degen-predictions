@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}{{ asset.ticker }} Prediction | {{ category_label }} | Degen Predictions{% endblock %}
+{% block description %}{{ asset.ticker }} predicted 6-month forward return from a walk-forward-validated machine-learning model.{% endblock %}
+{% block keywords %}{{ asset.ticker }} prediction, {{ asset.ticker }} price prediction, {{ asset.ticker }} forecast, {{ category_label|lower }} predictions, {{ asset.ticker }} 6 month forecast{% endblock %}
+{% block content %}
+<a href="{{ back_href }}">&larr; Back to {{ category_label }} rankings</a>
+<h1>
+    {% if asset.logo_url %}
+    <img src="{{ asset.logo_url }}" alt="" width="36" height="36" style="border-radius:6px; vertical-align:middle; margin-right:0.5rem;"
+         onerror="this.style.display='none';">
+    {% endif %}
+    {{ asset.ticker }}
+</h1>
+<p class="muted">{{ category_label }} &middot; Rank #{{ asset.rank_within_asset_class }}</p>
+
+<div id="not-financial-advice-overlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:999; display:flex; align-items:center; justify-content:center; padding:1rem;">
+    <div class="disclaimer" id="not-financial-advice-banner" style="max-width:70ch; max-height:85vh; overflow-y:auto; border:2px solid #c0392b; padding:1.25rem; border-radius:8px; position:relative; background:var(--bg, #0d0d16);">
+        <button type="button" onclick="dismissDisclaimer()" aria-label="Dismiss"
+                style="position:absolute; top:0.5rem; right:0.6rem; background:none; border:none; color:inherit; font-size:1.4rem; line-height:1; cursor:pointer; opacity:0.7;">&times;</button>
+        <strong>&#9888; NOT FINANCIAL ADVICE.</strong> This is the output of an experimental
+        machine-learning model, for educational/research purposes only -- not a recommendation to buy or sell,
+        not investment advice, not a solicitation. The site owner is not a registered investment advisor.
+        Investing carries risk of total loss; you are solely responsible for your own decisions. Full terms:
+        <a href="/terms">/terms</a>.
+    </div>
+</div>
+<script>
+(function() {
+    var overlay = document.getElementById("not-financial-advice-overlay");
+    if (!overlay) return;
+    if (sessionStorage.getItem("dismissed-not-financial-advice")) {
+        overlay.style.display = "none";
+        return;
+    }
+    var timer = setTimeout(dismissDisclaimer, 7000);
+    overlay.addEventListener("click", function(e) {
+        if (e.target === overlay) { clearTimeout(timer); dismissDisclaimer(); }
+    });
+})();
+function dismissDisclaimer() {
+    var overlay = document.getElementById("not-financial-advice-overlay");
+    if (overlay) overlay.style.display = "none";
+    sessionStorage.setItem("dismissed-not-financial-advice", "1");
+}
+</script>
+
+<div class="card-grid">
+    {% if asset.as_of_date %}
+    <div class="card">
+        <h2>Recommended Investment Window</h2>
+        <p class="big">{{ asset.as_of_date }} &rarr; {{ asset.hold_until_date }}</p>
+        <p class="muted">A ~6-month hold, matching the model's prediction horizon -- the return below is
+            what the model expects over exactly this window, not an open-ended forecast.</p>
+    </div>
+    {% endif %}
+
+    <div class="card">
+        <h2>Predicted 6-Month Return</h2>
+        <p class="big">{{ (asset.predicted_forward_return * 100) | round(1) }}%</p>
+        <p class="muted">Model's expected return over the next 6 months.</p>
+    </div>
+
+    <div class="card">
+        <h2>Outperform Probability</h2>
+        <div class="bar"><div class="bar-fill home" style="width: {{ asset.predicted_outperform_probability * 100 }}%"></div></div>
+        <p>{{ (asset.predicted_outperform_probability * 100) | round(1) }}% chance of beating the benchmark
+            over the same window.</p>
+    </div>
+
+    <div class="card">
+        <h2>Composite Score</h2>
+        <p>{{ asset.final_score | round(3) }}</p>
+        <p class="muted">Z-scored relative to peers in {{ category_label }}. Stocks blend in a fundamentals
+            composite (P/E, margins, growth, etc.); crypto and low-fundamentals-coverage assets rely on the
+            price/momentum model alone.</p>
+    </div>
+
+    <div class="card">
+        <h2>Data Confidence</h2>
+        <p><strong>{{ asset.data_confidence }}</strong></p>
+        <p class="muted">"low" or "medium" means some of this asset's underlying data was imputed
+            (sector/peer median) rather than directly observed -- treat the prediction with more caution.</p>
+    </div>
+
+    <div class="card">
+        <h2>News Sentiment</h2>
+        {% if asset.sentiment_score is not none and asset.sentiment_score == asset.sentiment_score %}
+        <p>{{ asset.sentiment_score | round(2) }} <span class="muted">(from {{ asset.sentiment_headline_count|int }} recent headlines, VADER score -1 to +1)</span></p>
+        {% else %}
+        <p class="muted">No recent headlines found for this asset.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="tips-card">
+    <p class="disclaimer">This is a machine-learning estimate with measured, real overfitting on
+        walk-forward testing (see the rankings page) -- treat it as a rough lean, not a precise
+        forecast. Not financial advice.</p>
+</div>
+{% endblock %}

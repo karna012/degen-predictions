@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Baseball Predictions -- MLB & NPB | Degen Predictions{% endblock %}
+{% block description %}Free machine-learning baseball predictions for MLB and NPB -- winner, total runs, and more, updated daily.{% endblock %}
+{% block content %}
+<a href="/sports">&larr; Back to Sports</a>
+<div class="leagues-hero">
+    <h1>Pick Your Baseball League</h1>
+    <p class="muted">Choose a league to see fixtures and predictions.</p>
+</div>
+
+{% macro baseball_card(info, href) %}
+    {% if info.available %}
+    <a class="league-card" href="{{ href }}" style="--league-color: {{ info.color }};">
+    {% else %}
+    <div class="league-card league-card-disabled" style="--league-color: {{ info.color }};">
+    {% endif %}
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>{{ info.label|upper }}</h2>
+            {% if info.available %}
+            <p class="league-desc">{{ info.country }} &middot; {{ info.fixture_count }} upcoming fixtures.</p>
+            <span class="league-cta">Get Predictions</span>
+            {% else %}
+            <p class="league-desc">{{ info.country }} &middot; Coming soon.</p>
+            {% endif %}
+        </div>
+        <div class="league-badge">
+            <span class="league-monogram">{{ info.monogram }}</span>
+        </div>
+    {% if info.available %}
+    </a>
+    {% else %}
+    </div>
+    {% endif %}
+{% endmacro %}
+
+<div class="league-grid">
+    {{ baseball_card(mlb_info, "/mlb/fixtures") }}
+    {{ baseball_card(npb_info, "/npb/fixtures") }}
+</div>
+{% endblock %}

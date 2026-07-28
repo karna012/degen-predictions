@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}{{ category_label }} Rankings | Degen Predictions{% endblock %}
+{% block description %}{{ category_label }} ranked by predicted 6-month forward return from a walk-forward-validated machine-learning model.{% endblock %}
+{% block keywords %}{% if category == 'crypto' %}crypto predictions, cryptocurrency predictions, best crypto to buy, AI crypto predictions, crypto price prediction, bitcoin prediction, altcoin rankings, crypto investment rankings, crypto forecast 2026{% else %}{{ category_label|lower }} predictions, stock predictions, AI stock predictions, {{ category_label|lower }} rankings, stock forecast, best stocks to invest in, machine learning stock picks{% endif %}{% endblock %}
+{% block content %}
+<a href="{{ back_href }}">&larr; Back</a>
+<h1>{{ category_label }} -- Predicted 6-Month Ranking</h1>
+<p class="muted">Ranked by the model's predicted 6-month forward return. Higher rank = higher predicted return,
+    not a guarantee.</p>
+{% if rows and rows[0].as_of_date %}
+<p class="muted">Recommended investment window: <strong>{{ rows[0].as_of_date }}</strong> to
+    <strong>{{ rows[0].hold_until_date }}</strong> (a ~6-month hold, matching the model's prediction horizon --
+    this is not a trading signal to buy/sell before or after those dates).</p>
+{% endif %}
+
+<div id="not-financial-advice-overlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:999; display:flex; align-items:center; justify-content:center; padding:1rem;">
+    <div class="disclaimer" id="not-financial-advice-banner" style="max-width:70ch; max-height:85vh; overflow-y:auto; border:2px solid #c0392b; padding:1.25rem; border-radius:8px; position:relative; background:var(--bg, #0d0d16);">
+        <button type="button" onclick="dismissDisclaimer()" aria-label="Dismiss"
+                style="position:absolute; top:0.5rem; right:0.6rem; background:none; border:none; color:inherit; font-size:1.4rem; line-height:1; cursor:pointer; opacity:0.7;">&times;</button>
+        <strong>&#9888; NOT FINANCIAL ADVICE -- READ BEFORE ACTING ON ANYTHING BELOW.</strong>
+        <p style="margin-top:0.5rem;">This page shows the output of an experimental machine-learning model,
+            for educational/research purposes only. It is not investment advice, not a recommendation to buy or
+            sell any asset, and not a solicitation of any kind. The site owner is not a registered investment
+            advisor or financial professional. Walk-forward testing on this model shows real, measured
+            overfitting on every fold checked (train performance consistently beats out-of-sample test
+            performance) -- treat every score as a rough lean, not a reliable forecast. Crypto predictions are
+            especially noisy (only 365 days of price history available per coin). India stock predictions have
+            shown weaker out-of-sample signal than US stocks in backtesting. Always check the
+            <strong>data_confidence</strong> column -- "low" or "medium" means the underlying data for that
+            asset had gaps that were imputed, not observed directly.</p>
+        <p style="margin-top:0.5rem;">Investing carries risk of total loss. You are solely responsible for your
+            own financial decisions -- consult a licensed financial professional before acting on anything here.
+            Full terms: <a href="/terms">/terms</a>.</p>
+    </div>
+</div>
+<script>
+(function() {
+    var overlay = document.getElementById("not-financial-advice-overlay");
+    if (!overlay) return;
+    if (sessionStorage.getItem("dismissed-not-financial-advice")) {
+        overlay.style.display = "none";
+        return;
+    }
+    var timer = setTimeout(dismissDisclaimer, 7000);
+    overlay.addEventListener("click", function(e) {
+        if (e.target === overlay) { clearTimeout(timer); dismissDisclaimer(); }
+    });
+})();
+function dismissDisclaimer() {
+    var overlay = document.getElementById("not-financial-advice-overlay");
+    if (overlay) overlay.style.display = "none";
+    sessionStorage.setItem("dismissed-not-financial-advice", "1");
+}
+</script>
+
+{% if rows %}
+<div style="margin:0 0 1rem;">
+    <input type="text" id="asset-search" placeholder="Search by ticker (e.g. AAPL, bitcoin)..."
+           oninput="filterAssetRows(this.value)"
+           style="width:100%; max-width:320px; padding:0.55rem 0.8rem; border-radius:8px; border:1px solid var(--border, #444); background:var(--card-bg, #1a1a1a); color:inherit; font-size:0.95rem;">
+    <p class="muted" id="asset-search-count" style="margin-top:0.4rem;"></p>
+</div>
+<p class="table-scroll-hint muted">&#8592; Swipe the table left/right to see all columns &#8594;</p>
+<div class="table-wrap">
+<table>
+    <thead><tr>
+        <th></th><th>Rank</th><th>Ticker</th><th>Predicted 6mo Return</th>
+        <th>Predicted Outperform Probability</th><th>News Sentiment</th><th>Data Confidence</th>
+    </tr></thead>
+    <tbody id="asset-rows">
+    {% for r in rows %}
+    <tr data-ticker="{{ r.ticker|lower }}">
+        <td>
+            {% if r.logo_url %}
+            <img src="{{ r.logo_url }}" alt="" width="24" height="24" style="border-radius:4px; vertical-align:middle;"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" loading="lazy">
+            {% endif %}
+            <span class="asset-monogram" style="{% if r.logo_url %}display:none;{% else %}display:inline-flex;{% endif %} width:24px; height:24px; border-radius:4px; background:var(--border,#333); align-items:center; justify-content:center; font-size:0.7rem; font-weight:700;">{{ r.ticker[:2]|upper }}</span>
+        </td>
+        <td>{{ r.rank_within_asset_class }}</td>
+        <td><a href="/{{ category }}/asset/{{ r.ticker }}">{{ r.ticker }}</a></td>
+        <td>{{ (r.predicted_forward_return * 100) | round(1) }}%</td>
+        <td>{{ (r.predicted_outperform_probability * 100) | round(1) }}%</td>
+        <td>{% if r.sentiment_score is not none and r.sentiment_score == r.sentiment_score %}{{ r.sentiment_score | round(2) }} ({{ r.sentiment_headline_count|int }} headlines){% else %}no data{% endif %}</td>
+        <td>{{ r.data_confidence }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted">No ranking data available yet.</p>
+{% endif %}
+
+<script>
+function filterAssetRows(query) {
+    const q = query.trim().toLowerCase();
+    const rows = document.querySelectorAll("#asset-rows tr");
+    let visible = 0;
+    rows.forEach(row => {
+        const match = !q || row.dataset.ticker.includes(q);
+        row.style.display = match ? "" : "none";
+        if (match) visible++;
+    });
+    const countEl = document.getElementById("asset-search-count");
+    if (countEl) {
+        countEl.textContent = q ? `${visible} of ${rows.length} match "${query}"` : "";
+    }
+}
+</script>
+{% endblock %}

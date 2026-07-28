@@ -1,0 +1,269 @@
+Date,Competition,Venue,Team1,Team2,Team1Runs,Team2Runs,Team1Wickets,Team2Wickets,Winner,Team1EloAfter,Team2EloAfter
+2021-07-22,hnd_male,"Kennington Oval, London",Oval Invincibles,Manchester Originals,145,136,8,7,Oval Invincibles,1510.0,1490.0
+2021-07-23,hnd_male,"Edgbaston, Birmingham",London Spirit,Birmingham Phoenix,144,148,6,7,Birmingham Phoenix,1490.0,1510.0
+2021-07-24,hnd_male,"Trent Bridge, Nottingham",Southern Brave,Trent Rockets,126,127,8,1,Trent Rockets,1490.0,1510.0
+2021-07-24,hnd_male,"Headingley, Leeds",Welsh Fire,Northern Superchargers,173,168,4,7,Welsh Fire,1510.0,1490.0
+2021-07-25,hnd_male,"Old Trafford, Manchester",Birmingham Phoenix,Manchester Originals,87,89,10,4,Manchester Originals,1499.4,1500.6
+2021-07-26,hnd_male,"Trent Bridge, Nottingham",Northern Superchargers,Trent Rockets,132,134,10,8,Trent Rockets,1480.6,1519.4
+2021-07-27,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Southern Brave,165,147,4,7,Welsh Fire,1519.4,1480.6
+2021-07-29,hnd_male,"Lord's, London",Trent Rockets,London Spirit,123,116,4,8,Trent Rockets,1528.6,1480.8
+2021-07-30,hnd_male,"The Rose Bowl, Southampton",Birmingham Phoenix,Southern Brave,151,152,3,6,Southern Brave,1488.9,1491.1
+2021-07-31,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Manchester Originals,150,153,6,3,Manchester Originals,1508.9,1511.1
+2021-07-31,hnd_male,"Headingley, Leeds",Oval Invincibles,Northern Superchargers,127,128,6,4,Northern Superchargers,1499.2,1491.4
+2021-08-01,hnd_male,"Edgbaston, Birmingham",Trent Rockets,Birmingham Phoenix,144,145,6,4,Birmingham Phoenix,1517.4,1500.0
+2021-08-01,hnd_male,"Lord's, London",Southern Brave,London Spirit,145,141,6,7,Southern Brave,1500.8,1471.1
+2021-08-02,hnd_male,"Kennington Oval, London",Welsh Fire,Oval Invincibles,121,125,7,4,Oval Invincibles,1498.6,1509.4
+2021-08-03,hnd_male,"Lord's, London",Northern Superchargers,London Spirit,155,92,3,9,Northern Superchargers,1500.8,1461.7
+2021-08-04,hnd_male,"Edgbaston, Birmingham",Oval Invincibles,Birmingham Phoenix,172,174,3,4,Birmingham Phoenix,1499.2,1510.3
+2021-08-06,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Trent Rockets,139,140,8,4,Trent Rockets,1489.1,1526.9
+2021-08-07,hnd_male,"The Rose Bowl, Southampton",Northern Superchargers,Southern Brave,128,131,6,5,Southern Brave,1490.8,1510.8
+2021-08-08,hnd_male,"Kennington Oval, London",Oval Invincibles,Trent Rockets,125,116,6,8,Oval Invincibles,1510.0,1516.1
+2021-08-09,hnd_male,"Edgbaston, Birmingham",Birmingham Phoenix,Welsh Fire,184,91,5,10,Birmingham Phoenix,1519.7,1479.8
+2021-08-10,hnd_male,"Old Trafford, Manchester",London Spirit,Manchester Originals,142,136,6,9,London Spirit,1473.1,1499.7
+2021-08-11,hnd_male,"The Rose Bowl, Southampton",Welsh Fire,Southern Brave,144,147,5,2,Southern Brave,1470.6,1519.9
+2021-08-12,hnd_male,"Headingley, Leeds",Northern Superchargers,Manchester Originals,200,131,5,10,Northern Superchargers,1501.1,1489.4
+2021-08-13,hnd_male,"Trent Bridge, Nottingham",Birmingham Phoenix,Trent Rockets,166,150,6,9,Birmingham Phoenix,1529.6,1506.2
+2021-08-14,hnd_male,"Kennington Oval, London",London Spirit,Oval Invincibles,146,147,7,8,Oval Invincibles,1464.2,1518.9
+2021-08-15,hnd_male,"Trent Bridge, Nottingham",Manchester Originals,Trent Rockets,135,136,8,3,Trent Rockets,1479.9,1515.7
+2021-08-16,hnd_male,"The Rose Bowl, Southampton",Oval Invincibles,Southern Brave,134,135,7,4,Southern Brave,1508.9,1529.9
+2021-08-17,hnd_male,"Headingley, Leeds",Northern Superchargers,Birmingham Phoenix,143,147,8,2,Birmingham Phoenix,1491.9,1538.8
+2021-08-18,hnd_male,"Sophia Gardens, Cardiff",London Spirit,Welsh Fire,163,165,5,7,Welsh Fire,1454.4,1480.5
+2021-08-20,hnd_male,"Kennington Oval, London",Trent Rockets,Southern Brave,96,97,10,3,Southern Brave,1506.1,1539.5
+2021-08-21,hnd_male,"Lord's, London",Southern Brave,Birmingham Phoenix,168,136,5,5,Southern Brave,1549.5,1528.8
+2022-08-03,hnd_male,"The Rose Bowl, Southampton",Welsh Fire,Southern Brave,107,109,7,1,Southern Brave,1472.4,1557.5
+2022-08-04,hnd_male,"Kennington Oval, London",London Spirit,Oval Invincibles,171,168,6,7,London Spirit,1465.9,1497.4
+2022-08-05,hnd_male,"Old Trafford, Manchester",Manchester Originals,Northern Superchargers,161,162,4,4,Northern Superchargers,1470.3,1501.6
+2022-08-06,hnd_male,"Trent Bridge, Nottingham",Birmingham Phoenix,Trent Rockets,143,147,7,4,Trent Rockets,1518.1,1516.8
+2022-08-07,hnd_male,"Sophia Gardens, Cardiff",Oval Invincibles,Welsh Fire,158,119,5,6,Oval Invincibles,1506.7,1463.1
+2022-08-08,hnd_male,"Lord's, London",London Spirit,Manchester Originals,160,108,6,10,London Spirit,1476.1,1460.2
+2022-08-09,hnd_male,"Headingley, Leeds",Northern Superchargers,Trent Rockets,152,155,8,3,Trent Rockets,1492.0,1526.3
+2022-08-10,hnd_male,"Edgbaston, Birmingham",Birmingham Phoenix,Southern Brave,176,123,4,10,Birmingham Phoenix,1529.3,1546.4
+2022-08-11,hnd_male,"Kennington Oval, London",Northern Superchargers,Oval Invincibles,157,158,7,7,Oval Invincibles,1482.4,1516.2
+2022-08-12,hnd_male,"The Rose Bowl, Southampton",London Spirit,Southern Brave,147,138,6,7,London Spirit,1488.1,1534.4
+2022-08-13,hnd_male,"Old Trafford, Manchester",Manchester Originals,Trent Rockets,189,193,3,2,Trent Rockets,1452.0,1534.5
+2022-08-13,hnd_male,"Sophia Gardens, Cardiff",Birmingham Phoenix,Welsh Fire,130,126,7,5,Birmingham Phoenix,1537.4,1455.0
+2022-08-14,hnd_male,"Headingley, Leeds",Northern Superchargers,London Spirit,143,147,5,3,London Spirit,1472.6,1497.9
+2022-08-14,hnd_male,"Kennington Oval, London",Southern Brave,Oval Invincibles,137,142,6,3,Oval Invincibles,1523.9,1526.8
+2022-08-15,hnd_male,"Edgbaston, Birmingham",Trent Rockets,Birmingham Phoenix,145,149,6,3,Birmingham Phoenix,1524.5,1547.3
+2022-08-16,hnd_male,"Old Trafford, Manchester",Manchester Originals,Welsh Fire,149,102,9,10,Manchester Originals,1462.1,1444.9
+2022-08-17,hnd_male,"Trent Bridge, Nottingham",Trent Rockets,Oval Invincibles,181,156,4,5,Trent Rockets,1534.6,1516.7
+2022-08-18,hnd_male,"The Rose Bowl, Southampton",Manchester Originals,Southern Brave,188,120,3,10,Manchester Originals,1473.9,1512.1
+2022-08-19,hnd_male,"Edgbaston, Birmingham",Northern Superchargers,Birmingham Phoenix,169,137,6,9,Northern Superchargers,1484.7,1535.2
+2022-08-20,hnd_male,"Trent Bridge, Nottingham",London Spirit,Trent Rockets,122,127,10,4,Trent Rockets,1488.9,1543.6
+2022-08-21,hnd_male,"Headingley, Leeds",Manchester Originals,Northern Superchargers,208,185,5,7,Manchester Originals,1484.2,1474.4
+2022-08-22,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Southern Brave,129,132,8,1,Southern Brave,1436.8,1520.2
+2022-08-23,hnd_male,"Kennington Oval, London",Birmingham Phoenix,Oval Invincibles,166,156,6,8,Birmingham Phoenix,1544.6,1507.2
+2022-08-24,hnd_male,"Lord's, London",London Spirit,Welsh Fire,156,139,6,9,London Spirit,1497.5,1428.3
+2022-08-25,hnd_male,"The Rose Bowl, Southampton",Trent Rockets,Southern Brave,138,142,6,4,Southern Brave,1532.9,1530.9
+2022-08-26,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Northern Superchargers,114,116,4,4,Northern Superchargers,1419.6,1483.1
+2022-08-27,hnd_male,"Lord's, London",London Spirit,Oval Invincibles,122,124,7,4,Oval Invincibles,1487.7,1516.9
+2022-08-28,hnd_male,"Edgbaston, Birmingham",Manchester Originals,Birmingham Phoenix,154,75,6,10,Manchester Originals,1495.9,1532.9
+2022-08-29,hnd_male,"Trent Bridge, Nottingham",Trent Rockets,Welsh Fire,172,143,4,6,Trent Rockets,1539.7,1412.8
+2022-08-30,hnd_male,"Lord's, London",London Spirit,Birmingham Phoenix,139,140,6,9,Birmingham Phoenix,1479.0,1541.6
+2022-08-31,hnd_male,"Headingley, Leeds",Northern Superchargers,Southern Brave,135,119,8,9,Northern Superchargers,1494.4,1519.5
+2022-08-31,hnd_male,"Old Trafford, Manchester",Oval Invincibles,Manchester Originals,143,144,9,4,Manchester Originals,1506.3,1506.5
+2022-09-02,hnd_male,"The Rose Bowl, Southampton",London Spirit,Manchester Originals,150,151,7,5,Manchester Originals,1469.8,1515.7
+2022-09-03,hnd_male,"Lord's, London",Manchester Originals,Trent Rockets,120,121,9,8,Trent Rockets,1506.4,1549.0
+2023-07-13,mlc_male,Grand Prairie Stadium,Texas Super Kings,Los Angeles Knight Riders,181,112,6,10,Texas Super Kings,1510.0,1490.0
+2023-07-14,mlc_male,Grand Prairie Stadium,San Francisco Unicorns,MI New York,215,193,5,5,San Francisco Unicorns,1510.0,1490.0
+2023-07-14,mlc_male,Grand Prairie Stadium,Washington Freedom,Seattle Orcas,144,148,7,5,Seattle Orcas,1490.0,1510.0
+2023-07-15,mlc_male,Grand Prairie Stadium,Seattle Orcas,San Francisco Unicorns,177,142,4,10,Seattle Orcas,1520.0,1500.0
+2023-07-16,mlc_male,Grand Prairie Stadium,Washington Freedom,Texas Super Kings,163,157,5,8,Washington Freedom,1500.6,1499.4
+2023-07-16,mlc_male,Grand Prairie Stadium,MI New York,Los Angeles Knight Riders,155,50,8,10,MI New York,1500.0,1480.0
+2023-07-17,mlc_male,Grand Prairie Stadium,Texas Super Kings,MI New York,154,137,7,8,Texas Super Kings,1509.4,1490.0
+2023-07-18,mlc_male,Grand Prairie Stadium,San Francisco Unicorns,Los Angeles Knight Riders,212,191,7,5,San Francisco Unicorns,1509.4,1470.6
+2023-07-20,mlc_male,"Church Street Park, Morrisville",Los Angeles Knight Riders,Washington Freedom,175,177,7,4,Washington Freedom,1461.4,1509.7
+2023-07-21,mlc_male,"Church Street Park, Morrisville",Texas Super Kings,Seattle Orcas,127,128,10,2,Seattle Orcas,1499.7,1529.7
+2023-07-22,mlc_male,"Church Street Park, Morrisville",Washington Freedom,San Francisco Unicorns,133,103,8,10,Washington Freedom,1519.7,1499.4
+2023-07-23,mlc_male,"Church Street Park, Morrisville",Seattle Orcas,Los Angeles Knight Riders,170,175,6,8,Los Angeles Knight Riders,1517.8,1473.4
+2023-07-23,mlc_male,"Church Street Park, Morrisville",Washington Freedom,MI New York,160,161,6,2,MI New York,1508.9,1500.8
+2023-07-24,mlc_male,"Church Street Park, Morrisville",San Francisco Unicorns,Texas Super Kings,171,172,8,7,Texas Super Kings,1489.4,1509.7
+2023-07-25,mlc_male,"Church Street Park, Morrisville",MI New York,Seattle Orcas,194,195,8,8,Seattle Orcas,1491.3,1527.3
+2023-07-27,mlc_male,Grand Prairie Stadium,MI New York,Washington Freedom,141,125,7,9,MI New York,1501.8,1498.3
+2023-07-27,mlc_male,Grand Prairie Stadium,Texas Super Kings,Seattle Orcas,126,127,9,1,Seattle Orcas,1500.2,1536.8
+2023-07-28,mlc_male,Grand Prairie Stadium,Texas Super Kings,MI New York,158,162,10,4,MI New York,1490.3,1511.8
+2023-07-30,mlc_male,Grand Prairie Stadium,Seattle Orcas,MI New York,183,184,9,3,MI New York,1526.0,1522.5
+2023-08-01,hnd_male,"Trent Bridge, Nottingham",Trent Rockets,Southern Brave,133,127,8,10,Trent Rockets,1558.2,1510.3
+2023-08-02,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Manchester Originals,94,85,3,4,Welsh Fire,1425.4,1493.8
+2023-08-02,hnd_male,"Lord's, London",London Spirit,Oval Invincibles,131,132,10,7,Oval Invincibles,1460.9,1515.3
+2023-08-04,hnd_male,"The Rose Bowl, Southampton",Southern Brave,Welsh Fire,147,145,8,7,Southern Brave,1518.0,1417.8
+2023-08-06,hnd_male,"The Rose Bowl, Southampton",Northern Superchargers,Southern Brave,201,141,3,5,Northern Superchargers,1505.1,1507.3
+2023-08-06,hnd_male,"Kennington Oval, London",Welsh Fire,Oval Invincibles,138,138,6,7,,1417.8,1515.3
+2023-08-07,hnd_male,"Old Trafford, Manchester",Manchester Originals,Birmingham Phoenix,160,111,8,10,Manchester Originals,1505.2,1530.3
+2023-08-09,hnd_male,"Trent Bridge, Nottingham",Northern Superchargers,Trent Rockets,142,139,5,7,Northern Superchargers,1516.6,1546.7
+2023-08-09,hnd_male,"Kennington Oval, London",Oval Invincibles,Manchester Originals,186,92,5,10,Oval Invincibles,1525.0,1495.4
+2023-08-10,hnd_male,"Edgbaston, Birmingham",Birmingham Phoenix,Welsh Fire,112,116,7,4,Welsh Fire,1517.1,1431.0
+2023-08-11,hnd_male,"Headingley, Leeds",Oval Invincibles,Northern Superchargers,185,176,5,8,Oval Invincibles,1534.8,1506.9
+2023-08-12,hnd_male,"Lord's, London",London Spirit,Trent Rockets,195,193,4,5,London Spirit,1473.3,1534.3
+2023-08-12,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Southern Brave,87,91,10,1,Southern Brave,1423.1,1515.1
+2023-08-13,hnd_male,"Headingley, Leeds",Manchester Originals,Northern Superchargers,182,141,6,9,Manchester Originals,1505.8,1496.5
+2023-08-13,hnd_male,"Edgbaston, Birmingham",Birmingham Phoenix,Oval Invincibles,160,119,8,10,Birmingham Phoenix,1527.6,1524.3
+2023-08-14,hnd_male,"Sophia Gardens, Cardiff",Trent Rockets,Welsh Fire,152,148,6,6,Trent Rockets,1541.2,1416.2
+2023-08-15,hnd_male,"Kennington Oval, London",Oval Invincibles,London Spirit,189,187,4,7,Oval Invincibles,1532.8,1464.7
+2023-08-16,hnd_male,"The Rose Bowl, Southampton",Birmingham Phoenix,Southern Brave,119,120,8,6,Southern Brave,1517.3,1525.5
+2023-08-17,hnd_male,"Trent Bridge, Nottingham",Manchester Originals,Trent Rockets,181,171,6,5,Manchester Originals,1516.8,1530.2
+2023-08-18,hnd_male,"Lord's, London",London Spirit,Northern Superchargers,160,147,6,7,London Spirit,1475.7,1485.6
+2023-08-19,hnd_male,"Trent Bridge, Nottingham",Trent Rockets,Birmingham Phoenix,162,116,6,9,Trent Rockets,1539.8,1507.7
+2023-08-19,hnd_male,"The Rose Bowl, Southampton",Oval Invincibles,Southern Brave,139,131,7,7,Oval Invincibles,1542.6,1515.7
+2023-08-20,hnd_male,"Old Trafford, Manchester",Manchester Originals,Northern Superchargers,164,83,6,10,Manchester Originals,1525.9,1476.5
+2023-08-20,hnd_male,"Sophia Gardens, Cardiff",London Spirit,Welsh Fire,109,110,9,4,Welsh Fire,1464.0,1427.9
+2023-08-21,hnd_male,"Kennington Oval, London",Trent Rockets,Oval Invincibles,148,151,7,5,Oval Invincibles,1529.9,1552.5
+2023-08-22,hnd_male,"Headingley, Leeds",Northern Superchargers,Welsh Fire,158,159,7,2,Welsh Fire,1465.1,1439.3
+2023-08-23,hnd_male,"Old Trafford, Manchester",Manchester Originals,Southern Brave,130,134,8,4,Southern Brave,1515.6,1526.0
+2023-08-24,hnd_male,"Edgbaston, Birmingham",Birmingham Phoenix,London Spirit,185,108,5,10,Birmingham Phoenix,1516.4,1455.2
+2023-08-26,hnd_male,"Kennington Oval, London",Southern Brave,Manchester Originals,196,201,1,3,Manchester Originals,1515.7,1525.9
+2023-08-27,hnd_male,"Lord's, London",Oval Invincibles,Manchester Originals,161,147,5,6,Oval Invincibles,1561.7,1516.7
+2024-07-05,mlc_male,"Church Street Park, Morrisville",Seattle Orcas,MI New York,108,111,10,4,MI New York,1515.9,1532.6
+2024-07-05,mlc_male,"Grand Prairie Stadium, Dallas",Los Angeles Knight Riders,Texas Super Kings,162,150,7,8,Los Angeles Knight Riders,1483.9,1479.8
+2024-07-06,mlc_male,"Church Street Park, Morrisville",MI New York,Washington Freedom,154,55,9,1,Washington Freedom,1521.6,1509.3
+2024-07-07,mlc_male,"Grand Prairie Stadium, Dallas",Los Angeles Knight Riders,San Francisco Unicorns,165,166,6,4,San Francisco Unicorns,1474.0,1499.3
+2024-07-08,mlc_male,"Church Street Park, Morrisville",Texas Super Kings,Washington Freedom,203,62,5,0,,1479.8,1509.3
+2024-07-09,mlc_male,"Grand Prairie Stadium, Dallas",Los Angeles Knight Riders,Seattle Orcas,168,169,5,1,Seattle Orcas,1465.2,1524.7
+2024-07-10,mlc_male,"Church Street Park, Morrisville",San Francisco Unicorns,Texas Super Kings,127,128,10,4,Texas Super Kings,1488.7,1490.4
+2024-07-11,mlc_male,"Grand Prairie Stadium, Dallas",Seattle Orcas,Washington Freedom,124,127,10,5,Washington Freedom,1514.3,1519.8
+2024-07-14,mlc_male,"Church Street Park, Morrisville",Los Angeles Knight Riders,Washington Freedom,129,130,10,2,Washington Freedom,1456.8,1528.2
+2024-07-14,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,MI New York,176,161,6,7,Texas Super Kings,1501.3,1510.7
+2024-07-15,mlc_male,"Church Street Park, Morrisville",San Francisco Unicorns,Seattle Orcas,165,142,7,6,San Francisco Unicorns,1499.5,1503.6
+2024-07-16,mlc_male,"Grand Prairie Stadium, Dallas",Washington Freedom,MI New York,182,88,5,10,Washington Freedom,1537.7,1501.2
+2024-07-17,mlc_male,"Church Street Park, Morrisville",Seattle Orcas,Los Angeles Knight Riders,142,143,6,6,Los Angeles Knight Riders,1492.2,1468.1
+2024-07-18,mlc_male,"Grand Prairie Stadium, Dallas",San Francisco Unicorns,MI New York,148,145,7,7,San Francisco Unicorns,1509.5,1491.2
+2024-07-19,mlc_male,"Grand Prairie Stadium, Dallas",Washington Freedom,Texas Super Kings,206,164,5,10,Washington Freedom,1546.7,1492.3
+2024-07-20,mlc_male,"Grand Prairie Stadium, Dallas",Seattle Orcas,San Francisco Unicorns,152,156,7,4,San Francisco Unicorns,1482.7,1519.0
+2024-07-21,mlc_male,"Grand Prairie Stadium, Dallas",Los Angeles Knight Riders,MI New York,130,134,10,6,MI New York,1458.8,1500.5
+2024-07-22,mlc_male,"Grand Prairie Stadium, Dallas",Washington Freedom,San Francisco Unicorns,174,177,3,4,San Francisco Unicorns,1535.9,1529.8
+2024-07-23,hnd_male,"Kennington Oval, London",Birmingham Phoenix,Oval Invincibles,89,93,10,2,Oval Invincibles,1507.7,1570.4
+2024-07-23,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,Seattle Orcas,177,140,8,9,Texas Super Kings,1502.0,1473.0
+2024-07-24,hnd_male,"The Rose Bowl, Southampton",London Spirit,Southern Brave,138,139,9,3,Southern Brave,1446.9,1524.0
+2024-07-24,mlc_male,"Grand Prairie Stadium, Dallas",MI New York,Texas Super Kings,163,167,8,1,Texas Super Kings,1490.6,1512.0
+2024-07-25,hnd_male,"Old Trafford, Manchester",Manchester Originals,Welsh Fire,86,87,8,2,Welsh Fire,1504.5,1451.5
+2024-07-25,mlc_male,"Grand Prairie Stadium, Dallas",San Francisco Unicorns,Washington Freedom,145,149,10,3,Washington Freedom,1520.0,1545.7
+2024-07-26,hnd_male,"Headingley, Leeds",Trent Rockets,Northern Superchargers,185,138,5,8,Trent Rockets,1538.0,1457.0
+2024-07-26,mlc_male,"Grand Prairie Stadium, Dallas",San Francisco Unicorns,Texas Super Kings,200,190,6,4,San Francisco Unicorns,1529.7,1502.2
+2024-07-27,hnd_male,"Lord's, London",London Spirit,Birmingham Phoenix,127,131,7,7,Birmingham Phoenix,1438.7,1516.0
+2024-07-28,hnd_male,"Sophia Gardens, Cardiff",Oval Invincibles,Welsh Fire,113,103,9,8,Oval Invincibles,1577.1,1444.8
+2024-07-28,mlc_male,"Grand Prairie Stadium, Dallas",Washington Freedom,San Francisco Unicorns,207,111,5,10,Washington Freedom,1555.2,1520.2
+2024-07-29,hnd_male,"Old Trafford, Manchester",Trent Rockets,Manchester Originals,145,144,7,8,Trent Rockets,1547.1,1495.4
+2024-07-30,hnd_male,"Headingley, Leeds",Southern Brave,Northern Superchargers,146,147,8,3,Northern Superchargers,1512.1,1468.9
+2024-07-31,hnd_male,"Trent Bridge, Nottingham",Birmingham Phoenix,Trent Rockets,138,132,6,8,Birmingham Phoenix,1526.9,1536.2
+2024-08-01,hnd_male,"Lord's, London",Welsh Fire,London Spirit,94,96,9,7,London Spirit,1434.6,1448.8
+2024-08-01,hnd_male,"The Rose Bowl, Southampton",Manchester Originals,Southern Brave,116,117,6,3,Southern Brave,1485.9,1521.6
+2024-08-02,hnd_male,"Kennington Oval, London",Northern Superchargers,Oval Invincibles,145,126,5,9,Northern Superchargers,1481.9,1564.1
+2024-08-03,hnd_male,"Edgbaston, Birmingham",Southern Brave,Birmingham Phoenix,169,137,2,9,Southern Brave,1531.7,1516.7
+2024-08-03,hnd_male,"Trent Bridge, Nottingham",Welsh Fire,Trent Rockets,129,125,6,8,Welsh Fire,1447.4,1523.3
+2024-08-04,hnd_male,"Lord's, London",Oval Invincibles,London Spirit,147,117,5,10,Oval Invincibles,1570.9,1442.0
+2024-08-04,hnd_male,"Headingley, Leeds",Northern Superchargers,Manchester Originals,167,153,5,6,Northern Superchargers,1492.0,1475.8
+2024-08-05,hnd_male,"Sophia Gardens, Cardiff",Southern Brave,Welsh Fire,139,97,5,10,Southern Brave,1539.3,1439.8
+2024-08-06,hnd_male,"Old Trafford, Manchester",Oval Invincibles,Manchester Originals,164,161,8,7,Oval Invincibles,1578.3,1468.5
+2024-08-06,hnd_male,"Edgbaston, Birmingham",Northern Superchargers,Birmingham Phoenix,83,86,10,0,Birmingham Phoenix,1482.7,1526.0
+2024-08-07,hnd_male,"Trent Bridge, Nottingham",Trent Rockets,London Spirit,166,144,4,10,Trent Rockets,1531.0,1434.3
+2024-08-08,hnd_male,"Sophia Gardens, Cardiff",Northern Superchargers,Welsh Fire,26,3,5,0,,1482.7,1439.8
+2024-08-08,hnd_male,"Kennington Oval, London",Southern Brave,Oval Invincibles,118,120,8,4,Oval Invincibles,1530.5,1587.1
+2024-08-09,hnd_male,"Lord's, London",Manchester Originals,London Spirit,135,123,5,5,Manchester Originals,1477.5,1425.3
+2024-08-10,hnd_male,"The Rose Bowl, Southampton",Trent Rockets,Southern Brave,126,127,8,8,Southern Brave,1521.0,1540.5
+2024-08-10,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Birmingham Phoenix,146,149,8,5,Birmingham Phoenix,1432.3,1533.6
+2024-08-11,hnd_male,"Kennington Oval, London",London Spirit,Oval Invincibles,96,100,10,1,Oval Invincibles,1419.7,1592.8
+2024-08-11,hnd_male,"Old Trafford, Manchester",Manchester Originals,Northern Superchargers,152,156,7,4,Northern Superchargers,1467.6,1492.6
+2024-08-12,hnd_male,"Edgbaston, Birmingham",Trent Rockets,Birmingham Phoenix,118,120,10,4,Birmingham Phoenix,1511.4,1543.2
+2024-08-13,hnd_male,"Headingley, Leeds",London Spirit,Northern Superchargers,111,64,8,1,Northern Superchargers,1411.7,1500.5
+2024-08-14,hnd_male,"The Rose Bowl, Southampton",Welsh Fire,Southern Brave,181,21,5,2,,1432.3,1540.5
+2024-08-14,hnd_male,"Trent Bridge, Nottingham",Oval Invincibles,Trent Rockets,150,151,3,4,Trent Rockets,1580.5,1523.7
+2024-08-15,hnd_male,"Edgbaston, Birmingham",Manchester Originals,Birmingham Phoenix,41,42,5,1,Birmingham Phoenix,1459.8,1551.1
+2024-08-17,hnd_male,"Kennington Oval, London",Southern Brave,Birmingham Phoenix,126,126,6,7,,1540.5,1551.1
+2024-08-18,hnd_male,"Lord's, London",Oval Invincibles,Southern Brave,147,130,9,7,Oval Invincibles,1589.3,1531.6
+2025-06-12,mlc_male,"Oakland Coliseum,Oakland",San Francisco Unicorns,Washington Freedom,269,146,5,10,San Francisco Unicorns,1531.2,1544.2
+2025-06-13,mlc_male,"Oakland Coliseum,Oakland",Texas Super Kings,MI New York,185,182,6,8,Texas Super Kings,1511.9,1480.9
+2025-06-14,mlc_male,"Oakland Coliseum,Oakland",San Francisco Unicorns,Los Angeles Knight Riders,219,187,8,10,San Francisco Unicorns,1539.2,1450.8
+2025-06-14,mlc_male,"Oakland Coliseum,Oakland",Seattle Orcas,Washington Freedom,145,149,9,5,Washington Freedom,1465.0,1552.2
+2025-06-15,mlc_male,"Oakland Coliseum,Oakland",Texas Super Kings,Los Angeles Knight Riders,181,124,4,10,Texas Super Kings,1520.1,1442.6
+2025-06-15,mlc_male,"Oakland Coliseum,Oakland",MI New York,San Francisco Unicorns,182,188,7,7,San Francisco Unicorns,1472.6,1547.5
+2025-06-16,mlc_male,"Oakland Coliseum,Oakland",Texas Super Kings,Seattle Orcas,153,60,6,10,Texas Super Kings,1528.6,1456.6
+2025-06-17,mlc_male,"Oakland Coliseum,Oakland",Washington Freedom,Los Angeles Knight Riders,208,95,5,10,Washington Freedom,1559.2,1435.6
+2025-06-18,mlc_male,"Oakland Coliseum,Oakland",Seattle Orcas,MI New York,200,203,5,3,MI New York,1447.1,1482.1
+2025-06-20,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,San Francisco Unicorns,198,202,5,3,San Francisco Unicorns,1519.1,1557.0
+2025-06-21,mlc_male,"Grand Prairie Stadium, Dallas",MI New York,Washington Freedom,188,189,4,8,Washington Freedom,1474.3,1567.0
+2025-06-22,mlc_male,"Grand Prairie Stadium, Dallas",Seattle Orcas,Los Angeles Knight Riders,177,178,6,4,Los Angeles Knight Riders,1436.7,1446.0
+2025-06-22,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,Washington Freedom,220,223,6,3,Washington Freedom,1510.5,1575.6
+2025-06-23,mlc_male,"Grand Prairie Stadium, Dallas",San Francisco Unicorns,MI New York,246,199,4,6,San Francisco Unicorns,1564.6,1466.6
+2025-06-24,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,Los Angeles Knight Riders,196,144,8,7,Texas Super Kings,1518.6,1437.8
+2025-06-25,mlc_male,"Grand Prairie Stadium, Dallas",San Francisco Unicorns,Seattle Orcas,176,144,8,10,San Francisco Unicorns,1571.1,1430.2
+2025-06-26,mlc_male,"Grand Prairie Stadium, Dallas",Los Angeles Knight Riders,Washington Freedom,213,214,4,5,Washington Freedom,1431.6,1581.8
+2025-06-27,mlc_male,"Grand Prairie Stadium, Dallas",MI New York,Seattle Orcas,237,238,4,7,Seattle Orcas,1455.6,1441.3
+2025-06-28,mlc_male,"Grand Prairie Stadium, Dallas",Washington Freedom,San Francisco Unicorns,169,157,6,9,Washington Freedom,1591.5,1561.4
+2025-06-28,mlc_male,"Grand Prairie Stadium, Dallas",Los Angeles Knight Riders,Seattle Orcas,202,206,4,5,Seattle Orcas,1421.8,1451.0
+2025-06-29,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,MI New York,223,184,4,9,Texas Super Kings,1526.8,1447.4
+2025-07-01,mlc_male,"Central Broward Regional Park Stadium Turf Ground, Lauderhill",San Francisco Unicorns,Seattle Orcas,168,169,5,6,Seattle Orcas,1548.3,1464.1
+2025-07-02,mlc_male,"Central Broward Regional Park Stadium Turf Ground, Lauderhill",Texas Super Kings,Washington Freedom,87,44,2,4,Texas Super Kings,1538.7,1579.7
+2025-07-03,mlc_male,"Central Broward Regional Park Stadium Turf Ground, Lauderhill",Los Angeles Knight Riders,MI New York,154,155,8,2,MI New York,1412.6,1456.6
+2025-07-04,mlc_male,"Central Broward Regional Park Stadium Turf Ground, Lauderhill",San Francisco Unicorns,Texas Super Kings,148,147,6,7,San Francisco Unicorns,1558.1,1529.0
+2025-07-04,mlc_male,"Central Broward Regional Park Stadium Turf Ground, Lauderhill",Seattle Orcas,Washington Freedom,82,86,10,2,Washington Freedom,1457.3,1586.5
+2025-07-05,mlc_male,"Central Broward Regional Park Stadium Turf Ground, Lauderhill",MI New York,Los Angeles Knight Riders,142,136,9,4,MI New York,1465.4,1403.8
+2025-07-05,mlc_male,"Central Broward Regional Park Stadium Turf Ground, Lauderhill",Texas Super Kings,Seattle Orcas,188,137,4,10,Texas Super Kings,1536.9,1449.3
+2025-07-06,mlc_male,"Central Broward Regional Park Stadium Turf Ground, Lauderhill",MI New York,Washington Freedom,112,113,8,4,Washington Freedom,1458.7,1593.1
+2025-07-06,mlc_male,"Central Broward Regional Park Stadium Turf Ground, Lauderhill",Los Angeles Knight Riders,San Francisco Unicorns,243,233,3,9,Los Angeles Knight Riders,1418.0,1543.9
+2025-07-09,mlc_male,"Grand Prairie Stadium, Dallas",San Francisco Unicorns,MI New York,131,132,10,8,MI New York,1531.5,1471.1
+2025-07-11,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,MI New York,166,172,5,3,MI New York,1525.1,1483.0
+2025-07-13,mlc_male,"Grand Prairie Stadium, Dallas",MI New York,Washington Freedom,180,175,7,5,MI New York,1496.1,1580.1
+2025-08-05,hnd_male,"Lord's, London",London Spirit,Oval Invincibles,80,81,10,4,Oval Invincibles,1406.4,1594.6
+2025-08-06,hnd_male,"Old Trafford, Manchester",Manchester Originals,Southern Brave,131,133,4,9,Southern Brave,1451.8,1539.6
+2025-08-07,hnd_male,"Headingley, Leeds",Welsh Fire,Northern Superchargers,143,147,9,2,Northern Superchargers,1424.2,1508.6
+2025-08-08,hnd_male,"Edgbaston, Birmingham",Birmingham Phoenix,Trent Rockets,122,123,6,4,Trent Rockets,1540.3,1534.5
+2025-08-09,hnd_male,"Kennington Oval, London",Manchester Originals,Oval Invincibles,128,129,10,1,Oval Invincibles,1445.7,1600.7
+2025-08-09,hnd_male,"Sophia Gardens, Cardiff",London Spirit,Welsh Fire,163,155,5,6,London Spirit,1417.0,1413.7
+2025-08-10,hnd_male,"The Rose Bowl, Southampton",Birmingham Phoenix,Southern Brave,106,109,7,1,Southern Brave,1530.3,1549.6
+2025-08-10,hnd_male,"Trent Bridge, Nottingham",Northern Superchargers,Trent Rockets,124,128,9,5,Trent Rockets,1499.3,1543.7
+2025-08-11,hnd_male,"Old Trafford, Manchester",Manchester Originals,London Spirit,163,153,6,6,Manchester Originals,1454.9,1407.8
+2025-08-12,hnd_male,"Edgbaston, Birmingham",Oval Invincibles,Birmingham Phoenix,180,182,8,6,Birmingham Phoenix,1588.7,1542.3
+2025-08-13,hnd_male,"The Rose Bowl, Southampton",Southern Brave,Northern Superchargers,139,141,5,7,Northern Superchargers,1538.2,1510.7
+2025-08-13,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Manchester Originals,137,112,8,10,Welsh Fire,1424.9,1443.7
+2025-08-14,hnd_male,"Lord's, London",London Spirit,Trent Rockets,162,141,5,7,London Spirit,1421.5,1530.0
+2025-08-15,hnd_male,"Headingley, Leeds",Northern Superchargers,Birmingham Phoenix,193,157,5,9,Northern Superchargers,1521.7,1531.4
+2025-08-16,hnd_male,"Trent Bridge, Nottingham",Southern Brave,Trent Rockets,140,145,4,6,Trent Rockets,1527.9,1540.2
+2025-08-16,hnd_male,"Kennington Oval, London",Oval Invincibles,Welsh Fire,226,143,4,10,Oval Invincibles,1594.3,1419.3
+2025-08-17,hnd_male,"Old Trafford, Manchester",Manchester Originals,Northern Superchargers,171,114,3,10,Manchester Originals,1455.9,1509.4
+2025-08-17,hnd_male,"Edgbaston, Birmingham",London Spirit,Birmingham Phoenix,126,131,6,3,Birmingham Phoenix,1414.6,1538.3
+2025-08-18,hnd_male,"The Rose Bowl, Southampton",Southern Brave,Oval Invincibles,133,134,10,3,Oval Invincibles,1519.8,1602.5
+2025-08-19,hnd_male,"Trent Bridge, Nottingham",Manchester Originals,Trent Rockets,98,101,8,3,Trent Rockets,1448.3,1547.8
+2025-08-20,hnd_male,"Sophia Gardens, Cardiff",Southern Brave,Welsh Fire,129,125,8,8,Southern Brave,1527.0,1412.1
+2025-08-20,hnd_male,"Lord's, London",London Spirit,Northern Superchargers,135,138,3,2,Northern Superchargers,1407.2,1516.8
+2025-08-21,hnd_male,"Kennington Oval, London",Trent Rockets,Oval Invincibles,171,173,7,4,Oval Invincibles,1539.4,1610.9
+2025-08-22,hnd_male,"Edgbaston, Birmingham",Birmingham Phoenix,Welsh Fire,138,140,9,2,Welsh Fire,1524.8,1425.6
+2025-08-23,hnd_male,"Headingley, Leeds",Northern Superchargers,Oval Invincibles,198,182,4,7,Northern Superchargers,1529.4,1598.3
+2025-08-23,hnd_male,"Lord's, London",London Spirit,Southern Brave,186,139,4,9,London Spirit,1420.6,1513.7
+2025-08-24,hnd_male,"Sophia Gardens, Cardiff",Welsh Fire,Trent Rockets,150,152,6,7,Trent Rockets,1418.7,1546.2
+2025-08-24,hnd_male,"Old Trafford, Manchester",Manchester Originals,Birmingham Phoenix,109,113,7,3,Birmingham Phoenix,1440.5,1532.6
+2025-08-25,hnd_male,"Kennington Oval, London",London Spirit,Oval Invincibles,152,153,7,4,Oval Invincibles,1415.3,1603.5
+2025-08-26,hnd_male,"Headingley, Leeds",Northern Superchargers,Manchester Originals,139,140,8,3,Manchester Originals,1516.9,1453.0
+2025-08-27,hnd_male,"Trent Bridge, Nottingham",Birmingham Phoenix,Trent Rockets,111,113,9,7,Trent Rockets,1523.0,1555.9
+2025-08-28,hnd_male,"The Rose Bowl, Southampton",Southern Brave,Welsh Fire,167,163,7,6,Southern Brave,1521.0,1411.4
+2025-08-30,hnd_male,"Kennington Oval, London",Northern Superchargers,Trent Rockets,119,12,5,0,,1516.9,1555.9
+2025-08-31,hnd_male,"Lord's, London",Oval Invincibles,Trent Rockets,168,142,5,8,Oval Invincibles,1612.2,1547.2
+2026-06-18,mlc_male,"Grand Prairie Stadium, Dallas",Seattle Orcas,Texas Super Kings,220,221,2,4,Texas Super Kings,1441.5,1532.9
+2026-06-19,mlc_male,"Grand Prairie Stadium, Dallas",San Francisco Unicorns,Los Angeles Knight Riders,150,154,7,3,Los Angeles Knight Riders,1518.3,1431.2
+2026-06-19,mlc_male,"Grand Prairie Stadium, Dallas",Washington Freedom,Seattle Orcas,216,219,10,5,Seattle Orcas,1566.3,1455.3
+2026-06-20,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,San Francisco Unicorns,152,153,9,3,San Francisco Unicorns,1522.5,1528.7
+2026-06-20,mlc_male,"Grand Prairie Stadium, Dallas",Washington Freedom,MI New York,245,215,5,6,Washington Freedom,1574.3,1488.1
+2026-06-21,mlc_male,"Grand Prairie Stadium, Dallas",Los Angeles Knight Riders,Seattle Orcas,196,115,10,10,Los Angeles Knight Riders,1441.9,1444.6
+2026-06-21,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,MI New York,158,162,10,2,MI New York,1511.5,1499.0
+2026-06-24,mlc_male,"Oakland Coliseum,Oakland",Texas Super Kings,San Francisco Unicorns,161,139,8,10,Texas Super Kings,1522.0,1518.2
+2026-06-25,mlc_male,"Oakland Coliseum,Oakland",Seattle Orcas,Washington Freedom,227,139,6,10,Seattle Orcas,1458.1,1560.7
+2026-06-26,mlc_male,"Oakland Coliseum,Oakland",MI New York,Texas Super Kings,127,132,9,4,Texas Super Kings,1489.7,1531.3
+2026-06-26,mlc_male,"Oakland Coliseum,Oakland",Seattle Orcas,San Francisco Unicorns,191,192,10,8,San Francisco Unicorns,1449.9,1526.5
+2026-06-27,mlc_male,"Oakland Coliseum,Oakland",MI New York,Los Angeles Knight Riders,144,103,6,10,MI New York,1498.3,1433.2
+2026-06-27,mlc_male,"Oakland Coliseum,Oakland",Texas Super Kings,Washington Freedom,185,187,4,9,Washington Freedom,1522.2,1569.9
+2026-06-28,mlc_male,"Oakland Coliseum,Oakland",Seattle Orcas,Los Angeles Knight Riders,154,134,7,8,Seattle Orcas,1459.4,1423.7
+2026-06-28,mlc_male,"Oakland Coliseum,Oakland",Washington Freedom,San Francisco Unicorns,190,193,4,2,San Francisco Unicorns,1558.6,1537.8
+2026-07-01,mlc_male,"Knight Riders Cricket Ground, Pomona",Los Angeles Knight Riders,Washington Freedom,108,110,10,4,Washington Freedom,1417.4,1564.9
+2026-07-02,mlc_male,"Knight Riders Cricket Ground, Pomona",MI New York,Seattle Orcas,132,127,8,9,MI New York,1507.2,1450.5
+2026-07-03,mlc_male,"Knight Riders Cricket Ground, Pomona",Texas Super Kings,Los Angeles Knight Riders,173,175,5,4,Los Angeles Knight Riders,1509.3,1430.3
+2026-07-04,mlc_male,"Knight Riders Cricket Ground, Pomona",San Francisco Unicorns,Washington Freedom,126,129,10,5,Washington Freedom,1528.6,1574.1
+2026-07-04,mlc_male,"Knight Riders Cricket Ground, Pomona",Los Angeles Knight Riders,MI New York,165,168,6,4,MI New York,1422.5,1515.0
+2026-07-05,mlc_male,"Knight Riders Cricket Ground, Pomona",Seattle Orcas,Texas Super Kings,121,112,9,9,Seattle Orcas,1462.2,1497.6
+2026-07-05,mlc_male,"Knight Riders Cricket Ground, Pomona",MI New York,San Francisco Unicorns,104,105,10,5,San Francisco Unicorns,1505.4,1538.2
+2026-07-08,mlc_male,"Grand Prairie Stadium, Dallas",MI New York,San Francisco Unicorns,143,146,9,1,San Francisco Unicorns,1496.4,1547.2
+2026-07-09,mlc_male,"Grand Prairie Stadium, Dallas",Los Angeles Knight Riders,Washington Freedom,192,174,8,8,Los Angeles Knight Riders,1436.6,1560.0
+2026-07-10,mlc_male,"Grand Prairie Stadium, Dallas",MI New York,Seattle Orcas,179,162,8,6,MI New York,1505.4,1453.2
+2026-07-10,mlc_male,"Grand Prairie Stadium, Dallas",Los Angeles Knight Riders,San Francisco Unicorns,184,173,7,10,Los Angeles Knight Riders,1449.7,1534.1
+2026-07-11,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,Washington Freedom,165,166,10,7,Washington Freedom,1489.4,1568.3
+2026-07-11,mlc_male,"Grand Prairie Stadium, Dallas",Seattle Orcas,San Francisco Unicorns,190,194,7,4,San Francisco Unicorns,1445.4,1541.9
+2026-07-12,mlc_male,"Grand Prairie Stadium, Dallas",MI New York,Washington Freedom,187,190,8,5,Washington Freedom,1497.2,1576.5
+2026-07-12,mlc_male,"Grand Prairie Stadium, Dallas",Texas Super Kings,Los Angeles Knight Riders,171,172,9,4,Los Angeles Knight Riders,1478.2,1460.8

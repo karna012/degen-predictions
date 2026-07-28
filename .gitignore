@@ -7,3 +7,23 @@ ipython_config.py
 
 # Folders
 data/*.csv
+
+# Deployment secrets -- never commit real production env values
+deploy/production.env
+*.pem
+
+# Local venv / db / logs
+football_preds/
+webapp/users.db
+webapp/analytics.db
+webapp/feedback.db
+webapp/sitemap_cache.xml
+webapp/results_cache.html
+deploy/logs/
+deploy/soccer_retrain_state.json
+webapp/deposit_config.json
+*.log
+webapp/__pycache__/
+scripts/__pycache__/
+webapp/tests/__pycache__/
+.pytest_cache/

@@ -1,0 +1,10 @@
+[Unit]
+Description=Degen Predictions live match tracker (single poll pass)
+After=network.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/Degen_predictions/automation
+ExecStart=/home/ubuntu/Degen_predictions/venv/bin/python3 live_match_tracker.py

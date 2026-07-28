@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% block title %}{{ league_label }} Predictions -- Free Soccer & Football Match Forecasts | Degen Predictions{% endblock %}
+{% block description %}Free {{ league_label }} predictions for every upcoming fixture -- match result, both teams to score, total goals, and corner forecasts from a machine-learning model trained on 5 seasons of data.{% endblock %}
+{% block keywords %}{{ league_keywords }}{% endblock %}
+{% block content %}
+<h1>2026/27 {{ league_label }} — Fixture Predictions</h1>
+
+<form class="filters" method="get" id="round-form">
+    <label>Round:
+        <div class="custom-select custom-select-pill" id="round-select">
+            <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                <span class="custom-select-value">Round {{ selected_round }}{% if selected_round == rounds[-1] %} (current){% endif %}</span>
+            </button>
+            <ul class="custom-select-panel" role="listbox" hidden>
+                {% for r in rounds %}
+                <li role="option" data-value="{{ r }}" {% if selected_round|string == r|string %}aria-selected="true"{% endif %}>Round {{ r }}{% if r == rounds[-1] %} (current){% endif %}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </label>
+    <label>Team:
+        <input type="text" id="team-search" value="{{ team_filter }}" placeholder="e.g. Arsenal" autocomplete="off">
+    </label>
+    <label>Sort:
+        <div class="custom-select" id="sort-select">
+            <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                <span class="custom-select-value">Date</span>
+            </button>
+            <ul class="custom-select-panel" role="listbox" hidden>
+                <li role="option" data-value="date" aria-selected="true">Date</li>
+                <li role="option" data-value="confidence">Confidence</li>
+                <li role="option" data-value="team">Team A-Z</li>
+            </ul>
+        </div>
+    </label>
+    <a class="clear-link" href="/{{ league_key }}/">Clear</a>
+    <span class="result-count" id="result-count">{{ total }} fixture(s)</span>
+</form>
+
+<div class="fixture-grid" id="fixture-grid">
+    {% for m in matches %}
+    <div class="fixture-card {{ 'low-confidence' if 'Low' in m.Data_Confidence else 'ok-confidence' }}"
+         style="--card-index: {{ loop.index0 }}; cursor: pointer;"
+         data-home="{{ m.HomeTeam }}" data-away="{{ m.AwayTeam }}"
+         data-date="{{ m.DateUtc }}" data-confidence="{{ 0 if 'Low' in m.Data_Confidence else 1 }}"
+         onclick="window.location.href='/{{ league_key }}/match/{{ m.HomeTeam }}/{{ m.AwayTeam }}'">
+        <div class="fixture-card-head">
+            <div>
+                <a class="fixture-teams" href="/{{ league_key }}/match/{{ m.HomeTeam }}/{{ m.AwayTeam }}">{{ m.HomeTeam }} vs {{ m.AwayTeam }}</a>
+                <div class="fixture-date">{{ m.MatchDate }} <span class="countdown muted" data-kickoff="{{ m.DateUtc }}"></span></div>
+            </div>
+            <button type="button" class="predict-btn" onclick="event.stopPropagation(); runLivePredict(this)">Get Predictions</button>
+        </div>
+        <div class="predict-status muted"></div>
+
+        <div class="fixture-outcomes">
+            <div class="outcome-row"><span class="outcome-label">1X2</span><span class="c-result outcome-hidden">H / D / A</span></div>
+            <div class="outcome-row"><span class="outcome-label">Predicted</span><span class="c-predicted outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">BTTS</span><span class="c-btts outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Goals O/U 2.5</span><span class="c-goals outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Corners</span><span class="c-corners outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">More Corners</span><span class="c-more-corners outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Fav. Avoids Defeat</span><span class="c-favorite outcome-hidden">&mdash;</span></div>
+        </div>
+
+        <div class="fixture-card-foot">
+            {% if 'Low' in m.Data_Confidence %}
+            <span class="confidence-alert">&#9888; Low confidence &mdash; new/promoted team</span>
+            {% else %}
+            <span class="muted">Confidence: {{ m.Data_Confidence }}</span>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <p>No fixtures found. Run <code>scripts/predict_pl.py</code> first.</p>
+    {% endfor %}
+</div>
+
+<script>
+/* ---- Live kickoff countdowns ---- */
+function updateCountdowns() {
+    const now = Date.now();
+    document.querySelectorAll(".countdown[data-kickoff]").forEach(el => {
+        const kickoff = new Date(el.dataset.kickoff).getTime();
+        if (isNaN(kickoff)) return;
+        const diff = kickoff - now;
+        if (diff <= 0) {
+            el.textContent = "-- kicked off";
+            return;
+        }
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        if (days > 0) el.textContent = `-- kicks off in ${days}d ${hours}h`;
+        else if (hours > 0) el.textContent = `-- kicks off in ${hours}h ${mins}m`;
+        else el.textContent = `-- kicks off in ${mins}m`;
+    });
+}
+updateCountdowns();
+setInterval(updateCountdowns, 60000);
+
+/* ---- Instant client-side filter + sort (no page reload) ---- */
+let currentSort = "date";
+
+function applyFilterSort() {
+    const grid = document.getElementById("fixture-grid");
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll(".fixture-card"));
+    const query = (document.getElementById("team-search").value || "").trim().toLowerCase();
+    const sortBy = currentSort;
+
+    let visible = 0;
+    cards.forEach(card => {
+        const home = card.dataset.home.toLowerCase();
+        const away = card.dataset.away.toLowerCase();
+        const match = !query || home.includes(query) || away.includes(query);
+        card.classList.toggle("card-hidden", !match);
+        if (match) visible += 1;
+    });
+
+    cards.sort((a, b) => {
+        if (sortBy === "date") return new Date(a.dataset.date) - new Date(b.dataset.date);
+        if (sortBy === "confidence") return Number(b.dataset.confidence) - Number(a.dataset.confidence);
+        if (sortBy === "team") return a.dataset.home.localeCompare(b.dataset.home);
+        return 0;
+    });
+    cards.forEach((card, i) => {
+        card.style.setProperty("--card-index", Math.min(i, 12));
+        grid.appendChild(card);
+    });
+
+    document.getElementById("result-count").textContent = `${visible} fixture(s)`;
+}
+
+const teamSearchEl = document.getElementById("team-search");
+if (teamSearchEl) teamSearchEl.addEventListener("input", applyFilterSort);
+
+/* ---- Custom rounded dropdown -- replaces native <select> so the opened ---- */
+/* panel can actually be styled with rounded corners/dark theme.              */
+function initCustomSelect(id, onSelect) {
+    const root = document.getElementById(id);
+    if (!root) return;
+    const btn = root.querySelector(".custom-select-btn");
+    const valueEl = root.querySelector(".custom-select-value");
+    const panel = root.querySelector(".custom-select-panel");
+    const options = Array.from(panel.querySelectorAll("li"));
+
+    function closePanel() {
+        panel.hidden = true;
+        btn.setAttribute("aria-expanded", "false");
+    }
+    function openPanel() {
+        panel.hidden = false;
+        btn.setAttribute("aria-expanded", "true");
+    }
+
+    btn.addEventListener("click", () => {
+        if (panel.hidden) openPanel(); else closePanel();
+    });
+    options.forEach(opt => {
+        opt.addEventListener("click", () => {
+            valueEl.textContent = opt.textContent;
+            options.forEach(o => o.setAttribute("aria-selected", String(o === opt)));
+            closePanel();
+            onSelect(opt.dataset.value);
+        });
+    });
+    document.addEventListener("click", (e) => {
+        if (!root.contains(e.target)) closePanel();
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closePanel();
+    });
+}
+
+initCustomSelect("sort-select", (value) => {
+    currentSort = value;
+    applyFilterSort();
+});
+
+initCustomSelect("round-select", (value) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("round", value);
+    window.location.href = url.toString();
+});
+
+async function runLivePredict(btn) {
+    const row = btn.closest(".fixture-card");
+    const status = row.querySelector(".predict-status");
+    const home = row.dataset.home, away = row.dataset.away;
+
+    btn.disabled = true;
+    btn.textContent = "Predicting...";
+    status.textContent = "Fetching lineup...";
+
+    try {
+        const resp = await fetch(`/{{ league_key }}/api/predict/${encodeURIComponent(home)}/${encodeURIComponent(away)}`);
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || "Prediction failed");
+
+        row.querySelector(".c-result").textContent =
+            `${Math.round(data.P_Home_Win * 100)}% / ${Math.round(data.P_Draw * 100)}% / ${Math.round(data.P_Away_Win * 100)}%`;
+        row.querySelector(".c-predicted").innerHTML = `<strong>${data.Predicted_Result}</strong>`;
+        row.querySelector(".c-btts").textContent =
+            `${data.BTTS_Prediction} (${Math.round(data.P_BTTS_Yes * 100)}%)`;
+        row.querySelector(".c-goals").textContent =
+            `${data.Goals_Prediction} (${Math.round(data["P_Over_2.5_Goals"] * 100)}%)`;
+        row.querySelector(".c-corners").textContent = data.Exp_Total_Corners;
+        row.querySelector(".c-more-corners").textContent =
+            `${data.More_Corners_Prediction} (${Math.round(data.P_Home_More_Corners * 100)}%H)`;
+        row.querySelector(".c-favorite").textContent =
+            `${data.Favorite_Team}: ${data.Favorite_Avoids_Defeat_Prediction} (${Math.round(data.P_Favorite_Avoids_Defeat * 100)}%)`;
+        row.querySelectorAll(".outcome-hidden").forEach(td => td.classList.remove("outcome-hidden"));
+
+        const labels = {
+            confirmed: "Confirmed lineup used",
+            provisional: "Injuries known, XI not confirmed yet",
+            unavailable: "No lineup data yet -- full-squad prediction",
+        };
+        let note = labels[data.Lineup_Status] || data.Lineup_Status;
+        const missing = [...(data.Home_Adjustment.missing || []), ...(data.Away_Adjustment.missing || [])];
+        if (missing.length) note += ` (out: ${missing.join(", ")})`;
+        status.textContent = note;
+        btn.textContent = "Unlocked";
+        btn.disabled = true;
+        showToast(`${home} vs ${away}: ${data.Predicted_Result}`, "success");
+        return;
+    } catch (err) {
+        status.textContent = `Error: ${err.message}`;
+        btn.textContent = "Get Predictions";
+        showToast(err.message, "error");
+    }
+    btn.disabled = false;
+}
+
+document.addEventListener("DOMContentLoaded", applyFilterSort);
+</script>
+{% endblock %}

@@ -1,0 +1,3158 @@
+{
+  "meta": {
+    "data_version": "1.2.0",
+    "created": "2026-06-23",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Dallas",
+    "dates": [
+      "2026-06-21"
+    ],
+    "event": {
+      "name": "Major League Cricket",
+      "match_number": 7
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "officials": {
+      "match_referees": [
+        "JJ Crowe"
+      ],
+      "reserve_umpires": [
+        "Vijaya Mallela"
+      ],
+      "tv_umpires": [
+        "WR Knights"
+      ],
+      "umpires": [
+        "LS Reifer",
+        "R Samuels"
+      ]
+    },
+    "outcome": {
+      "winner": "MI New York",
+      "by": {
+        "wickets": 8
+      }
+    },
+    "overs": 20,
+    "player_of_match": [
+      "C Bosch"
+    ],
+    "players": {
+      "Texas Super Kings": [
+        "SK Patel",
+        "SR Mukkamalla",
+        "RR Rossouw",
+        "Milind Kumar",
+        "Shubham Ranjane",
+        "D Ferreira",
+        "PWA Mulder",
+        "AJ Hosein",
+        "GC Viljoen",
+        "AF Milne",
+        "Amshi de Silva"
+      ],
+      "MI New York": [
+        "Q de Kock",
+        "MD Patel",
+        "N Pooran",
+        "KA Pollard",
+        "Tajinder Singh",
+        "CJ Anderson",
+        "R Shepherd",
+        "C Bosch",
+        "TA Boult",
+        "R Ugarkar",
+        "Sunny Patel"
+      ]
+    },
+    "registry": {
+      "people": {
+        "AF Milne": "350bb1b1",
+        "AJ Hosein": "4d7f517e",
+        "Amshi de Silva": "dbe38f35",
+        "C Bosch": "172dff15",
+        "CJ Anderson": "8abdf100",
+        "D Ferreira": "f0af99a7",
+        "GC Viljoen": "a316d663",
+        "JJ Crowe": "2e760301",
+        "KA Pollard": "a757b0d8",
+        "LS Reifer": "5dee559a",
+        "MD Patel": "25d7f1ac",
+        "Milind Kumar": "b4296080",
+        "N Pooran": "3241e3fd",
+        "PWA Mulder": "c96f6ac5",
+        "Q de Kock": "372455c4",
+        "R Samuels": "8a8bc9f6",
+        "R Shepherd": "c5aef772",
+        "R Ugarkar": "8a58f203",
+        "RD Rickelton": "e66732f8",
+        "RR Rossouw": "cad00a4d",
+        "SK Patel": "f93b43dd",
+        "SR Mukkamalla": "156d0ea2",
+        "Shubham Ranjane": "6c7a68d0",
+        "Sunny Patel": "db481029",
+        "TA Boult": "a818c1be",
+        "Tajinder Singh": "f9d99806",
+        "Vijaya Mallela": "85b6244a",
+        "WR Knights": "63cbf8d8"
+      }
+    },
+    "season": "2026",
+    "team_type": "club",
+    "teams": [
+      "Texas Super Kings",
+      "MI New York"
+    ],
+    "toss": {
+      "decision": "field",
+      "winner": "MI New York"
+    },
+    "venue": "Grand Prairie Stadium, Dallas"
+  },
+  "innings": [
+    {
+      "team": "Texas Super Kings",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "SK Patel",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "SK Patel",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "SK Patel",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "SK Patel",
+                  "fielders": [
+                    {
+                      "name": "KA Pollard"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "RR Rossouw",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "RR Rossouw",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "SR Mukkamalla",
+              "bowler": "TA Boult",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "RR Rossouw",
+              "bowler": "R Shepherd",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "SR Mukkamalla",
+              "bowler": "R Shepherd",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "SR Mukkamalla",
+              "bowler": "R Shepherd",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "SR Mukkamalla",
+              "bowler": "R Shepherd",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "SR Mukkamalla",
+              "bowler": "R Shepherd",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "SR Mukkamalla",
+              "bowler": "R Shepherd",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "SR Mukkamalla",
+              "bowler": "TA Boult",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "RR Rossouw",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "RR Rossouw",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "RR Rossouw",
+                  "kind": "bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "Milind Kumar",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "Milind Kumar",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "Milind Kumar",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "SR Mukkamalla",
+              "bowler": "C Bosch",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "SR Mukkamalla",
+              "bowler": "C Bosch",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "SR Mukkamalla",
+              "bowler": "C Bosch",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "SR Mukkamalla",
+              "bowler": "C Bosch",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "SR Mukkamalla",
+              "bowler": "C Bosch",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "Milind Kumar",
+              "bowler": "C Bosch",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "Milind Kumar",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "Milind Kumar",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "Milind Kumar",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "Milind Kumar",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "Milind Kumar",
+              "bowler": "TA Boult",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "SR Mukkamalla",
+              "bowler": "TA Boult",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "Milind Kumar",
+              "bowler": "C Bosch",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "Milind Kumar",
+              "bowler": "C Bosch",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "Milind Kumar",
+              "bowler": "C Bosch",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "SR Mukkamalla",
+              "bowler": "C Bosch",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "SR Mukkamalla",
+                  "fielders": [
+                    {
+                      "name": "Tajinder Singh"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "C Bosch",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "C Bosch",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "C Bosch",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 2,
+                "extras": 1,
+                "total": 3
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "C Bosch",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "Shubham Ranjane",
+              "bowler": "C Bosch",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "Milind Kumar",
+              "bowler": "R Ugarkar",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "Milind Kumar",
+              "bowler": "R Ugarkar",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "Milind Kumar",
+              "bowler": "R Ugarkar",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "Milind Kumar",
+              "bowler": "R Ugarkar",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Ugarkar",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Ugarkar",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "Milind Kumar",
+              "bowler": "Sunny Patel",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "Milind Kumar",
+              "bowler": "Sunny Patel",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Shepherd",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "Milind Kumar",
+              "bowler": "R Shepherd",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Shepherd",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Shepherd",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "Milind Kumar",
+              "bowler": "R Shepherd",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "Milind Kumar",
+              "bowler": "R Shepherd",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "Milind Kumar",
+              "bowler": "Sunny Patel",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "Milind Kumar",
+              "bowler": "Sunny Patel",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Ugarkar",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "Milind Kumar",
+              "bowler": "R Ugarkar",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "Milind Kumar",
+              "bowler": "R Ugarkar",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Ugarkar",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Ugarkar",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "Milind Kumar",
+              "bowler": "R Ugarkar",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Ugarkar",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "KA Pollard",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "Shubham Ranjane",
+              "bowler": "KA Pollard",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "Shubham Ranjane",
+              "bowler": "KA Pollard",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "Milind Kumar",
+              "bowler": "KA Pollard",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "Milind Kumar",
+              "bowler": "KA Pollard",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "KA Pollard",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "Milind Kumar",
+              "bowler": "KA Pollard",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Shepherd",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "Milind Kumar",
+              "bowler": "R Shepherd",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "Milind Kumar",
+              "bowler": "R Shepherd",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Milind Kumar",
+                  "fielders": [
+                    {
+                      "name": "N Pooran"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "D Ferreira",
+              "bowler": "R Shepherd",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "D Ferreira",
+              "bowler": "R Shepherd",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Shepherd",
+              "non_striker": "D Ferreira",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "D Ferreira",
+              "bowler": "Sunny Patel",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "D Ferreira",
+              "bowler": "Sunny Patel",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "D Ferreira",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "D Ferreira",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "D Ferreira",
+              "bowler": "Sunny Patel",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "D Ferreira",
+              "bowler": "Sunny Patel",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "D Ferreira",
+              "bowler": "C Bosch",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "D Ferreira",
+                  "fielders": [
+                    {
+                      "name": "RD Rickelton",
+                      "substitute": true
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "PWA Mulder",
+              "bowler": "C Bosch",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "Shubham Ranjane",
+              "bowler": "C Bosch",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "PWA Mulder",
+              "bowler": "C Bosch",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "C Bosch",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "PWA Mulder",
+              "bowler": "C Bosch",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "PWA Mulder",
+              "review": {
+                "by": "Texas Super Kings",
+                "umpire": "LS Reifer",
+                "batter": "Shubham Ranjane",
+                "decision": "upheld",
+                "type": "wicket"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "PWA Mulder",
+              "bowler": "Sunny Patel",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "Shubham Ranjane",
+              "bowler": "Sunny Patel",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "R Ugarkar",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Shubham Ranjane",
+                  "fielders": [
+                    {
+                      "name": "TA Boult"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "AJ Hosein",
+              "bowler": "R Ugarkar",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "PWA Mulder",
+              "bowler": "R Ugarkar",
+              "non_striker": "AJ Hosein",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "PWA Mulder",
+              "bowler": "R Ugarkar",
+              "non_striker": "AJ Hosein",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "AJ Hosein",
+              "bowler": "R Ugarkar",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "AJ Hosein",
+              "bowler": "R Ugarkar",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "PWA Mulder",
+              "bowler": "C Bosch",
+              "non_striker": "AJ Hosein",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "AJ Hosein",
+              "bowler": "C Bosch",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "PWA Mulder",
+              "bowler": "C Bosch",
+              "non_striker": "AJ Hosein",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "PWA Mulder",
+                  "fielders": [
+                    {
+                      "name": "R Ugarkar"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "GC Viljoen",
+              "bowler": "C Bosch",
+              "non_striker": "AJ Hosein",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "AJ Hosein",
+              "bowler": "C Bosch",
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "AJ Hosein",
+                  "fielders": [
+                    {
+                      "name": "Q de Kock"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "AF Milne",
+              "bowler": "C Bosch",
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "GC Viljoen",
+              "bowler": "R Ugarkar",
+              "extras": {
+                "legbyes": 2
+              },
+              "non_striker": "AF Milne",
+              "runs": {
+                "batter": 0,
+                "extras": 2,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "GC Viljoen",
+              "bowler": "R Ugarkar",
+              "non_striker": "AF Milne",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "AF Milne",
+              "bowler": "R Ugarkar",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "AF Milne",
+              "bowler": "R Ugarkar",
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.4",
+              "batter": "AF Milne",
+              "bowler": "R Ugarkar",
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "AF Milne",
+              "bowler": "R Ugarkar",
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "18.6",
+              "batter": "AF Milne",
+              "bowler": "R Ugarkar",
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "actual_delivery": "19.1",
+              "batter": "AF Milne",
+              "bowler": "TA Boult",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.1",
+              "batter": "AF Milne",
+              "bowler": "TA Boult",
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "AF Milne",
+                  "kind": "bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "19.2",
+              "batter": "Amshi de Silva",
+              "bowler": "TA Boult",
+              "non_striker": "GC Viljoen",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Amshi de Silva",
+                  "fielders": [
+                    {
+                      "name": "TA Boult"
+                    }
+                  ],
+                  "kind": "run out"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.9,
+          "type": "mandatory"
+        }
+      ]
+    },
+    {
+      "team": "MI New York",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "Q de Kock",
+              "bowler": "AJ Hosein",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "Q de Kock",
+              "bowler": "AJ Hosein",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "Q de Kock",
+              "bowler": "AJ Hosein",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "Q de Kock",
+              "bowler": "AJ Hosein",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "Q de Kock",
+              "bowler": "AJ Hosein",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "Q de Kock",
+              "bowler": "AJ Hosein",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "Q de Kock",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "Q de Kock",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "Q de Kock",
+              "bowler": "AF Milne",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "Q de Kock",
+              "bowler": "AF Milne",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "Q de Kock",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "Q de Kock",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "Q de Kock",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "Q de Kock",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "Q de Kock",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "Q de Kock",
+              "bowler": "AF Milne",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "MD Patel",
+              "bowler": "AF Milne",
+              "non_striker": "Q de Kock",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "Q de Kock",
+              "bowler": "Amshi de Silva",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Q de Kock",
+                  "kind": "bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "MD Patel",
+              "bowler": "Amshi de Silva",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "MD Patel",
+              "bowler": "Amshi de Silva",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "MD Patel",
+              "bowler": "GC Viljoen",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "MD Patel",
+              "bowler": "GC Viljoen",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "MD Patel",
+              "bowler": "GC Viljoen",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "N Pooran",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "N Pooran",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "N Pooran",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "N Pooran",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "N Pooran",
+              "bowler": "PWA Mulder",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "MD Patel",
+              "bowler": "PWA Mulder",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "N Pooran",
+              "bowler": "PWA Mulder",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "MD Patel",
+              "bowler": "PWA Mulder",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "N Pooran",
+              "bowler": "PWA Mulder",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "MD Patel",
+              "bowler": "PWA Mulder",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "N Pooran",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "MD Patel",
+              "bowler": "D Ferreira",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "N Pooran",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "N Pooran",
+              "bowler": "D Ferreira",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "MD Patel",
+              "bowler": "AJ Hosein",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "MD Patel",
+              "bowler": "AJ Hosein",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "MD Patel",
+              "bowler": "AJ Hosein",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "MD Patel",
+              "bowler": "GC Viljoen",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "MD Patel",
+              "bowler": "GC Viljoen",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "MD Patel",
+              "bowler": "GC Viljoen",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "MD Patel",
+                  "kind": "lbw"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "KA Pollard",
+              "bowler": "GC Viljoen",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "KA Pollard",
+              "bowler": "AF Milne",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "N Pooran",
+              "bowler": "AF Milne",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "N Pooran",
+              "bowler": "AF Milne",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "N Pooran",
+              "bowler": "AF Milne",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "N Pooran",
+              "bowler": "AF Milne",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "KA Pollard",
+              "bowler": "AF Milne",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "KA Pollard",
+              "bowler": "AJ Hosein",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "KA Pollard",
+              "bowler": "AJ Hosein",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "KA Pollard",
+              "bowler": "AJ Hosein",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "KA Pollard",
+              "bowler": "AJ Hosein",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "N Pooran",
+              "bowler": "AJ Hosein",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "KA Pollard",
+              "bowler": "GC Viljoen",
+              "extras": {
+                "legbyes": 4
+              },
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 4,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "KA Pollard",
+              "bowler": "GC Viljoen",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "KA Pollard",
+              "bowler": "GC Viljoen",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "KA Pollard",
+              "bowler": "GC Viljoen",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "KA Pollard",
+              "bowler": "Amshi de Silva",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "KA Pollard",
+              "bowler": "Amshi de Silva",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "N Pooran",
+              "bowler": "Amshi de Silva",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "N Pooran",
+              "bowler": "GC Viljoen",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "N Pooran",
+              "bowler": "PWA Mulder",
+              "non_striker": "KA Pollard",
+              "replacements": {
+                "role": [
+                  {
+                    "in": "PWA Mulder",
+                    "out": "GC Viljoen",
+                    "reason": "excluded - high full pitched balls",
+                    "role": "bowler"
+                  }
+                ]
+              },
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "N Pooran",
+              "bowler": "PWA Mulder",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "N Pooran",
+              "bowler": "PWA Mulder",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.6,
+          "type": "mandatory"
+        }
+      ],
+      "target": {
+        "overs": 20,
+        "runs": 159
+      }
+    }
+  ]
+}

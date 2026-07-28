@@ -1,0 +1,3176 @@
+{
+  "meta": {
+    "data_version": "1.2.0",
+    "created": "2026-06-19",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Dallas",
+    "dates": [
+      "2026-06-18"
+    ],
+    "event": {
+      "name": "Major League Cricket",
+      "match_number": 1
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "officials": {
+      "match_referees": [
+        "JJ Crowe"
+      ],
+      "reserve_umpires": [
+        "Vijaya Mallela"
+      ],
+      "tv_umpires": [
+        "P Wilson"
+      ],
+      "umpires": [
+        "LS Reifer",
+        "R Samuels"
+      ]
+    },
+    "outcome": {
+      "winner": "Texas Super Kings",
+      "by": {
+        "wickets": 6
+      }
+    },
+    "overs": 20,
+    "player_of_match": [
+      "F du Plessis"
+    ],
+    "players": {
+      "Seattle Orcas": [
+        "TL Seifert",
+        "Shayan Jahangir",
+        "SO Hetmyer",
+        "MP Stoinis",
+        "MP Breetzke",
+        "MD Shanaka",
+        "Jasdeep Singh",
+        "CJ Gannon",
+        "OEG Baartman",
+        "Harmeet Singh",
+        "Ali Sheikh"
+      ],
+      "Texas Super Kings": [
+        "F du Plessis",
+        "SR Mukkamalla",
+        "RR Rossouw",
+        "Milind Kumar",
+        "Shubham Ranjane",
+        "PWA Mulder",
+        "D Ferreira",
+        "Amshi de Silva",
+        "Mohammad Mohsin",
+        "N Burger",
+        "AF Milne"
+      ]
+    },
+    "registry": {
+      "people": {
+        "AF Milne": "350bb1b1",
+        "Ali Sheikh": "fa4f5a0b",
+        "Amshi de Silva": "dbe38f35",
+        "CJ Gannon": "519c30cb",
+        "D Ferreira": "f0af99a7",
+        "F du Plessis": "3355b542",
+        "Harmeet Singh": "0bf15e52",
+        "JJ Crowe": "2e760301",
+        "Jasdeep Singh": "5ec41cd7",
+        "LS Reifer": "5dee559a",
+        "MD Shanaka": "3ff033bb",
+        "MP Breetzke": "35f173a0",
+        "MP Stoinis": "d9273ee7",
+        "Milind Kumar": "b4296080",
+        "Mohammad Mohsin": "79f8472d",
+        "N Burger": "465aa633",
+        "OEG Baartman": "6b9eb501",
+        "P Wilson": "68304a36",
+        "PWA Mulder": "c96f6ac5",
+        "R Samuels": "8a8bc9f6",
+        "RR Rossouw": "cad00a4d",
+        "SO Hetmyer": "48a1d7b7",
+        "SR Mukkamalla": "156d0ea2",
+        "Shayan Jahangir": "571e1d2a",
+        "Shubham Ranjane": "6c7a68d0",
+        "TB Robinson": "5d664346",
+        "TL Seifert": "4663bd23",
+        "Vijaya Mallela": "85b6244a"
+      }
+    },
+    "season": "2026",
+    "team_type": "club",
+    "teams": [
+      "Seattle Orcas",
+      "Texas Super Kings"
+    ],
+    "toss": {
+      "decision": "field",
+      "winner": "Texas Super Kings"
+    },
+    "venue": "Grand Prairie Stadium, Dallas"
+  },
+  "innings": [
+    {
+      "team": "Seattle Orcas",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.1",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.1",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "Shayan Jahangir",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "Shayan Jahangir",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "Shayan Jahangir",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "extras": {
+                "byes": 4
+              },
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 4,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "Shayan Jahangir",
+              "bowler": "PWA Mulder",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "TL Seifert",
+              "bowler": "PWA Mulder",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "Shayan Jahangir",
+              "bowler": "PWA Mulder",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.1",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.1",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "Shayan Jahangir",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "Shayan Jahangir",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.1",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.1",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "Shayan Jahangir",
+              "bowler": "Shubham Ranjane",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "TL Seifert",
+              "bowler": "Shubham Ranjane",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "TL Seifert",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 6,
+                "extras": 1,
+                "total": 7
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "Shayan Jahangir",
+              "bowler": "Mohammad Mohsin",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "Shayan Jahangir",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "Shayan Jahangir",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "Shayan Jahangir",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "Shayan Jahangir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "Shayan Jahangir",
+              "bowler": "AF Milne",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "Shayan Jahangir",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Shayan Jahangir",
+                  "fielders": [
+                    {
+                      "name": "SR Mukkamalla"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "SO Hetmyer",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "TL Seifert",
+              "bowler": "Amshi de Silva",
+              "non_striker": "SO Hetmyer",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "SO Hetmyer",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "SO Hetmyer",
+              "bowler": "Amshi de Silva",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "SO Hetmyer",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "SO Hetmyer",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "SO Hetmyer",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.4",
+              "batter": "TL Seifert",
+              "bowler": "N Burger",
+              "non_striker": "SO Hetmyer",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "SO Hetmyer",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.6",
+              "batter": "SO Hetmyer",
+              "bowler": "N Burger",
+              "non_striker": "TL Seifert",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "actual_delivery": "19.1",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "SO Hetmyer",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "19.2",
+              "batter": "TL Seifert",
+              "bowler": "AF Milne",
+              "non_striker": "SO Hetmyer",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "TL Seifert",
+                  "kind": "caught and bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "19.3",
+              "batter": "MP Stoinis",
+              "bowler": "AF Milne",
+              "non_striker": "SO Hetmyer",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.4",
+              "batter": "SO Hetmyer",
+              "bowler": "AF Milne",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "MP Stoinis",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.5",
+              "batter": "MP Stoinis",
+              "bowler": "AF Milne",
+              "non_striker": "SO Hetmyer",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "19.6",
+              "batter": "MP Stoinis",
+              "bowler": "AF Milne",
+              "non_striker": "SO Hetmyer",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.7,
+          "type": "mandatory"
+        }
+      ]
+    },
+    {
+      "team": "Texas Super Kings",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "F du Plessis",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "SR Mukkamalla",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "SR Mukkamalla",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "SR Mukkamalla",
+                  "fielders": [
+                    {
+                      "name": "MD Shanaka"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "RR Rossouw",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "RR Rossouw",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "F du Plessis",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "F du Plessis",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "RR Rossouw",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "F du Plessis",
+              "bowler": "CJ Gannon",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "RR Rossouw",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "RR Rossouw",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "RR Rossouw",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "F du Plessis",
+              "bowler": "CJ Gannon",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "RR Rossouw",
+              "bowler": "Jasdeep Singh",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "F du Plessis",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "F du Plessis",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "F du Plessis",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "F du Plessis",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "RR Rossouw",
+              "bowler": "Jasdeep Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "F du Plessis",
+              "bowler": "CJ Gannon",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "F du Plessis",
+              "bowler": "CJ Gannon",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "RR Rossouw",
+              "bowler": "CJ Gannon",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "RR Rossouw",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "RR Rossouw",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "RR Rossouw",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "RR Rossouw",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "RR Rossouw",
+              "bowler": "OEG Baartman",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "RR Rossouw",
+              "bowler": "OEG Baartman",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "RR Rossouw",
+              "bowler": "OEG Baartman",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "F du Plessis",
+              "bowler": "Harmeet Singh",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "RR Rossouw",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "RR Rossouw",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "F du Plessis",
+              "bowler": "Harmeet Singh",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "RR Rossouw",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "RR Rossouw",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "F du Plessis",
+              "bowler": "MP Stoinis",
+              "non_striker": "RR Rossouw",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "RR Rossouw",
+              "bowler": "MP Stoinis",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "RR Rossouw",
+              "bowler": "MP Stoinis",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "RR Rossouw",
+                  "fielders": [
+                    {
+                      "name": "TL Seifert"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "Milind Kumar",
+              "bowler": "MP Stoinis",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "Milind Kumar",
+              "bowler": "MP Stoinis",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "Milind Kumar",
+              "bowler": "MP Stoinis",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "Milind Kumar",
+              "bowler": "Ali Sheikh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "F du Plessis",
+              "bowler": "Ali Sheikh",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "F du Plessis",
+              "bowler": "Ali Sheikh",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "F du Plessis",
+              "bowler": "Ali Sheikh",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "Milind Kumar",
+              "bowler": "Ali Sheikh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "F du Plessis",
+              "bowler": "Ali Sheikh",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "F du Plessis",
+              "bowler": "MP Stoinis",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "F du Plessis",
+              "bowler": "MP Stoinis",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "Milind Kumar",
+              "bowler": "MP Stoinis",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "F du Plessis",
+              "bowler": "MP Stoinis",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "F du Plessis",
+              "bowler": "MP Stoinis",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "Milind Kumar",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "replacements": {
+                "role": [
+                  {
+                    "in": "MD Shanaka",
+                    "out": "MP Stoinis",
+                    "reason": "injury",
+                    "role": "bowler"
+                  }
+                ]
+              },
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "Milind Kumar",
+              "bowler": "Ali Sheikh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "F du Plessis",
+              "bowler": "Ali Sheikh",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "F du Plessis",
+              "bowler": "Ali Sheikh",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "F du Plessis",
+              "bowler": "Ali Sheikh",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "Milind Kumar",
+              "bowler": "Ali Sheikh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "Milind Kumar",
+              "bowler": "Ali Sheikh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "Milind Kumar",
+              "bowler": "OEG Baartman",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "Milind Kumar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "Milind Kumar",
+              "bowler": "OEG Baartman",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Milind Kumar",
+                  "fielders": [
+                    {
+                      "name": "Harmeet Singh"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "OEG Baartman",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "F du Plessis",
+              "bowler": "Harmeet Singh",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "Shubham Ranjane",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "Shubham Ranjane",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "Shubham Ranjane",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "F du Plessis",
+              "bowler": "Harmeet Singh",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "F du Plessis",
+              "bowler": "OEG Baartman",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "Shubham Ranjane",
+              "bowler": "MD Shanaka",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "Shubham Ranjane",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "F du Plessis",
+              "bowler": "MD Shanaka",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "Shubham Ranjane",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "F du Plessis",
+              "bowler": "MD Shanaka",
+              "non_striker": "Shubham Ranjane",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "Shubham Ranjane",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "Shubham Ranjane",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Shubham Ranjane",
+                  "fielders": [
+                    {
+                      "name": "TB Robinson",
+                      "substitute": true
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "PWA Mulder",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "F du Plessis",
+              "bowler": "CJ Gannon",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "F du Plessis",
+              "bowler": "CJ Gannon",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "PWA Mulder",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "F du Plessis",
+              "bowler": "CJ Gannon",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "PWA Mulder",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "PWA Mulder",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "PWA Mulder",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "PWA Mulder",
+              "bowler": "Harmeet Singh",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "F du Plessis",
+              "bowler": "Harmeet Singh",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "F du Plessis",
+              "bowler": "Harmeet Singh",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "F du Plessis",
+              "bowler": "Harmeet Singh",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "F du Plessis",
+              "bowler": "MD Shanaka",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "PWA Mulder",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "F du Plessis",
+              "bowler": "MD Shanaka",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "F du Plessis",
+              "bowler": "MD Shanaka",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "PWA Mulder",
+              "bowler": "MD Shanaka",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "PWA Mulder",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "PWA Mulder",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "PWA Mulder",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "PWA Mulder",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "PWA Mulder",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "F du Plessis",
+              "bowler": "CJ Gannon",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "PWA Mulder",
+              "bowler": "CJ Gannon",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "F du Plessis",
+              "bowler": "CJ Gannon",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "PWA Mulder",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "PWA Mulder",
+              "bowler": "MD Shanaka",
+              "non_striker": "F du Plessis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "F du Plessis",
+              "bowler": "MD Shanaka",
+              "non_striker": "PWA Mulder",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.6,
+          "type": "mandatory"
+        }
+      ],
+      "target": {
+        "overs": 20,
+        "runs": 221
+      }
+    }
+  ]
+}

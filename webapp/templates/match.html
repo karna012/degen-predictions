@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}{{ match.HomeTeam }} vs {{ match.AwayTeam }} Prediction | {{ league_label }}{% endblock %}
+{% block description %}{{ match.HomeTeam }} vs {{ match.AwayTeam }} prediction: match result, BTTS, total goals, and corners forecast from our {{ league_label }} machine-learning model, {{ match.MatchDate }}.{% endblock %}
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": {{ (match.HomeTeam ~ " vs " ~ match.AwayTeam) | tojson }},
+    "startDate": {{ match_start_date_iso | tojson }},
+    {% if match_end_date %}"endDate": {{ match_end_date | tojson }},{% endif %}
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+        "@type": "Place",
+        "name": {{ (match.HomeTeam ~ " Home Stadium") | tojson }},
+        "address": {"@type": "PostalAddress", "addressCountry": {{ league_country | tojson }}}
+    },
+    "image": "https://degenpredictions.com{{ url_for('static', filename='logo.png') }}",
+    "organizer": {"@type": "Organization", "name": "Degen Predictions", "url": "https://degenpredictions.com"},
+    "sport": "Soccer",
+    "competitor": [
+        {"@type": "SportsTeam", "name": {{ match.HomeTeam | tojson }}},
+        {"@type": "SportsTeam", "name": {{ match.AwayTeam | tojson }}}
+    ],
+    "description": {{ (league_label ~ " match prediction: result, BTTS, goals, and corners forecast.") | tojson }}
+}
+</script>
+<a href="/{{ league_key }}/">&larr; Back to fixtures</a>
+<h1>{{ match.HomeTeam }} vs {{ match.AwayTeam }}</h1>
+<p class="muted">{{ match.MatchDate }} · Round {{ match.RoundNumber }} · Data confidence: {{ match.Data_Confidence }}</p>
+
+<div class="card-grid">
+    <div class="card">
+        <h2>Match Result (1X2)</h2>
+        <div class="bar"><div class="bar-fill home" style="width: {{ match.P_Home_Win * 100 }}%"></div></div>
+        <p>{{ match.HomeTeam }} win: {{ (match.P_Home_Win * 100) | round(1) }}%</p>
+        <div class="bar"><div class="bar-fill draw" style="width: {{ match.P_Draw * 100 }}%"></div></div>
+        <p>Draw: {{ (match.P_Draw * 100) | round(1) }}%</p>
+        <div class="bar"><div class="bar-fill away" style="width: {{ match.P_Away_Win * 100 }}%"></div></div>
+        <p>{{ match.AwayTeam }} win: {{ (match.P_Away_Win * 100) | round(1) }}%</p>
+        <p class="predicted">Predicted: <strong>{{ match.Predicted_Result }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Both Teams to Score</h2>
+        <p class="big">{{ match.BTTS_Prediction }}</p>
+        <p>Probability of Yes: {{ (match.P_BTTS_Yes * 100) | round(1) }}%</p>
+    </div>
+
+    <div class="card">
+        <h2>Total Goals</h2>
+        <p class="big">{{ match.Goals_Prediction }}</p>
+        <p>Probability of Over 2.5: {{ (match['P_Over_2.5_Goals'] * 100) | round(1) }}%</p>
+    </div>
+
+    <div class="card">
+        <h2>Corners</h2>
+        <p>Expected total corners: <strong>{{ match.Exp_Total_Corners }}</strong></p>
+        <p>More corners: <strong>{{ match.More_Corners_Prediction }}</strong>
+            ({{ (match.P_Home_More_Corners * 100) | round(1) }}% home / {{ (100 - match.P_Home_More_Corners * 100) | round(1) }}% away)</p>
+    </div>
+
+    {% if match.P_Favorite_Avoids_Defeat is defined and match.P_Favorite_Avoids_Defeat == match.P_Favorite_Avoids_Defeat %}
+    <div class="card">
+        <h2>Favorite Avoids Defeat</h2>
+        <p class="muted">Favorite: {{ match.Favorite_Team }}</p>
+        <p class="big">{{ match.Favorite_Avoids_Defeat_Prediction }}</p>
+        <p>Probability {{ match.Favorite_Team }} wins or draws: {{ (match.P_Favorite_Avoids_Defeat * 100) | round(1) }}%</p>
+        <p class="muted">Higher base-rate market — favourites historically avoid defeat ~75.6% of the time
+            regardless of any model, so treat this probability as a fine-tuned adjustment around that
+            baseline, not as a standalone insight. See <a href="/{{ league_key }}/about">Model Info</a> for the honest
+            accuracy-vs-baseline breakdown.</p>
+    </div>
+    {% endif %}
+</div>
+
+{% if lineup_info %}
+<div class="tips-card">
+    <h2>Live Lineup &amp; Injury Watch</h2>
+    <p class="muted">Pulled live from FotMob. Confirmed starting lineups are only released
+        ~1 hour before kickoff — until then, this shows known unavailable/injured players.
+        This is informational only and is not yet fed back into the model's prediction above.</p>
+    <div class="card-grid">
+        {% for side in ['home', 'away'] %}
+        {% set team = lineup_info[side] %}
+        <div class="card">
+            <h2>{{ team.name }}</h2>
+            {% if team.confirmed %}
+            <p class="big">Lineup confirmed</p>
+            {% else %}
+            <p class="muted">Lineup not yet confirmed</p>
+            {% endif %}
+            {% if team.unavailable %}
+            <p style="margin-top:0.6rem;"><strong>Unavailable:</strong></p>
+            <ul style="margin:0.3rem 0 0; padding-left:1.1rem;">
+                {% for p in team.unavailable %}
+                <li>{{ p.name }} <span class="muted">({{ p.type }}{% if p.expected_return %}, back {{ p.expected_return }}{% endif %})</span></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="muted">No known unavailable players.</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="tips-card">
+    <h2>Prediction Insights</h2>
+    {% for tip in tips %}
+    <div class="tip-row">
+        <span class="tip-market">{{ tip.market }}</span>
+        <span class="tip-pick">{{ tip.pick }}</span>
+        <span class="tip-note">{{ tip.note or '' }} ({{ (tip.probability * 100) | round(0) }}% model probability)</span>
+        <span class="tip-badge {{ tip.confidence | lower }}">{{ tip.confidence }}</span>
+    </div>
+    {% else %}
+    <p class="muted">No insights available for this fixture.</p>
+    {% endfor %}
+    <p class="disclaimer">These are model-derived probability leans, not guaranteed outcomes — football
+        has high inherent variance and even well-calibrated models miss regularly. For research/
+        educational use only; this is not betting advice.</p>
+</div>
+{% endblock %}

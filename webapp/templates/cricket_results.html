@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{{ competition_label }} Results & Prediction Accuracy | Degen Predictions{% endblock %}
+{% block description %}{{ competition_label }} completed match results with our model's genuine pre-match predictions (innings totals, total runs, winner) compared against the actual outcome.{% endblock %}
+{% block keywords %}{{ competition_label }} results, cricket prediction accuracy, T20 predictions{% endblock %}
+{% block content %}
+<a href="/{{ league_slug }}/fixtures">&larr; Back to {{ competition_label }} Fixtures</a>
+<h1>{{ competition_label }} &mdash; Results</h1>
+<p class="muted">Cricsheet ball-by-ball data has no live fixture feed, so this is a results/accuracy page, not a
+    live card: the most recent real completed matches, each shown with our model's genuine pre-match prediction
+    (innings totals, total runs, winner) compared honestly against the actual result. Every prediction uses only
+    information that was available before that match's first ball.</p>
+
+{% if not matches %}
+<p>No {{ competition_label }} results available yet -- check back after the pipeline has been run.</p>
+{% endif %}
+
+<div class="fixture-grid">
+{% for m in matches %}
+    <div class="fixture-card {{ 'ok-confidence' if m.data_confidence == 'high' else ('low-confidence' if m.data_confidence == 'low' else '') }}"
+         style="--card-index: {{ loop.index0 }}; cursor:pointer;"
+         onclick="window.location.href='/{{ league_slug }}/match/{{ m.match_id }}'">
+        <div class="fixture-card-head">
+            <div>
+                <span class="fixture-teams">{{ m.team1 }} vs {{ m.team2 }}</span>
+                <div class="fixture-date">{{ m.date }} &middot; {{ m.venue }}</div>
+            </div>
+            <span class="muted">Final: {{ m.actual_team1_runs }}-{{ m.actual_team2_runs }}</span>
+        </div>
+        <div class="fixture-outcomes">
+            <div class="outcome-row"><span class="outcome-label">Predicted Winner</span>
+                <span>{{ m.predicted_winner or '—' }}{% if m.actual_winner %} <span class="muted">(actual: {{ m.actual_winner }})</span>{% endif %}</span></div>
+            <div class="outcome-row"><span class="outcome-label">Predicted Innings Totals</span>
+                <span>{{ m.team1 }}: {{ m.predicted_team1_runs }} &middot; {{ m.team2 }}: {{ m.predicted_team2_runs }}</span></div>
+            <div class="outcome-row"><span class="outcome-label">Predicted Total Runs</span>
+                <span>{{ m.predicted_total_runs }} <span class="muted">(actual {{ m.actual_total_runs }})</span></span></div>
+            <div class="outcome-row"><span class="outcome-label">Data Confidence</span>
+                <span class="confidence-badge confidence-{{ m.data_confidence }}">{{ m.data_confidence|capitalize }}</span></div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

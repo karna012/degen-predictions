@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block title %}NPB Fixtures & Predictions | Degen Predictions{% endblock %}
+{% block description %}Live and upcoming NPB (Nippon Professional Baseball) fixtures with Elo/H2H/streak-based predictions -- winner and total runs.{% endblock %}
+{% block keywords %}NPB predictions, Nippon Professional Baseball predictions, Japanese baseball predictions, NPB Elo ratings, NPB total runs prediction{% endblock %}
+{% block content %}
+<a href="/">&larr; Back to home</a>
+<h1>NPB &mdash; Fixtures</h1>
+<p class="muted">Live, recent, and upcoming Nippon Professional Baseball games. Predictions blend team Elo
+    (home-field adjusted), head-to-head record, and current streak.</p>
+
+{% macro fixture_card(m, index) %}
+    <div class="fixture-card {{ 'ok-confidence' if m.has_rating else 'low-confidence' }}" style="--card-index: {{ index }};{% if m.has_rating %} cursor: pointer;{% endif %}"
+         {% if m.has_rating %}
+         onclick="window.location.href='/npb/match/{{ m.home_team_id }}/{{ m.away_team_id }}?home_name={{ m.home_team | urlencode }}&away_name={{ m.away_team | urlencode }}&date={{ (m.date or '') | urlencode }}'"
+         {% endif %}
+         data-home="{{ m.home_team_id }}" data-away="{{ m.away_team_id }}">
+        <div class="fixture-card-head">
+            <div>
+                <span class="fixture-teams">{{ m.away_team }} vs {{ m.home_team }}</span>
+                <div class="fixture-date">
+                    {% if m.home_pitcher or m.away_pitcher %}
+                    {{ m.away_pitcher or 'TBD' }} vs {{ m.home_pitcher or 'TBD' }}
+                    {% endif %}
+                    {% if not m.completed and not m.postponed %}
+                    <span class="countdown muted" data-kickoff="{{ m.date }}"></span>
+                    {% endif %}
+                </div>
+            </div>
+            {% if m.completed %}
+            <span class="muted">Final: {{ m.away_score }}-{{ m.home_score }}</span>
+            {% elif m.has_rating %}
+            <button type="button" class="predict-btn" onclick="event.stopPropagation(); runNpbPredict(this)">Get Prediction</button>
+            {% else %}
+            <span class="muted" title="One or both teams don't have enough rated games yet">No rating yet</span>
+            {% endif %}
+        </div>
+        <div class="predict-status muted"></div>
+
+        <div class="fixture-outcomes">
+            <div class="outcome-row"><span class="outcome-label">Win Prob.</span><span class="c-prob outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Predicted Winner</span><span class="c-winner outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Predicted Total Runs</span><span class="c-runs outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Run Split (Away / Home)</span><span class="c-runs-split outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Current Streak (A/H)</span><span class="c-streak outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Season Record (A/H)</span><span class="c-season outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Elo</span><span class="c-elo outcome-hidden">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Head-to-Head</span><span class="c-h2h outcome-hidden">&mdash;</span></div>
+        </div>
+        <ul class="c-insights outcome-hidden" style="margin:0.75rem 0 0; padding-left:1.1rem; font-size:0.92em;"></ul>
+        {% if m.is_live %}
+        <div class="fixture-card-foot"><span class="confidence-alert">&#9918; Live</span></div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% if not grouped_by_date and not grouped_finished %}
+<p>No fixtures found right now -- check back soon.</p>
+{% endif %}
+
+{% for day, matches in grouped_by_date.items() %}
+<h2 style="margin-top:2rem;">{{ day }}</h2>
+<div class="fixture-grid">
+    {% for m in matches %}{{ fixture_card(m, loop.index0) }}{% endfor %}
+</div>
+{% endfor %}
+
+{% if postponed %}
+<h2 style="margin-top:2rem;">Postponed &mdash; Makeup Date TBD</h2>
+<div class="fixture-grid">
+    {% for m in postponed %}
+    <div class="fixture-card low-confidence" style="--card-index: {{ loop.index0 }};">
+        <div class="fixture-card-head">
+            <div>
+                <span class="fixture-teams">{{ m.away_team }} vs {{ m.home_team }}</span>
+                <div class="fixture-date">Originally {{ m.date[:10] if m.date else '' }}</div>
+            </div>
+            <span class="muted">Postponed</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<script>
+const hasLiveGame = document.querySelector(".confidence-alert") !== null;
+setTimeout(() => window.location.reload(), hasLiveGame ? 30 * 1000 : 15 * 60 * 1000);
+
+function updateCountdowns() {
+    const now = Date.now();
+    document.querySelectorAll(".countdown[data-kickoff]").forEach(el => {
+        const kickoff = new Date(el.dataset.kickoff).getTime();
+        if (isNaN(kickoff)) return;
+        const diff = kickoff - now;
+        if (diff <= 0) {
+            el.textContent = "-- first pitch imminent";
+            return;
+        }
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        if (days > 0) el.textContent = `-- first pitch in ${days}d ${hours}h`;
+        else if (hours > 0) el.textContent = `-- first pitch in ${hours}h ${mins}m`;
+        else el.textContent = `-- first pitch in ${mins}m`;
+    });
+}
+updateCountdowns();
+setInterval(updateCountdowns, 60000);
+
+async function runNpbPredict(btn) {
+    const row = btn.closest(".fixture-card");
+    const status = row.querySelector(".predict-status");
+    const { home, away } = row.dataset;
+
+    btn.disabled = true;
+    btn.textContent = "Predicting...";
+
+    try {
+        const params = new URLSearchParams({ home, away });
+        const resp = await fetch(`/npb/api/predict?${params.toString()}`);
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || "Prediction failed");
+
+        row.querySelector(".c-prob").textContent =
+            `Away: ${Math.round(data.away_prob * 100)}% -- Home: ${Math.round(data.home_prob * 100)}%`;
+        row.querySelector(".c-winner").innerHTML = `<strong>${data.favourite_name}</strong>`;
+        row.querySelector(".c-runs").textContent = `${data.predicted_total_runs} (range ${data.predicted_total_runs_low}-${data.predicted_total_runs_high})`;
+        row.querySelector(".c-runs-split").textContent = `${data.away_predicted_runs} / ${data.home_predicted_runs}`;
+        row.querySelector(".c-streak").textContent = `${data.away_streak} / ${data.home_streak}`;
+        row.querySelector(".c-season").textContent = `${data.away_season_record} / ${data.home_season_record}`;
+        row.querySelector(".c-elo").textContent = `${data.elo_away} vs ${data.elo_home}`;
+        row.querySelector(".c-h2h").textContent =
+            data.h2h_meetings > 0 ? `Home ${data.h2h_home_wins}-${data.h2h_away_wins} Away (${data.h2h_meetings} meetings)` : "First meeting";
+
+        const insightsList = row.querySelector(".c-insights");
+        insightsList.innerHTML = "";
+        (data.insights || []).forEach(text => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            insightsList.appendChild(li);
+        });
+
+        row.querySelectorAll(".outcome-hidden").forEach(el => el.classList.remove("outcome-hidden"));
+
+        status.textContent = "";
+        btn.textContent = "Predicted";
+        showToast(`${data.favourite_name} favoured -- predicted total ${data.predicted_total_runs} runs`, "success");
+    } catch (err) {
+        status.textContent = `Error: ${err.message}`;
+        btn.textContent = "Get Prediction";
+        btn.disabled = false;
+        showToast(err.message, "error");
+    }
+}
+</script>
+{% endblock %}

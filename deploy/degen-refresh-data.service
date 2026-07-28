@@ -1,0 +1,8 @@
+[Unit]
+Description=Degen Predictions - daily MLB/NPB data refresh + Elo rebuild
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Degen_predictions
+ExecStart=/home/ubuntu/Degen_predictions/deploy/refresh_daily_data.sh

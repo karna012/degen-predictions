@@ -1,0 +1,14 @@
+[Unit]
+Description=Run degen-refresh-data.service every 3 hours
+
+[Timer]
+# Was once/day at 09:00 UTC -- games finish at all hours across MLB/NPB's
+# combined schedule, so a once-daily pull left the data (and /results,
+# which reads from it) up to ~33h stale depending on when you checked.
+# The job itself is cheap (~10-15s CPU, just a data pull + Elo rebuild,
+# not model training) so running it every 3h is safe on this instance.
+OnCalendar=*-*-* 0/3:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

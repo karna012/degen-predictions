@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Cricket Predictions -- The Hundred & MLC | Degen Predictions{% endblock %}
+{% block description %}Free machine-learning cricket predictions for The Hundred (Men's) and Major League Cricket -- innings totals, match total runs, and winner.{% endblock %}
+{% block content %}
+<a href="/sports">&larr; Back to Sports</a>
+<div class="leagues-hero">
+    <h1>Pick Your Cricket League</h1>
+    <p class="muted">Choose a league to see recent matches and model predictions.</p>
+</div>
+
+{% macro cricket_card(info, href) %}
+    {% if info.available %}
+    <a class="league-card" href="{{ href }}" style="--league-color: {{ info.color }};">
+    {% else %}
+    <div class="league-card league-card-disabled" style="--league-color: {{ info.color }};">
+    {% endif %}
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>{{ info.label|upper }}</h2>
+            {% if info.available %}
+            <p class="league-desc">{{ info.country }} &middot; {{ info.fixture_count }} matches on record.</p>
+            <span class="league-cta">Get Predictions</span>
+            {% else %}
+            <p class="league-desc">{{ info.country }} &middot; Coming soon.</p>
+            {% endif %}
+        </div>
+        <div class="league-badge">
+            <span class="league-monogram">{{ info.monogram }}</span>
+        </div>
+    {% if info.available %}
+    </a>
+    {% else %}
+    </div>
+    {% endif %}
+{% endmacro %}
+
+<div class="league-grid">
+    {{ cricket_card(hundred_info, "/hundred/fixtures") }}
+    {{ cricket_card(mlc_info, "/mlc/fixtures") }}
+</div>
+<p class="muted" style="margin-top:1.5rem;">Each league page shows live/upcoming fixtures when scheduled matches
+    exist; Cricsheet (our data source) has no live fixture feed, so completed matches instead live on each
+    league's results &amp; accuracy page, where our model's genuine pre-match prediction is compared honestly
+    against the real result -- not a live betting card.</p>
+{% endblock %}

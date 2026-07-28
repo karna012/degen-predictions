@@ -1,0 +1,6 @@
+[Unit]
+Description=Daily EC2 reboot (04:00 UTC, ahead of the 05:00 UTC automation cycle)
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/reboot

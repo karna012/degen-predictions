@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}{{ away_name }} vs {{ home_name }} Prediction | MLB{% endblock %}
+{% block description %}{{ away_name }} vs {{ home_name }} prediction: winner, total runs, hits, home runs, and strikeouts from our MLB Elo/H2H/pitcher model{% if match_date %}, {{ match_date }}{% endif %}.{% endblock %}
+{% block keywords %}{{ away_name }} vs {{ home_name }} prediction, MLB predictions, MLB total runs prediction, MLB moneyline predictions, baseball predictions today{% endblock %}
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": {{ (away_name ~ " vs " ~ home_name) | tojson }},
+    {% if match_date %}"startDate": {{ match_date | tojson }},{% endif %}
+    {% if match_end_date %}"endDate": {{ match_end_date | tojson }},{% endif %}
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+        "@type": "Place",
+        "name": {{ (home_name ~ " Home Ballpark") | tojson }},
+        "address": {"@type": "PostalAddress", "addressCountry": "USA"}
+    },
+    "image": "https://degenpredictions.com{{ url_for('static', filename='logo.png') }}",
+    "organizer": {"@type": "Organization", "name": "Degen Predictions", "url": "https://degenpredictions.com"},
+    "sport": "Baseball",
+    "competitor": [
+        {"@type": "SportsTeam", "name": {{ home_name | tojson }}},
+        {"@type": "SportsTeam", "name": {{ away_name | tojson }}}
+    ],
+    "description": "MLB match prediction: winner, total runs, hits, home runs, and strikeouts."
+}
+</script>
+<a href="/mlb/fixtures">&larr; Back to fixtures</a>
+<h1>{{ away_name }} vs {{ home_name }}</h1>
+<p class="muted">{{ match_date }}{% if home_era %} &middot; Probable starters: {{ away_era }} ERA (away) vs {{ home_era }} ERA (home){% endif %}</p>
+
+<div class="card-grid">
+    <div class="card">
+        <h2>Win Probability</h2>
+        <div class="bar"><div class="bar-fill away" style="width: {{ match.away_prob * 100 }}%"></div></div>
+        <p>{{ away_name }} win: {{ (match.away_prob * 100) | round(1) }}%</p>
+        <div class="bar"><div class="bar-fill home" style="width: {{ match.home_prob * 100 }}%"></div></div>
+        <p>{{ home_name }} win: {{ (match.home_prob * 100) | round(1) }}%</p>
+        <p class="predicted">Predicted winner: <strong>{{ home_name if match.favourite == match.home else away_name }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Total Runs</h2>
+        <p class="big">Over {{ match.total_runs_line }}</p>
+        <p class="muted">Model confidence: {{ match.total_runs_pick_probability }}%</p>
+        <p>{{ away_name }}: Over <strong>{{ match.away_runs_line }}</strong> ({{ match.away_runs_pick_probability }}%)
+            &middot; {{ home_name }}: Over <strong>{{ match.home_runs_line }}</strong> ({{ match.home_runs_pick_probability }}%)</p>
+    </div>
+
+    <div class="card">
+        <h2>Total Hits</h2>
+        <p class="big">{{ match.predicted_total_hits }}</p>
+        <p>{{ away_name }}: <strong>{{ match.away_predicted_hits }}</strong> &middot; {{ home_name }}: <strong>{{ match.home_predicted_hits }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Home Runs</h2>
+        <p class="big">{{ match.predicted_total_home_runs }}</p>
+        <p>{{ away_name }}: <strong>{{ match.away_predicted_home_runs }}</strong> &middot; {{ home_name }}: <strong>{{ match.home_predicted_home_runs }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Strikeouts</h2>
+        <p class="big">{{ match.predicted_total_strikeouts }}</p>
+        <p>{{ away_name }}: <strong>{{ match.away_predicted_strikeouts }}</strong> &middot; {{ home_name }}: <strong>{{ match.home_predicted_strikeouts }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Form &amp; Streak</h2>
+        <p>{{ away_name }}: <strong>{{ match.away_season_record }}</strong> this season,
+            {{ 'won ' ~ match.away_streak ~ ' straight' if match.away_streak > 0 else ('lost ' ~ (-match.away_streak) ~ ' straight' if match.away_streak < 0 else 'no active streak') }}</p>
+        <p>{{ home_name }}: <strong>{{ match.home_season_record }}</strong> this season,
+            {{ 'won ' ~ match.home_streak ~ ' straight' if match.home_streak > 0 else ('lost ' ~ (-match.home_streak) ~ ' straight' if match.home_streak < 0 else 'no active streak') }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Elo Rating</h2>
+        <p>{{ away_name }}: <strong>{{ match.elo_away }}</strong> &middot; {{ home_name }}: <strong>{{ match.elo_home }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Head-to-Head</h2>
+        {% if match.h2h_meetings > 0 %}
+        <p>{{ home_name }} {{ match.h2h_home_wins }} &ndash; {{ match.h2h_away_wins }} {{ away_name }}
+            <span class="muted">({{ match.h2h_meetings }} meeting{{ 's' if match.h2h_meetings != 1 else '' }})</span></p>
+        {% else %}
+        <p class="muted">No previous meetings on record -- prediction is Elo-only.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="tips-card">
+    <h2>Prediction Insights</h2>
+    {% for insight in match.insights %}
+    <div class="tip-row">
+        <span class="tip-note">{{ insight }}</span>
+    </div>
+    {% else %}
+    <p class="muted">No insights available for this fixture.</p>
+    {% endfor %}
+    <p class="disclaimer">These are model-derived probability leans, not guaranteed outcomes -- MLB
+        has very high inherent variance (even a 100-win team loses ~35% of its games), and even
+        well-calibrated models miss regularly. For research/educational use only; this is not betting advice.</p>
+</div>
+{% endblock %}

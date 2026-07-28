@@ -1,0 +1,4 @@
+# Extra dependencies needed only on the Linux production server (EC2) --
+# gunicorn doesn't install/run on Windows, so this is kept separate from the
+# main requirements.txt used for local Windows development.
+gunicorn

@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% block title %}Metals & Stones Price Prediction Calculator | ML & AI Forecasts{% endblock %}
+{% block description %}Predict metal and gemstone price movements using ML & AI. Calculate investment returns for precious metals, industrial metals, and gemstones. All prices in USD.{% endblock %}
+{% block keywords %}metal price prediction, gold price forecast, silver price prediction, copper price, precious metals investment, industrial metals, gemstone prices, investment calculator, commodity trading, ML price forecasts{% endblock %}
+{% block content %}
+
+<div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/">&larr; Back to categories</a>
+    <a href="/metals/insights" style="color: #c9a961; text-decoration: none; font-weight: 600;">📊 Market Insights →</a>
+</div>
+
+<h1>Metals & Stones Price Prediction Calculator</h1>
+<p class="muted">ML & AI-powered forecasts for precious metals, industrial metals, and gemstones. All prices in USD.</p>
+<p style="background: rgba(201, 169, 97, 0.1); padding: 1rem; border-left: 3px solid #c9a961; border-radius: 4px; margin-bottom: 2rem;">
+    <strong>Explore commodity trends:</strong>
+    <a href="/metals/insights" style="color: #c9a961; text-decoration: underline;">View market insights & price history</a> for all metals.
+</p>
+
+<style>
+.metals-period-labels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.3rem 0.6rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--muted, #999);
+}
+.metals-period-labels span { white-space: nowrap; }
+
+@media (max-width: 768px) {
+    .metals-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+    .metals-panel { min-height: auto !important; }
+    button { font-size: 0.95rem !important; }
+}
+@media (max-width: 480px) {
+    .metals-period-labels { font-size: 0.72rem; }
+}
+</style>
+
+<div class="metals-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+    <!-- Input Form -->
+    <div class="metals-panel" style="background: var(--card-bg, #1a1a1a); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border, #333); min-height: 500px;">
+        <h2 style="font-size: 1.1rem; margin-top: 0; margin-bottom: 1.5rem;">📈 Forecast Your Returns</h2>
+
+        <label style="display: block; margin-bottom: 1rem;">
+            <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Category</span>
+            <select id="category" onchange="updateMetals()" style="width: 100%; padding: 0.6rem; border-radius: 4px; border: 2px solid #c9a961; background: var(--card-bg, #1a1a1a); color: inherit; font-size: 0.95rem; cursor: pointer;">
+                <option value="precious">Precious Metals</option>
+                <option value="industrial">Industrial Metals</option>
+                <option value="gemstones">Gemstones</option>
+            </select>
+        </label>
+
+        <label style="display: block; margin-bottom: 1rem;">
+            <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Metal / Stone</span>
+            <select id="metal" style="width: 100%; padding: 0.6rem; border-radius: 4px; border: 2px solid #c9a961; background: var(--card-bg, #1a1a1a); color: inherit; font-size: 0.95rem; cursor: pointer;">
+                {% for metal_name, metal_data in all_metals.items() %}
+                    {% if metal_data.category == 'precious' %}
+                    <option value="{{ metal_name }}">{{ metal_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </label>
+
+        <label style="display: block; margin-bottom: 1rem;">
+            <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Investment Amount (USD)</span>
+            <input type="number" id="investment_amount" value="10000" min="100" step="100" inputmode="decimal"
+                   style="width: 100%; padding: 0.75rem; border-radius: 4px; border: 1px solid var(--border, #333); background: var(--card-bg, #1a1a1a); color: inherit; font-size: 16px; box-sizing: border-box; min-height: 44px;">
+        </label>
+
+        <label style="display: block; margin-bottom: 1.5rem;">
+            <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Holding Period: <strong id="period-display">6 months</strong></span>
+            <input type="range" id="holding_period" min="6" max="300" value="6" step="1"
+                   oninput="updatePeriodDisplay()"
+                   style="width: 100%; cursor: pointer; height: 6px; border-radius: 3px; background: linear-gradient(to right, #c9a961 0%, #c9a961 calc(var(--value)*100/294), var(--border, #333) calc(var(--value)*100/294), var(--border, #333) 100%); outline: none; --value: 6;">
+            <div class="metals-period-labels">
+                <span>6 mo</span><span>5 years</span><span>10 years</span><span>15 years</span><span>20 years</span><span>25 years</span>
+            </div>
+        </label>
+
+        <button type="button" id="calculate-btn" style="width: 100%; padding: 1rem 0.75rem; min-height: 48px; background: linear-gradient(135deg, #c9a961, #d4b870); color: #1a1a1a; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3); letter-spacing: 0.5px;">
+            📊 See Price Forecast & Returns
+        </button>
+    </div>
+
+    <!-- Results Panel -->
+    <div id="results-panel" class="metals-panel" style="background: var(--card-bg, #1a1a1a); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border, #333); min-height: 500px;">
+        <h2 style="font-size: 1.1rem; margin-top: 0; margin-bottom: 1.5rem;">Price Forecast & Returns</h2>
+        <div id="results-content" style="font-size: 0.9rem; line-height: 1.8;"><!-- Populated by JavaScript --></div>
+        <p class="muted" style="margin-top: 0.5rem; font-size: 0.8rem;">Risk Level: <span id="risk-level">Medium</span></p>
+    </div>
+</div>
+
+<div style="margin-top: 2rem; padding: 1rem; background: rgba(255, 107, 107, 0.1); border-left: 3px solid #ff6b6b; border-radius: 4px;">
+    <strong>⚠️ DISCLAIMER:</strong> Commodity price predictions are based on historical trends and volatility analysis. Actual prices are influenced by supply/demand, geopolitical events, and macroeconomic factors.
+</div>
+
+<script>
+const allMetals = {{ all_metals|tojson }};
+
+function updateMetals() {
+    const category = document.getElementById('category').value;
+    const metalSelect = document.getElementById('metal');
+    metalSelect.innerHTML = '';
+    for (const [name, data] of Object.entries(allMetals)) {
+        if (data.category === category) {
+            const option = document.createElement('option');
+            option.value = name;
+            option.textContent = name + ' (' + data.unit + ')';
+            metalSelect.appendChild(option);
+        }
+    }
+}
+
+function updatePeriodDisplay() {
+    const months = parseInt(document.getElementById('holding_period').value);
+    const display = document.getElementById('period-display');
+    if (months < 12) {
+        display.textContent = months + ' months';
+    } else {
+        const years = Math.floor(months / 12);
+        const remainingMonths = months % 12;
+        display.textContent = remainingMonths === 0 ? years + ' year' + (years > 1 ? 's' : '') : years + 'y ' + remainingMonths + 'm';
+    }
+}
+
+function calculatePrice() {
+    const metal_name = document.getElementById('metal').value;
+    const investment_amount_usd = parseFloat(document.getElementById('investment_amount').value);
+    const holding_period_months = parseInt(document.getElementById('holding_period').value);
+
+    fetch("/metals/api/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            metal_name: metal_name,
+            investment_amount_usd: investment_amount_usd,
+            holding_period_months: holding_period_months
+        })
+    })
+    .then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+    })
+    .then(function(result) {
+        if (result.error) {
+            alert('Error: ' + result.error);
+            return;
+        }
+        displayResults(result);
+    })
+    .catch(function(error) {
+        alert('Error: ' + error.message);
+    });
+    return false;
+}
+
+function displayResults(result) {
+    const panel = document.getElementById('results-panel');
+    const content = document.getElementById('results-content');
+    const riskLevel = document.getElementById('risk-level');
+
+    const formatCurrency = (n) => `$${n.toLocaleString('en-US', {maximumFractionDigits: 2})}`;
+    const formatPercent = (n) => `${n.toFixed(2)}%`;
+
+    content.innerHTML = `
+        <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 2px solid #c9a961;">
+            <h3 style="margin: 0; color: #c9a961;">${result.metal} | ${result.unit}</h3>
+            <p style="margin: 0.3rem 0 0 0; color: #999; font-size: 0.85rem;">${result.description}</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border, #333);">
+            <div><div class="muted" style="font-size: 0.75rem;">Investment</div><div style="font-size: 1.2rem; font-weight: bold; color: #c9a961;">${formatCurrency(result.investment_amount_usd)}</div></div>
+            <div><div class="muted" style="font-size: 0.75rem;">Units</div><div style="font-size: 1.2rem; font-weight: bold;">${result.units_purchased}</div></div>
+        </div>
+
+        <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border, #333);">
+            <div style="font-weight: bold; margin-bottom: 0.6rem; font-size: 0.85rem;">💰 Price Forecast</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
+                <div><div class="muted" style="font-size: 0.75rem;">Current</div><div style="font-weight: bold;">${formatCurrency(result.current_price_usd)}</div></div>
+                <div><div class="muted" style="font-size: 0.75rem;">Forecasted</div><div style="font-weight: bold; color: #4CAF50;">${formatCurrency(result.forecasted_price_usd)}</div><div style="color: #4CAF50; font-size: 0.75rem;">+${formatPercent(result.price_change_percent)}</div></div>
+            </div>
+        </div>
+
+        <div style="background: rgba(76, 175, 80, 0.1); padding: 1rem; border-radius: 4px; border-left: 4px solid #4CAF50; margin-bottom: 1rem;">
+            <div class="muted" style="font-size: 0.75rem;">TOTAL RETURN</div>
+            <div style="font-size: 1.3rem; font-weight: bold; color: #4CAF50;">${formatCurrency(result.total_gain_usd)}</div>
+            <div style="font-size: 1rem; color: #4CAF50;">ROI: ${formatPercent(result.roi_percent)}</div>
+        </div>
+
+    `;
+
+    riskLevel.textContent = result.risk_level;
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById('calculate-btn');
+    if (btn) btn.addEventListener('click', calculatePrice);
+    calculatePrice();
+});
+</script>
+
+{% endblock %}

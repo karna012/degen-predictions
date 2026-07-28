@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}Predicted vs Actual Results | Degen Predictions{% endblock %}
+{% block description %}How accurate are Degen Predictions? See predicted vs actual results across every league -- football, MLB, and NPB -- for every target we predict.{% endblock %}
+{% block content %}
+<h1>Predicted vs Actual</h1>
+<p class="muted">A track record for every model on this site, checked against what actually happened.</p>
+<p class="muted">Last updated: {{ results_generated_at }} &middot; refreshes automatically every 3 hours
+    &middot; <a href="/results?refresh=1">force refresh now</a></p>
+
+<h2 style="margin-top:2rem;">Football</h2>
+<p class="muted">Out-of-sample backtest accuracy (matches the model never trained on) -- click a league for the full match-by-match breakdown.</p>
+{% if football_summaries %}
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    {% for key, f in football_summaries.items() %}
+    <div class="card">
+        <h2><a href="/{{ key }}/backtest">{{ f.label }}</a></h2>
+        <p class="muted">{{ f.summary.n }} matches</p>
+        <p>Match result: <strong>{{ (f.summary.result_acc * 100) | round(1) }}%</strong></p>
+        <p>BTTS: <strong>{{ (f.summary.btts_acc * 100) | round(1) }}%</strong></p>
+        <p>Goals O/U: <strong>{{ (f.summary.goals_acc * 100) | round(1) }}%</strong></p>
+        <p>Corners winner: <strong>{{ (f.summary.corners_acc * 100) | round(1) }}%</strong></p>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="muted">No backtest data available yet.</p>
+{% endif %}
+
+<h2 style="margin-top:2.5rem;">MLB</h2>
+<p class="muted">The current model applied to the last {{ mlb_summary.n or 0 }} finished MLB games, using
+    today's Elo/stats for both teams -- not a point-in-time snapshot from before each game was played, so
+    treat this as "how the model calls it today," not a strict historical backtest. Every night's finished
+    games are automatically re-fed into the Elo ratings (see the daily refresh job), so tomorrow's
+    predictions already reflect tonight's results. Hit/HR/strikeout actuals aren't available yet for the
+    current season's live-fetched games, so only winner and runs lines are checked here.</p>
+{% if mlb_rows %}
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    <div class="card">
+        <h2>Summary</h2>
+        <p class="muted">{{ mlb_summary.n }} games</p>
+        <p>Winner accuracy: <strong>{{ (mlb_summary.winner_acc * 100) | round(1) }}%</strong></p>
+        <p>Total runs Over pick accuracy: <strong>{{ (mlb_summary.runs_acc * 100) | round(1) }}%</strong></p>
+        <p>Team runs Over pick accuracy: <strong>{{ (mlb_summary.team_runs_acc * 100) | round(1) }}%</strong></p>
+    </div>
+</div>
+<div class="table-wrap">
+<table>
+    <thead><tr>
+        <th>Date</th><th>Matchup</th><th>Predicted Winner</th><th>Actual Winner</th><th>✓</th>
+        <th>Total Runs Over</th><th>Actual Total</th><th>✓</th>
+        <th>Away Runs Over</th><th>Actual</th><th>✓</th>
+        <th>Home Runs Over</th><th>Actual</th><th>✓</th>
+    </tr></thead>
+    <tbody>
+    {% for r in mlb_rows %}
+    <tr>
+        <td>{{ r.date }}</td>
+        <td>{{ r.away }} @ {{ r.home }}</td>
+        <td>{{ r.predicted_winner }}</td>
+        <td>{{ r.actual_winner }}</td>
+        <td>{{ "✅" if r.winner_correct else "❌" }}</td>
+        <td>{{ r.total_runs_line }}</td>
+        <td>{{ r.actual_total_runs | int }}</td>
+        <td>{{ "✅" if r.runs_correct else "❌" }}</td>
+        <td>{{ r.away_runs_line }}</td>
+        <td>{{ r.actual_away_runs | int }}</td>
+        <td>{{ "✅" if r.away_runs_correct else "❌" }}</td>
+        <td>{{ r.home_runs_line }}</td>
+        <td>{{ r.actual_home_runs | int }}</td>
+        <td>{{ "✅" if r.home_runs_correct else "❌" }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted">No finished games to compare yet.</p>
+{% endif %}
+
+<h2 style="margin-top:2.5rem;">NPB</h2>
+<p class="muted">Same approach as MLB above, using today's Elo/stats retroactively against the last
+    {{ npb_summary.n or 0 }} finished NPB games.</p>
+{% if npb_rows %}
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    <div class="card">
+        <h2>Summary</h2>
+        <p class="muted">{{ npb_summary.n }} games</p>
+        <p>Winner accuracy: <strong>{{ (npb_summary.winner_acc * 100) | round(1) }}%</strong></p>
+        <p>Total runs Over pick accuracy: <strong>{{ (npb_summary.runs_acc * 100) | round(1) }}%</strong></p>
+        <p>Team runs Over pick accuracy: <strong>{{ (npb_summary.team_runs_acc * 100) | round(1) }}%</strong></p>
+    </div>
+</div>
+<div class="table-wrap">
+<table>
+    <thead><tr>
+        <th>Date</th><th>Matchup</th><th>Predicted Winner</th><th>Actual Winner</th><th>✓</th>
+        <th>Total Runs Over</th><th>Actual Total</th><th>✓</th>
+        <th>Away Runs Over</th><th>Actual</th><th>✓</th>
+        <th>Home Runs Over</th><th>Actual</th><th>✓</th>
+    </tr></thead>
+    <tbody>
+    {% for r in npb_rows %}
+    <tr>
+        <td>{{ r.date }}</td>
+        <td>{{ r.away }} @ {{ r.home }}</td>
+        <td>{{ r.predicted_winner }}</td>
+        <td>{{ r.actual_winner }}</td>
+        <td>{{ "✅" if r.winner_correct else "❌" }}</td>
+        <td>{{ r.total_runs_line }}</td>
+        <td>{{ r.actual_total_runs | int }}</td>
+        <td>{{ "✅" if r.runs_correct else "❌" }}</td>
+        <td>{{ r.away_runs_line }}</td>
+        <td>{{ r.actual_away_runs | int }}</td>
+        <td>{{ "✅" if r.away_runs_correct else "❌" }}</td>
+        <td>{{ r.home_runs_line }}</td>
+        <td>{{ r.actual_home_runs | int }}</td>
+        <td>{{ "✅" if r.home_runs_correct else "❌" }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted">No finished games to compare yet.</p>
+{% endif %}
+{% endblock %}

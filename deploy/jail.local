@@ -1,0 +1,41 @@
+# fail2ban jail config for degenpredictions.com -- copied to
+# /etc/fail2ban/jail.local on the server (see deploy/DEPLOY.md).
+#
+# sshd: ships enabled by default in fail2ban's own jail.conf, listed here
+# explicitly just to confirm/pin the settings rather than rely on defaults.
+[sshd]
+enabled = true
+maxretry = 5
+bantime = 1h
+findtime = 10m
+
+# Brute-forcing the /admin or /results Basic Auth login.
+[nginx-http-auth]
+enabled = true
+port = http,https
+logpath = /var/log/nginx/error.log
+maxretry = 5
+bantime = 1h
+findtime = 10m
+
+# Automated vulnerability/path scanners probing for wp-admin, .env,
+# phpMyAdmin, etc. -- this site is Flask, none of that exists here, but
+# bots try anyway and it's free to ban them for it.
+[nginx-botsearch]
+enabled = true
+port = http,https
+logpath = /var/log/nginx/access.log
+maxretry = 10
+bantime = 1h
+findtime = 10m
+
+# Repeated requests hitting nginx's rate limit (see deploy/nginx.conf's
+# limit_req_zone) -- a IP that keeps tripping the rate limiter gets banned
+# outright instead of just slowed down.
+[nginx-limit-req]
+enabled = true
+port = http,https
+logpath = /var/log/nginx/error.log
+maxretry = 10
+bantime = 1h
+findtime = 10m

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Football Predictions -- Premier League, La Liga, Serie A, Bundesliga, Ligue 1 | Degen Predictions{% endblock %}
+{% block description %}Free machine-learning football predictions for 5 major leagues -- Premier League, La Liga, Serie A, Bundesliga, and Ligue 1. Match result, BTTS, goals, and corner predictions updated daily.{% endblock %}
+{% block content %}
+<a href="/sports">&larr; Back to Sports</a>
+<div class="leagues-hero">
+    <h1>Pick Your Soccer League</h1>
+    <p class="muted">Choose a competition to see fixtures and predictions.</p>
+</div>
+
+<div class="league-grid">
+    {% for l in leagues_info %}
+    {% if l.available %}
+    <a class="league-card" href="/{{ l.key }}/" style="--league-color: {{ l.color }};">
+    {% else %}
+    <div class="league-card league-card-disabled" style="--league-color: {{ l.color }};">
+    {% endif %}
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>{{ l.label|upper }}</h2>
+            {% if l.available %}
+            <p class="league-desc">{{ l.country }} &middot; {{ l.fixture_count }} upcoming fixtures.</p>
+            <span class="league-cta">Get Predictions</span>
+            {% else %}
+            <p class="league-desc">{{ l.country }} &middot; Coming soon.</p>
+            {% endif %}
+        </div>
+        <div class="league-badge">
+            <span class="league-monogram">{{ l.monogram }}</span>
+        </div>
+    {% if l.available %}
+    </a>
+    {% else %}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

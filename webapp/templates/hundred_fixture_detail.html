@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}{{ match.team1 }} vs {{ match.team2 }} Prediction | The Hundred{% endblock %}
+{% block description %}{{ match.team1 }} vs {{ match.team2 }} (The Hundred) prediction: win probability, predicted innings totals, total match runs, pitch report and weather, {{ match.date }}.{% endblock %}
+{% block keywords %}{{ match.team1 }} vs {{ match.team2 }} prediction, The Hundred predictions, cricket predictions{% endblock %}
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": {{ (match.team1 ~ " vs " ~ match.team2) | tojson }},
+    "startDate": {{ match.date | tojson }},
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {"@type": "Place", "name": {{ match.venue | tojson }}},
+    "sport": "Cricket",
+    "competitor": [
+        {"@type": "SportsTeam", "name": {{ match.team1 | tojson }}},
+        {"@type": "SportsTeam", "name": {{ match.team2 | tojson }}}
+    ],
+    "description": "The Hundred match prediction: win probability, predicted innings totals, and total match runs."
+}
+</script>
+<a href="/hundred/fixtures">&larr; Back to The Hundred Fixtures</a>
+
+<div class="leagues-hero">
+    <h1>{{ match.team1 }} vs {{ match.team2 }}</h1>
+    <p class="muted">{{ match.date }}{% if match.time %} &middot; {{ match.time }} BST{% endif %} &middot; {{ match.venue }}</p>
+</div>
+
+<div class="card-grid">
+    <div class="card">
+        <h2>Winner</h2>
+        {% if match.prediction %}
+        <div class="bar"><div class="bar-fill home" style="width: {{ match.prediction.team1_win_prob * 100 }}%"></div></div>
+        <p>{{ match.team1 }} win probability: {{ (match.prediction.team1_win_prob * 100) | round(1) }}%</p>
+        <div class="bar"><div class="bar-fill away" style="width: {{ match.prediction.team2_win_prob * 100 }}%"></div></div>
+        <p>{{ match.team2 }} win probability: {{ (match.prediction.team2_win_prob * 100) | round(1) }}%</p>
+        <p class="predicted">Predicted winner: <strong>{{ match.predicted_winner }}</strong></p>
+        {% else %}
+        <p class="muted">No prediction available -- one or both teams don't have enough rating history under
+            their current name yet.</p>
+        {% endif %}
+    </div>
+
+    {% if match.prediction and match.prediction.predicted_total_runs %}
+    <div class="card">
+        <h2>Predicted Innings Totals</h2>
+        <p>{{ match.team1 }}: <strong>{{ match.prediction.predicted_team1_runs }}</strong></p>
+        <p>{{ match.team2 }}: <strong>{{ match.prediction.predicted_team2_runs }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Predicted Total Match Runs</h2>
+        <p class="big">{{ match.prediction.predicted_total_runs }}</p>
+    </div>
+    {% endif %}
+
+    {% if match.prediction %}
+    <div class="card">
+        <h2>Team Strength (Elo)</h2>
+        <p>{{ match.team1 }}: <strong>{{ match.prediction.elo_team1 }}</strong> &middot;
+            {{ match.team2 }}: <strong>{{ match.prediction.elo_team2 }}</strong></p>
+    </div>
+    {% endif %}
+
+    {% if match.pitch_report %}
+    <div class="card">
+        <h2>Pitch Report</h2>
+        <p>{{ match.pitch_report.venue }} &mdash; historically
+            <strong>{{ match.pitch_report.pitch_type }}</strong>
+            (avg 1st-innings score {{ match.pitch_report.avg_first_innings }}, avg 2nd-innings score
+            {{ match.pitch_report.avg_second_innings }}, across {{ match.pitch_report.matches_played }}
+            match{{ 'es' if match.pitch_report.matches_played != 1 else '' }} on record).</p>
+        {% if match.pitch_report.thin_history %}
+        <p class="muted">Only {{ match.pitch_report.matches_played }} match{{ 'es' if match.pitch_report.matches_played != 1 else '' }}
+            of history at this ground -- treat this pitch read as early/low-confidence, not established.</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if match.weather %}
+    <div class="card">
+        <h2>Weather Forecast</h2>
+        <p>{{ match.weather.date }}: {{ match.weather.temp_min_c }}&deg;C &ndash; {{ match.weather.temp_max_c }}&deg;C,
+            {{ match.weather.precipitation_probability_pct }}% chance of rain.</p>
+        <p class="muted">Forecast only shown for fixtures within Open-Meteo's ~16-day forecast window.</p>
+    </div>
+    {% endif %}
+</div>
+
+<div class="tips-card">
+    <h2>About This Prediction</h2>
+    <p>This is a real upcoming/live fixture (sourced from Wikipedia's actively-updated Hundred schedule --
+        Cricsheet, our main historical data source, has no live fixture feed). The prediction here uses each
+        team's current Elo rating{% if match.prediction and match.prediction.venue_known %} and this ground's
+        historical scoring average{% endif %} -- a simpler, live-computable estimate than the full trained
+        model on the <a href="/hundred/results">results page</a>, which needs rolling player-level history
+        (batting strike rate, bowling economy, batter-vs-bowler matchups) only available for matches already
+        completed and in our historical dataset.</p>
+    <p class="disclaimer">The Hundred is a young competition with limited match history, and three franchises
+        were renamed for the 2026 season (their Elo rating carries over from their previous name) -- treat this
+        as a directional estimate, not a guaranteed outcome. For research/educational use only; this is not
+        betting advice.</p>
+</div>
+{% endblock %}

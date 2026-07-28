@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}{{ league_label }} Prediction Accuracy -- 5-Season Backtest | Degen Predictions{% endblock %}
+{% block description %}See how accurate our {{ league_label }} predictions really are -- backtested against 5 seasons of real, completed matches with full result/BTTS/goals/corners accuracy breakdowns.{% endblock %}
+{% block content %}
+<h1>Past 5 Seasons — {{ league_label }}: Predicted vs Actual</h1>
+<p class="muted">The trained model applied retroactively to real, completed {{ league_label }} matches
+    from 2021-22 through 2025-26, with predictions compared against what actually happened.</p>
+
+{% if overall_summary %}
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    {% for sample_type, s in overall_summary.items() %}
+    <div class="card">
+        <h2>{{ sample_type }}</h2>
+        <p class="muted">{{ s.n }} matches</p>
+        <p>Match result accuracy: <strong>{{ (s.result_acc * 100) | round(1) }}%</strong></p>
+        <p>BTTS accuracy: <strong>{{ (s.btts_acc * 100) | round(1) }}%</strong></p>
+        <p>Goals O/U accuracy: <strong>{{ (s.goals_acc * 100) | round(1) }}%</strong></p>
+        <p>Corners-winner accuracy: <strong>{{ (s.corners_acc * 100) | round(1) }}%</strong></p>
+        {% if s.favorite_acc is not none %}
+        <p>Favorite-avoids-defeat accuracy: <strong>{{ (s.favorite_acc * 100) | round(1) }}%</strong></p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+<div class="disclaimer" style="max-width:70ch; margin-bottom:1.5rem;">
+    <strong>Read the two cards differently.</strong> "In-Sample" matches are ones the model
+    actually trained on — its accuracy there is inflated by memorization, not a real skill
+    signal. "Out-of-Sample" matches are the genuine holdout the model never saw during
+    training — that number is the honest estimate of how this model performs on truly new
+    matches, and it's the one to trust.
+</div>
+{% endif %}
+
+<form class="filters" method="get">
+    <label>Season:
+        <select name="season" onchange="this.form.submit()">
+            <option value="">All</option>
+            {% for s in seasons %}
+            <option value="{{ s }}" {% if selected_season == s|string %}selected{% endif %}>{{ season_labels.get(s|string, s) }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <label>Sample:
+        <select name="sample" onchange="this.form.submit()">
+            <option value="">All</option>
+            <option value="out" {% if sample_filter == 'out' %}selected{% endif %}>Out-of-Sample only</option>
+            <option value="in" {% if sample_filter == 'in' %}selected{% endif %}>In-Sample only</option>
+        </select>
+    </label>
+    <label>Team:
+        <input type="text" name="team" value="{{ team_filter }}" placeholder="e.g. Arsenal">
+    </label>
+    <label>
+        <input type="checkbox" name="only_wrong" value="1" {% if only_wrong %}checked{% endif %} onchange="this.form.submit()">
+        Wrong predictions only
+    </label>
+    <button type="submit">Filter</button>
+    <a class="clear-link" href="/{{ league_key }}/backtest">Clear</a>
+    <span class="result-count">{{ total }} match(es)</span>
+</form>
+
+<div class="table-wrap">
+<table>
+    <thead>
+        <tr>
+            <th>Date</th><th>Season</th><th>Match</th>
+            <th>Actual Result</th><th>Predicted</th><th>✓</th>
+            <th>Actual BTTS</th><th>Predicted</th><th>✓</th>
+            <th>Actual Goals</th><th>Predicted</th><th>✓</th>
+            <th>Sample</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in matches %}
+        <tr class="{{ 'low-confidence' if 'In-Sample' in m.Sample_Type }}">
+            <td>{{ m.MatchDate }}</td>
+            <td>{{ season_labels.get(m.Season|string, m.Season) }}</td>
+            <td>{{ m.HomeTeam }} vs {{ m.AwayTeam }}</td>
+            <td>{{ m.Actual_Result }}</td>
+            <td>{{ m.Predicted_Result }}</td>
+            <td>{{ "✅" if m.Result_Correct else "❌" }}</td>
+            <td>{{ m.Actual_BTTS }}</td>
+            <td>{{ m.Predicted_BTTS }}</td>
+            <td>{{ "✅" if m.BTTS_Correct else "❌" }}</td>
+            <td>{{ m.Actual_Goals }}</td>
+            <td>{{ m.Predicted_Goals }}</td>
+            <td>{{ "✅" if m.Goals_Correct else "❌" }}</td>
+            <td>{{ "Out" if "Out-of-Sample" in m.Sample_Type else "In" }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="13">No backtest data found. Run <code>scripts/backtest_pl.py</code> first.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

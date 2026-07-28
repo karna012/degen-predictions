@@ -1,0 +1,3376 @@
+{
+  "meta": {
+    "data_version": "1.2.0",
+    "created": "2024-07-30",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Dallas",
+    "dates": [
+      "2024-07-18"
+    ],
+    "event": {
+      "name": "Major League Cricket",
+      "match_number": 16
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "officials": {
+      "match_referees": [
+        "JJ Crowe"
+      ],
+      "tv_umpires": [
+        "P Wilson"
+      ],
+      "umpires": [
+        "M Erasmus",
+        "R Samuels"
+      ]
+    },
+    "outcome": {
+      "winner": "San Francisco Unicorns",
+      "by": {
+        "runs": 3
+      }
+    },
+    "overs": 20,
+    "player_of_match": [
+      "CJ Anderson"
+    ],
+    "players": {
+      "San Francisco Unicorns": [
+        "FH Allen",
+        "MW Short",
+        "SP Krishnamurthi",
+        "JP Inglis",
+        "SE Rutherford",
+        "Hassan Khan",
+        "CJ Anderson",
+        "PJ Cummins",
+        "Haris Rauf",
+        "LE Plunkett",
+        "BL Couch"
+      ],
+      "MI New York": [
+        "D Brevis",
+        "R Clinton",
+        "N Pooran",
+        "KA Pollard",
+        "MD Patel",
+        "R Shepherd",
+        "Rashid Khan",
+        "H Richards",
+        "Sunny Patel",
+        "NP Kenjige",
+        "TA Boult"
+      ]
+    },
+    "registry": {
+      "people": {
+        "BL Couch": "be69e09d",
+        "CJ Anderson": "8abdf100",
+        "D Brevis": "844e79d1",
+        "FH Allen": "bf74b130",
+        "H Richards": "a0095f0e",
+        "Haris Rauf": "24bb1c2f",
+        "Hassan Khan": "486065b3",
+        "JJ Crowe": "2e760301",
+        "JP Inglis": "989889ff",
+        "KA Pollard": "a757b0d8",
+        "LE Plunkett": "9a963804",
+        "M Erasmus": "15d3c895",
+        "MD Patel": "25d7f1ac",
+        "MW Short": "a90e53ec",
+        "N Pooran": "3241e3fd",
+        "NP Kenjige": "f7d267f7",
+        "P Wilson": "68304a36",
+        "PJ Cummins": "ded9240e",
+        "R Clinton": "367e254b",
+        "R Samuels": "8a8bc9f6",
+        "R Shepherd": "c5aef772",
+        "Rashid Khan": "5f547c8b",
+        "SE Rutherford": "d014d5ac",
+        "SP Krishnamurthi": "3b8e7647",
+        "Shayan Jahangir": "571e1d2a",
+        "Sunny Patel": "db481029",
+        "TA Boult": "a818c1be"
+      }
+    },
+    "season": "2024",
+    "team_type": "club",
+    "teams": [
+      "San Francisco Unicorns",
+      "MI New York"
+    ],
+    "toss": {
+      "decision": "bat",
+      "winner": "San Francisco Unicorns"
+    },
+    "venue": "Grand Prairie Stadium, Dallas"
+  },
+  "innings": [
+    {
+      "team": "San Francisco Unicorns",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "FH Allen",
+              "bowler": "NP Kenjige",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "FH Allen",
+              "bowler": "NP Kenjige",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "FH Allen",
+              "bowler": "NP Kenjige",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "FH Allen",
+                  "kind": "caught and bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "SP Krishnamurthi",
+              "bowler": "NP Kenjige",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "MW Short",
+              "bowler": "NP Kenjige",
+              "non_striker": "SP Krishnamurthi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "MW Short",
+              "bowler": "NP Kenjige",
+              "non_striker": "SP Krishnamurthi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "MW Short",
+              "bowler": "TA Boult",
+              "non_striker": "SP Krishnamurthi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "MW Short",
+              "bowler": "TA Boult",
+              "non_striker": "SP Krishnamurthi",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "MW Short",
+              "bowler": "TA Boult",
+              "non_striker": "SP Krishnamurthi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "SP Krishnamurthi",
+              "bowler": "TA Boult",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "SP Krishnamurthi",
+              "bowler": "TA Boult",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "SP Krishnamurthi",
+                  "fielders": [
+                    {
+                      "name": "N Pooran"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "JP Inglis",
+              "bowler": "TA Boult",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "MW Short",
+              "bowler": "NP Kenjige",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "MW Short",
+              "bowler": "NP Kenjige",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "MW Short",
+                  "kind": "bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "SE Rutherford",
+              "bowler": "NP Kenjige",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "JP Inglis",
+              "bowler": "NP Kenjige",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "JP Inglis",
+              "bowler": "NP Kenjige",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "JP Inglis",
+              "bowler": "NP Kenjige",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "SE Rutherford",
+              "bowler": "TA Boult",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "SE Rutherford",
+              "bowler": "TA Boult",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "SE Rutherford",
+              "bowler": "TA Boult",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "SE Rutherford",
+              "bowler": "TA Boult",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "SE Rutherford",
+              "bowler": "TA Boult",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "SE Rutherford",
+              "bowler": "TA Boult",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "SE Rutherford",
+              "bowler": "TA Boult",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "SE Rutherford",
+              "bowler": "TA Boult",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "JP Inglis",
+              "bowler": "NP Kenjige",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "SE Rutherford",
+              "bowler": "NP Kenjige",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "SE Rutherford",
+              "bowler": "NP Kenjige",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "SE Rutherford",
+              "bowler": "NP Kenjige",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "SE Rutherford",
+              "bowler": "NP Kenjige",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "SE Rutherford",
+              "bowler": "NP Kenjige",
+              "non_striker": "JP Inglis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "JP Inglis",
+              "bowler": "R Shepherd",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "JP Inglis",
+              "bowler": "R Shepherd",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "JP Inglis",
+                  "fielders": [
+                    {
+                      "name": "D Brevis"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "Hassan Khan",
+              "bowler": "R Shepherd",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "SE Rutherford",
+              "bowler": "R Shepherd",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "SE Rutherford",
+              "bowler": "R Shepherd",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "Hassan Khan",
+              "bowler": "R Shepherd",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "Hassan Khan",
+              "bowler": "NP Kenjige",
+              "non_striker": "SE Rutherford",
+              "review": {
+                "by": "MI New York",
+                "umpire": "R Samuels",
+                "batter": "Hassan Khan",
+                "decision": "struck down"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "Hassan Khan",
+              "bowler": "NP Kenjige",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "Hassan Khan",
+              "bowler": "NP Kenjige",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "Hassan Khan",
+              "bowler": "NP Kenjige",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "Hassan Khan",
+              "bowler": "NP Kenjige",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "SE Rutherford",
+              "bowler": "NP Kenjige",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "SE Rutherford",
+                  "fielders": [
+                    {
+                      "name": "MD Patel"
+                    },
+                    {
+                      "name": "NP Kenjige"
+                    }
+                  ],
+                  "kind": "run out"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "CJ Anderson",
+              "bowler": "KA Pollard",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "CJ Anderson",
+              "bowler": "KA Pollard",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "Hassan Khan",
+              "bowler": "KA Pollard",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "CJ Anderson",
+              "bowler": "KA Pollard",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "Hassan Khan",
+              "bowler": "KA Pollard",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "CJ Anderson",
+              "bowler": "KA Pollard",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "Hassan Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "Hassan Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "Hassan Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "CJ Anderson",
+              "bowler": "KA Pollard",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.1",
+              "batter": "CJ Anderson",
+              "bowler": "KA Pollard",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "Hassan Khan",
+              "bowler": "KA Pollard",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "CJ Anderson",
+              "bowler": "KA Pollard",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "CJ Anderson",
+              "bowler": "KA Pollard",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "CJ Anderson",
+              "bowler": "KA Pollard",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "Hassan Khan",
+              "bowler": "KA Pollard",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "Hassan Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "Hassan Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "Hassan Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "Hassan Khan",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "Hassan Khan",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "Hassan Khan",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "CJ Anderson",
+              "bowler": "R Shepherd",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "CJ Anderson",
+              "bowler": "R Shepherd",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "CJ Anderson",
+              "bowler": "R Shepherd",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "CJ Anderson",
+              "bowler": "R Shepherd",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "CJ Anderson",
+              "bowler": "Sunny Patel",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "CJ Anderson",
+              "bowler": "Sunny Patel",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "Hassan Khan",
+              "bowler": "Sunny Patel",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "Hassan Khan",
+              "bowler": "Sunny Patel",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "Hassan Khan",
+              "bowler": "Sunny Patel",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "Hassan Khan",
+              "bowler": "Sunny Patel",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "CJ Anderson",
+              "bowler": "R Shepherd",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.1",
+              "batter": "CJ Anderson",
+              "bowler": "R Shepherd",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "CJ Anderson",
+              "bowler": "R Shepherd",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "Hassan Khan",
+              "bowler": "R Shepherd",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "Hassan Khan",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "CJ Anderson",
+              "bowler": "R Shepherd",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "Hassan Khan",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "Hassan Khan",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "Hassan Khan",
+              "bowler": "Sunny Patel",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "Hassan Khan",
+              "bowler": "Sunny Patel",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "Hassan Khan",
+              "bowler": "Sunny Patel",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "Hassan Khan",
+              "bowler": "Sunny Patel",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "CJ Anderson",
+              "bowler": "Sunny Patel",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "CJ Anderson",
+              "bowler": "Sunny Patel",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "CJ Anderson",
+              "bowler": "Sunny Patel",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "Hassan Khan",
+              "bowler": "TA Boult",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "CJ Anderson",
+              "bowler": "TA Boult",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "CJ Anderson",
+              "bowler": "TA Boult",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "CJ Anderson",
+              "bowler": "TA Boult",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "CJ Anderson",
+              "bowler": "TA Boult",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "CJ Anderson",
+              "bowler": "TA Boult",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "CJ Anderson",
+              "bowler": "TA Boult",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "Hassan Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "Hassan Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "Hassan Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "Hassan Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "Hassan Khan",
+                  "kind": "bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "PJ Cummins",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "PJ Cummins",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "PJ Cummins",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "PJ Cummins",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "PJ Cummins",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "PJ Cummins",
+              "bowler": "R Shepherd",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "PJ Cummins",
+              "bowler": "R Shepherd",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "CJ Anderson",
+              "bowler": "R Shepherd",
+              "non_striker": "PJ Cummins",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "PJ Cummins",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "PJ Cummins",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "PJ Cummins",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "18.4",
+              "batter": "CJ Anderson",
+              "bowler": "Rashid Khan",
+              "non_striker": "PJ Cummins",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "PJ Cummins",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "18.6",
+              "batter": "PJ Cummins",
+              "bowler": "Rashid Khan",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "actual_delivery": "19.1",
+              "batter": "CJ Anderson",
+              "bowler": "TA Boult",
+              "non_striker": "PJ Cummins",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.2",
+              "batter": "PJ Cummins",
+              "bowler": "TA Boult",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.3",
+              "batter": "CJ Anderson",
+              "bowler": "TA Boult",
+              "non_striker": "PJ Cummins",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.4",
+              "batter": "PJ Cummins",
+              "bowler": "TA Boult",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "PJ Cummins",
+                  "fielders": [
+                    {
+                      "name": "Shayan Jahangir",
+                      "substitute": true
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "19.5",
+              "batter": "Haris Rauf",
+              "bowler": "TA Boult",
+              "non_striker": "CJ Anderson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.6",
+              "batter": "CJ Anderson",
+              "bowler": "TA Boult",
+              "non_striker": "Haris Rauf",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.6,
+          "type": "mandatory"
+        }
+      ]
+    },
+    {
+      "team": "MI New York",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "R Clinton",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "R Clinton",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "R Clinton",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "R Clinton",
+              "bowler": "BL Couch",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "R Clinton",
+              "bowler": "BL Couch",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "R Clinton",
+              "bowler": "BL Couch",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "D Brevis",
+              "bowler": "MW Short",
+              "non_striker": "R Clinton",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "D Brevis",
+              "bowler": "MW Short",
+              "non_striker": "R Clinton",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "R Clinton",
+              "bowler": "MW Short",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "R Clinton",
+              "bowler": "MW Short",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "R Clinton",
+              "bowler": "MW Short",
+              "non_striker": "D Brevis",
+              "review": {
+                "by": "San Francisco Unicorns",
+                "umpire": "M Erasmus",
+                "batter": "R Clinton",
+                "decision": "upheld",
+                "type": "wicket"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "R Clinton",
+                  "fielders": [
+                    {
+                      "name": "JP Inglis"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "N Pooran",
+              "bowler": "MW Short",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "N Pooran",
+              "bowler": "BL Couch",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "D Brevis",
+              "bowler": "MW Short",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "D Brevis",
+              "bowler": "MW Short",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "D Brevis",
+              "bowler": "MW Short",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "D Brevis",
+              "bowler": "MW Short",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "D Brevis",
+              "bowler": "MW Short",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "N Pooran",
+              "bowler": "MW Short",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "D Brevis",
+              "bowler": "PJ Cummins",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "D Brevis",
+              "bowler": "PJ Cummins",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "D Brevis",
+              "bowler": "PJ Cummins",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "D Brevis",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "D Brevis",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "N Pooran",
+              "bowler": "Haris Rauf",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "N Pooran",
+              "bowler": "Haris Rauf",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "D Brevis",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "N Pooran",
+              "bowler": "Haris Rauf",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "N Pooran",
+              "bowler": "LE Plunkett",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "D Brevis",
+              "bowler": "LE Plunkett",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "N Pooran",
+              "bowler": "LE Plunkett",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "D Brevis",
+              "bowler": "LE Plunkett",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "D Brevis",
+              "bowler": "LE Plunkett",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "N Pooran",
+              "bowler": "LE Plunkett",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "D Brevis",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "N Pooran",
+              "bowler": "Haris Rauf",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "D Brevis",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "D Brevis",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "D Brevis",
+              "bowler": "Haris Rauf",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "D Brevis",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "D Brevis",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "D Brevis",
+              "bowler": "PJ Cummins",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "D Brevis",
+              "bowler": "PJ Cummins",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "D Brevis",
+              "bowler": "PJ Cummins",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "D Brevis",
+              "bowler": "PJ Cummins",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "D Brevis",
+              "bowler": "PJ Cummins",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "N Pooran",
+              "bowler": "BL Couch",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "N Pooran",
+              "bowler": "BL Couch",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "N Pooran",
+              "bowler": "BL Couch",
+              "extras": {
+                "noballs": 1
+              },
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "D Brevis",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "review": {
+                "by": "San Francisco Unicorns",
+                "umpire": "M Erasmus",
+                "batter": "D Brevis",
+                "decision": "upheld",
+                "type": "wicket"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "D Brevis",
+                  "fielders": [
+                    {
+                      "name": "JP Inglis"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "KA Pollard",
+              "bowler": "PJ Cummins",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "KA Pollard",
+              "bowler": "PJ Cummins",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "N Pooran",
+              "bowler": "PJ Cummins",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "N Pooran",
+              "bowler": "Haris Rauf",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "KA Pollard",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "KA Pollard",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "N Pooran",
+              "bowler": "Haris Rauf",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "KA Pollard",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "KA Pollard",
+              "bowler": "Haris Rauf",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "KA Pollard",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "N Pooran",
+              "bowler": "BL Couch",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "N Pooran",
+              "bowler": "BL Couch",
+              "non_striker": "KA Pollard",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "KA Pollard",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "review": {
+                "by": "San Francisco Unicorns",
+                "umpire": "R Samuels",
+                "batter": "KA Pollard",
+                "decision": "upheld"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "KA Pollard",
+                  "kind": "lbw"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "MD Patel",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "MD Patel",
+              "bowler": "BL Couch",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "MD Patel",
+              "bowler": "MW Short",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "N Pooran",
+              "bowler": "MW Short",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "N Pooran",
+              "bowler": "MW Short",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "N Pooran",
+              "bowler": "MW Short",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "N Pooran",
+                  "kind": "bowled"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "R Shepherd",
+              "bowler": "MW Short",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "R Shepherd",
+              "bowler": "MW Short",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "MD Patel",
+              "bowler": "Hassan Khan",
+              "non_striker": "R Shepherd",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "MD Patel",
+              "bowler": "Hassan Khan",
+              "non_striker": "R Shepherd",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "R Shepherd",
+              "bowler": "Hassan Khan",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "R Shepherd",
+              "bowler": "Hassan Khan",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "MD Patel",
+              "bowler": "Hassan Khan",
+              "non_striker": "R Shepherd",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "R Shepherd",
+              "bowler": "Hassan Khan",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "MD Patel",
+              "bowler": "MW Short",
+              "non_striker": "R Shepherd",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "MD Patel",
+              "bowler": "MW Short",
+              "non_striker": "R Shepherd",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "R Shepherd",
+              "bowler": "MW Short",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "R Shepherd",
+              "bowler": "MW Short",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "R Shepherd",
+                  "fielders": [
+                    {
+                      "name": "Hassan Khan"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "Rashid Khan",
+              "bowler": "MW Short",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "Rashid Khan",
+              "bowler": "MW Short",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "Rashid Khan",
+              "bowler": "MW Short",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "Rashid Khan",
+              "bowler": "MW Short",
+              "non_striker": "MD Patel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "MD Patel",
+              "bowler": "Hassan Khan",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "MD Patel",
+                  "fielders": [
+                    {
+                      "name": "FH Allen"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "H Richards",
+              "bowler": "Hassan Khan",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "H Richards",
+              "bowler": "Hassan Khan",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "H Richards",
+              "bowler": "Hassan Khan",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "H Richards",
+              "bowler": "Hassan Khan",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "H Richards",
+              "bowler": "Hassan Khan",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "Rashid Khan",
+              "bowler": "LE Plunkett",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "H Richards",
+              "bowler": "LE Plunkett",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "Rashid Khan",
+              "bowler": "LE Plunkett",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "H Richards",
+              "bowler": "LE Plunkett",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "Rashid Khan",
+              "bowler": "LE Plunkett",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "Rashid Khan",
+              "bowler": "CJ Anderson",
+              "non_striker": "H Richards",
+              "replacements": {
+                "role": [
+                  {
+                    "in": "CJ Anderson",
+                    "out": "LE Plunkett",
+                    "reason": "injury",
+                    "role": "bowler"
+                  }
+                ]
+              },
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "H Richards",
+              "bowler": "PJ Cummins",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "Rashid Khan",
+              "bowler": "PJ Cummins",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "Rashid Khan",
+              "bowler": "PJ Cummins",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.4",
+              "batter": "Rashid Khan",
+              "bowler": "PJ Cummins",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "Rashid Khan",
+              "bowler": "PJ Cummins",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.6",
+              "batter": "H Richards",
+              "bowler": "PJ Cummins",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "actual_delivery": "19.1",
+              "batter": "H Richards",
+              "bowler": "Haris Rauf",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "19.2",
+              "batter": "H Richards",
+              "bowler": "Haris Rauf",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.3",
+              "batter": "Rashid Khan",
+              "bowler": "Haris Rauf",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "19.4",
+              "batter": "Rashid Khan",
+              "bowler": "Haris Rauf",
+              "non_striker": "H Richards",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.5",
+              "batter": "H Richards",
+              "bowler": "Haris Rauf",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "19.6",
+              "batter": "H Richards",
+              "bowler": "Haris Rauf",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "H Richards",
+                  "kind": "lbw"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.6,
+          "type": "mandatory"
+        }
+      ],
+      "target": {
+        "overs": 20,
+        "runs": 149
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}{{ competition_label }} Fixtures | Degen Predictions{% endblock %}
+{% block description %}{{ competition_label }} upcoming and live fixtures with model predictions -- each team's innings total, total match runs, and winner.{% endblock %}
+{% block keywords %}{{ competition_label }} fixtures, cricket predictions, T20 predictions{% endblock %}
+{% block content %}
+<a href="/sports/cricket">&larr; Back to Cricket</a>
+<h1>{{ competition_label }}</h1>
+<p class="muted">Live and upcoming matches only, sourced from Wikipedia's season schedule (updated as real
+    results come in -- see back of this page for source notes). Completed matches, with our model's pre-match
+    prediction compared against the real result, are on the
+    <a href="/{{ league_slug }}/results">results &amp; accuracy page</a>.</p>
+
+{% if fixtures %}
+<div class="fixture-grid">
+{% for m in fixtures %}
+    <div class="fixture-card {{ 'ok-confidence' if m.prediction else 'low-confidence' }}"
+         style="--card-index: {{ loop.index0 }}; cursor:pointer;"
+         onclick="window.location.href='/hundred/fixture/{{ m.slug }}'">
+        <div class="fixture-card-head">
+            <div>
+                <span class="fixture-teams">{{ m.team1 }} vs {{ m.team2 }}</span>
+                <div class="fixture-date">{{ m.date }}{% if m.time %} &middot; {{ m.time }} BST{% endif %} &middot; {{ m.venue }}</div>
+            </div>
+            <a class="predict-btn" href="/hundred/fixture/{{ m.slug }}" onclick="event.stopPropagation();">Get Prediction</a>
+        </div>
+        {% if m.prediction %}
+        <div class="fixture-outcomes">
+            <div class="outcome-row"><span class="outcome-label">Win Probability</span>
+                <span>{{ m.team1 }}: {{ (m.prediction.team1_win_prob * 100) | round(1) }}% &middot;
+                    {{ m.team2 }}: {{ (m.prediction.team2_win_prob * 100) | round(1) }}%</span></div>
+            {% if m.prediction.predicted_total_runs %}
+            <div class="outcome-row"><span class="outcome-label">Predicted Innings Totals</span>
+                <span>{{ m.team1 }}: {{ m.prediction.predicted_team1_runs }} &middot;
+                    {{ m.team2 }}: {{ m.prediction.predicted_team2_runs }}</span></div>
+            <div class="outcome-row"><span class="outcome-label">Predicted Total Runs</span>
+                <span>{{ m.prediction.predicted_total_runs }}</span></div>
+            {% endif %}
+        </div>
+        <p class="muted" style="font-size:0.85em; margin-top:0.5rem;">Live estimate from team Elo{% if m.prediction.venue_known %} + this
+            ground's historical scoring{% endif %} -- click through for the full breakdown (pitch report,
+            weather) or see the <a href="/{{ league_slug }}/results">results page</a> for our full-model
+            predictions on completed matches.</p>
+        {% else %}
+        <p class="muted">No prediction available for this fixture yet -- one or both teams don't have enough
+            rating history under their current name.</p>
+        {% endif %}
+    </div>
+{% endfor %}
+</div>
+{% else %}
+<div class="fixture-card" style="cursor:default;">
+    <p><strong>No upcoming {{ competition_label }} matches scheduled right now.</strong></p>
+    {% if season_window %}
+    <p class="muted">{{ competition_label }} has historically played around {{ season_window }} each year --
+        check back closer to then for the next season's fixtures.</p>
+    {% else %}
+    <p class="muted">Check back once the next season's schedule is announced.</p>
+    {% endif %}
+    <p class="muted">In the meantime, see how our model performed on real recent matches on the
+        <a href="/{{ league_slug }}/results">results &amp; accuracy page</a>.</p>
+</div>
+{% endif %}
+{% endblock %}
