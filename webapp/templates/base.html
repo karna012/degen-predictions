@@ -89,9 +89,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    <!-- display=optional (not swap): a Lighthouse audit measured real layout
+         shift from the swap-to-custom-font reflow on slow connections
+         (nav + homepage cards). optional skips the swap if the font isn't
+         ready almost immediately, keeping the fallback for that page view
+         instead of shifting layout later -- the font just won't retroactively
+         apply, rather than applying-then-jumping. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Inter:wght@400;500;600;700&display=optional"
           media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Inter:wght@400;500;600;700&display=optional"></noscript>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ static_version('style.css') }}" fetchpriority="high">
     <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='favicon-48.png') }}?v={{ static_version('favicon-48.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon-96.png') }}?v={{ static_version('favicon-96.png') }}">
