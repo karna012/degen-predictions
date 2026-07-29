@@ -41,6 +41,13 @@
 
 <style>
 .dubai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; align-items: start; }
+/* Grid items default to min-width: auto, which lets a wide child (the
+   Quick Area Comparison table) force the whole column -- and with it the
+   page, since html has overflow-x: hidden -- wider than the viewport on
+   phones, clipping content with no way to scroll to it. min-width: 0 lets
+   the panel shrink so .table-wrap's own overflow-x: auto can do its job
+   (scroll the table internally) instead. */
+.dubai-grid > * { min-width: 0; }
 .dubai-period-labels {
     display: flex;
     flex-wrap: wrap;

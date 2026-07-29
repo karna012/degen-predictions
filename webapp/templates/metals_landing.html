@@ -51,6 +51,10 @@
     color: var(--muted, #999);
 }
 .metals-period-labels span { white-space: nowrap; }
+/* Same fix as .dubai-grid: without this, a wide child can force the grid
+   column (and the page, since html has overflow-x: hidden) wider than a
+   phone viewport instead of scrolling internally. */
+.metals-grid > * { min-width: 0; }
 
 @media (max-width: 768px) {
     .metals-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
