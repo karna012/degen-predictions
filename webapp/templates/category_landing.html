@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Degen Predictions -- ML & AI Sports, Crypto, Stocks, Real Estate & Metals Forecasts{% endblock %}
-{% block description %}Free ML & AI-powered predictions for sports, crypto, stocks, Dubai real estate, and metals. Price forecasts and investment calculators trained on historical data with real market cycles.{% endblock %}
+{% block title %}Degen Predictions -- ML & AI Crypto, Stocks, Real Estate, Metals & Sports Forecasts{% endblock %}
+{% block description %}Free ML & AI-powered predictions for crypto, stocks, Dubai real estate, metals, and sports. Price forecasts and investment calculators trained on historical data with real market cycles.{% endblock %}
 {% block content %}
 <script type="application/ld+json">
 {
@@ -11,14 +11,14 @@
         {"@type": "ListItem", "position": 1, "name": "Crypto Predictions", "url": "https://degenpredictions.com/crypto"},
         {"@type": "ListItem", "position": 2, "name": "Dubai Real Estate ROI Calculator", "url": "https://degenpredictions.com/dubai"},
         {"@type": "ListItem", "position": 3, "name": "Metals Price Calculator", "url": "https://degenpredictions.com/metals"},
-        {"@type": "ListItem", "position": 4, "name": "Sports Predictions", "url": "https://degenpredictions.com/sports"},
-        {"@type": "ListItem", "position": 5, "name": "Stock Predictions", "url": "https://degenpredictions.com/stocks"}
+        {"@type": "ListItem", "position": 4, "name": "Stock Predictions", "url": "https://degenpredictions.com/stocks"},
+        {"@type": "ListItem", "position": 5, "name": "Sports Predictions", "url": "https://degenpredictions.com/sports"}
     ]
 }
 </script>
 <div class="leagues-hero">
     <img src="{{ url_for('static', filename='logo.png') }}" alt="Degen Predictions" class="leagues-hero-logo" data-keyout-black>
-    <h1>ML & AI-Powered Predictions Across Crypto, Metals, Real Estate, Sports & Stocks</h1>
+    <h1>ML & AI-Powered Predictions Across Crypto, Metals, Real Estate, Stocks & Sports</h1>
     <p class="muted">Pick a category to see machine learning (ML) forecasts powered by advanced AI models trained on real historical data.</p>
 </div>
 
@@ -50,15 +50,6 @@
         </div>
         <div class="league-badge"><span class="league-monogram">⚙️</span></div>
     </a>
-    <a class="league-card" href="/sports" style="--league-color: #2e7d32;">
-        <div class="league-card-glow"></div>
-        <div class="league-card-content">
-            <h2>SPORTS</h2>
-            <p class="league-desc">ML & AI match predictions for football, baseball, and cricket. Result, goals/runs, and more.</p>
-            <span class="league-cta">Explore</span>
-        </div>
-        <div class="league-badge"><span class="league-monogram">&#9917;</span></div>
-    </a>
     <a class="league-card" href="/stocks" style="--league-color: #1565c0;">
         <div class="league-card-glow"></div>
         <div class="league-card-content">
@@ -67,6 +58,15 @@
             <span class="league-cta">Explore</span>
         </div>
         <div class="league-badge"><span class="league-monogram">$</span></div>
+    </a>
+    <a class="league-card" href="/sports" style="--league-color: #2e7d32;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>SPORTS</h2>
+            <p class="league-desc">ML & AI match predictions for football, baseball, and cricket. Result, goals/runs, and more.</p>
+            <span class="league-cta">Explore</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">&#9917;</span></div>
     </a>
 </div>
 {% endblock %}

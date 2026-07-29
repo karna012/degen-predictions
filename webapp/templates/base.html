@@ -13,8 +13,8 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9692020533590575"
      crossorigin="anonymous"></script>
-    <title>{% block title %}Degen Predictions - ML & AI Sports, Crypto, Stocks, Real Estate & Metals Forecasts{% endblock %}</title>
-    <meta name="description" content="{% block description %}Free ML & AI predictions for sports, crypto, stocks, Dubai real estate, and metals. Ensemble ML models trained on historical data with AI-enhanced validation and market cycles.{% endblock %}">
+    <title>{% block title %}Degen Predictions - ML & AI Crypto, Stocks, Real Estate, Metals & Sports Forecasts{% endblock %}</title>
+    <meta name="description" content="{% block description %}Free ML & AI predictions for crypto, stocks, Dubai real estate, metals, and sports. Ensemble ML models trained on historical data with AI-enhanced validation and market cycles.{% endblock %}">
     <meta name="keywords" content="{% block keywords %}machine learning predictions, ML predictions, AI predictions, football predictions, crypto predictions, stock predictions, Dubai real estate ROI, metals prediction, gold price forecast, silver forecast, property investment calculator, sports forecasting, cryptocurrency rankings, stock market predictions, real estate valuation, commodity forecasting, ensemble models{% endblock %}">
     <link rel="canonical" href="{% block canonical %}https://degenpredictions.com{{ request.path }}{% endblock %}">
 
@@ -35,7 +35,7 @@
         "@type": "WebSite",
         "name": "Degen Predictions",
         "url": "https://degenpredictions.com",
-        "description": "Free ML & AI-powered predictions for sports, cryptocurrency, stocks, Dubai real estate, and metals. Ensemble ML models trained on historical data with AI-enhanced walk-forward validation.",
+        "description": "Free ML & AI-powered predictions for cryptocurrency, stocks, Dubai real estate, metals, and sports. Ensemble ML models trained on historical data with AI-enhanced walk-forward validation.",
         "potentialAction": {
             "@type": "SearchAction",
             "target": "https://degenpredictions.com/search?q={search_term_string}",
@@ -50,15 +50,9 @@
         "name": "Degen Predictions",
         "url": "https://degenpredictions.com",
         "logo": "https://degenpredictions.com/static/logo.png",
-        "description": "ML & AI-powered prediction platform for sports, crypto, stocks, real estate, and metals",
+        "description": "ML & AI-powered prediction platform for crypto, stocks, real estate, metals, and sports",
         "sameAs": ["https://twitter.com/degenpredictions"],
         "service": [
-            {
-                "@type": "Service",
-                "name": "Sports Predictions",
-                "description": "ML & AI-powered football, baseball, and cricket match predictions using ensemble models",
-                "url": "https://degenpredictions.com/sports"
-            },
             {
                 "@type": "Service",
                 "name": "Crypto Predictions",
@@ -82,6 +76,12 @@
                 "name": "Metals Price Predictions",
                 "description": "ML & AI price forecasts for precious metals (gold, silver, platinum, palladium) and industrial metals (copper, aluminum, steel, zinc, nickel, lithium), with live spot pricing and market cycle multipliers.",
                 "url": "https://degenpredictions.com/metals"
+            },
+            {
+                "@type": "Service",
+                "name": "Sports Predictions",
+                "description": "ML & AI-powered football, baseball, and cricket match predictions using ensemble models",
+                "url": "https://degenpredictions.com/sports"
             }
         ]
     }
@@ -107,11 +107,11 @@
         </a>
         <nav>
             <a href="/">Home</a>
-            <a href="/sports">Sports</a>
             <a href="/crypto">Crypto</a>
             <a href="/stocks">Stocks</a>
             <a href="/dubai">Dubai Real Estate</a>
             <a href="/metals">Metals</a>
+            <a href="/sports">Sports</a>
             {% if accounts_enabled %}
                 {% if current_user.is_authenticated %}
                 <a href="/logout">Log Out ({{ current_user.name }})</a>
@@ -144,7 +144,7 @@
     </main>
     <footer class="site-footer">
         <p class="footer-disclaimer">
-            Degen Predictions is an educational/research project covering sports, crypto, stocks, Dubai real estate, and metals.
+            Degen Predictions is an educational/research project covering crypto, stocks, Dubai real estate, metals, and sports.
             Predictions and rankings are generated from historical data using machine learning (ML) and AI models --
             they are estimates, not certainties, and can be wrong. Nothing on this site is betting advice,
             financial/investment advice, or real estate/commodity investment advice. This site does not promote or facilitate
