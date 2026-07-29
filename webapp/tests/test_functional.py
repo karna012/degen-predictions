@@ -122,7 +122,7 @@ def test_about_page_shows_author_details(client):
     body = resp.data.decode()
     assert "About the Author" in body
     assert "Karan R" in body
-    assert "rameshkaran66@gmail.com" in body
+    assert "info@degenpredictions.com" in body
 
 
 # ---- Legal pages -------------------------------------------------
