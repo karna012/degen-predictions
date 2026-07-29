@@ -99,7 +99,7 @@ cats = [
     ("Crypto\nAI-ranked coins by\npredicted return", 2.9, 1.3, "#f7931a"),
     ("Stocks\nUS + India rankings\nby predicted return", 5.4, 1.3, "#1565c0"),
     ("Dubai Real Estate\nProperty ROI +\ninfrastructure growth", 7.7, 1.3, "#d4a574"),
-    ("Metals & Stones\nGold, silver, gemstones\nprice forecasts", 10.3, 1.3, "#c9a961"),
+    ("Metals\nGold, silver, copper\nlive price forecasts", 10.3, 1.3, "#c9a961"),
 ]
 for text, x, y, color in cats:
     box(ax, x, y, 2.3, 1.6, text, fc="#152040", ec=color, fontsize=9.5)

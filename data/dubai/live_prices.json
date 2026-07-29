@@ -1,0 +1,61 @@
+{
+  "last_updated": "2026-07-29T09:26:32.257971",
+  "areas": {
+    "downtown": {
+      "avg_price_per_sqft": 3068.33,
+      "sale_sample_count": 20,
+      "trailing_12m_appreciation": 0.109,
+      "appreciation_sample_count": 40,
+      "avg_rent_per_sqft_annual": 126.47,
+      "rental_sample_count": 20
+    },
+    "marina": {
+      "avg_price_per_sqft": 3204.44,
+      "sale_sample_count": 20,
+      "trailing_12m_appreciation": -0.0056,
+      "appreciation_sample_count": 40,
+      "avg_rent_per_sqft_annual": 111.11,
+      "rental_sample_count": 20
+    },
+    "business_bay": {
+      "avg_price_per_sqft": 1965.27,
+      "sale_sample_count": 20,
+      "trailing_12m_appreciation": -0.15,
+      "appreciation_sample_count": 40,
+      "avg_rent_per_sqft_annual": 109.64,
+      "rental_sample_count": 20
+    },
+    "jumeirah": {
+      "avg_price_per_sqft": 6793.02,
+      "sale_sample_count": 20,
+      "trailing_12m_appreciation": 0.25,
+      "appreciation_sample_count": 40,
+      "avg_rent_per_sqft_annual": 131.05,
+      "rental_sample_count": 8
+    },
+    "al_barsha": {
+      "avg_price_per_sqft": 1348.81,
+      "sale_sample_count": 19,
+      "trailing_12m_appreciation": 0.0213,
+      "appreciation_sample_count": 36,
+      "avg_rent_per_sqft_annual": 73.38,
+      "rental_sample_count": 16
+    },
+    "creek_harbour": {
+      "avg_price_per_sqft": 2587.29,
+      "sale_sample_count": 20,
+      "trailing_12m_appreciation": 0.1132,
+      "appreciation_sample_count": 40,
+      "avg_rent_per_sqft_annual": 128.03,
+      "rental_sample_count": 20
+    },
+    "south_Dubai": {
+      "avg_price_per_sqft": 1762.34,
+      "sale_sample_count": 20,
+      "trailing_12m_appreciation": 0.25,
+      "appreciation_sample_count": 40,
+      "avg_rent_per_sqft_annual": 97.19,
+      "rental_sample_count": 20
+    }
+  }
+}

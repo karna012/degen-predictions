@@ -71,6 +71,7 @@ body {
 }
 
 .site-header {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 20;
@@ -85,6 +86,13 @@ body {
     backdrop-filter: blur(16px);
     border-bottom: 2px solid var(--glass-border);
     box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+    /* iOS Safari has a known bug where position:sticky + backdrop-filter
+       causes the sticky element to jump/flicker mid-scroll instead of
+       staying pinned smoothly -- forcing this onto its own GPU-composited
+       layer works around it. */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
 }
 
 .site-header .brand {
@@ -212,7 +220,7 @@ footer {
     align-items: center;
     gap: 0.6rem;
     flex-wrap: wrap;
-    margin-top: 0.75rem;
+    margin-top: 0.9rem;
     font-family: var(--font-display);
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -234,6 +242,9 @@ footer {
     text-transform: none;
     letter-spacing: normal;
     font-family: var(--font-body);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
 
 .legal-content h2 {
@@ -363,6 +374,11 @@ h2 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; marg
 }
 .custom-select-pill .custom-select-btn:hover { filter: brightness(1.08); border-color: transparent; }
 .custom-select-pill .custom-select-btn[aria-expanded="true"] { border-color: transparent; box-shadow: 0 0 0 2px rgba(19, 79, 246, 0.4); }
+
+/* Full-width variant for vertical calculator forms (Dubai, Metals) --
+   the default .custom-select is inline-block/min-width for filter bars. */
+.custom-select-block { display: block; width: 100%; }
+.custom-select-block .custom-select-btn { width: 100%; min-height: 44px; padding: 0.6rem 0.8rem; font-size: 0.95rem; }
 
 .clear-link { color: var(--muted); text-decoration: none; }
 .clear-link:hover { color: var(--neon-cyan); }
@@ -959,6 +975,10 @@ a { color: var(--neon-cyan); }
         height: 70px;
         margin-top: 1rem;
     }
+    .league-monogram {
+        font-size: 1.1rem;
+        letter-spacing: 0;
+    }
 
     .fixture-grid { grid-template-columns: 1fr; gap: 1rem; }
 
@@ -1052,8 +1072,15 @@ footer {
 }
 
 /* Prevents any stray fixed-width element from creating horizontal scroll on
-   narrow devices -- a common mobile-Safari/Chrome issue. */
-html, body { max-width: 100%; overflow-x: hidden; }
+   narrow devices -- a common mobile-Safari/Chrome issue. IMPORTANT: this
+   must stay on <html> only, NOT <body> -- overflow-x on <body> makes body
+   (instead of the viewport) the "nearest scrolling ancestor" that sticky
+   positioning resolves against, which is exactly what was making the sticky
+   header drift/scroll away instead of staying pinned, particularly on
+   mobile Safari. <html>-only still blocks the same stray horizontal
+   scroll without breaking position:sticky anywhere on the page. */
+html { max-width: 100%; overflow-x: hidden; }
+body { max-width: 100%; }
 
 /* Touch targets: Apple/Android guidelines want ~44px minimum hit areas so
    nav links, dropdown buttons, and predict/CTA buttons stay easy to tap. */
@@ -1082,4 +1109,23 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
     /* Better spacing for touch */
     label { margin-bottom: 0.5rem; display: block; }
+}
+
+/* TradingView's embed script builds its iframe as position:absolute,
+   width:100%, height:100% inside .tradingview-widget-container__widget,
+   expecting the OUTER .tradingview-widget-container to establish a
+   positioning context. Without position:relative here, that absolutely-
+   positioned iframe falls back to the nearest positioned ancestor up the
+   tree instead -- which can be nothing, or something unrelated -- so it
+   renders detached from its intended box and overlaps other page content
+   (search box, table, disclaimer overlay, etc.) instead of staying inside
+   the bordered container it visually appears to belong to. */
+.tradingview-widget-container {
+    position: relative;
+    width: 100%;
+}
+.tradingview-widget-container__widget {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }

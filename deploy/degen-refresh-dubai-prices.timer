@@ -1,0 +1,13 @@
+[Unit]
+Description=Run degen-refresh-dubai-prices.service once a day
+
+[Timer]
+# Must stay daily, not more often: this job calls a rate-limited third-party
+# API (RapidAPI free tier, 750 req/month) and one run already costs ~14
+# calls (7 areas x sale+rent). Running this more often than daily will
+# exhaust the monthly quota well before month-end.
+OnCalendar=*-*-* 05:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

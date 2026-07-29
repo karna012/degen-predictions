@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% block title %}Frequently Asked Questions | Degen Predictions{% endblock %}
+{% block description %}Answers to common questions about Degen Predictions -- how the ML & AI models work, live market data, and specifics on Sports, Crypto, Stocks, Dubai Real Estate, and Metals predictions.{% endblock %}
+{% block content %}
+
+<div style="margin-bottom: 2rem;">
+    <a href="/">&larr; Back to categories</a>
+</div>
+
+<h1>Frequently Asked Questions</h1>
+<p class="muted">Everything in one place -- general platform questions plus specifics for every category, covering both physical assets (Dubai real estate, metals) and digital assets (crypto, stocks).</p>
+
+<section style="margin-top: 2rem;">
+    <h2 style="font-size: 1.2rem; color: #00d4ff;">General</h2>
+
+    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What is Degen Predictions?</h3>
+        <p class="muted" style="margin: 0;">A free platform that uses machine learning (ML) and AI to forecast outcomes across five categories: football, baseball, and cricket match predictions, cryptocurrency rankings, stock rankings, Dubai real estate ROI, and metals price forecasts.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Is Degen Predictions free to use?</h3>
+        <p class="muted" style="margin: 0;">Yes. Every calculator and prediction tool on the site is completely free, with no account, login, or payment required for any category.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How accurate are the predictions?</h3>
+        <p class="muted" style="margin: 0;">Each category is powered by models trained on real historical data -- ELO ratings and ensemble ML for sports, walk-forward-validated ranking models for crypto/stocks, and historically-grounded appreciation/volatility models for Dubai real estate and metals. All forecasts are estimates, not guarantees, and are clearly labelled as such.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What categories does Degen Predictions cover?</h3>
+        <p class="muted" style="margin: 0;">Sports (football, baseball, and cricket match predictions), Crypto (AI-ranked digital assets by predicted 6-month return), Stocks (US and India rankings by predicted return), Dubai Real Estate (a physical-asset property ROI calculator), and Metals (physical precious and industrial metal price forecasts with live spot pricing).</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Do the Crypto, Stocks, and Metals pages show live prices?</h3>
+        <p class="muted" style="margin: 0;">Yes. Each of those three pages embeds a live TradingView candlestick chart above the calculator/rankings table. Clicking any row (or, on Metals, changing the dropdown) switches the chart to that asset in real time, with interval controls from 1 minute up to monthly. Not every asset has a matching TradingView listing -- where one doesn't exist (mainly tokenized institutional fund products in crypto), the page shows a clear "not found in TradingView" notice instead of a chart, rather than guessing.</p>
+    </div>
+</section>
+
+<section style="margin-top: 2.5rem;">
+    <h2 style="font-size: 1.2rem; color: #f7931a;">Crypto (Digital Assets)</h2>
+
+    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How are the crypto rankings calculated?</h3>
+        <p class="muted" style="margin: 0;">A walk-forward-validated ML model ranks cryptocurrencies by predicted 6-month forward return, using price momentum, volatility, market capitalization, and news sentiment as inputs. Rankings refresh daily.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Which cryptocurrencies are covered?</h3>
+        <p class="muted" style="margin: 0;">60 digital assets, from major coins (Bitcoin, Ethereum, Solana, XRP) to DeFi tokens and stablecoins. Live TradingView charts are available for 50 of the 60 -- the other 10 are tokenized institutional fund products (e.g. BlackRock's BUIDL, Hashnote's USYC) with no real exchange listing anywhere, not a gap in this site's data.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Is crypto riskier than the other categories on this site?</h3>
+        <p class="muted" style="margin: 0;">The model itself flags this: crypto predictions are noted as especially noisy, since only 365 days of price history are available per coin for training, compared to years of data for stocks and real estate.</p>
+    </div>
+</section>
+
+<section style="margin-top: 2.5rem;">
+    <h2 style="font-size: 1.2rem; color: #1565c0;">Stocks (Digital Assets)</h2>
+
+    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How are stock rankings calculated?</h3>
+        <p class="muted" style="margin: 0;">The same 6-month forward-return ranking approach as crypto, but using stock-specific fundamentals (like P/E ratio) and price trend data. US and India stocks are modeled and ranked separately.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How many stocks are covered, and is live chart data available?</h3>
+        <p class="muted" style="margin: 0;">553 stocks total (roughly 500 US, 50 India). Every single one has a verified, working live TradingView chart -- 100% coverage, confirmed directly against TradingView's own data rather than assumed.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Are US and India stock predictions equally reliable?</h3>
+        <p class="muted" style="margin: 0;">No -- India stock predictions have shown weaker out-of-sample signal than US stocks in backtesting. Always check the data_confidence column on the rankings table before acting on either.</p>
+    </div>
+</section>
+
+<section style="margin-top: 2.5rem;">
+    <h2 style="font-size: 1.2rem; color: #d4a574;">Dubai Real Estate (Physical Asset)</h2>
+
+    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How is Dubai real estate ROI calculated?</h3>
+        <p class="muted" style="margin: 0;">ROI is the sum of capital appreciation (compound growth on the property value, adjusted by an area-specific infrastructure multiplier) plus rental income over your chosen holding period, shown as a percentage of your original investment.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What is a good ROI for Dubai real estate?</h3>
+        <p class="muted" style="margin: 0;">Dubai properties typically target a combined 6-10% annual return (capital appreciation plus rental yield). Areas with major infrastructure development -- new metro lines, roads, or master-planned communities -- can significantly exceed this range in the model's forecasts, with total combined ROI reaching 8-16%+ annually in areas like Creek Harbour or Al Barsha.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Does the calculator account for new metro stations and infrastructure?</h3>
+        <p class="muted" style="margin: 0;">Yes. Each of the 7 modeled areas has an infrastructure development multiplier based on metro proximity, development phase (emerging/growth/mature), and commercial density, which adjusts the base appreciation rate up or down accordingly.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How long should I hold a Dubai property for the best returns?</h3>
+        <p class="muted" style="margin: 0;">The calculator supports holding periods from 6 months to 35 years. Infrastructure-driven growth tends to be strongest in the first 10 years of a development phase, after which the model gradually tapers the multiplier as an area matures.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Does the calculator include buying costs like the DLD transfer fee?</h3>
+        <p class="muted" style="margin: 0;">No -- the calculator's ROI figures are gross capital appreciation and gross rental income only. Real transaction costs (4% DLD transfer fee, 2% agency commission, trustee/title deed fees, and annual service charges) typically total 5-9% of the purchase price and are covered in detail on the <a href="/dubai/guide">Investment Guide</a> page, not baked into the calculator's output.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Is this Dubai ROI calculator free?</h3>
+        <p class="muted" style="margin: 0;">Yes, completely free with no account or login required. Degen Predictions is an educational/research platform, not a real estate brokerage or financial advisory service.</p>
+    </div>
+</section>
+
+<section style="margin-top: 2.5rem;">
+    <h2 style="font-size: 1.2rem; color: #9aa5b3;">Metals (Physical Asset)</h2>
+
+    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How accurate are metal price predictions?</h3>
+        <p class="muted" style="margin: 0;">Forecasts are based on each metal's historical annual appreciation rate and volatility, adjusted by a market-cycle multiplier. They are estimates, not guarantees -- commodity prices are influenced by supply/demand shifts, geopolitical events, and macroeconomic conditions no model can fully anticipate.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Are the metal prices actually live, or fixed estimates?</h3>
+        <p class="muted" style="margin: 0;">Both, depending on the metal. Gold, Silver, Platinum, Palladium, Copper, Steel, and Aluminum refresh daily from real market data feeds. Zinc, Nickel, and Lithium have no free live data source anywhere (verified directly, not assumed) and stay as periodically-updated benchmarks -- this is clearly labelled on the Market Insights page.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What is the average annual appreciation rate for gold?</h3>
+        <p class="muted" style="margin: 0;">This model uses a base annual appreciation rate of roughly 8.5% for gold, before applying its market-cycle multiplier based on historical volatility. Silver, lithium, and other higher-volatility metals use higher base rates to reflect their historically larger price swings.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What happened to gemstones -- didn't this used to cover diamonds and rubies?</h3>
+        <p class="muted" style="margin: 0;">Gemstones were removed. Unlike metals, gemstones have no single quoted market price -- a "1-carat diamond" can vary 100x in price depending on cut, color, and clarity grading. Rather than show an invented number with no real source behind it, the category now covers only precious and industrial metals, which do have real, verifiable spot prices.</p>
+    </div>
+
+    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
+        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Is the metals calculator free to use?</h3>
+        <p class="muted" style="margin: 0;">Yes, completely free with no account or login required. Degen Predictions is an educational/research platform, not a commodities broker or investment advisory service.</p>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {"@type": "Question", "name": "What is Degen Predictions?", "acceptedAnswer": {"@type": "Answer", "text": "A free platform that uses machine learning (ML) and AI to forecast outcomes across five categories: football, baseball, and cricket match predictions, cryptocurrency rankings, stock rankings, Dubai real estate ROI, and metals price forecasts."}},
+        {"@type": "Question", "name": "Is Degen Predictions free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every calculator and prediction tool on the site is completely free, with no account, login, or payment required for any category."}},
+        {"@type": "Question", "name": "How accurate are the predictions?", "acceptedAnswer": {"@type": "Answer", "text": "Each category is powered by models trained on real historical data. All forecasts are estimates, not guarantees."}},
+        {"@type": "Question", "name": "What categories does Degen Predictions cover?", "acceptedAnswer": {"@type": "Answer", "text": "Sports, Crypto (digital assets), Stocks (digital assets), Dubai Real Estate (physical asset), and Metals (physical asset)."}},
+        {"@type": "Question", "name": "Do the Crypto, Stocks, and Metals pages show live prices?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, via embedded TradingView candlestick charts that switch to whichever asset is selected, with a clear notice for the small number of assets with no TradingView listing."}},
+        {"@type": "Question", "name": "How are the crypto rankings calculated?", "acceptedAnswer": {"@type": "Answer", "text": "A walk-forward-validated ML model ranks cryptocurrencies by predicted 6-month forward return using price momentum, volatility, market cap, and news sentiment."}},
+        {"@type": "Question", "name": "Which cryptocurrencies are covered?", "acceptedAnswer": {"@type": "Answer", "text": "60 digital assets; live TradingView charts are available for 50 of the 60, the other 10 being tokenized institutional fund products with no real exchange listing."}},
+        {"@type": "Question", "name": "Is crypto riskier than the other categories on this site?", "acceptedAnswer": {"@type": "Answer", "text": "Crypto predictions are especially noisy since only 365 days of price history are available per coin for training."}},
+        {"@type": "Question", "name": "How are stock rankings calculated?", "acceptedAnswer": {"@type": "Answer", "text": "The same 6-month forward-return ranking approach as crypto, using stock-specific fundamentals like P/E ratio and price trend data, modeled separately for US and India."}},
+        {"@type": "Question", "name": "How many stocks are covered, and is live chart data available?", "acceptedAnswer": {"@type": "Answer", "text": "553 stocks total across US and India, all with verified, working live TradingView charts -- 100% coverage."}},
+        {"@type": "Question", "name": "Are US and India stock predictions equally reliable?", "acceptedAnswer": {"@type": "Answer", "text": "No, India stock predictions have shown weaker out-of-sample signal than US stocks in backtesting."}},
+        {"@type": "Question", "name": "How is Dubai real estate ROI calculated?", "acceptedAnswer": {"@type": "Answer", "text": "ROI is the sum of capital appreciation (adjusted by an infrastructure multiplier) plus rental income over the chosen holding period."}},
+        {"@type": "Question", "name": "What is a good ROI for Dubai real estate?", "acceptedAnswer": {"@type": "Answer", "text": "Dubai properties typically target a combined 6-10% annual return, with infrastructure-heavy areas reaching 8-16%+."}},
+        {"@type": "Question", "name": "Does the calculator account for new metro stations and infrastructure?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, via an infrastructure development multiplier based on metro proximity, development phase, and commercial density."}},
+        {"@type": "Question", "name": "How long should I hold a Dubai property for the best returns?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator supports 6 months to 35 years; infrastructure-driven growth is strongest in the first 10 years."}},
+        {"@type": "Question", "name": "Does the calculator include buying costs like the DLD transfer fee?", "acceptedAnswer": {"@type": "Answer", "text": "No, the calculator shows gross returns only; real transaction costs of 5-9% are covered separately on the Investment Guide page."}},
+        {"@type": "Question", "name": "Is this Dubai ROI calculator free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely free with no account or login required."}},
+        {"@type": "Question", "name": "How accurate are metal price predictions?", "acceptedAnswer": {"@type": "Answer", "text": "Forecasts are based on historical annual appreciation rate and volatility, adjusted by a market-cycle multiplier; they are estimates, not guarantees."}},
+        {"@type": "Question", "name": "Are the metal prices actually live, or fixed estimates?", "acceptedAnswer": {"@type": "Answer", "text": "Gold, Silver, Platinum, Palladium, Copper, Steel, and Aluminum refresh daily from real market data. Zinc, Nickel, and Lithium have no free live source and stay as periodic benchmarks."}},
+        {"@type": "Question", "name": "What is the average annual appreciation rate for gold?", "acceptedAnswer": {"@type": "Answer", "text": "Roughly 8.5% base annual rate before the market-cycle multiplier is applied."}},
+        {"@type": "Question", "name": "What happened to gemstones -- didn't this used to cover diamonds and rubies?", "acceptedAnswer": {"@type": "Answer", "text": "Gemstones were removed since they have no single quoted market price, unlike metals which have real, verifiable spot prices."}},
+        {"@type": "Question", "name": "Is the metals calculator free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely free with no account or login required."}}
+    ]
+}
+</script>
+{% endblock %}

@@ -1,16 +1,29 @@
 {% extends "base.html" %}
-{% block title %}Metals & Gemstones Market Insights | Historical Trends & Forecasts{% endblock %}
-{% block description %}Explore metal and gemstone market trends, historical prices, volatility analysis, and ML & AI price forecasts. Current USD pricing and risk metrics.{% endblock %}
-{% block keywords %}metal prices, gold prices, silver prices, copper prices, market trends, commodity analysis, volatility, precious metals market, industrial metals, gemstone values{% endblock %}
+{% block title %}Metals Market Insights | Historical Trends & Forecasts{% endblock %}
+{% block description %}Explore metal market trends, historical prices, volatility analysis, and ML & AI price forecasts. Current USD pricing and risk metrics.{% endblock %}
+{% block keywords %}metal prices, gold prices, silver prices, copper prices, market trends, commodity analysis, volatility, precious metals market, industrial metals{% endblock %}
 {% block content %}
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Degen Predictions", "item": "https://degenpredictions.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Metals", "item": "https://degenpredictions.com/metals"},
+        {"@type": "ListItem", "position": 3, "name": "Market Insights", "item": "https://degenpredictions.com/metals/insights"}
+    ]
+}
+</script>
 
 <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
     <a href="/">&larr; Back to categories</a>
     <a href="/metals" style="color: #c9a961; text-decoration: none; font-weight: 600;">💰 Price Calculator →</a>
 </div>
 
-<h1>Metals & Gemstones Market Insights</h1>
-<p class="muted">Current prices, volatility analysis, and historical trends for precious metals, industrial metals, and gemstones.</p>
+<h1>Metals Market Insights</h1>
+<p class="muted">Current prices, volatility analysis, and historical trends for precious metals and industrial metals.</p>
+<p class="muted" style="font-size: 0.8rem;">🟢 Gold, Silver, Platinum, Palladium, Copper, Aluminum &amp; Steel refresh daily from live market data. Zinc, Nickel &amp; Lithium are periodically-updated benchmarks (no reliable free live feed exists for these). Benchmarks last set: {{ price_last_updated }}.</p>
 
 <!-- Precious Metals Section -->
 <section style="margin-top: 2rem;">
@@ -92,46 +105,6 @@
     </p>
 </section>
 
-<!-- Gemstones Section -->
-<section style="margin-top: 2rem;">
-    <h2 style="color: #c9a961; border-bottom: 2px solid #c9a961; padding-bottom: 0.5rem;">💎 Gemstones</h2>
-
-    <div class="table-wrap" style="margin-top: 1rem;">
-    <table>
-        <thead><tr>
-            <th>Gemstone</th>
-            <th>Current Price</th>
-            <th>Annual Volatility</th>
-            <th>Expected Appreciation</th>
-            <th>Risk Level</th>
-        </tr></thead>
-        <tbody>
-        {% for metal_name, metal_data in market_stats.gemstones.items() %}
-        <tr>
-            <td><strong>{{ metal_name }}</strong></td>
-            <td>${{ "{:,.2f}".format(metal_data.current_price) }} / {{ metal_data.unit.split('/')[-1] }}</td>
-            <td>{{ "{:.1f}".format(metal_data.volatility * 100) }}%</td>
-            <td>+{{ "{:.1f}".format(metal_data.appreciation * 100) }}% p.a.</td>
-            <td>
-                {% if metal_data.volatility > 0.15 %}
-                <span style="color: #ff6b6b; font-weight: bold;">High</span>
-                {% elif metal_data.volatility > 0.10 %}
-                <span style="color: #ffa500; font-weight: bold;">Medium</span>
-                {% else %}
-                <span style="color: #4CAF50; font-weight: bold;">Low</span>
-                {% endif %}
-            </td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div>
-
-    <p class="muted" style="margin-top: 1rem; font-size: 0.9rem;">
-        💡 <strong>Gemstones</strong> are luxury assets with lower volatility. Prices are determined by the 4 Cs: Color, Clarity, Carat weight, and Cut. Collectibility adds to long-term value.
-    </p>
-</section>
-
 <!-- Investment Guide -->
 <section style="margin-top: 3rem; padding: 2rem; background: rgba(201, 169, 97, 0.1); border-radius: 8px; border: 1px solid #c9a961;">
     <h2 style="margin-top: 0; color: #c9a961;">📚 Investment Guide</h2>
@@ -156,17 +129,6 @@
                 <li>Futures & commodity ETFs</li>
                 <li>Higher volatility</li>
                 <li>Geopolitical factors matter</li>
-            </ul>
-        </div>
-
-        <div>
-            <h3 style="color: #c9a961; margin-top: 0;">Gemstones</h3>
-            <ul style="line-height: 2;">
-                <li>Rare & collectible</li>
-                <li>Quality matters greatly</li>
-                <li>Authentication crucial</li>
-                <li>Limited liquidity</li>
-                <li>Long-term wealth storage</li>
             </ul>
         </div>
     </div>

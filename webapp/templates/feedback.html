@@ -8,13 +8,13 @@
 <div class="card" style="max-width:60ch; margin-top:1.5rem;">
     <form method="post" action="/feedback">
         <div style="margin-bottom:1rem;">
-            <label for="name" style="display:block; margin-bottom:0.3rem;">Name <span class="muted">(optional)</span></label>
-            <input type="text" id="name" name="name" maxlength="200"
+            <label for="name" style="display:block; margin-bottom:0.3rem;">Name</label>
+            <input type="text" id="name" name="name" required maxlength="200"
                    style="width:100%; padding:0.55rem 0.8rem; border-radius:8px; border:1px solid var(--border, #444); background:var(--card-bg, #1a1a1a); color:inherit;">
         </div>
         <div style="margin-bottom:1rem;">
-            <label for="email" style="display:block; margin-bottom:0.3rem;">Email <span class="muted">(optional, if you want a reply)</span></label>
-            <input type="email" id="email" name="email" maxlength="200"
+            <label for="email" style="display:block; margin-bottom:0.3rem;">Email</label>
+            <input type="email" id="email" name="email" required maxlength="200"
                    style="width:100%; padding:0.55rem 0.8rem; border-radius:8px; border:1px solid var(--border, #444); background:var(--card-bg, #1a1a1a); color:inherit;">
         </div>
         <div style="margin-bottom:1rem;">

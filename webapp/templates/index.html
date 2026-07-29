@@ -135,53 +135,21 @@ function applyFilterSort() {
 const teamSearchEl = document.getElementById("team-search");
 if (teamSearchEl) teamSearchEl.addEventListener("input", applyFilterSort);
 
-/* ---- Custom rounded dropdown -- replaces native <select> so the opened ---- */
-/* panel can actually be styled with rounded corners/dark theme.              */
-function initCustomSelect(id, onSelect) {
-    const root = document.getElementById(id);
-    if (!root) return;
-    const btn = root.querySelector(".custom-select-btn");
-    const valueEl = root.querySelector(".custom-select-value");
-    const panel = root.querySelector(".custom-select-panel");
-    const options = Array.from(panel.querySelectorAll("li"));
-
-    function closePanel() {
-        panel.hidden = true;
-        btn.setAttribute("aria-expanded", "false");
-    }
-    function openPanel() {
-        panel.hidden = false;
-        btn.setAttribute("aria-expanded", "true");
-    }
-
-    btn.addEventListener("click", () => {
-        if (panel.hidden) openPanel(); else closePanel();
+/* initCustomSelect() is defined globally in static/custom-select.js, a
+   deferred external script -- wait for DOMContentLoaded so it's guaranteed
+   loaded before these run (this inline block itself runs immediately at
+   parse time, earlier than any deferred script). */
+document.addEventListener("DOMContentLoaded", () => {
+    initCustomSelect("sort-select", (value) => {
+        currentSort = value;
+        applyFilterSort();
     });
-    options.forEach(opt => {
-        opt.addEventListener("click", () => {
-            valueEl.textContent = opt.textContent;
-            options.forEach(o => o.setAttribute("aria-selected", String(o === opt)));
-            closePanel();
-            onSelect(opt.dataset.value);
-        });
-    });
-    document.addEventListener("click", (e) => {
-        if (!root.contains(e.target)) closePanel();
-    });
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closePanel();
-    });
-}
 
-initCustomSelect("sort-select", (value) => {
-    currentSort = value;
-    applyFilterSort();
-});
-
-initCustomSelect("round-select", (value) => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("round", value);
-    window.location.href = url.toString();
+    initCustomSelect("round-select", (value) => {
+        const url = new URL(window.location.href);
+        url.searchParams.set("round", value);
+        window.location.href = url.toString();
+    });
 });
 
 async function runLivePredict(btn) {

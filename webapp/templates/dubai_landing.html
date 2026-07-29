@@ -3,6 +3,30 @@
 {% block description %}Predict your property investment returns in Dubai. Calculate capital appreciation and rental yields for apartments, villas, and townhouses across premium locations.{% endblock %}
 {% block content %}
 
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Real Estate Investment ROI Calculator",
+    "name": "Dubai Real Estate ROI Calculator",
+    "description": "ML & AI-powered ROI calculator for Dubai property investment -- capital appreciation, rental yield, and infrastructure-adjusted growth forecasts for apartments, villas, and townhouses.",
+    "provider": {"@type": "Organization", "name": "Degen Predictions", "url": "https://degenpredictions.com"},
+    "areaServed": {"@type": "City", "name": "Dubai", "addressCountry": "AE"},
+    "url": "https://degenpredictions.com/dubai",
+    "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Degen Predictions", "item": "https://degenpredictions.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Dubai Real Estate", "item": "https://degenpredictions.com/dubai"}
+    ]
+}
+</script>
+
 <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
     <a href="/">&larr; Back to categories</a>
     <a href="/dubai/guide" style="color: #d4a574; text-decoration: none; font-weight: 600;">📖 Investment Guide →</a>
@@ -16,7 +40,7 @@
 </p>
 
 <style>
-.dubai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.dubai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; align-items: start; }
 .dubai-period-labels {
     display: flex;
     flex-wrap: wrap;
@@ -43,29 +67,47 @@
 
         <label style="display: block; margin-bottom: 1rem;">
             <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Location</span>
-            <select id="area" style="width: 100%; padding: 0.6rem; border-radius: 4px; border: 2px solid #d4a574; background: var(--card-bg, #1a1a1a); color: inherit; font-size: 0.95rem; cursor: pointer; transition: border-color 0.2s;">
-                {% for key, name in areas.items() %}
-                <option value="{{ key }}">{{ name }}</option>
-                {% endfor %}
-            </select>
+            <div class="custom-select custom-select-block" id="area-select">
+                <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="custom-select-value">{{ areas.values()|list|first }}</span>
+                </button>
+                <ul class="custom-select-panel" role="listbox" hidden>
+                    {% for key, name in areas.items() %}
+                    <li role="option" data-value="{{ key }}"{% if loop.first %} aria-selected="true"{% endif %}>{{ name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <input type="hidden" id="area" value="{{ areas.keys()|list|first }}">
         </label>
 
         <label style="display: block; margin-bottom: 1rem;">
             <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Property Type</span>
-            <select id="property_type" style="width: 100%; padding: 0.6rem; border-radius: 4px; border: 2px solid #d4a574; background: var(--card-bg, #1a1a1a); color: inherit; font-size: 0.95rem; cursor: pointer; transition: border-color 0.2s;">
-                {% for key, name in property_types.items() %}
-                <option value="{{ key }}">{{ name }}</option>
-                {% endfor %}
-            </select>
+            <div class="custom-select custom-select-block" id="property-type-select">
+                <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="custom-select-value">{{ property_types.values()|list|first }}</span>
+                </button>
+                <ul class="custom-select-panel" role="listbox" hidden>
+                    {% for key, name in property_types.items() %}
+                    <li role="option" data-value="{{ key }}"{% if loop.first %} aria-selected="true"{% endif %}>{{ name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <input type="hidden" id="property_type" value="{{ property_types.keys()|list|first }}">
         </label>
 
         <label style="display: block; margin-bottom: 1rem;">
             <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Bedrooms</span>
-            <select id="bedroom_config" style="width: 100%; padding: 0.6rem; border-radius: 4px; border: 2px solid #d4a574; background: var(--card-bg, #1a1a1a); color: inherit; font-size: 0.95rem; cursor: pointer; transition: border-color 0.2s;">
-                {% for key, name in bedroom_configs.items() %}
-                <option value="{{ key }}">{{ name }}</option>
-                {% endfor %}
-            </select>
+            <div class="custom-select custom-select-block" id="bedroom-config-select">
+                <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="custom-select-value">{{ bedroom_configs.values()|list|first }}</span>
+                </button>
+                <ul class="custom-select-panel" role="listbox" hidden>
+                    {% for key, name in bedroom_configs.items() %}
+                    <li role="option" data-value="{{ key }}"{% if loop.first %} aria-selected="true"{% endif %}>{{ name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <input type="hidden" id="bedroom_config" value="{{ bedroom_configs.keys()|list|first }}">
         </label>
 
         <label style="display: block; margin-bottom: 1rem;">
@@ -75,10 +117,10 @@
         </label>
 
         <label style="display: block; margin-bottom: 1.5rem;">
-            <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Holding Period: <strong id="period-display">6 months</strong></span>
-            <input type="range" id="holding_period" min="6" max="420" value="6" step="1"
+            <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Holding Period: <strong id="period-display">1 year</strong></span>
+            <input type="range" id="holding_period" min="6" max="420" value="12" step="1"
                    oninput="updateDubaiPeriodDisplay()"
-                   style="width: 100%; cursor: pointer; height: 6px; border-radius: 3px; background: linear-gradient(to right, #d4a574 0%, #d4a574 calc(var(--value)*100/414), var(--border, #333) calc(var(--value)*100/414), var(--border, #333) 100%); outline: none; --value: 6;">
+                   style="width: 100%; cursor: pointer; height: 6px; border-radius: 3px; background: linear-gradient(to right, #d4a574 0%, #d4a574 calc(var(--value)*100/414), var(--border, #333) calc(var(--value)*100/414), var(--border, #333) 100%); outline: none; --value: 12;">
             <div class="dubai-period-labels">
                 <span>6 mo</span><span>5 years</span><span>10 years</span><span>15 years</span><span>20 years</span><span>25 years</span><span>30 years</span><span>35 years</span>
             </div>
@@ -87,6 +129,33 @@
         <button type="button" id="dubai-calculate-btn" style="width: 100%; padding: 0.75rem; background: #4CAF50; color: white; border: none; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">
             Calculate ROI
         </button>
+
+        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border, #333);">
+            <div style="font-weight: bold; margin-bottom: 0.6rem; font-size: 0.85rem; color: #d4a574;">📍 Quick Area Comparison</div>
+            {% if prices_updated_at %}
+            <p class="muted" style="font-size: 0.72rem; margin: 0 0 0.5rem;">Live prices as of {{ prices_updated_at }} (real DLD-registered transactions)</p>
+            {% else %}
+            <p class="muted" style="font-size: 0.72rem; margin: 0 0 0.5rem;">Showing market estimates -- live price refresh hasn't run yet</p>
+            {% endif %}
+            <div class="table-wrap">
+            <table style="font-size: 0.78rem;">
+                <thead><tr>
+                    <th>Area</th><th>AED/sqft</th><th>Dev Phase</th><th>Metro</th>
+                </tr></thead>
+                <tbody>
+                {% for a in areas_summary %}
+                <tr>
+                    <td>{{ a.name }} {% if a.prices_source == "live" %}<span title="Live price from real transactions" style="color: #4CAF50;">●</span>{% else %}<span title="Estimate -- live refresh not available yet" style="color: #999;">○</span>{% endif %}</td>
+                    <td>{{ "{:,.0f}".format(a.price_per_sqft) }}</td>
+                    <td>{{ a.development_phase }}</td>
+                    <td>{{ a.metro_proximity }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            <p class="muted" style="font-size: 0.75rem; margin-top: 0.6rem; margin-bottom: 0;">💡 Areas in an "Emerging" or "Rapid Growth" phase get the largest infrastructure appreciation boost in the model -- see the Infrastructure Development panel in your results for the exact multiplier.</p>
+        </div>
     </div>
 
     <!-- Results Panel -->
@@ -192,12 +261,18 @@ function displayResults(result) {
             </div>
         </div>
 
+        <div style="border-top: 1px solid var(--border, #333); padding-top: 1rem; margin-top: 1rem; background: rgba(76, 175, 80, 0.08); padding: 1rem; border-radius: 4px;">
+            <div class="muted" style="font-size: 0.85rem;">TOTAL ROI -- over ${result.holding_period_months} months</div>
+            <div style="font-size: 1.6rem; font-weight: bold; color: #4CAF50;">${formatPercent(result.total_roi_percent)}</div>
+            <div style="color: #4CAF50; font-size: 1rem;">${formatCurrency(result.total_gain_aed)} (capital appreciation + rental income combined)</div>
+        </div>
+
         <div style="border-top: 1px solid var(--border, #333); padding-top: 1rem; margin-top: 1rem;">
             <div style="margin-bottom: 1rem;">
-                <div class="muted" style="font-size: 0.85rem;">Capital Appreciation</div>
+                <div class="muted" style="font-size: 0.85rem;">Capital Appreciation -- over ${result.holding_period_months} months (not annual)</div>
                 <div style="font-weight: bold;">${formatPercent(result.capital_appreciation_percent)} gain</div>
                 <div style="color: #4CAF50; font-size: 1.1rem;">${formatCurrency(result.capital_appreciation_aed)}</div>
-                <div class="muted" style="font-size: 0.85rem; margin-top: 0.3rem;">Annual appreciation rate: ${formatPercent(result.adjusted_annual_appreciation_rate)}</div>
+                <div class="muted" style="font-size: 0.85rem; margin-top: 0.3rem;">Annual appreciation rate: ${formatPercent(result.adjusted_annual_appreciation_rate)} per year</div>
                 <div class="muted" style="font-size: 0.85rem; margin-top: 0.3rem;">Property value after holding: ${formatCurrency(result.property_value_after_holding)}</div>
             </div>
         </div>
@@ -238,6 +313,11 @@ window.addEventListener("DOMContentLoaded", () => {
     updateDubaiPeriodDisplay();
     const btn = document.getElementById('dubai-calculate-btn');
     if (btn) btn.addEventListener('click', calculateROI);
+
+    initCustomSelect('area-select', (value) => { document.getElementById('area').value = value; });
+    initCustomSelect('property-type-select', (value) => { document.getElementById('property_type').value = value; });
+    initCustomSelect('bedroom-config-select', (value) => { document.getElementById('bedroom_config').value = value; });
+
     calculateROI();
 });
 </script>

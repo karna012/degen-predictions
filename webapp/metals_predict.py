@@ -1,15 +1,51 @@
 """
-Metals & Stones price prediction and investment calculator.
+Metals price prediction and investment calculator. Precious and industrial
+metals only -- gemstones were removed since they have no exchange-traded
+spot price (no way to source real, verifiable current pricing for them).
+
+Base prices below were last manually refreshed 2026-07-29 against live spot
+prices (Kitco/APMEX for precious metals, LME for industrial metals -- see
+PRICE_LAST_UPDATED). They also serve as the fallback for any metal
+automation/data_fetchers.py's MetalsDataFetcher can't cover (Zinc, Nickel,
+and Lithium have no reliable free live feed -- see that module's docstring
+for why).
+
+Gold, Silver, Platinum, Palladium, Copper, Aluminum, and Steel ARE refreshed
+daily by that fetcher (data/metals/current_prices.json), overlaid onto the
+static values below at import time here.
 """
-import numpy as np
+import json
+import os
+from pathlib import Path
 from typing import Dict
+
+PRICE_LAST_UPDATED = "2026-07-29"
+
+_LIVE_PRICES_PATH = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) / "data" / "metals" / "current_prices.json"
+LIVE_PRICES_LAST_FETCHED = None
+
+
+def _load_live_prices():
+    """Overlay daily-fetched live prices (if present) onto the static
+    defaults below. Missing/corrupt file just means "no live data yet" --
+    never a hard failure, since the calculator must keep working either way."""
+    global LIVE_PRICES_LAST_FETCHED
+    if not _LIVE_PRICES_PATH.exists():
+        return {}
+    try:
+        with open(_LIVE_PRICES_PATH) as f:
+            payload = json.load(f)
+        LIVE_PRICES_LAST_FETCHED = payload.get("last_updated")
+        return payload.get("prices", {})
+    except Exception:
+        return {}
 
 METALS_DATA = {
     "precious": {
         "Gold": {
             "symbol": "XAU",
             "unit": "USD/oz",
-            "current_price": 2050,
+            "current_price": 4036,
             "annual_volatility": 0.12,
             "annual_appreciation": 0.085,
             "description": "Yellow precious metal",
@@ -17,7 +53,7 @@ METALS_DATA = {
         "Silver": {
             "symbol": "XAG",
             "unit": "USD/oz",
-            "current_price": 24.50,
+            "current_price": 57.23,
             "annual_volatility": 0.18,
             "annual_appreciation": 0.095,
             "description": "White precious metal",
@@ -25,7 +61,7 @@ METALS_DATA = {
         "Platinum": {
             "symbol": "XPT",
             "unit": "USD/oz",
-            "current_price": 950,
+            "current_price": 1611,
             "annual_volatility": 0.15,
             "annual_appreciation": 0.065,
             "description": "Rare precious metal",
@@ -33,7 +69,7 @@ METALS_DATA = {
         "Palladium": {
             "symbol": "XPD",
             "unit": "USD/oz",
-            "current_price": 950,
+            "current_price": 1254,
             "annual_volatility": 0.20,
             "annual_appreciation": 0.075,
             "description": "Industrial precious metal",
@@ -43,7 +79,7 @@ METALS_DATA = {
         "Copper": {
             "symbol": "HG",
             "unit": "USD/ton",
-            "current_price": 9500,
+            "current_price": 13800,
             "annual_volatility": 0.16,
             "annual_appreciation": 0.075,
             "description": "Red industrial metal",
@@ -51,7 +87,7 @@ METALS_DATA = {
         "Aluminum": {
             "symbol": "AL",
             "unit": "USD/ton",
-            "current_price": 2400,
+            "current_price": 3173,
             "annual_volatility": 0.14,
             "annual_appreciation": 0.055,
             "description": "Lightweight industrial metal",
@@ -59,7 +95,7 @@ METALS_DATA = {
         "Steel": {
             "symbol": "SI",
             "unit": "USD/ton",
-            "current_price": 650,
+            "current_price": 960,
             "annual_volatility": 0.12,
             "annual_appreciation": 0.045,
             "description": "Iron-based alloy",
@@ -67,7 +103,7 @@ METALS_DATA = {
         "Zinc": {
             "symbol": "ZN",
             "unit": "USD/ton",
-            "current_price": 2750,
+            "current_price": 3609,
             "annual_volatility": 0.15,
             "annual_appreciation": 0.065,
             "description": "Corrosion-resistant metal",
@@ -75,7 +111,7 @@ METALS_DATA = {
         "Nickel": {
             "symbol": "NI",
             "unit": "USD/ton",
-            "current_price": 8200,
+            "current_price": 17383,
             "annual_volatility": 0.18,
             "annual_appreciation": 0.085,
             "description": "Stainless steel component",
@@ -83,44 +119,10 @@ METALS_DATA = {
         "Lithium": {
             "symbol": "LI",
             "unit": "USD/ton",
-            "current_price": 45000,
+            "current_price": 21620,
             "annual_volatility": 0.22,
             "annual_appreciation": 0.15,
             "description": "Battery metal",
-        },
-    },
-    "gemstones": {
-        "Diamond": {
-            "symbol": "DIA",
-            "unit": "USD/carat",
-            "current_price": 5500,
-            "annual_volatility": 0.08,
-            "annual_appreciation": 0.055,
-            "description": "Precious gemstone",
-        },
-        "Ruby": {
-            "symbol": "RUB",
-            "unit": "USD/carat",
-            "current_price": 3000,
-            "annual_volatility": 0.10,
-            "annual_appreciation": 0.075,
-            "description": "Red gemstone",
-        },
-        "Emerald": {
-            "symbol": "EME",
-            "unit": "USD/carat",
-            "current_price": 2000,
-            "annual_volatility": 0.12,
-            "annual_appreciation": 0.065,
-            "description": "Green gemstone",
-        },
-        "Sapphire": {
-            "symbol": "SAP",
-            "unit": "USD/carat",
-            "current_price": 2500,
-            "annual_volatility": 0.11,
-            "annual_appreciation": 0.07,
-            "description": "Blue gemstone",
         },
     },
 }
@@ -135,10 +137,17 @@ def get_metals_by_category(category: str):
 
 
 def get_all_metals():
+    live_prices = _load_live_prices()
     all_metals = {}
     for category, metals in METALS_DATA.items():
         for metal_name, data in metals.items():
-            all_metals[metal_name] = {**data, "category": category}
+            entry = {**data, "category": category}
+            if metal_name in live_prices:
+                entry["current_price"] = live_prices[metal_name]
+                entry["price_is_live"] = True
+            else:
+                entry["price_is_live"] = False
+            all_metals[metal_name] = entry
     return all_metals
 
 
@@ -202,14 +211,17 @@ def predict_price(
 
 
 def get_market_stats():
+    all_metals = get_all_metals()
     stats = {}
     for category, metals in METALS_DATA.items():
         stats[category] = {}
-        for metal_name, data in metals.items():
+        for metal_name in metals:
+            data = all_metals[metal_name]
             stats[category][metal_name] = {
                 "current_price": data["current_price"],
                 "unit": data["unit"],
                 "volatility": data["annual_volatility"],
                 "appreciation": data["annual_appreciation"],
+                "price_is_live": data["price_is_live"],
             }
     return stats

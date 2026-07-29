@@ -1,15 +1,15 @@
 Venue,MatchesPlayed,AvgFirstInningsTotal,AvgSecondInningsTotal,AvgRunsPerOver,AvgWicketsPerOver,PitchType
 "Central Broward Regional Park Stadium Turf Ground, Lauderhill",9,147.1,135.6,8.31,0.337,batting-friendly
 "Church Street Park, Morrisville",14,154.1,134.4,8.0,0.345,balanced
-"Edgbaston, Birmingham",19,143.3,123.5,7.46,0.336,balanced
+"Edgbaston, Birmingham",20,146.8,127.5,7.63,0.332,balanced
 Grand Prairie Stadium,12,167.4,144.0,8.18,0.354,batting-friendly
 "Grand Prairie Stadium, Dallas",46,181.5,168.8,9.12,0.325,batting-friendly
-"Headingley, Leeds",19,162.5,146.5,8.09,0.306,batting-friendly
-"Kennington Oval, London",24,145.5,132.9,7.66,0.329,balanced
+"Headingley, Leeds",21,164.6,150.1,8.22,0.295,batting-friendly
+"Kennington Oval, London",25,145.4,133.3,7.66,0.33,balanced
 "Knight Riders Cricket Ground, Pomona",7,132.7,132.3,6.85,0.362,bowling-friendly
-"Lord's, London",23,144.2,129.3,6.96,0.331,bowling-friendly
-"Oakland Coliseum,Oakland",17,183.6,150.2,8.81,0.377,bowling-friendly
-"Old Trafford, Manchester",17,143.9,130.3,7.17,0.337,bowling-friendly
-"Sophia Gardens, Cardiff",20,129.7,121.4,6.94,0.325,bowling-friendly
-"The Rose Bowl, Southampton",21,142.8,129.2,7.18,0.295,bowling-friendly
-"Trent Bridge, Nottingham",20,142.6,135.6,7.1,0.323,bowling-friendly
+"Lord's, London",24,143.9,129.4,6.95,0.333,bowling-friendly
+"Oakland Coliseum,Oakland",21,189.3,161.8,9.18,0.366,batting-friendly
+"Old Trafford, Manchester",18,146.3,128.6,7.17,0.339,bowling-friendly
+"Sophia Gardens, Cardiff",21,131.4,122.9,6.99,0.322,bowling-friendly
+"The Rose Bowl, Southampton",23,141.9,129.6,7.13,0.299,bowling-friendly
+"Trent Bridge, Nottingham",21,143.3,136.8,7.14,0.325,bowling-friendly

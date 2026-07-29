@@ -100,8 +100,6 @@ DateJPN,TimeJPN,GameKindID,GameState,Round,HTeamID,HomeTeamNameE,VTeamID,Visitor
 20260322,1330,5,2,4,4,Dragons,9,Marines,6.0,2.0,,
 20260322,1400,5,2,4,1,Giants,376,Golden Eagles,2.0,6.0,,
 20260322,1400,5,2,3,6,Carp,12,Hawks,5.0,5.0,,
-20260728,1830,4,1,1,16,All Central,15,All Pacific,,,山野,伊藤
-20260729,1830,4,1,2,15,All Pacific,16,All Central,,,,
 20260526,1745,26,2,1,3,Bay Stars,11,Buffaloes,1.0,7.0,平良,九里
 20260526,1800,26,2,1,1,Giants,12,Hawks,3.0,8.0,則本,大津
 20260526,1800,26,2,1,2,Swallows,7,Lions,1.0,2.0,松本健,平良
@@ -990,3 +988,5 @@ DateJPN,TimeJPN,GameKindID,GameState,Round,HTeamID,HomeTeamNameE,VTeamID,Visitor
 20260923,1500,1,1,22,6,Carp,1,Giants,,,,
 20260923,1800,1,1,25,3,Bay Stars,4,Dragons,,,,
 20260924,1800,1,1,23,6,Carp,1,Giants,,,,
+20260728,1830,4,2,1,16,All Central,15,All Pacific,5.0,7.0,山野,伊藤
+20260729,1830,4,1,2,15,All Pacific,16,All Central,,,エスピノーザ,高橋

@@ -1,20 +1,44 @@
 {% extends "base.html" %}
-{% block title %}Metals & Stones Price Prediction Calculator | ML & AI Forecasts{% endblock %}
-{% block description %}Predict metal and gemstone price movements using ML & AI. Calculate investment returns for precious metals, industrial metals, and gemstones. All prices in USD.{% endblock %}
-{% block keywords %}metal price prediction, gold price forecast, silver price prediction, copper price, precious metals investment, industrial metals, gemstone prices, investment calculator, commodity trading, ML price forecasts{% endblock %}
+{% block title %}Metals Price Prediction Calculator | ML & AI Forecasts{% endblock %}
+{% block description %}Predict metal price movements using ML & AI. Calculate investment returns for precious metals and industrial metals. All prices in USD.{% endblock %}
+{% block keywords %}metal price prediction, gold price forecast, silver price prediction, copper price, precious metals investment, industrial metals, investment calculator, commodity trading, ML price forecasts{% endblock %}
 {% block content %}
 
-<div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Commodity Price Prediction Calculator",
+    "name": "Metals Price Prediction Calculator",
+    "description": "ML & AI-powered price forecasts and investment calculator for precious metals (gold, silver, platinum, palladium) and industrial metals (copper, aluminum, steel, zinc, nickel, lithium), with live spot pricing.",
+    "provider": {"@type": "Organization", "name": "Degen Predictions", "url": "https://degenpredictions.com"},
+    "url": "https://degenpredictions.com/metals",
+    "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Degen Predictions", "item": "https://degenpredictions.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Metals", "item": "https://degenpredictions.com/metals"}
+    ]
+}
+</script>
+
+<div style="margin-bottom: 2rem;">
     <a href="/">&larr; Back to categories</a>
-    <a href="/metals/insights" style="color: #c9a961; text-decoration: none; font-weight: 600;">📊 Market Insights →</a>
 </div>
 
-<h1>Metals & Stones Price Prediction Calculator</h1>
-<p class="muted">ML & AI-powered forecasts for precious metals, industrial metals, and gemstones. All prices in USD.</p>
-<p style="background: rgba(201, 169, 97, 0.1); padding: 1rem; border-left: 3px solid #c9a961; border-radius: 4px; margin-bottom: 2rem;">
-    <strong>Explore commodity trends:</strong>
-    <a href="/metals/insights" style="color: #c9a961; text-decoration: underline;">View market insights & price history</a> for all metals.
-</p>
+<h1>Metals Price Prediction Calculator</h1>
+<p class="muted">ML & AI-powered forecasts for precious metals and industrial metals, with live spot pricing. All prices in USD.</p>
+
+<h2 style="font-size: 1.1rem; margin-bottom: 0.75rem;">📊 Live Market Prices -- <span id="tv-widget-label">Gold</span></h2>
+<div class="tradingview-widget-container table-wrap" id="tv-widget-container" style="margin-bottom: 0.5rem; overflow: hidden;">
+  <div class="tradingview-widget-container__widget"></div>
+</div>
+<p class="muted" style="font-size: 0.75rem; margin-bottom: 2rem;">Live candlestick chart powered by TradingView, synced to whichever metal you select below -- use the interval picker (top-left of the chart) for 1m/5m/15m/30m/1h/4h/1D and beyond.</p>
 
 <style>
 .metals-period-labels {
@@ -45,22 +69,33 @@
 
         <label style="display: block; margin-bottom: 1rem;">
             <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Category</span>
-            <select id="category" onchange="updateMetals()" style="width: 100%; padding: 0.6rem; border-radius: 4px; border: 2px solid #c9a961; background: var(--card-bg, #1a1a1a); color: inherit; font-size: 0.95rem; cursor: pointer;">
-                <option value="precious">Precious Metals</option>
-                <option value="industrial">Industrial Metals</option>
-                <option value="gemstones">Gemstones</option>
-            </select>
+            <div class="custom-select custom-select-block" id="category-select">
+                <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="custom-select-value">Precious Metals</span>
+                </button>
+                <ul class="custom-select-panel" role="listbox" hidden>
+                    <li role="option" data-value="precious" aria-selected="true">Precious Metals</li>
+                    <li role="option" data-value="industrial">Industrial Metals</li>
+                </ul>
+            </div>
+            <input type="hidden" id="category" value="precious">
         </label>
 
         <label style="display: block; margin-bottom: 1rem;">
-            <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Metal / Stone</span>
-            <select id="metal" style="width: 100%; padding: 0.6rem; border-radius: 4px; border: 2px solid #c9a961; background: var(--card-bg, #1a1a1a); color: inherit; font-size: 0.95rem; cursor: pointer;">
-                {% for metal_name, metal_data in all_metals.items() %}
-                    {% if metal_data.category == 'precious' %}
-                    <option value="{{ metal_name }}">{{ metal_name }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select>
+            <span style="display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500;">Metal</span>
+            <div class="custom-select custom-select-block" id="metal-select">
+                <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="custom-select-value">{{ default_metal }}</span>
+                </button>
+                <ul class="custom-select-panel" role="listbox" hidden>
+                    {% for metal_name, metal_data in all_metals.items() %}
+                        {% if metal_data.category == 'precious' %}
+                        <li role="option" data-value="{{ metal_name }}"{% if metal_name == default_metal %} aria-selected="true"{% endif %}>{{ metal_name }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <input type="hidden" id="metal" value="{{ default_metal }}">
         </label>
 
         <label style="display: block; margin-bottom: 1rem;">
@@ -99,18 +134,69 @@
 <script>
 const allMetals = {{ all_metals|tojson }};
 
+const METAL_TO_TV_SYMBOL = {
+    'Gold': 'TVC:GOLD',
+    'Silver': 'TVC:SILVER',
+    'Platinum': 'TVC:PLATINUM',
+    'Palladium': 'TVC:PALLADIUM',
+    'Copper': 'PEPPERSTONE:COPPER',
+    'Aluminum': 'CAPITALCOM:ALUMINUM',
+    'Steel': 'COMEX:HRC1!',
+    'Zinc': 'PEPPERSTONE:ZINC',
+    'Nickel': 'CAPITALCOM:NICKEL',
+    'Lithium': 'AMEX:LIT',
+};
+const TV_WATCHLIST = [
+    "TVC:GOLD", "TVC:SILVER", "TVC:PLATINUM", "TVC:PALLADIUM",
+    "PEPPERSTONE:COPPER", "CAPITALCOM:ALUMINUM", "COMEX:HRC1!", "CAPITALCOM:NICKEL", "PEPPERSTONE:ZINC"
+];
+
+function loadTradingViewWidget(metalName) {
+    const symbol = METAL_TO_TV_SYMBOL[metalName] || 'TVC:GOLD';
+    document.getElementById('tv-widget-label').textContent = metalName;
+
+    const container = document.getElementById('tv-widget-container');
+    container.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
+
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+    script.async = true;
+    script.text = JSON.stringify({
+        width: "100%",
+        height: "600",
+        symbol: symbol,
+        interval: "60",
+        timezone: "Etc/UTC",
+        theme: "dark",
+        style: "1",
+        locale: "en",
+        toolbar_bg: "#0a0e27",
+        withdateranges: true,
+        hide_side_toolbar: false,
+        allow_symbol_change: true,
+        details: true,
+        calendar: false,
+        watchlist: TV_WATCHLIST,
+        support_host: "https://www.tradingview.com"
+    });
+    container.appendChild(script);
+}
+
 function updateMetals() {
     const category = document.getElementById('category').value;
-    const metalSelect = document.getElementById('metal');
-    metalSelect.innerHTML = '';
-    for (const [name, data] of Object.entries(allMetals)) {
-        if (data.category === category) {
-            const option = document.createElement('option');
-            option.value = name;
-            option.textContent = name + ' (' + data.unit + ')';
-            metalSelect.appendChild(option);
-        }
-    }
+    const options = Object.entries(allMetals)
+        .filter(([name, data]) => data.category === category)
+        .map(([name, data]) => ({ value: name, label: name + ' (' + data.unit + ')' }));
+    setCustomSelectOptions('metal-select', options);
+    document.getElementById('metal').value = options.length ? options[0].value : '';
+    onMetalOrCategoryChange();
+}
+
+function onMetalOrCategoryChange() {
+    const metalName = document.getElementById('metal').value;
+    loadTradingViewWidget(metalName);
+    calculatePrice();
 }
 
 function updatePeriodDisplay() {
@@ -197,6 +283,17 @@ function displayResults(result) {
 window.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById('calculate-btn');
     if (btn) btn.addEventListener('click', calculatePrice);
+
+    initCustomSelect('category-select', (value) => {
+        document.getElementById('category').value = value;
+        updateMetals();
+    });
+    initCustomSelect('metal-select', (value) => {
+        document.getElementById('metal').value = value;
+        onMetalOrCategoryChange();
+    });
+
+    loadTradingViewWidget(document.getElementById('metal').value);
     calculatePrice();
 });
 </script>

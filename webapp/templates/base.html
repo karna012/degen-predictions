@@ -14,8 +14,8 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9692020533590575"
      crossorigin="anonymous"></script>
     <title>{% block title %}Degen Predictions - ML & AI Sports, Crypto, Stocks, Real Estate & Metals Forecasts{% endblock %}</title>
-    <meta name="description" content="{% block description %}Free ML & AI predictions for sports, crypto, stocks, Dubai real estate, and metals & gemstones. Ensemble ML models trained on historical data with AI-enhanced validation and market cycles.{% endblock %}">
-    <meta name="keywords" content="{% block keywords %}machine learning predictions, ML predictions, AI predictions, football predictions, crypto predictions, stock predictions, Dubai real estate ROI, metals prediction, gold price forecast, silver forecast, gemstone prices, property investment calculator, sports forecasting, cryptocurrency rankings, stock market predictions, real estate valuation, commodity forecasting, ensemble models{% endblock %}">
+    <meta name="description" content="{% block description %}Free ML & AI predictions for sports, crypto, stocks, Dubai real estate, and metals. Ensemble ML models trained on historical data with AI-enhanced validation and market cycles.{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}machine learning predictions, ML predictions, AI predictions, football predictions, crypto predictions, stock predictions, Dubai real estate ROI, metals prediction, gold price forecast, silver forecast, property investment calculator, sports forecasting, cryptocurrency rankings, stock market predictions, real estate valuation, commodity forecasting, ensemble models{% endblock %}">
     <link rel="canonical" href="{% block canonical %}https://degenpredictions.com{{ request.path }}{% endblock %}">
 
     <meta property="og:site_name" content="Degen Predictions">
@@ -35,7 +35,7 @@
         "@type": "WebSite",
         "name": "Degen Predictions",
         "url": "https://degenpredictions.com",
-        "description": "Free ML & AI-powered predictions for sports, cryptocurrency, stocks, Dubai real estate, and metals & gemstones. Ensemble ML models trained on historical data with AI-enhanced walk-forward validation.",
+        "description": "Free ML & AI-powered predictions for sports, cryptocurrency, stocks, Dubai real estate, and metals. Ensemble ML models trained on historical data with AI-enhanced walk-forward validation.",
         "potentialAction": {
             "@type": "SearchAction",
             "target": "https://degenpredictions.com/search?q={search_term_string}",
@@ -50,13 +50,13 @@
         "name": "Degen Predictions",
         "url": "https://degenpredictions.com",
         "logo": "https://degenpredictions.com/static/logo.png",
-        "description": "ML & AI-powered prediction platform for sports, crypto, stocks, real estate, and metals & gemstones",
+        "description": "ML & AI-powered prediction platform for sports, crypto, stocks, real estate, and metals",
         "sameAs": ["https://twitter.com/degenpredictions"],
         "service": [
             {
                 "@type": "Service",
                 "name": "Sports Predictions",
-                "description": "ML & AI-powered football and baseball match predictions using ensemble models",
+                "description": "ML & AI-powered football, baseball, and cricket match predictions using ensemble models",
                 "url": "https://degenpredictions.com/sports"
             },
             {
@@ -79,8 +79,8 @@
             },
             {
                 "@type": "Service",
-                "name": "Metals & Gemstones Price Predictions",
-                "description": "ML & AI price forecasts for precious metals (gold, silver, platinum), industrial metals (copper, lithium, nickel), and gemstones. Investment calculators with market cycle multipliers.",
+                "name": "Metals Price Predictions",
+                "description": "ML & AI price forecasts for precious metals (gold, silver, platinum, palladium) and industrial metals (copper, aluminum, steel, zinc, nickel, lithium), with live spot pricing and market cycle multipliers.",
                 "url": "https://degenpredictions.com/metals"
             }
         ]
@@ -111,7 +111,7 @@
             <a href="/crypto">Crypto</a>
             <a href="/stocks">Stocks</a>
             <a href="/dubai">Dubai Real Estate</a>
-            <a href="/metals">Metals & Stones</a>
+            <a href="/metals">Metals</a>
             {% if accounts_enabled %}
                 {% if current_user.is_authenticated %}
                 <a href="/logout">Log Out ({{ current_user.name }})</a>
@@ -144,10 +144,10 @@
     </main>
     <footer class="site-footer">
         <p class="footer-disclaimer">
-            Degen Predictions is an educational/research project covering sports, crypto, stocks, and Dubai real estate.
+            Degen Predictions is an educational/research project covering sports, crypto, stocks, Dubai real estate, and metals.
             Predictions and rankings are generated from historical data using machine learning (ML) and AI models --
             they are estimates, not certainties, and can be wrong. Nothing on this site is betting advice,
-            financial/investment advice, or real estate investment advice. This site does not promote or facilitate
+            financial/investment advice, or real estate/commodity investment advice. This site does not promote or facilitate
             sports betting, gambling, trading, or real estate transactions.
         </p>
         <div class="footer-links">
@@ -161,8 +161,9 @@
             <span class="footer-sep">&middot;</span>
             <a href="/feedback">Feedback</a>
             <span class="footer-sep">&middot;</span>
-            <span class="footer-copyright">&copy; {{ current_year }} Degen Predictions. All rights reserved.</span>
+            <a href="/faq">FAQ</a>
         </div>
+        <p class="footer-copyright">&copy; {{ current_year }} Degen Predictions. All rights reserved.</p>
     </footer>
 
     <div id="donate-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; padding:1rem;">
@@ -176,17 +177,20 @@
                 optional and used responsibly; the site remains free for everyone either way.
             </p>
 
-            <label for="donate-coin-select" style="display:block; margin:1rem 0 0.4rem; font-weight:600;">Choose a cryptocurrency</label>
-            <select id="donate-coin-select" onchange="renderDonateCoin(this.value)"
-                    style="width:100%; padding:0.6rem 0.8rem; border-radius:8px; border:1px solid var(--border, #444); background:var(--card-bg, #1a1a1a); color:inherit; font-size:0.95rem;">
-                <option value="">-- Select --</option>
-                <option value="btc">BTC -- Bitcoin</option>
-                <option value="eth">ETH -- Ethereum (ERC-20)</option>
-                <option value="bnb">BNB (BEP-20)</option>
-                <option value="usdt">USDT (ERC-20)</option>
-                <option value="usdc">USDC (ERC-20)</option>
-                <option value="sol">SOL -- Solana</option>
-            </select>
+            <label style="display:block; margin:1rem 0 0.4rem; font-weight:600;">Choose a cryptocurrency</label>
+            <div class="custom-select custom-select-block" id="donate-coin-select">
+                <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="custom-select-value">-- Select --</span>
+                </button>
+                <ul class="custom-select-panel" role="listbox" hidden>
+                    <li role="option" data-value="btc">BTC -- Bitcoin</li>
+                    <li role="option" data-value="eth">ETH -- Ethereum (ERC-20)</li>
+                    <li role="option" data-value="bnb">BNB (BEP-20)</li>
+                    <li role="option" data-value="usdt">USDT (ERC-20)</li>
+                    <li role="option" data-value="usdc">USDC (ERC-20)</li>
+                    <li role="option" data-value="sol">SOL -- Solana</li>
+                </ul>
+            </div>
 
             <div id="donate-coin-detail" style="display:none; margin-top:1.25rem; text-align:center;">
                 <p style="font-weight:600; margin-bottom:0.75rem;">
@@ -252,6 +256,12 @@
 
         document.getElementById("donate-modal-overlay").addEventListener("click", function (e) {
             if (e.target === this) closeDonateModal();
+        });
+
+        /* initCustomSelect is defined in the deferred static/custom-select.js
+           -- wait for DOMContentLoaded so it's guaranteed loaded first. */
+        document.addEventListener("DOMContentLoaded", () => {
+            initCustomSelect("donate-coin-select", renderDonateCoin);
         });
     </script>
 
@@ -329,5 +339,6 @@
     <script defer src="{{ url_for('static', filename='react.production.min.js') }}?v={{ static_version('react.production.min.js') }}"></script>
     <script defer src="{{ url_for('static', filename='react-dom.production.min.js') }}?v={{ static_version('react-dom.production.min.js') }}"></script>
     <script defer src="{{ url_for('static', filename='space-bg.js') }}?v={{ static_version('space-bg.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='custom-select.js') }}?v={{ static_version('custom-select.js') }}"></script>
 </body>
 </html>

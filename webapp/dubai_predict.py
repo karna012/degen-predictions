@@ -8,6 +8,7 @@ Provides:
 """
 import os
 import sys
+import json
 import joblib
 import pandas as pd
 import numpy as np
@@ -16,6 +17,7 @@ from typing import Dict, Optional
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_DIR = os.path.join(BASE_DIR, "model", "dubai")
 DATA_DIR = os.path.join(BASE_DIR, "data", "dubai")
+LIVE_PRICES_PATH = os.path.join(DATA_DIR, "live_prices.json")
 
 # Predefined Dubai areas with infrastructure-based development model
 DUBAI_AREAS = {
@@ -105,6 +107,59 @@ BEDROOM_CONFIGS = {
     "4br": {"name": "4 Bedrooms", "avg_sqft": 2500},
     "5br": {"name": "5+ Bedrooms", "avg_sqft": 3500},
 }
+
+_live_prices_cache = {"mtime": None, "payload": None}
+
+def _load_live_prices() -> Optional[Dict]:
+    """
+    Real current AED/sqft sale + rent figures, refreshed daily by
+    automation.data_fetchers.RealEstateDataFetcher from actual DLD-registered
+    transactions (not synthetic data). Returns None if the cache file
+    doesn't exist yet or is unreadable, so callers fall back to the static
+    DUBAI_AREAS estimates below instead of crashing.
+    """
+    try:
+        mtime = os.path.getmtime(LIVE_PRICES_PATH)
+    except OSError:
+        return None
+    if _live_prices_cache["mtime"] != mtime:
+        try:
+            with open(LIVE_PRICES_PATH) as f:
+                _live_prices_cache["payload"] = json.load(f)
+            _live_prices_cache["mtime"] = mtime
+        except (OSError, ValueError):
+            return None
+    return _live_prices_cache["payload"]
+
+def _effective_area_data(area_key: str) -> Dict:
+    """DUBAI_AREAS defaults, overridden with live sale/rent prices for this area when available."""
+    area_data = dict(DUBAI_AREAS[area_key])
+    live = _load_live_prices()
+    live_area = (live or {}).get("areas", {}).get(area_key)
+    if live_area:
+        if "avg_price_per_sqft" in live_area:
+            area_data["avg_price_per_sqft"] = live_area["avg_price_per_sqft"]
+        if "avg_rent_per_sqft_annual" in live_area:
+            area_data["avg_rent_per_sqft_annual"] = live_area["avg_rent_per_sqft_annual"]
+        if "trailing_12m_appreciation" in live_area:
+            # Real trailing-12-month rate from actual sale transactions,
+            # replacing the hand-set default. infrastructure_factor /
+            # metro_proximity / development_phase still apply on top of
+            # this as a forward-looking adjustment -- see
+            # RealEstateDataFetcher's docstring for why that's not fake data.
+            area_data["base_appreciation_annual"] = live_area["trailing_12m_appreciation"]
+        area_data["prices_source"] = "live"
+        area_data["prices_last_updated"] = live.get("last_updated")
+    else:
+        area_data["prices_source"] = "estimate"
+        area_data["prices_last_updated"] = None
+    return area_data
+
+def get_live_prices_updated_at() -> Optional[str]:
+    """ISO timestamp of the last successful live price refresh, or None if it hasn't run yet."""
+    live = _load_live_prices()
+    return live.get("last_updated") if live else None
+
 
 def _calculate_infrastructure_appreciation_multiplier(area_data: Dict, property_type: str, holding_period_years: float) -> float:
     """
@@ -216,7 +271,7 @@ def predict_roi(
     if area not in DUBAI_AREAS or property_type not in PROPERTY_TYPES or bedroom_config not in BEDROOM_CONFIGS:
         return {"error": "Invalid area, property type, or bedroom config"}
 
-    area_data = DUBAI_AREAS[area]
+    area_data = _effective_area_data(area)
     bedroom_data = BEDROOM_CONFIGS[bedroom_config]
     holding_period_years = holding_period_months / 12
 
@@ -235,8 +290,17 @@ def predict_roi(
     infrastructure_multiplier = _calculate_infrastructure_appreciation_multiplier(
         area_data, property_type, holding_period_years
     )
-    # Adjusted appreciation = base rate * infrastructure multiplier (but cap at reasonable limits)
-    adjusted_appreciation_rate = min(base_appreciation_rate * infrastructure_multiplier, 0.20)  # Cap at 20% annual
+    # The multiplier is a growth tailwind (metro/development-phase catalysts) --
+    # it should boost a positive base rate, not amplify a negative one (that
+    # can happen now that base_appreciation_annual may be a real, sometimes
+    # negative, trailing-12mo rate rather than always a hand-picked positive
+    # estimate). So only apply it when the base rate is positive, then clamp
+    # the result to a sane band either way.
+    if base_appreciation_rate > 0:
+        adjusted_appreciation_rate = base_appreciation_rate * infrastructure_multiplier
+    else:
+        adjusted_appreciation_rate = base_appreciation_rate
+    adjusted_appreciation_rate = max(-0.15, min(adjusted_appreciation_rate, 0.20))  # Clamp to [-15%, 20%] annual
 
     property_value_after = adjusted_property_value * ((1 + adjusted_appreciation_rate) ** holding_period_years)
     capital_appreciation = property_value_after - adjusted_property_value
@@ -296,11 +360,27 @@ def predict_roi(
         "data_confidence": "high",
         "market_outlook": infrastructure_outlooks.get(area, "Market data available."),
         "disclaimer": "Predictions based on linear infrastructure development patterns. Actual returns depend on market conditions, property maintenance, rental demand, and economic changes.",
+
+        "prices_source": area_data["prices_source"],
+        "prices_last_updated": area_data["prices_last_updated"],
     }
 
 def get_areas_list():
     """Return list of Dubai areas for UI dropdown."""
     return {k: v["name"] for k, v in DUBAI_AREAS.items()}
+
+def get_areas_summary():
+    """Quick-reference comparison of all 7 areas for the calculator page."""
+    return [
+        {
+            "name": v["name"],
+            "price_per_sqft": v["avg_price_per_sqft"],
+            "development_phase": v["development_phase"].replace("-", " ").title(),
+            "metro_proximity": v["metro_proximity"].replace("_", " ").title(),
+            "prices_source": v["prices_source"],
+        }
+        for v in (_effective_area_data(k) for k in DUBAI_AREAS)
+    ]
 
 def get_property_types_list():
     """Return list of property types for UI dropdown."""

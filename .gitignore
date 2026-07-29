@@ -26,4 +26,5 @@ webapp/deposit_config.json
 webapp/__pycache__/
 scripts/__pycache__/
 webapp/tests/__pycache__/
+automation/__pycache__/
 .pytest_cache/

@@ -1,0 +1,9 @@
+[Unit]
+Description=Degen Predictions - daily Dubai real estate price refresh (real transactions)
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Degen_predictions
+EnvironmentFile=/home/ubuntu/Degen_predictions/deploy/production.env
+ExecStart=/home/ubuntu/Degen_predictions/deploy/refresh_dubai_prices.sh

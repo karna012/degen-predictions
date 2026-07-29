@@ -20,6 +20,8 @@ import sentiment
 import live_predict
 import dubai_predict
 import metals_predict
+from llms_txt_content import LLMS_TXT
+from tv_symbols import CRYPTO_TV_SYMBOLS, STOCK_TV_SYMBOLS
 from fotmob_lineup import get_live_matchday_info
 from live_predict import predict_fixture_live
 from mlb_fixtures import get_fixtures as get_mlb_fixtures
@@ -505,7 +507,8 @@ def crypto_rankings():
     crypto_df = df[df["asset_class"] == "crypto"].sort_values("rank_within_asset_class") \
         if not df.empty else df
     return render_template("investment_rankings.html", rows=crypto_df.to_dict(orient="records"),
-                            category="crypto", category_label="Crypto", back_href="/")
+                            category="crypto", category_label="Crypto", back_href="/",
+                            tv_symbol_map=CRYPTO_TV_SYMBOLS)
 
 
 @app.route("/crypto/asset/<ticker>")
@@ -533,7 +536,8 @@ def stocks_market_rankings(market):
         if not df.empty else df
     label = "US Stocks" if market == "us" else "India Stocks"
     return render_template("investment_rankings.html", rows=market_df.to_dict(orient="records"),
-                            category=f"stocks/{market}", category_label=label, back_href="/stocks")
+                            category=f"stocks/{market}", category_label=label, back_href="/stocks",
+                            tv_symbol_map=STOCK_TV_SYMBOLS)
 
 
 @app.route("/stocks/<market>/asset/<ticker>")
@@ -552,10 +556,19 @@ def stocks_asset_detail(market, ticker):
 
 @app.route("/dubai")
 def dubai_landing():
+    updated_at_raw = dubai_predict.get_live_prices_updated_at()
+    prices_updated_at = None
+    if updated_at_raw:
+        try:
+            prices_updated_at = datetime.datetime.fromisoformat(updated_at_raw).strftime("%b %d, %Y %H:%M")
+        except ValueError:
+            prices_updated_at = None
     return render_template("dubai_landing.html",
                           areas=dubai_predict.get_areas_list(),
                           property_types=dubai_predict.get_property_types_list(),
-                          bedroom_configs=dubai_predict.get_bedroom_configs_list())
+                          bedroom_configs=dubai_predict.get_bedroom_configs_list(),
+                          areas_summary=dubai_predict.get_areas_summary(),
+                          prices_updated_at=prices_updated_at)
 
 
 @app.route("/dubai/guide")
@@ -566,12 +579,14 @@ def dubai_guide():
 
 @app.route("/metals")
 def metals_landing():
-    """Metals & Stones price prediction calculator."""
+    """Metals price prediction calculator."""
     categories = metals_predict.get_categories()
     all_metals = metals_predict.get_all_metals()
+    default_metal = next(name for name, data in all_metals.items() if data["category"] == "precious")
     return render_template("metals_landing.html",
                           categories=categories,
-                          all_metals=all_metals)
+                          all_metals=all_metals,
+                          default_metal=default_metal)
 
 
 @app.route("/metals/api/predict", methods=["POST"])
@@ -590,7 +605,11 @@ def metals_predict_api():
 def metals_insights():
     """Market insights for metals and stones."""
     market_stats = metals_predict.get_market_stats()
-    return render_template("metals_insights.html", market_stats=market_stats)
+    return render_template(
+        "metals_insights.html",
+        market_stats=market_stats,
+        price_last_updated=metals_predict.PRICE_LAST_UPDATED,
+    )
 
 
 @app.route("/dubai/api/calculate", methods=["POST"])
@@ -1092,17 +1111,24 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/faq")
+def faq():
+    return render_template("faq.html")
+
+
 @app.route("/feedback", methods=["GET", "POST"])
 def feedback_page():
     if request.method == "POST":
         if request.form.get("website"):  # honeypot -- real users never fill this in
             return redirect("/feedback")
+        name = request.form.get("name", "").strip()
+        email = request.form.get("email", "").strip()
         message = request.form.get("message", "").strip()
-        if not message:
-            flash("Please enter a message before submitting.", "error")
+        if not name or not email or not message:
+            flash("Name, email, and feedback are all required.", "error")
             return redirect("/feedback")
         feedback.submit_feedback(
-            name=request.form.get("name", ""), email=request.form.get("email", ""),
+            name=name, email=email,
             message=message, page=request.form.get("page", ""), ip=get_client_ip(),
         )
         flash("Thanks for the feedback -- it's been sent.", "success")
@@ -1217,6 +1243,13 @@ def ads_txt():
     return Response(body, mimetype="text/plain")
 
 
+@app.route("/llms.txt")
+def llms_txt():
+    """Plain-text site summary for AI crawlers/generative engines (GEO),
+    following the llmstxt.org convention."""
+    return Response(LLMS_TXT, mimetype="text/plain")
+
+
 SITEMAP_CACHE_PATH = os.path.join(WEBAPP_DIR, "sitemap_cache.xml")
 SITEMAP_CACHE_TTL_SECONDS = 1200  # 20 min
 
@@ -1226,6 +1259,7 @@ def _build_sitemap_xml():
         "", "terms", "privacy", "contact", "feedback", "mlb/fixtures", "npb/fixtures",
         "hundred/fixtures", "hundred/results", "mlc/fixtures", "mlc/results",
         "sports", "sports/soccer", "sports/baseball", "sports/cricket", "crypto", "stocks", "stocks/us", "stocks/india",
+        "dubai", "dubai/guide", "metals",
     ]
     urls = [f"{SITE_URL}/{p}" for p in static_pages]
     for key in LEAGUES:

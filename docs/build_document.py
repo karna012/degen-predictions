@@ -156,7 +156,12 @@ toc_items = [
     "7. Automation -- What Runs Automatically, Where, and When",
     "8. Incident History -- What Went Wrong and How It Was Fixed",
     "9. Mobile & Design Fixes -- A Running Log",
-    "10. Glossary -- Plain-English Definitions of Every Technical Term Used",
+    "10. Live Market Data -- Real Prices From TradingView & Yahoo Finance",
+    "11. Crypto & Stocks -- Live Charts and the Click-to-Sync Feature",
+    "12. SEO, AEO & GEO -- How the Site Gets Found",
+    "13. Version Control -- GitHub, Licensing, and Repository History",
+    "14. Second Bug-Fix Wave -- Sticky Header, Widget Overlap, and More",
+    "15. Glossary -- Plain-English Definitions of Every Technical Term Used",
 ]
 for item in toc_items:
     bullet(item)
@@ -225,13 +230,22 @@ para(
     "after about 10 years, once an area matures and the construction boom settles down."
 )
 
-heading("Metals & Stones", level=2)
+heading("Metals", level=2)
 para(
-    "A similar calculator for precious metals (gold, silver, platinum, palladium), industrial "
-    "metals (copper, aluminum, lithium, etc.), and gemstones (diamond, ruby, emerald, sapphire). "
-    "Enter an investment amount and a holding period (6 months to 25 years); it returns a "
-    "forecasted price and total return, adjusted by a market-cycle multiplier based on how "
-    "volatile that metal historically is."
+    "A calculator for precious metals (gold, silver, platinum, palladium) and industrial metals "
+    "(copper, aluminum, steel, zinc, nickel, lithium). Enter an investment amount and a holding "
+    "period (6 months to 25 years); it returns a forecasted price and total return, adjusted by "
+    "a market-cycle multiplier based on how volatile that metal historically is. A live "
+    "TradingView candlestick chart sits above the calculator, switching to whichever metal is "
+    "currently selected."
+)
+para(
+    "Gemstones (diamond, ruby, emerald, sapphire) were removed from this category entirely -- "
+    "unlike metals, gemstones have no single quoted market price (a \"1-carat diamond\" varies "
+    "100x in price by cut/color/clarity grading), so there was no way to source real, verifiable "
+    "current pricing for them. Rather than show an invented number, the category was simplified "
+    "to only what has real, checkable data behind it.",
+    italic=True
 )
 
 doc.add_page_break()
@@ -501,9 +515,225 @@ para(
 doc.add_page_break()
 
 # =============================================================================
-# SECTION 10 -- GLOSSARY
+# SECTION 10 -- LIVE MARKET DATA
 # =============================================================================
-heading("10. Glossary -- Plain-English Definitions", level=1)
+heading("10. Live Market Data -- Real Prices From TradingView & Yahoo Finance", level=1)
+para(
+    "Early versions of the Metals calculator used hardcoded prices that were only accurate on "
+    "the day they were typed in -- by the time real gold was trading near $4,000/oz, the "
+    "calculator was still showing $2,050. This section covers how that was fixed with genuinely "
+    "live data, and exactly which metals still can't be (with the real reason why, not a guess)."
+)
+add_image("07_live_market_data.png", caption="Figure 7 -- Where each metal's price actually comes from.")
+
+heading("10.1 Two real data sources, verified directly", level=2)
+para(
+    "Rather than trust an API's documentation, every symbol used here was tested by directly "
+    "querying the provider and confirming it returns real, current, non-empty price data:"
+)
+bullet(
+    "TradingView's public scanner API (scanner.tradingview.com) -- the same backend the page's "
+    "own live chart widget reads from. Used for Gold, Silver, Platinum, Palladium, Copper, and Steel."
+)
+bullet(
+    "Yahoo Finance's chart API (query1.finance.yahoo.com) -- a fallback for Aluminum, which "
+    "TradingView's free-tier scanner won't resolve without a paid account."
+)
+para(
+    "Zinc, Nickel, and Lithium have no free live source anywhere -- this was tested directly "
+    "(including trying 4 different TradingView \"scanner regions\": global, cfd, america, forex) "
+    "before concluding this, not assumed. These three stay as periodically hand-updated "
+    "benchmarks, clearly labelled as such on the Market Insights page.",
+    italic=True
+)
+
+heading("10.2 How it reaches the website", level=2)
+numbered("The daily automation job (Section 7) fetches fresh prices from both sources and writes them to data/metals/current_prices.json.")
+numbered("metals_predict.py reads that file at request time and overlays live prices onto its static defaults -- if the file is missing or a specific metal failed to fetch that day, the static value is used instead, so the calculator never breaks.")
+numbered("The result: 7 of the calculator's metals refresh automatically every day with zero manual work.")
+
+doc.add_page_break()
+
+# =============================================================================
+# SECTION 11 -- CRYPTO & STOCKS LIVE CHARTS
+# =============================================================================
+heading("11. Crypto & Stocks -- Live Charts and the Click-to-Sync Feature", level=1)
+para(
+    "The Crypto, US Stocks, and India Stocks ranking pages each got the same live-chart "
+    "treatment as Metals -- a candlestick chart above the rankings table that switches to "
+    "whichever asset you click on."
+)
+add_image("08_crypto_stocks_widget.png", caption="Figure 8 -- How clicking a row updates the chart.")
+
+heading("11.1 Building a verified ticker map -- not a guess", level=2)
+para(
+    "The site's crypto and stock data uses tickers from CoinGecko (e.g. \"ondo-finance\") and "
+    "standard stock symbols (e.g. \"AAPL\", \"RELIANCE.NS\"). None of these are guaranteed to "
+    "match TradingView's own symbol format, so every single one was checked programmatically "
+    "against TradingView's live API before being added to the map used on the site:"
+)
+add_table(
+    headers=["Category", "Total Tickers", "Resolved on TradingView", "Why the gap (if any)"],
+    rows=[
+        ("Crypto", "60", "50 (83%)", "10 are tokenized institutional fund/RWA products (e.g. BlackRock's BUIDL, "
+                                       "Hashnote's USYC) with no real exchange listing to source a price from."),
+        ("US + India Stocks", "553", "553 (100%)", "No gaps -- two tricky edge cases needed manual "
+                                                     "correction (CBOE trades on an exchange literally "
+                                                     "named CBOE; India's Bajaj Auto uses an underscore, "
+                                                     "not a dash, on the NSE)."),
+    ]
+)
+para(
+    "This map lives in webapp/tv_symbols.py, with the verification method documented directly "
+    "in the file's own comments."
+)
+
+heading("11.2 A real bug worth recording: quoting inside HTML attributes", level=2)
+para(
+    "The first version of this feature appeared broken -- clicking any row always reloaded the "
+    "same first asset, no matter what was clicked. The cause: the ticker was inserted into the "
+    "row's onclick attribute using Flask's tojson filter, e.g. onclick=\"loadAssetWidget({{ ticker"
+    "|tojson }})\". Flask's tojson deliberately skips extra escaping because it's designed for use "
+    "inside <script> blocks -- but here it was used inside an HTML attribute instead, so the raw "
+    "quote characters in the output (\"zcash\") collided with the attribute's own quotes and cut "
+    "it short: onclick=\"loadAssetWidget(\". Every row's click handler was silently truncated the "
+    "same way.",
+)
+para(
+    "Fix: moved the ticker into its own data-tv-ticker=\"...\" attribute (plain HTML escaping, not "
+    "tojson) and read it back with this.dataset.tvTicker inside the click handler instead of "
+    "embedding it directly in the onclick call.",
+    bold=True
+)
+
+doc.add_page_break()
+
+# =============================================================================
+# SECTION 12 -- SEO, AEO & GEO
+# =============================================================================
+heading("12. SEO, AEO & GEO -- How the Site Gets Found", level=1)
+para(
+    "Three related but distinct goals: ranking in traditional search (SEO), getting quoted in "
+    "featured snippets and voice assistant answers (AEO -- Answer Engine Optimization), and "
+    "being cited directly by AI chat tools like ChatGPT or Perplexity (GEO -- Generative Engine "
+    "Optimization). The site was audited and updated across all three."
+)
+add_image("09_seo_aeo_geo.png", caption="Figure 9 -- One set of content, three different audiences.")
+
+heading("12.1 SEO fixes", level=2)
+bullet("The sitemap was missing /dubai, /dubai/guide, /metals, and /metals/insights entirely -- these are among the newest, most-featured pages on the site, and search engines had no crawl signal pointing to them at all.")
+bullet("Deleted a dead, unused duplicate sitemap generator left over from an earlier refactor.")
+bullet("Added Service, BreadcrumbList, and ItemList structured data (JSON-LD, a standard search engines read directly) to every major calculator and rankings page.")
+bullet("Fixed a footer disclaimer and several meta descriptions that still didn't mention Metals at all, months after that category launched.")
+
+heading("12.2 AEO -- visible FAQ sections with FAQPage schema", level=2)
+para(
+    "The Homepage, Dubai, and Metals pages each got a short, direct Q&A section (e.g. \"How is "
+    "Dubai real estate ROI calculated?\") marked up with FAQPage schema. This structure is what "
+    "Google pulls directly into featured snippets, and what voice assistants read aloud verbatim "
+    "-- the same content serves both a human skimming the page and a search engine's snippet "
+    "extractor."
+)
+
+heading("12.3 GEO -- llms.txt", level=2)
+para(
+    "Created /llms.txt, following the emerging llmstxt.org convention -- a clean, structured, "
+    "plain-text map of every page and what it does, aimed specifically at AI crawlers (ChatGPT, "
+    "Perplexity, Claude, Gemini) rather than traditional search bots. The goal: when someone asks "
+    "an AI assistant \"what's a good Dubai ROI calculator,\" the assistant can read this file "
+    "directly instead of having to guess from a rendered page."
+)
+
+doc.add_page_break()
+
+# =============================================================================
+# SECTION 13 -- VERSION CONTROL
+# =============================================================================
+heading("13. Version Control -- GitHub, Licensing, and Repository History", level=1)
+para(
+    "This project began as a clone of a public GitHub repository (a different developer's "
+    "single-sport football prediction project). Over the course of development, every piece of "
+    "that original code, data, and trained model was replaced -- the repository was formally "
+    "cleaned up to reflect that reality."
+)
+
+heading("13.1 What was actually inherited from the original clone", level=2)
+para(
+    "A direct comparison against the original project's first commit confirmed: none of its "
+    "data (2016-2021 season CSVs), models (a single XGBoost + single decision tree file), or "
+    "code (its static-HTML-generation scripts) survived. The only genuine remnant was the git "
+    "commit history itself and a remote URL pointing back to the original author's GitHub."
+)
+bullet("All 64 of the original author's files (LICENSE, shell-script automation, the static web/ template, notebooks, old models) were committed as deletions.")
+bullet("All of the actual, currently-live project -- the webapp/ Flask app, training scripts, automation -- was committed for the first time in the same cleanup (it had been sitting as uncommitted local files the entire time before this).")
+bullet("The origin remote pointing to the original author's repository was removed.")
+
+heading("13.2 New private repository", level=2)
+para(
+    "The project was pushed to a brand-new, private GitHub repository under the developer's own "
+    "account, authenticated via GitHub's device-code browser sign-in flow (no token pasted into "
+    "any chat or file). A proprietary \"All Rights Reserved\" LICENSE was added -- deliberately "
+    "not an open-source license like MIT, since a private repository paired with a permissive "
+    "license would be contradictory."
+)
+bullet("Repository visibility confirmed as PRIVATE via the GitHub API -- no one can access it without being explicitly invited as a collaborator.")
+bullet("Every commit is authored under the developer's own name and email, with a \"Co-Authored-By\" trailer crediting the AI assistant -- the standard GitHub convention for AI-assisted commits.")
+
+doc.add_page_break()
+
+# =============================================================================
+# SECTION 14 -- SECOND BUG-FIX WAVE
+# =============================================================================
+heading("14. Second Bug-Fix Wave -- Sticky Header, Widget Overlap, and More", level=1)
+para(
+    "A second round of bugs surfaced after the live-chart and SEO work shipped. Several of these "
+    "were subtle CSS interactions -- the kind where the fix looks like a one-line change, but "
+    "finding the actual cause took real investigation."
+)
+
+add_table(
+    headers=["Symptom", "Root Cause", "Fix"],
+    rows=[
+        ("Sticky header appeared to \"jump\" while scrolling on some devices",
+         "position: sticky combined with backdrop-filter: blur() is a known rendering bug on Safari -- the browser mishandles compositing for blurred sticky elements.",
+         "Forced the header onto its own GPU-composited layer with transform: translateZ(0) and will-change: transform."),
+        ("Header still moved/scrolled away after that first fix",
+         "A separate, larger issue: html, body { overflow-x: hidden } (added earlier to stop stray horizontal scroll) makes body -- instead of the actual viewport -- the \"nearest scrolling ancestor\" that sticky positioning resolves against, breaking it outright.",
+         "Moved overflow-x: hidden to <html> only. Still blocks the same horizontal-scroll bug, without breaking position: sticky anywhere on the page."),
+        ("TradingView chart widgets appeared to overlap the search box, table, or disclaimer popup",
+         "TradingView's embed script builds its chart iframe as position: absolute, expecting the wrapping .tradingview-widget-container to have position: relative -- which the site's CSS never defined. The iframe was positioning itself against the wrong ancestor.",
+         "Added position: relative (and width: 100%) to .tradingview-widget-container as a sitewide rule, fixing every embedded widget at once."),
+        ("Dubai calculator: left input panel had a large empty gap at the bottom",
+         "The two-column layout is a CSS grid with the default align-items: stretch, which force-stretches the shorter input panel to match the much taller results panel.",
+         "Set align-items: start on the grid so each panel sizes to its own content -- then added a genuinely useful 7-area price/infrastructure comparison table to the input panel so the space holds real content, not just a shorter box."),
+        ("Metals category card looked almost identical in color to the Dubai card",
+         "Both used a similar warm gold/tan accent color.",
+         "Gave Metals a distinct cool steel-silver accent color instead."),
+        ("MLB/NPB league badge text (\"MLB\", \"NPB\") overflowed its circular badge on mobile",
+         "The badge circle shrinks from 120px to 70px on mobile, but the text inside kept the desktop font-size.",
+         "Added a mobile-specific smaller font-size and removed letter-spacing for the badge text."),
+        ("Dropdown menus (Dubai, Metals, donation modal) looked like plain grey system popups, inconsistent with the rest of the site",
+         "Native <select> elements only let CSS style the closed box -- the browser renders the opened option list itself and ignores page styling entirely.",
+         "Replaced every native <select> sitewide with the same custom-built dropdown component (already used on the fixtures page), extracted into a shared static/custom-select.js file so all pages stay visually consistent."),
+        ("FAQ content was duplicated across the Homepage, Dubai, and Metals pages, and missing entirely for Crypto/Stocks",
+         "Each page had grown its own local FAQ section independently over time.",
+         "Consolidated everything into one dedicated /faq page (added via the footer, shown on every page), removed the duplicated sections from the individual pages, and added the two categories that had no FAQ coverage at all."),
+    ]
+)
+para(
+    "One more cross-checking note: several category descriptions (footer, homepage cards, structured data, llms.txt) "
+    "said \"football and baseball\" and had quietly fallen out of sync after cricket predictions were added -- "
+    "a reminder that adding a feature in one place doesn't automatically update every other place that describes it. "
+    "All instances were found with a sitewide search and corrected together, not fixed one at a time as each was spotted.",
+    italic=True
+)
+
+doc.add_page_break()
+
+# =============================================================================
+# SECTION 15 -- GLOSSARY
+# =============================================================================
+heading("15. Glossary -- Plain-English Definitions", level=1)
 glossary = [
     ("AI (Artificial Intelligence)", "Broad term for software that performs tasks normally requiring human judgment. Machine Learning is one specific technique used to build AI."),
     ("ML (Machine Learning)", "A program that learns patterns from historical examples (data) instead of being explicitly programmed with fixed rules."),
@@ -522,6 +752,19 @@ glossary = [
     ("Cache / TTL", "A temporary copy of data kept in memory to avoid re-reading files on every single request; TTL (\"Time To Live\") is how long that copy stays valid before it's refreshed."),
     ("Volatility", "A measure of how much an asset's price swings up and down -- higher volatility means bigger, less predictable price movements."),
     ("ROI (Return on Investment)", "The total gain from an investment, shown as a percentage of the amount originally invested."),
+    ("SEO (Search Engine Optimization)", "Practices that help a website rank higher in traditional search results (Google, Bing)."),
+    ("AEO (Answer Engine Optimization)", "Structuring content so it can be lifted directly into a featured snippet or read aloud by a voice assistant, rather than requiring a click-through."),
+    ("GEO (Generative Engine Optimization)", "Structuring content so AI chat tools (ChatGPT, Perplexity, etc.) can find, understand, and cite it directly in their answers."),
+    ("JSON-LD / Schema.org", "A standardized, machine-readable format embedded in a webpage's code that explicitly tells search engines and AI crawlers what the page is about (e.g. \"this is a Service\" or \"this is a list of Questions and Answers\")."),
+    ("Sitemap", "A single file (sitemap.xml) listing every page on a site, submitted to search engines so they know what exists and how often to re-check it."),
+    ("llms.txt", "A plain-text file at a site's root, following an emerging community standard, that gives AI crawlers a clean summary of the site's pages -- the AI equivalent of a sitemap."),
+    ("TradingView", "A financial charting platform. Its free embeddable widgets were used to show live commodity/crypto/stock prices directly on the site, and its public API was used to verify which tickers actually have real listings."),
+    ("CFD (Contract for Difference)", "A financial instrument that tracks an asset's price without the trader owning the underlying asset -- several of TradingView's commodity price feeds are sourced from CFD providers."),
+    ("position: sticky", "A CSS rule that keeps an element (like a navigation bar) pinned to the top of the screen while the rest of the page scrolls beneath it -- it has several well-known browser-specific bugs when combined with other effects like blur."),
+    ("GPU compositing / transform: translateZ(0)", "A technique that forces the browser to render an element on its own hardware-accelerated layer, which incidentally fixes certain rendering bugs (like a sticky header appearing to jump) even though that isn't its primary purpose."),
+    ("Git / GitHub", "Git is the version-control system that tracks every change made to the project's code over time. GitHub is the website that hosts a copy of that history online, privately or publicly."),
+    ("Repository (\"repo\")", "The full folder of project code plus its entire change history, as tracked by Git."),
+    ("Commit", "A single saved snapshot of changes in Git, with an author and a message describing what changed."),
 ]
 for term, definition in glossary:
     p = doc.add_paragraph()

@@ -3,6 +3,25 @@
 {% block description %}{{ category_label }} ranked by predicted 6-month forward return from a walk-forward-validated machine-learning model.{% endblock %}
 {% block keywords %}{% if category == 'crypto' %}crypto predictions, cryptocurrency predictions, best crypto to buy, AI crypto predictions, crypto price prediction, bitcoin prediction, altcoin rankings, crypto investment rankings, crypto forecast 2026{% else %}{{ category_label|lower }} predictions, stock predictions, AI stock predictions, {{ category_label|lower }} rankings, stock forecast, best stocks to invest in, machine learning stock picks{% endif %}{% endblock %}
 {% block content %}
+{% if rows %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": {{ (category_label ~ " -- Predicted 6-Month Ranking")|tojson }},
+    "itemListElement": [
+        {% for r in rows[:10] %}
+        {
+            "@type": "ListItem",
+            "position": {{ r.rank_within_asset_class }},
+            "name": {{ r.ticker|tojson }},
+            "url": {{ ("https://degenpredictions.com/" ~ category ~ "/asset/" ~ r.ticker)|tojson }}
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+}
+</script>
+{% endif %}
 <a href="{{ back_href }}">&larr; Back</a>
 <h1>{{ category_label }} -- Predicted 6-Month Ranking</h1>
 <p class="muted">Ranked by the model's predicted 6-month forward return. Higher rank = higher predicted return,
@@ -53,6 +72,14 @@ function dismissDisclaimer() {
 }
 </script>
 
+{% if tv_symbol_map and rows %}
+<h2 style="font-size: 1.1rem; margin-bottom: 0.75rem;">📊 Live Market Price -- <span id="tv-asset-label">{{ rows[0].ticker }}</span></h2>
+<div class="tradingview-widget-container table-wrap" id="tv-asset-container" style="margin-bottom: 0.5rem; overflow: hidden; min-height: 60px;">
+  <div class="tradingview-widget-container__widget"></div>
+</div>
+<p class="muted" style="font-size: 0.75rem; margin-bottom: 2rem;">Live candlestick chart powered by TradingView -- click any row below to load that asset's chart. Not every ranked asset trades on an exchange TradingView tracks (tokenized fund/RWA products especially) -- those show a notice instead of a chart.</p>
+{% endif %}
+
 {% if rows %}
 <div style="margin:0 0 1rem;">
     <input type="text" id="asset-search" placeholder="Search by ticker (e.g. AAPL, bitcoin)..."
@@ -69,7 +96,7 @@ function dismissDisclaimer() {
     </tr></thead>
     <tbody id="asset-rows">
     {% for r in rows %}
-    <tr data-ticker="{{ r.ticker|lower }}">
+    <tr data-ticker="{{ r.ticker|lower }}" {% if tv_symbol_map %}data-tv-ticker="{{ r.ticker }}" onclick="loadAssetWidget(this.dataset.tvTicker)" style="cursor:pointer;"{% endif %}>
         <td>
             {% if r.logo_url %}
             <img src="{{ r.logo_url }}" alt="" width="24" height="24" style="border-radius:4px; vertical-align:middle;"
@@ -78,7 +105,7 @@ function dismissDisclaimer() {
             <span class="asset-monogram" style="{% if r.logo_url %}display:none;{% else %}display:inline-flex;{% endif %} width:24px; height:24px; border-radius:4px; background:var(--border,#333); align-items:center; justify-content:center; font-size:0.7rem; font-weight:700;">{{ r.ticker[:2]|upper }}</span>
         </td>
         <td>{{ r.rank_within_asset_class }}</td>
-        <td><a href="/{{ category }}/asset/{{ r.ticker }}">{{ r.ticker }}</a></td>
+        <td><a href="/{{ category }}/asset/{{ r.ticker }}" onclick="event.stopPropagation();">{{ r.ticker }}</a></td>
         <td>{{ (r.predicted_forward_return * 100) | round(1) }}%</td>
         <td>{{ (r.predicted_outperform_probability * 100) | round(1) }}%</td>
         <td>{% if r.sentiment_score is not none and r.sentiment_score == r.sentiment_score %}{{ r.sentiment_score | round(2) }} ({{ r.sentiment_headline_count|int }} headlines){% else %}no data{% endif %}</td>
@@ -107,5 +134,59 @@ function filterAssetRows(query) {
         countEl.textContent = q ? `${visible} of ${rows.length} match "${query}"` : "";
     }
 }
+
+{% if tv_symbol_map %}
+// Server-verified ticker -> TradingView symbol map (see webapp/tv_symbols.py
+// for how every entry was confirmed against TradingView's live scanner API).
+// Tickers not in this map have NO TradingView listing at all -- for crypto
+// that's mostly tokenized institutional fund/RWA products (BlackRock BUIDL,
+// Hashnote USYC, Ondo USDY, Global Dollar USDG, etc.); stock coverage is 100%.
+const ASSET_TO_TV_SYMBOL = {{ tv_symbol_map|tojson }};
+
+function loadAssetWidget(ticker) {
+    const symbol = ASSET_TO_TV_SYMBOL[ticker];
+    const container = document.getElementById('tv-asset-container');
+    const label = document.getElementById('tv-asset-label');
+    if (!container) return;
+
+    label.textContent = ticker;
+
+    if (!symbol) {
+        container.style.minHeight = '';
+        container.innerHTML = '<p class="muted" style="padding:1.5rem; margin:0; text-align:center;">⚠️ ' + ticker + ' not found in TradingView -- no exchange TradingView tracks lists this asset (common for tokenized fund/RWA products).</p>';
+        return;
+    }
+
+    container.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+    script.async = true;
+    script.text = JSON.stringify({
+        width: "100%",
+        height: "600",
+        symbol: symbol,
+        interval: "60",
+        timezone: "Etc/UTC",
+        theme: "dark",
+        style: "1",
+        locale: "en",
+        toolbar_bg: "#0a0e27",
+        withdateranges: true,
+        hide_side_toolbar: false,
+        allow_symbol_change: true,
+        details: true,
+        calendar: false,
+        support_host: "https://www.tradingview.com"
+    });
+    container.appendChild(script);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    {% if rows %}
+    loadAssetWidget({{ rows[0].ticker|tojson }});
+    {% endif %}
+});
+{% endif %}
 </script>
 {% endblock %}
