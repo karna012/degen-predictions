@@ -19,7 +19,6 @@
             <div>
                 <h3 style="font-size: 1rem; margin-top: 0; color: #4CAF50;">📊 Market Coverage</h3>
                 <ul style="line-height: 2;">
-                    <li>7 Locations Modeled</li>
                     <li>Downtown Dubai</li>
                     <li>Dubai Marina</li>
                     <li>Business Bay</li>
@@ -46,16 +45,17 @@
             <div>
                 <h3 style="font-size: 1rem; margin-top: 0; color: #4CAF50;">💰 Price Ranges (AED/sqft)</h3>
                 <ul style="line-height: 2;">
-                    <li><strong>Jumeirah:</strong> 6,500</li>
-                    <li><strong>Downtown Dubai:</strong> 5,200</li>
-                    <li><strong>Dubai Marina:</strong> 4,800</li>
-                    <li><strong>Business Bay:</strong> 4,200</li>
-                    <li><strong>Creek Harbour:</strong> 3,800</li>
-                    <li><strong>Al Barsha:</strong> 3,500</li>
-                    <li><strong>South Dubai (Jebel Ali):</strong> 2,800</li>
+                    {% for a in area_summary|sort(attribute="price_per_sqft", reverse=True) %}
+                    <li><strong>{{ a.name }}:</strong> {{ "{:,.0f}".format(a.price_per_sqft) }}</li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
+        {% if prices_updated_at %}
+        <p class="muted" style="font-size: 0.75rem; margin-top: 1rem; margin-bottom: 0;">Prices as of {{ prices_updated_at }}, from real DLD-registered transactions -- refreshed daily.</p>
+        {% else %}
+        <p class="muted" style="font-size: 0.75rem; margin-top: 1rem; margin-bottom: 0;">Showing market estimates -- live price refresh hasn't run yet.</p>
+        {% endif %}
     </section>
 
     <!-- CTA to Calculator -->
@@ -91,16 +91,13 @@
                 <li><strong>Holding Period Modeled:</strong> 6 months to 35 years</li>
             </ul>
 
-            <h3>Top Performing Areas (2025)</h3>
+            <h3>Top Performing Areas (Live Ranking, 2BR Apartment Example)</h3>
             <ul>
-                <li><strong>Creek Harbour:</strong> Emerging master-planned community, upcoming metro extension -- highest appreciation potential (~8%+ base rate, heavy infrastructure multiplier)</li>
-                <li><strong>Al Barsha:</strong> Metro Mall station, continuous flyover/road expansion -- strong infrastructure-driven growth</li>
-                <li><strong>South Dubai (Jebel Ali):</strong> Port expansion, planned metro extension, new islands -- emerging long-term opportunity</li>
-                <li><strong>Business Bay:</strong> Metro-adjacent, active commercial development driving rising appreciation</li>
-                <li><strong>Jumeirah:</strong> Luxury segment, exclusive and established, steadier appreciation with premium rental yields</li>
-                <li><strong>Downtown Dubai:</strong> Mature, central location -- most stable but slowest-growing of the seven</li>
-                <li><strong>Dubai Marina:</strong> Established waterfront community, balanced yield and appreciation</li>
+                {% for a in area_summary %}
+                <li><strong>{{ a.name }}</strong> ({{ "%.1f"|format(a.total_roi_percent) }}% projected 1-year ROI: {{ "%.1f"|format(a.capital_appreciation_percent) }}% appreciation + {{ "%.1f"|format(a.annual_rental_yield_percent) }}% rental yield): {{ a.market_outlook }}</li>
+                {% endfor %}
             </ul>
+            <p class="muted" style="font-size: 0.85rem;">Ranking and figures above use a standard 2BR apartment / 1.5M AED / 12-month holding period example -- your own inputs in the calculator above will differ. Appreciation now reflects each area's real trailing-12-month price trend (not a fixed yearly estimate), so this ranking can shift day to day as new transactions come in.</p>
 
             <h3>Dubai Property Buying Costs -- What to Budget For</h3>
             <p>Beyond the purchase price, buyers should budget for these standard transaction costs (typically 5-9% of the property price in total):</p>

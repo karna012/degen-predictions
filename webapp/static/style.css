@@ -387,12 +387,21 @@ h2 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; marg
 .table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--neon-cyan);
     border-radius: 12px;
     background: var(--card-bg);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 212, 255, 0.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 212, 255, 0.05), 0 0 16px rgba(0, 212, 255, 0.15);
+}
+
+/* Same glowing cyan border as .table-wrap/.card:hover, for the calculator
+   panels on /dubai and /metals (bespoke divs, not tables) -- kept as its
+   own class rather than reusing .table-wrap since these aren't scrollable
+   table containers. */
+.calc-panel {
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 16px rgba(0, 212, 255, 0.15);
 }
 
 /* Wide tables already scroll horizontally (overflow-x above) -- the actual

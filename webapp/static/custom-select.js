@@ -30,10 +30,12 @@ function initCustomSelect(id, onSelect) {
 
     function closePanel() {
         panel.hidden = true;
+        panel.style.display = "none";
         btn.setAttribute("aria-expanded", "false");
     }
     function openPanel() {
         panel.hidden = false;
+        panel.style.display = "";
         btn.setAttribute("aria-expanded", "true");
     }
 

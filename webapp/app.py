@@ -554,27 +554,32 @@ def stocks_asset_detail(market, ticker):
                             category=f"stocks/{market}", category_label=label, back_href=f"/stocks/{market}")
 
 
+def _format_dubai_prices_updated_at():
+    updated_at_raw = dubai_predict.get_live_prices_updated_at()
+    if not updated_at_raw:
+        return None
+    try:
+        return datetime.datetime.fromisoformat(updated_at_raw).strftime("%b %d, %Y %H:%M")
+    except ValueError:
+        return None
+
+
 @app.route("/dubai")
 def dubai_landing():
-    updated_at_raw = dubai_predict.get_live_prices_updated_at()
-    prices_updated_at = None
-    if updated_at_raw:
-        try:
-            prices_updated_at = datetime.datetime.fromisoformat(updated_at_raw).strftime("%b %d, %Y %H:%M")
-        except ValueError:
-            prices_updated_at = None
     return render_template("dubai_landing.html",
                           areas=dubai_predict.get_areas_list(),
                           property_types=dubai_predict.get_property_types_list(),
                           bedroom_configs=dubai_predict.get_bedroom_configs_list(),
                           areas_summary=dubai_predict.get_areas_summary(),
-                          prices_updated_at=prices_updated_at)
+                          prices_updated_at=_format_dubai_prices_updated_at())
 
 
 @app.route("/dubai/guide")
 def dubai_guide():
     """SEO landing page for Dubai investors."""
-    return render_template("dubai_seo.html")
+    return render_template("dubai_seo.html",
+                          area_summary=dubai_predict.get_area_investment_summary(),
+                          prices_updated_at=_format_dubai_prices_updated_at())
 
 
 @app.route("/metals")

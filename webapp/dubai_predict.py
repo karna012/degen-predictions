@@ -323,7 +323,7 @@ def predict_roi(
         "jumeirah": "Luxury segment; exclusive development; steady appreciation; premium rental yields.",
         "al_barsha": "High infrastructure investment; metro proximity; rapid commercial expansion; strong growth.",
         "creek_harbour": "Emerging master-planned community; upcoming metro extension; significant infrastructure build-out; highest growth potential.",
-        "south_dubai": "Planned major infrastructure corridor (Jebel Ali expansion); emerging opportunities; strong long-term appreciation.",
+        "south_Dubai": "Planned major infrastructure corridor (Jebel Ali expansion); emerging opportunities; strong long-term appreciation.",
     }
 
     return {
@@ -389,3 +389,29 @@ def get_property_types_list():
 def get_bedroom_configs_list():
     """Return list of bedroom configurations for UI dropdown."""
     return {k: v["name"] for k, v in BEDROOM_CONFIGS.items()}
+
+def get_area_investment_summary():
+    """
+    Per-area investment summary for the /dubai/guide SEO page, using the
+    exact same predict_roi() calculation the calculator itself shows (a
+    standard 2BR apartment, 1.5M AED, 12-month scenario) rather than
+    separate hardcoded guide copy -- so the guide can't drift out of sync
+    with what the calculator actually displays. Sorted by total ROI
+    descending, for the "Top Performing Areas" ranking.
+    """
+    summaries = []
+    for area_key in DUBAI_AREAS:
+        result = predict_roi(area_key, "apartment", "2br", 1_500_000, 12)
+        summaries.append({
+            "area_key": area_key,
+            "name": result["area"],
+            "price_per_sqft": result["estimated_price_per_sqft"],
+            "annual_rental_yield_percent": result["annual_rental_yield_percent"],
+            "capital_appreciation_percent": result["capital_appreciation_percent"],
+            "total_roi_percent": result["total_roi_percent"],
+            "market_outlook": result["market_outlook"],
+            "development_phase": DUBAI_AREAS[area_key]["development_phase"].replace("-", " ").title(),
+            "prices_source": result["prices_source"],
+        })
+    summaries.sort(key=lambda s: s["total_roi_percent"], reverse=True)
+    return summaries
