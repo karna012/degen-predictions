@@ -1,10 +1,10 @@
-/* Space background, as a React component (React 18 UMD, no JSX/build step --
-   loaded straight in the browser via <script>, using React.createElement).
-   Renders into #react-bg-root and drives the same canvas animation that used
-   to live as a raw IIFE: nebula, Milky Way, stars, sun, moon, planets, comets. */
+/* Space background: a self-contained canvas animation mounted once into
+   #react-bg-root at page load and never torn down (it lives for the page's
+   whole lifetime, so there's no unmount case to handle). Was previously a
+   React component for no functional reason -- plain DOM/canvas setup is
+   simpler and lighter for a mount-once, never-rerender effect like this.
+   Renders: nebula, Milky Way, stars, sun, moon, planets, comets. */
 (function () {
-    const { useEffect, useRef, createElement: h } = React;
-
     /* Real astronomical photos (NASA / public domain, via Wikimedia Commons) --
        used instead of drawn shapes so bodies read as photographic, not cartoon.
        Self-hosted under static/space/ (not fetched from upload.wikimedia.org
@@ -46,13 +46,13 @@
         };
     }
 
-    function SpaceBackground() {
-        const canvasRef = useRef(null);
+    function initSpaceBackground(root) {
+        const canvas = document.createElement("canvas");
+        canvas.className = "bg-canvas";
+        canvas.setAttribute("aria-hidden", "true");
+        root.appendChild(canvas);
 
-        useEffect(() => {
-            const canvas = canvasRef.current;
-            if (!canvas) return undefined;
-            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
             const ctx = canvas.getContext("2d");
 
             let w, h, dpr;
@@ -398,33 +398,20 @@
             window.addEventListener("resize", resize);
             document.addEventListener("visibilitychange", handleVisibility);
 
-            let cancelled = false;
             Promise.all(
                 Object.entries(TEXTURES).map(([key, src]) =>
                     loadImage(src).then((img) => { if (img) images[key] = img; })
                 )
             ).then(() => {
-                if (cancelled) return;
                 if (!running) return;
                 if (rafId === null) rafId = requestAnimationFrame(step);
             });
 
             if (!reduceMotion) rafId = requestAnimationFrame(step);
-
-            return () => {
-                cancelled = true;
-                running = false;
-                if (rafId) cancelAnimationFrame(rafId);
-                window.removeEventListener("resize", resize);
-                document.removeEventListener("visibilitychange", handleVisibility);
-            };
-        }, []);
-
-        return h("canvas", { ref: canvasRef, className: "bg-canvas", "aria-hidden": "true" });
     }
 
     const root = document.getElementById("react-bg-root");
-    if (root && window.React && window.ReactDOM) {
-        ReactDOM.createRoot(root).render(h(SpaceBackground));
+    if (root) {
+        initSpaceBackground(root);
     }
 })();

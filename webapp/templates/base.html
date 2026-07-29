@@ -108,7 +108,10 @@
     <div id="react-bg-root" aria-hidden="true"></div>
     <header class="site-header">
         <a class="brand" href="/">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="Degen Predictions" class="brand-logo" data-keyout-black>
+            <picture>
+                <source srcset="{{ url_for('static', filename='logo-nav.webp') }}?v={{ static_version('logo-nav.webp') }}" type="image/webp">
+                <img src="{{ url_for('static', filename='logo-nav.png') }}?v={{ static_version('logo-nav.png') }}" alt="Degen Predictions" class="brand-logo" data-keyout-black>
+            </picture>
             <span class="brand-text">DEGEN <span class="brand-accent">PREDICTIONS</span></span>
         </a>
         <nav>
@@ -342,8 +345,6 @@
         }
         initLogoKeyOut();
     </script>
-    <script defer src="{{ url_for('static', filename='react.production.min.js') }}?v={{ static_version('react.production.min.js') }}"></script>
-    <script defer src="{{ url_for('static', filename='react-dom.production.min.js') }}?v={{ static_version('react-dom.production.min.js') }}"></script>
     <script defer src="{{ url_for('static', filename='space-bg.js') }}?v={{ static_version('space-bg.js') }}"></script>
     <script defer src="{{ url_for('static', filename='custom-select.js') }}?v={{ static_version('custom-select.js') }}"></script>
 </body>

@@ -17,7 +17,10 @@
 }
 </script>
 <div class="leagues-hero">
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="Degen Predictions" class="leagues-hero-logo" data-keyout-black>
+    <picture>
+        <source srcset="{{ url_for('static', filename='logo-nav.webp') }}?v={{ static_version('logo-nav.webp') }}" type="image/webp">
+        <img src="{{ url_for('static', filename='logo-nav.png') }}?v={{ static_version('logo-nav.png') }}" alt="Degen Predictions" class="leagues-hero-logo" data-keyout-black>
+    </picture>
     <h1>ML & AI-Powered Predictions Across Crypto, Metals, Real Estate, Stocks & Sports</h1>
     <p class="muted">Pick a category to see machine learning (ML) forecasts powered by advanced AI models trained on real historical data.</p>
 </div>
