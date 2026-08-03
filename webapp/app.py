@@ -20,6 +20,7 @@ import sentiment
 import live_predict
 import dubai_predict
 import metals_predict
+import match_context
 from llms_txt_content import LLMS_TXT
 from tv_symbols import CRYPTO_TV_SYMBOLS, STOCK_TV_SYMBOLS
 from fotmob_lineup import get_live_matchday_info
@@ -99,15 +100,26 @@ _dataframe_cache = SimpleCache(ttl_seconds=1800)
 
 
 def cached_dataframe(cache_key):
-    """Decorator to cache DataFrame results for 30 minutes."""
+    """Decorator to cache DataFrame results for 30 minutes.
+
+    cache_key is a base name, not a format string -- callers like
+    load_predictions(league_key) previously passed "predictions_{league_key}"
+    expecting per-argument caching, but a plain (non-f) string never
+    interpolates {league_key}, so every call shared one literal cache slot:
+    the first league loaded got cached, and every other league's call
+    returned that same cached DataFrame instead of loading its own. Folding
+    the actual call args into the key here fixes that generally, for every
+    decorated function, without relying on cache_key matching a parameter
+    name."""
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
-            cached = _dataframe_cache.get(cache_key)
+            full_key = (cache_key, args, tuple(sorted(kwargs.items())))
+            cached = _dataframe_cache.get(full_key)
             if cached is not None:
                 return cached
             result = func(*args, **kwargs)
-            _dataframe_cache.set(cache_key, result)
+            _dataframe_cache.set(full_key, result)
             return result
         return wrapper
     return decorator
@@ -311,7 +323,7 @@ def compute_unlocked_round(df):
     return unlocked
 
 
-@cached_dataframe("predictions_{league_key}")
+@cached_dataframe("predictions")
 def load_predictions(league_key):
     path = league_paths(league_key)["pred"]
     if not os.path.exists(path):
@@ -321,7 +333,7 @@ def load_predictions(league_key):
     return df
 
 
-@cached_dataframe("backtest_{league_key}")
+@cached_dataframe("backtest")
 def load_backtest(league_key):
     path = league_paths(league_key)["backtest"]
     if not os.path.exists(path):
@@ -744,11 +756,13 @@ def match_detail(league_key, home, away):
     # structured-data validator rejects it as a malformed startDate. This
     # is the actual ISO-formatted value the SportsEvent JSON-LD uses.
     match_start_date_iso = estimated_end_iso(match["DateUtc"], hours=0)
+    context = match_context.build_match_context(league_key, league["label"], home, away, match_date)
 
     return render_template(
         "match.html", match=match, tips=tips, lineup_info=lineup_info,
         league_key=league_key, league_label=league["label"], league_country=league.get("country", ""),
         match_end_date=match_end_date, match_start_date_iso=match_start_date_iso,
+        context=context,
     )
 
 

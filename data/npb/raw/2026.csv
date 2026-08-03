@@ -237,6 +237,8 @@ DateJPN,TimeJPN,GameKindID,GameState,Round,HTeamID,HomeTeamNameE,VTeamID,Visitor
 20261017,,38,1,4,397,undecided,397,undecided,,,,
 20261018,,38,1,5,397,undecided,397,undecided,,,,
 20261019,,38,1,6,397,undecided,397,undecided,,,,
+20260728,1830,4,2,1,16,All Central,15,All Pacific,5.0,7.0,山野,伊藤
+20260729,1830,4,2,2,15,All Pacific,16,All Central,7.0,8.0,エスピノーザ,高橋
 20260327,1830,2,2,1,9,Marines,7,Lions,3.0,1.0,毛利,渡邉
 20260327,1830,2,2,1,11,Buffaloes,376,Golden Eagles,0.0,10.0,宮城,荘司
 20260327,1830,2,2,1,12,Hawks,8,Fighters,6.0,5.0,上沢,伊藤
@@ -470,16 +472,16 @@ DateJPN,TimeJPN,GameKindID,GameState,Round,HTeamID,HomeTeamNameE,VTeamID,Visitor
 20260726,1300,2,2,16,8,Fighters,376,Golden Eagles,6.0,2.0,山崎福也,瀧中
 20260726,1300,2,2,17,11,Buffaloes,9,Marines,2.0,3.0,九里,ジャクソン
 20260726,1700,2,2,17,7,Lions,12,Hawks,0.0,3.0,高橋光成,前田悠
-20260731,1800,2,1,14,8,Fighters,9,Marines,,,,
-20260731,1800,2,1,16,376,Golden Eagles,12,Hawks,,,,
-20260731,1800,2,1,15,7,Lions,11,Buffaloes,,,,
-20260801,1400,2,1,15,8,Fighters,9,Marines,,,,
-20260801,1700,2,1,16,7,Lions,11,Buffaloes,,,,
-20260801,1800,2,1,17,376,Golden Eagles,12,Hawks,,,,
-20260802,1300,2,1,16,8,Fighters,9,Marines,,,,
-20260802,1600,2,1,18,376,Golden Eagles,12,Hawks,,,,
-20260802,1700,2,1,17,7,Lions,11,Buffaloes,,,,
-20260803,1800,2,1,13,11,Buffaloes,376,Golden Eagles,,,,
+20260731,1800,2,2,14,8,Fighters,9,Marines,6.0,1.0,達,河村
+20260731,1800,2,4,16,376,Golden Eagles,12,Hawks,,,早川,上茶谷
+20260731,1800,2,2,15,7,Lions,11,Buffaloes,4.0,5.0,隅田,寺西
+20260801,1400,2,2,15,8,Fighters,9,Marines,3.0,5.0,加藤貴,ロング
+20260801,1700,2,2,16,7,Lions,11,Buffaloes,4.0,1.0,渡邉,ジェリー
+20260801,1800,2,2,16,376,Golden Eagles,12,Hawks,0.0,5.0,早川,上茶谷
+20260802,1300,2,2,16,8,Fighters,9,Marines,3.0,0.0,有原,ジャクソン
+20260802,1600,2,2,17,376,Golden Eagles,12,Hawks,6.0,10.0,古謝,前田悠
+20260802,1700,2,2,17,7,Lions,11,Buffaloes,5.0,1.0,武内,高島
+20260803,1800,2,1,13,11,Buffaloes,376,Golden Eagles,,,九里,荘司
 20260804,1800,2,1,15,9,Marines,7,Lions,,,,
 20260804,1800,2,1,15,12,Hawks,8,Fighters,,,,
 20260805,1800,2,1,16,9,Marines,7,Lions,,,,
@@ -507,12 +509,12 @@ DateJPN,TimeJPN,GameKindID,GameState,Round,HTeamID,HomeTeamNameE,VTeamID,Visitor
 20260813,1800,2,1,17,12,Hawks,9,Marines,,,,
 20260814,1800,2,1,17,7,Lions,9,Marines,,,,
 20260814,1800,2,1,19,11,Buffaloes,8,Fighters,,,,
-20260814,1800,2,1,19,12,Hawks,376,Golden Eagles,,,,
+20260814,1800,2,1,18,12,Hawks,376,Golden Eagles,,,,
 20260815,1400,2,1,20,11,Buffaloes,8,Fighters,,,,
-20260815,1400,2,1,20,12,Hawks,376,Golden Eagles,,,,
+20260815,1400,2,1,19,12,Hawks,376,Golden Eagles,,,,
 20260815,1700,2,1,18,7,Lions,9,Marines,,,,
 20260816,1300,2,1,21,11,Buffaloes,8,Fighters,,,,
-20260816,1300,2,1,21,12,Hawks,376,Golden Eagles,,,,
+20260816,1300,2,1,20,12,Hawks,376,Golden Eagles,,,,
 20260816,1700,2,1,19,7,Lions,9,Marines,,,,
 20260818,1400,2,1,18,8,Fighters,12,Hawks,,,,
 20260818,1800,2,1,15,376,Golden Eagles,9,Marines,,,,
@@ -587,12 +589,12 @@ DateJPN,TimeJPN,GameKindID,GameState,Round,HTeamID,HomeTeamNameE,VTeamID,Visitor
 20260917,1800,2,1,22,9,Marines,376,Golden Eagles,,,,
 20260917,1800,2,1,23,11,Buffaloes,12,Hawks,,,,
 20260919,1400,2,1,22,8,Fighters,11,Buffaloes,,,,
-20260919,1400,2,1,22,376,Golden Eagles,12,Hawks,,,,
+20260919,1400,2,1,21,376,Golden Eagles,12,Hawks,,,,
 20260919,1800,2,1,21,9,Marines,7,Lions,,,,
 20260920,1400,2,1,23,8,Fighters,11,Buffaloes,,,,
-20260920,1400,2,1,23,376,Golden Eagles,12,Hawks,,,,
+20260920,1400,2,1,22,376,Golden Eagles,12,Hawks,,,,
 20260920,1800,2,1,22,9,Marines,7,Lions,,,,
-20260921,1300,2,1,24,376,Golden Eagles,12,Hawks,,,,
+20260921,1300,2,1,23,376,Golden Eagles,12,Hawks,,,,
 20260921,1400,2,1,24,8,Fighters,11,Buffaloes,,,,
 20260921,1800,2,1,23,9,Marines,7,Lions,,,,
 20260922,1800,2,1,23,8,Fighters,376,Golden Eagles,,,,
@@ -606,7 +608,7 @@ DateJPN,TimeJPN,GameKindID,GameState,Round,HTeamID,HomeTeamNameE,VTeamID,Visitor
 20260925,1800,2,1,24,11,Buffaloes,12,Hawks,,,,
 20260926,1400,2,1,25,7,Lions,9,Marines,,,,
 20260926,1400,2,1,25,11,Buffaloes,8,Fighters,,,,
-20260926,1800,2,1,25,12,Hawks,376,Golden Eagles,,,,
+20260926,1800,2,1,24,12,Hawks,376,Golden Eagles,,,,
 20260927,1400,2,1,25,12,Hawks,11,Buffaloes,,,,
 20260927,1800,2,1,24,7,Lions,376,Golden Eagles,,,,
 20260927,1800,2,1,24,9,Marines,8,Fighters,,,,
@@ -854,15 +856,15 @@ DateJPN,TimeJPN,GameKindID,GameState,Round,HTeamID,HomeTeamNameE,VTeamID,Visitor
 20260726,1330,1,2,17,4,Dragons,3,Bay Stars,5.0,1.0,金丸,尾形
 20260726,1800,1,2,17,2,Swallows,6,Carp,3.0,4.0,吉村,森
 20260726,1800,1,2,17,5,Tigers,1,Giants,1.0,0.0,村上,小笠原
-20260731,1800,1,1,14,1,Giants,3,Bay Stars,,,,
-20260731,1800,1,1,13,2,Swallows,5,Tigers,,,,
-20260731,1800,1,1,14,6,Carp,4,Dragons,,,,
-20260801,1800,1,1,15,1,Giants,3,Bay Stars,,,,
-20260801,1800,1,1,14,2,Swallows,5,Tigers,,,,
-20260801,1800,1,1,15,6,Carp,4,Dragons,,,,
-20260802,1400,1,1,16,1,Giants,3,Bay Stars,,,,
-20260802,1800,1,1,15,2,Swallows,5,Tigers,,,,
-20260802,1800,1,1,16,6,Carp,4,Dragons,,,,
+20260731,1800,1,2,14,1,Giants,3,Bay Stars,6.0,0.0,ハワード,平良
+20260731,1800,1,2,13,2,Swallows,5,Tigers,3.0,4.0,奥川,才木
+20260731,1800,1,2,14,6,Carp,4,Dragons,3.0,1.0,床田,高橋宏
+20260801,1800,1,2,15,1,Giants,3,Bay Stars,7.0,8.0,竹丸,篠木
+20260801,1800,1,2,14,2,Swallows,5,Tigers,3.0,7.0,高橋,伊藤将
+20260801,1800,1,2,15,6,Carp,4,Dragons,1.0,7.0,斉藤優,マラー
+20260802,1400,1,2,16,1,Giants,3,Bay Stars,1.0,2.0,小笠原,深沢
+20260802,1800,1,2,15,2,Swallows,5,Tigers,3.0,4.0,ウォルターズ,下村
+20260802,1800,1,2,16,6,Carp,4,Dragons,4.0,3.0,アドゥワ,柳
 20260804,1745,1,1,14,3,Bay Stars,5,Tigers,,,,
 20260804,1800,1,1,14,4,Dragons,2,Swallows,,,,
 20260804,1800,1,1,12,6,Carp,1,Giants,,,,
@@ -988,5 +990,3 @@ DateJPN,TimeJPN,GameKindID,GameState,Round,HTeamID,HomeTeamNameE,VTeamID,Visitor
 20260923,1500,1,1,22,6,Carp,1,Giants,,,,
 20260923,1800,1,1,25,3,Bay Stars,4,Dragons,,,,
 20260924,1800,1,1,23,6,Carp,1,Giants,,,,
-20260728,1830,4,2,1,16,All Central,15,All Pacific,5.0,7.0,山野,伊藤
-20260729,1830,4,1,2,15,All Pacific,16,All Central,,,エスピノーザ,高橋

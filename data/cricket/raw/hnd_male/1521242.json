@@ -1,0 +1,2648 @@
+{
+  "meta": {
+    "data_version": "1.2.0",
+    "created": "2026-07-30",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 5,
+    "city": "London",
+    "dates": [
+      "2026-07-29"
+    ],
+    "event": {
+      "name": "The Hundred Men's Competition",
+      "match_number": 12
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "officials": {
+      "match_referees": [
+        "PM Such"
+      ],
+      "reserve_umpires": [
+        "Siphelele Gasa"
+      ],
+      "tv_umpires": [
+        "NJ Llong"
+      ],
+      "umpires": [
+        "BJ Debenham",
+        "PR Pollard"
+      ]
+    },
+    "outcome": {
+      "winner": "London Spirit",
+      "by": {
+        "wickets": 7
+      }
+    },
+    "overs": 20,
+    "player_of_match": [
+      "LG Pretorius"
+    ],
+    "players": {
+      "MI London": [
+        "WG Jacks",
+        "JM Vince",
+        "N Pooran",
+        "SE Rutherford",
+        "JJ Roy",
+        "TK Curran",
+        "OJ Pope",
+        "Rashid Khan",
+        "TA Boult",
+        "OP Stone",
+        "RJ Gleeson"
+      ],
+      "London Spirit": [
+        "LG Pretorius",
+        "JM Bairstow",
+        "LS Livingstone",
+        "JEK Rew",
+        "D Brevis",
+        "JM Coles",
+        "J Overton",
+        "DJ Willey",
+        "AJ Tye",
+        "AF Milne",
+        "A Zampa"
+      ]
+    },
+    "registry": {
+      "people": {
+        "A Zampa": "14f96089",
+        "AF Milne": "350bb1b1",
+        "AJ Tye": "7c7d63a2",
+        "BJ Debenham": "524a3a82",
+        "D Brevis": "844e79d1",
+        "DJ Willey": "7f048519",
+        "J Overton": "59559bc2",
+        "JEK Rew": "521595e7",
+        "JJ Roy": "d1c36f5c",
+        "JM Bairstow": "abb83e27",
+        "JM Coles": "9c643d7b",
+        "JM Vince": "a15618fe",
+        "LG Pretorius": "60aa2db3",
+        "LS Livingstone": "50c6bc2b",
+        "N Pooran": "3241e3fd",
+        "NJ Llong": "573fb985",
+        "OJ Pope": "e94bc520",
+        "OP Stone": "3f659464",
+        "PM Such": "c9f1892c",
+        "PR Pollard": "85d884bb",
+        "RJ Gleeson": "402f8494",
+        "Rashid Khan": "5f547c8b",
+        "SE Rutherford": "d014d5ac",
+        "Siphelele Gasa": "e50baa87",
+        "TA Boult": "a818c1be",
+        "TK Curran": "e86754b2",
+        "WG Jacks": "9caf69a1"
+      }
+    },
+    "season": "2026",
+    "team_type": "club",
+    "teams": [
+      "MI London",
+      "London Spirit"
+    ],
+    "toss": {
+      "decision": "field",
+      "winner": "London Spirit"
+    },
+    "venue": "Kennington Oval, London"
+  },
+  "innings": [
+    {
+      "team": "MI London",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "WG Jacks",
+              "bowler": "AF Milne",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "WG Jacks",
+              "bowler": "AF Milne",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "JM Vince",
+              "bowler": "AF Milne",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "JM Vince",
+              "bowler": "AF Milne",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "JM Vince",
+              "bowler": "AF Milne",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "JM Vince",
+              "bowler": "DJ Willey",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "JM Vince",
+              "bowler": "DJ Willey",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "JM Vince",
+              "bowler": "DJ Willey",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "WG Jacks",
+              "bowler": "AF Milne",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "WG Jacks",
+              "bowler": "AF Milne",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "WG Jacks",
+              "bowler": "AF Milne",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "WG Jacks",
+              "bowler": "AF Milne",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "JM Vince",
+              "bowler": "AF Milne",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "JM Vince",
+              "bowler": "DJ Willey",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "JM Vince",
+              "bowler": "DJ Willey",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "WG Jacks",
+              "bowler": "DJ Willey",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "JM Vince",
+              "bowler": "A Zampa",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "WG Jacks",
+              "bowler": "A Zampa",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "WG Jacks",
+              "bowler": "A Zampa",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "JM Vince",
+              "bowler": "A Zampa",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "JM Vince",
+              "bowler": "A Zampa",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "JM Vince",
+              "bowler": "AJ Tye",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "WG Jacks",
+              "bowler": "AJ Tye",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "JM Vince",
+              "bowler": "AJ Tye",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "JM Vince",
+              "bowler": "AJ Tye",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "JM Vince",
+              "bowler": "AJ Tye",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "WG Jacks",
+              "bowler": "A Zampa",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "WG Jacks",
+              "bowler": "A Zampa",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "WG Jacks",
+              "bowler": "A Zampa",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "WG Jacks",
+              "bowler": "A Zampa",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "WG Jacks",
+              "bowler": "A Zampa",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "WG Jacks",
+              "bowler": "JM Coles",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "WG Jacks",
+              "bowler": "JM Coles",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "WG Jacks",
+              "bowler": "JM Coles",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "WG Jacks",
+              "bowler": "JM Coles",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "JM Vince",
+              "bowler": "JM Coles",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "WG Jacks",
+              "bowler": "LS Livingstone",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.1",
+              "batter": "WG Jacks",
+              "bowler": "LS Livingstone",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "WG Jacks",
+              "bowler": "LS Livingstone",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "WG Jacks",
+              "bowler": "LS Livingstone",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "JM Vince",
+              "bowler": "LS Livingstone",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "JM Vince",
+              "bowler": "LS Livingstone",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "WG Jacks",
+              "bowler": "LS Livingstone",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "WG Jacks",
+              "bowler": "J Overton",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "WG Jacks",
+              "bowler": "J Overton",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "WG Jacks",
+              "bowler": "J Overton",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "WG Jacks",
+              "bowler": "J Overton",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "WG Jacks",
+              "bowler": "J Overton",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "WG Jacks",
+              "bowler": "J Overton",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "WG Jacks",
+              "bowler": "AF Milne",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "WG Jacks",
+              "bowler": "AF Milne",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "WG Jacks",
+              "bowler": "AF Milne",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "JM Vince",
+              "bowler": "AF Milne",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "JM Vince",
+              "bowler": "AF Milne",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "WG Jacks",
+              "bowler": "JM Coles",
+              "non_striker": "JM Vince",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "JM Vince",
+              "bowler": "JM Coles",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "JM Vince",
+                  "fielders": [
+                    {
+                      "name": "DJ Willey"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "N Pooran",
+              "bowler": "JM Coles",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "N Pooran",
+              "bowler": "JM Coles",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "N Pooran",
+              "bowler": "JM Coles",
+              "non_striker": "WG Jacks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "WG Jacks",
+              "bowler": "JM Coles",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "WG Jacks",
+              "bowler": "J Overton",
+              "non_striker": "N Pooran",
+              "review": {
+                "by": "London Spirit",
+                "umpire": "BJ Debenham",
+                "batter": "WG Jacks",
+                "decision": "upheld",
+                "type": "wicket"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "WG Jacks",
+                  "fielders": [
+                    {
+                      "name": "JM Bairstow"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "SE Rutherford",
+              "bowler": "J Overton",
+              "non_striker": "N Pooran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "N Pooran",
+              "bowler": "J Overton",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "N Pooran",
+              "bowler": "J Overton",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "N Pooran",
+                  "fielders": [
+                    {
+                      "name": "JM Bairstow"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "JJ Roy",
+              "bowler": "J Overton",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "SE Rutherford",
+              "bowler": "LS Livingstone",
+              "non_striker": "JJ Roy",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "SE Rutherford",
+              "bowler": "LS Livingstone",
+              "non_striker": "JJ Roy",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "JJ Roy",
+              "bowler": "LS Livingstone",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "SE Rutherford",
+              "bowler": "LS Livingstone",
+              "non_striker": "JJ Roy",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "JJ Roy",
+              "bowler": "LS Livingstone",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "JJ Roy",
+              "bowler": "A Zampa",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "JJ Roy",
+              "bowler": "A Zampa",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "SE Rutherford",
+              "bowler": "A Zampa",
+              "non_striker": "JJ Roy",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "JJ Roy",
+              "bowler": "A Zampa",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "SE Rutherford",
+              "bowler": "A Zampa",
+              "non_striker": "JJ Roy",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "JJ Roy",
+              "bowler": "J Overton",
+              "non_striker": "SE Rutherford",
+              "review": {
+                "by": "London Spirit",
+                "umpire": "PR Pollard",
+                "batter": "JJ Roy",
+                "decision": "upheld",
+                "type": "wicket"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "JJ Roy",
+                  "fielders": [
+                    {
+                      "name": "JM Bairstow"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "TK Curran",
+              "bowler": "J Overton",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "TK Curran",
+              "bowler": "J Overton",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "TK Curran",
+              "bowler": "J Overton",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "TK Curran",
+              "bowler": "J Overton",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "SE Rutherford",
+              "bowler": "J Overton",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "SE Rutherford",
+              "bowler": "J Overton",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "SE Rutherford",
+              "bowler": "J Overton",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "SE Rutherford",
+              "bowler": "J Overton",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "SE Rutherford",
+              "bowler": "J Overton",
+              "non_striker": "TK Curran",
+              "review": {
+                "by": "London Spirit",
+                "umpire": "BJ Debenham",
+                "batter": "SE Rutherford",
+                "decision": "struck down",
+                "type": "wicket"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "SE Rutherford",
+              "bowler": "J Overton",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "TK Curran",
+              "bowler": "AF Milne",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "SE Rutherford",
+              "bowler": "AF Milne",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "SE Rutherford",
+              "bowler": "AF Milne",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "TK Curran",
+              "bowler": "AF Milne",
+              "non_striker": "SE Rutherford",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.4",
+              "batter": "SE Rutherford",
+              "bowler": "AF Milne",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "SE Rutherford",
+              "bowler": "AF Milne",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "actual_delivery": "19.1",
+              "batter": "SE Rutherford",
+              "bowler": "AJ Tye",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "19.2",
+              "batter": "SE Rutherford",
+              "bowler": "AJ Tye",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "19.3",
+              "batter": "SE Rutherford",
+              "bowler": "AJ Tye",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "19.4",
+              "batter": "SE Rutherford",
+              "bowler": "AJ Tye",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "19.5",
+              "batter": "SE Rutherford",
+              "bowler": "AJ Tye",
+              "non_striker": "TK Curran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "SE Rutherford",
+                  "fielders": [
+                    {
+                      "name": "JM Coles"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 4.5,
+          "type": "mandatory"
+        }
+      ]
+    },
+    {
+      "team": "London Spirit",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "LG Pretorius",
+              "bowler": "TA Boult",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "LG Pretorius",
+              "bowler": "TA Boult",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "LG Pretorius",
+              "bowler": "TA Boult",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "JM Bairstow",
+              "bowler": "TA Boult",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "JM Bairstow",
+              "bowler": "TA Boult",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "JM Bairstow",
+              "bowler": "RJ Gleeson",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "JM Bairstow",
+              "bowler": "RJ Gleeson",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "JM Bairstow",
+              "bowler": "RJ Gleeson",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "LG Pretorius",
+              "bowler": "RJ Gleeson",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "LG Pretorius",
+              "bowler": "RJ Gleeson",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "LG Pretorius",
+              "bowler": "TA Boult",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "LG Pretorius",
+              "bowler": "TA Boult",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "LG Pretorius",
+              "bowler": "TA Boult",
+              "extras": {
+                "byes": 4
+              },
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 0,
+                "extras": 4,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "LG Pretorius",
+              "bowler": "TA Boult",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "LG Pretorius",
+              "bowler": "TA Boult",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "LG Pretorius",
+              "bowler": "WG Jacks",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "LG Pretorius",
+              "bowler": "WG Jacks",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "LG Pretorius",
+              "bowler": "WG Jacks",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "LG Pretorius",
+              "bowler": "WG Jacks",
+              "non_striker": "JM Bairstow",
+              "review": {
+                "by": "MI London",
+                "umpire": "PR Pollard",
+                "batter": "LG Pretorius",
+                "decision": "struck down",
+                "type": "wicket"
+              },
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "LG Pretorius",
+              "bowler": "WG Jacks",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "JM Bairstow",
+              "bowler": "TK Curran",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "JM Bairstow",
+              "bowler": "TK Curran",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "JM Bairstow",
+              "bowler": "TK Curran",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "JM Bairstow",
+              "bowler": "TK Curran",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "JM Bairstow",
+              "bowler": "TK Curran",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "JM Bairstow",
+              "bowler": "OP Stone",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "LG Pretorius",
+              "bowler": "OP Stone",
+              "non_striker": "JM Bairstow",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "JM Bairstow",
+              "bowler": "OP Stone",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "JM Bairstow",
+                  "fielders": [
+                    {
+                      "name": "WG Jacks"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "LS Livingstone",
+              "bowler": "OP Stone",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "LS Livingstone",
+              "bowler": "OP Stone",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "LG Pretorius",
+              "bowler": "RJ Gleeson",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "LS Livingstone",
+              "bowler": "RJ Gleeson",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "LG Pretorius",
+              "bowler": "RJ Gleeson",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "LG Pretorius",
+              "bowler": "RJ Gleeson",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "LG Pretorius",
+              "bowler": "RJ Gleeson",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "LG Pretorius",
+              "bowler": "OP Stone",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "LG Pretorius",
+              "bowler": "OP Stone",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "LG Pretorius",
+              "bowler": "OP Stone",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "LG Pretorius",
+              "bowler": "OP Stone",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "LG Pretorius",
+              "bowler": "OP Stone",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "LS Livingstone",
+              "bowler": "TK Curran",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "LS Livingstone",
+              "bowler": "TK Curran",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "LG Pretorius",
+              "bowler": "TK Curran",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "LS Livingstone",
+              "bowler": "TK Curran",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "LS Livingstone",
+              "bowler": "TK Curran",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "LG Pretorius",
+              "bowler": "TK Curran",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "LS Livingstone",
+              "bowler": "TA Boult",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "LS Livingstone",
+              "bowler": "TA Boult",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "LS Livingstone",
+              "bowler": "TA Boult",
+              "non_striker": "LG Pretorius",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "LG Pretorius",
+              "bowler": "TA Boult",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "LG Pretorius",
+                  "fielders": [
+                    {
+                      "name": "N Pooran"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "JEK Rew",
+              "bowler": "TA Boult",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "JEK Rew",
+              "bowler": "Rashid Khan",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "LS Livingstone",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "LS Livingstone",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "JEK Rew",
+              "bowler": "Rashid Khan",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "LS Livingstone",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "LS Livingstone",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "LS Livingstone",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "JEK Rew",
+              "bowler": "Rashid Khan",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "JEK Rew",
+              "bowler": "Rashid Khan",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "JEK Rew",
+              "bowler": "Rashid Khan",
+              "non_striker": "LS Livingstone",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "LS Livingstone",
+              "bowler": "RJ Gleeson",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "LS Livingstone",
+              "bowler": "RJ Gleeson",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "LS Livingstone",
+              "bowler": "RJ Gleeson",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "LS Livingstone",
+              "bowler": "RJ Gleeson",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "player_out": "LS Livingstone",
+                  "fielders": [
+                    {
+                      "name": "SE Rutherford"
+                    }
+                  ],
+                  "kind": "caught"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "D Brevis",
+              "bowler": "RJ Gleeson",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "D Brevis",
+              "bowler": "OP Stone",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "D Brevis",
+              "bowler": "OP Stone",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "D Brevis",
+              "bowler": "OP Stone",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "D Brevis",
+              "bowler": "OP Stone",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "JEK Rew",
+              "bowler": "OP Stone",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "D Brevis",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "D Brevis",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "D Brevis",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "D Brevis",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "D Brevis",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "D Brevis",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "JEK Rew",
+              "bowler": "Rashid Khan",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "D Brevis",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "JEK Rew",
+              "bowler": "Rashid Khan",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "D Brevis",
+              "bowler": "Rashid Khan",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "JEK Rew",
+              "bowler": "TK Curran",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "D Brevis",
+              "bowler": "TK Curran",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "D Brevis",
+              "bowler": "TK Curran",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "D Brevis",
+              "bowler": "TK Curran",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "JEK Rew",
+              "bowler": "TK Curran",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "JEK Rew",
+              "bowler": "TA Boult",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "D Brevis",
+              "bowler": "TA Boult",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "D Brevis",
+              "bowler": "TA Boult",
+              "non_striker": "JEK Rew",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "JEK Rew",
+              "bowler": "TA Boult",
+              "non_striker": "D Brevis",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 4.5,
+          "type": "mandatory"
+        }
+      ],
+      "target": {
+        "overs": 20,
+        "runs": 165
+      }
+    }
+  ]
+}

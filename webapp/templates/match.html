@@ -30,6 +30,16 @@
 <h1>{{ match.HomeTeam }} vs {{ match.AwayTeam }}</h1>
 <p class="muted">{{ match.MatchDate }} · Round {{ match.RoundNumber }} · Data confidence: {{ match.Data_Confidence }}</p>
 
+{% if context.home_form_sentence or context.away_form_sentence or context.h2h_sentence %}
+<div class="card" style="margin-top: 1rem;">
+    <h2>Match Context</h2>
+    {% if context.home_form_sentence %}<p>{{ context.home_form_sentence }}</p>{% endif %}
+    {% if context.away_form_sentence %}<p>{{ context.away_form_sentence }}</p>{% endif %}
+    {% if context.h2h_sentence %}<p>{{ context.h2h_sentence }}</p>{% endif %}
+    <p class="muted" style="font-size: 0.85rem;">Recent form and head-to-head record are computed directly from this league's historical match data -- the same data the prediction model is trained on, not a separate estimate.</p>
+</div>
+{% endif %}
+
 <div class="card-grid">
     <div class="card">
         <h2>Match Result (1X2)</h2>
