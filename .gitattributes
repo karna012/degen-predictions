@@ -1,0 +1,8 @@
+# Shell scripts run on Linux (the EC2 deployment) but are often edited on
+# this Windows dev machine -- without this, Git's Windows checkout can
+# silently give them CRLF line endings, which breaks their shebang line
+# (`#!/usr/bin/env bash` becomes `#!/usr/bin/env bash\r`, and env looks for
+# a program literally named "bash\r"). That exact bug took down the
+# MLB/NPB daily refresh for ~14 hours (deploy/refresh_daily_data.sh) before
+# being caught. Force LF regardless of platform so it can't recur.
+*.sh text eol=lf
