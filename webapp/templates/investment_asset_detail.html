@@ -11,7 +11,21 @@
     {% endif %}
     {{ asset.ticker }}
 </h1>
-<p class="muted">{{ category_label }} &middot; Rank #{{ asset.rank_within_asset_class }}</p>
+<p class="muted">{{ category_label }} &middot; Rank #{{ asset.rank_within_asset_class }}{% if total_in_class %} of {{ total_in_class }}{% endif %}</p>
+
+<div class="card" style="margin-top: 1rem;">
+    <h2>Analysis</h2>
+    <p>{{ asset.ticker }} ranks #{{ asset.rank_within_asset_class }}{% if total_in_class %} out of {{ total_in_class }}{% endif %} in {{ category_label }} by this model's composite score, with a predicted {{ (asset.predicted_forward_return * 100) | round(1) }}% return over the 6 months from {{ asset.as_of_date }} to {{ asset.hold_until_date }} and a {{ (asset.predicted_outperform_probability * 100) | round(1) }}% estimated probability of beating the benchmark over that window.</p>
+    <p>
+        {%- if asset.sentiment_score is not none and asset.sentiment_score == asset.sentiment_score -%}
+        Recent news sentiment is {{ "positive" if asset.sentiment_score > 0.05 else ("negative" if asset.sentiment_score < -0.05 else "neutral") }} ({{ asset.sentiment_score | round(2) }} on a -1 to +1 scale, from {{ asset.sentiment_headline_count|int }} recent headlines).
+        {%- else -%}
+        No recent headlines were found for this asset, so news sentiment isn't factored into this prediction.
+        {%- endif %}
+        Data confidence for this ranking is <strong>{{ asset.data_confidence }}</strong>{% if asset.data_confidence != "high" %}, meaning some of the underlying inputs were imputed (sector/peer median) rather than directly observed -- treat the prediction with more caution than a high-confidence pick{% endif %}.
+    </p>
+    <p class="muted" style="font-size: 0.85rem;">Rank, predicted return, and sentiment are the model's actual computed outputs for this asset, refreshed each time the ranking pipeline runs -- not a template estimate.</p>
+</div>
 
 <div id="not-financial-advice-overlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:999; display:flex; align-items:center; justify-content:center; padding:1rem;">
     <div class="disclaimer" id="not-financial-advice-banner" style="max-width:70ch; max-height:85vh; overflow-y:auto; border:2px solid #c0392b; padding:1.25rem; border-radius:8px; position:relative; background:var(--bg, #0d0d16);">

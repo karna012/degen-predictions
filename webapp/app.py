@@ -526,11 +526,13 @@ def crypto_rankings():
 @app.route("/crypto/asset/<ticker>")
 def crypto_asset_detail(ticker):
     df = load_investment_rankings()
-    row = df[(df["asset_class"] == "crypto") & (df["ticker"] == ticker)]
+    class_df = df[df["asset_class"] == "crypto"]
+    row = class_df[class_df["ticker"] == ticker]
     if row.empty:
         return render_template("not_found.html", home=ticker, away=""), 404
     return render_template("investment_asset_detail.html", asset=row.iloc[0].to_dict(),
-                            category="crypto", category_label="Crypto", back_href="/crypto")
+                            category="crypto", category_label="Crypto", back_href="/crypto",
+                            total_in_class=len(class_df))
 
 
 @app.route("/stocks")
@@ -558,12 +560,14 @@ def stocks_asset_detail(market, ticker):
         abort(404)
     asset_class = f"{market}_stocks"
     df = load_investment_rankings()
-    row = df[(df["asset_class"] == asset_class) & (df["ticker"] == ticker)]
+    class_df = df[df["asset_class"] == asset_class]
+    row = class_df[class_df["ticker"] == ticker]
     if row.empty:
         return render_template("not_found.html", home=ticker, away=""), 404
     label = "US Stocks" if market == "us" else "India Stocks"
     return render_template("investment_asset_detail.html", asset=row.iloc[0].to_dict(),
-                            category=f"stocks/{market}", category_label=label, back_href=f"/stocks/{market}")
+                            category=f"stocks/{market}", category_label=label, back_href=f"/stocks/{market}",
+                            total_in_class=len(class_df))
 
 
 def _format_dubai_prices_updated_at():

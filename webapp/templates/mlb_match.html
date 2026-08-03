@@ -31,6 +31,24 @@
 <h1>{{ away_name }} vs {{ home_name }}</h1>
 <p class="muted">{{ match_date }}{% if home_era %} &middot; Probable starters: {{ away_era }} ERA (away) vs {{ home_era }} ERA (home){% endif %}</p>
 
+{% macro streak_phrase(streak) -%}
+{% if streak > 0 %}on a {{ streak }}-game winning streak{% elif streak < 0 %}on a {{ -streak }}-game losing streak{% else %}without an active streak{% endif %}
+{%- endmacro %}
+<div class="card" style="margin-top: 1rem;">
+    <h2>Match Context</h2>
+    <p>{{ away_name }} come into this game at {{ match.away_season_record }}, {{ streak_phrase(match.away_streak) }}.
+        {{ home_name }} sit at {{ match.home_season_record }}, {{ streak_phrase(match.home_streak) }}.</p>
+    <p>{{ home_name }} carry a {{ match.elo_home }} Elo rating to {{ away_name }}'s {{ match.elo_away }}
+        {%- if match.elo_home != match.elo_away %}, a gap of {{ (match.elo_home - match.elo_away) | abs | round }} points{% endif %}.
+        {%- if home_era and away_era %} On the mound, {{ home_name }}'s probable starter carries a {{ home_era }} ERA against {{ away_name }}'s {{ away_era }}.{% endif %}</p>
+    {% if match.h2h_meetings > 0 %}
+    <p>These two have met {{ match.h2h_meetings }} time{{ 's' if match.h2h_meetings != 1 else '' }} in the data this model was trained on, with {{ home_name }} winning {{ match.h2h_home_wins }} to {{ away_name }}'s {{ match.h2h_away_wins }}.</p>
+    {% else %}
+    <p>These two haven't met in the data this model was trained on, so the prediction is Elo-and-form-only, with no head-to-head input.</p>
+    {% endif %}
+    <p class="muted" style="font-size: 0.85rem;">Season records, streaks, Elo, and head-to-head are computed directly from this season's actual game results -- the same inputs the prediction model uses, not a separate estimate.</p>
+</div>
+
 <div class="card-grid">
     <div class="card">
         <h2>Win Probability</h2>
