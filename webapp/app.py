@@ -915,8 +915,10 @@ def compute_mlb_prediction(home_code, away_code, home_era="", away_era=""):
         "total_runs_line": runs_ou["line"], "total_runs_pick": runs_ou["pick"],
         "total_runs_pick_probability": runs_ou["probability"],
         "home_predicted_runs": home_runs, "away_predicted_runs": away_runs,
-        "home_runs_line": home_runs_ou["line"], "home_runs_pick_probability": home_runs_ou["probability"],
-        "away_runs_line": away_runs_ou["line"], "away_runs_pick_probability": away_runs_ou["probability"],
+        "home_runs_line": home_runs_ou["line"], "home_runs_pick": home_runs_ou["pick"],
+        "home_runs_pick_probability": home_runs_ou["probability"],
+        "away_runs_line": away_runs_ou["line"], "away_runs_pick": away_runs_ou["pick"],
+        "away_runs_pick_probability": away_runs_ou["probability"],
         "predicted_total_hits": round(home_hits + away_hits, 1),
         "home_predicted_hits": home_hits, "away_predicted_hits": away_hits,
         "predicted_total_home_runs": round(home_hr + away_hr, 2),
@@ -1024,8 +1026,10 @@ def compute_npb_prediction(home_id, away_id):
         "total_runs_pick_probability": runs_ou["probability"],
         "predicted_total_runs": total_runs,
         "home_predicted_runs": home_runs, "away_predicted_runs": away_runs,
-        "home_runs_line": home_runs_ou["line"], "home_runs_pick_probability": home_runs_ou["probability"],
-        "away_runs_line": away_runs_ou["line"], "away_runs_pick_probability": away_runs_ou["probability"],
+        "home_runs_line": home_runs_ou["line"], "home_runs_pick": home_runs_ou["pick"],
+        "home_runs_pick_probability": home_runs_ou["probability"],
+        "away_runs_line": away_runs_ou["line"], "away_runs_pick": away_runs_ou["pick"],
+        "away_runs_pick_probability": away_runs_ou["probability"],
         "insights": insights,
     }
 
@@ -1469,18 +1473,20 @@ def mlb_track_record(n=20):
         actual_home_runs, actual_away_runs = float(g["HomeScore"]), float(g["VisitorScore"])
         actual_total_runs = actual_home_runs + actual_away_runs
         actual_winner = home_code if actual_home_runs > actual_away_runs else away_code
-        line = pred["total_runs_line"]
-        runs_correct = actual_total_runs > line
-        home_line = pred["home_runs_line"]
-        away_line = pred["away_runs_line"]
-        home_runs_correct = actual_home_runs > home_line
-        away_runs_correct = actual_away_runs > away_line
+        line, pick = pred["total_runs_line"], pred["total_runs_pick"]
+        runs_correct = (actual_total_runs > line) if pick == "Over" else (actual_total_runs < line)
+        home_line, home_pick = pred["home_runs_line"], pred["home_runs_pick"]
+        away_line, away_pick = pred["away_runs_line"], pred["away_runs_pick"]
+        home_runs_correct = (actual_home_runs > home_line) if home_pick == "Over" else (actual_home_runs < home_line)
+        away_runs_correct = (actual_away_runs > away_line) if away_pick == "Over" else (actual_away_runs < away_line)
         rows.append({
             "date": g["Date"], "home": home_code, "away": away_code,
             "predicted_winner": pred["favourite"], "actual_winner": actual_winner,
             "winner_correct": pred["favourite"] == actual_winner,
-            "total_runs_line": line, "actual_total_runs": actual_total_runs, "runs_correct": runs_correct,
-            "home_runs_line": home_line, "away_runs_line": away_line,
+            "total_runs_line": line, "total_runs_pick": pick,
+            "actual_total_runs": actual_total_runs, "runs_correct": runs_correct,
+            "home_runs_line": home_line, "home_runs_pick": home_pick,
+            "away_runs_line": away_line, "away_runs_pick": away_pick,
             "actual_home_runs": actual_home_runs, "actual_away_runs": actual_away_runs,
             "home_runs_correct": home_runs_correct, "away_runs_correct": away_runs_correct,
         })
@@ -1521,19 +1527,21 @@ def npb_track_record(n=20):
         actual_total_runs = actual_home_runs + actual_away_runs
         actual_winner_name = team_names.get(home_id, home_id) if actual_home_runs > actual_away_runs \
             else team_names.get(away_id, away_id)
-        line = pred["total_runs_line"]
-        runs_correct = actual_total_runs > line
-        home_line = pred["home_runs_line"]
-        away_line = pred["away_runs_line"]
-        home_runs_correct = actual_home_runs > home_line
-        away_runs_correct = actual_away_runs > away_line
+        line, pick = pred["total_runs_line"], pred["total_runs_pick"]
+        runs_correct = (actual_total_runs > line) if pick == "Over" else (actual_total_runs < line)
+        home_line, home_pick = pred["home_runs_line"], pred["home_runs_pick"]
+        away_line, away_pick = pred["away_runs_line"], pred["away_runs_pick"]
+        home_runs_correct = (actual_home_runs > home_line) if home_pick == "Over" else (actual_home_runs < home_line)
+        away_runs_correct = (actual_away_runs > away_line) if away_pick == "Over" else (actual_away_runs < away_line)
         rows.append({
             "date": g["Date"],
             "home": team_names.get(home_id, home_id), "away": team_names.get(away_id, away_id),
             "predicted_winner": pred["favourite_name"], "actual_winner": actual_winner_name,
             "winner_correct": pred["favourite_name"] == actual_winner_name,
-            "total_runs_line": line, "actual_total_runs": actual_total_runs, "runs_correct": runs_correct,
-            "home_runs_line": home_line, "away_runs_line": away_line,
+            "total_runs_line": line, "total_runs_pick": pick,
+            "actual_total_runs": actual_total_runs, "runs_correct": runs_correct,
+            "home_runs_line": home_line, "home_runs_pick": home_pick,
+            "away_runs_line": away_line, "away_runs_pick": away_pick,
             "actual_home_runs": actual_home_runs, "actual_away_runs": actual_away_runs,
             "home_runs_correct": home_runs_correct, "away_runs_correct": away_runs_correct,
         })

@@ -73,9 +73,11 @@ def predict_total_runs(home_row, away_row):
     return round(home_runs, 2), round(away_runs, 2)
 
 
-TOTAL_RUNS_STD_DEV = 1.5  # same fixed band used for MLB -- communicates that
-                          # this is a central estimate, not an exact guaranteed total
-TEAM_RUNS_STD_DEV = 1.1   # a single team's runs vary less than the two-team combined total
+TOTAL_RUNS_STD_DEV = 4.1  # empirical std dev of HomeScore+VisitorScore across NPB history
+                          # (6.4k+ games) -- was hardcoded to 1.5, same ~3x-too-confident
+                          # bug as MLB's constant of the same name; see mlb_predict.py.
+TEAM_RUNS_STD_DEV = 2.9   # empirical std dev of a single team's runs across the same history
+                          # (home ~2.83, away ~2.93 -- close enough to share one constant)
 
 
 def total_runs_range(predicted_total_runs, std_dev=TOTAL_RUNS_STD_DEV):
@@ -85,14 +87,14 @@ def total_runs_range(predicted_total_runs, std_dev=TOTAL_RUNS_STD_DEV):
 
 
 def total_runs_over_under(predicted_total_runs, std_dev=TOTAL_RUNS_STD_DEV):
-    """A sportsbook-style Over line instead of a raw point estimate --
+    """A sportsbook-style line instead of a raw point estimate --
     see mlb_predict.total_runs_over_under() for the full rationale."""
     line = math.floor(predicted_total_runs) + 0.5
-    if predicted_total_runs - math.floor(predicted_total_runs) < 0.5:
-        line = math.floor(predicted_total_runs) - 0.5
     z = (line - predicted_total_runs) / std_dev
     prob_over = 1 - 0.5 * (1 + math.erf(z / math.sqrt(2)))
-    return {"line": line, "pick": "Over", "probability": round(prob_over * 100, 1)}
+    if prob_over >= 0.5:
+        return {"line": line, "pick": "Over", "probability": round(prob_over * 100, 1)}
+    return {"line": line, "pick": "Under", "probability": round((1 - prob_over) * 100, 1)}
 
 
 def _streak_label(streak):

@@ -60,10 +60,10 @@
 
     <div class="card">
         <h2>Total Runs</h2>
-        <p class="big">Over {{ match.total_runs_line }}</p>
+        <p class="big">{{ match.total_runs_pick }} {{ match.total_runs_line }}</p>
         <p class="muted">Model confidence: {{ match.total_runs_pick_probability }}%</p>
-        <p>{{ away_name }}: Over <strong>{{ match.away_runs_line }}</strong> ({{ match.away_runs_pick_probability }}%)
-            &middot; {{ home_name }}: Over <strong>{{ match.home_runs_line }}</strong> ({{ match.home_runs_pick_probability }}%)</p>
+        <p>{{ away_name }}: {{ match.away_runs_pick }} <strong>{{ match.away_runs_line }}</strong> ({{ match.away_runs_pick_probability }}%)
+            &middot; {{ home_name }}: {{ match.home_runs_pick }} <strong>{{ match.home_runs_line }}</strong> ({{ match.home_runs_pick_probability }}%)</p>
     </div>
 
     <div class="card">

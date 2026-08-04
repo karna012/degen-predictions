@@ -39,17 +39,17 @@
         <h2>Summary</h2>
         <p class="muted">{{ mlb_summary.n }} games</p>
         <p>Winner accuracy: <strong>{{ (mlb_summary.winner_acc * 100) | round(1) }}%</strong></p>
-        <p>Total runs Over pick accuracy: <strong>{{ (mlb_summary.runs_acc * 100) | round(1) }}%</strong></p>
-        <p>Team runs Over pick accuracy: <strong>{{ (mlb_summary.team_runs_acc * 100) | round(1) }}%</strong></p>
+        <p>Total runs pick accuracy: <strong>{{ (mlb_summary.runs_acc * 100) | round(1) }}%</strong></p>
+        <p>Team runs pick accuracy: <strong>{{ (mlb_summary.team_runs_acc * 100) | round(1) }}%</strong></p>
     </div>
 </div>
 <div class="table-wrap">
 <table>
     <thead><tr>
         <th>Date</th><th>Matchup</th><th>Predicted Winner</th><th>Actual Winner</th><th>✓</th>
-        <th>Total Runs Over</th><th>Actual Total</th><th>✓</th>
-        <th>Away Runs Over</th><th>Actual</th><th>✓</th>
-        <th>Home Runs Over</th><th>Actual</th><th>✓</th>
+        <th>Total Runs Pick</th><th>Actual Total</th><th>✓</th>
+        <th>Away Runs Pick</th><th>Actual</th><th>✓</th>
+        <th>Home Runs Pick</th><th>Actual</th><th>✓</th>
     </tr></thead>
     <tbody>
     {% for r in mlb_rows %}
@@ -59,13 +59,13 @@
         <td>{{ r.predicted_winner }}</td>
         <td>{{ r.actual_winner }}</td>
         <td>{{ "✅" if r.winner_correct else "❌" }}</td>
-        <td>{{ r.total_runs_line }}</td>
+        <td>{{ r.total_runs_pick }} {{ r.total_runs_line }}</td>
         <td>{{ r.actual_total_runs | int }}</td>
         <td>{{ "✅" if r.runs_correct else "❌" }}</td>
-        <td>{{ r.away_runs_line }}</td>
+        <td>{{ r.away_runs_pick }} {{ r.away_runs_line }}</td>
         <td>{{ r.actual_away_runs | int }}</td>
         <td>{{ "✅" if r.away_runs_correct else "❌" }}</td>
-        <td>{{ r.home_runs_line }}</td>
+        <td>{{ r.home_runs_pick }} {{ r.home_runs_line }}</td>
         <td>{{ r.actual_home_runs | int }}</td>
         <td>{{ "✅" if r.home_runs_correct else "❌" }}</td>
     </tr>
@@ -86,17 +86,17 @@
         <h2>Summary</h2>
         <p class="muted">{{ npb_summary.n }} games</p>
         <p>Winner accuracy: <strong>{{ (npb_summary.winner_acc * 100) | round(1) }}%</strong></p>
-        <p>Total runs Over pick accuracy: <strong>{{ (npb_summary.runs_acc * 100) | round(1) }}%</strong></p>
-        <p>Team runs Over pick accuracy: <strong>{{ (npb_summary.team_runs_acc * 100) | round(1) }}%</strong></p>
+        <p>Total runs pick accuracy: <strong>{{ (npb_summary.runs_acc * 100) | round(1) }}%</strong></p>
+        <p>Team runs pick accuracy: <strong>{{ (npb_summary.team_runs_acc * 100) | round(1) }}%</strong></p>
     </div>
 </div>
 <div class="table-wrap">
 <table>
     <thead><tr>
         <th>Date</th><th>Matchup</th><th>Predicted Winner</th><th>Actual Winner</th><th>✓</th>
-        <th>Total Runs Over</th><th>Actual Total</th><th>✓</th>
-        <th>Away Runs Over</th><th>Actual</th><th>✓</th>
-        <th>Home Runs Over</th><th>Actual</th><th>✓</th>
+        <th>Total Runs Pick</th><th>Actual Total</th><th>✓</th>
+        <th>Away Runs Pick</th><th>Actual</th><th>✓</th>
+        <th>Home Runs Pick</th><th>Actual</th><th>✓</th>
     </tr></thead>
     <tbody>
     {% for r in npb_rows %}
@@ -106,13 +106,13 @@
         <td>{{ r.predicted_winner }}</td>
         <td>{{ r.actual_winner }}</td>
         <td>{{ "✅" if r.winner_correct else "❌" }}</td>
-        <td>{{ r.total_runs_line }}</td>
+        <td>{{ r.total_runs_pick }} {{ r.total_runs_line }}</td>
         <td>{{ r.actual_total_runs | int }}</td>
         <td>{{ "✅" if r.runs_correct else "❌" }}</td>
-        <td>{{ r.away_runs_line }}</td>
+        <td>{{ r.away_runs_pick }} {{ r.away_runs_line }}</td>
         <td>{{ r.actual_away_runs | int }}</td>
         <td>{{ "✅" if r.away_runs_correct else "❌" }}</td>
-        <td>{{ r.home_runs_line }}</td>
+        <td>{{ r.home_runs_pick }} {{ r.home_runs_line }}</td>
         <td>{{ r.actual_home_runs | int }}</td>
         <td>{{ "✅" if r.home_runs_correct else "❌" }}</td>
     </tr>

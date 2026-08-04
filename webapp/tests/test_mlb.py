@@ -285,18 +285,18 @@ def test_mlb_fixtures_cards_link_to_match_detail(client):
     assert "/mlb/match/" in body
 
 
-# ---- total runs range (+/- 1.5 std dev) -----------------------------------
+# ---- total runs range (+/- empirical std dev, see TOTAL_RUNS_STD_DEV) -----
 
-def test_total_runs_range_is_plus_minus_1_5():
+def test_total_runs_range_is_plus_minus_std_dev():
     low, high = mlb_predict.total_runs_range(9.0)
-    assert low == 7.5
-    assert high == 10.5
+    assert low == pytest.approx(9.0 - mlb_predict.TOTAL_RUNS_STD_DEV)
+    assert high == pytest.approx(9.0 + mlb_predict.TOTAL_RUNS_STD_DEV)
 
 
 def test_total_runs_range_does_not_go_negative():
     low, high = mlb_predict.total_runs_range(0.5)
     assert low == 0.0
-    assert high == 2.0
+    assert high == pytest.approx(0.5 + mlb_predict.TOTAL_RUNS_STD_DEV)
 
 
 def test_mlb_api_predict_includes_runs_range(client):
@@ -306,8 +306,10 @@ def test_mlb_api_predict_includes_runs_range(client):
     home, away = df.iloc[0]["Team"], df.iloc[1]["Team"]
     resp = client.get(f"/mlb/api/predict?home={home}&away={away}")
     data = resp.get_json()
-    assert data["predicted_total_runs_low"] == pytest.approx(data["predicted_total_runs"] - 1.5)
-    assert data["predicted_total_runs_high"] == pytest.approx(data["predicted_total_runs"] + 1.5)
+    assert data["predicted_total_runs_low"] == pytest.approx(
+        data["predicted_total_runs"] - mlb_predict.TOTAL_RUNS_STD_DEV)
+    assert data["predicted_total_runs_high"] == pytest.approx(
+        data["predicted_total_runs"] + mlb_predict.TOTAL_RUNS_STD_DEV)
 
 
 def test_mlb_elo_ratings_have_expanded_columns():

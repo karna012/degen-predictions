@@ -102,9 +102,12 @@ def predict_total_runs(home_row, away_row):
     return _predict_pair(home_row, away_row, "AvgRunsScored", "AvgRunsAllowed")
 
 
-TOTAL_RUNS_STD_DEV = 1.5  # game-to-game total runs vary a lot even for two evenly
-                          # matched teams -- shown as a range, not a false-precision point estimate
-TEAM_RUNS_STD_DEV = 1.1   # a single team's runs vary less than the two-team combined total
+TOTAL_RUNS_STD_DEV = 4.6  # empirical std dev of HomeScore+VisitorScore across the full
+                          # Retrosheet history (17k+ games) -- was hardcoded to 1.5 (a guess
+                          # off by ~3x), which made every "Model confidence" figure on the
+                          # site badly overstated (e.g. a genuine ~54% edge displayed as ~68%).
+TEAM_RUNS_STD_DEV = 3.2   # empirical std dev of a single team's runs across the same history
+                          # (home ~3.15, away ~3.29 -- close enough to share one constant)
 
 
 def total_runs_range(predicted_total_runs, std_dev=TOTAL_RUNS_STD_DEV):
@@ -117,16 +120,19 @@ def total_runs_range(predicted_total_runs, std_dev=TOTAL_RUNS_STD_DEV):
 
 
 def total_runs_over_under(predicted_total_runs, std_dev=TOTAL_RUNS_STD_DEV):
-    """A sportsbook-style Over line instead of a raw point estimate -- a
-    plain X.5 line (never a push) just below the point estimate, plus the
-    model's own confidence that the actual total clears it, from a normal
-    approximation around the point estimate."""
+    """A sportsbook-style line instead of a raw point estimate -- floor(x)+0.5
+    is always the single X.5 line nearest the point estimate (never a push),
+    so it's used directly with no rounding-direction override. The pick is
+    whichever side of that line the point estimate actually favours, from a
+    normal approximation around the point estimate -- NOT hardcoded to
+    Over, which used to make the reported "confidence" meaningless and let
+    the model claim an edge it didn't have."""
     line = math.floor(predicted_total_runs) + 0.5
-    if predicted_total_runs - math.floor(predicted_total_runs) < 0.5:
-        line = math.floor(predicted_total_runs) - 0.5
     z = (line - predicted_total_runs) / std_dev
     prob_over = 1 - 0.5 * (1 + math.erf(z / math.sqrt(2)))
-    return {"line": line, "pick": "Over", "probability": round(prob_over * 100, 1)}
+    if prob_over >= 0.5:
+        return {"line": line, "pick": "Over", "probability": round(prob_over * 100, 1)}
+    return {"line": line, "pick": "Under", "probability": round((1 - prob_over) * 100, 1)}
 
 
 def predict_total_hits(home_row, away_row):

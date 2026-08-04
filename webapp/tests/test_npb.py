@@ -177,12 +177,12 @@ def test_generate_insights_falls_back_when_nothing_stands_out():
     assert "close" in insights[0]
 
 
-# ---- total runs range (+/- 1.5 std dev) -----------------------------------
+# ---- total runs range (+/- empirical std dev, see TOTAL_RUNS_STD_DEV) -----
 
-def test_total_runs_range_is_plus_minus_1_5():
+def test_total_runs_range_is_plus_minus_std_dev():
     low, high = npb_predict.total_runs_range(7.0)
-    assert low == 5.5
-    assert high == 8.5
+    assert low == pytest.approx(7.0 - npb_predict.TOTAL_RUNS_STD_DEV)
+    assert high == pytest.approx(7.0 + npb_predict.TOTAL_RUNS_STD_DEV)
 
 
 def test_npb_api_predict_includes_runs_range(client):
@@ -192,8 +192,10 @@ def test_npb_api_predict_includes_runs_range(client):
     home, away = int(df.iloc[0]["TeamID"]), int(df.iloc[1]["TeamID"])
     resp = client.get(f"/npb/api/predict?home={home}&away={away}")
     data = resp.get_json()
-    assert data["predicted_total_runs_low"] == pytest.approx(data["predicted_total_runs"] - 1.5)
-    assert data["predicted_total_runs_high"] == pytest.approx(data["predicted_total_runs"] + 1.5)
+    assert data["predicted_total_runs_low"] == pytest.approx(
+        data["predicted_total_runs"] - npb_predict.TOTAL_RUNS_STD_DEV)
+    assert data["predicted_total_runs_high"] == pytest.approx(
+        data["predicted_total_runs"] + npb_predict.TOTAL_RUNS_STD_DEV)
 
 
 # ---- data sanity -------------------------------------------------------------
