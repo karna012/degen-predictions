@@ -1,8 +1,15 @@
-name: Test and Deploy
+name: Test
 
-# CI on every push/PR (test job always runs); CD only fires on a push to
-# main (or master) after the test job passes -- so a red test suite can
-# never reach production, and pull requests never trigger a deploy.
+# Runs the test suite on every push/PR. There used to be a second "deploy"
+# job here that SSH'd into EC2 on push to main/master, but its GitHub
+# secrets (EC2_SSH_PRIVATE_KEY, EC2_HOST, etc.) were never actually
+# configured, so it silently failed on every single push. Real deploys go
+# through deploy/sync.sh (or the SSM run-command path) from a machine
+# already allowed through the EC2 security group's SSH allowlist -- adding
+# a working CI deploy path would mean opening SSH to GitHub Actions'
+# runner IP range, which is a much bigger attack surface than the current
+# short allowlist. Removed rather than left disabled-but-present so there's
+# no dead, confusing "deploy" step sitting in the workflow file.
 on:
   push:
     branches: [main, master]
@@ -27,47 +34,3 @@ jobs:
       - name: Run pytest (excluding slow/training tests)
         working-directory: webapp
         run: python -m pytest -q -m "not slow"
-
-  deploy:
-    name: Deploy to EC2
-    needs: test
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Pack deploy bundle
-        run: |
-          tar --exclude='__pycache__' --exclude='*.pyc' --exclude='*.log' \
-              --exclude='webapp/users.db' --exclude='webapp/tests/__pycache__' \
-              -czf /tmp/sync_bundle.tar.gz webapp scripts
-
-      - name: Configure SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.EC2_HOST }}" >> ~/.ssh/known_hosts
-
-      - name: Upload bundle
-        run: |
-          scp -i ~/.ssh/deploy_key /tmp/sync_bundle.tar.gz \
-              "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:~/sync_bundle.tar.gz"
-
-      - name: Extract + restart service
-        run: |
-          ssh -i ~/.ssh/deploy_key "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}" "
-            cd ${{ secrets.EC2_APP_DIR }} &&
-            tar xzf ~/sync_bundle.tar.gz &&
-            rm ~/sync_bundle.tar.gz &&
-            chmod o+rX -R webapp/static &&
-            sudo systemctl restart degen-predictions &&
-            sleep 2 &&
-            sudo systemctl is-active degen-predictions
-          "
-
-      - name: Smoke test
-        run: |
-          sleep 3
-          curl -sf -o /dev/null "https://${{ secrets.SITE_DOMAIN }}/" || \
-            (echo "Post-deploy health check failed" && exit 1)
