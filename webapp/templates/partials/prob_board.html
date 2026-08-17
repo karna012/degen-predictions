@@ -1,0 +1,22 @@
+{# Probability donut + split bar. Expects p1, p2 (0-1), label1, label2 #}
+{% macro prob_board(p1, p2, label1, label2) %}
+{% set pct1 = ((p1 or 0) * 100)|round(1) %}
+{% set pct2 = ((p2 or 0) * 100)|round(1) %}
+{% set fav_pct = pct1 if pct1 >= pct2 else pct2 %}
+<div class="prob-board">
+  <div class="prob-ring-wrap">
+    <div class="prob-ring" style="--p: {{ pct1 }};" aria-hidden="true"></div>
+    <div class="prob-ring-label">{{ fav_pct }}%<small>fav edge</small></div>
+  </div>
+  <div>
+    <div class="split-bar" aria-hidden="true">
+      <span class="home" style="width: {{ pct1 }}%"></span>
+      <span class="away" style="width: {{ pct2 }}%"></span>
+    </div>
+    <div class="prob-legend">
+      <span><strong>{{ label1 }}</strong> {{ pct1 }}%</span>
+      <span><strong>{{ label2 }}</strong> {{ pct2 }}%</span>
+    </div>
+  </div>
+</div>
+{% endmacro %}

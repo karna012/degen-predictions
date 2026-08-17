@@ -1,0 +1,15 @@
+{# Designed empty state. Expects: title, body, optional season_window, actions list of {href,label} #}
+<div class="empty-state-pro">
+  <h2>{{ title }}</h2>
+  <p class="muted" style="margin:0;">{{ body }}</p>
+  {% if season_window %}
+  <p class="muted" style="margin:0.65rem 0 0;">Typical window: <strong>{{ season_window }}</strong>.</p>
+  {% endif %}
+  {% if actions %}
+  <div class="empty-actions">
+    {% for a in actions %}
+    <a class="league-cta" href="{{ a.href }}">{{ a.label }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>

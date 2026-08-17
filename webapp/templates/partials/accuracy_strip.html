@@ -1,0 +1,46 @@
+{# Compact OOS track-record strip. Expects: accuracy_highlights (list).
+   Optional: accuracy_strip_mode ("home" | "sports") — home avoids /mlb/results
+   before the category grid (test/product constraint). #}
+{% if accuracy_highlights %}
+{% set mode = accuracy_strip_mode|default('home') %}
+{% set show_actions = accuracy_strip_show_actions if accuracy_strip_show_actions is defined else true %}
+<section class="accuracy-strip{% if not show_actions %} accuracy-strip--chips{% endif %}" aria-label="Out-of-sample accuracy">
+  <div class="accuracy-strip-head">
+    <h2 class="accuracy-strip-title">Track record</h2>
+    <p class="accuracy-strip-meta muted">
+      Full-slate out-of-sample match-winner accuracy from holdout data — not guarantees.
+      <a href="/accuracy">Accuracy hub</a>
+    </p>
+  </div>
+  <ul class="accuracy-strip-chips">
+    {% for row in accuracy_highlights %}
+    <li>
+      {% if mode == 'sports' and row.track_url %}
+      <a class="accuracy-chip" href="{{ row.track_url }}">
+        <span class="accuracy-chip-label">{{ row.label }}</span>
+        <span class="accuracy-chip-pct">{{ row.pct }}</span>
+        <span class="accuracy-chip-note muted">OOS</span>
+      </a>
+      {% else %}
+      <a class="accuracy-chip" href="{{ row.picks_url }}">
+        <span class="accuracy-chip-label">{{ row.label }}</span>
+        <span class="accuracy-chip-pct">{{ row.pct }}</span>
+        <span class="accuracy-chip-note muted">OOS · picks</span>
+      </a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% if show_actions %}
+  <div class="accuracy-strip-actions">
+    <a class="league-cta" href="/todays-picks" style="text-decoration:none;">Today's Picks</a>
+    {% if accuracy_highlights %}
+    <a class="league-cta is-secondary" href="{{ accuracy_highlights[0].picks_url }}" style="text-decoration:none;">
+      Best board: {{ accuracy_highlights[0].label }}
+    </a>
+    {% endif %}
+    <a class="league-cta is-secondary" href="/todays-picks/combos" style="text-decoration:none;">Best Combos</a>
+  </div>
+  {% endif %}
+</section>
+{% endif %}

@@ -1,381 +1,381 @@
 RoundNumber,DateUtc,HomeTeam,AwayTeam,P_Home_Win,P_Draw,P_Away_Win,Predicted_Result,P_BTTS_Yes,BTTS_Prediction,P_Over_2.5_Goals,Goals_Prediction,Exp_Total_Corners,P_Home_More_Corners,More_Corners_Prediction,Favorite_Team,P_Favorite_Avoids_Defeat,Favorite_Avoids_Defeat_Prediction,Data_Confidence
-1,2026-08-15 07:30:00Z,Alaves,Getafe,0.446,0.311,0.243,Alaves,0.487,No,0.38,Under 2.5,8.9,0.484,Getafe,Getafe,0.645,Yes,OK
-1,2026-08-15 09:30:00Z,Sevilla,Vallecano,0.321,0.336,0.344,Vallecano,0.507,Yes,0.417,Under 2.5,8.98,0.6,Sevilla,Vallecano,0.657,Yes,OK
-1,2026-08-16 05:00:00Z,R. Racing Club,Villarreal,0.288,0.327,0.385,Villarreal,0.472,No,0.447,Under 2.5,10.02,0.555,R. Racing Club,Villarreal,0.66,Yes,Low (promoted/new team)
-1,2026-08-16 07:00:00Z,Espanol,Levante,0.409,0.318,0.273,Espanol,0.719,Yes,0.469,Under 2.5,10.07,0.616,Espanol,Levante,0.658,Yes,OK
-1,2026-08-16 09:30:00Z,Celta,Osasuna,0.472,0.301,0.226,Celta,0.64,Yes,0.472,Under 2.5,9.4,0.402,Osasuna,Celta,0.718,Yes,OK
-1,2026-08-17 09:00:00Z,RC Deportivo,Elche,0.487,0.301,0.211,RC Deportivo,0.46,No,0.412,Under 2.5,9.19,0.559,RC Deportivo,RC Deportivo,0.712,Yes,Low (promoted/new team)
-1,2026-08-19 09:00:00Z,Ath Madrid,Málaga CF,0.598,0.261,0.141,Ath Madrid,0.558,Yes,0.517,Over 2.5,9.59,0.616,Ath Madrid,Ath Madrid,0.769,Yes,Low (promoted/new team)
-1,2026-08-25 09:00:00Z,Valencia,Betis,0.333,0.322,0.345,Betis,0.683,Yes,0.523,Over 2.5,9.86,0.454,Betis,Betis,0.662,Yes,OK
-1,2026-08-26 09:00:00Z,Real Madrid,Sociedad,0.656,0.225,0.119,Real Madrid,0.573,Yes,0.573,Over 2.5,9.85,0.647,Real Madrid,Real Madrid,0.761,Yes,OK
-1,2026-08-27 09:00:00Z,Barcelona,Ath Bilbao,0.564,0.266,0.17,Barcelona,0.511,Yes,0.526,Over 2.5,10.02,0.52,Barcelona,Barcelona,0.779,Yes,OK
-2,2026-08-20 09:00:00Z,Vallecano,Alaves,0.453,0.315,0.231,Vallecano,0.547,Yes,0.463,Under 2.5,9.31,0.652,Vallecano,Vallecano,0.725,Yes,OK
-2,2026-08-21 09:00:00Z,Betis,Sociedad,0.554,0.265,0.18,Betis,0.619,Yes,0.554,Over 2.5,9.36,0.536,Betis,Betis,0.742,Yes,OK
-2,2026-08-22 05:00:00Z,Ath Bilbao,Sevilla,0.439,0.323,0.238,Ath Bilbao,0.47,No,0.394,Under 2.5,9.13,0.519,Ath Bilbao,Ath Bilbao,0.752,Yes,OK
-2,2026-08-22 07:30:00Z,Valencia,Celta,0.453,0.305,0.242,Valencia,0.661,Yes,0.49,Under 2.5,10.03,0.554,Valencia,Celta,0.651,Yes,OK
-2,2026-08-22 09:30:00Z,Espanol,Real Madrid,0.174,0.273,0.553,Real Madrid,0.676,Yes,0.548,Over 2.5,9.48,0.567,Espanol,Real Madrid,0.753,Yes,OK
-2,2026-08-23 05:00:00Z,Ath Madrid,Villarreal,0.464,0.289,0.247,Ath Madrid,0.693,Yes,0.587,Over 2.5,9.78,0.534,Ath Madrid,Ath Madrid,0.683,Yes,OK
-2,2026-08-23 07:30:00Z,Getafe,R. Racing Club,0.372,0.338,0.291,Getafe,0.495,No,0.387,Under 2.5,9.05,0.512,Getafe,Getafe,0.7,Yes,Low (promoted/new team)
-2,2026-08-23 09:30:00Z,Elche,Barcelona,0.2,0.287,0.513,Barcelona,0.529,Yes,0.542,Over 2.5,9.54,0.469,Barcelona,Barcelona,0.76,Yes,OK
-2,2026-08-24 07:30:00Z,Osasuna,Levante,0.411,0.32,0.269,Osasuna,0.649,Yes,0.46,Under 2.5,10.36,0.572,Osasuna,Osasuna,0.67,Yes,OK
-2,2026-08-24 09:30:00Z,Málaga CF,RC Deportivo,0.365,0.345,0.29,Málaga CF,0.474,No,0.404,Under 2.5,9.3,0.62,Málaga CF,Málaga CF,0.675,Yes,Low (promoted/new team)
-3,2026-08-28 07:00:00Z,R. Racing Club,Elche,0.487,0.301,0.211,R. Racing Club,0.46,No,0.412,Under 2.5,9.19,0.559,R. Racing Club,R. Racing Club,0.712,Yes,Low (promoted/new team)
-3,2026-08-28 09:30:00Z,Alaves,Villarreal,0.267,0.316,0.417,Villarreal,0.667,Yes,0.509,Over 2.5,9.87,0.457,Villarreal,Villarreal,0.671,Yes,OK
-3,2026-08-29 05:00:00Z,Levante,Betis,0.29,0.31,0.4,Betis,0.698,Yes,0.534,Over 2.5,9.85,0.466,Betis,Betis,0.665,Yes,OK
-3,2026-08-29 07:00:00Z,Sociedad,Espanol,0.557,0.265,0.178,Sociedad,0.544,Yes,0.466,Under 2.5,9.43,0.46,Espanol,Sociedad,0.731,Yes,OK
-3,2026-08-29 09:30:00Z,Sevilla,Ath Madrid,0.251,0.309,0.44,Ath Madrid,0.498,No,0.454,Under 2.5,9.68,0.554,Sevilla,Ath Madrid,0.693,Yes,OK
-3,2026-08-30 05:00:00Z,Real Madrid,Málaga CF,0.661,0.226,0.114,Real Madrid,0.533,Yes,0.51,Over 2.5,9.54,0.722,Real Madrid,Real Madrid,0.788,Yes,Low (promoted/new team)
-3,2026-08-30 07:30:00Z,RC Deportivo,Valencia,0.383,0.326,0.29,RC Deportivo,0.461,No,0.42,Under 2.5,9.35,0.591,RC Deportivo,Valencia,0.637,Yes,Low (promoted/new team)
-3,2026-08-30 09:30:00Z,Celta,Ath Bilbao,0.341,0.31,0.349,Ath Bilbao,0.618,Yes,0.462,Under 2.5,9.39,0.461,Ath Bilbao,Celta,0.738,Yes,OK
-3,2026-08-31 07:30:00Z,Osasuna,Getafe,0.433,0.324,0.244,Osasuna,0.476,No,0.378,Under 2.5,9.09,0.596,Osasuna,Getafe,0.651,Yes,OK
-3,2026-08-31 09:30:00Z,Barcelona,Vallecano,0.569,0.267,0.165,Barcelona,0.519,Yes,0.54,Over 2.5,10.23,0.595,Barcelona,Barcelona,0.765,Yes,OK
-4,2026-09-05 14:00:00Z,Alaves,Osasuna,0.417,0.313,0.27,Alaves,0.654,Yes,0.436,Under 2.5,9.43,0.377,Osasuna,Osasuna,0.631,Yes,OK
-4,2026-09-05 14:00:00Z,Ath Bilbao,Ath Madrid,0.303,0.308,0.389,Ath Madrid,0.472,No,0.467,Under 2.5,10.15,0.588,Ath Bilbao,Ath Madrid,0.679,Yes,OK
-4,2026-09-05 14:00:00Z,Betis,Real Madrid,0.215,0.299,0.486,Real Madrid,0.724,Yes,0.584,Over 2.5,9.19,0.52,Betis,Real Madrid,0.741,Yes,OK
-4,2026-09-05 14:00:00Z,Elche,Sociedad,0.377,0.328,0.295,Elche,0.578,Yes,0.447,Under 2.5,9.25,0.465,Sociedad,Sociedad,0.655,Yes,OK
-4,2026-09-05 14:00:00Z,Espanol,Sevilla,0.367,0.334,0.299,Espanol,0.535,Yes,0.394,Under 2.5,9.38,0.566,Espanol,Espanol,0.71,Yes,OK
-4,2026-09-05 14:00:00Z,Getafe,Celta,0.391,0.329,0.28,Getafe,0.517,Yes,0.41,Under 2.5,9.37,0.434,Celta,Celta,0.642,Yes,OK
-4,2026-09-05 14:00:00Z,Málaga CF,Levante,0.411,0.316,0.273,Málaga CF,0.452,No,0.431,Under 2.5,10.29,0.539,Málaga CF,Málaga CF,0.676,Yes,Low (promoted/new team)
-4,2026-09-05 14:00:00Z,Vallecano,R. Racing Club,0.445,0.312,0.244,Vallecano,0.567,Yes,0.463,Under 2.5,9.52,0.556,Vallecano,Vallecano,0.726,Yes,Low (promoted/new team)
-4,2026-09-05 14:00:00Z,Valencia,Barcelona,0.203,0.288,0.509,Barcelona,0.661,Yes,0.566,Over 2.5,9.9,0.535,Valencia,Barcelona,0.739,Yes,OK
-4,2026-09-05 14:00:00Z,Villarreal,RC Deportivo,0.594,0.261,0.145,Villarreal,0.601,Yes,0.531,Over 2.5,9.64,0.609,Villarreal,Villarreal,0.768,Yes,Low (promoted/new team)
-5,2026-09-12 14:00:00Z,Ath Bilbao,Elche,0.587,0.26,0.153,Ath Bilbao,0.511,Yes,0.442,Under 2.5,9.19,0.592,Ath Bilbao,Ath Bilbao,0.735,Yes,OK
-5,2026-09-12 14:00:00Z,Celta,Málaga CF,0.445,0.319,0.235,Celta,0.592,Yes,0.467,Under 2.5,9.28,0.512,Celta,Celta,0.727,Yes,Low (promoted/new team)
-5,2026-09-12 14:00:00Z,Getafe,RC Deportivo,0.372,0.338,0.291,Getafe,0.495,No,0.387,Under 2.5,9.05,0.512,Getafe,Getafe,0.7,Yes,Low (promoted/new team)
-5,2026-09-12 14:00:00Z,Levante,Barcelona,0.211,0.289,0.501,Barcelona,0.682,Yes,0.566,Over 2.5,10.14,0.517,Levante,Barcelona,0.734,Yes,OK
-5,2026-09-12 14:00:00Z,Osasuna,Espanol,0.468,0.306,0.226,Osasuna,0.577,Yes,0.438,Under 2.5,9.77,0.619,Osasuna,Osasuna,0.714,Yes,OK
-5,2026-09-12 14:00:00Z,R. Racing Club,Alaves,0.415,0.329,0.256,R. Racing Club,0.43,No,0.409,Under 2.5,9.5,0.601,R. Racing Club,R. Racing Club,0.703,Yes,Low (promoted/new team)
-5,2026-09-12 14:00:00Z,Real Madrid,Vallecano,0.58,0.267,0.154,Real Madrid,0.537,Yes,0.546,Over 2.5,10.12,0.663,Real Madrid,Real Madrid,0.775,Yes,OK
-5,2026-09-12 14:00:00Z,Sociedad,Ath Madrid,0.285,0.291,0.424,Ath Madrid,0.596,Yes,0.504,Over 2.5,9.87,0.433,Ath Madrid,Ath Madrid,0.69,Yes,OK
-5,2026-09-12 14:00:00Z,Sevilla,Valencia,0.351,0.325,0.323,Sevilla,0.495,No,0.421,Under 2.5,9.02,0.548,Sevilla,Valencia,0.644,Yes,OK
-5,2026-09-12 14:00:00Z,Villarreal,Betis,0.461,0.293,0.246,Villarreal,0.715,Yes,0.619,Over 2.5,9.58,0.461,Betis,Villarreal,0.714,Yes,OK
-6,2026-09-15 14:00:00Z,Alaves,Valencia,0.366,0.309,0.325,Alaves,0.616,Yes,0.454,Under 2.5,9.44,0.441,Valencia,Valencia,0.647,Yes,OK
-6,2026-09-15 14:00:00Z,Ath Madrid,Osasuna,0.604,0.257,0.139,Ath Madrid,0.639,Yes,0.554,Over 2.5,9.7,0.492,Osasuna,Ath Madrid,0.75,Yes,OK
-6,2026-09-15 14:00:00Z,Betis,Getafe,0.615,0.25,0.136,Betis,0.501,Yes,0.504,Over 2.5,9.22,0.552,Betis,Betis,0.765,Yes,OK
-6,2026-09-15 14:00:00Z,RC Deportivo,Sevilla,0.376,0.334,0.29,RC Deportivo,0.413,No,0.383,Under 2.5,9.45,0.554,RC Deportivo,RC Deportivo,0.73,Yes,Low (promoted/new team)
-6,2026-09-15 14:00:00Z,Elche,Real Madrid,0.179,0.283,0.538,Real Madrid,0.529,Yes,0.525,Over 2.5,9.6,0.438,Real Madrid,Real Madrid,0.764,Yes,OK
-6,2026-09-15 14:00:00Z,Barcelona,R. Racing Club,0.634,0.243,0.123,Barcelona,0.522,Yes,0.508,Over 2.5,9.77,0.688,Barcelona,Barcelona,0.781,Yes,Low (promoted/new team)
-6,2026-09-15 14:00:00Z,Levante,Ath Bilbao,0.301,0.311,0.388,Ath Bilbao,0.664,Yes,0.49,Under 2.5,9.85,0.539,Levante,Ath Bilbao,0.7,Yes,OK
-6,2026-09-15 14:00:00Z,Málaga CF,Villarreal,0.288,0.327,0.385,Villarreal,0.472,No,0.447,Under 2.5,10.02,0.555,Málaga CF,Villarreal,0.66,Yes,Low (promoted/new team)
-6,2026-09-15 14:00:00Z,Vallecano,Espanol,0.505,0.293,0.202,Vallecano,0.586,Yes,0.475,Under 2.5,9.75,0.635,Vallecano,Vallecano,0.739,Yes,OK
-6,2026-09-15 14:00:00Z,Sociedad,Celta,0.512,0.279,0.209,Sociedad,0.588,Yes,0.491,Under 2.5,9.54,0.388,Celta,Celta,0.649,Yes,OK
-7,2026-09-19 14:00:00Z,Ath Bilbao,Alaves,0.474,0.306,0.22,Ath Bilbao,0.481,No,0.433,Under 2.5,9.38,0.563,Ath Bilbao,Ath Bilbao,0.705,Yes,OK
-7,2026-09-19 14:00:00Z,Ath Madrid,Real Madrid,0.233,0.302,0.464,Real Madrid,0.657,Yes,0.605,Over 2.5,9.38,0.529,Ath Madrid,Real Madrid,0.738,Yes,OK
-7,2026-09-19 14:00:00Z,Celta,R. Racing Club,0.445,0.319,0.235,Celta,0.592,Yes,0.467,Under 2.5,9.28,0.512,Celta,Celta,0.727,Yes,Low (promoted/new team)
-7,2026-09-19 14:00:00Z,RC Deportivo,Betis,0.3,0.32,0.38,Betis,0.487,No,0.428,Under 2.5,9.9,0.436,Betis,Betis,0.653,Yes,Low (promoted/new team)
-7,2026-09-19 14:00:00Z,Espanol,Elche,0.509,0.297,0.194,Espanol,0.677,Yes,0.441,Under 2.5,9.19,0.558,Espanol,Espanol,0.675,Yes,OK
-7,2026-09-19 14:00:00Z,Getafe,Málaga CF,0.372,0.338,0.291,Getafe,0.495,No,0.387,Under 2.5,9.05,0.512,Getafe,Getafe,0.7,Yes,Low (promoted/new team)
-7,2026-09-19 14:00:00Z,Osasuna,Vallecano,0.346,0.333,0.32,Osasuna,0.599,Yes,0.437,Under 2.5,9.43,0.59,Osasuna,Vallecano,0.665,Yes,OK
-7,2026-09-19 14:00:00Z,Sevilla,Barcelona,0.194,0.29,0.517,Barcelona,0.468,No,0.527,Over 2.5,9.23,0.511,Sevilla,Barcelona,0.759,Yes,OK
-7,2026-09-19 14:00:00Z,Valencia,Sociedad,0.45,0.296,0.254,Valencia,0.61,Yes,0.481,Under 2.5,9.77,0.552,Valencia,Valencia,0.71,Yes,OK
-7,2026-09-19 14:00:00Z,Villarreal,Levante,0.595,0.252,0.154,Villarreal,0.726,Yes,0.611,Over 2.5,10.02,0.535,Villarreal,Villarreal,0.773,Yes,OK
-8,2026-10-10 13:00:00Z,Alaves,Ath Madrid,0.262,0.308,0.43,Ath Madrid,0.627,Yes,0.479,Under 2.5,10.08,0.498,Ath Madrid,Ath Madrid,0.692,Yes,OK
-8,2026-10-10 13:00:00Z,Betis,Osasuna,0.592,0.257,0.15,Betis,0.709,Yes,0.54,Over 2.5,9.4,0.451,Osasuna,Betis,0.737,Yes,OK
-8,2026-10-10 13:00:00Z,Elche,Celta,0.397,0.319,0.285,Elche,0.577,Yes,0.453,Under 2.5,9.55,0.464,Celta,Celta,0.645,Yes,OK
-8,2026-10-10 13:00:00Z,Barcelona,Getafe,0.679,0.218,0.103,Barcelona,0.411,No,0.493,Under 2.5,9.57,0.579,Barcelona,Barcelona,0.777,Yes,OK
-8,2026-10-10 13:00:00Z,Levante,Sevilla,0.397,0.329,0.274,Levante,0.552,Yes,0.432,Under 2.5,9.5,0.494,Sevilla,Levante,0.731,Yes,OK
-8,2026-10-10 13:00:00Z,Málaga CF,Espanol,0.455,0.313,0.232,Málaga CF,0.44,No,0.416,Under 2.5,10.03,0.562,Málaga CF,Málaga CF,0.714,Yes,Low (promoted/new team)
-8,2026-10-10 13:00:00Z,R. Racing Club,Valencia,0.383,0.326,0.29,R. Racing Club,0.461,No,0.42,Under 2.5,9.35,0.591,R. Racing Club,Valencia,0.637,Yes,Low (promoted/new team)
-8,2026-10-10 13:00:00Z,Vallecano,Ath Bilbao,0.341,0.318,0.341,Vallecano,0.622,Yes,0.464,Under 2.5,9.58,0.593,Vallecano,Vallecano,0.727,Yes,OK
-8,2026-10-10 13:00:00Z,Real Madrid,Villarreal,0.566,0.267,0.167,Real Madrid,0.574,Yes,0.579,Over 2.5,9.99,0.638,Real Madrid,Real Madrid,0.753,Yes,OK
-8,2026-10-10 13:00:00Z,Sociedad,RC Deportivo,0.486,0.308,0.206,Sociedad,0.522,Yes,0.46,Under 2.5,9.33,0.392,RC Deportivo,Sociedad,0.708,Yes,Low (promoted/new team)
-9,2026-10-17 13:00:00Z,Betis,Barcelona,0.211,0.298,0.49,Barcelona,0.712,Yes,0.593,Over 2.5,9.61,0.562,Betis,Barcelona,0.749,Yes,OK
-9,2026-10-17 13:00:00Z,Celta,Alaves,0.463,0.307,0.231,Celta,0.534,Yes,0.465,Under 2.5,9.26,0.549,Celta,Celta,0.736,Yes,OK
-9,2026-10-17 13:00:00Z,RC Deportivo,Levante,0.411,0.316,0.273,RC Deportivo,0.452,No,0.431,Under 2.5,10.29,0.539,RC Deportivo,RC Deportivo,0.676,Yes,Low (promoted/new team)
-9,2026-10-17 13:00:00Z,Espanol,Ath Madrid,0.245,0.293,0.462,Ath Madrid,0.683,Yes,0.491,Under 2.5,10.22,0.619,Espanol,Ath Madrid,0.698,Yes,OK
-9,2026-10-17 13:00:00Z,Getafe,Vallecano,0.323,0.345,0.332,Draw,0.501,Yes,0.397,Under 2.5,9.19,0.471,Vallecano,Vallecano,0.651,Yes,OK
-9,2026-10-17 13:00:00Z,Málaga CF,Sociedad,0.384,0.318,0.298,Málaga CF,0.471,No,0.422,Under 2.5,9.6,0.545,Málaga CF,Sociedad,0.65,Yes,Low (promoted/new team)
-9,2026-10-17 13:00:00Z,Osasuna,R. Racing Club,0.4,0.326,0.273,Osasuna,0.551,Yes,0.429,Under 2.5,9.6,0.481,R. Racing Club,R. Racing Club,0.684,Yes,Low (promoted/new team)
-9,2026-10-17 13:00:00Z,Real Madrid,Sevilla,0.638,0.24,0.122,Real Madrid,0.515,Yes,0.512,Over 2.5,9.48,0.639,Real Madrid,Real Madrid,0.803,Yes,OK
-9,2026-10-17 13:00:00Z,Valencia,Ath Bilbao,0.333,0.312,0.356,Ath Bilbao,0.636,Yes,0.466,Under 2.5,9.66,0.514,Valencia,Valencia,0.717,Yes,OK
-9,2026-10-17 13:00:00Z,Villarreal,Elche,0.674,0.22,0.106,Villarreal,0.681,Yes,0.601,Over 2.5,9.36,0.595,Villarreal,Villarreal,0.782,Yes,OK
-10,2026-10-24 13:00:00Z,Alaves,Málaga CF,0.396,0.326,0.279,Alaves,0.562,Yes,0.434,Under 2.5,9.33,0.516,Alaves,Málaga CF,0.687,Yes,Low (promoted/new team)
-10,2026-10-24 13:00:00Z,Ath Bilbao,Getafe,0.499,0.297,0.203,Ath Bilbao,0.396,No,0.391,Under 2.5,9.2,0.572,Ath Bilbao,Ath Bilbao,0.668,Yes,OK
-10,2026-10-24 13:00:00Z,Ath Madrid,RC Deportivo,0.598,0.261,0.141,Ath Madrid,0.558,Yes,0.517,Over 2.5,9.59,0.616,Ath Madrid,Ath Madrid,0.769,Yes,Low (promoted/new team)
-10,2026-10-24 13:00:00Z,Celta,Betis,0.339,0.316,0.345,Betis,0.663,Yes,0.512,Over 2.5,9.44,0.429,Betis,Betis,0.68,Yes,OK
-10,2026-10-24 13:00:00Z,Barcelona,Real Madrid,0.412,0.298,0.291,Barcelona,0.548,Yes,0.57,Over 2.5,9.83,0.476,Real Madrid,Barcelona,0.719,Yes,OK
-10,2026-10-24 13:00:00Z,R. Racing Club,Espanol,0.455,0.313,0.232,R. Racing Club,0.44,No,0.416,Under 2.5,10.03,0.562,R. Racing Club,R. Racing Club,0.714,Yes,Low (promoted/new team)
-10,2026-10-24 13:00:00Z,Vallecano,Elche,0.538,0.284,0.177,Vallecano,0.644,Yes,0.481,Under 2.5,9.14,0.608,Vallecano,Vallecano,0.744,Yes,OK
-10,2026-10-24 13:00:00Z,Sociedad,Levante,0.521,0.277,0.202,Sociedad,0.618,Yes,0.484,Under 2.5,10.05,0.479,Levante,Sociedad,0.722,Yes,OK
-10,2026-10-24 13:00:00Z,Sevilla,Osasuna,0.401,0.324,0.275,Sevilla,0.556,Yes,0.408,Under 2.5,9.01,0.465,Osasuna,Osasuna,0.63,Yes,OK
-10,2026-10-24 13:00:00Z,Valencia,Villarreal,0.276,0.318,0.406,Villarreal,0.697,Yes,0.518,Over 2.5,10.03,0.571,Valencia,Villarreal,0.661,Yes,OK
-11,2026-10-31 13:00:00Z,Ath Bilbao,Sociedad,0.466,0.296,0.238,Ath Bilbao,0.498,No,0.446,Under 2.5,9.33,0.572,Ath Bilbao,Ath Bilbao,0.672,Yes,OK
-11,2026-10-31 13:00:00Z,Betis,Málaga CF,0.567,0.275,0.159,Betis,0.602,Yes,0.502,Over 2.5,9.67,0.596,Betis,Betis,0.756,Yes,Low (promoted/new team)
-11,2026-10-31 13:00:00Z,RC Deportivo,Osasuna,0.422,0.316,0.262,RC Deportivo,0.446,No,0.409,Under 2.5,9.78,0.495,Osasuna,RC Deportivo,0.65,Yes,Low (promoted/new team)
-11,2026-10-31 13:00:00Z,Elche,Valencia,0.344,0.334,0.322,Elche,0.542,Yes,0.447,Under 2.5,9.41,0.512,Elche,Valencia,0.644,Yes,OK
-11,2026-10-31 13:00:00Z,Barcelona,Alaves,0.647,0.232,0.12,Barcelona,0.502,Yes,0.545,Over 2.5,9.76,0.625,Barcelona,Barcelona,0.773,Yes,OK
-11,2026-10-31 13:00:00Z,Getafe,Sevilla,0.342,0.356,0.302,Draw,0.473,No,0.353,Under 2.5,9.16,0.412,Sevilla,Getafe,0.728,Yes,OK
-11,2026-10-31 13:00:00Z,Levante,Ath Madrid,0.268,0.308,0.424,Ath Madrid,0.694,Yes,0.509,Over 2.5,10.38,0.57,Levante,Ath Madrid,0.694,Yes,OK
-11,2026-10-31 13:00:00Z,R. Racing Club,Real Madrid,0.207,0.285,0.508,Real Madrid,0.418,No,0.456,Under 2.5,9.49,0.493,Real Madrid,Real Madrid,0.735,Yes,Low (promoted/new team)
-11,2026-10-31 13:00:00Z,Vallecano,Celta,0.471,0.297,0.232,Vallecano,0.629,Yes,0.491,Under 2.5,9.73,0.538,Vallecano,Celta,0.648,Yes,OK
-11,2026-10-31 13:00:00Z,Villarreal,Espanol,0.626,0.24,0.134,Villarreal,0.626,Yes,0.605,Over 2.5,9.74,0.632,Villarreal,Villarreal,0.786,Yes,OK
-12,2026-11-07 13:00:00Z,Ath Madrid,Barcelona,0.242,0.301,0.457,Barcelona,0.65,Yes,0.603,Over 2.5,9.68,0.569,Ath Madrid,Barcelona,0.75,Yes,OK
-12,2026-11-07 13:00:00Z,Celta,Levante,0.47,0.302,0.228,Celta,0.681,Yes,0.499,Under 2.5,9.87,0.488,Levante,Celta,0.738,Yes,OK
-12,2026-11-07 13:00:00Z,Elche,Betis,0.283,0.324,0.394,Betis,0.58,Yes,0.495,Under 2.5,9.57,0.4,Betis,Betis,0.672,Yes,OK
-12,2026-11-07 13:00:00Z,Espanol,RC Deportivo,0.381,0.333,0.286,Espanol,0.588,Yes,0.443,Under 2.5,9.73,0.526,Espanol,RC Deportivo,0.685,Yes,Low (promoted/new team)
-12,2026-11-07 13:00:00Z,Málaga CF,R. Racing Club,0.365,0.345,0.29,Málaga CF,0.474,No,0.404,Under 2.5,9.3,0.62,Málaga CF,Málaga CF,0.675,Yes,Low (promoted/new team)
-12,2026-11-07 13:00:00Z,Osasuna,Ath Bilbao,0.287,0.31,0.404,Ath Bilbao,0.599,Yes,0.439,Under 2.5,9.45,0.552,Osasuna,Ath Bilbao,0.719,Yes,OK
-12,2026-11-07 13:00:00Z,Sociedad,Vallecano,0.413,0.308,0.279,Sociedad,0.574,Yes,0.461,Under 2.5,9.5,0.505,Sociedad,Vallecano,0.664,Yes,OK
-12,2026-11-07 13:00:00Z,Sevilla,Alaves,0.395,0.332,0.273,Sevilla,0.496,No,0.397,Under 2.5,8.82,0.607,Sevilla,Alaves,0.632,Yes,OK
-12,2026-11-07 13:00:00Z,Valencia,Real Madrid,0.185,0.28,0.535,Real Madrid,0.676,Yes,0.553,Over 2.5,9.54,0.465,Real Madrid,Real Madrid,0.745,Yes,OK
-12,2026-11-07 13:00:00Z,Villarreal,Getafe,0.637,0.24,0.123,Villarreal,0.508,Yes,0.528,Over 2.5,9.32,0.589,Villarreal,Villarreal,0.777,Yes,OK
-13,2026-11-21 13:00:00Z,Alaves,RC Deportivo,0.396,0.326,0.279,Alaves,0.562,Yes,0.434,Under 2.5,9.33,0.516,Alaves,RC Deportivo,0.687,Yes,Low (promoted/new team)
-13,2026-11-21 13:00:00Z,Ath Bilbao,Espanol,0.534,0.278,0.187,Ath Bilbao,0.475,No,0.449,Under 2.5,9.68,0.58,Ath Bilbao,Ath Bilbao,0.715,Yes,OK
-13,2026-11-21 13:00:00Z,Barcelona,Villarreal,0.556,0.265,0.18,Barcelona,0.569,Yes,0.565,Over 2.5,10.16,0.556,Barcelona,Barcelona,0.744,Yes,OK
-13,2026-11-21 13:00:00Z,Getafe,Ath Madrid,0.246,0.3,0.454,Ath Madrid,0.476,No,0.427,Under 2.5,9.84,0.428,Ath Madrid,Ath Madrid,0.682,Yes,OK
-13,2026-11-21 13:00:00Z,Levante,Elche,0.521,0.291,0.188,Levante,0.685,Yes,0.495,Under 2.5,9.45,0.521,Levante,Levante,0.716,Yes,OK
-13,2026-11-21 13:00:00Z,Osasuna,Málaga CF,0.4,0.326,0.273,Osasuna,0.551,Yes,0.429,Under 2.5,9.6,0.481,Málaga CF,Málaga CF,0.684,Yes,Low (promoted/new team)
-13,2026-11-21 13:00:00Z,R. Racing Club,Sociedad,0.384,0.318,0.298,R. Racing Club,0.471,No,0.422,Under 2.5,9.6,0.545,R. Racing Club,Sociedad,0.65,Yes,Low (promoted/new team)
-13,2026-11-21 13:00:00Z,Vallecano,Valencia,0.433,0.31,0.257,Vallecano,0.619,Yes,0.488,Under 2.5,9.7,0.57,Vallecano,Valencia,0.646,Yes,OK
-13,2026-11-21 13:00:00Z,Real Madrid,Celta,0.685,0.211,0.105,Real Madrid,0.576,Yes,0.578,Over 2.5,10.01,0.644,Real Madrid,Real Madrid,0.785,Yes,OK
-13,2026-11-21 13:00:00Z,Sevilla,Betis,0.279,0.317,0.404,Betis,0.53,Yes,0.46,Under 2.5,9.42,0.453,Betis,Betis,0.673,Yes,OK
-14,2026-11-28 13:00:00Z,Betis,Vallecano,0.494,0.294,0.213,Betis,0.705,Yes,0.551,Over 2.5,9.37,0.601,Betis,Betis,0.747,Yes,OK
-14,2026-11-28 13:00:00Z,Celta,Villarreal,0.273,0.303,0.424,Villarreal,0.676,Yes,0.511,Over 2.5,9.62,0.497,Villarreal,Villarreal,0.681,Yes,OK
-14,2026-11-28 13:00:00Z,RC Deportivo,Barcelona,0.226,0.306,0.468,Barcelona,0.465,No,0.461,Under 2.5,9.76,0.558,RC Deportivo,Barcelona,0.729,Yes,Low (promoted/new team)
-14,2026-11-28 13:00:00Z,Elche,Ath Madrid,0.263,0.315,0.422,Ath Madrid,0.559,Yes,0.467,Under 2.5,9.9,0.515,Elche,Ath Madrid,0.694,Yes,OK
-14,2026-11-28 13:00:00Z,Espanol,Getafe,0.434,0.32,0.247,Espanol,0.501,Yes,0.385,Under 2.5,9.16,0.602,Espanol,Getafe,0.65,Yes,OK
-14,2026-11-28 13:00:00Z,Levante,R. Racing Club,0.395,0.339,0.266,Levante,0.584,Yes,0.464,Under 2.5,10.01,0.492,R. Racing Club,R. Racing Club,0.666,Yes,Low (promoted/new team)
-14,2026-11-28 13:00:00Z,Málaga CF,Ath Bilbao,0.299,0.308,0.393,Ath Bilbao,0.435,No,0.413,Under 2.5,9.58,0.573,Málaga CF,Ath Bilbao,0.696,Yes,Low (promoted/new team)
-14,2026-11-28 13:00:00Z,Real Madrid,Alaves,0.664,0.226,0.111,Real Madrid,0.533,Yes,0.545,Over 2.5,9.67,0.707,Real Madrid,Real Madrid,0.781,Yes,OK
-14,2026-11-28 13:00:00Z,Sociedad,Sevilla,0.467,0.313,0.22,Sociedad,0.505,Yes,0.414,Under 2.5,9.15,0.437,Sevilla,Sociedad,0.753,Yes,OK
-14,2026-11-28 13:00:00Z,Valencia,Osasuna,0.449,0.313,0.238,Valencia,0.671,Yes,0.465,Under 2.5,9.7,0.475,Osasuna,Valencia,0.707,Yes,OK
-15,2026-12-05 13:00:00Z,Alaves,Espanol,0.473,0.293,0.234,Alaves,0.604,Yes,0.438,Under 2.5,9.44,0.485,Espanol,Alaves,0.668,Yes,OK
-15,2026-12-05 13:00:00Z,Ath Bilbao,Real Madrid,0.203,0.275,0.522,Real Madrid,0.451,No,0.482,Under 2.5,9.46,0.464,Real Madrid,Real Madrid,0.746,Yes,OK
-15,2026-12-05 13:00:00Z,Ath Madrid,Betis,0.487,0.294,0.218,Ath Madrid,0.663,Yes,0.603,Over 2.5,9.58,0.512,Ath Madrid,Ath Madrid,0.712,Yes,OK
-15,2026-12-05 13:00:00Z,Barcelona,Celta,0.676,0.213,0.111,Barcelona,0.589,Yes,0.563,Over 2.5,10.16,0.6,Barcelona,Barcelona,0.778,Yes,OK
-15,2026-12-05 13:00:00Z,Getafe,Valencia,0.355,0.331,0.315,Getafe,0.479,No,0.409,Under 2.5,9.23,0.45,Valencia,Valencia,0.64,Yes,OK
-15,2026-12-05 13:00:00Z,Osasuna,Elche,0.51,0.299,0.191,Osasuna,0.623,Yes,0.432,Under 2.5,9.21,0.575,Osasuna,Osasuna,0.718,Yes,OK
-15,2026-12-05 13:00:00Z,R. Racing Club,RC Deportivo,0.365,0.345,0.29,R. Racing Club,0.474,No,0.404,Under 2.5,9.3,0.62,R. Racing Club,R. Racing Club,0.675,Yes,Low (promoted/new team)
-15,2026-12-05 13:00:00Z,Vallecano,Levante,0.474,0.3,0.226,Vallecano,0.68,Yes,0.491,Under 2.5,10.2,0.585,Vallecano,Vallecano,0.725,Yes,OK
-15,2026-12-05 13:00:00Z,Sevilla,Málaga CF,0.388,0.331,0.281,Sevilla,0.483,No,0.408,Under 2.5,8.99,0.566,Sevilla,Málaga CF,0.694,Yes,Low (promoted/new team)
-15,2026-12-05 13:00:00Z,Villarreal,Sociedad,0.582,0.261,0.157,Villarreal,0.615,Yes,0.59,Over 2.5,9.57,0.63,Villarreal,Villarreal,0.754,Yes,OK
-16,2026-12-12 13:00:00Z,Ath Madrid,Valencia,0.591,0.26,0.149,Ath Madrid,0.641,Yes,0.585,Over 2.5,9.8,0.586,Ath Madrid,Ath Madrid,0.764,Yes,OK
-16,2026-12-12 13:00:00Z,Betis,R. Racing Club,0.567,0.275,0.159,Betis,0.602,Yes,0.502,Over 2.5,9.67,0.596,Betis,Betis,0.756,Yes,Low (promoted/new team)
-16,2026-12-12 13:00:00Z,RC Deportivo,Ath Bilbao,0.299,0.308,0.393,Ath Bilbao,0.435,No,0.413,Under 2.5,9.58,0.573,RC Deportivo,Ath Bilbao,0.696,Yes,Low (promoted/new team)
-16,2026-12-12 13:00:00Z,Elche,Sevilla,0.331,0.36,0.309,Draw,0.506,Yes,0.376,Under 2.5,9.21,0.479,Sevilla,Sevilla,0.692,Yes,OK
-16,2026-12-12 13:00:00Z,Espanol,Celta,0.393,0.317,0.29,Espanol,0.666,Yes,0.465,Under 2.5,9.8,0.54,Espanol,Celta,0.653,Yes,OK
-16,2026-12-12 13:00:00Z,Levante,Alaves,0.431,0.316,0.253,Levante,0.593,Yes,0.479,Under 2.5,9.79,0.566,Levante,Levante,0.672,Yes,OK
-16,2026-12-12 13:00:00Z,Málaga CF,Barcelona,0.226,0.306,0.468,Barcelona,0.465,No,0.461,Under 2.5,9.76,0.558,Málaga CF,Barcelona,0.729,Yes,Low (promoted/new team)
-16,2026-12-12 13:00:00Z,Real Madrid,Osasuna,0.667,0.22,0.113,Real Madrid,0.541,Yes,0.543,Over 2.5,9.81,0.58,Real Madrid,Real Madrid,0.758,Yes,OK
-16,2026-12-12 13:00:00Z,Sociedad,Getafe,0.529,0.292,0.178,Sociedad,0.467,No,0.409,Under 2.5,9.13,0.397,Getafe,Sociedad,0.676,Yes,OK
-16,2026-12-12 13:00:00Z,Villarreal,Vallecano,0.509,0.292,0.199,Villarreal,0.683,Yes,0.577,Over 2.5,9.59,0.628,Villarreal,Villarreal,0.77,Yes,OK
-17,2026-12-19 13:00:00Z,Alaves,Elche,0.518,0.288,0.194,Alaves,0.655,Yes,0.431,Under 2.5,8.88,0.458,Elche,Alaves,0.702,Yes,OK
-17,2026-12-19 13:00:00Z,Ath Bilbao,Betis,0.326,0.316,0.358,Betis,0.493,No,0.477,Under 2.5,9.44,0.457,Betis,Betis,0.656,Yes,OK
-17,2026-12-19 13:00:00Z,Celta,Ath Madrid,0.266,0.289,0.445,Ath Madrid,0.667,Yes,0.501,Over 2.5,9.91,0.487,Ath Madrid,Ath Madrid,0.698,Yes,OK
-17,2026-12-19 13:00:00Z,RC Deportivo,Real Madrid,0.207,0.285,0.508,Real Madrid,0.418,No,0.456,Under 2.5,9.49,0.493,Real Madrid,Real Madrid,0.735,Yes,Low (promoted/new team)
-17,2026-12-19 13:00:00Z,Barcelona,Sociedad,0.634,0.235,0.131,Barcelona,0.551,Yes,0.561,Over 2.5,9.98,0.546,Barcelona,Barcelona,0.751,Yes,OK
-17,2026-12-19 13:00:00Z,Getafe,Levante,0.385,0.334,0.28,Getafe,0.533,Yes,0.417,Under 2.5,9.9,0.437,Levante,Getafe,0.706,Yes,OK
-17,2026-12-19 13:00:00Z,Osasuna,Villarreal,0.26,0.318,0.422,Villarreal,0.639,Yes,0.502,Over 2.5,10.01,0.542,Osasuna,Villarreal,0.679,Yes,OK
-17,2026-12-19 13:00:00Z,Vallecano,Málaga CF,0.445,0.312,0.244,Vallecano,0.567,Yes,0.463,Under 2.5,9.52,0.556,Vallecano,Vallecano,0.726,Yes,Low (promoted/new team)
-17,2026-12-19 13:00:00Z,Sevilla,R. Racing Club,0.388,0.331,0.281,Sevilla,0.483,No,0.408,Under 2.5,8.99,0.566,Sevilla,R. Racing Club,0.694,Yes,Low (promoted/new team)
-17,2026-12-19 13:00:00Z,Valencia,Espanol,0.499,0.291,0.21,Valencia,0.619,Yes,0.477,Under 2.5,10.07,0.627,Valencia,Valencia,0.742,Yes,OK
-18,2027-01-02 13:00:00Z,Betis,Alaves,0.589,0.258,0.153,Betis,0.582,Yes,0.544,Over 2.5,9.26,0.648,Betis,Betis,0.761,Yes,OK
-18,2027-01-02 13:00:00Z,Celta,RC Deportivo,0.445,0.319,0.235,Celta,0.592,Yes,0.467,Under 2.5,9.28,0.512,Celta,Celta,0.727,Yes,Low (promoted/new team)
-18,2027-01-02 13:00:00Z,Espanol,Barcelona,0.188,0.28,0.532,Barcelona,0.662,Yes,0.563,Over 2.5,9.82,0.588,Espanol,Barcelona,0.75,Yes,OK
-18,2027-01-02 13:00:00Z,Levante,Valencia,0.393,0.322,0.285,Levante,0.674,Yes,0.505,Over 2.5,9.97,0.518,Levante,Valencia,0.644,Yes,OK
-18,2027-01-02 13:00:00Z,Málaga CF,Elche,0.487,0.301,0.211,Málaga CF,0.46,No,0.412,Under 2.5,9.19,0.559,Málaga CF,Málaga CF,0.712,Yes,Low (promoted/new team)
-18,2027-01-02 13:00:00Z,R. Racing Club,Ath Bilbao,0.299,0.308,0.393,Ath Bilbao,0.435,No,0.413,Under 2.5,9.58,0.573,R. Racing Club,Ath Bilbao,0.696,Yes,Low (promoted/new team)
-18,2027-01-02 13:00:00Z,Vallecano,Ath Madrid,0.257,0.298,0.445,Ath Madrid,0.644,Yes,0.516,Over 2.5,10.06,0.601,Vallecano,Ath Madrid,0.681,Yes,OK
-18,2027-01-02 13:00:00Z,Real Madrid,Getafe,0.702,0.205,0.094,Real Madrid,0.423,No,0.499,Under 2.5,9.4,0.652,Real Madrid,Real Madrid,0.784,Yes,OK
-18,2027-01-02 13:00:00Z,Sociedad,Osasuna,0.508,0.294,0.197,Sociedad,0.595,Yes,0.458,Under 2.5,9.42,0.36,Osasuna,Sociedad,0.706,Yes,OK
-18,2027-01-02 13:00:00Z,Villarreal,Sevilla,0.551,0.282,0.167,Villarreal,0.553,Yes,0.527,Over 2.5,9.36,0.516,Villarreal,Villarreal,0.793,Yes,OK
-19,2027-01-09 13:00:00Z,Alaves,Sociedad,0.4,0.304,0.296,Alaves,0.613,Yes,0.446,Under 2.5,9.39,0.468,Sociedad,Sociedad,0.659,Yes,OK
-19,2027-01-09 13:00:00Z,Ath Bilbao,Villarreal,0.318,0.313,0.369,Villarreal,0.502,Yes,0.47,Under 2.5,9.71,0.534,Ath Bilbao,Villarreal,0.658,Yes,OK
-19,2027-01-09 13:00:00Z,Ath Madrid,R. Racing Club,0.598,0.261,0.141,Ath Madrid,0.558,Yes,0.517,Over 2.5,9.59,0.616,Ath Madrid,Ath Madrid,0.769,Yes,Low (promoted/new team)
-19,2027-01-09 13:00:00Z,RC Deportivo,Vallecano,0.344,0.329,0.327,RC Deportivo,0.437,No,0.412,Under 2.5,9.68,0.604,RC Deportivo,Vallecano,0.652,Yes,Low (promoted/new team)
-19,2027-01-09 13:00:00Z,Elche,Getafe,0.409,0.343,0.248,Elche,0.477,No,0.372,Under 2.5,8.86,0.554,Elche,Getafe,0.645,Yes,OK
-19,2027-01-09 13:00:00Z,Espanol,Betis,0.272,0.315,0.413,Betis,0.684,Yes,0.501,Over 2.5,9.75,0.554,Espanol,Betis,0.675,Yes,OK
-19,2027-01-09 13:00:00Z,Osasuna,Barcelona,0.199,0.287,0.514,Barcelona,0.598,Yes,0.544,Over 2.5,9.88,0.496,Barcelona,Barcelona,0.757,Yes,OK
-19,2027-01-09 13:00:00Z,Real Madrid,Levante,0.668,0.219,0.113,Real Madrid,0.553,Yes,0.587,Over 2.5,10.38,0.67,Real Madrid,Real Madrid,0.776,Yes,OK
-19,2027-01-09 13:00:00Z,Sevilla,Celta,0.378,0.321,0.301,Sevilla,0.533,Yes,0.432,Under 2.5,9.34,0.563,Sevilla,Celta,0.647,Yes,OK
-19,2027-01-09 13:00:00Z,Valencia,Málaga CF,0.419,0.33,0.251,Valencia,0.585,Yes,0.456,Under 2.5,9.59,0.617,Valencia,Valencia,0.718,Yes,Low (promoted/new team)
-20,2027-01-16 13:00:00Z,Ath Madrid,Sociedad,0.595,0.253,0.152,Ath Madrid,0.612,Yes,0.579,Over 2.5,9.65,0.578,Ath Madrid,Ath Madrid,0.751,Yes,OK
-20,2027-01-16 13:00:00Z,Betis,RC Deportivo,0.567,0.275,0.159,Betis,0.602,Yes,0.502,Over 2.5,9.67,0.596,Betis,Betis,0.756,Yes,Low (promoted/new team)
-20,2027-01-16 13:00:00Z,Celta,Valencia,0.424,0.317,0.259,Celta,0.644,Yes,0.493,Under 2.5,9.39,0.502,Celta,Celta,0.676,Yes,OK
-20,2027-01-16 13:00:00Z,Barcelona,Elche,0.712,0.198,0.091,Barcelona,0.553,Yes,0.571,Over 2.5,9.62,0.643,Barcelona,Barcelona,0.781,Yes,OK
-20,2027-01-16 13:00:00Z,Getafe,Ath Bilbao,0.28,0.329,0.392,Ath Bilbao,0.502,Yes,0.399,Under 2.5,9.5,0.446,Ath Bilbao,Ath Bilbao,0.71,Yes,OK
-20,2027-01-16 13:00:00Z,Levante,Espanol,0.474,0.305,0.221,Levante,0.649,Yes,0.498,Under 2.5,10.06,0.56,Levante,Levante,0.709,Yes,OK
-20,2027-01-16 13:00:00Z,Málaga CF,Real Madrid,0.207,0.285,0.508,Real Madrid,0.418,No,0.456,Under 2.5,9.49,0.493,Real Madrid,Real Madrid,0.735,Yes,Low (promoted/new team)
-20,2027-01-16 13:00:00Z,R. Racing Club,Osasuna,0.422,0.316,0.262,R. Racing Club,0.446,No,0.409,Under 2.5,9.78,0.495,Osasuna,R. Racing Club,0.65,Yes,Low (promoted/new team)
-20,2027-01-16 13:00:00Z,Vallecano,Sevilla,0.412,0.336,0.252,Vallecano,0.523,Yes,0.418,Under 2.5,9.31,0.61,Vallecano,Vallecano,0.76,Yes,OK
-20,2027-01-16 13:00:00Z,Villarreal,Alaves,0.597,0.258,0.145,Villarreal,0.586,Yes,0.567,Over 2.5,9.48,0.631,Villarreal,Villarreal,0.775,Yes,OK
-21,2027-01-23 13:00:00Z,Alaves,Barcelona,0.196,0.298,0.506,Barcelona,0.621,Yes,0.559,Over 2.5,9.69,0.394,Barcelona,Barcelona,0.751,Yes,OK
-21,2027-01-23 13:00:00Z,Ath Bilbao,Levante,0.5,0.285,0.215,Ath Bilbao,0.495,No,0.466,Under 2.5,10.01,0.564,Ath Bilbao,Ath Bilbao,0.708,Yes,OK
-21,2027-01-23 13:00:00Z,RC Deportivo,Ath Madrid,0.281,0.319,0.4,Ath Madrid,0.45,No,0.42,Under 2.5,10.19,0.623,RC Deportivo,Ath Madrid,0.678,Yes,Low (promoted/new team)
-21,2027-01-23 13:00:00Z,Elche,Vallecano,0.318,0.343,0.339,Draw,0.566,Yes,0.431,Under 2.5,9.28,0.61,Elche,Vallecano,0.658,Yes,OK
-21,2027-01-23 13:00:00Z,Espanol,Villarreal,0.253,0.307,0.44,Villarreal,0.687,Yes,0.514,Over 2.5,10.03,0.593,Espanol,Villarreal,0.677,Yes,OK
-21,2027-01-23 13:00:00Z,Getafe,Osasuna,0.399,0.32,0.281,Getafe,0.522,Yes,0.385,Under 2.5,9.39,0.375,Osasuna,Getafe,0.691,Yes,OK
-21,2027-01-23 13:00:00Z,R. Racing Club,Celta,0.396,0.328,0.276,R. Racing Club,0.51,Yes,0.429,Under 2.5,9.84,0.553,R. Racing Club,Celta,0.64,Yes,Low (promoted/new team)
-21,2027-01-23 13:00:00Z,Real Madrid,Betis,0.583,0.259,0.158,Real Madrid,0.566,Yes,0.588,Over 2.5,9.85,0.526,Real Madrid,Real Madrid,0.744,Yes,OK
-21,2027-01-23 13:00:00Z,Sociedad,Málaga CF,0.486,0.308,0.206,Sociedad,0.522,Yes,0.46,Under 2.5,9.33,0.392,Málaga CF,Sociedad,0.708,Yes,Low (promoted/new team)
-21,2027-01-23 13:00:00Z,Valencia,Sevilla,0.401,0.331,0.268,Valencia,0.535,Yes,0.417,Under 2.5,9.43,0.514,Valencia,Valencia,0.758,Yes,OK
-22,2027-01-30 13:00:00Z,Ath Madrid,Espanol,0.646,0.23,0.123,Ath Madrid,0.594,Yes,0.596,Over 2.5,9.82,0.617,Ath Madrid,Ath Madrid,0.781,Yes,OK
-22,2027-01-30 13:00:00Z,Betis,Elche,0.671,0.22,0.109,Betis,0.693,Yes,0.569,Over 2.5,9.14,0.56,Betis,Betis,0.768,Yes,OK
-22,2027-01-30 13:00:00Z,Celta,Getafe,0.484,0.314,0.203,Celta,0.499,No,0.425,Under 2.5,9.15,0.484,Getafe,Celta,0.733,Yes,OK
-22,2027-01-30 13:00:00Z,Barcelona,Valencia,0.641,0.234,0.125,Barcelona,0.545,Yes,0.557,Over 2.5,10.09,0.572,Barcelona,Barcelona,0.768,Yes,OK
-22,2027-01-30 13:00:00Z,Levante,Sociedad,0.384,0.318,0.298,Levante,0.612,Yes,0.496,Under 2.5,9.91,0.57,Levante,Sociedad,0.659,Yes,OK
-22,2027-01-30 13:00:00Z,Málaga CF,Alaves,0.415,0.329,0.256,Málaga CF,0.43,No,0.409,Under 2.5,9.5,0.601,Málaga CF,Málaga CF,0.703,Yes,Low (promoted/new team)
-22,2027-01-30 13:00:00Z,Osasuna,RC Deportivo,0.4,0.326,0.273,Osasuna,0.551,Yes,0.429,Under 2.5,9.6,0.481,RC Deportivo,RC Deportivo,0.684,Yes,Low (promoted/new team)
-22,2027-01-30 13:00:00Z,Vallecano,Real Madrid,0.187,0.278,0.535,Real Madrid,0.659,Yes,0.524,Over 2.5,9.51,0.6,Vallecano,Real Madrid,0.758,Yes,OK
-22,2027-01-30 13:00:00Z,Sevilla,Ath Bilbao,0.277,0.319,0.404,Ath Bilbao,0.505,Yes,0.416,Under 2.5,8.82,0.56,Sevilla,Ath Bilbao,0.714,Yes,OK
-22,2027-01-30 13:00:00Z,Villarreal,R. Racing Club,0.594,0.261,0.145,Villarreal,0.601,Yes,0.531,Over 2.5,9.64,0.609,Villarreal,Villarreal,0.768,Yes,Low (promoted/new team)
-23,2027-02-06 13:00:00Z,Alaves,Celta,0.396,0.309,0.295,Alaves,0.627,Yes,0.473,Under 2.5,9.68,0.495,Celta,Celta,0.65,Yes,OK
-23,2027-02-06 13:00:00Z,Ath Bilbao,Osasuna,0.49,0.295,0.215,Ath Bilbao,0.516,Yes,0.44,Under 2.5,9.51,0.445,Osasuna,Ath Bilbao,0.694,Yes,OK
-23,2027-02-06 13:00:00Z,Betis,Sevilla,0.556,0.275,0.169,Betis,0.541,Yes,0.506,Over 2.5,9.21,0.495,Sevilla,Betis,0.782,Yes,OK
-23,2027-02-06 13:00:00Z,RC Deportivo,Málaga CF,0.365,0.345,0.29,RC Deportivo,0.474,No,0.404,Under 2.5,9.3,0.62,RC Deportivo,RC Deportivo,0.675,Yes,Low (promoted/new team)
-23,2027-02-06 13:00:00Z,Elche,Levante,0.376,0.335,0.288,Elche,0.603,Yes,0.452,Under 2.5,10.08,0.502,Elche,Levante,0.652,Yes,OK
-23,2027-02-06 13:00:00Z,Espanol,Vallecano,0.334,0.329,0.336,Vallecano,0.657,Yes,0.449,Under 2.5,9.42,0.647,Espanol,Vallecano,0.665,Yes,OK
-23,2027-02-06 13:00:00Z,Barcelona,Ath Madrid,0.561,0.263,0.176,Barcelona,0.561,Yes,0.566,Over 2.5,10.66,0.545,Barcelona,Barcelona,0.756,Yes,OK
-23,2027-02-06 13:00:00Z,Getafe,Villarreal,0.264,0.308,0.429,Villarreal,0.509,Yes,0.444,Under 2.5,9.66,0.411,Villarreal,Villarreal,0.66,Yes,OK
-23,2027-02-06 13:00:00Z,Sociedad,Real Madrid,0.194,0.279,0.527,Real Madrid,0.572,Yes,0.531,Over 2.5,9.49,0.416,Real Madrid,Real Madrid,0.747,Yes,OK
-23,2027-02-06 13:00:00Z,Valencia,R. Racing Club,0.419,0.33,0.251,Valencia,0.585,Yes,0.456,Under 2.5,9.59,0.617,Valencia,Valencia,0.718,Yes,Low (promoted/new team)
-24,2027-02-13 13:00:00Z,Celta,Vallecano,0.397,0.311,0.292,Celta,0.636,Yes,0.47,Under 2.5,9.5,0.522,Celta,Celta,0.7,Yes,OK
-24,2027-02-13 13:00:00Z,Elche,RC Deportivo,0.362,0.355,0.283,Elche,0.527,Yes,0.432,Under 2.5,9.19,0.502,Elche,RC Deportivo,0.692,Yes,Low (promoted/new team)
-24,2027-02-13 13:00:00Z,Levante,Málaga CF,0.395,0.339,0.266,Levante,0.584,Yes,0.464,Under 2.5,10.01,0.492,Málaga CF,Málaga CF,0.666,Yes,Low (promoted/new team)
-24,2027-02-13 13:00:00Z,Osasuna,Ath Madrid,0.246,0.301,0.454,Ath Madrid,0.607,Yes,0.483,Under 2.5,10.16,0.561,Osasuna,Ath Madrid,0.701,Yes,OK
-24,2027-02-13 13:00:00Z,R. Racing Club,Getafe,0.42,0.326,0.253,R. Racing Club,0.366,No,0.387,Under 2.5,9.09,0.575,R. Racing Club,Getafe,0.639,Yes,Low (promoted/new team)
-24,2027-02-13 13:00:00Z,Real Madrid,Ath Bilbao,0.589,0.255,0.156,Real Madrid,0.522,Yes,0.528,Over 2.5,9.8,0.635,Real Madrid,Real Madrid,0.785,Yes,OK
-24,2027-02-13 13:00:00Z,Sociedad,Betis,0.31,0.303,0.387,Betis,0.609,Yes,0.502,Over 2.5,9.4,0.396,Betis,Betis,0.668,Yes,OK
-24,2027-02-13 13:00:00Z,Sevilla,Espanol,0.457,0.308,0.235,Sevilla,0.513,Yes,0.408,Under 2.5,9.1,0.607,Sevilla,Espanol,0.641,Yes,OK
-24,2027-02-13 13:00:00Z,Valencia,Alaves,0.439,0.317,0.244,Valencia,0.57,Yes,0.459,Under 2.5,9.63,0.648,Valencia,Valencia,0.729,Yes,OK
-24,2027-02-13 13:00:00Z,Villarreal,Barcelona,0.232,0.296,0.473,Barcelona,0.707,Yes,0.626,Over 2.5,9.65,0.549,Villarreal,Barcelona,0.752,Yes,OK
-25,2027-02-20 13:00:00Z,Alaves,R. Racing Club,0.396,0.326,0.279,Alaves,0.562,Yes,0.434,Under 2.5,9.33,0.516,Alaves,R. Racing Club,0.687,Yes,Low (promoted/new team)
-25,2027-02-20 13:00:00Z,Ath Bilbao,Celta,0.486,0.293,0.221,Ath Bilbao,0.531,Yes,0.463,Under 2.5,9.6,0.564,Ath Bilbao,Celta,0.641,Yes,OK
-25,2027-02-20 13:00:00Z,Ath Madrid,Elche,0.685,0.213,0.102,Ath Madrid,0.649,Yes,0.59,Over 2.5,9.28,0.621,Ath Madrid,Ath Madrid,0.777,Yes,OK
-25,2027-02-20 13:00:00Z,RC Deportivo,Sociedad,0.384,0.318,0.298,RC Deportivo,0.471,No,0.422,Under 2.5,9.6,0.545,RC Deportivo,Sociedad,0.65,Yes,Low (promoted/new team)
-25,2027-02-20 13:00:00Z,Espanol,Osasuna,0.429,0.308,0.264,Espanol,0.671,Yes,0.443,Under 2.5,9.63,0.466,Osasuna,Osasuna,0.637,Yes,OK
-25,2027-02-20 13:00:00Z,Barcelona,Levante,0.649,0.223,0.128,Barcelona,0.542,Yes,0.587,Over 2.5,10.52,0.519,Barcelona,Barcelona,0.77,Yes,OK
-25,2027-02-20 13:00:00Z,Málaga CF,Betis,0.3,0.32,0.38,Betis,0.487,No,0.428,Under 2.5,9.9,0.436,Betis,Betis,0.653,Yes,Low (promoted/new team)
-25,2027-02-20 13:00:00Z,Vallecano,Getafe,0.482,0.305,0.213,Vallecano,0.481,No,0.413,Under 2.5,9.0,0.632,Vallecano,Vallecano,0.718,Yes,OK
-25,2027-02-20 13:00:00Z,Sevilla,Real Madrid,0.177,0.283,0.54,Real Madrid,0.452,No,0.507,Over 2.5,9.19,0.473,Real Madrid,Real Madrid,0.763,Yes,OK
-25,2027-02-20 13:00:00Z,Villarreal,Valencia,0.583,0.26,0.157,Villarreal,0.691,Yes,0.597,Over 2.5,9.61,0.58,Villarreal,Villarreal,0.767,Yes,OK
-26,2027-02-27 13:00:00Z,Ath Bilbao,Barcelona,0.223,0.291,0.487,Barcelona,0.466,No,0.504,Over 2.5,9.74,0.514,Ath Bilbao,Barcelona,0.744,Yes,OK
-26,2027-02-27 13:00:00Z,Betis,Villarreal,0.369,0.313,0.318,Betis,0.741,Yes,0.569,Over 2.5,9.6,0.577,Betis,Villarreal,0.679,Yes,OK
-26,2027-02-27 13:00:00Z,Celta,Espanol,0.508,0.289,0.203,Celta,0.589,Yes,0.482,Under 2.5,9.46,0.456,Espanol,Celta,0.751,Yes,OK
-26,2027-02-27 13:00:00Z,Getafe,Alaves,0.379,0.338,0.283,Getafe,0.488,No,0.381,Under 2.5,9.05,0.449,Alaves,Getafe,0.699,Yes,OK
-26,2027-02-27 13:00:00Z,Levante,RC Deportivo,0.395,0.339,0.266,Levante,0.584,Yes,0.464,Under 2.5,10.01,0.492,RC Deportivo,RC Deportivo,0.666,Yes,Low (promoted/new team)
-26,2027-02-27 13:00:00Z,Málaga CF,Ath Madrid,0.281,0.319,0.4,Ath Madrid,0.45,No,0.42,Under 2.5,10.19,0.623,Málaga CF,Ath Madrid,0.678,Yes,Low (promoted/new team)
-26,2027-02-27 13:00:00Z,Osasuna,Sevilla,0.371,0.343,0.286,Osasuna,0.514,Yes,0.379,Under 2.5,9.23,0.526,Osasuna,Osasuna,0.738,Yes,OK
-26,2027-02-27 13:00:00Z,R. Racing Club,Vallecano,0.344,0.329,0.327,R. Racing Club,0.437,No,0.412,Under 2.5,9.68,0.604,R. Racing Club,Vallecano,0.652,Yes,Low (promoted/new team)
-26,2027-02-27 13:00:00Z,Real Madrid,Valencia,0.662,0.225,0.113,Real Madrid,0.544,Yes,0.569,Over 2.5,9.89,0.63,Real Madrid,Real Madrid,0.775,Yes,OK
-26,2027-02-27 13:00:00Z,Sociedad,Elche,0.614,0.251,0.134,Sociedad,0.586,Yes,0.464,Under 2.5,9.02,0.418,Elche,Sociedad,0.744,Yes,OK
-27,2027-03-06 13:00:00Z,Alaves,Ath Bilbao,0.287,0.319,0.394,Ath Bilbao,0.624,Yes,0.436,Under 2.5,9.3,0.445,Ath Bilbao,Ath Bilbao,0.714,Yes,OK
-27,2027-03-06 13:00:00Z,Ath Madrid,Celta,0.638,0.231,0.131,Ath Madrid,0.663,Yes,0.591,Over 2.5,9.81,0.552,Ath Madrid,Ath Madrid,0.773,Yes,OK
-27,2027-03-06 13:00:00Z,RC Deportivo,Getafe,0.42,0.326,0.253,RC Deportivo,0.366,No,0.387,Under 2.5,9.09,0.575,RC Deportivo,Getafe,0.639,Yes,Low (promoted/new team)
-27,2027-03-06 13:00:00Z,Elche,Málaga CF,0.362,0.355,0.283,Elche,0.527,Yes,0.432,Under 2.5,9.19,0.502,Elche,Málaga CF,0.692,Yes,Low (promoted/new team)
-27,2027-03-06 13:00:00Z,Espanol,R. Racing Club,0.381,0.333,0.286,Espanol,0.588,Yes,0.443,Under 2.5,9.73,0.526,Espanol,R. Racing Club,0.685,Yes,Low (promoted/new team)
-27,2027-03-06 13:00:00Z,Barcelona,Betis,0.57,0.259,0.171,Barcelona,0.553,Yes,0.578,Over 2.5,10.02,0.472,Betis,Barcelona,0.736,Yes,OK
-27,2027-03-06 13:00:00Z,Vallecano,Osasuna,0.471,0.298,0.231,Vallecano,0.656,Yes,0.47,Under 2.5,9.5,0.473,Osasuna,Vallecano,0.7,Yes,OK
-27,2027-03-06 13:00:00Z,Sevilla,Sociedad,0.381,0.321,0.299,Sevilla,0.531,Yes,0.42,Under 2.5,8.86,0.558,Sevilla,Sociedad,0.656,Yes,OK
-27,2027-03-06 13:00:00Z,Valencia,Levante,0.463,0.301,0.236,Valencia,0.69,Yes,0.496,Under 2.5,10.25,0.591,Valencia,Valencia,0.727,Yes,OK
-27,2027-03-06 13:00:00Z,Villarreal,Real Madrid,0.212,0.29,0.498,Real Madrid,0.713,Yes,0.625,Over 2.5,9.44,0.479,Real Madrid,Real Madrid,0.742,Yes,OK
-28,2027-03-13 13:00:00Z,Alaves,Sevilla,0.364,0.338,0.298,Alaves,0.543,Yes,0.383,Under 2.5,9.02,0.404,Sevilla,Alaves,0.713,Yes,OK
-28,2027-03-13 13:00:00Z,Ath Bilbao,Valencia,0.435,0.305,0.26,Ath Bilbao,0.487,No,0.456,Under 2.5,9.47,0.528,Ath Bilbao,Valencia,0.637,Yes,OK
-28,2027-03-13 13:00:00Z,Betis,Levante,0.592,0.253,0.154,Betis,0.742,Yes,0.576,Over 2.5,9.75,0.57,Betis,Betis,0.761,Yes,OK
-28,2027-03-13 13:00:00Z,Elche,Villarreal,0.279,0.308,0.413,Villarreal,0.582,Yes,0.493,Under 2.5,9.57,0.479,Villarreal,Villarreal,0.672,Yes,OK
-28,2027-03-13 13:00:00Z,Barcelona,RC Deportivo,0.634,0.243,0.123,Barcelona,0.522,Yes,0.508,Over 2.5,9.77,0.688,Barcelona,Barcelona,0.781,Yes,Low (promoted/new team)
-28,2027-03-13 13:00:00Z,Getafe,Sociedad,0.38,0.32,0.3,Getafe,0.553,Yes,0.406,Under 2.5,9.06,0.464,Sociedad,Sociedad,0.654,Yes,OK
-28,2027-03-13 13:00:00Z,Málaga CF,Vallecano,0.344,0.329,0.327,Málaga CF,0.437,No,0.412,Under 2.5,9.68,0.604,Málaga CF,Vallecano,0.652,Yes,Low (promoted/new team)
-28,2027-03-13 13:00:00Z,Osasuna,Celta,0.425,0.311,0.264,Osasuna,0.603,Yes,0.455,Under 2.5,9.8,0.598,Osasuna,Celta,0.65,Yes,OK
-28,2027-03-13 13:00:00Z,R. Racing Club,Ath Madrid,0.281,0.319,0.4,Ath Madrid,0.45,No,0.42,Under 2.5,10.19,0.623,R. Racing Club,Ath Madrid,0.678,Yes,Low (promoted/new team)
-28,2027-03-13 13:00:00Z,Real Madrid,Espanol,0.686,0.213,0.101,Real Madrid,0.528,Yes,0.582,Over 2.5,10.05,0.679,Real Madrid,Real Madrid,0.793,Yes,OK
-29,2027-03-20 13:00:00Z,Ath Madrid,Getafe,0.642,0.239,0.119,Ath Madrid,0.479,No,0.519,Over 2.5,9.4,0.573,Ath Madrid,Ath Madrid,0.773,Yes,OK
-29,2027-03-20 13:00:00Z,Celta,Real Madrid,0.176,0.258,0.566,Real Madrid,0.66,Yes,0.543,Over 2.5,9.47,0.466,Real Madrid,Real Madrid,0.75,Yes,OK
-29,2027-03-20 13:00:00Z,Espanol,Ath Bilbao,0.287,0.317,0.395,Ath Bilbao,0.642,Yes,0.447,Under 2.5,9.66,0.588,Espanol,Ath Bilbao,0.717,Yes,OK
-29,2027-03-20 13:00:00Z,Levante,Osasuna,0.432,0.316,0.252,Levante,0.693,Yes,0.485,Under 2.5,9.96,0.42,Osasuna,Osasuna,0.639,Yes,OK
-29,2027-03-20 13:00:00Z,R. Racing Club,Betis,0.3,0.32,0.38,Betis,0.487,No,0.428,Under 2.5,9.9,0.436,Betis,Betis,0.653,Yes,Low (promoted/new team)
-29,2027-03-20 13:00:00Z,Vallecano,Barcelona,0.206,0.296,0.497,Barcelona,0.635,Yes,0.532,Over 2.5,9.68,0.606,Vallecano,Barcelona,0.757,Yes,OK
-29,2027-03-20 13:00:00Z,Sociedad,Alaves,0.519,0.284,0.197,Sociedad,0.509,Yes,0.45,Under 2.5,9.31,0.448,Alaves,Sociedad,0.717,Yes,OK
-29,2027-03-20 13:00:00Z,Sevilla,Elche,0.488,0.301,0.211,Sevilla,0.55,Yes,0.398,Under 2.5,8.76,0.595,Sevilla,Sevilla,0.66,Yes,OK
-29,2027-03-20 13:00:00Z,Valencia,RC Deportivo,0.419,0.33,0.251,Valencia,0.585,Yes,0.456,Under 2.5,9.59,0.617,Valencia,Valencia,0.718,Yes,Low (promoted/new team)
-29,2027-03-20 13:00:00Z,Villarreal,Málaga CF,0.594,0.261,0.145,Villarreal,0.601,Yes,0.531,Over 2.5,9.64,0.609,Villarreal,Villarreal,0.768,Yes,Low (promoted/new team)
-30,2027-04-03 13:00:00Z,Ath Bilbao,R. Racing Club,0.449,0.319,0.233,Ath Bilbao,0.497,No,0.43,Under 2.5,9.4,0.561,Ath Bilbao,Ath Bilbao,0.716,Yes,Low (promoted/new team)
-30,2027-04-03 13:00:00Z,Betis,Celta,0.586,0.255,0.159,Betis,0.702,Yes,0.565,Over 2.5,9.46,0.514,Betis,Betis,0.749,Yes,OK
-30,2027-04-03 13:00:00Z,RC Deportivo,Villarreal,0.288,0.327,0.385,Villarreal,0.472,No,0.447,Under 2.5,10.02,0.555,RC Deportivo,Villarreal,0.66,Yes,Low (promoted/new team)
-30,2027-04-03 13:00:00Z,Elche,Alaves,0.375,0.347,0.278,Elche,0.529,Yes,0.419,Under 2.5,9.28,0.549,Elche,Alaves,0.631,Yes,OK
-30,2027-04-03 13:00:00Z,Barcelona,Sevilla,0.612,0.252,0.136,Barcelona,0.489,No,0.507,Over 2.5,9.58,0.522,Barcelona,Barcelona,0.794,Yes,OK
-30,2027-04-03 13:00:00Z,Getafe,Espanol,0.429,0.32,0.25,Getafe,0.53,Yes,0.386,Under 2.5,9.32,0.477,Espanol,Getafe,0.71,Yes,OK
-30,2027-04-03 13:00:00Z,Levante,Vallecano,0.355,0.333,0.312,Levante,0.682,Yes,0.487,Under 2.5,9.75,0.586,Levante,Vallecano,0.659,Yes,OK
-30,2027-04-03 13:00:00Z,Málaga CF,Osasuna,0.422,0.316,0.262,Málaga CF,0.446,No,0.409,Under 2.5,9.78,0.495,Osasuna,Málaga CF,0.65,Yes,Low (promoted/new team)
-30,2027-04-03 13:00:00Z,Real Madrid,Ath Madrid,0.566,0.268,0.166,Real Madrid,0.584,Yes,0.578,Over 2.5,10.36,0.628,Real Madrid,Real Madrid,0.765,Yes,OK
-30,2027-04-03 13:00:00Z,Sociedad,Valencia,0.448,0.304,0.248,Sociedad,0.56,Yes,0.484,Under 2.5,9.46,0.402,Valencia,Valencia,0.65,Yes,OK
-31,2027-04-10 14:00:00Z,Alaves,Betis,0.281,0.322,0.397,Betis,0.654,Yes,0.491,Under 2.5,9.65,0.383,Betis,Betis,0.67,Yes,OK
-31,2027-04-10 14:00:00Z,Ath Madrid,Levante,0.617,0.243,0.14,Ath Madrid,0.673,Yes,0.589,Over 2.5,10.25,0.564,Ath Madrid,Ath Madrid,0.768,Yes,OK
-31,2027-04-10 14:00:00Z,Celta,Elche,0.554,0.282,0.164,Celta,0.646,Yes,0.48,Under 2.5,9.06,0.475,Elche,Celta,0.752,Yes,OK
-31,2027-04-10 14:00:00Z,Espanol,Málaga CF,0.381,0.333,0.286,Espanol,0.588,Yes,0.443,Under 2.5,9.73,0.526,Espanol,Málaga CF,0.685,Yes,Low (promoted/new team)
-31,2027-04-10 14:00:00Z,Osasuna,Real Madrid,0.175,0.278,0.547,Real Madrid,0.61,Yes,0.53,Over 2.5,9.63,0.442,Real Madrid,Real Madrid,0.76,Yes,OK
-31,2027-04-10 14:00:00Z,R. Racing Club,Barcelona,0.226,0.306,0.468,Barcelona,0.465,No,0.461,Under 2.5,9.76,0.558,R. Racing Club,Barcelona,0.729,Yes,Low (promoted/new team)
-31,2027-04-10 14:00:00Z,Vallecano,Sociedad,0.447,0.299,0.254,Vallecano,0.582,Yes,0.472,Under 2.5,9.46,0.61,Vallecano,Vallecano,0.714,Yes,OK
-31,2027-04-10 14:00:00Z,Sevilla,RC Deportivo,0.388,0.331,0.281,Sevilla,0.483,No,0.408,Under 2.5,8.99,0.566,Sevilla,RC Deportivo,0.694,Yes,Low (promoted/new team)
-31,2027-04-10 14:00:00Z,Valencia,Getafe,0.468,0.313,0.22,Valencia,0.507,Yes,0.416,Under 2.5,9.27,0.603,Valencia,Valencia,0.716,Yes,OK
-31,2027-04-10 14:00:00Z,Villarreal,Ath Bilbao,0.486,0.295,0.219,Villarreal,0.675,Yes,0.56,Over 2.5,9.63,0.59,Villarreal,Villarreal,0.772,Yes,OK
-32,2027-04-17 14:00:00Z,Alaves,Vallecano,0.341,0.321,0.339,Alaves,0.616,Yes,0.441,Under 2.5,9.4,0.471,Vallecano,Vallecano,0.661,Yes,OK
-32,2027-04-17 14:00:00Z,Ath Madrid,Sevilla,0.565,0.279,0.155,Ath Madrid,0.541,Yes,0.524,Over 2.5,9.43,0.55,Ath Madrid,Ath Madrid,0.789,Yes,OK
-32,2027-04-17 14:00:00Z,Betis,Ath Bilbao,0.458,0.297,0.246,Betis,0.682,Yes,0.536,Over 2.5,9.45,0.553,Betis,Betis,0.764,Yes,OK
-32,2027-04-17 14:00:00Z,RC Deportivo,Celta,0.396,0.328,0.276,RC Deportivo,0.51,Yes,0.429,Under 2.5,9.84,0.553,RC Deportivo,Celta,0.64,Yes,Low (promoted/new team)
-32,2027-04-17 14:00:00Z,Elche,Osasuna,0.394,0.329,0.277,Elche,0.593,Yes,0.429,Under 2.5,9.46,0.392,Osasuna,Osasuna,0.63,Yes,OK
-32,2027-04-17 14:00:00Z,Barcelona,Espanol,0.661,0.226,0.113,Barcelona,0.51,Yes,0.587,Over 2.5,10.2,0.613,Barcelona,Barcelona,0.783,Yes,OK
-32,2027-04-17 14:00:00Z,Getafe,Real Madrid,0.177,0.269,0.554,Real Madrid,0.445,No,0.456,Under 2.5,9.51,0.368,Real Madrid,Real Madrid,0.756,Yes,OK
-32,2027-04-17 14:00:00Z,Levante,Villarreal,0.27,0.307,0.423,Villarreal,0.701,Yes,0.533,Over 2.5,10.19,0.529,Levante,Villarreal,0.675,Yes,OK
-32,2027-04-17 14:00:00Z,Málaga CF,Valencia,0.383,0.326,0.29,Málaga CF,0.461,No,0.42,Under 2.5,9.35,0.591,Málaga CF,Valencia,0.637,Yes,Low (promoted/new team)
-32,2027-04-17 14:00:00Z,Sociedad,R. Racing Club,0.486,0.308,0.206,Sociedad,0.522,Yes,0.46,Under 2.5,9.33,0.392,R. Racing Club,Sociedad,0.708,Yes,Low (promoted/new team)
-33,2027-04-20 14:00:00Z,Ath Bilbao,RC Deportivo,0.449,0.319,0.233,Ath Bilbao,0.497,No,0.43,Under 2.5,9.4,0.561,Ath Bilbao,Ath Bilbao,0.716,Yes,Low (promoted/new team)
-33,2027-04-20 14:00:00Z,Celta,Barcelona,0.198,0.272,0.531,Barcelona,0.652,Yes,0.557,Over 2.5,9.57,0.502,Celta,Barcelona,0.749,Yes,OK
-33,2027-04-20 14:00:00Z,Espanol,Sociedad,0.378,0.313,0.309,Espanol,0.605,Yes,0.456,Under 2.5,9.52,0.57,Espanol,Sociedad,0.664,Yes,OK
-33,2027-04-20 14:00:00Z,Getafe,Betis,0.274,0.317,0.409,Betis,0.509,Yes,0.433,Under 2.5,9.52,0.371,Betis,Betis,0.654,Yes,OK
-33,2027-04-20 14:00:00Z,Osasuna,Alaves,0.415,0.326,0.259,Osasuna,0.54,Yes,0.423,Under 2.5,9.45,0.596,Osasuna,Osasuna,0.679,Yes,OK
-33,2027-04-20 14:00:00Z,R. Racing Club,Málaga CF,0.365,0.345,0.29,R. Racing Club,0.474,No,0.404,Under 2.5,9.3,0.62,R. Racing Club,R. Racing Club,0.675,Yes,Low (promoted/new team)
-33,2027-04-20 14:00:00Z,Real Madrid,Elche,0.733,0.185,0.082,Real Madrid,0.575,Yes,0.58,Over 2.5,9.34,0.698,Real Madrid,Real Madrid,0.787,Yes,OK
-33,2027-04-20 14:00:00Z,Sevilla,Levante,0.395,0.318,0.287,Sevilla,0.542,Yes,0.433,Under 2.5,9.89,0.599,Sevilla,Levante,0.652,Yes,OK
-33,2027-04-20 14:00:00Z,Valencia,Vallecano,0.389,0.325,0.286,Valencia,0.647,Yes,0.468,Under 2.5,9.78,0.568,Valencia,Valencia,0.677,Yes,OK
-33,2027-04-20 14:00:00Z,Villarreal,Ath Madrid,0.425,0.297,0.277,Villarreal,0.727,Yes,0.614,Over 2.5,10.02,0.564,Villarreal,Ath Madrid,0.715,Yes,OK
-34,2027-05-01 14:00:00Z,Ath Madrid,Alaves,0.606,0.251,0.143,Ath Madrid,0.562,Yes,0.564,Over 2.5,9.52,0.662,Ath Madrid,Ath Madrid,0.77,Yes,OK
-34,2027-05-01 14:00:00Z,Betis,Valencia,0.556,0.276,0.168,Betis,0.696,Yes,0.569,Over 2.5,9.47,0.567,Betis,Betis,0.742,Yes,OK
-34,2027-05-01 14:00:00Z,Celta,Sevilla,0.417,0.322,0.261,Celta,0.514,Yes,0.423,Under 2.5,9.25,0.448,Sevilla,Celta,0.762,Yes,OK
-34,2027-05-01 14:00:00Z,RC Deportivo,R. Racing Club,0.365,0.345,0.29,RC Deportivo,0.474,No,0.404,Under 2.5,9.3,0.62,RC Deportivo,RC Deportivo,0.675,Yes,Low (promoted/new team)
-34,2027-05-01 14:00:00Z,Elche,Espanol,0.439,0.322,0.239,Elche,0.564,Yes,0.43,Under 2.5,9.46,0.535,Elche,Espanol,0.639,Yes,OK
-34,2027-05-01 14:00:00Z,Barcelona,Osasuna,0.633,0.24,0.127,Barcelona,0.541,Yes,0.54,Over 2.5,10.07,0.505,Barcelona,Barcelona,0.751,Yes,OK
-34,2027-05-01 14:00:00Z,Levante,Real Madrid,0.192,0.281,0.527,Real Madrid,0.697,Yes,0.558,Over 2.5,9.76,0.482,Real Madrid,Real Madrid,0.738,Yes,OK
-34,2027-05-01 14:00:00Z,Málaga CF,Getafe,0.42,0.326,0.253,Málaga CF,0.366,No,0.387,Under 2.5,9.09,0.575,Málaga CF,Getafe,0.639,Yes,Low (promoted/new team)
-34,2027-05-01 14:00:00Z,Vallecano,Villarreal,0.271,0.312,0.417,Villarreal,0.665,Yes,0.516,Over 2.5,9.88,0.617,Vallecano,Villarreal,0.66,Yes,OK
-34,2027-05-01 14:00:00Z,Sociedad,Ath Bilbao,0.378,0.308,0.315,Sociedad,0.578,Yes,0.453,Under 2.5,9.45,0.397,Ath Bilbao,Ath Bilbao,0.719,Yes,OK
-35,2027-05-08 14:00:00Z,Alaves,Levante,0.41,0.313,0.277,Alaves,0.681,Yes,0.466,Under 2.5,10.16,0.44,Levante,Levante,0.652,Yes,OK
-35,2027-05-08 14:00:00Z,Ath Bilbao,Málaga CF,0.449,0.319,0.233,Ath Bilbao,0.497,No,0.43,Under 2.5,9.4,0.561,Ath Bilbao,Ath Bilbao,0.716,Yes,Low (promoted/new team)
-35,2027-05-08 14:00:00Z,Betis,Espanol,0.625,0.238,0.136,Betis,0.632,Yes,0.569,Over 2.5,9.61,0.613,Betis,Betis,0.771,Yes,OK
-35,2027-05-08 14:00:00Z,Getafe,Elche,0.457,0.322,0.221,Getafe,0.535,Yes,0.374,Under 2.5,8.77,0.417,Elche,Getafe,0.714,Yes,OK
-35,2027-05-08 14:00:00Z,Osasuna,Sociedad,0.383,0.309,0.308,Osasuna,0.584,Yes,0.446,Under 2.5,9.59,0.582,Osasuna,Sociedad,0.665,Yes,OK
-35,2027-05-08 14:00:00Z,R. Racing Club,Sevilla,0.376,0.334,0.29,R. Racing Club,0.413,No,0.383,Under 2.5,9.45,0.554,R. Racing Club,R. Racing Club,0.73,Yes,Low (promoted/new team)
-35,2027-05-08 14:00:00Z,Vallecano,RC Deportivo,0.445,0.312,0.244,Vallecano,0.567,Yes,0.463,Under 2.5,9.52,0.556,Vallecano,Vallecano,0.726,Yes,Low (promoted/new team)
-35,2027-05-08 14:00:00Z,Real Madrid,Barcelona,0.369,0.31,0.321,Real Madrid,0.584,Yes,0.591,Over 2.5,9.99,0.587,Real Madrid,Barcelona,0.739,Yes,OK
-35,2027-05-08 14:00:00Z,Valencia,Ath Madrid,0.256,0.309,0.435,Ath Madrid,0.675,Yes,0.515,Over 2.5,10.26,0.581,Valencia,Ath Madrid,0.679,Yes,OK
-35,2027-05-08 14:00:00Z,Villarreal,Celta,0.622,0.236,0.142,Villarreal,0.688,Yes,0.604,Over 2.5,9.71,0.576,Villarreal,Villarreal,0.777,Yes,OK
-36,2027-05-15 14:00:00Z,Ath Madrid,Vallecano,0.535,0.282,0.183,Ath Madrid,0.649,Yes,0.569,Over 2.5,9.6,0.651,Ath Madrid,Ath Madrid,0.766,Yes,OK
-36,2027-05-15 14:00:00Z,RC Deportivo,Alaves,0.415,0.329,0.256,RC Deportivo,0.43,No,0.409,Under 2.5,9.5,0.601,RC Deportivo,RC Deportivo,0.703,Yes,Low (promoted/new team)
-36,2027-05-15 14:00:00Z,Elche,Ath Bilbao,0.269,0.335,0.396,Ath Bilbao,0.562,Yes,0.432,Under 2.5,9.4,0.5,Elche,Ath Bilbao,0.718,Yes,OK
-36,2027-05-15 14:00:00Z,Espanol,Valencia,0.354,0.312,0.334,Espanol,0.66,Yes,0.46,Under 2.5,9.78,0.559,Espanol,Valencia,0.65,Yes,OK
-36,2027-05-15 14:00:00Z,Levante,Getafe,0.426,0.325,0.249,Levante,0.505,Yes,0.433,Under 2.5,9.45,0.55,Levante,Getafe,0.649,Yes,OK
-36,2027-05-15 14:00:00Z,Málaga CF,Celta,0.396,0.328,0.276,Málaga CF,0.51,Yes,0.429,Under 2.5,9.84,0.553,Málaga CF,Celta,0.64,Yes,Low (promoted/new team)
-36,2027-05-15 14:00:00Z,Osasuna,Betis,0.274,0.307,0.42,Betis,0.624,Yes,0.489,Under 2.5,9.82,0.451,Betis,Betis,0.669,Yes,OK
-36,2027-05-15 14:00:00Z,Real Madrid,R. Racing Club,0.661,0.226,0.114,Real Madrid,0.533,Yes,0.51,Over 2.5,9.54,0.722,Real Madrid,Real Madrid,0.788,Yes,Low (promoted/new team)
-36,2027-05-15 14:00:00Z,Sociedad,Barcelona,0.22,0.29,0.49,Barcelona,0.575,Yes,0.556,Over 2.5,9.52,0.431,Barcelona,Barcelona,0.748,Yes,OK
-36,2027-05-15 14:00:00Z,Sevilla,Villarreal,0.266,0.311,0.423,Villarreal,0.532,Yes,0.467,Under 2.5,9.41,0.55,Sevilla,Villarreal,0.672,Yes,OK
-37,2027-05-22 14:00:00Z,Alaves,Real Madrid,0.177,0.285,0.538,Real Madrid,0.641,Yes,0.543,Over 2.5,9.57,0.369,Real Madrid,Real Madrid,0.752,Yes,OK
-37,2027-05-22 14:00:00Z,Ath Madrid,Ath Bilbao,0.505,0.288,0.207,Ath Madrid,0.633,Yes,0.553,Over 2.5,9.67,0.563,Ath Madrid,Ath Madrid,0.773,Yes,OK
-37,2027-05-22 14:00:00Z,Celta,Sociedad,0.47,0.293,0.237,Celta,0.576,Yes,0.476,Under 2.5,9.38,0.407,Sociedad,Celta,0.726,Yes,OK
-37,2027-05-22 14:00:00Z,RC Deportivo,Espanol,0.455,0.313,0.232,RC Deportivo,0.44,No,0.416,Under 2.5,10.03,0.562,RC Deportivo,RC Deportivo,0.714,Yes,Low (promoted/new team)
-37,2027-05-22 14:00:00Z,Barcelona,Málaga CF,0.634,0.243,0.123,Barcelona,0.522,Yes,0.508,Over 2.5,9.77,0.688,Barcelona,Barcelona,0.781,Yes,Low (promoted/new team)
-37,2027-05-22 14:00:00Z,R. Racing Club,Levante,0.411,0.316,0.273,R. Racing Club,0.452,No,0.431,Under 2.5,10.29,0.539,R. Racing Club,R. Racing Club,0.676,Yes,Low (promoted/new team)
-37,2027-05-22 14:00:00Z,Vallecano,Betis,0.334,0.32,0.347,Betis,0.671,Yes,0.509,Over 2.5,9.61,0.549,Vallecano,Betis,0.662,Yes,OK
-37,2027-05-22 14:00:00Z,Sevilla,Getafe,0.42,0.322,0.258,Sevilla,0.428,No,0.351,Under 2.5,8.41,0.591,Sevilla,Getafe,0.643,Yes,OK
-37,2027-05-22 14:00:00Z,Valencia,Elche,0.53,0.289,0.181,Valencia,0.669,Yes,0.474,Under 2.5,9.31,0.575,Valencia,Valencia,0.743,Yes,OK
-37,2027-05-22 14:00:00Z,Villarreal,Osasuna,0.59,0.261,0.149,Villarreal,0.688,Yes,0.56,Over 2.5,9.55,0.486,Osasuna,Villarreal,0.756,Yes,OK
-38,2027-05-29 14:00:00Z,Ath Bilbao,Vallecano,0.397,0.321,0.281,Ath Bilbao,0.465,No,0.446,Under 2.5,9.4,0.557,Ath Bilbao,Vallecano,0.651,Yes,OK
-38,2027-05-29 14:00:00Z,Betis,Ath Madrid,0.372,0.306,0.322,Betis,0.731,Yes,0.576,Over 2.5,9.97,0.573,Betis,Ath Madrid,0.701,Yes,OK
-38,2027-05-29 14:00:00Z,Elche,R. Racing Club,0.362,0.355,0.283,Elche,0.527,Yes,0.432,Under 2.5,9.19,0.502,Elche,R. Racing Club,0.692,Yes,Low (promoted/new team)
-38,2027-05-29 14:00:00Z,Espanol,Alaves,0.427,0.312,0.261,Espanol,0.565,Yes,0.434,Under 2.5,9.44,0.657,Espanol,Alaves,0.639,Yes,OK
-38,2027-05-29 14:00:00Z,Getafe,Barcelona,0.199,0.287,0.514,Barcelona,0.467,No,0.478,Under 2.5,9.47,0.377,Barcelona,Barcelona,0.751,Yes,OK
-38,2027-05-29 14:00:00Z,Levante,Celta,0.427,0.309,0.264,Levante,0.68,Yes,0.501,Over 2.5,10.11,0.504,Levante,Celta,0.649,Yes,OK
-38,2027-05-29 14:00:00Z,Málaga CF,Sevilla,0.376,0.334,0.29,Málaga CF,0.413,No,0.383,Under 2.5,9.45,0.554,Málaga CF,Málaga CF,0.73,Yes,Low (promoted/new team)
-38,2027-05-29 14:00:00Z,Osasuna,Valencia,0.375,0.326,0.299,Osasuna,0.592,Yes,0.45,Under 2.5,9.56,0.564,Osasuna,Valencia,0.65,Yes,OK
-38,2027-05-29 14:00:00Z,Real Madrid,RC Deportivo,0.661,0.226,0.114,Real Madrid,0.533,Yes,0.51,Over 2.5,9.54,0.722,Real Madrid,Real Madrid,0.788,Yes,Low (promoted/new team)
-38,2027-05-29 14:00:00Z,Sociedad,Villarreal,0.306,0.296,0.399,Villarreal,0.6,Yes,0.502,Over 2.5,9.6,0.438,Villarreal,Villarreal,0.668,Yes,OK
+1,2026-08-15 17:30:00Z,Alaves,Getafe,0.432,0.329,0.239,Alaves,0.309,No,0.4,Under 2.5,8.99,0.538,Alaves,Getafe,0.566,Yes,OK
+1,2026-08-15 19:30:00Z,Sevilla,Vallecano,0.344,0.327,0.329,Sevilla,0.689,Yes,0.435,Under 2.5,9.29,0.565,Sevilla,Vallecano,0.618,Yes,OK
+1,2026-08-16 15:00:00Z,R. Racing Club,Villarreal,0.318,0.297,0.385,Villarreal,0.306,No,0.446,Under 2.5,10.15,0.518,R. Racing Club,Villarreal,0.648,Yes,Low (promoted/new team)
+1,2026-08-16 17:00:00Z,Espanol,Levante,0.43,0.3,0.27,Espanol,0.837,Yes,0.526,Over 2.5,10.4,0.587,Espanol,Levante,0.672,Yes,OK
+1,2026-08-27 16:30:00Z,Celta,Osasuna,0.441,0.313,0.246,Celta,0.83,Yes,0.485,Under 2.5,9.82,0.488,Osasuna,Celta,0.729,Yes,OK
+1,2026-08-17 19:00:00Z,RC Deportivo,Elche,0.471,0.312,0.217,RC Deportivo,0.482,No,0.415,Under 2.5,9.35,0.545,RC Deportivo,RC Deportivo,0.737,Yes,Low (promoted/new team)
+1,2026-08-19 19:00:00Z,Ath Madrid,Málaga CF,0.544,0.271,0.185,Ath Madrid,0.303,No,0.515,Over 2.5,10.07,0.496,Málaga CF,Ath Madrid,0.761,Yes,Low (promoted/new team)
+1,2026-08-25 19:00:00Z,Valencia,Betis,0.346,0.294,0.36,Betis,0.824,Yes,0.519,Over 2.5,10.06,0.57,Valencia,Betis,0.671,Yes,OK
+1,2026-08-26 19:00:00Z,Real Madrid,Sociedad,0.584,0.224,0.192,Real Madrid,0.818,Yes,0.557,Over 2.5,10.03,0.593,Real Madrid,Real Madrid,0.78,Yes,OK
+1,2026-08-27 19:00:00Z,Barcelona,Ath Bilbao,0.532,0.246,0.222,Barcelona,0.411,No,0.511,Over 2.5,10.15,0.496,Ath Bilbao,Barcelona,0.728,Yes,OK
+2,2026-08-20 19:00:00Z,Vallecano,Alaves,0.473,0.289,0.238,Vallecano,0.522,Yes,0.488,Under 2.5,9.63,0.59,Vallecano,Vallecano,0.731,Yes,OK
+2,2026-08-21 19:00:00Z,Betis,Sociedad,0.516,0.253,0.231,Betis,0.758,Yes,0.534,Over 2.5,9.89,0.566,Betis,Betis,0.722,Yes,OK
+2,2026-08-22 15:00:00Z,Ath Bilbao,Sevilla,0.456,0.306,0.238,Ath Bilbao,0.506,Yes,0.399,Under 2.5,9.46,0.578,Ath Bilbao,Ath Bilbao,0.748,Yes,OK
+2,2026-08-22 17:30:00Z,Valencia,Celta,0.437,0.309,0.254,Valencia,0.805,Yes,0.507,Over 2.5,10.13,0.615,Valencia,Celta,0.648,Yes,OK
+2,2026-08-22 19:30:00Z,Espanol,Real Madrid,0.232,0.27,0.498,Real Madrid,0.807,Yes,0.551,Over 2.5,9.92,0.491,Real Madrid,Real Madrid,0.762,Yes,OK
+2,2026-08-23 15:00:00Z,Ath Madrid,Villarreal,0.45,0.26,0.29,Ath Madrid,0.762,Yes,0.597,Over 2.5,10.17,0.507,Ath Madrid,Ath Madrid,0.654,Yes,OK
+2,2026-08-23 17:30:00Z,Getafe,R. Racing Club,0.371,0.36,0.269,Getafe,0.425,No,0.365,Under 2.5,9.02,0.499,R. Racing Club,Getafe,0.672,Yes,Low (promoted/new team)
+2,2026-08-23 19:30:00Z,Elche,Barcelona,0.226,0.281,0.493,Barcelona,0.629,Yes,0.528,Over 2.5,9.71,0.381,Barcelona,Barcelona,0.766,Yes,OK
+2,2026-08-24 17:30:00Z,Osasuna,Levante,0.413,0.314,0.273,Osasuna,0.818,Yes,0.485,Under 2.5,10.35,0.6,Osasuna,Osasuna,0.714,Yes,OK
+2,2026-08-24 19:30:00Z,Málaga CF,RC Deportivo,0.38,0.358,0.262,Málaga CF,0.227,No,0.39,Under 2.5,9.77,0.56,Málaga CF,Málaga CF,0.631,Yes,Low (promoted/new team)
+3,2026-08-28 17:00:00Z,R. Racing Club,Elche,0.471,0.312,0.217,R. Racing Club,0.482,No,0.415,Under 2.5,9.35,0.545,R. Racing Club,R. Racing Club,0.737,Yes,Low (promoted/new team)
+3,2026-08-28 19:30:00Z,Alaves,Villarreal,0.305,0.291,0.405,Villarreal,0.743,Yes,0.504,Over 2.5,9.97,0.516,Alaves,Villarreal,0.661,Yes,OK
+3,2026-08-29 15:00:00Z,Levante,Betis,0.31,0.297,0.393,Betis,0.793,Yes,0.556,Over 2.5,10.0,0.54,Levante,Betis,0.695,Yes,OK
+3,2026-08-29 17:00:00Z,Sociedad,Espanol,0.522,0.267,0.21,Sociedad,0.7,Yes,0.494,Under 2.5,9.73,0.511,Sociedad,Sociedad,0.762,Yes,OK
+3,2026-08-29 19:30:00Z,Sevilla,Ath Madrid,0.278,0.297,0.425,Ath Madrid,0.767,Yes,0.473,Under 2.5,9.78,0.564,Sevilla,Ath Madrid,0.655,Yes,OK
+3,2026-08-30 15:00:00Z,Real Madrid,Málaga CF,0.594,0.242,0.164,Real Madrid,0.376,No,0.515,Over 2.5,10.07,0.569,Real Madrid,Real Madrid,0.799,Yes,Low (promoted/new team)
+3,2026-08-30 17:30:00Z,RC Deportivo,Valencia,0.39,0.327,0.282,RC Deportivo,0.302,No,0.415,Under 2.5,9.82,0.54,RC Deportivo,Valencia,0.616,Yes,Low (promoted/new team)
+3,2026-08-30 19:30:00Z,Celta,Ath Bilbao,0.363,0.313,0.324,Celta,0.852,Yes,0.475,Under 2.5,9.63,0.438,Ath Bilbao,Celta,0.654,Yes,OK
+3,2026-08-31 17:30:00Z,Osasuna,Getafe,0.426,0.338,0.236,Osasuna,0.228,No,0.387,Under 2.5,9.37,0.574,Osasuna,Getafe,0.601,Yes,OK
+3,2026-08-31 19:30:00Z,Barcelona,Vallecano,0.558,0.241,0.201,Barcelona,0.598,Yes,0.548,Over 2.5,10.35,0.466,Vallecano,Barcelona,0.744,Yes,OK
+4,2026-09-04 19:00:00Z,Betis,Real Madrid,0.278,0.265,0.456,Real Madrid,0.809,Yes,0.551,Over 2.5,9.84,0.492,Real Madrid,Real Madrid,0.742,Yes,OK
+4,2026-09-05 14:15:00Z,Ath Bilbao,Ath Madrid,0.319,0.288,0.392,Ath Madrid,0.6,Yes,0.451,Under 2.5,10.32,0.563,Ath Bilbao,Ath Madrid,0.643,Yes,OK
+4,2026-09-05 16:30:00Z,Vallecano,R. Racing Club,0.435,0.328,0.237,Vallecano,0.532,Yes,0.439,Under 2.5,9.94,0.514,Vallecano,Vallecano,0.72,Yes,Low (promoted/new team)
+4,2026-09-05 19:00:00Z,Villarreal,RC Deportivo,0.532,0.272,0.195,Villarreal,0.306,No,0.515,Over 2.5,9.89,0.499,RC Deportivo,Villarreal,0.768,Yes,Low (promoted/new team)
+4,2026-09-06 14:15:00Z,Valencia,Barcelona,0.241,0.269,0.49,Barcelona,0.824,Yes,0.551,Over 2.5,10.11,0.477,Barcelona,Barcelona,0.737,Yes,OK
+4,2026-09-06 16:30:00Z,Alaves,Osasuna,0.408,0.319,0.273,Alaves,0.713,Yes,0.461,Under 2.5,9.72,0.504,Alaves,Osasuna,0.574,Yes,OK
+4,2026-09-06 16:30:00Z,Málaga CF,Levante,0.418,0.315,0.267,Málaga CF,0.527,Yes,0.437,Under 2.5,10.27,0.542,Málaga CF,Málaga CF,0.695,Yes,Low (promoted/new team)
+4,2026-09-06 19:00:00Z,Espanol,Sevilla,0.405,0.327,0.268,Espanol,0.52,Yes,0.459,Under 2.5,9.54,0.54,Espanol,Espanol,0.658,Yes,OK
+4,2026-09-07 17:00:00Z,Getafe,Celta,0.385,0.341,0.274,Getafe,0.804,Yes,0.429,Under 2.5,9.24,0.465,Celta,Celta,0.588,Yes,OK
+4,2026-09-07 19:30:00Z,Elche,Sociedad,0.361,0.316,0.323,Elche,0.603,Yes,0.466,Under 2.5,9.47,0.508,Elche,Sociedad,0.623,Yes,OK
+5,2026-09-12 14:00:00Z,Ath Bilbao,Elche,0.536,0.27,0.195,Ath Bilbao,0.606,Yes,0.472,Under 2.5,9.48,0.623,Ath Bilbao,Ath Bilbao,0.786,Yes,OK
+5,2026-09-12 14:00:00Z,Celta,Málaga CF,0.41,0.342,0.247,Celta,0.574,Yes,0.462,Under 2.5,9.65,0.466,Málaga CF,Celta,0.712,Yes,Low (promoted/new team)
+5,2026-09-12 14:00:00Z,Getafe,RC Deportivo,0.371,0.36,0.269,Getafe,0.425,No,0.365,Under 2.5,9.02,0.499,RC Deportivo,Getafe,0.672,Yes,Low (promoted/new team)
+5,2026-09-12 14:00:00Z,Levante,Barcelona,0.232,0.278,0.49,Barcelona,0.728,Yes,0.56,Over 2.5,10.15,0.462,Barcelona,Barcelona,0.718,Yes,OK
+5,2026-09-12 14:00:00Z,Osasuna,Espanol,0.441,0.316,0.244,Osasuna,0.655,Yes,0.472,Under 2.5,9.97,0.622,Osasuna,Osasuna,0.719,Yes,OK
+5,2026-09-12 14:00:00Z,R. Racing Club,Alaves,0.411,0.323,0.266,R. Racing Club,0.322,No,0.422,Under 2.5,9.56,0.574,R. Racing Club,R. Racing Club,0.713,Yes,Low (promoted/new team)
+5,2026-09-12 14:00:00Z,Real Madrid,Vallecano,0.57,0.236,0.194,Real Madrid,0.585,Yes,0.544,Over 2.5,10.38,0.504,Real Madrid,Real Madrid,0.783,Yes,OK
+5,2026-09-12 14:00:00Z,Sociedad,Ath Madrid,0.333,0.281,0.387,Ath Madrid,0.6,Yes,0.535,Over 2.5,10.13,0.498,Ath Madrid,Ath Madrid,0.664,Yes,OK
+5,2026-09-12 14:00:00Z,Sevilla,Valencia,0.364,0.328,0.308,Sevilla,0.57,Yes,0.453,Under 2.5,9.25,0.55,Sevilla,Valencia,0.59,Yes,OK
+5,2026-09-12 14:00:00Z,Villarreal,Betis,0.443,0.273,0.284,Villarreal,0.747,Yes,0.572,Over 2.5,9.87,0.539,Villarreal,Villarreal,0.664,Yes,OK
+6,2026-09-03 19:00:00Z,Sociedad,Celta,0.489,0.289,0.222,Sociedad,0.634,Yes,0.517,Over 2.5,9.79,0.529,Sociedad,Celta,0.626,Yes,OK
+6,2026-09-15 14:00:00Z,Alaves,Valencia,0.371,0.319,0.31,Alaves,0.69,Yes,0.474,Under 2.5,9.66,0.545,Alaves,Valencia,0.616,Yes,OK
+6,2026-09-15 14:00:00Z,Ath Madrid,Osasuna,0.563,0.251,0.187,Ath Madrid,0.62,Yes,0.56,Over 2.5,10.24,0.491,Osasuna,Ath Madrid,0.76,Yes,OK
+6,2026-09-15 14:00:00Z,Betis,Getafe,0.573,0.253,0.174,Betis,0.358,No,0.463,Under 2.5,9.43,0.514,Betis,Betis,0.784,Yes,OK
+6,2026-09-15 14:00:00Z,RC Deportivo,Sevilla,0.404,0.331,0.265,RC Deportivo,0.259,No,0.374,Under 2.5,9.36,0.575,RC Deportivo,RC Deportivo,0.7,Yes,Low (promoted/new team)
+6,2026-09-15 14:00:00Z,Elche,Real Madrid,0.219,0.28,0.501,Real Madrid,0.325,No,0.529,Over 2.5,9.7,0.404,Real Madrid,Real Madrid,0.756,Yes,OK
+6,2026-09-15 14:00:00Z,Barcelona,R. Racing Club,0.58,0.248,0.172,Barcelona,0.325,No,0.507,Over 2.5,10.17,0.542,Barcelona,Barcelona,0.773,Yes,Low (promoted/new team)
+6,2026-09-15 14:00:00Z,Levante,Ath Bilbao,0.336,0.318,0.346,Ath Bilbao,0.688,Yes,0.537,Over 2.5,9.95,0.504,Levante,Ath Bilbao,0.678,Yes,OK
+6,2026-09-15 14:00:00Z,Málaga CF,Villarreal,0.318,0.297,0.385,Villarreal,0.306,No,0.446,Under 2.5,10.15,0.518,Málaga CF,Villarreal,0.648,Yes,Low (promoted/new team)
+6,2026-09-15 14:00:00Z,Vallecano,Espanol,0.498,0.282,0.22,Vallecano,0.665,Yes,0.5,Under 2.5,9.95,0.568,Vallecano,Vallecano,0.755,Yes,OK
+7,2026-09-19 14:00:00Z,Ath Bilbao,Alaves,0.469,0.294,0.237,Ath Bilbao,0.407,No,0.44,Under 2.5,9.7,0.601,Ath Bilbao,Ath Bilbao,0.703,Yes,OK
+7,2026-09-19 14:00:00Z,Ath Madrid,Real Madrid,0.309,0.26,0.431,Real Madrid,0.644,Yes,0.57,Over 2.5,9.73,0.517,Ath Madrid,Real Madrid,0.73,Yes,OK
+7,2026-09-19 14:00:00Z,Celta,R. Racing Club,0.41,0.342,0.247,Celta,0.574,Yes,0.462,Under 2.5,9.65,0.466,R. Racing Club,Celta,0.712,Yes,Low (promoted/new team)
+7,2026-09-19 14:00:00Z,RC Deportivo,Betis,0.322,0.296,0.381,Betis,0.468,No,0.449,Under 2.5,9.95,0.516,RC Deportivo,Betis,0.652,Yes,Low (promoted/new team)
+7,2026-09-19 14:00:00Z,Espanol,Elche,0.488,0.295,0.218,Espanol,0.733,Yes,0.505,Over 2.5,9.56,0.588,Espanol,Espanol,0.686,Yes,OK
+7,2026-09-19 14:00:00Z,Getafe,Málaga CF,0.371,0.36,0.269,Getafe,0.425,No,0.365,Under 2.5,9.02,0.499,Málaga CF,Getafe,0.672,Yes,Low (promoted/new team)
+7,2026-09-19 14:00:00Z,Osasuna,Vallecano,0.373,0.322,0.305,Osasuna,0.762,Yes,0.479,Under 2.5,9.9,0.597,Osasuna,Vallecano,0.679,Yes,OK
+7,2026-09-19 14:00:00Z,Sevilla,Barcelona,0.226,0.275,0.499,Barcelona,0.74,Yes,0.481,Under 2.5,9.44,0.474,Barcelona,Barcelona,0.763,Yes,OK
+7,2026-09-19 14:00:00Z,Valencia,Sociedad,0.425,0.287,0.289,Valencia,0.804,Yes,0.484,Under 2.5,9.9,0.625,Valencia,Valencia,0.679,Yes,OK
+7,2026-09-19 14:00:00Z,Villarreal,Levante,0.549,0.246,0.205,Villarreal,0.859,Yes,0.592,Over 2.5,10.22,0.541,Villarreal,Villarreal,0.794,Yes,OK
+8,2026-10-10 13:00:00Z,Alaves,Ath Madrid,0.283,0.289,0.428,Ath Madrid,0.774,Yes,0.488,Under 2.5,10.06,0.577,Alaves,Ath Madrid,0.672,Yes,OK
+8,2026-10-10 13:00:00Z,Betis,Osasuna,0.549,0.253,0.198,Betis,0.806,Yes,0.528,Over 2.5,10.07,0.518,Betis,Betis,0.735,Yes,OK
+8,2026-10-10 13:00:00Z,Elche,Celta,0.375,0.34,0.286,Elche,0.603,Yes,0.488,Under 2.5,9.76,0.502,Elche,Celta,0.589,Yes,OK
+8,2026-10-10 13:00:00Z,Barcelona,Getafe,0.632,0.22,0.148,Barcelona,0.338,No,0.487,Under 2.5,9.62,0.547,Barcelona,Barcelona,0.812,Yes,OK
+8,2026-10-10 13:00:00Z,Levante,Sevilla,0.405,0.329,0.267,Levante,0.746,Yes,0.479,Under 2.5,9.6,0.545,Levante,Levante,0.708,Yes,OK
+8,2026-10-10 13:00:00Z,Málaga CF,Espanol,0.439,0.318,0.243,Málaga CF,0.431,No,0.428,Under 2.5,9.95,0.573,Málaga CF,Málaga CF,0.726,Yes,Low (promoted/new team)
+8,2026-10-10 13:00:00Z,R. Racing Club,Valencia,0.39,0.327,0.282,R. Racing Club,0.302,No,0.415,Under 2.5,9.82,0.54,R. Racing Club,Valencia,0.616,Yes,Low (promoted/new team)
+8,2026-10-10 13:00:00Z,Vallecano,Ath Bilbao,0.388,0.308,0.304,Vallecano,0.674,Yes,0.493,Under 2.5,9.87,0.558,Vallecano,Vallecano,0.663,Yes,OK
+8,2026-10-10 13:00:00Z,Real Madrid,Villarreal,0.521,0.244,0.235,Real Madrid,0.665,Yes,0.572,Over 2.5,10.26,0.519,Real Madrid,Real Madrid,0.726,Yes,OK
+8,2026-10-10 13:00:00Z,Sociedad,RC Deportivo,0.47,0.311,0.219,Sociedad,0.538,Yes,0.46,Under 2.5,9.66,0.471,RC Deportivo,Sociedad,0.721,Yes,Low (promoted/new team)
+9,2026-10-17 13:00:00Z,Betis,Barcelona,0.282,0.275,0.442,Barcelona,0.719,Yes,0.563,Over 2.5,10.06,0.469,Barcelona,Barcelona,0.726,Yes,OK
+9,2026-10-17 13:00:00Z,Celta,Alaves,0.44,0.302,0.258,Celta,0.695,Yes,0.482,Under 2.5,9.5,0.533,Celta,Celta,0.747,Yes,OK
+9,2026-10-17 13:00:00Z,RC Deportivo,Levante,0.418,0.315,0.267,RC Deportivo,0.527,Yes,0.437,Under 2.5,10.27,0.542,RC Deportivo,RC Deportivo,0.695,Yes,Low (promoted/new team)
+9,2026-10-17 13:00:00Z,Espanol,Ath Madrid,0.286,0.287,0.427,Ath Madrid,0.8,Yes,0.528,Over 2.5,10.38,0.575,Espanol,Ath Madrid,0.689,Yes,OK
+9,2026-10-17 13:00:00Z,Getafe,Vallecano,0.35,0.335,0.315,Getafe,0.761,Yes,0.408,Under 2.5,9.04,0.511,Getafe,Vallecano,0.607,Yes,OK
+9,2026-10-17 13:00:00Z,Málaga CF,Sociedad,0.393,0.307,0.299,Málaga CF,0.486,No,0.452,Under 2.5,9.67,0.557,Málaga CF,Sociedad,0.636,Yes,Low (promoted/new team)
+9,2026-10-17 13:00:00Z,Osasuna,R. Racing Club,0.386,0.35,0.264,Osasuna,0.432,No,0.437,Under 2.5,9.83,0.476,R. Racing Club,R. Racing Club,0.671,Yes,Low (promoted/new team)
+9,2026-10-17 13:00:00Z,Real Madrid,Sevilla,0.595,0.233,0.172,Real Madrid,0.612,Yes,0.494,Under 2.5,9.56,0.569,Real Madrid,Real Madrid,0.84,Yes,OK
+9,2026-10-17 13:00:00Z,Valencia,Ath Bilbao,0.373,0.311,0.316,Valencia,0.707,Yes,0.486,Under 2.5,9.83,0.532,Valencia,Valencia,0.647,Yes,OK
+9,2026-10-17 13:00:00Z,Villarreal,Elche,0.599,0.233,0.168,Villarreal,0.804,Yes,0.566,Over 2.5,9.4,0.567,Villarreal,Villarreal,0.826,Yes,OK
+10,2026-10-24 13:00:00Z,Alaves,Málaga CF,0.382,0.35,0.268,Alaves,0.484,No,0.434,Under 2.5,9.61,0.475,Málaga CF,Málaga CF,0.669,Yes,Low (promoted/new team)
+10,2026-10-24 13:00:00Z,Ath Bilbao,Getafe,0.484,0.304,0.212,Ath Bilbao,0.339,No,0.392,Under 2.5,9.49,0.576,Ath Bilbao,Ath Bilbao,0.631,Yes,OK
+10,2026-10-24 13:00:00Z,Ath Madrid,RC Deportivo,0.544,0.271,0.185,Ath Madrid,0.303,No,0.515,Over 2.5,10.07,0.496,RC Deportivo,Ath Madrid,0.761,Yes,Low (promoted/new team)
+10,2026-10-24 13:00:00Z,Celta,Betis,0.343,0.298,0.359,Betis,0.669,Yes,0.521,Over 2.5,9.85,0.502,Celta,Betis,0.706,Yes,OK
+10,2026-10-24 13:00:00Z,Barcelona,Real Madrid,0.409,0.262,0.329,Barcelona,0.623,Yes,0.557,Over 2.5,9.97,0.491,Real Madrid,Barcelona,0.647,Yes,OK
+10,2026-10-24 13:00:00Z,R. Racing Club,Espanol,0.439,0.318,0.243,R. Racing Club,0.431,No,0.428,Under 2.5,9.95,0.573,R. Racing Club,R. Racing Club,0.726,Yes,Low (promoted/new team)
+10,2026-10-24 13:00:00Z,Vallecano,Elche,0.521,0.276,0.202,Vallecano,0.615,Yes,0.525,Over 2.5,9.46,0.552,Vallecano,Vallecano,0.775,Yes,OK
+10,2026-10-24 13:00:00Z,Sociedad,Levante,0.502,0.271,0.228,Sociedad,0.707,Yes,0.518,Over 2.5,10.26,0.514,Sociedad,Sociedad,0.767,Yes,OK
+10,2026-10-24 13:00:00Z,Sevilla,Osasuna,0.396,0.332,0.272,Sevilla,0.714,Yes,0.424,Under 2.5,9.28,0.53,Sevilla,Osasuna,0.558,Yes,OK
+10,2026-10-24 13:00:00Z,Valencia,Villarreal,0.314,0.29,0.396,Villarreal,0.734,Yes,0.539,Over 2.5,10.27,0.567,Valencia,Villarreal,0.653,Yes,OK
+11,2026-10-31 13:00:00Z,Ath Bilbao,Sociedad,0.444,0.282,0.274,Ath Bilbao,0.632,Yes,0.461,Under 2.5,9.82,0.626,Ath Bilbao,Ath Bilbao,0.646,Yes,OK
+11,2026-10-31 13:00:00Z,Betis,Málaga CF,0.53,0.272,0.198,Betis,0.506,Yes,0.497,Under 2.5,9.97,0.492,Málaga CF,Betis,0.742,Yes,Low (promoted/new team)
+11,2026-10-31 13:00:00Z,RC Deportivo,Osasuna,0.401,0.334,0.265,RC Deportivo,0.455,No,0.407,Under 2.5,9.95,0.536,RC Deportivo,RC Deportivo,0.641,Yes,Low (promoted/new team)
+11,2026-10-31 13:00:00Z,Elche,Valencia,0.357,0.336,0.306,Elche,0.54,Yes,0.477,Under 2.5,9.62,0.458,Valencia,Valencia,0.571,Yes,OK
+11,2026-10-31 13:00:00Z,Barcelona,Alaves,0.592,0.229,0.179,Barcelona,0.449,No,0.55,Over 2.5,9.93,0.593,Barcelona,Barcelona,0.8,Yes,OK
+11,2026-10-31 13:00:00Z,Getafe,Sevilla,0.381,0.337,0.282,Getafe,0.535,Yes,0.347,Under 2.5,8.52,0.501,Getafe,Getafe,0.674,Yes,OK
+11,2026-10-31 13:00:00Z,Levante,Ath Madrid,0.284,0.293,0.423,Ath Madrid,0.742,Yes,0.536,Over 2.5,10.39,0.55,Levante,Ath Madrid,0.692,Yes,OK
+11,2026-10-31 13:00:00Z,R. Racing Club,Real Madrid,0.244,0.279,0.477,Real Madrid,0.22,No,0.472,Under 2.5,9.8,0.562,R. Racing Club,Real Madrid,0.721,Yes,Low (promoted/new team)
+11,2026-10-31 13:00:00Z,Vallecano,Celta,0.448,0.306,0.246,Vallecano,0.686,Yes,0.506,Over 2.5,10.1,0.594,Vallecano,Celta,0.611,Yes,OK
+11,2026-10-31 13:00:00Z,Villarreal,Espanol,0.564,0.244,0.192,Villarreal,0.812,Yes,0.558,Over 2.5,9.95,0.593,Villarreal,Villarreal,0.8,Yes,OK
+12,2026-11-07 13:00:00Z,Ath Madrid,Barcelona,0.311,0.269,0.42,Barcelona,0.732,Yes,0.566,Over 2.5,10.04,0.507,Ath Madrid,Barcelona,0.728,Yes,OK
+12,2026-11-07 13:00:00Z,Celta,Levante,0.446,0.298,0.257,Celta,0.867,Yes,0.534,Over 2.5,10.21,0.52,Celta,Celta,0.751,Yes,OK
+12,2026-11-07 13:00:00Z,Elche,Betis,0.301,0.309,0.391,Betis,0.703,Yes,0.497,Under 2.5,9.8,0.441,Betis,Betis,0.642,Yes,OK
+12,2026-11-07 13:00:00Z,Espanol,RC Deportivo,0.389,0.346,0.265,Espanol,0.47,No,0.457,Under 2.5,10.01,0.49,RC Deportivo,RC Deportivo,0.657,Yes,Low (promoted/new team)
+12,2026-11-07 13:00:00Z,Málaga CF,R. Racing Club,0.38,0.358,0.262,Málaga CF,0.227,No,0.39,Under 2.5,9.77,0.56,Málaga CF,Málaga CF,0.631,Yes,Low (promoted/new team)
+12,2026-11-07 13:00:00Z,Osasuna,Ath Bilbao,0.333,0.325,0.342,Ath Bilbao,0.747,Yes,0.477,Under 2.5,9.72,0.53,Osasuna,Ath Bilbao,0.701,Yes,OK
+12,2026-11-07 13:00:00Z,Sociedad,Vallecano,0.44,0.3,0.26,Sociedad,0.594,Yes,0.488,Under 2.5,9.7,0.517,Sociedad,Vallecano,0.66,Yes,OK
+12,2026-11-07 13:00:00Z,Sevilla,Alaves,0.397,0.329,0.274,Sevilla,0.648,Yes,0.418,Under 2.5,8.93,0.597,Sevilla,Alaves,0.554,Yes,OK
+12,2026-11-07 13:00:00Z,Valencia,Real Madrid,0.238,0.266,0.496,Real Madrid,0.679,Yes,0.571,Over 2.5,9.83,0.5,Valencia,Real Madrid,0.756,Yes,OK
+12,2026-11-07 13:00:00Z,Villarreal,Getafe,0.576,0.251,0.174,Villarreal,0.526,Yes,0.474,Under 2.5,9.37,0.54,Villarreal,Villarreal,0.809,Yes,OK
+13,2026-11-21 13:00:00Z,Alaves,RC Deportivo,0.382,0.35,0.268,Alaves,0.484,No,0.434,Under 2.5,9.61,0.475,RC Deportivo,RC Deportivo,0.669,Yes,Low (promoted/new team)
+13,2026-11-21 13:00:00Z,Ath Bilbao,Espanol,0.494,0.286,0.221,Ath Bilbao,0.591,Yes,0.461,Under 2.5,9.92,0.619,Ath Bilbao,Ath Bilbao,0.721,Yes,OK
+13,2026-11-21 13:00:00Z,Barcelona,Villarreal,0.517,0.242,0.241,Barcelona,0.551,Yes,0.568,Over 2.5,10.3,0.509,Barcelona,Barcelona,0.684,Yes,OK
+13,2026-11-21 13:00:00Z,Getafe,Ath Madrid,0.264,0.3,0.437,Ath Madrid,0.754,Yes,0.445,Under 2.5,9.46,0.469,Ath Madrid,Ath Madrid,0.639,Yes,OK
+13,2026-11-21 13:00:00Z,Levante,Elche,0.478,0.298,0.223,Levante,0.691,Yes,0.517,Over 2.5,9.67,0.567,Levante,Levante,0.746,Yes,OK
+13,2026-11-21 13:00:00Z,Osasuna,Málaga CF,0.386,0.35,0.264,Osasuna,0.432,No,0.437,Under 2.5,9.83,0.476,Málaga CF,Málaga CF,0.671,Yes,Low (promoted/new team)
+13,2026-11-21 13:00:00Z,R. Racing Club,Sociedad,0.393,0.307,0.299,R. Racing Club,0.486,No,0.452,Under 2.5,9.67,0.557,R. Racing Club,Sociedad,0.636,Yes,Low (promoted/new team)
+13,2026-11-21 13:00:00Z,Vallecano,Valencia,0.435,0.306,0.259,Vallecano,0.668,Yes,0.498,Under 2.5,9.93,0.563,Vallecano,Valencia,0.597,Yes,OK
+13,2026-11-21 13:00:00Z,Real Madrid,Celta,0.625,0.218,0.157,Real Madrid,0.686,Yes,0.577,Over 2.5,10.12,0.597,Real Madrid,Real Madrid,0.804,Yes,OK
+13,2026-11-21 13:00:00Z,Sevilla,Betis,0.306,0.301,0.393,Betis,0.743,Yes,0.47,Under 2.5,9.61,0.516,Sevilla,Betis,0.66,Yes,OK
+14,2026-11-28 13:00:00Z,Betis,Vallecano,0.499,0.267,0.233,Betis,0.808,Yes,0.514,Over 2.5,10.04,0.501,Betis,Betis,0.731,Yes,OK
+14,2026-11-28 13:00:00Z,Celta,Villarreal,0.312,0.289,0.399,Villarreal,0.771,Yes,0.544,Over 2.5,10.0,0.481,Villarreal,Villarreal,0.683,Yes,OK
+14,2026-11-28 13:00:00Z,RC Deportivo,Barcelona,0.248,0.276,0.477,Barcelona,0.404,No,0.426,Under 2.5,9.96,0.544,RC Deportivo,Barcelona,0.703,Yes,Low (promoted/new team)
+14,2026-11-28 13:00:00Z,Elche,Ath Madrid,0.275,0.305,0.42,Ath Madrid,0.651,Yes,0.502,Over 2.5,10.07,0.48,Ath Madrid,Ath Madrid,0.642,Yes,OK
+14,2026-11-28 13:00:00Z,Espanol,Getafe,0.44,0.329,0.231,Espanol,0.384,No,0.424,Under 2.5,9.44,0.55,Espanol,Getafe,0.589,Yes,OK
+14,2026-11-28 13:00:00Z,Levante,R. Racing Club,0.393,0.344,0.263,Levante,0.603,Yes,0.484,Under 2.5,10.01,0.468,R. Racing Club,R. Racing Club,0.644,Yes,Low (promoted/new team)
+14,2026-11-28 13:00:00Z,Málaga CF,Ath Bilbao,0.335,0.326,0.339,Ath Bilbao,0.269,No,0.414,Under 2.5,9.73,0.545,Málaga CF,Ath Bilbao,0.659,Yes,Low (promoted/new team)
+14,2026-11-28 13:00:00Z,Real Madrid,Alaves,0.606,0.223,0.171,Real Madrid,0.62,Yes,0.532,Over 2.5,9.82,0.624,Real Madrid,Real Madrid,0.842,Yes,OK
+14,2026-11-28 13:00:00Z,Sociedad,Sevilla,0.482,0.29,0.228,Sociedad,0.481,No,0.444,Under 2.5,9.22,0.488,Sevilla,Sociedad,0.786,Yes,OK
+14,2026-11-28 13:00:00Z,Valencia,Osasuna,0.445,0.307,0.248,Valencia,0.833,Yes,0.482,Under 2.5,10.05,0.568,Valencia,Valencia,0.713,Yes,OK
+15,2026-12-05 13:00:00Z,Alaves,Espanol,0.435,0.313,0.252,Alaves,0.747,Yes,0.466,Under 2.5,9.77,0.584,Alaves,Alaves,0.678,Yes,OK
+15,2026-12-05 13:00:00Z,Ath Bilbao,Real Madrid,0.259,0.266,0.475,Real Madrid,0.599,Yes,0.464,Under 2.5,9.84,0.521,Ath Bilbao,Real Madrid,0.727,Yes,OK
+15,2026-12-05 13:00:00Z,Ath Madrid,Betis,0.466,0.261,0.273,Ath Madrid,0.762,Yes,0.586,Over 2.5,9.88,0.514,Ath Madrid,Ath Madrid,0.652,Yes,OK
+15,2026-12-05 13:00:00Z,Barcelona,Celta,0.614,0.223,0.163,Barcelona,0.66,Yes,0.576,Over 2.5,10.19,0.563,Barcelona,Barcelona,0.772,Yes,OK
+15,2026-12-05 13:00:00Z,Getafe,Valencia,0.367,0.337,0.295,Getafe,0.594,Yes,0.411,Under 2.5,9.05,0.475,Valencia,Valencia,0.571,Yes,OK
+15,2026-12-05 13:00:00Z,Osasuna,Elche,0.478,0.303,0.22,Osasuna,0.535,Yes,0.48,Under 2.5,9.51,0.594,Osasuna,Osasuna,0.744,Yes,OK
+15,2026-12-05 13:00:00Z,R. Racing Club,RC Deportivo,0.38,0.358,0.262,R. Racing Club,0.227,No,0.39,Under 2.5,9.77,0.56,R. Racing Club,R. Racing Club,0.631,Yes,Low (promoted/new team)
+15,2026-12-05 13:00:00Z,Vallecano,Levante,0.475,0.281,0.244,Vallecano,0.744,Yes,0.512,Over 2.5,10.35,0.558,Vallecano,Vallecano,0.738,Yes,OK
+15,2026-12-05 13:00:00Z,Sevilla,Málaga CF,0.368,0.356,0.277,Sevilla,0.471,No,0.398,Under 2.5,9.28,0.52,Sevilla,Málaga CF,0.675,Yes,Low (promoted/new team)
+15,2026-12-05 13:00:00Z,Villarreal,Sociedad,0.52,0.253,0.228,Villarreal,0.875,Yes,0.55,Over 2.5,9.79,0.621,Villarreal,Villarreal,0.742,Yes,OK
+16,2026-12-12 13:00:00Z,Ath Madrid,Valencia,0.552,0.248,0.2,Ath Madrid,0.667,Yes,0.567,Over 2.5,9.93,0.528,Ath Madrid,Ath Madrid,0.734,Yes,OK
+16,2026-12-12 13:00:00Z,Betis,R. Racing Club,0.53,0.272,0.198,Betis,0.506,Yes,0.497,Under 2.5,9.97,0.492,R. Racing Club,Betis,0.742,Yes,Low (promoted/new team)
+16,2026-12-12 13:00:00Z,RC Deportivo,Ath Bilbao,0.335,0.326,0.339,Ath Bilbao,0.269,No,0.414,Under 2.5,9.73,0.545,RC Deportivo,Ath Bilbao,0.659,Yes,Low (promoted/new team)
+16,2026-12-12 13:00:00Z,Elche,Sevilla,0.368,0.348,0.284,Elche,0.604,Yes,0.392,Under 2.5,9.2,0.473,Sevilla,Sevilla,0.628,Yes,OK
+16,2026-12-12 13:00:00Z,Espanol,Celta,0.4,0.315,0.285,Espanol,0.651,Yes,0.519,Over 2.5,10.14,0.598,Espanol,Celta,0.641,Yes,OK
+16,2026-12-12 13:00:00Z,Levante,Alaves,0.421,0.313,0.266,Levante,0.692,Yes,0.528,Over 2.5,9.83,0.573,Levante,Levante,0.661,Yes,OK
+16,2026-12-12 13:00:00Z,Málaga CF,Barcelona,0.248,0.276,0.477,Barcelona,0.404,No,0.426,Under 2.5,9.96,0.544,Málaga CF,Barcelona,0.703,Yes,Low (promoted/new team)
+16,2026-12-12 13:00:00Z,Real Madrid,Osasuna,0.603,0.23,0.167,Real Madrid,0.689,Yes,0.55,Over 2.5,10.28,0.564,Real Madrid,Real Madrid,0.808,Yes,OK
+16,2026-12-12 13:00:00Z,Sociedad,Getafe,0.51,0.294,0.195,Sociedad,0.333,No,0.414,Under 2.5,9.12,0.459,Getafe,Sociedad,0.649,Yes,OK
+16,2026-12-12 13:00:00Z,Villarreal,Vallecano,0.507,0.267,0.227,Villarreal,0.819,Yes,0.546,Over 2.5,9.88,0.508,Villarreal,Villarreal,0.753,Yes,OK
+17,2026-12-19 13:00:00Z,Alaves,Elche,0.474,0.302,0.224,Alaves,0.782,Yes,0.468,Under 2.5,9.15,0.527,Alaves,Alaves,0.723,Yes,OK
+17,2026-12-19 13:00:00Z,Ath Bilbao,Betis,0.352,0.286,0.362,Betis,0.714,Yes,0.454,Under 2.5,9.93,0.547,Ath Bilbao,Betis,0.639,Yes,OK
+17,2026-12-19 13:00:00Z,Celta,Ath Madrid,0.285,0.286,0.429,Ath Madrid,0.825,Yes,0.518,Over 2.5,10.16,0.506,Celta,Ath Madrid,0.681,Yes,OK
+17,2026-12-19 13:00:00Z,RC Deportivo,Real Madrid,0.244,0.279,0.477,Real Madrid,0.22,No,0.472,Under 2.5,9.8,0.562,RC Deportivo,Real Madrid,0.721,Yes,Low (promoted/new team)
+17,2026-12-19 13:00:00Z,Barcelona,Sociedad,0.578,0.224,0.197,Barcelona,0.713,Yes,0.571,Over 2.5,9.95,0.568,Barcelona,Barcelona,0.738,Yes,OK
+17,2026-12-19 13:00:00Z,Getafe,Levante,0.401,0.32,0.279,Getafe,0.806,Yes,0.439,Under 2.5,9.79,0.496,Levante,Getafe,0.694,Yes,OK
+17,2026-12-19 13:00:00Z,Osasuna,Villarreal,0.303,0.3,0.397,Villarreal,0.648,Yes,0.502,Over 2.5,10.22,0.529,Osasuna,Villarreal,0.676,Yes,OK
+17,2026-12-19 13:00:00Z,Vallecano,Málaga CF,0.435,0.328,0.237,Vallecano,0.532,Yes,0.439,Under 2.5,9.94,0.514,Vallecano,Vallecano,0.72,Yes,Low (promoted/new team)
+17,2026-12-19 13:00:00Z,Sevilla,R. Racing Club,0.368,0.356,0.277,Sevilla,0.471,No,0.398,Under 2.5,9.28,0.52,Sevilla,R. Racing Club,0.675,Yes,Low (promoted/new team)
+17,2026-12-19 13:00:00Z,Valencia,Espanol,0.475,0.293,0.233,Valencia,0.793,Yes,0.488,Under 2.5,10.04,0.6,Valencia,Valencia,0.747,Yes,OK
+18,2027-01-02 13:00:00Z,Betis,Alaves,0.538,0.253,0.209,Betis,0.631,Yes,0.535,Over 2.5,9.76,0.577,Betis,Betis,0.778,Yes,OK
+18,2027-01-02 13:00:00Z,Celta,RC Deportivo,0.41,0.342,0.247,Celta,0.574,Yes,0.462,Under 2.5,9.65,0.466,RC Deportivo,Celta,0.712,Yes,Low (promoted/new team)
+18,2027-01-02 13:00:00Z,Espanol,Barcelona,0.237,0.277,0.485,Barcelona,0.706,Yes,0.547,Over 2.5,10.12,0.484,Barcelona,Barcelona,0.747,Yes,OK
+18,2027-01-02 13:00:00Z,Levante,Valencia,0.386,0.32,0.294,Levante,0.79,Yes,0.537,Over 2.5,9.95,0.542,Levante,Valencia,0.637,Yes,OK
+18,2027-01-02 13:00:00Z,Málaga CF,Elche,0.471,0.312,0.217,Málaga CF,0.482,No,0.415,Under 2.5,9.35,0.545,Málaga CF,Málaga CF,0.737,Yes,Low (promoted/new team)
+18,2027-01-02 13:00:00Z,R. Racing Club,Ath Bilbao,0.335,0.326,0.339,Ath Bilbao,0.269,No,0.414,Under 2.5,9.73,0.545,R. Racing Club,Ath Bilbao,0.659,Yes,Low (promoted/new team)
+18,2027-01-02 13:00:00Z,Vallecano,Ath Madrid,0.302,0.288,0.411,Ath Madrid,0.719,Yes,0.509,Over 2.5,10.35,0.572,Vallecano,Ath Madrid,0.67,Yes,OK
+18,2027-01-02 13:00:00Z,Real Madrid,Getafe,0.646,0.213,0.141,Real Madrid,0.317,No,0.477,Under 2.5,9.49,0.573,Real Madrid,Real Madrid,0.846,Yes,OK
+18,2027-01-02 13:00:00Z,Sociedad,Osasuna,0.5,0.283,0.217,Sociedad,0.649,Yes,0.48,Under 2.5,9.84,0.478,Osasuna,Sociedad,0.741,Yes,OK
+18,2027-01-02 13:00:00Z,Villarreal,Sevilla,0.526,0.264,0.21,Villarreal,0.567,Yes,0.508,Over 2.5,9.43,0.545,Villarreal,Villarreal,0.801,Yes,OK
+19,2027-01-09 13:00:00Z,Alaves,Sociedad,0.387,0.302,0.311,Alaves,0.738,Yes,0.472,Under 2.5,9.45,0.604,Alaves,Sociedad,0.637,Yes,OK
+19,2027-01-09 13:00:00Z,Ath Bilbao,Villarreal,0.343,0.287,0.369,Villarreal,0.511,Yes,0.459,Under 2.5,10.2,0.557,Ath Bilbao,Villarreal,0.628,Yes,OK
+19,2027-01-09 13:00:00Z,Ath Madrid,R. Racing Club,0.544,0.271,0.185,Ath Madrid,0.303,No,0.515,Over 2.5,10.07,0.496,R. Racing Club,Ath Madrid,0.761,Yes,Low (promoted/new team)
+19,2027-01-09 13:00:00Z,RC Deportivo,Vallecano,0.372,0.324,0.303,RC Deportivo,0.482,No,0.44,Under 2.5,9.9,0.555,RC Deportivo,Vallecano,0.643,Yes,Low (promoted/new team)
+19,2027-01-09 13:00:00Z,Elche,Getafe,0.407,0.354,0.239,Elche,0.402,No,0.388,Under 2.5,9.1,0.467,Getafe,Getafe,0.577,Yes,OK
+19,2027-01-09 13:00:00Z,Espanol,Betis,0.318,0.289,0.393,Betis,0.791,Yes,0.526,Over 2.5,10.04,0.53,Espanol,Betis,0.684,Yes,OK
+19,2027-01-09 13:00:00Z,Osasuna,Barcelona,0.23,0.278,0.491,Barcelona,0.702,Yes,0.511,Over 2.5,10.01,0.468,Barcelona,Barcelona,0.756,Yes,OK
+19,2027-01-09 13:00:00Z,Real Madrid,Levante,0.61,0.218,0.172,Real Madrid,0.733,Yes,0.57,Over 2.5,10.36,0.506,Real Madrid,Real Madrid,0.819,Yes,OK
+19,2027-01-09 13:00:00Z,Sevilla,Celta,0.383,0.328,0.289,Sevilla,0.695,Yes,0.457,Under 2.5,9.51,0.574,Sevilla,Celta,0.599,Yes,OK
+19,2027-01-09 13:00:00Z,Valencia,Málaga CF,0.423,0.333,0.244,Valencia,0.404,No,0.471,Under 2.5,9.9,0.478,Málaga CF,Valencia,0.7,Yes,Low (promoted/new team)
+20,2027-01-16 13:00:00Z,Ath Madrid,Sociedad,0.542,0.242,0.216,Ath Madrid,0.79,Yes,0.566,Over 2.5,9.93,0.565,Ath Madrid,Ath Madrid,0.732,Yes,OK
+20,2027-01-16 13:00:00Z,Betis,RC Deportivo,0.53,0.272,0.198,Betis,0.506,Yes,0.497,Under 2.5,9.97,0.492,RC Deportivo,Betis,0.742,Yes,Low (promoted/new team)
+20,2027-01-16 13:00:00Z,Celta,Valencia,0.407,0.32,0.273,Celta,0.779,Yes,0.507,Over 2.5,9.7,0.484,Valencia,Celta,0.654,Yes,OK
+20,2027-01-16 13:00:00Z,Barcelona,Elche,0.648,0.206,0.146,Barcelona,0.535,Yes,0.559,Over 2.5,9.61,0.593,Barcelona,Barcelona,0.817,Yes,OK
+20,2027-01-16 13:00:00Z,Getafe,Ath Bilbao,0.315,0.336,0.35,Ath Bilbao,0.524,Yes,0.392,Under 2.5,8.81,0.466,Ath Bilbao,Ath Bilbao,0.685,Yes,OK
+20,2027-01-16 13:00:00Z,Levante,Espanol,0.442,0.306,0.252,Levante,0.764,Yes,0.527,Over 2.5,10.11,0.589,Levante,Levante,0.72,Yes,OK
+20,2027-01-16 13:00:00Z,Málaga CF,Real Madrid,0.244,0.279,0.477,Real Madrid,0.22,No,0.472,Under 2.5,9.8,0.562,Málaga CF,Real Madrid,0.721,Yes,Low (promoted/new team)
+20,2027-01-16 13:00:00Z,R. Racing Club,Osasuna,0.401,0.334,0.265,R. Racing Club,0.455,No,0.407,Under 2.5,9.95,0.536,R. Racing Club,R. Racing Club,0.641,Yes,Low (promoted/new team)
+20,2027-01-16 13:00:00Z,Vallecano,Sevilla,0.45,0.307,0.243,Vallecano,0.43,No,0.437,Under 2.5,9.43,0.577,Vallecano,Vallecano,0.736,Yes,OK
+20,2027-01-16 13:00:00Z,Villarreal,Alaves,0.539,0.253,0.208,Villarreal,0.627,Yes,0.555,Over 2.5,9.63,0.606,Villarreal,Villarreal,0.814,Yes,OK
+21,2027-01-23 13:00:00Z,Alaves,Barcelona,0.233,0.275,0.492,Barcelona,0.743,Yes,0.514,Over 2.5,9.73,0.452,Barcelona,Barcelona,0.764,Yes,OK
+21,2027-01-23 13:00:00Z,Ath Bilbao,Levante,0.48,0.279,0.241,Ath Bilbao,0.645,Yes,0.466,Under 2.5,10.27,0.594,Ath Bilbao,Ath Bilbao,0.719,Yes,OK
+21,2027-01-23 13:00:00Z,RC Deportivo,Ath Madrid,0.293,0.297,0.411,Ath Madrid,0.322,No,0.445,Under 2.5,10.26,0.529,RC Deportivo,Ath Madrid,0.667,Yes,Low (promoted/new team)
+21,2027-01-23 13:00:00Z,Elche,Vallecano,0.339,0.336,0.325,Elche,0.764,Yes,0.459,Under 2.5,9.64,0.503,Elche,Vallecano,0.618,Yes,OK
+21,2027-01-23 13:00:00Z,Espanol,Villarreal,0.309,0.288,0.403,Villarreal,0.626,Yes,0.544,Over 2.5,10.28,0.548,Espanol,Villarreal,0.663,Yes,OK
+21,2027-01-23 13:00:00Z,Getafe,Osasuna,0.392,0.339,0.269,Getafe,0.771,Yes,0.401,Under 2.5,9.0,0.444,Osasuna,Getafe,0.66,Yes,OK
+21,2027-01-23 13:00:00Z,R. Racing Club,Celta,0.408,0.331,0.261,R. Racing Club,0.423,No,0.416,Under 2.5,10.05,0.541,R. Racing Club,Celta,0.637,Yes,Low (promoted/new team)
+21,2027-01-23 13:00:00Z,Real Madrid,Betis,0.531,0.24,0.229,Real Madrid,0.698,Yes,0.553,Over 2.5,10.1,0.499,Betis,Real Madrid,0.731,Yes,OK
+21,2027-01-23 13:00:00Z,Sociedad,Málaga CF,0.47,0.311,0.219,Sociedad,0.538,Yes,0.46,Under 2.5,9.66,0.471,Málaga CF,Sociedad,0.721,Yes,Low (promoted/new team)
+21,2027-01-23 13:00:00Z,Valencia,Sevilla,0.43,0.315,0.255,Valencia,0.617,Yes,0.431,Under 2.5,9.48,0.586,Valencia,Valencia,0.737,Yes,OK
+22,2027-01-30 13:00:00Z,Ath Madrid,Espanol,0.576,0.239,0.184,Ath Madrid,0.781,Yes,0.568,Over 2.5,10.05,0.55,Ath Madrid,Ath Madrid,0.797,Yes,OK
+22,2027-01-30 13:00:00Z,Betis,Elche,0.6,0.232,0.168,Betis,0.725,Yes,0.552,Over 2.5,9.54,0.556,Betis,Betis,0.793,Yes,OK
+22,2027-01-30 13:00:00Z,Celta,Getafe,0.456,0.319,0.225,Celta,0.472,No,0.407,Under 2.5,9.27,0.511,Celta,Celta,0.731,Yes,OK
+22,2027-01-30 13:00:00Z,Barcelona,Valencia,0.591,0.225,0.184,Barcelona,0.628,Yes,0.548,Over 2.5,10.15,0.518,Barcelona,Barcelona,0.754,Yes,OK
+22,2027-01-30 13:00:00Z,Levante,Sociedad,0.386,0.306,0.308,Levante,0.756,Yes,0.527,Over 2.5,10.03,0.593,Levante,Sociedad,0.647,Yes,OK
+22,2027-01-30 13:00:00Z,Málaga CF,Alaves,0.411,0.323,0.266,Málaga CF,0.322,No,0.422,Under 2.5,9.56,0.574,Málaga CF,Málaga CF,0.713,Yes,Low (promoted/new team)
+22,2027-01-30 13:00:00Z,Osasuna,RC Deportivo,0.386,0.35,0.264,Osasuna,0.432,No,0.437,Under 2.5,9.83,0.476,RC Deportivo,RC Deportivo,0.671,Yes,Low (promoted/new team)
+22,2027-01-30 13:00:00Z,Vallecano,Real Madrid,0.246,0.272,0.481,Real Madrid,0.588,Yes,0.539,Over 2.5,9.81,0.553,Vallecano,Real Madrid,0.76,Yes,OK
+22,2027-01-30 13:00:00Z,Sevilla,Ath Bilbao,0.319,0.326,0.355,Ath Bilbao,0.742,Yes,0.423,Under 2.5,9.08,0.545,Sevilla,Ath Bilbao,0.702,Yes,OK
+22,2027-01-30 13:00:00Z,Villarreal,R. Racing Club,0.532,0.272,0.195,Villarreal,0.306,No,0.515,Over 2.5,9.89,0.499,R. Racing Club,Villarreal,0.768,Yes,Low (promoted/new team)
+23,2027-02-06 13:00:00Z,Alaves,Celta,0.392,0.319,0.289,Alaves,0.698,Yes,0.485,Under 2.5,9.82,0.554,Alaves,Celta,0.621,Yes,OK
+23,2027-02-06 13:00:00Z,Ath Bilbao,Osasuna,0.469,0.299,0.232,Ath Bilbao,0.561,Yes,0.435,Under 2.5,10.05,0.58,Ath Bilbao,Ath Bilbao,0.689,Yes,OK
+23,2027-02-06 13:00:00Z,Betis,Sevilla,0.522,0.267,0.211,Betis,0.531,Yes,0.499,Under 2.5,9.5,0.518,Betis,Betis,0.762,Yes,OK
+23,2027-02-06 13:00:00Z,RC Deportivo,Málaga CF,0.38,0.358,0.262,RC Deportivo,0.227,No,0.39,Under 2.5,9.77,0.56,RC Deportivo,RC Deportivo,0.631,Yes,Low (promoted/new team)
+23,2027-02-06 13:00:00Z,Elche,Levante,0.39,0.328,0.282,Elche,0.776,Yes,0.479,Under 2.5,10.17,0.493,Levante,Levante,0.629,Yes,OK
+23,2027-02-06 13:00:00Z,Espanol,Vallecano,0.359,0.31,0.331,Espanol,0.862,Yes,0.503,Over 2.5,10.04,0.576,Espanol,Vallecano,0.651,Yes,OK
+23,2027-02-06 13:00:00Z,Barcelona,Ath Madrid,0.492,0.251,0.257,Barcelona,0.655,Yes,0.56,Over 2.5,10.58,0.491,Ath Madrid,Barcelona,0.696,Yes,OK
+23,2027-02-06 13:00:00Z,Getafe,Villarreal,0.287,0.301,0.411,Villarreal,0.667,Yes,0.444,Under 2.5,9.36,0.411,Villarreal,Villarreal,0.598,Yes,OK
+23,2027-02-06 13:00:00Z,Sociedad,Real Madrid,0.275,0.267,0.458,Real Madrid,0.527,Yes,0.548,Over 2.5,9.77,0.417,Real Madrid,Real Madrid,0.753,Yes,OK
+23,2027-02-06 13:00:00Z,Valencia,R. Racing Club,0.423,0.333,0.244,Valencia,0.404,No,0.471,Under 2.5,9.9,0.478,R. Racing Club,Valencia,0.7,Yes,Low (promoted/new team)
+24,2027-02-13 13:00:00Z,Celta,Vallecano,0.389,0.319,0.292,Celta,0.758,Yes,0.487,Under 2.5,9.75,0.543,Celta,Celta,0.705,Yes,OK
+24,2027-02-13 13:00:00Z,Elche,RC Deportivo,0.354,0.371,0.274,Draw,0.389,No,0.437,Under 2.5,9.46,0.47,RC Deportivo,RC Deportivo,0.683,Yes,Low (promoted/new team)
+24,2027-02-13 13:00:00Z,Levante,Málaga CF,0.393,0.344,0.263,Levante,0.603,Yes,0.484,Under 2.5,10.01,0.468,Málaga CF,Málaga CF,0.644,Yes,Low (promoted/new team)
+24,2027-02-13 13:00:00Z,Osasuna,Ath Madrid,0.281,0.295,0.424,Ath Madrid,0.858,Yes,0.487,Under 2.5,10.29,0.543,Osasuna,Ath Madrid,0.684,Yes,OK
+24,2027-02-13 13:00:00Z,R. Racing Club,Getafe,0.429,0.339,0.231,R. Racing Club,0.205,No,0.355,Under 2.5,9.38,0.57,R. Racing Club,Getafe,0.612,Yes,Low (promoted/new team)
+24,2027-02-13 13:00:00Z,Real Madrid,Ath Bilbao,0.543,0.243,0.214,Real Madrid,0.5,Yes,0.517,Over 2.5,10.03,0.531,Real Madrid,Real Madrid,0.765,Yes,OK
+24,2027-02-13 13:00:00Z,Sociedad,Betis,0.37,0.284,0.346,Sociedad,0.632,Yes,0.517,Over 2.5,9.82,0.468,Betis,Betis,0.67,Yes,OK
+24,2027-02-13 13:00:00Z,Sevilla,Espanol,0.427,0.319,0.253,Sevilla,0.554,Yes,0.435,Under 2.5,9.42,0.616,Sevilla,Espanol,0.582,Yes,OK
+24,2027-02-13 13:00:00Z,Valencia,Alaves,0.445,0.301,0.254,Valencia,0.698,Yes,0.478,Under 2.5,9.71,0.625,Valencia,Valencia,0.745,Yes,OK
+24,2027-02-13 13:00:00Z,Villarreal,Barcelona,0.288,0.275,0.437,Barcelona,0.678,Yes,0.579,Over 2.5,9.97,0.475,Barcelona,Barcelona,0.743,Yes,OK
+25,2027-02-20 13:00:00Z,Alaves,R. Racing Club,0.382,0.35,0.268,Alaves,0.484,No,0.434,Under 2.5,9.61,0.475,R. Racing Club,R. Racing Club,0.669,Yes,Low (promoted/new team)
+25,2027-02-20 13:00:00Z,Ath Bilbao,Celta,0.457,0.303,0.239,Ath Bilbao,0.712,Yes,0.464,Under 2.5,10.0,0.601,Ath Bilbao,Celta,0.6,Yes,OK
+25,2027-02-20 13:00:00Z,Ath Madrid,Elche,0.611,0.227,0.162,Ath Madrid,0.6,Yes,0.573,Over 2.5,9.52,0.525,Ath Madrid,Ath Madrid,0.813,Yes,OK
+25,2027-02-20 13:00:00Z,RC Deportivo,Sociedad,0.393,0.307,0.299,RC Deportivo,0.486,No,0.452,Under 2.5,9.67,0.557,RC Deportivo,Sociedad,0.636,Yes,Low (promoted/new team)
+25,2027-02-20 13:00:00Z,Espanol,Osasuna,0.42,0.314,0.265,Espanol,0.768,Yes,0.489,Under 2.5,10.09,0.556,Espanol,Osasuna,0.592,Yes,OK
+25,2027-02-20 13:00:00Z,Barcelona,Levante,0.602,0.219,0.18,Barcelona,0.558,Yes,0.575,Over 2.5,10.45,0.488,Levante,Barcelona,0.787,Yes,OK
+25,2027-02-20 13:00:00Z,Málaga CF,Betis,0.322,0.296,0.381,Betis,0.468,No,0.449,Under 2.5,9.95,0.516,Málaga CF,Betis,0.652,Yes,Low (promoted/new team)
+25,2027-02-20 13:00:00Z,Vallecano,Getafe,0.481,0.307,0.212,Vallecano,0.208,No,0.425,Under 2.5,9.38,0.571,Vallecano,Vallecano,0.726,Yes,OK
+25,2027-02-20 13:00:00Z,Sevilla,Real Madrid,0.22,0.271,0.51,Real Madrid,0.684,Yes,0.494,Under 2.5,9.4,0.489,Real Madrid,Real Madrid,0.76,Yes,OK
+25,2027-02-20 13:00:00Z,Villarreal,Valencia,0.536,0.251,0.212,Villarreal,0.806,Yes,0.559,Over 2.5,9.81,0.564,Villarreal,Villarreal,0.756,Yes,OK
+26,2027-02-27 13:00:00Z,Ath Bilbao,Barcelona,0.264,0.274,0.462,Barcelona,0.701,Yes,0.466,Under 2.5,10.03,0.505,Ath Bilbao,Barcelona,0.724,Yes,OK
+26,2027-02-27 13:00:00Z,Betis,Villarreal,0.41,0.271,0.319,Betis,0.701,Yes,0.568,Over 2.5,10.22,0.508,Betis,Villarreal,0.659,Yes,OK
+26,2027-02-27 13:00:00Z,Celta,Espanol,0.469,0.298,0.234,Celta,0.723,Yes,0.498,Under 2.5,9.8,0.518,Celta,Celta,0.771,Yes,OK
+26,2027-02-27 13:00:00Z,Getafe,Alaves,0.393,0.332,0.275,Getafe,0.547,Yes,0.39,Under 2.5,8.56,0.488,Alaves,Getafe,0.679,Yes,OK
+26,2027-02-27 13:00:00Z,Levante,RC Deportivo,0.393,0.344,0.263,Levante,0.603,Yes,0.484,Under 2.5,10.01,0.468,RC Deportivo,RC Deportivo,0.644,Yes,Low (promoted/new team)
+26,2027-02-27 13:00:00Z,Málaga CF,Ath Madrid,0.293,0.297,0.411,Ath Madrid,0.322,No,0.445,Under 2.5,10.26,0.529,Málaga CF,Ath Madrid,0.667,Yes,Low (promoted/new team)
+26,2027-02-27 13:00:00Z,Osasuna,Sevilla,0.398,0.334,0.268,Osasuna,0.52,Yes,0.416,Under 2.5,9.37,0.578,Osasuna,Osasuna,0.698,Yes,OK
+26,2027-02-27 13:00:00Z,R. Racing Club,Vallecano,0.372,0.324,0.303,R. Racing Club,0.482,No,0.44,Under 2.5,9.9,0.555,R. Racing Club,Vallecano,0.643,Yes,Low (promoted/new team)
+26,2027-02-27 13:00:00Z,Real Madrid,Valencia,0.602,0.222,0.177,Real Madrid,0.656,Yes,0.546,Over 2.5,10.02,0.57,Real Madrid,Real Madrid,0.786,Yes,OK
+26,2027-02-27 13:00:00Z,Sociedad,Elche,0.562,0.256,0.183,Sociedad,0.62,Yes,0.503,Over 2.5,9.2,0.476,Elche,Sociedad,0.818,Yes,OK
+27,2027-03-06 13:00:00Z,Alaves,Ath Bilbao,0.33,0.319,0.35,Ath Bilbao,0.67,Yes,0.451,Under 2.5,9.42,0.498,Ath Bilbao,Ath Bilbao,0.696,Yes,OK
+27,2027-03-06 13:00:00Z,Ath Madrid,Celta,0.573,0.245,0.182,Ath Madrid,0.771,Yes,0.605,Over 2.5,10.02,0.54,Ath Madrid,Ath Madrid,0.761,Yes,OK
+27,2027-03-06 13:00:00Z,RC Deportivo,Getafe,0.429,0.339,0.231,RC Deportivo,0.205,No,0.355,Under 2.5,9.38,0.57,RC Deportivo,Getafe,0.612,Yes,Low (promoted/new team)
+27,2027-03-06 13:00:00Z,Elche,Málaga CF,0.354,0.371,0.274,Draw,0.389,No,0.437,Under 2.5,9.46,0.47,Málaga CF,Málaga CF,0.683,Yes,Low (promoted/new team)
+27,2027-03-06 13:00:00Z,Espanol,R. Racing Club,0.389,0.346,0.265,Espanol,0.47,No,0.457,Under 2.5,10.01,0.49,R. Racing Club,R. Racing Club,0.657,Yes,Low (promoted/new team)
+27,2027-03-06 13:00:00Z,Barcelona,Betis,0.525,0.239,0.235,Barcelona,0.556,Yes,0.571,Over 2.5,10.07,0.469,Betis,Barcelona,0.693,Yes,OK
+27,2027-03-06 13:00:00Z,Vallecano,Osasuna,0.462,0.298,0.24,Vallecano,0.625,Yes,0.483,Under 2.5,10.04,0.545,Vallecano,Vallecano,0.703,Yes,OK
+27,2027-03-06 13:00:00Z,Sevilla,Sociedad,0.378,0.305,0.317,Sevilla,0.586,Yes,0.437,Under 2.5,9.12,0.641,Sevilla,Sociedad,0.613,Yes,OK
+27,2027-03-06 13:00:00Z,Valencia,Levante,0.455,0.29,0.255,Valencia,0.895,Yes,0.51,Over 2.5,10.35,0.592,Valencia,Valencia,0.73,Yes,OK
+27,2027-03-06 13:00:00Z,Villarreal,Real Madrid,0.279,0.266,0.455,Real Madrid,0.668,Yes,0.576,Over 2.5,9.7,0.508,Villarreal,Real Madrid,0.763,Yes,OK
+28,2027-03-13 13:00:00Z,Alaves,Sevilla,0.395,0.326,0.279,Alaves,0.665,Yes,0.422,Under 2.5,9.05,0.532,Alaves,Alaves,0.667,Yes,OK
+28,2027-03-13 13:00:00Z,Ath Bilbao,Valencia,0.437,0.306,0.256,Ath Bilbao,0.561,Yes,0.445,Under 2.5,9.87,0.581,Ath Bilbao,Valencia,0.578,Yes,OK
+28,2027-03-13 13:00:00Z,Betis,Levante,0.547,0.244,0.209,Betis,0.872,Yes,0.562,Over 2.5,10.24,0.524,Betis,Betis,0.768,Yes,OK
+28,2027-03-13 13:00:00Z,Elche,Villarreal,0.298,0.304,0.397,Villarreal,0.632,Yes,0.5,Under 2.5,9.9,0.447,Villarreal,Villarreal,0.612,Yes,OK
+28,2027-03-13 13:00:00Z,Barcelona,RC Deportivo,0.58,0.248,0.172,Barcelona,0.325,No,0.507,Over 2.5,10.17,0.542,Barcelona,Barcelona,0.773,Yes,Low (promoted/new team)
+28,2027-03-13 13:00:00Z,Getafe,Sociedad,0.367,0.317,0.316,Getafe,0.791,Yes,0.412,Under 2.5,8.84,0.505,Getafe,Sociedad,0.611,Yes,OK
+28,2027-03-13 13:00:00Z,Málaga CF,Vallecano,0.372,0.324,0.303,Málaga CF,0.482,No,0.44,Under 2.5,9.9,0.555,Málaga CF,Vallecano,0.643,Yes,Low (promoted/new team)
+28,2027-03-13 13:00:00Z,Osasuna,Celta,0.405,0.324,0.271,Osasuna,0.58,Yes,0.477,Under 2.5,10.08,0.598,Osasuna,Celta,0.65,Yes,OK
+28,2027-03-13 13:00:00Z,R. Racing Club,Ath Madrid,0.293,0.297,0.411,Ath Madrid,0.322,No,0.445,Under 2.5,10.26,0.529,R. Racing Club,Ath Madrid,0.667,Yes,Low (promoted/new team)
+28,2027-03-13 13:00:00Z,Real Madrid,Espanol,0.621,0.218,0.16,Real Madrid,0.555,Yes,0.561,Over 2.5,10.2,0.579,Real Madrid,Real Madrid,0.837,Yes,OK
+29,2027-03-20 13:00:00Z,Ath Madrid,Getafe,0.591,0.244,0.165,Ath Madrid,0.441,No,0.479,Under 2.5,9.54,0.481,Getafe,Ath Madrid,0.793,Yes,OK
+29,2027-03-20 13:00:00Z,Celta,Real Madrid,0.231,0.264,0.505,Real Madrid,0.565,Yes,0.553,Over 2.5,9.74,0.465,Real Madrid,Real Madrid,0.76,Yes,OK
+29,2027-03-20 13:00:00Z,Espanol,Ath Bilbao,0.341,0.315,0.345,Ath Bilbao,0.775,Yes,0.491,Under 2.5,9.87,0.514,Espanol,Ath Bilbao,0.687,Yes,OK
+29,2027-03-20 13:00:00Z,Levante,Osasuna,0.416,0.319,0.266,Levante,0.808,Yes,0.525,Over 2.5,10.09,0.53,Levante,Osasuna,0.632,Yes,OK
+29,2027-03-20 13:00:00Z,R. Racing Club,Betis,0.322,0.296,0.381,Betis,0.468,No,0.449,Under 2.5,9.95,0.516,R. Racing Club,Betis,0.652,Yes,Low (promoted/new team)
+29,2027-03-20 13:00:00Z,Vallecano,Barcelona,0.254,0.286,0.461,Barcelona,0.761,Yes,0.521,Over 2.5,10.03,0.53,Vallecano,Barcelona,0.764,Yes,OK
+29,2027-03-20 13:00:00Z,Sociedad,Alaves,0.499,0.275,0.226,Sociedad,0.473,No,0.48,Under 2.5,9.51,0.488,Alaves,Sociedad,0.766,Yes,OK
+29,2027-03-20 13:00:00Z,Sevilla,Elche,0.46,0.311,0.229,Sevilla,0.78,Yes,0.432,Under 2.5,8.87,0.591,Sevilla,Sevilla,0.63,Yes,OK
+29,2027-03-20 13:00:00Z,Valencia,RC Deportivo,0.423,0.333,0.244,Valencia,0.404,No,0.471,Under 2.5,9.9,0.478,RC Deportivo,Valencia,0.7,Yes,Low (promoted/new team)
+29,2027-03-20 13:00:00Z,Villarreal,Málaga CF,0.532,0.272,0.195,Villarreal,0.306,No,0.515,Over 2.5,9.89,0.499,Málaga CF,Villarreal,0.768,Yes,Low (promoted/new team)
+30,2027-04-03 13:00:00Z,Ath Bilbao,R. Racing Club,0.435,0.328,0.237,Ath Bilbao,0.391,No,0.414,Under 2.5,9.9,0.523,Ath Bilbao,Ath Bilbao,0.717,Yes,Low (promoted/new team)
+30,2027-04-03 13:00:00Z,Betis,Celta,0.544,0.254,0.202,Betis,0.772,Yes,0.562,Over 2.5,10.07,0.558,Betis,Betis,0.745,Yes,OK
+30,2027-04-03 13:00:00Z,RC Deportivo,Villarreal,0.318,0.297,0.385,Villarreal,0.306,No,0.446,Under 2.5,10.15,0.518,RC Deportivo,Villarreal,0.648,Yes,Low (promoted/new team)
+30,2027-04-03 13:00:00Z,Elche,Alaves,0.381,0.343,0.276,Elche,0.539,Yes,0.447,Under 2.5,9.47,0.481,Alaves,Alaves,0.555,Yes,OK
+30,2027-04-03 13:00:00Z,Barcelona,Sevilla,0.581,0.237,0.182,Barcelona,0.541,Yes,0.508,Over 2.5,9.6,0.531,Barcelona,Barcelona,0.795,Yes,OK
+30,2027-04-03 13:00:00Z,Getafe,Espanol,0.422,0.326,0.252,Getafe,0.762,Yes,0.413,Under 2.5,9.17,0.489,Espanol,Getafe,0.701,Yes,OK
+30,2027-04-03 13:00:00Z,Levante,Vallecano,0.366,0.32,0.314,Levante,0.708,Yes,0.526,Over 2.5,10.07,0.569,Levante,Vallecano,0.678,Yes,OK
+30,2027-04-03 13:00:00Z,Málaga CF,Osasuna,0.401,0.334,0.265,Málaga CF,0.455,No,0.407,Under 2.5,9.95,0.536,Málaga CF,Málaga CF,0.641,Yes,Low (promoted/new team)
+30,2027-04-03 13:00:00Z,Real Madrid,Ath Madrid,0.497,0.251,0.251,Real Madrid,0.563,Yes,0.54,Over 2.5,10.5,0.518,Real Madrid,Real Madrid,0.741,Yes,OK
+30,2027-04-03 13:00:00Z,Sociedad,Valencia,0.469,0.291,0.24,Sociedad,0.568,Yes,0.494,Under 2.5,9.74,0.458,Valencia,Valencia,0.62,Yes,OK
+31,2027-04-10 14:00:00Z,Alaves,Betis,0.309,0.295,0.396,Betis,0.799,Yes,0.482,Under 2.5,9.82,0.511,Alaves,Betis,0.677,Yes,OK
+31,2027-04-10 14:00:00Z,Ath Madrid,Levante,0.567,0.237,0.196,Ath Madrid,0.749,Yes,0.595,Over 2.5,10.3,0.498,Levante,Ath Madrid,0.785,Yes,OK
+31,2027-04-10 14:00:00Z,Celta,Elche,0.498,0.295,0.207,Celta,0.885,Yes,0.485,Under 2.5,9.27,0.485,Elche,Celta,0.769,Yes,OK
+31,2027-04-10 14:00:00Z,Espanol,Málaga CF,0.389,0.346,0.265,Espanol,0.47,No,0.457,Under 2.5,10.01,0.49,Málaga CF,Málaga CF,0.657,Yes,Low (promoted/new team)
+31,2027-04-10 14:00:00Z,Osasuna,Real Madrid,0.224,0.274,0.501,Real Madrid,0.633,Yes,0.527,Over 2.5,9.9,0.49,Real Madrid,Real Madrid,0.774,Yes,OK
+31,2027-04-10 14:00:00Z,R. Racing Club,Barcelona,0.248,0.276,0.477,Barcelona,0.404,No,0.426,Under 2.5,9.96,0.544,R. Racing Club,Barcelona,0.703,Yes,Low (promoted/new team)
+31,2027-04-10 14:00:00Z,Vallecano,Sociedad,0.439,0.284,0.277,Vallecano,0.589,Yes,0.513,Over 2.5,9.8,0.602,Vallecano,Vallecano,0.682,Yes,OK
+31,2027-04-10 14:00:00Z,Sevilla,RC Deportivo,0.368,0.356,0.277,Sevilla,0.471,No,0.398,Under 2.5,9.28,0.52,Sevilla,RC Deportivo,0.675,Yes,Low (promoted/new team)
+31,2027-04-10 14:00:00Z,Valencia,Getafe,0.47,0.307,0.222,Valencia,0.405,No,0.401,Under 2.5,9.42,0.58,Valencia,Valencia,0.73,Yes,OK
+31,2027-04-10 14:00:00Z,Villarreal,Ath Bilbao,0.463,0.278,0.259,Villarreal,0.605,Yes,0.529,Over 2.5,9.86,0.535,Villarreal,Villarreal,0.733,Yes,OK
+32,2027-04-17 14:00:00Z,Alaves,Vallecano,0.354,0.315,0.331,Alaves,0.659,Yes,0.458,Under 2.5,9.67,0.542,Alaves,Vallecano,0.648,Yes,OK
+32,2027-04-17 14:00:00Z,Ath Madrid,Sevilla,0.546,0.258,0.195,Ath Madrid,0.542,Yes,0.508,Over 2.5,9.54,0.494,Sevilla,Ath Madrid,0.787,Yes,OK
+32,2027-04-17 14:00:00Z,Betis,Ath Bilbao,0.465,0.275,0.26,Betis,0.744,Yes,0.525,Over 2.5,9.89,0.505,Betis,Betis,0.706,Yes,OK
+32,2027-04-17 14:00:00Z,RC Deportivo,Celta,0.408,0.331,0.261,RC Deportivo,0.423,No,0.416,Under 2.5,10.05,0.541,RC Deportivo,Celta,0.637,Yes,Low (promoted/new team)
+32,2027-04-17 14:00:00Z,Elche,Osasuna,0.383,0.344,0.272,Elche,0.605,Yes,0.451,Under 2.5,9.66,0.451,Osasuna,Osasuna,0.571,Yes,OK
+32,2027-04-17 14:00:00Z,Barcelona,Espanol,0.61,0.222,0.168,Barcelona,0.582,Yes,0.563,Over 2.5,10.28,0.56,Barcelona,Barcelona,0.802,Yes,OK
+32,2027-04-17 14:00:00Z,Getafe,Real Madrid,0.214,0.276,0.51,Real Madrid,0.533,Yes,0.457,Under 2.5,9.13,0.414,Real Madrid,Real Madrid,0.738,Yes,OK
+32,2027-04-17 14:00:00Z,Levante,Villarreal,0.304,0.294,0.402,Villarreal,0.773,Yes,0.568,Over 2.5,10.3,0.532,Levante,Villarreal,0.683,Yes,OK
+32,2027-04-17 14:00:00Z,Málaga CF,Valencia,0.39,0.327,0.282,Málaga CF,0.302,No,0.415,Under 2.5,9.82,0.54,Málaga CF,Valencia,0.616,Yes,Low (promoted/new team)
+32,2027-04-17 14:00:00Z,Sociedad,R. Racing Club,0.47,0.311,0.219,Sociedad,0.538,Yes,0.46,Under 2.5,9.66,0.471,R. Racing Club,Sociedad,0.721,Yes,Low (promoted/new team)
+33,2027-04-20 14:00:00Z,Ath Bilbao,RC Deportivo,0.435,0.328,0.237,Ath Bilbao,0.391,No,0.414,Under 2.5,9.9,0.523,Ath Bilbao,Ath Bilbao,0.717,Yes,Low (promoted/new team)
+33,2027-04-20 14:00:00Z,Celta,Barcelona,0.235,0.268,0.497,Barcelona,0.681,Yes,0.545,Over 2.5,9.85,0.426,Barcelona,Barcelona,0.743,Yes,OK
+33,2027-04-20 14:00:00Z,Espanol,Sociedad,0.392,0.3,0.308,Espanol,0.661,Yes,0.512,Over 2.5,9.89,0.618,Espanol,Sociedad,0.635,Yes,OK
+33,2027-04-20 14:00:00Z,Getafe,Betis,0.292,0.309,0.4,Betis,0.639,Yes,0.429,Under 2.5,9.35,0.453,Betis,Betis,0.624,Yes,OK
+33,2027-04-20 14:00:00Z,Osasuna,Alaves,0.416,0.319,0.265,Osasuna,0.553,Yes,0.471,Under 2.5,9.6,0.616,Osasuna,Osasuna,0.66,Yes,OK
+33,2027-04-20 14:00:00Z,R. Racing Club,Málaga CF,0.38,0.358,0.262,R. Racing Club,0.227,No,0.39,Under 2.5,9.77,0.56,R. Racing Club,R. Racing Club,0.631,Yes,Low (promoted/new team)
+33,2027-04-20 14:00:00Z,Real Madrid,Elche,0.66,0.2,0.14,Real Madrid,0.669,Yes,0.557,Over 2.5,9.65,0.626,Real Madrid,Real Madrid,0.853,Yes,OK
+33,2027-04-20 14:00:00Z,Sevilla,Levante,0.402,0.315,0.283,Sevilla,0.609,Yes,0.465,Under 2.5,10.11,0.594,Sevilla,Levante,0.638,Yes,OK
+33,2027-04-20 14:00:00Z,Valencia,Vallecano,0.398,0.311,0.291,Valencia,0.733,Yes,0.485,Under 2.5,10.07,0.578,Valencia,Valencia,0.677,Yes,OK
+33,2027-04-20 14:00:00Z,Villarreal,Ath Madrid,0.396,0.276,0.328,Villarreal,0.743,Yes,0.566,Over 2.5,10.24,0.541,Villarreal,Ath Madrid,0.676,Yes,OK
+34,2027-05-01 14:00:00Z,Ath Madrid,Alaves,0.555,0.248,0.198,Ath Madrid,0.537,Yes,0.561,Over 2.5,9.83,0.531,Ath Madrid,Ath Madrid,0.799,Yes,OK
+34,2027-05-01 14:00:00Z,Betis,Valencia,0.533,0.251,0.216,Betis,0.814,Yes,0.539,Over 2.5,9.87,0.544,Betis,Betis,0.718,Yes,OK
+34,2027-05-01 14:00:00Z,Celta,Sevilla,0.423,0.315,0.261,Celta,0.569,Yes,0.441,Under 2.5,9.25,0.509,Celta,Celta,0.754,Yes,OK
+34,2027-05-01 14:00:00Z,RC Deportivo,R. Racing Club,0.38,0.358,0.262,RC Deportivo,0.227,No,0.39,Under 2.5,9.77,0.56,RC Deportivo,RC Deportivo,0.631,Yes,Low (promoted/new team)
+34,2027-05-01 14:00:00Z,Elche,Espanol,0.413,0.332,0.256,Elche,0.687,Yes,0.456,Under 2.5,9.67,0.495,Espanol,Espanol,0.6,Yes,OK
+34,2027-05-01 14:00:00Z,Barcelona,Osasuna,0.595,0.232,0.173,Barcelona,0.476,No,0.541,Over 2.5,10.39,0.532,Barcelona,Barcelona,0.774,Yes,OK
+34,2027-05-01 14:00:00Z,Levante,Real Madrid,0.229,0.269,0.501,Real Madrid,0.76,Yes,0.58,Over 2.5,9.88,0.488,Real Madrid,Real Madrid,0.751,Yes,OK
+34,2027-05-01 14:00:00Z,Málaga CF,Getafe,0.429,0.339,0.231,Málaga CF,0.205,No,0.355,Under 2.5,9.38,0.57,Málaga CF,Getafe,0.612,Yes,Low (promoted/new team)
+34,2027-05-01 14:00:00Z,Vallecano,Villarreal,0.326,0.294,0.38,Villarreal,0.739,Yes,0.525,Over 2.5,10.19,0.554,Vallecano,Villarreal,0.646,Yes,OK
+34,2027-05-01 14:00:00Z,Sociedad,Ath Bilbao,0.407,0.302,0.291,Sociedad,0.51,Yes,0.474,Under 2.5,9.68,0.43,Ath Bilbao,Ath Bilbao,0.696,Yes,OK
+35,2027-05-08 14:00:00Z,Alaves,Levante,0.414,0.307,0.28,Alaves,0.829,Yes,0.482,Under 2.5,10.27,0.571,Alaves,Levante,0.663,Yes,OK
+35,2027-05-08 14:00:00Z,Ath Bilbao,Málaga CF,0.435,0.328,0.237,Ath Bilbao,0.391,No,0.414,Under 2.5,9.9,0.523,Ath Bilbao,Ath Bilbao,0.717,Yes,Low (promoted/new team)
+35,2027-05-08 14:00:00Z,Betis,Espanol,0.561,0.245,0.195,Betis,0.737,Yes,0.538,Over 2.5,10.08,0.542,Betis,Betis,0.774,Yes,OK
+35,2027-05-08 14:00:00Z,Getafe,Elche,0.455,0.314,0.231,Getafe,0.834,Yes,0.4,Under 2.5,8.76,0.477,Elche,Getafe,0.738,Yes,OK
+35,2027-05-08 14:00:00Z,Osasuna,Sociedad,0.383,0.308,0.309,Osasuna,0.6,Yes,0.479,Under 2.5,9.81,0.619,Osasuna,Sociedad,0.649,Yes,OK
+35,2027-05-08 14:00:00Z,R. Racing Club,Sevilla,0.404,0.331,0.265,R. Racing Club,0.259,No,0.374,Under 2.5,9.36,0.575,R. Racing Club,R. Racing Club,0.7,Yes,Low (promoted/new team)
+35,2027-05-08 14:00:00Z,Vallecano,RC Deportivo,0.435,0.328,0.237,Vallecano,0.532,Yes,0.439,Under 2.5,9.94,0.514,Vallecano,Vallecano,0.72,Yes,Low (promoted/new team)
+35,2027-05-08 14:00:00Z,Real Madrid,Barcelona,0.383,0.266,0.351,Real Madrid,0.745,Yes,0.545,Over 2.5,10.1,0.516,Real Madrid,Barcelona,0.689,Yes,OK
+35,2027-05-08 14:00:00Z,Valencia,Ath Madrid,0.292,0.285,0.423,Ath Madrid,0.812,Yes,0.523,Over 2.5,10.39,0.587,Valencia,Ath Madrid,0.667,Yes,OK
+35,2027-05-08 14:00:00Z,Villarreal,Celta,0.561,0.249,0.19,Villarreal,0.78,Yes,0.589,Over 2.5,9.97,0.566,Villarreal,Villarreal,0.773,Yes,OK
+36,2027-05-15 14:00:00Z,Ath Madrid,Vallecano,0.523,0.257,0.22,Ath Madrid,0.742,Yes,0.544,Over 2.5,10.03,0.464,Vallecano,Ath Madrid,0.739,Yes,OK
+36,2027-05-15 14:00:00Z,RC Deportivo,Alaves,0.411,0.323,0.266,RC Deportivo,0.322,No,0.422,Under 2.5,9.56,0.574,RC Deportivo,RC Deportivo,0.713,Yes,Low (promoted/new team)
+36,2027-05-15 14:00:00Z,Elche,Ath Bilbao,0.303,0.335,0.362,Ath Bilbao,0.617,Yes,0.444,Under 2.5,9.51,0.427,Ath Bilbao,Ath Bilbao,0.712,Yes,OK
+36,2027-05-15 14:00:00Z,Espanol,Valencia,0.382,0.312,0.305,Espanol,0.751,Yes,0.511,Over 2.5,10.03,0.547,Espanol,Valencia,0.627,Yes,OK
+36,2027-05-15 14:00:00Z,Levante,Getafe,0.433,0.333,0.234,Levante,0.417,No,0.445,Under 2.5,9.56,0.544,Levante,Getafe,0.611,Yes,OK
+36,2027-05-15 14:00:00Z,Málaga CF,Celta,0.408,0.331,0.261,Málaga CF,0.423,No,0.416,Under 2.5,10.05,0.541,Málaga CF,Celta,0.637,Yes,Low (promoted/new team)
+36,2027-05-15 14:00:00Z,Osasuna,Betis,0.307,0.297,0.396,Betis,0.74,Yes,0.502,Over 2.5,10.03,0.534,Osasuna,Betis,0.697,Yes,OK
+36,2027-05-15 14:00:00Z,Real Madrid,R. Racing Club,0.594,0.242,0.164,Real Madrid,0.376,No,0.515,Over 2.5,10.07,0.569,Real Madrid,Real Madrid,0.799,Yes,Low (promoted/new team)
+36,2027-05-15 14:00:00Z,Sociedad,Barcelona,0.284,0.278,0.438,Barcelona,0.621,Yes,0.546,Over 2.5,9.82,0.429,Barcelona,Barcelona,0.749,Yes,OK
+36,2027-05-15 14:00:00Z,Sevilla,Villarreal,0.301,0.297,0.402,Villarreal,0.665,Yes,0.477,Under 2.5,9.7,0.517,Sevilla,Villarreal,0.637,Yes,OK
+37,2027-05-22 14:00:00Z,Alaves,Real Madrid,0.227,0.269,0.505,Real Madrid,0.702,Yes,0.526,Over 2.5,9.7,0.478,Real Madrid,Real Madrid,0.768,Yes,OK
+37,2027-05-22 14:00:00Z,Ath Madrid,Ath Bilbao,0.488,0.266,0.245,Ath Madrid,0.505,Yes,0.528,Over 2.5,10.08,0.519,Ath Madrid,Ath Madrid,0.721,Yes,OK
+37,2027-05-22 14:00:00Z,Celta,Sociedad,0.413,0.296,0.292,Celta,0.69,Yes,0.487,Under 2.5,9.58,0.514,Celta,Celta,0.699,Yes,OK
+37,2027-05-22 14:00:00Z,RC Deportivo,Espanol,0.439,0.318,0.243,RC Deportivo,0.431,No,0.428,Under 2.5,9.95,0.573,RC Deportivo,RC Deportivo,0.726,Yes,Low (promoted/new team)
+37,2027-05-22 14:00:00Z,Barcelona,Málaga CF,0.58,0.248,0.172,Barcelona,0.325,No,0.507,Over 2.5,10.17,0.542,Barcelona,Barcelona,0.773,Yes,Low (promoted/new team)
+37,2027-05-22 14:00:00Z,R. Racing Club,Levante,0.418,0.315,0.267,R. Racing Club,0.527,Yes,0.437,Under 2.5,10.27,0.542,R. Racing Club,R. Racing Club,0.695,Yes,Low (promoted/new team)
+37,2027-05-22 14:00:00Z,Vallecano,Betis,0.354,0.294,0.352,Vallecano,0.814,Yes,0.504,Over 2.5,9.97,0.539,Vallecano,Betis,0.662,Yes,OK
+37,2027-05-22 14:00:00Z,Sevilla,Getafe,0.418,0.34,0.242,Sevilla,0.58,Yes,0.37,Under 2.5,8.54,0.555,Sevilla,Getafe,0.566,Yes,OK
+37,2027-05-22 14:00:00Z,Valencia,Elche,0.506,0.286,0.208,Valencia,0.722,Yes,0.481,Under 2.5,9.45,0.589,Valencia,Valencia,0.767,Yes,OK
+37,2027-05-22 14:00:00Z,Villarreal,Osasuna,0.547,0.254,0.198,Villarreal,0.802,Yes,0.55,Over 2.5,9.98,0.551,Villarreal,Villarreal,0.78,Yes,OK
+38,2027-05-29 14:00:00Z,Ath Bilbao,Vallecano,0.419,0.306,0.275,Ath Bilbao,0.641,Yes,0.444,Under 2.5,10.04,0.583,Ath Bilbao,Vallecano,0.615,Yes,OK
+38,2027-05-29 14:00:00Z,Betis,Ath Madrid,0.374,0.279,0.346,Betis,0.788,Yes,0.548,Over 2.5,10.35,0.527,Betis,Ath Madrid,0.663,Yes,OK
+38,2027-05-29 14:00:00Z,Elche,R. Racing Club,0.354,0.371,0.274,Draw,0.389,No,0.437,Under 2.5,9.46,0.47,R. Racing Club,R. Racing Club,0.683,Yes,Low (promoted/new team)
+38,2027-05-29 14:00:00Z,Espanol,Alaves,0.424,0.309,0.267,Espanol,0.617,Yes,0.498,Under 2.5,9.7,0.573,Espanol,Alaves,0.579,Yes,OK
+38,2027-05-29 14:00:00Z,Getafe,Barcelona,0.219,0.278,0.503,Barcelona,0.569,Yes,0.451,Under 2.5,9.19,0.393,Barcelona,Barcelona,0.749,Yes,OK
+38,2027-05-29 14:00:00Z,Levante,Celta,0.398,0.318,0.284,Levante,0.77,Yes,0.54,Over 2.5,10.16,0.579,Levante,Celta,0.658,Yes,OK
+38,2027-05-29 14:00:00Z,Málaga CF,Sevilla,0.404,0.331,0.265,Málaga CF,0.259,No,0.374,Under 2.5,9.36,0.575,Málaga CF,Málaga CF,0.7,Yes,Low (promoted/new team)
+38,2027-05-29 14:00:00Z,Osasuna,Valencia,0.391,0.324,0.285,Osasuna,0.634,Yes,0.472,Under 2.5,9.86,0.577,Osasuna,Valencia,0.636,Yes,OK
+38,2027-05-29 14:00:00Z,Real Madrid,RC Deportivo,0.594,0.242,0.164,Real Madrid,0.376,No,0.515,Over 2.5,10.07,0.569,Real Madrid,Real Madrid,0.799,Yes,Low (promoted/new team)
+38,2027-05-29 14:00:00Z,Sociedad,Villarreal,0.365,0.278,0.358,Sociedad,0.556,Yes,0.516,Over 2.5,9.98,0.438,Villarreal,Villarreal,0.659,Yes,OK

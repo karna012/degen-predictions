@@ -14,10 +14,9 @@ import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from leagues import LEAGUES, SEASONS  # noqa: E402
+from leagues import LEAGUES, REPO_ROOT, league_seasons, resolve_league_paths  # noqa: E402
 
 STATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "deploy", "soccer_retrain_state.json")
-CURRENT_SEASON = SEASONS[-1]
 
 
 def _current_season_hash():
@@ -27,7 +26,12 @@ def _current_season_hash():
     signal without needing to parse/diff match-by-match."""
     h = hashlib.sha256()
     for key, cfg in LEAGUES.items():
-        path = os.path.join(os.path.dirname(__file__), cfg["data_dir"], f"{cfg['fd_code']}_{CURRENT_SEASON}.csv")
+        seasons = league_seasons(cfg)
+        current_season = seasons[-1]
+        resolved = resolve_league_paths(cfg)
+        path = os.path.join(
+            resolved["data_dir"], f"{cfg['fd_code']}_{current_season}.csv"
+        )
         if os.path.exists(path):
             with open(path, "rb") as f:
                 h.update(f.read())
@@ -77,7 +81,12 @@ def main():
 
     print("==> Tests passed -- deploying to EC2")
     bash = r"C:\Program Files\Git\bin\bash.exe"
-    subprocess.run([bash, os.path.join(repo_root, "deploy", "sync.sh"), "data"], check=True, cwd=repo_root)
+    # Ship both soccer data trees and model weights the Flask app loads.
+    subprocess.run(
+        [bash, os.path.join(repo_root, "deploy", "sync.sh"), "data", "model", "output_tables"],
+        check=True,
+        cwd=repo_root,
+    )
 
     state["last_hash"] = new_hash
     _save_state(state)

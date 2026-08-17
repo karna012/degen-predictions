@@ -4,42 +4,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5">
     <meta name="color-scheme" content="dark light">
-    <meta name="theme-color" content="#0a0e27">
+    <meta name="theme-color" content="#070c16">
 
-    <!-- Performance & Mobile Optimization -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9692020533590575"
+     crossorigin="anonymous"></script>
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9692020533590575"
-     crossorigin="anonymous"></script>
-    <title>{% block title %}Degen Predictions - ML & AI Crypto, Stocks, Real Estate, Metals & Sports Forecasts{% endblock %}</title>
-    <meta name="description" content="{% block description %}Free ML & AI predictions for crypto, stocks, Dubai real estate, metals, and sports. Ensemble ML models trained on historical data with AI-enhanced validation and market cycles.{% endblock %}">
-    <meta name="keywords" content="{% block keywords %}machine learning predictions, ML predictions, AI predictions, football predictions, crypto predictions, stock predictions, Dubai real estate ROI, metals prediction, gold price forecast, silver forecast, property investment calculator, sports forecasting, cryptocurrency rankings, stock market predictions, real estate valuation, commodity forecasting, ensemble models{% endblock %}">
+    <title>{% block title %}Sports Predictions, Today's Picks &amp; Multi Bets | Degen Predictions{% endblock %}</title>
+    <meta name="description" content="{% block description %}Free sports predictions: MLB, tennis match today, EPL, La Liga, CPL, football tips, Today's Picks, and multi-bet / Best Combos — ML forecasts with public track records. Not betting advice.{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}sports predictions, MLB predictions, tennis predictions, tennis match today, todays picks, today's picks, multi bet prediction, football predictions, CPL predictions, EPL predictions, Premier League predictions, La Liga predictions, IPL predictions, ATP predictions, Best Combos, degen predictions{% endblock %}">
+    <meta name="msvalidate.01" content="803CFF66F82250CBA5A34A0E523D2440">
     <link rel="canonical" href="{% block canonical %}https://degenpredictions.com{{ request.path }}{% endblock %}">
+    {% block robots %}{% endblock %}
 
     <meta property="og:site_name" content="Degen Predictions">
+    <meta name="application-name" content="Degen Predictions">
+    <meta name="apple-mobile-web-app-title" content="Degen Predictions">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ self.title() }}">
     <meta property="og:description" content="{{ self.description() }}">
     <meta property="og:url" content="{{ self.canonical() }}">
-    <meta property="og:image" content="https://degenpredictions.com{{ url_for('static', filename='logo.png') }}">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="{% block og_image %}https://degenpredictions.com{{ url_for('static', filename='logo-og.webp') }}{% endblock %}">
+    <meta name="twitter:card" content="{% block twitter_card %}summary_large_image{% endblock %}">
+    <meta name="twitter:site" content="@degenprediction">
     <meta name="twitter:title" content="{{ self.title() }}">
     <meta name="twitter:description" content="{{ self.description() }}">
-    <meta name="twitter:image" content="https://degenpredictions.com{{ url_for('static', filename='logo.png') }}">
+    <meta name="twitter:image" content="{% block twitter_image %}https://degenpredictions.com{{ url_for('static', filename='logo-og.webp') }}{% endblock %}">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Degen Predictions",
+        "alternateName": ["Degen Prediction", "degenpredictions.com"],
         "url": "https://degenpredictions.com",
-        "description": "Free ML & AI-powered predictions for cryptocurrency, stocks, Dubai real estate, metals, and sports. Ensemble ML models trained on historical data with AI-enhanced walk-forward validation.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://degenpredictions.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
+        "description": "Free sports predictions for MLB, tennis, EPL, La Liga, CPL, football, Today's Picks, and multi-bet Best Combos — plus crypto and stock rankings. ML models with public out-of-sample track records.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Degen Predictions",
+            "url": "https://degenpredictions.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://degenpredictions.com/static/favicon-512.png",
+                "width": 512,
+                "height": 512
+            }
         }
     }
     </script>
@@ -48,11 +59,34 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Degen Predictions",
+        "alternateName": ["Degen Prediction", "degenpredictions.com"],
         "url": "https://degenpredictions.com",
-        "logo": "https://degenpredictions.com/static/logo.png",
-        "description": "ML & AI-powered prediction platform for crypto, stocks, real estate, metals, and sports",
-        "sameAs": ["https://twitter.com/degenpredictions"],
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://degenpredictions.com/static/favicon-512.png",
+            "width": 512,
+            "height": 512
+        },
+        "description": "Free sports predictions for MLB, tennis, EPL, La Liga, CPL, football, Today's Picks, and multi-bet Best Combos — plus crypto and stocks",
+        "email": {{ contact_email|tojson }},
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": {{ contact_email|tojson }},
+            "url": "https://degenpredictions.com/about"
+        },
+        "sameAs": [
+            {{ x_url|tojson }}{% if instagram_url %},
+            {{ instagram_url|tojson }}{% endif %}{% if telegram_channel_url %},
+            {{ telegram_channel_url|tojson }}{% endif %}
+        ],
         "service": [
+            {
+                "@type": "Service",
+                "name": "Sports Predictions",
+                "description": "ML & AI-powered football, baseball, cricket (IPL, BBL, CPL, Hundred, MLC), and men's ATP tennis match predictions using ensemble models",
+                "url": "https://degenpredictions.com/sports"
+            },
             {
                 "@type": "Service",
                 "name": "Crypto Predictions",
@@ -64,47 +98,91 @@
                 "name": "Stock Predictions",
                 "description": "ML & AI stock rankings for US and India by predicted return",
                 "url": "https://degenpredictions.com/stocks"
-            },
-            {
-                "@type": "Service",
-                "name": "Dubai Real Estate ROI Calculator",
-                "description": "ML & AI property investment return predictions for Dubai - capital appreciation and rental yield forecasts with infrastructure development factors",
-                "url": "https://degenpredictions.com/dubai"
-            },
-            {
-                "@type": "Service",
-                "name": "Metals Price Predictions",
-                "description": "ML & AI price forecasts for precious metals (gold, silver, platinum, palladium) and industrial metals (copper, aluminum, steel, zinc, nickel, lithium), with live spot pricing and market cycle multipliers.",
-                "url": "https://degenpredictions.com/metals"
-            },
-            {
-                "@type": "Service",
-                "name": "Sports Predictions",
-                "description": "ML & AI-powered football, baseball, and cricket match predictions using ensemble models",
-                "url": "https://degenpredictions.com/sports"
             }
         ]
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- display=optional (not swap): a Lighthouse audit measured real layout
-         shift from the swap-to-custom-font reflow on slow connections
-         (nav + homepage cards). optional skips the swap if the font isn't
-         ready almost immediately, keeping the fallback for that page view
-         instead of shifting layout later -- the font just won't retroactively
-         apply, rather than applying-then-jumping. -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Inter:wght@400;500;600;700&display=optional"
+    <!-- Critical above-the-fold: dark shell so Slow-4G filmstrip isn't blank white
+         while full CSS loads async. Full stylesheets below use media=print+onload. -->
+    <style>
+    /* Geometry matched to style.css (+ mobile.css) to limit async-CSS CLS */
+    :root{color-scheme:dark;--bg:#070c16;--bg-2:#0b1220;--card-bg:rgba(18,26,43,.9);--text:#e8eef8;--muted:#9aabc7;--accent:#2dd4bf;--accent-rgb:45,212,191;--accent-border:rgba(45,212,191,.4);--glass-border:rgba(148,175,200,.16);--font-display:system-ui,sans-serif;--font-body:system-ui,-apple-system,"Segoe UI",sans-serif;--header-h:3.4rem}
+    *{box-sizing:border-box}
+    html,body{background:#070c16;color:var(--text)}
+    body{margin:0;font-family:var(--font-body);line-height:1.5;min-height:100vh}
+    #react-bg-root{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .site-header,main,footer,.toast-stack{position:relative;z-index:1}
+    .site-header{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:.75rem;min-height:var(--header-h);padding:.65rem 1.5rem;background:rgba(7,12,22,.92);border-bottom:1px solid var(--glass-border)}
+    .site-header .brand{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.15rem;color:var(--text);text-decoration:none;letter-spacing:-.01em;line-height:1}
+    .brand-logo{height:1.85rem;width:1.85rem;object-fit:contain;display:block;flex:0 0 auto}
+    .brand-text{text-transform:uppercase;letter-spacing:.03em;font-size:1.05rem;line-height:1}
+    .brand-accent{color:var(--accent)}
+    .nav-burger{display:none;flex:0 0 44px;width:44px;height:44px;min-width:44px;min-height:44px;margin-left:auto;border:1px solid var(--glass-border);border-radius:10px;background:rgba(45,212,191,.08);padding:10px;position:relative}
+    .nav-burger span{display:block;position:absolute;left:10px;right:10px;top:calc(50% - 1px);height:2px;background:var(--text);border-radius:2px}
+    .nav-burger span:nth-child(1){transform:translateY(-7px)}.nav-burger span:nth-child(3){transform:translateY(7px)}
+    .site-header nav{display:flex;align-items:center}
+    .site-header nav a,.nav-dropdown-toggle{color:var(--muted);text-decoration:none;margin-left:1.25rem;font-weight:600;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em;background:none;border:0;cursor:pointer;padding:0}
+    main{max-width:1100px;margin:0 auto;padding:1.5rem}
+    .muted{color:var(--muted)}
+    .leagues-hero{position:relative;padding:2.5rem 0 1.5rem;text-align:left}
+    .leagues-hero h1{position:relative;z-index:1;font-family:var(--font-display);font-size:3rem;margin:0 0 .5rem;font-weight:800;color:#fff;letter-spacing:-.03em;text-transform:uppercase;line-height:1.15}
+    .leagues-hero p{position:relative;z-index:1}
+    .home-live-strip{margin:0 0 1.5rem;width:100%;border:1px solid var(--accent-border);border-radius:14px;background:linear-gradient(135deg,rgba(45,212,191,.12),rgba(18,26,43,.85));padding:1rem 1.15rem;box-sizing:border-box}
+    .home-live-strip h2{margin:0 0 .35rem;font-size:1.05rem;font-family:var(--font-display)}
+    .home-live-strip .strip-meta{margin:0 0 .75rem;color:var(--muted);font-size:.9rem}
+    .home-live-strip .strip-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.75rem}
+    .home-live-strip .strip-joint{font-weight:700;color:#5eead4}
+    .home-live-strip .strip-actions .league-cta{background:#0f766e;color:#fff}
+    .league-cta{display:inline-flex;align-items:center;justify-content:center;padding:.55rem 1.3rem;border-radius:999px;background:#0f766e;color:#fff;font-weight:700;font-size:.9rem;text-decoration:none}
+    .league-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:.5rem}
+    .league-card{display:block;position:relative;border:1px solid var(--glass-border);border-radius:16px;background:var(--card-bg);padding:1.35rem 1.25rem;text-decoration:none;color:var(--text);min-height:10.5rem;overflow:hidden}
+    .league-card h2{margin:0 0 .5rem;font-size:1.5rem;font-family:var(--font-display);font-weight:700}
+    .league-desc{color:var(--muted);font-size:.92rem;margin:0 0 .85rem;line-height:1.45}
+    .league-badge{position:relative;opacity:1;display:flex;align-items:center;justify-content:center;align-self:center;width:3.6rem;height:3.6rem;margin-top:.35rem;border-radius:50%;font-size:1.1rem;line-height:1;background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--league-color,#2dd4bf) 45%,#fff 25%),var(--league-color,#2dd4bf) 58%,color-mix(in srgb,var(--league-color,#2dd4bf) 75%,#000 25%) 100%);box-shadow:0 0 0 3px rgba(255,255,255,.04),inset 0 1px 4px rgba(255,255,255,.2);color:#fff;font-weight:800}
+    @media (max-width:1024px){
+      .nav-burger{display:inline-flex}
+      .site-header .site-nav{display:none}
+      .site-header{padding:.65rem 1rem}
+      .leagues-hero{padding:1.5rem 0 1rem}
+      .leagues-hero h1{font-size:2rem;line-height:1.2}
+      main{padding:1rem}
+      .home-live-strip .strip-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+      .home-live-strip .strip-actions .league-cta{width:100%;min-height:44px;box-sizing:border-box}
+    }
+    @media (min-width:721px){.league-grid{grid-template-columns:repeat(3,1fr)}}
+    </style>
+    <!-- display=optional: avoids late font-swap CLS on slow links -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=optional"
           media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Inter:wght@400;500;600;700&display=optional"></noscript>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ static_version('style.css') }}" fetchpriority="high">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=optional"></noscript>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ static_version('style.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ui-pro.css') }}?v={{ static_version('ui-pro.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mobile.css') }}?v={{ static_version('mobile.css') }}" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ static_version('style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='ui-pro.css') }}?v={{ static_version('ui-pro.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='mobile.css') }}?v={{ static_version('mobile.css') }}">
+    </noscript>
+    <link rel="icon" href="/favicon.ico?v=brand2" sizes="any">
     <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='favicon-48.png') }}?v={{ static_version('favicon-48.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon-96.png') }}?v={{ static_version('favicon-96.png') }}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='favicon-192.png') }}?v={{ static_version('favicon-192.png') }}">
-    <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon-192.png') }}?v={{ static_version('favicon-192.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='favicon-512.png') }}?v={{ static_version('favicon-512.png') }}">
+    <link rel="apple-touch-icon" sizes="192x192" href="{{ url_for('static', filename='favicon-192.png') }}?v={{ static_version('favicon-192.png') }}">
+    <meta name="msapplication-TileImage" content="{{ url_for('static', filename='favicon-192.png') }}?v={{ static_version('favicon-192.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}?v={{ static_version('site.webmanifest') }}">
 </head>
-<body>
+<body class="page-enter{% block body_class %}{% endblock %}">
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem("dp-density") === "compact") {
+                document.documentElement.classList.add("density-compact");
+            }
+        } catch (e) {}
+    })();
+    </script>
     <div id="react-bg-root" aria-hidden="true"></div>
     <header class="site-header">
         <a class="brand" href="/">
@@ -114,28 +192,48 @@
             </picture>
             <span class="brand-text">DEGEN <span class="brand-accent">PREDICTIONS</span></span>
         </a>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/crypto">Crypto</a>
-            <a href="/stocks">Stocks</a>
-            <a href="/dubai">Dubai Real Estate</a>
-            <a href="/metals">Metals</a>
-            <a href="/sports">Sports</a>
+        <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+            {% set p = request.path %}
+            {% set picks_active = p.startswith('/todays-picks') %}
+            {% set sports_active = p.startswith('/sports') or p.startswith('/mlb') or p.startswith('/npb') or p.startswith('/nfl') or p.startswith('/hundred') or p.startswith('/mlc') or p.startswith('/ipl') or p.startswith('/bbl') or p.startswith('/cpl') or p.startswith('/tennis') or p.startswith('/premier_league') or p.startswith('/la_liga') or p.startswith('/serie_a') or p.startswith('/bundesliga') or p.startswith('/ligue_1') or p.startswith('/mls') or p.startswith('/primeira_liga') %}
+            <a href="/" class="nav-link{% if p == '/' %} is-active{% endif %}">Home</a>
+            <div class="nav-dropdown{% if picks_active %} is-active{% endif %}" id="todays-picks-nav">
+                <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="todays-picks-menu" id="todays-picks-toggle">
+                    Today's Picks
+                    <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+                </button>
+                <div class="nav-dropdown-panel" id="todays-picks-menu" hidden>
+                    <div class="nav-dropdown-group">
+                        <a href="/todays-picks/combos">Best Combos</a>
+                    </div>
+                    {% for sport_key, sport in today_picks_sports.items() %}
+                    <div class="nav-dropdown-group">
+                        <div class="nav-dropdown-sport">{{ sport.label }}</div>
+                        {% for league_id, league in sport.leagues.items() %}
+                        <a href="/todays-picks/{{ sport_key }}/{{ league_id }}">{{ league.label }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <a href="/sports" class="nav-link{% if sports_active and not picks_active %} is-active{% endif %}">Sports</a>
+            <a href="/crypto" class="nav-link{% if p.startswith('/crypto') %} is-active{% endif %}">Crypto</a>
+            <a href="/stocks" class="nav-link{% if p.startswith('/stocks') %} is-active{% endif %}">Stocks</a>
+            <a href="/watchlist" class="nav-link{% if p.startswith('/watchlist') %} is-active{% endif %}">Watch</a>
             {% if accounts_enabled %}
                 {% if current_user.is_authenticated %}
-                <a href="/logout">Log Out ({{ current_user.name }})</a>
+                <a href="/logout" class="nav-link">Log Out ({{ current_user.name }})</a>
                 {% else %}
-                <a href="/login">Log In</a>
-                <a href="/signup">Sign Up</a>
+                <a href="/login" class="nav-link">Log In</a>
+                <a href="/signup" class="nav-link">Sign Up</a>
                 {% endif %}
             {% endif %}
         </nav>
     </header>
 
-    <button type="button" id="donate-fab" onclick="openDonateModal()" aria-label="Support the Work with a crypto donation">
-        <span class="donate-fab-icon" aria-hidden="true">&#9733;</span>
-        <span>Support the Work</span>
-    </button>
     <div id="toast-stack" class="toast-stack"></div>
     <main>
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -151,37 +249,90 @@
         {% endwith %}
         {% block content %}{% endblock %}
     </main>
+
+    <nav class="mobile-dock" aria-label="Quick links">
+        {% set dock_p = request.path %}
+        <a href="/" class="mobile-dock-link{% if dock_p == '/' %} is-active{% endif %}">Home</a>
+        <a href="/todays-picks" class="mobile-dock-link{% if dock_p.startswith('/todays-picks') and not dock_p.startswith('/todays-picks/combos') %} is-active{% endif %}">Picks</a>
+        <a href="/todays-picks/combos" class="mobile-dock-link{% if dock_p.startswith('/todays-picks/combos') %} is-active{% endif %}">Combos</a>
+        <a href="/watchlist" class="mobile-dock-link{% if dock_p.startswith('/watchlist') %} is-active{% endif %}">Watch</a>
+    </nav>
+
     <footer class="site-footer">
         <p class="footer-disclaimer">
-            Degen Predictions is an educational/research project covering crypto, stocks, Dubai real estate, metals, and sports.
+            Degen Predictions is an educational/research project covering sports, crypto, and stocks.
             Predictions and rankings are generated from historical data using machine learning (ML) and AI models --
-            they are estimates, not certainties, and can be wrong. Nothing on this site is betting advice,
-            financial/investment advice, or real estate/commodity investment advice. This site does not promote or facilitate
-            sports betting, gambling, trading, or real estate transactions.
+            they are estimates, not certainties, and can be wrong. Nothing on this site is betting advice
+            or financial/investment advice. This site does not promote or facilitate sports betting,
+            gambling, or trading.
         </p>
         <div class="footer-links">
-            <a href="/{{ current_league_key }}/about">About</a>
+            <a href="/about">About</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="/accuracy">Accuracy</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="/todays-picks">Today's Picks</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="/todays-picks/combos">Best Combos</a>
             <span class="footer-sep">&middot;</span>
             <a href="/terms">Terms &amp; Conditions</a>
             <span class="footer-sep">&middot;</span>
             <a href="/privacy">Privacy Policy</a>
             <span class="footer-sep">&middot;</span>
-            <a href="/contact">Contact Us</a>
-            <span class="footer-sep">&middot;</span>
             <a href="/feedback">Feedback</a>
             <span class="footer-sep">&middot;</span>
             <a href="/faq">FAQ</a>
+            <span class="footer-sep">&middot;</span>
+            <button type="button" class="footer-support-btn" onclick="openDonateModal()">Support the Work</button>
+            <span class="footer-sep">&middot;</span>
+            <button type="button" class="density-toggle density-toggle--footer" id="density-toggle" aria-pressed="false" title="Toggle compact density">Comfort</button>
+        </div>
+        <div class="footer-social" aria-label="Social">
+            {% if telegram_channel_url %}
+            <a class="footer-social-link footer-social-link--telegram"
+               href="/go/telegram" target="_blank" rel="noopener noreferrer">
+                <svg class="footer-social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                    <path d="M21.95 5.15c.27-1.02-.68-1.84-1.6-1.48L2.9 10.6c-.98.38-.97 1.83.02 2.19l4.34 1.57 1.68 5.4c.22.7 1.07.92 1.6.4l2.35-2.27 4.46 3.36c.75.57 1.83.15 2.03-.79l3.07-14.9v-.01zm-3.62 2.65-8.3 7.53a.6.6 0 0 0-.19.36l-.35 2.6-1.36-4.36a.6.6 0 0 1 .26-.68l9.6-5.9c.2-.12.4.15.24.31l.1.14z"/>
+                </svg>
+                <span>Join Telegram</span>
+            </a>
+            {% endif %}
+            {% if x_url %}
+            <a class="footer-social-link footer-social-link--x"
+               href="{{ x_url }}" target="_blank" rel="noopener noreferrer"
+               aria-label="Follow @degenprediction on X">
+                <svg class="footer-social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+                </svg>
+                <span>Follow @degenprediction</span>
+            </a>
+            {% endif %}
+            {% if instagram_url %}
+            <a class="footer-social-link footer-social-link--instagram"
+               href="{{ instagram_url }}" target="_blank" rel="noopener noreferrer">
+                <svg class="footer-social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                    <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.23.41.56.21.96.47 1.38.89.42.42.68.82.89 1.38.17.42.36 1.05.41 2.23.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.23-.21.56-.47.96-.89 1.38-.42.42-.82.68-1.38.89-.42.17-1.05.36-2.23.41-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.23-.41a3.72 3.72 0 0 1-1.38-.89 3.72 3.72 0 0 1-.89-1.38c-.17-.42-.36-1.05-.41-2.23-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.23.21-.56.47-.96.89-1.38.42-.42.82-.68 1.38-.89.42-.17 1.05-.36 2.23-.41 1.27-.06 1.64-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.12 4.9.32 4.14.62c-.79.31-1.46.72-2.13 1.39A5.9 5.9 0 0 0 .62 4.14c-.3.76-.5 1.64-.55 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.05 1.27.25 2.15.55 2.91.31.79.72 1.46 1.39 2.13a5.9 5.9 0 0 0 2.13 1.39c.76.3 1.64.5 2.91.55C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.05 2.15-.25 2.91-.55a5.9 5.9 0 0 0 2.13-1.39 5.9 5.9 0 0 0 1.39-2.13c.3-.76.5-1.64.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.05-1.27-.25-2.15-.55-2.91a5.9 5.9 0 0 0-1.39-2.13A5.9 5.9 0 0 0 19.86.62c-.76-.3-1.64-.5-2.91-.55C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>
+                </svg>
+                <span>Follow Instagram</span>
+            </a>
+            {% endif %}
+            <a class="footer-social-link footer-social-link--email"
+               href="mailto:{{ contact_email }}">
+                <svg class="footer-social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+                </svg>
+                <span>{{ contact_email }}</span>
+            </a>
         </div>
         <p class="footer-copyright">&copy; {{ current_year }} Degen Predictions. All rights reserved.</p>
     </footer>
 
-    <div id="donate-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; padding:1rem;">
-        <div class="card" style="max-width:440px; width:100%; max-height:88vh; overflow-y:auto; position:relative; padding:1.5rem;">
-            <button type="button" onclick="closeDonateModal()" aria-label="Close"
-                    style="position:absolute; top:0.6rem; right:0.7rem; background:none; border:none; color:inherit; font-size:1.5rem; line-height:1; cursor:pointer; opacity:0.7;">&times;</button>
-            <h2 style="margin-top:0;">Support the Work</h2>
+    <div id="donate-modal-overlay" class="donate-modal-overlay" hidden>
+        <div class="card donate-modal" role="dialog" aria-modal="true" aria-labelledby="donate-modal-title">
+            <button type="button" class="donate-modal-close" onclick="closeDonateModal()" aria-label="Close">&times;</button>
+            <h2 id="donate-modal-title">Support the Work</h2>
             <p class="muted" style="font-size:0.92rem;">
-                Every contribution is genuinely appreciated and goes directly toward improving this site --
+                Every contribution is genuinely appreciated and goes directly toward improving this site —
                 more accurate analysis, new features, and ongoing security updates. Donations are entirely
                 optional and used responsibly; the site remains free for everyone either way.
             </p>
@@ -189,39 +340,109 @@
             <label style="display:block; margin:1rem 0 0.4rem; font-weight:600;">Choose a cryptocurrency</label>
             <div class="custom-select custom-select-block" id="donate-coin-select">
                 <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="custom-select-value">-- Select --</span>
+                    <span class="custom-select-value">— Select —</span>
                 </button>
                 <ul class="custom-select-panel" role="listbox" hidden>
-                    <li role="option" data-value="btc">BTC -- Bitcoin</li>
-                    <li role="option" data-value="eth">ETH -- Ethereum (ERC-20)</li>
+                    <li role="option" data-value="btc">BTC — Bitcoin</li>
+                    <li role="option" data-value="eth">ETH — Ethereum (ERC-20)</li>
                     <li role="option" data-value="bnb">BNB (BEP-20)</li>
                     <li role="option" data-value="usdt">USDT (ERC-20)</li>
                     <li role="option" data-value="usdc">USDC (ERC-20)</li>
-                    <li role="option" data-value="sol">SOL -- Solana</li>
+                    <li role="option" data-value="sol">SOL — Solana</li>
                 </ul>
             </div>
 
-            <div id="donate-coin-detail" style="display:none; margin-top:1.25rem; text-align:center;">
+            <div id="donate-coin-detail" hidden style="margin-top:1.25rem; text-align:center;">
                 <p style="font-weight:600; margin-bottom:0.75rem;">
                     <span id="donate-coin-name"></span>
                     <span id="donate-coin-network" class="muted" style="font-weight:400;"></span>
                 </p>
                 <img id="donate-qr-img" src="" alt="Donation address QR code" width="200" height="200"
                      style="border-radius:8px; background:#fff; padding:8px;">
-                <div style="margin-top:1rem; display:flex; align-items:center; gap:0.5rem; background:var(--card-bg, #1a1a1a); border:1px solid var(--border, #444); border-radius:8px; padding:0.55rem 0.7rem;">
-                    <code id="donate-address-text" style="flex:1; min-width:0; word-break:break-all; text-align:left; font-size:0.82rem;"></code>
-                    <button type="button" onclick="copyDonateAddress()" class="predict-btn" style="white-space:nowrap; padding:0.4rem 0.7rem; font-size:0.85rem; width:auto; flex-shrink:0; min-height:0;">Copy</button>
+                <div class="donate-address-row">
+                    <code id="donate-address-text"></code>
+                    <button type="button" onclick="copyDonateAddress()" class="donate-copy-btn">Copy</button>
                 </div>
-                <p id="donate-copied-msg" class="muted" style="display:none; margin-top:0.4rem; color:#4caf50;">Copied to clipboard!</p>
+                <p id="donate-copied-msg" class="muted" hidden style="margin-top:0.4rem; color:#4caf50;">Copied to clipboard!</p>
             </div>
 
             <p class="muted" style="font-size:0.8rem; margin-top:1.5rem; border-top:1px solid var(--border, #444); padding-top:0.75rem;">
-                Always double-check the address (and network) before sending -- crypto transactions cannot be reversed
+                Always double-check the address (and network) before sending — crypto transactions cannot be reversed
                 once confirmed. Only send BTC to the BTC address, ETH/BNB/USDT/USDC to the correct EVM network, and SOL
                 to the SOL address.
             </p>
         </div>
     </div>
+
+    {% if telegram_channel_url and request.path == '/' %}
+    <div id="tg-join-overlay" class="tg-join-overlay" hidden>
+        <div class="tg-join-modal" role="dialog" aria-modal="true" aria-labelledby="tg-join-title">
+            <button type="button" class="tg-join-close" id="tg-join-close" aria-label="Close">&times;</button>
+            <div class="tg-join-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+                    <path d="M21.95 5.15c.27-1.02-.68-1.84-1.6-1.48L2.9 10.6c-.98.38-.97 1.83.02 2.19l4.34 1.57 1.68 5.4c.22.7 1.07.92 1.6.4l2.35-2.27 4.46 3.36c.75.57 1.83.15 2.03-.79l3.07-14.9v-.01zm-3.62 2.65-8.3 7.53a.6.6 0 0 0-.19.36l-.35 2.6-1.36-4.36a.6.6 0 0 1 .26-.68l9.6-5.9c.2-.12.4.15.24.31l.1.14z"/>
+                </svg>
+            </div>
+            <h2 id="tg-join-title">Join Telegram</h2>
+            <p class="tg-join-copy">Daily picks and Best Combos, posted each morning in the Degen Predictions channel.</p>
+            <a class="footer-social-link footer-social-link--telegram tg-join-cta"
+               id="tg-join-btn"
+               href="/go/telegram" target="_blank" rel="noopener noreferrer">
+                <svg class="footer-social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                    <path d="M21.95 5.15c.27-1.02-.68-1.84-1.6-1.48L2.9 10.6c-.98.38-.97 1.83.02 2.19l4.34 1.57 1.68 5.4c.22.7 1.07.92 1.6.4l2.35-2.27 4.46 3.36c.75.57 1.83.15 2.03-.79l3.07-14.9v-.01zm-3.62 2.65-8.3 7.53a.6.6 0 0 0-.19.36l-.35 2.6-1.36-4.36a.6.6 0 0 1 .26-.68l9.6-5.9c.2-.12.4.15.24.31l.1.14z"/>
+                </svg>
+                <span>Join Telegram</span>
+            </a>
+            {% if x_url %}
+            <a class="footer-social-link footer-social-link--x tg-join-x"
+               href="{{ x_url }}" target="_blank" rel="noopener noreferrer"
+               aria-label="Follow @degenprediction on X">
+                <svg class="footer-social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+                </svg>
+                <span>Follow @degenprediction</span>
+            </a>
+            {% endif %}
+            {% if instagram_url %}
+            <a class="footer-social-link footer-social-link--instagram tg-join-ig"
+               href="{{ instagram_url }}" target="_blank" rel="noopener noreferrer">
+                <svg class="footer-social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                    <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.23.41.56.21.96.47 1.38.89.42.42.68.82.89 1.38.17.42.36 1.05.41 2.23.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.23-.21.56-.47.96-.89 1.38-.42.42-.82.68-1.38.89-.42.17-1.05.36-2.23.41-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.23-.41a3.72 3.72 0 0 1-1.38-.89 3.72 3.72 0 0 1-.89-1.38c-.17-.42-.36-1.05-.41-2.23-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.23.21-.56.47-.96.89-1.38.42-.42.82-.68 1.38-.89.42-.17 1.05-.36 2.23-.41 1.27-.06 1.64-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.12 4.9.32 4.14.62c-.79.31-1.46.72-2.13 1.39A5.9 5.9 0 0 0 .62 4.14c-.3.76-.5 1.64-.55 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.05 1.27.25 2.15.55 2.91.31.79.72 1.46 1.39 2.13a5.9 5.9 0 0 0 2.13 1.39c.76.3 1.64.5 2.91.55C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.05 2.15-.25 2.91-.55a5.9 5.9 0 0 0 2.13-1.39 5.9 5.9 0 0 0 1.39-2.13c.3-.76.5-1.64.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.05-1.27-.25-2.15-.55-2.91a5.9 5.9 0 0 0-1.39-2.13A5.9 5.9 0 0 0 19.86.62c-.76-.3-1.64-.5-2.91-.55C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>
+                </svg>
+                <span>Follow Instagram</span>
+            </a>
+            {% endif %}
+            <button type="button" class="tg-join-later" id="tg-join-later">Maybe later</button>
+        </div>
+    </div>
+    <script>
+        (function () {
+            const overlay = document.getElementById("tg-join-overlay");
+            if (!overlay) return;
+
+            function closeTelegramJoinPopup() {
+                if (overlay.hidden) return;
+                overlay.classList.remove("is-open");
+                overlay.hidden = true;
+                document.body.classList.remove("tg-join-open");
+            }
+            window.closeTelegramJoinPopup = closeTelegramJoinPopup;
+
+            function openTelegramJoinPopup() {
+                overlay.hidden = false;
+                document.body.classList.add("tg-join-open");
+                requestAnimationFrame(function () { overlay.classList.add("is-open"); });
+            }
+
+            setTimeout(openTelegramJoinPopup, 400);
+            document.getElementById("tg-join-close").addEventListener("click", closeTelegramJoinPopup);
+            document.getElementById("tg-join-later").addEventListener("click", closeTelegramJoinPopup);
+            overlay.addEventListener("click", function (e) {
+                if (e.target === overlay) closeTelegramJoinPopup();
+            });
+        })();
+    </script>
+    {% endif %}
 
     <script>
         const DONATE_COINS = {
@@ -234,17 +455,23 @@
         };
 
         function openDonateModal() {
-            document.getElementById("donate-modal-overlay").style.display = "flex";
+            const overlay = document.getElementById("donate-modal-overlay");
+            overlay.hidden = false;
+            overlay.classList.add("is-open");
+            const closeBtn = overlay.querySelector(".donate-modal-close");
+            if (closeBtn) closeBtn.focus();
         }
 
         function closeDonateModal() {
-            document.getElementById("donate-modal-overlay").style.display = "none";
+            const overlay = document.getElementById("donate-modal-overlay");
+            overlay.classList.remove("is-open");
+            overlay.hidden = true;
         }
 
         function renderDonateCoin(key) {
             const detail = document.getElementById("donate-coin-detail");
             if (!key || !DONATE_COINS[key]) {
-                detail.style.display = "none";
+                detail.hidden = true;
                 return;
             }
             const coin = DONATE_COINS[key];
@@ -252,23 +479,27 @@
             document.getElementById("donate-coin-network").textContent = ` (${coin.network})`;
             document.getElementById("donate-qr-img").src = "/static/donate/" + key + ".png";
             document.getElementById("donate-address-text").textContent = coin.address;
-            document.getElementById("donate-copied-msg").style.display = "none";
-            detail.style.display = "block";
+            document.getElementById("donate-copied-msg").hidden = true;
+            detail.hidden = false;
         }
 
         function copyDonateAddress() {
             const text = document.getElementById("donate-address-text").textContent;
             navigator.clipboard.writeText(text).then(() => {
-                document.getElementById("donate-copied-msg").style.display = "block";
+                document.getElementById("donate-copied-msg").hidden = false;
             });
         }
 
         document.getElementById("donate-modal-overlay").addEventListener("click", function (e) {
             if (e.target === this) closeDonateModal();
         });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") {
+                closeDonateModal();
+                if (typeof closeTelegramJoinPopup === "function") closeTelegramJoinPopup();
+            }
+        });
 
-        /* initCustomSelect is defined in the deferred static/custom-select.js
-           -- wait for DOMContentLoaded so it's guaranteed loaded first. */
         document.addEventListener("DOMContentLoaded", () => {
             initCustomSelect("donate-coin-select", renderDonateCoin);
         });
@@ -337,15 +568,305 @@
         }
 
         function initLogoKeyOut() {
-            document.querySelectorAll("img[data-keyout-black]").forEach((img) => {
-                const run = () => keyOutBlack(img, 26, 34);
-                if (img.complete) run();
-                else img.addEventListener("load", run, { once: true });
-            });
+            const imgs = document.querySelectorAll("img[data-keyout-black]");
+            if (!imgs.length) return;
+            // Pixel walk on full-res logo blocks the main thread — idle + skip tiny screens.
+            if (window.matchMedia("(max-width: 700px)").matches) return;
+            const runAll = () => {
+                imgs.forEach((img) => {
+                    const run = () => keyOutBlack(img, 26, 34);
+                    if (img.complete) run();
+                    else img.addEventListener("load", run, { once: true });
+                });
+            };
+            if ("requestIdleCallback" in window) requestIdleCallback(runAll, { timeout: 2500 });
+            else setTimeout(runAll, 400);
         }
         initLogoKeyOut();
+
+        (function initTodaysPicksNav() {
+            const root = document.getElementById("todays-picks-nav");
+            const toggle = document.getElementById("todays-picks-toggle");
+            const menu = document.getElementById("todays-picks-menu");
+            const header = document.querySelector(".site-header");
+            const mobileNavQuery = window.matchMedia("(max-width: 1024px)");
+            if (!root || !toggle || !menu) return;
+
+            let placedInBody = false;
+
+            function placeMenu() {
+                if (mobileNavQuery.matches) {
+                    restoreMenu();
+                    return;
+                }
+                const rect = toggle.getBoundingClientRect();
+                const width = Math.min(296, window.innerWidth - 24);
+                let left = Math.min(Math.max(12, rect.left), window.innerWidth - width - 12);
+                const top = Math.min(rect.bottom + 8, window.innerHeight - 80);
+                menu.style.position = "fixed";
+                menu.style.left = left + "px";
+                menu.style.top = top + "px";
+                menu.style.right = "auto";
+                menu.style.width = width + "px";
+                menu.style.minWidth = width + "px";
+                menu.style.zIndex = "1000";
+                if (!placedInBody) {
+                    document.body.appendChild(menu);
+                    placedInBody = true;
+                }
+            }
+
+            function restoreMenu() {
+                menu.style.position = "";
+                menu.style.left = "";
+                menu.style.top = "";
+                menu.style.right = "";
+                menu.style.width = "";
+                menu.style.minWidth = "";
+                menu.style.zIndex = "";
+                if (placedInBody) {
+                    root.appendChild(menu);
+                    placedInBody = false;
+                }
+            }
+
+            function setOpen(open) {
+                root.classList.toggle("open", open);
+                if (header) {
+                    header.classList.toggle("nav-dropdown-open", open && !mobileNavQuery.matches);
+                }
+                toggle.setAttribute("aria-expanded", open ? "true" : "false");
+                if (open) {
+                    menu.hidden = false;
+                    placeMenu();
+                } else {
+                    menu.hidden = true;
+                    restoreMenu();
+                }
+            }
+
+            toggle.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setOpen(menu.hidden);
+            });
+            document.addEventListener("click", (e) => {
+                if (!menu.hidden && !root.contains(e.target) && !menu.contains(e.target)) {
+                    setOpen(false);
+                }
+            });
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && !menu.hidden) {
+                    setOpen(false);
+                    toggle.focus();
+                }
+            });
+            window.addEventListener("resize", () => {
+                if (!menu.hidden) placeMenu();
+            });
+            window.addEventListener("scroll", () => {
+                if (!menu.hidden && !mobileNavQuery.matches) placeMenu();
+            }, true);
+            document.addEventListener("dp:mobile-nav-closed", () => setOpen(false));
+            const handleNavModeChange = () => {
+                setOpen(false);
+                if (mobileNavQuery.matches) toggle.removeAttribute("aria-haspopup");
+                else toggle.setAttribute("aria-haspopup", "true");
+            };
+            if (mobileNavQuery.addEventListener) {
+                mobileNavQuery.addEventListener("change", handleNavModeChange);
+            } else {
+                mobileNavQuery.addListener(handleNavModeChange);
+            }
+            if (mobileNavQuery.matches) toggle.removeAttribute("aria-haspopup");
+            menu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => setOpen(false));
+            });
+        })();
+
+        (function initMobileNav() {
+            const burger = document.getElementById("nav-burger");
+            const nav = document.getElementById("site-nav");
+            const header = document.querySelector(".site-header");
+            const mobileNavQuery = window.matchMedia("(max-width: 1024px)");
+            if (!burger || !nav) return;
+            let lockedScrollY = 0;
+            let scrollLocked = false;
+
+            function syncDrawerGeometry() {
+                if (!nav.classList.contains("is-open") || !mobileNavQuery.matches) return;
+                const top = header ? Math.round(header.getBoundingClientRect().height) : 0;
+                const bottomPad = 8;
+                nav.style.top = top + "px";
+                nav.style.maxHeight = "calc(100dvh - " + (top + bottomPad) + "px)";
+            }
+
+            function clearDrawerGeometry() {
+                nav.style.top = "";
+                nav.style.maxHeight = "";
+            }
+
+            function lockBodyScroll() {
+                if (scrollLocked) return;
+                lockedScrollY = window.scrollY || window.pageYOffset || 0;
+                scrollLocked = true;
+                document.body.style.position = "fixed";
+                document.body.style.top = "-" + lockedScrollY + "px";
+                document.body.style.left = "0";
+                document.body.style.right = "0";
+                document.body.style.width = "100%";
+            }
+
+            function unlockBodyScroll() {
+                if (!scrollLocked) return;
+                scrollLocked = false;
+                document.body.style.position = "";
+                document.body.style.top = "";
+                document.body.style.left = "";
+                document.body.style.right = "";
+                document.body.style.width = "";
+                window.scrollTo(0, lockedScrollY);
+            }
+
+            function setOpen(open) {
+                const wasOpen = nav.classList.contains("is-open");
+                if (open && mobileNavQuery.matches) {
+                    lockBodyScroll();
+                }
+                nav.classList.toggle("is-open", open);
+                burger.classList.toggle("is-open", open);
+                burger.setAttribute("aria-expanded", open ? "true" : "false");
+                burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+                document.documentElement.classList.toggle("nav-drawer-open", open);
+                document.body.classList.toggle("nav-drawer-open", open);
+                if (open && mobileNavQuery.matches) {
+                    syncDrawerGeometry();
+                } else {
+                    unlockBodyScroll();
+                    clearDrawerGeometry();
+                }
+                if (wasOpen && !open) {
+                    document.dispatchEvent(new CustomEvent("dp:mobile-nav-closed"));
+                }
+            }
+            burger.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const opening = !nav.classList.contains("is-open");
+                setOpen(opening);
+                if (opening && e.detail === 0) {
+                    requestAnimationFrame(() => {
+                        const firstLink = nav.querySelector("a, button");
+                        if (firstLink) firstLink.focus();
+                    });
+                }
+            });
+            document.addEventListener("click", (e) => {
+                if (nav.classList.contains("is-open") &&
+                    !nav.contains(e.target) && !burger.contains(e.target)) {
+                    setOpen(false);
+                }
+            });
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && nav.classList.contains("is-open")) {
+                    setOpen(false);
+                    burger.focus();
+                }
+            });
+            document.addEventListener("touchmove", (e) => {
+                if (nav.classList.contains("is-open") && !nav.contains(e.target)) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+            window.addEventListener("resize", () => {
+                if (nav.classList.contains("is-open")) syncDrawerGeometry();
+            });
+            nav.querySelectorAll("a").forEach((a) => {
+                a.addEventListener("click", () => setOpen(false));
+            });
+            const closeAtDesktop = (e) => {
+                if (!e.matches) setOpen(false);
+            };
+            if (mobileNavQuery.addEventListener) {
+                mobileNavQuery.addEventListener("change", closeAtDesktop);
+            } else {
+                mobileNavQuery.addListener(closeAtDesktop);
+            }
+        })();
     </script>
-    <script defer src="{{ url_for('static', filename='space-bg.js') }}?v={{ static_version('space-bg.js') }}"></script>
     <script defer src="{{ url_for('static', filename='custom-select.js') }}?v={{ static_version('custom-select.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='ui-polish.js') }}?v={{ static_version('ui-polish.js') }}"></script>
+    <script>
+    (function () {
+        /* Decorative space canvas stays off the LCP / first-paint path.
+           Load after window 'load', then idle, or on first interaction. */
+        var SPACE_SRC = {{ url_for('static', filename='space-bg.js')|tojson }} + "?v={{ static_version('space-bg.js') }}";
+        var spaceDone = false;
+
+        function inject(src, attrs) {
+            var s = document.createElement("script");
+            s.src = src;
+            if (attrs) {
+                Object.keys(attrs).forEach(function (k) { s.setAttribute(k, attrs[k]); });
+            }
+            document.body.appendChild(s);
+        }
+        function loadSpace() {
+            if (spaceDone) return;
+            spaceDone = true;
+            inject(SPACE_SRC, { defer: "" });
+        }
+        function afterLoad(fn) {
+            if (document.readyState === "complete") fn();
+            else window.addEventListener("load", fn);
+        }
+        function idleOrTimeout(fn, ms) {
+            if ("requestIdleCallback" in window) {
+                requestIdleCallback(fn, { timeout: ms });
+            } else {
+                setTimeout(fn, ms);
+            }
+        }
+        afterLoad(function () {
+            idleOrTimeout(loadSpace, 2000);
+        });
+        ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function (evt) {
+            window.addEventListener(evt, function () {
+                loadSpace();
+            }, { once: true, passive: true, capture: true });
+        });
+    })();
+    </script>
+    <script>
+    (function () {
+        function syncWatchButtons() {
+            fetch("/api/watchlist").then(function (r) { return r.json(); }).then(function (data) {
+                var keys = {};
+                (data.items || []).forEach(function (it) { keys[it.kind + ":" + it.key] = true; });
+                document.querySelectorAll(".watch-toggle").forEach(function (btn) {
+                    var k = btn.getAttribute("data-kind") + ":" + btn.getAttribute("data-key");
+                    btn.classList.toggle("is-watched", !!keys[k]);
+                    btn.textContent = keys[k] ? "★ Saved" : "★ Watch";
+                });
+            }).catch(function () {});
+        }
+        document.addEventListener("click", function (e) {
+            var btn = e.target.closest(".watch-toggle");
+            if (!btn) return;
+            e.preventDefault();
+            fetch("/api/watchlist", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    action: "toggle",
+                    kind: btn.getAttribute("data-kind"),
+                    key: btn.getAttribute("data-key"),
+                    label: btn.getAttribute("data-label"),
+                    href: btn.getAttribute("data-href")
+                })
+            }).then(function (r) { return r.json(); }).then(function () { syncWatchButtons(); });
+        });
+        if (document.querySelector(".watch-toggle")) syncWatchButtons();
+    })();
+    </script>
 </body>
 </html>

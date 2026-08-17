@@ -1,307 +1,307 @@
 RoundNumber,DateUtc,HomeTeam,AwayTeam,P_Home_Win,P_Draw,P_Away_Win,Predicted_Result,P_BTTS_Yes,BTTS_Prediction,P_Over_2.5_Goals,Goals_Prediction,Exp_Total_Corners,P_Home_More_Corners,More_Corners_Prediction,Favorite_Team,P_Favorite_Avoids_Defeat,Favorite_Avoids_Defeat_Prediction,Data_Confidence
-1,2026-08-28 18:30:00Z,Bayern Munich,Stuttgart,0.63,0.219,0.152,Bayern Munich,0.587,Yes,0.641,Over 2.5,10.36,0.707,Bayern Munich,Bayern Munich,0.743,Yes,OK
-1,2026-08-29 13:30:00Z,SV Elversberg,Leverkusen,0.342,0.254,0.404,Leverkusen,0.574,Yes,0.632,Over 2.5,9.63,0.358,Leverkusen,Leverkusen,0.682,Yes,Low (promoted/new team)
-1,2026-08-29 13:30:00Z,FC Koln,Hoffenheim,0.288,0.215,0.496,Hoffenheim,0.603,Yes,0.665,Over 2.5,9.5,0.387,Hoffenheim,Hoffenheim,0.658,Yes,OK
-1,2026-08-29 13:30:00Z,Union Berlin,Ein Frankfurt,0.462,0.295,0.243,Union Berlin,0.614,Yes,0.541,Over 2.5,10.0,0.434,Ein Frankfurt,Ein Frankfurt,0.518,Yes,OK
-1,2026-08-29 13:30:00Z,Mainz,Paderborn,0.563,0.24,0.197,Mainz,0.558,Yes,0.506,Over 2.5,10.06,0.627,Mainz,Mainz,0.748,Yes,OK
-1,2026-08-29 13:30:00Z,RB Leipzig,M'gladbach,0.717,0.177,0.106,RB Leipzig,0.566,Yes,0.707,Over 2.5,9.44,0.636,RB Leipzig,RB Leipzig,0.808,Yes,OK
-1,2026-08-29 16:30:00Z,Borussia Dortmund,Hamburg,0.469,0.282,0.249,Borussia Dortmund,0.564,Yes,0.484,Under 2.5,9.35,0.567,Borussia Dortmund,Borussia Dortmund,0.654,Yes,Low (promoted/new team)
-1,2026-08-30 13:30:00Z,Freiburg,Werder Bremen,0.567,0.26,0.174,Freiburg,0.591,Yes,0.56,Over 2.5,9.38,0.626,Freiburg,Freiburg,0.713,Yes,OK
-1,2026-08-30 15:30:00Z,Augsburg,Schalke 04,0.511,0.255,0.234,Augsburg,0.595,Yes,0.493,Under 2.5,9.69,0.622,Augsburg,Augsburg,0.779,Yes,OK
-2,2026-09-04 18:30:00Z,Stuttgart,FC Koln,0.662,0.201,0.137,Stuttgart,0.594,Yes,0.608,Over 2.5,9.28,0.653,Stuttgart,Stuttgart,0.787,Yes,OK
-2,2026-09-05 13:30:00Z,Paderborn,Freiburg,0.305,0.248,0.447,Freiburg,0.569,Yes,0.536,Over 2.5,9.63,0.387,Freiburg,Freiburg,0.659,Yes,OK
-2,2026-09-05 13:30:00Z,Werder Bremen,RB Leipzig,0.274,0.223,0.503,RB Leipzig,0.603,Yes,0.646,Over 2.5,9.14,0.355,RB Leipzig,RB Leipzig,0.717,Yes,OK
-2,2026-09-05 13:30:00Z,M'gladbach,SV Elversberg,0.456,0.219,0.325,M'gladbach,0.54,Yes,0.544,Over 2.5,9.12,0.525,M'gladbach,M'gladbach,0.53,Yes,Low (promoted/new team)
-2,2026-09-05 13:30:00Z,Leverkusen,Union Berlin,0.577,0.225,0.198,Leverkusen,0.622,Yes,0.656,Over 2.5,9.79,0.651,Leverkusen,Leverkusen,0.766,Yes,OK
-2,2026-09-05 13:30:00Z,Hoffenheim,Borussia Dortmund,0.552,0.201,0.246,Hoffenheim,0.55,Yes,0.628,Over 2.5,9.52,0.586,Hoffenheim,Hoffenheim,0.661,Yes,Low (promoted/new team)
-2,2026-09-05 16:30:00Z,Schalke 04,Bayern Munich,0.176,0.189,0.634,Bayern Munich,0.592,Yes,0.718,Over 2.5,9.73,0.337,Bayern Munich,Bayern Munich,0.765,Yes,OK
-2,2026-09-06 13:30:00Z,Hamburg,Mainz,0.335,0.321,0.344,Mainz,0.595,Yes,0.607,Over 2.5,9.45,0.398,Mainz,Mainz,0.646,Yes,OK
-2,2026-09-06 15:30:00Z,Ein Frankfurt,Augsburg,0.554,0.23,0.216,Ein Frankfurt,0.616,Yes,0.669,Over 2.5,9.34,0.617,Ein Frankfurt,Ein Frankfurt,0.625,Yes,OK
-3,2026-09-11 18:30:00Z,Union Berlin,Schalke 04,0.55,0.273,0.178,Union Berlin,0.59,Yes,0.542,Over 2.5,9.89,0.621,Union Berlin,Union Berlin,0.776,Yes,OK
-3,2026-09-12 13:30:00Z,Mainz,Ein Frankfurt,0.417,0.317,0.266,Mainz,0.589,Yes,0.534,Over 2.5,9.79,0.604,Mainz,Ein Frankfurt,0.492,No,OK
-3,2026-09-12 13:30:00Z,Augsburg,Leverkusen,0.277,0.309,0.415,Leverkusen,0.626,Yes,0.673,Over 2.5,9.9,0.378,Leverkusen,Leverkusen,0.698,Yes,OK
-3,2026-09-12 13:30:00Z,Freiburg,M'gladbach,0.511,0.239,0.25,Freiburg,0.574,Yes,0.477,Under 2.5,9.59,0.626,Freiburg,Freiburg,0.597,Yes,OK
-3,2026-09-12 13:30:00Z,Hoffenheim,Stuttgart,0.4,0.339,0.261,Hoffenheim,0.612,Yes,0.663,Over 2.5,10.04,0.469,Stuttgart,Stuttgart,0.561,Yes,OK
-3,2026-09-12 13:30:00Z,Borussia Dortmund,Paderborn,0.518,0.25,0.232,Borussia Dortmund,0.564,Yes,0.495,Under 2.5,9.72,0.59,Borussia Dortmund,Borussia Dortmund,0.752,Yes,Low (promoted/new team)
-3,2026-09-12 16:30:00Z,FC Koln,Werder Bremen,0.46,0.264,0.276,FC Koln,0.583,Yes,0.569,Over 2.5,9.68,0.522,FC Koln,Werder Bremen,0.587,Yes,OK
-3,2026-09-13 13:30:00Z,RB Leipzig,Hamburg,0.685,0.198,0.117,RB Leipzig,0.595,Yes,0.689,Over 2.5,9.76,0.634,RB Leipzig,RB Leipzig,0.817,Yes,OK
-3,2026-09-13 15:30:00Z,SV Elversberg,Bayern Munich,0.258,0.23,0.512,Bayern Munich,0.576,Yes,0.67,Over 2.5,9.91,0.349,Bayern Munich,Bayern Munich,0.731,Yes,Low (promoted/new team)
-4,2026-09-18 18:30:00Z,Bayern Munich,Union Berlin,0.71,0.162,0.129,Bayern Munich,0.591,Yes,0.616,Over 2.5,10.34,0.692,Bayern Munich,Bayern Munich,0.791,Yes,OK
-4,2026-09-19 13:30:00Z,Werder Bremen,Augsburg,0.419,0.255,0.326,Werder Bremen,0.583,Yes,0.571,Over 2.5,9.29,0.497,Augsburg,Augsburg,0.642,Yes,OK
-4,2026-09-19 13:30:00Z,Hamburg,FC Koln,0.376,0.301,0.323,Hamburg,0.591,Yes,0.598,Over 2.5,9.04,0.571,Hamburg,Hamburg,0.69,Yes,OK
-4,2026-09-19 13:30:00Z,M'gladbach,Mainz,0.382,0.326,0.293,M'gladbach,0.613,Yes,0.568,Over 2.5,9.57,0.462,Mainz,Mainz,0.595,Yes,OK
-4,2026-09-19 13:30:00Z,Ein Frankfurt,Freiburg,0.464,0.244,0.292,Ein Frankfurt,0.586,Yes,0.568,Over 2.5,9.4,0.599,Ein Frankfurt,Ein Frankfurt,0.598,Yes,OK
-4,2026-09-19 16:30:00Z,Stuttgart,Borussia Dortmund,0.624,0.175,0.201,Stuttgart,0.561,Yes,0.611,Over 2.5,9.31,0.608,Stuttgart,Stuttgart,0.736,Yes,Low (promoted/new team)
-4,2026-09-20 13:30:00Z,Leverkusen,RB Leipzig,0.486,0.228,0.285,Leverkusen,0.618,Yes,0.679,Over 2.5,9.57,0.652,Leverkusen,Leverkusen,0.585,Yes,OK
-4,2026-09-20 15:30:00Z,Schalke 04,SV Elversberg,0.345,0.215,0.441,SV Elversberg,0.556,Yes,0.593,Over 2.5,9.56,0.367,SV Elversberg,SV Elversberg,0.615,Yes,Low (promoted/new team)
-4,2026-09-20 17:30:00Z,Paderborn,Hoffenheim,0.21,0.186,0.604,Hoffenheim,0.605,Yes,0.668,Over 2.5,9.79,0.342,Hoffenheim,Hoffenheim,0.696,Yes,OK
-5,2026-10-09 00:00:00Z,Paderborn,Stuttgart,0.249,0.305,0.446,Stuttgart,0.593,Yes,0.696,Over 2.5,10.39,0.36,Stuttgart,Stuttgart,0.727,Yes,OK
-5,2026-10-09 00:00:00Z,FC Koln,M'gladbach,0.472,0.239,0.288,FC Koln,0.559,Yes,0.522,Over 2.5,9.68,0.439,M'gladbach,M'gladbach,0.583,Yes,OK
-5,2026-10-09 00:00:00Z,Union Berlin,SV Elversberg,0.521,0.21,0.269,Union Berlin,0.545,Yes,0.589,Over 2.5,9.79,0.542,Union Berlin,SV Elversberg,0.495,No,Low (promoted/new team)
-5,2026-10-09 00:00:00Z,Mainz,Leverkusen,0.349,0.325,0.326,Mainz,0.603,Yes,0.658,Over 2.5,10.12,0.398,Leverkusen,Leverkusen,0.599,Yes,OK
-5,2026-10-09 00:00:00Z,Augsburg,Bayern Munich,0.207,0.259,0.534,Bayern Munich,0.608,Yes,0.703,Over 2.5,9.77,0.338,Bayern Munich,Bayern Munich,0.745,Yes,OK
-5,2026-10-09 00:00:00Z,Freiburg,Schalke 04,0.63,0.206,0.164,Freiburg,0.586,Yes,0.545,Over 2.5,9.66,0.626,Freiburg,Freiburg,0.77,Yes,OK
-5,2026-10-09 00:00:00Z,Hoffenheim,Hamburg,0.65,0.204,0.146,Hoffenheim,0.59,Yes,0.68,Over 2.5,9.74,0.625,Hoffenheim,Hoffenheim,0.749,Yes,OK
-5,2026-10-09 00:00:00Z,RB Leipzig,Ein Frankfurt,0.614,0.219,0.167,RB Leipzig,0.605,Yes,0.625,Over 2.5,9.56,0.636,RB Leipzig,RB Leipzig,0.773,Yes,OK
-5,2026-10-09 00:00:00Z,Borussia Dortmund,Werder Bremen,0.49,0.274,0.236,Borussia Dortmund,0.561,Yes,0.52,Over 2.5,9.23,0.591,Borussia Dortmund,Borussia Dortmund,0.646,Yes,Low (promoted/new team)
-6,2026-10-16 00:00:00Z,SV Elversberg,Augsburg,0.45,0.28,0.27,SV Elversberg,0.563,Yes,0.546,Over 2.5,9.08,0.573,SV Elversberg,Augsburg,0.669,Yes,Low (promoted/new team)
-6,2026-10-16 00:00:00Z,Schalke 04,Mainz,0.32,0.289,0.391,Mainz,0.587,Yes,0.576,Over 2.5,10.27,0.374,Mainz,Mainz,0.665,Yes,OK
-6,2026-10-16 00:00:00Z,Werder Bremen,Paderborn,0.463,0.22,0.317,Werder Bremen,0.548,Yes,0.491,Under 2.5,9.78,0.605,Werder Bremen,Werder Bremen,0.719,Yes,OK
-6,2026-10-16 00:00:00Z,Hamburg,Stuttgart,0.335,0.334,0.331,Hamburg,0.606,Yes,0.673,Over 2.5,9.99,0.36,Stuttgart,Stuttgart,0.678,Yes,OK
-6,2026-10-16 00:00:00Z,M'gladbach,Hoffenheim,0.371,0.243,0.386,Hoffenheim,0.62,Yes,0.635,Over 2.5,9.47,0.341,Hoffenheim,Hoffenheim,0.612,Yes,OK
-6,2026-10-16 00:00:00Z,Union Berlin,Borussia Dortmund,0.521,0.21,0.269,Union Berlin,0.545,Yes,0.589,Over 2.5,9.79,0.542,Union Berlin,Borussia Dortmund,0.495,No,Low (promoted/new team)
-6,2026-10-16 00:00:00Z,Ein Frankfurt,FC Koln,0.537,0.241,0.222,Ein Frankfurt,0.603,Yes,0.637,Over 2.5,9.13,0.615,Ein Frankfurt,Ein Frankfurt,0.774,Yes,OK
-6,2026-10-16 00:00:00Z,Leverkusen,Freiburg,0.618,0.203,0.179,Leverkusen,0.589,Yes,0.662,Over 2.5,9.45,0.663,Leverkusen,Leverkusen,0.802,Yes,OK
-6,2026-10-16 00:00:00Z,Bayern Munich,RB Leipzig,0.597,0.215,0.187,Bayern Munich,0.604,Yes,0.625,Over 2.5,9.78,0.704,Bayern Munich,Bayern Munich,0.739,Yes,OK
-7,2026-10-23 00:00:00Z,Paderborn,Hamburg,0.367,0.275,0.358,Paderborn,0.586,Yes,0.587,Over 2.5,10.08,0.394,Hamburg,Hamburg,0.66,Yes,OK
-7,2026-10-23 00:00:00Z,FC Koln,Schalke 04,0.511,0.215,0.274,FC Koln,0.581,Yes,0.554,Over 2.5,9.73,0.617,FC Koln,FC Koln,0.649,Yes,OK
-7,2026-10-23 00:00:00Z,Mainz,Werder Bremen,0.517,0.285,0.198,Mainz,0.569,Yes,0.554,Over 2.5,9.68,0.627,Mainz,Mainz,0.704,Yes,OK
-7,2026-10-23 00:00:00Z,Augsburg,Union Berlin,0.345,0.306,0.35,Union Berlin,0.613,Yes,0.583,Over 2.5,9.66,0.601,Augsburg,Augsburg,0.648,Yes,OK
-7,2026-10-23 00:00:00Z,Freiburg,Bayern Munich,0.276,0.251,0.473,Bayern Munich,0.617,Yes,0.733,Over 2.5,9.83,0.331,Bayern Munich,Bayern Munich,0.715,Yes,OK
-7,2026-10-23 00:00:00Z,Hoffenheim,Leverkusen,0.423,0.299,0.278,Hoffenheim,0.612,Yes,0.678,Over 2.5,9.96,0.434,Leverkusen,Leverkusen,0.583,Yes,OK
-7,2026-10-23 00:00:00Z,Stuttgart,M'gladbach,0.698,0.168,0.134,Stuttgart,0.577,Yes,0.604,Over 2.5,9.65,0.658,Stuttgart,Stuttgart,0.779,Yes,OK
-7,2026-10-23 00:00:00Z,RB Leipzig,SV Elversberg,0.61,0.176,0.214,RB Leipzig,0.561,Yes,0.655,Over 2.5,9.09,0.574,RB Leipzig,RB Leipzig,0.765,Yes,Low (promoted/new team)
-7,2026-10-23 00:00:00Z,Borussia Dortmund,Ein Frankfurt,0.414,0.281,0.304,Borussia Dortmund,0.555,Yes,0.498,Under 2.5,9.2,0.391,Ein Frankfurt,Ein Frankfurt,0.641,Yes,Low (promoted/new team)
-8,2026-10-30 00:00:00Z,SV Elversberg,Mainz,0.393,0.291,0.316,SV Elversberg,0.57,Yes,0.534,Over 2.5,9.34,0.418,Mainz,Mainz,0.661,Yes,Low (promoted/new team)
-8,2026-10-30 00:00:00Z,Schalke 04,RB Leipzig,0.238,0.253,0.509,RB Leipzig,0.594,Yes,0.645,Over 2.5,9.47,0.317,RB Leipzig,RB Leipzig,0.713,Yes,OK
-8,2026-10-30 00:00:00Z,Werder Bremen,Hoffenheim,0.293,0.206,0.502,Hoffenheim,0.595,Yes,0.623,Over 2.5,9.61,0.377,Hoffenheim,Hoffenheim,0.659,Yes,OK
-8,2026-10-30 00:00:00Z,M'gladbach,Paderborn,0.564,0.243,0.194,M'gladbach,0.579,Yes,0.5,Over 2.5,9.67,0.597,M'gladbach,M'gladbach,0.764,Yes,OK
-8,2026-10-30 00:00:00Z,Union Berlin,FC Koln,0.517,0.278,0.205,Union Berlin,0.595,Yes,0.584,Over 2.5,9.69,0.605,Union Berlin,Union Berlin,0.609,Yes,OK
-8,2026-10-30 00:00:00Z,Augsburg,Freiburg,0.397,0.292,0.311,Augsburg,0.573,Yes,0.55,Over 2.5,9.28,0.518,Augsburg,Freiburg,0.603,Yes,OK
-8,2026-10-30 00:00:00Z,Ein Frankfurt,Hamburg,0.512,0.275,0.213,Ein Frankfurt,0.595,Yes,0.605,Over 2.5,9.42,0.62,Ein Frankfurt,Ein Frankfurt,0.705,Yes,OK
-8,2026-10-30 00:00:00Z,Leverkusen,Stuttgart,0.479,0.298,0.223,Leverkusen,0.609,Yes,0.676,Over 2.5,10.33,0.639,Leverkusen,Leverkusen,0.584,Yes,OK
-8,2026-10-30 00:00:00Z,Bayern Munich,Borussia Dortmund,0.688,0.14,0.172,Bayern Munich,0.54,Yes,0.625,Over 2.5,9.73,0.657,Bayern Munich,Bayern Munich,0.755,Yes,Low (promoted/new team)
-9,2026-11-06 00:00:00Z,Paderborn,Ein Frankfurt,0.291,0.269,0.44,Ein Frankfurt,0.597,Yes,0.562,Over 2.5,9.88,0.356,Ein Frankfurt,Ein Frankfurt,0.646,Yes,OK
-9,2026-11-06 00:00:00Z,FC Koln,Leverkusen,0.295,0.271,0.434,Leverkusen,0.603,Yes,0.704,Over 2.5,9.77,0.352,Leverkusen,Leverkusen,0.686,Yes,OK
-9,2026-11-06 00:00:00Z,Hamburg,M'gladbach,0.359,0.304,0.337,Hamburg,0.566,Yes,0.51,Over 2.5,9.35,0.568,Hamburg,M'gladbach,0.623,Yes,OK
-9,2026-11-06 00:00:00Z,Mainz,Bayern Munich,0.298,0.263,0.439,Bayern Munich,0.604,Yes,0.683,Over 2.5,10.03,0.343,Bayern Munich,Bayern Munich,0.679,Yes,OK
-9,2026-11-06 00:00:00Z,Freiburg,Union Berlin,0.434,0.279,0.287,Freiburg,0.631,Yes,0.606,Over 2.5,9.54,0.613,Freiburg,Freiburg,0.686,Yes,OK
-9,2026-11-06 00:00:00Z,Hoffenheim,Schalke 04,0.624,0.214,0.162,Hoffenheim,0.58,Yes,0.701,Over 2.5,10.03,0.63,Hoffenheim,Hoffenheim,0.805,Yes,OK
-9,2026-11-06 00:00:00Z,Stuttgart,Werder Bremen,0.629,0.205,0.166,Stuttgart,0.586,Yes,0.58,Over 2.5,9.56,0.66,Stuttgart,Stuttgart,0.781,Yes,OK
-9,2026-11-06 00:00:00Z,RB Leipzig,Augsburg,0.724,0.164,0.111,RB Leipzig,0.609,Yes,0.712,Over 2.5,9.39,0.629,RB Leipzig,RB Leipzig,0.814,Yes,OK
-9,2026-11-06 00:00:00Z,Borussia Dortmund,SV Elversberg,0.427,0.236,0.337,Borussia Dortmund,0.538,Yes,0.569,Over 2.5,8.77,0.527,Borussia Dortmund,Borussia Dortmund,0.598,Yes,Low (promoted/new team)
-10,2026-11-20 00:00:00Z,SV Elversberg,Freiburg,0.459,0.25,0.29,SV Elversberg,0.543,Yes,0.493,Under 2.5,8.89,0.418,Freiburg,Freiburg,0.655,Yes,Low (promoted/new team)
-10,2026-11-20 00:00:00Z,Schalke 04,Stuttgart,0.252,0.325,0.423,Stuttgart,0.584,Yes,0.661,Over 2.5,10.53,0.357,Stuttgart,Stuttgart,0.72,Yes,OK
-10,2026-11-20 00:00:00Z,Werder Bremen,Hamburg,0.425,0.262,0.313,Werder Bremen,0.549,Yes,0.523,Over 2.5,9.85,0.511,Werder Bremen,Hamburg,0.597,Yes,OK
-10,2026-11-20 00:00:00Z,M'gladbach,Borussia Dortmund,0.456,0.219,0.325,M'gladbach,0.54,Yes,0.544,Over 2.5,9.12,0.525,M'gladbach,M'gladbach,0.53,Yes,Low (promoted/new team)
-10,2026-11-20 00:00:00Z,Union Berlin,RB Leipzig,0.384,0.284,0.333,Union Berlin,0.619,Yes,0.624,Over 2.5,9.93,0.407,RB Leipzig,RB Leipzig,0.57,Yes,OK
-10,2026-11-20 00:00:00Z,Augsburg,Mainz,0.354,0.321,0.325,Augsburg,0.609,Yes,0.588,Over 2.5,9.78,0.505,Augsburg,Mainz,0.627,Yes,OK
-10,2026-11-20 00:00:00Z,Ein Frankfurt,Hoffenheim,0.407,0.24,0.353,Ein Frankfurt,0.625,Yes,0.661,Over 2.5,9.48,0.494,Hoffenheim,Hoffenheim,0.572,Yes,OK
-10,2026-11-20 00:00:00Z,Leverkusen,Paderborn,0.66,0.197,0.143,Leverkusen,0.579,Yes,0.669,Over 2.5,10.29,0.663,Leverkusen,Leverkusen,0.794,Yes,OK
-10,2026-11-20 00:00:00Z,Bayern Munich,FC Koln,0.756,0.143,0.101,Bayern Munich,0.573,Yes,0.606,Over 2.5,9.86,0.702,Bayern Munich,Bayern Munich,0.81,Yes,OK
-11,2026-11-27 00:00:00Z,Paderborn,Schalke 04,0.345,0.267,0.388,Schalke 04,0.591,Yes,0.529,Over 2.5,9.86,0.495,Schalke 04,Schalke 04,0.633,Yes,OK
-11,2026-11-27 00:00:00Z,Werder Bremen,M'gladbach,0.457,0.221,0.322,Werder Bremen,0.548,Yes,0.472,Under 2.5,9.63,0.499,M'gladbach,M'gladbach,0.573,Yes,OK
-11,2026-11-27 00:00:00Z,FC Koln,SV Elversberg,0.409,0.196,0.395,FC Koln,0.541,Yes,0.601,Over 2.5,9.3,0.412,SV Elversberg,SV Elversberg,0.587,Yes,Low (promoted/new team)
-11,2026-11-27 00:00:00Z,Hamburg,Bayern Munich,0.213,0.221,0.567,Bayern Munich,0.6,Yes,0.722,Over 2.5,9.51,0.291,Bayern Munich,Bayern Munich,0.766,Yes,OK
-11,2026-11-27 00:00:00Z,Mainz,Union Berlin,0.387,0.317,0.296,Mainz,0.602,Yes,0.585,Over 2.5,9.78,0.615,Mainz,Mainz,0.65,Yes,OK
-11,2026-11-27 00:00:00Z,Freiburg,RB Leipzig,0.374,0.261,0.365,Freiburg,0.635,Yes,0.659,Over 2.5,9.35,0.382,RB Leipzig,RB Leipzig,0.591,Yes,OK
-11,2026-11-27 00:00:00Z,Hoffenheim,Augsburg,0.621,0.235,0.145,Hoffenheim,0.608,Yes,0.712,Over 2.5,9.4,0.626,Hoffenheim,Hoffenheim,0.73,Yes,OK
-11,2026-11-27 00:00:00Z,Stuttgart,Ein Frankfurt,0.612,0.218,0.17,Stuttgart,0.601,Yes,0.564,Over 2.5,9.73,0.658,Stuttgart,Stuttgart,0.733,Yes,OK
-11,2026-11-27 00:00:00Z,Borussia Dortmund,Leverkusen,0.342,0.254,0.404,Leverkusen,0.574,Yes,0.632,Over 2.5,9.63,0.358,Leverkusen,Leverkusen,0.682,Yes,Low (promoted/new team)
-12,2026-12-04 00:00:00Z,SV Elversberg,Stuttgart,0.348,0.316,0.336,SV Elversberg,0.567,Yes,0.631,Over 2.5,10.01,0.38,Stuttgart,Stuttgart,0.679,Yes,Low (promoted/new team)
-12,2026-12-04 00:00:00Z,Schalke 04,Borussia Dortmund,0.345,0.215,0.441,Borussia Dortmund,0.556,Yes,0.593,Over 2.5,9.56,0.367,Borussia Dortmund,Borussia Dortmund,0.615,Yes,Low (promoted/new team)
-12,2026-12-04 00:00:00Z,Union Berlin,Hamburg,0.512,0.306,0.182,Union Berlin,0.602,Yes,0.566,Over 2.5,9.75,0.595,Union Berlin,Hamburg,0.594,Yes,OK
-12,2026-12-04 00:00:00Z,Augsburg,FC Koln,0.442,0.256,0.301,Augsburg,0.595,Yes,0.581,Over 2.5,9.16,0.609,Augsburg,Augsburg,0.705,Yes,OK
-12,2026-12-04 00:00:00Z,Ein Frankfurt,Werder Bremen,0.545,0.26,0.195,Ein Frankfurt,0.591,Yes,0.58,Over 2.5,9.5,0.623,Ein Frankfurt,Ein Frankfurt,0.755,Yes,OK
-12,2026-12-04 00:00:00Z,Freiburg,Hoffenheim,0.397,0.212,0.391,Freiburg,0.614,Yes,0.672,Over 2.5,9.61,0.458,Hoffenheim,Hoffenheim,0.62,Yes,OK
-12,2026-12-04 00:00:00Z,Leverkusen,M'gladbach,0.704,0.164,0.132,Leverkusen,0.57,Yes,0.685,Over 2.5,9.59,0.662,Leverkusen,Leverkusen,0.806,Yes,OK
-12,2026-12-04 00:00:00Z,RB Leipzig,Mainz,0.615,0.232,0.153,RB Leipzig,0.606,Yes,0.629,Over 2.5,9.86,0.634,RB Leipzig,RB Leipzig,0.786,Yes,OK
-12,2026-12-04 00:00:00Z,Bayern Munich,Paderborn,0.755,0.156,0.089,Bayern Munich,0.569,Yes,0.664,Over 2.5,10.39,0.707,Bayern Munich,Bayern Munich,0.809,Yes,OK
-13,2026-12-11 00:00:00Z,Paderborn,SV Elversberg,0.311,0.187,0.502,SV Elversberg,0.557,Yes,0.613,Over 2.5,9.58,0.356,SV Elversberg,SV Elversberg,0.621,Yes,Low (promoted/new team)
-13,2026-12-11 00:00:00Z,Werder Bremen,Leverkusen,0.285,0.257,0.458,Leverkusen,0.589,Yes,0.684,Over 2.5,9.59,0.354,Leverkusen,Leverkusen,0.738,Yes,OK
-13,2026-12-11 00:00:00Z,FC Koln,RB Leipzig,0.283,0.257,0.46,RB Leipzig,0.61,Yes,0.675,Over 2.5,9.17,0.358,RB Leipzig,RB Leipzig,0.683,Yes,OK
-13,2026-12-11 00:00:00Z,Hamburg,Schalke 04,0.491,0.256,0.253,Hamburg,0.591,Yes,0.548,Over 2.5,9.67,0.578,Hamburg,Hamburg,0.772,Yes,OK
-13,2026-12-11 00:00:00Z,M'gladbach,Ein Frankfurt,0.404,0.319,0.277,M'gladbach,0.608,Yes,0.501,Over 2.5,9.41,0.439,Ein Frankfurt,Ein Frankfurt,0.555,Yes,OK
-13,2026-12-11 00:00:00Z,Mainz,Freiburg,0.418,0.317,0.266,Mainz,0.568,Yes,0.535,Over 2.5,9.71,0.604,Mainz,Freiburg,0.537,Yes,OK
-13,2026-12-11 00:00:00Z,Hoffenheim,Bayern Munich,0.34,0.245,0.415,Bayern Munich,0.618,Yes,0.67,Over 2.5,9.88,0.387,Bayern Munich,Bayern Munich,0.624,Yes,OK
-13,2026-12-11 00:00:00Z,Stuttgart,Union Berlin,0.584,0.229,0.186,Stuttgart,0.623,Yes,0.6,Over 2.5,10.02,0.651,Stuttgart,Stuttgart,0.734,Yes,OK
-13,2026-12-11 00:00:00Z,Borussia Dortmund,Augsburg,0.45,0.28,0.27,Borussia Dortmund,0.563,Yes,0.546,Over 2.5,9.08,0.573,Borussia Dortmund,Augsburg,0.669,Yes,Low (promoted/new team)
-14,2026-12-18 00:00:00Z,SV Elversberg,Hamburg,0.469,0.282,0.249,SV Elversberg,0.564,Yes,0.484,Under 2.5,9.35,0.567,SV Elversberg,SV Elversberg,0.654,Yes,Low (promoted/new team)
-14,2026-12-18 00:00:00Z,Schalke 04,M'gladbach,0.339,0.273,0.388,M'gladbach,0.574,Yes,0.489,Under 2.5,9.79,0.392,M'gladbach,M'gladbach,0.623,Yes,OK
-14,2026-12-18 00:00:00Z,Union Berlin,Hoffenheim,0.414,0.229,0.356,Union Berlin,0.615,Yes,0.623,Over 2.5,9.96,0.403,Hoffenheim,Hoffenheim,0.543,Yes,OK
-14,2026-12-18 00:00:00Z,Mainz,FC Koln,0.511,0.267,0.223,Mainz,0.579,Yes,0.559,Over 2.5,9.5,0.619,Mainz,Mainz,0.744,Yes,OK
-14,2026-12-18 00:00:00Z,Augsburg,Paderborn,0.494,0.259,0.247,Augsburg,0.585,Yes,0.498,Under 2.5,9.71,0.616,Augsburg,Augsburg,0.74,Yes,OK
-14,2026-12-18 00:00:00Z,Freiburg,Stuttgart,0.4,0.337,0.263,Freiburg,0.629,Yes,0.68,Over 2.5,10.0,0.424,Stuttgart,Stuttgart,0.599,Yes,OK
-14,2026-12-18 00:00:00Z,Leverkusen,Ein Frankfurt,0.589,0.226,0.185,Leverkusen,0.594,Yes,0.643,Over 2.5,9.78,0.66,Leverkusen,Leverkusen,0.771,Yes,OK
-14,2026-12-18 00:00:00Z,RB Leipzig,Borussia Dortmund,0.61,0.176,0.214,RB Leipzig,0.561,Yes,0.655,Over 2.5,9.09,0.574,RB Leipzig,RB Leipzig,0.765,Yes,Low (promoted/new team)
-14,2026-12-18 00:00:00Z,Bayern Munich,Werder Bremen,0.766,0.136,0.098,Bayern Munich,0.561,Yes,0.612,Over 2.5,10.38,0.706,Bayern Munich,Bayern Munich,0.816,Yes,OK
-15,2027-01-08 00:00:00Z,Paderborn,RB Leipzig,0.202,0.209,0.589,RB Leipzig,0.603,Yes,0.681,Over 2.5,9.48,0.32,RB Leipzig,RB Leipzig,0.735,Yes,OK
-15,2027-01-08 00:00:00Z,Werder Bremen,Union Berlin,0.336,0.249,0.416,Union Berlin,0.591,Yes,0.601,Over 2.5,9.76,0.568,Werder Bremen,Union Berlin,0.645,Yes,OK
-15,2027-01-08 00:00:00Z,FC Koln,Freiburg,0.418,0.258,0.324,FC Koln,0.564,Yes,0.548,Over 2.5,9.49,0.46,Freiburg,Freiburg,0.607,Yes,OK
-15,2027-01-08 00:00:00Z,Hamburg,Leverkusen,0.274,0.3,0.425,Leverkusen,0.602,Yes,0.709,Over 2.5,9.92,0.335,Leverkusen,Leverkusen,0.716,Yes,OK
-15,2027-01-08 00:00:00Z,M'gladbach,Bayern Munich,0.257,0.265,0.478,Bayern Munich,0.611,Yes,0.7,Over 2.5,9.63,0.289,Bayern Munich,Bayern Munich,0.704,Yes,OK
-15,2027-01-08 00:00:00Z,Ein Frankfurt,Schalke 04,0.585,0.221,0.194,Ein Frankfurt,0.599,Yes,0.609,Over 2.5,9.76,0.629,Ein Frankfurt,Ein Frankfurt,0.769,Yes,OK
-15,2027-01-08 00:00:00Z,Hoffenheim,SV Elversberg,0.552,0.201,0.246,Hoffenheim,0.55,Yes,0.628,Over 2.5,9.52,0.586,Hoffenheim,Hoffenheim,0.661,Yes,Low (promoted/new team)
-15,2027-01-08 00:00:00Z,Stuttgart,Augsburg,0.696,0.162,0.142,Stuttgart,0.603,Yes,0.637,Over 2.5,9.58,0.657,Stuttgart,Stuttgart,0.778,Yes,OK
-15,2027-01-08 00:00:00Z,Borussia Dortmund,Mainz,0.393,0.291,0.316,Borussia Dortmund,0.57,Yes,0.534,Over 2.5,9.34,0.418,Mainz,Mainz,0.661,Yes,Low (promoted/new team)
-16,2027-01-12 00:00:00Z,SV Elversberg,Ein Frankfurt,0.414,0.281,0.304,SV Elversberg,0.555,Yes,0.498,Under 2.5,9.2,0.391,Ein Frankfurt,Ein Frankfurt,0.641,Yes,Low (promoted/new team)
-16,2027-01-12 00:00:00Z,Schalke 04,Werder Bremen,0.376,0.259,0.365,Schalke 04,0.578,Yes,0.567,Over 2.5,9.83,0.4,Werder Bremen,Werder Bremen,0.602,Yes,OK
-16,2027-01-12 00:00:00Z,FC Koln,Borussia Dortmund,0.409,0.196,0.395,FC Koln,0.541,Yes,0.601,Over 2.5,9.3,0.412,Borussia Dortmund,Borussia Dortmund,0.587,Yes,Low (promoted/new team)
-16,2027-01-12 00:00:00Z,Union Berlin,Paderborn,0.558,0.267,0.175,Union Berlin,0.587,Yes,0.529,Over 2.5,10.04,0.619,Union Berlin,Union Berlin,0.773,Yes,OK
-16,2027-01-12 00:00:00Z,Mainz,Hoffenheim,0.413,0.242,0.345,Mainz,0.599,Yes,0.63,Over 2.5,9.88,0.466,Hoffenheim,Hoffenheim,0.538,Yes,OK
-16,2027-01-12 00:00:00Z,Augsburg,M'gladbach,0.484,0.242,0.273,Augsburg,0.559,Yes,0.531,Over 2.5,9.59,0.596,Augsburg,Augsburg,0.584,Yes,OK
-16,2027-01-12 00:00:00Z,Freiburg,Hamburg,0.511,0.295,0.194,Freiburg,0.6,Yes,0.546,Over 2.5,9.63,0.62,Freiburg,Freiburg,0.641,Yes,OK
-16,2027-01-12 00:00:00Z,RB Leipzig,Stuttgart,0.527,0.268,0.205,RB Leipzig,0.614,Yes,0.674,Over 2.5,10.2,0.599,RB Leipzig,Stuttgart,0.628,Yes,OK
-16,2027-01-12 00:00:00Z,Bayern Munich,Leverkusen,0.66,0.19,0.15,Bayern Munich,0.592,Yes,0.639,Over 2.5,10.3,0.698,Bayern Munich,Bayern Munich,0.752,Yes,OK
-17,2027-01-15 00:00:00Z,Paderborn,FC Koln,0.324,0.241,0.435,FC Koln,0.598,Yes,0.608,Over 2.5,9.46,0.389,FC Koln,FC Koln,0.667,Yes,OK
-17,2027-01-15 00:00:00Z,Werder Bremen,SV Elversberg,0.375,0.196,0.43,SV Elversberg,0.545,Yes,0.59,Over 2.5,9.09,0.454,SV Elversberg,SV Elversberg,0.601,Yes,Low (promoted/new team)
-17,2027-01-15 00:00:00Z,Hamburg,Augsburg,0.378,0.315,0.308,Hamburg,0.587,Yes,0.592,Over 2.5,9.56,0.561,Hamburg,Augsburg,0.639,Yes,OK
-17,2027-01-15 00:00:00Z,M'gladbach,Union Berlin,0.356,0.308,0.336,M'gladbach,0.619,Yes,0.579,Over 2.5,9.55,0.582,M'gladbach,M'gladbach,0.63,Yes,OK
-17,2027-01-15 00:00:00Z,Ein Frankfurt,Bayern Munich,0.316,0.232,0.451,Bayern Munich,0.625,Yes,0.707,Over 2.5,9.87,0.363,Bayern Munich,Bayern Munich,0.674,Yes,OK
-17,2027-01-15 00:00:00Z,Leverkusen,Schalke 04,0.692,0.185,0.122,Leverkusen,0.581,Yes,0.706,Over 2.5,10.05,0.662,Leverkusen,Leverkusen,0.816,Yes,OK
-17,2027-01-15 00:00:00Z,Hoffenheim,RB Leipzig,0.424,0.259,0.318,Hoffenheim,0.619,Yes,0.679,Over 2.5,9.4,0.435,RB Leipzig,RB Leipzig,0.542,Yes,OK
-17,2027-01-15 00:00:00Z,Stuttgart,Mainz,0.619,0.217,0.164,Stuttgart,0.611,Yes,0.614,Over 2.5,9.96,0.654,Stuttgart,Stuttgart,0.755,Yes,OK
-17,2027-01-15 00:00:00Z,Borussia Dortmund,Freiburg,0.459,0.25,0.29,Borussia Dortmund,0.543,Yes,0.493,Under 2.5,8.89,0.418,Freiburg,Freiburg,0.655,Yes,Low (promoted/new team)
-18,2027-01-22 00:00:00Z,Paderborn,Mainz,0.259,0.296,0.445,Mainz,0.602,Yes,0.617,Over 2.5,10.03,0.381,Mainz,Mainz,0.698,Yes,OK
-18,2027-01-22 00:00:00Z,Schalke 04,Augsburg,0.359,0.262,0.38,Augsburg,0.591,Yes,0.571,Over 2.5,9.78,0.396,Augsburg,Augsburg,0.661,Yes,OK
-18,2027-01-22 00:00:00Z,Werder Bremen,Freiburg,0.401,0.242,0.357,Werder Bremen,0.547,Yes,0.526,Over 2.5,9.38,0.453,Freiburg,Freiburg,0.603,Yes,OK
-18,2027-01-22 00:00:00Z,Hamburg,Borussia Dortmund,0.347,0.196,0.457,Borussia Dortmund,0.557,Yes,0.582,Over 2.5,9.25,0.514,Hamburg,Borussia Dortmund,0.597,Yes,Low (promoted/new team)
-18,2027-01-22 00:00:00Z,M'gladbach,RB Leipzig,0.344,0.281,0.375,RB Leipzig,0.626,Yes,0.631,Over 2.5,9.23,0.331,RB Leipzig,RB Leipzig,0.607,Yes,OK
-18,2027-01-22 00:00:00Z,Ein Frankfurt,Union Berlin,0.402,0.3,0.299,Ein Frankfurt,0.629,Yes,0.606,Over 2.5,9.82,0.611,Ein Frankfurt,Ein Frankfurt,0.674,Yes,OK
-18,2027-01-22 00:00:00Z,Leverkusen,SV Elversberg,0.615,0.178,0.208,Leverkusen,0.553,Yes,0.647,Over 2.5,9.16,0.602,Leverkusen,Leverkusen,0.753,Yes,Low (promoted/new team)
-18,2027-01-22 00:00:00Z,Hoffenheim,FC Koln,0.634,0.212,0.154,Hoffenheim,0.595,Yes,0.646,Over 2.5,9.47,0.617,Hoffenheim,Hoffenheim,0.788,Yes,OK
-18,2027-01-22 00:00:00Z,Stuttgart,Bayern Munich,0.422,0.244,0.335,Stuttgart,0.61,Yes,0.681,Over 2.5,9.46,0.414,Bayern Munich,Bayern Munich,0.644,Yes,OK
-19,2027-01-29 00:00:00Z,SV Elversberg,M'gladbach,0.462,0.263,0.274,SV Elversberg,0.553,Yes,0.454,Under 2.5,9.13,0.576,SV Elversberg,M'gladbach,0.63,Yes,Low (promoted/new team)
-19,2027-01-29 00:00:00Z,FC Koln,Stuttgart,0.301,0.319,0.38,Stuttgart,0.597,Yes,0.687,Over 2.5,9.97,0.413,Stuttgart,Stuttgart,0.696,Yes,OK
-19,2027-01-29 00:00:00Z,Union Berlin,Leverkusen,0.379,0.336,0.285,Union Berlin,0.616,Yes,0.662,Over 2.5,10.39,0.395,Leverkusen,Leverkusen,0.618,Yes,OK
-19,2027-01-29 00:00:00Z,Mainz,Hamburg,0.465,0.311,0.224,Mainz,0.576,Yes,0.532,Over 2.5,9.98,0.622,Mainz,Mainz,0.64,Yes,OK
-19,2027-01-29 00:00:00Z,Augsburg,Ein Frankfurt,0.353,0.294,0.353,Augsburg,0.612,Yes,0.534,Over 2.5,9.53,0.488,Ein Frankfurt,Ein Frankfurt,0.601,Yes,OK
-19,2027-01-29 00:00:00Z,Freiburg,Paderborn,0.585,0.215,0.2,Freiburg,0.599,Yes,0.521,Over 2.5,9.8,0.63,Freiburg,Freiburg,0.758,Yes,OK
-19,2027-01-29 00:00:00Z,RB Leipzig,Werder Bremen,0.701,0.183,0.116,RB Leipzig,0.587,Yes,0.632,Over 2.5,9.42,0.632,RB Leipzig,RB Leipzig,0.818,Yes,OK
-19,2027-01-29 00:00:00Z,Borussia Dortmund,Hoffenheim,0.328,0.208,0.465,Hoffenheim,0.576,Yes,0.582,Over 2.5,9.28,0.368,Hoffenheim,Hoffenheim,0.685,Yes,Low (promoted/new team)
-19,2027-01-29 00:00:00Z,Bayern Munich,Schalke 04,0.769,0.142,0.089,Bayern Munich,0.565,Yes,0.691,Over 2.5,10.21,0.708,Bayern Munich,Bayern Munich,0.827,Yes,OK
-20,2027-02-05 00:00:00Z,Paderborn,Borussia Dortmund,0.311,0.187,0.502,Borussia Dortmund,0.557,Yes,0.613,Over 2.5,9.58,0.356,Borussia Dortmund,Borussia Dortmund,0.621,Yes,Low (promoted/new team)
-20,2027-02-05 00:00:00Z,Schalke 04,Union Berlin,0.282,0.273,0.445,Union Berlin,0.605,Yes,0.583,Over 2.5,9.96,0.368,Union Berlin,Union Berlin,0.673,Yes,OK
-20,2027-02-05 00:00:00Z,Werder Bremen,FC Koln,0.401,0.231,0.369,Werder Bremen,0.578,Yes,0.589,Over 2.5,9.1,0.596,Werder Bremen,Werder Bremen,0.637,Yes,OK
-20,2027-02-05 00:00:00Z,Hamburg,RB Leipzig,0.256,0.254,0.489,RB Leipzig,0.613,Yes,0.653,Over 2.5,9.29,0.328,RB Leipzig,RB Leipzig,0.676,Yes,OK
-20,2027-02-05 00:00:00Z,M'gladbach,Freiburg,0.423,0.314,0.263,M'gladbach,0.576,Yes,0.471,Under 2.5,9.1,0.472,Freiburg,Freiburg,0.563,Yes,OK
-20,2027-02-05 00:00:00Z,Ein Frankfurt,Mainz,0.451,0.269,0.279,Ein Frankfurt,0.617,Yes,0.615,Over 2.5,9.81,0.599,Ein Frankfurt,Ein Frankfurt,0.599,Yes,OK
-20,2027-02-05 00:00:00Z,Leverkusen,Augsburg,0.711,0.162,0.126,Leverkusen,0.607,Yes,0.706,Over 2.5,9.4,0.658,Leverkusen,Leverkusen,0.804,Yes,OK
-20,2027-02-05 00:00:00Z,Stuttgart,Hoffenheim,0.549,0.216,0.235,Stuttgart,0.609,Yes,0.624,Over 2.5,9.83,0.645,Stuttgart,Stuttgart,0.668,Yes,OK
-20,2027-02-05 00:00:00Z,Bayern Munich,SV Elversberg,0.688,0.14,0.172,Bayern Munich,0.54,Yes,0.625,Over 2.5,9.73,0.657,Bayern Munich,Bayern Munich,0.755,Yes,Low (promoted/new team)
-21,2027-02-12 00:00:00Z,SV Elversberg,Schalke 04,0.519,0.244,0.237,SV Elversberg,0.556,Yes,0.504,Over 2.5,9.47,0.59,SV Elversberg,SV Elversberg,0.76,Yes,Low (promoted/new team)
-21,2027-02-12 00:00:00Z,FC Koln,Hamburg,0.467,0.272,0.261,FC Koln,0.574,Yes,0.57,Over 2.5,9.85,0.468,Hamburg,Hamburg,0.591,Yes,OK
-21,2027-02-12 00:00:00Z,Union Berlin,Bayern Munich,0.286,0.286,0.428,Bayern Munich,0.606,Yes,0.679,Over 2.5,10.26,0.359,Bayern Munich,Bayern Munich,0.666,Yes,OK
-21,2027-02-12 00:00:00Z,Mainz,M'gladbach,0.483,0.281,0.235,Mainz,0.562,Yes,0.496,Under 2.5,9.92,0.627,Mainz,Mainz,0.58,Yes,OK
-21,2027-02-12 00:00:00Z,Augsburg,Werder Bremen,0.445,0.271,0.283,Augsburg,0.589,Yes,0.571,Over 2.5,9.27,0.613,Augsburg,Augsburg,0.605,Yes,OK
-21,2027-02-12 00:00:00Z,Freiburg,Ein Frankfurt,0.437,0.282,0.28,Freiburg,0.616,Yes,0.53,Over 2.5,9.43,0.598,Freiburg,Ein Frankfurt,0.568,Yes,OK
-21,2027-02-12 00:00:00Z,Hoffenheim,Paderborn,0.617,0.235,0.148,Hoffenheim,0.578,Yes,0.614,Over 2.5,9.96,0.627,Hoffenheim,Hoffenheim,0.791,Yes,OK
-21,2027-02-12 00:00:00Z,RB Leipzig,Leverkusen,0.522,0.252,0.225,RB Leipzig,0.618,Yes,0.674,Over 2.5,9.99,0.504,RB Leipzig,Leverkusen,0.622,Yes,OK
-21,2027-02-12 00:00:00Z,Borussia Dortmund,Stuttgart,0.348,0.316,0.336,Borussia Dortmund,0.567,Yes,0.631,Over 2.5,10.01,0.38,Stuttgart,Stuttgart,0.679,Yes,Low (promoted/new team)
-22,2027-02-19 00:00:00Z,SV Elversberg,Union Berlin,0.336,0.269,0.395,Union Berlin,0.574,Yes,0.561,Over 2.5,9.35,0.564,SV Elversberg,SV Elversberg,0.687,Yes,Low (promoted/new team)
-22,2027-02-19 00:00:00Z,Schalke 04,Freiburg,0.297,0.275,0.428,Freiburg,0.559,Yes,0.498,Under 2.5,9.55,0.42,Freiburg,Freiburg,0.645,Yes,OK
-22,2027-02-19 00:00:00Z,Werder Bremen,Borussia Dortmund,0.375,0.196,0.43,Borussia Dortmund,0.545,Yes,0.59,Over 2.5,9.09,0.454,Borussia Dortmund,Borussia Dortmund,0.601,Yes,Low (promoted/new team)
-22,2027-02-19 00:00:00Z,Hamburg,Hoffenheim,0.259,0.261,0.48,Hoffenheim,0.607,Yes,0.649,Over 2.5,9.22,0.33,Hoffenheim,Hoffenheim,0.676,Yes,OK
-22,2027-02-19 00:00:00Z,M'gladbach,FC Koln,0.488,0.271,0.241,M'gladbach,0.604,Yes,0.562,Over 2.5,8.98,0.588,M'gladbach,M'gladbach,0.721,Yes,OK
-22,2027-02-19 00:00:00Z,Ein Frankfurt,RB Leipzig,0.39,0.256,0.354,Ein Frankfurt,0.639,Yes,0.681,Over 2.5,9.36,0.411,RB Leipzig,RB Leipzig,0.581,Yes,OK
-22,2027-02-19 00:00:00Z,Leverkusen,Mainz,0.61,0.222,0.168,Leverkusen,0.614,Yes,0.662,Over 2.5,10.04,0.656,Leverkusen,Leverkusen,0.786,Yes,OK
-22,2027-02-19 00:00:00Z,Stuttgart,Paderborn,0.64,0.215,0.144,Stuttgart,0.592,Yes,0.555,Over 2.5,10.1,0.662,Stuttgart,Stuttgart,0.783,Yes,OK
-22,2027-02-19 00:00:00Z,Bayern Munich,Augsburg,0.788,0.117,0.095,Bayern Munich,0.59,Yes,0.663,Over 2.5,10.24,0.708,Bayern Munich,Bayern Munich,0.808,Yes,OK
-23,2027-02-26 00:00:00Z,Paderborn,Werder Bremen,0.344,0.253,0.403,Werder Bremen,0.594,Yes,0.58,Over 2.5,9.81,0.388,Werder Bremen,Werder Bremen,0.635,Yes,OK
-23,2027-02-26 00:00:00Z,FC Koln,Ein Frankfurt,0.39,0.281,0.329,FC Koln,0.587,Yes,0.563,Over 2.5,9.51,0.424,Ein Frankfurt,Ein Frankfurt,0.589,Yes,OK
-23,2027-02-26 00:00:00Z,Mainz,Schalke 04,0.531,0.265,0.203,Mainz,0.579,Yes,0.548,Over 2.5,9.94,0.631,Mainz,Mainz,0.773,Yes,OK
-23,2027-02-26 00:00:00Z,Augsburg,SV Elversberg,0.415,0.208,0.376,Augsburg,0.55,Yes,0.597,Over 2.5,9.06,0.542,Augsburg,Augsburg,0.582,Yes,Low (promoted/new team)
-23,2027-02-26 00:00:00Z,Freiburg,Leverkusen,0.372,0.309,0.319,Freiburg,0.628,Yes,0.721,Over 2.5,9.69,0.387,Leverkusen,Leverkusen,0.625,Yes,OK
-23,2027-02-26 00:00:00Z,Hoffenheim,M'gladbach,0.541,0.267,0.192,Hoffenheim,0.572,Yes,0.651,Over 2.5,9.83,0.628,Hoffenheim,Hoffenheim,0.748,Yes,OK
-23,2027-02-26 00:00:00Z,Stuttgart,Hamburg,0.676,0.206,0.119,Stuttgart,0.591,Yes,0.618,Over 2.5,10.0,0.66,Stuttgart,Stuttgart,0.781,Yes,OK
-23,2027-02-26 00:00:00Z,RB Leipzig,Bayern Munich,0.385,0.248,0.367,RB Leipzig,0.617,Yes,0.677,Over 2.5,9.69,0.41,Bayern Munich,Bayern Munich,0.694,Yes,OK
-23,2027-02-26 00:00:00Z,Borussia Dortmund,Union Berlin,0.336,0.269,0.395,Union Berlin,0.574,Yes,0.561,Over 2.5,9.35,0.564,Borussia Dortmund,Borussia Dortmund,0.687,Yes,Low (promoted/new team)
-24,2027-03-02 00:00:00Z,SV Elversberg,RB Leipzig,0.361,0.211,0.428,RB Leipzig,0.581,Yes,0.617,Over 2.5,8.94,0.355,RB Leipzig,RB Leipzig,0.668,Yes,Low (promoted/new team)
-24,2027-03-02 00:00:00Z,Schalke 04,FC Koln,0.341,0.257,0.402,FC Koln,0.587,Yes,0.6,Over 2.5,9.38,0.413,FC Koln,FC Koln,0.628,Yes,OK
-24,2027-03-02 00:00:00Z,Werder Bremen,Mainz,0.342,0.28,0.377,Mainz,0.582,Yes,0.586,Over 2.5,9.78,0.426,Mainz,Mainz,0.632,Yes,OK
-24,2027-03-02 00:00:00Z,Hamburg,Paderborn,0.448,0.277,0.275,Hamburg,0.585,Yes,0.511,Over 2.5,9.65,0.575,Hamburg,Hamburg,0.758,Yes,OK
-24,2027-03-02 00:00:00Z,M'gladbach,Stuttgart,0.345,0.354,0.302,Draw,0.616,Yes,0.646,Over 2.5,10.0,0.367,Stuttgart,Stuttgart,0.629,Yes,OK
-24,2027-03-02 00:00:00Z,Union Berlin,Augsburg,0.495,0.299,0.205,Union Berlin,0.605,Yes,0.574,Over 2.5,9.75,0.516,Union Berlin,Augsburg,0.572,Yes,OK
-24,2027-03-02 00:00:00Z,Ein Frankfurt,Borussia Dortmund,0.479,0.211,0.311,Ein Frankfurt,0.552,Yes,0.593,Over 2.5,9.35,0.567,Ein Frankfurt,Ein Frankfurt,0.593,Yes,Low (promoted/new team)
-24,2027-03-02 00:00:00Z,Leverkusen,Hoffenheim,0.537,0.233,0.23,Leverkusen,0.604,Yes,0.648,Over 2.5,9.87,0.646,Leverkusen,Leverkusen,0.727,Yes,OK
-24,2027-03-02 00:00:00Z,Bayern Munich,Freiburg,0.734,0.152,0.114,Bayern Munich,0.557,Yes,0.633,Over 2.5,9.82,0.704,Bayern Munich,Bayern Munich,0.822,Yes,OK
-25,2027-03-05 00:00:00Z,Paderborn,M'gladbach,0.322,0.258,0.42,M'gladbach,0.569,Yes,0.518,Over 2.5,9.94,0.397,M'gladbach,M'gladbach,0.656,Yes,OK
-25,2027-03-05 00:00:00Z,FC Koln,Union Berlin,0.337,0.278,0.384,Union Berlin,0.614,Yes,0.623,Over 2.5,9.72,0.486,Union Berlin,Union Berlin,0.618,Yes,OK
-25,2027-03-05 00:00:00Z,Hamburg,Ein Frankfurt,0.351,0.303,0.346,Hamburg,0.605,Yes,0.565,Over 2.5,9.27,0.375,Ein Frankfurt,Ein Frankfurt,0.607,Yes,OK
-25,2027-03-05 00:00:00Z,Mainz,SV Elversberg,0.47,0.21,0.319,Mainz,0.543,Yes,0.585,Over 2.5,9.53,0.571,Mainz,Mainz,0.593,Yes,Low (promoted/new team)
-25,2027-03-05 00:00:00Z,Freiburg,Augsburg,0.528,0.264,0.208,Freiburg,0.62,Yes,0.604,Over 2.5,9.17,0.619,Freiburg,Freiburg,0.613,Yes,OK
-25,2027-03-05 00:00:00Z,Hoffenheim,Werder Bremen,0.63,0.226,0.144,Hoffenheim,0.588,Yes,0.597,Over 2.5,9.78,0.623,Hoffenheim,Hoffenheim,0.797,Yes,OK
-25,2027-03-05 00:00:00Z,Stuttgart,Leverkusen,0.525,0.228,0.246,Stuttgart,0.608,Yes,0.676,Over 2.5,10.05,0.56,Stuttgart,Leverkusen,0.571,Yes,OK
-25,2027-03-05 00:00:00Z,RB Leipzig,Schalke 04,0.712,0.179,0.109,RB Leipzig,0.587,Yes,0.713,Over 2.5,9.76,0.639,RB Leipzig,RB Leipzig,0.819,Yes,OK
-25,2027-03-05 00:00:00Z,Borussia Dortmund,Bayern Munich,0.258,0.23,0.512,Bayern Munich,0.576,Yes,0.67,Over 2.5,9.91,0.349,Bayern Munich,Bayern Munich,0.731,Yes,Low (promoted/new team)
-26,2027-03-12 00:00:00Z,SV Elversberg,Borussia Dortmund,0.427,0.236,0.337,SV Elversberg,0.538,Yes,0.569,Over 2.5,8.77,0.527,SV Elversberg,SV Elversberg,0.598,Yes,Low (promoted/new team)
-26,2027-03-12 00:00:00Z,Schalke 04,Hoffenheim,0.227,0.213,0.56,Hoffenheim,0.589,Yes,0.622,Over 2.5,9.89,0.328,Hoffenheim,Hoffenheim,0.681,Yes,OK
-26,2027-03-12 00:00:00Z,Werder Bremen,Stuttgart,0.294,0.319,0.387,Stuttgart,0.593,Yes,0.667,Over 2.5,10.03,0.396,Stuttgart,Stuttgart,0.712,Yes,OK
-26,2027-03-12 00:00:00Z,M'gladbach,Hamburg,0.437,0.359,0.204,M'gladbach,0.589,Yes,0.506,Over 2.5,9.38,0.567,M'gladbach,M'gladbach,0.607,Yes,OK
-26,2027-03-12 00:00:00Z,Union Berlin,Freiburg,0.456,0.303,0.241,Union Berlin,0.569,Yes,0.548,Over 2.5,10.0,0.467,Freiburg,Freiburg,0.554,Yes,OK
-26,2027-03-12 00:00:00Z,Augsburg,RB Leipzig,0.271,0.275,0.454,RB Leipzig,0.628,Yes,0.626,Over 2.5,9.37,0.39,RB Leipzig,RB Leipzig,0.677,Yes,OK
-26,2027-03-12 00:00:00Z,Ein Frankfurt,Paderborn,0.553,0.252,0.194,Ein Frankfurt,0.593,Yes,0.565,Over 2.5,9.73,0.627,Ein Frankfurt,Ein Frankfurt,0.782,Yes,OK
-26,2027-03-12 00:00:00Z,Leverkusen,FC Koln,0.678,0.179,0.143,Leverkusen,0.595,Yes,0.657,Over 2.5,9.21,0.654,Leverkusen,Leverkusen,0.801,Yes,OK
-26,2027-03-12 00:00:00Z,Bayern Munich,Mainz,0.72,0.166,0.113,Bayern Munich,0.59,Yes,0.627,Over 2.5,9.95,0.699,Bayern Munich,Bayern Munich,0.811,Yes,OK
-27,2027-03-19 00:00:00Z,Paderborn,Leverkusen,0.245,0.25,0.505,Leverkusen,0.596,Yes,0.708,Over 2.5,10.03,0.322,Leverkusen,Leverkusen,0.731,Yes,OK
-27,2027-03-19 00:00:00Z,FC Koln,Bayern Munich,0.217,0.217,0.566,Bayern Munich,0.602,Yes,0.729,Over 2.5,9.59,0.338,Bayern Munich,Bayern Munich,0.752,Yes,OK
-27,2027-03-19 00:00:00Z,Hamburg,Werder Bremen,0.384,0.304,0.312,Hamburg,0.591,Yes,0.58,Over 2.5,9.34,0.575,Hamburg,Hamburg,0.638,Yes,OK
-27,2027-03-19 00:00:00Z,Mainz,Augsburg,0.508,0.269,0.223,Mainz,0.58,Yes,0.563,Over 2.5,9.56,0.622,Mainz,Mainz,0.585,Yes,OK
-27,2027-03-19 00:00:00Z,Freiburg,SV Elversberg,0.493,0.196,0.311,Freiburg,0.56,Yes,0.554,Over 2.5,9.22,0.566,Freiburg,Freiburg,0.594,Yes,Low (promoted/new team)
-27,2027-03-19 00:00:00Z,Hoffenheim,Ein Frankfurt,0.495,0.288,0.218,Hoffenheim,0.609,Yes,0.63,Over 2.5,9.57,0.624,Hoffenheim,Hoffenheim,0.59,Yes,OK
-27,2027-03-19 00:00:00Z,Stuttgart,Schalke 04,0.67,0.197,0.133,Stuttgart,0.589,Yes,0.609,Over 2.5,10.03,0.665,Stuttgart,Stuttgart,0.795,Yes,OK
-27,2027-03-19 00:00:00Z,RB Leipzig,Union Berlin,0.608,0.217,0.175,RB Leipzig,0.621,Yes,0.634,Over 2.5,9.97,0.624,RB Leipzig,RB Leipzig,0.789,Yes,OK
-27,2027-03-19 00:00:00Z,Borussia Dortmund,M'gladbach,0.462,0.263,0.274,Borussia Dortmund,0.553,Yes,0.454,Under 2.5,9.13,0.576,Borussia Dortmund,M'gladbach,0.63,Yes,Low (promoted/new team)
-28,2027-04-02 00:00:00Z,SV Elversberg,FC Koln,0.465,0.253,0.282,SV Elversberg,0.561,Yes,0.575,Over 2.5,8.71,0.588,SV Elversberg,SV Elversberg,0.711,Yes,Low (promoted/new team)
-28,2027-04-02 00:00:00Z,Schalke 04,Paderborn,0.383,0.255,0.363,Schalke 04,0.566,Yes,0.509,Over 2.5,10.36,0.559,Schalke 04,Schalke 04,0.613,Yes,OK
-28,2027-04-02 00:00:00Z,M'gladbach,Werder Bremen,0.467,0.292,0.241,M'gladbach,0.592,Yes,0.525,Over 2.5,9.18,0.594,M'gladbach,M'gladbach,0.589,Yes,OK
-28,2027-04-02 00:00:00Z,Union Berlin,Mainz,0.469,0.307,0.225,Union Berlin,0.595,Yes,0.575,Over 2.5,10.25,0.444,Mainz,Mainz,0.553,Yes,OK
-28,2027-04-02 00:00:00Z,Augsburg,Hoffenheim,0.303,0.266,0.431,Hoffenheim,0.625,Yes,0.597,Over 2.5,9.67,0.395,Hoffenheim,Hoffenheim,0.627,Yes,OK
-28,2027-04-02 00:00:00Z,Ein Frankfurt,Stuttgart,0.381,0.313,0.306,Ein Frankfurt,0.631,Yes,0.675,Over 2.5,10.12,0.446,Stuttgart,Stuttgart,0.59,Yes,OK
-28,2027-04-02 00:00:00Z,Leverkusen,Borussia Dortmund,0.615,0.178,0.208,Leverkusen,0.553,Yes,0.647,Over 2.5,9.16,0.602,Leverkusen,Leverkusen,0.753,Yes,Low (promoted/new team)
-28,2027-04-02 00:00:00Z,RB Leipzig,Freiburg,0.607,0.217,0.176,RB Leipzig,0.574,Yes,0.669,Over 2.5,9.38,0.634,RB Leipzig,RB Leipzig,0.8,Yes,OK
-28,2027-04-02 00:00:00Z,Bayern Munich,Hamburg,0.768,0.144,0.088,Bayern Munich,0.566,Yes,0.676,Over 2.5,10.41,0.7,Bayern Munich,Bayern Munich,0.827,Yes,OK
-29,2027-04-09 00:00:00Z,Paderborn,Bayern Munich,0.176,0.185,0.639,Bayern Munich,0.602,Yes,0.732,Over 2.5,9.87,0.313,Bayern Munich,Bayern Munich,0.793,Yes,OK
-29,2027-04-09 00:00:00Z,Werder Bremen,Ein Frankfurt,0.329,0.27,0.401,Ein Frankfurt,0.577,Yes,0.524,Over 2.5,9.49,0.409,Ein Frankfurt,Ein Frankfurt,0.598,Yes,OK
-29,2027-04-09 00:00:00Z,FC Koln,Augsburg,0.435,0.259,0.306,FC Koln,0.6,Yes,0.609,Over 2.5,9.59,0.444,Augsburg,Augsburg,0.609,Yes,OK
-29,2027-04-09 00:00:00Z,Hamburg,Union Berlin,0.323,0.286,0.391,Union Berlin,0.603,Yes,0.641,Over 2.5,9.65,0.554,Hamburg,Hamburg,0.671,Yes,OK
-29,2027-04-09 00:00:00Z,M'gladbach,Leverkusen,0.331,0.344,0.325,Draw,0.616,Yes,0.676,Over 2.5,9.7,0.318,Leverkusen,Leverkusen,0.653,Yes,OK
-29,2027-04-09 00:00:00Z,Mainz,RB Leipzig,0.364,0.284,0.352,Mainz,0.601,Yes,0.601,Over 2.5,9.58,0.395,RB Leipzig,RB Leipzig,0.554,Yes,OK
-29,2027-04-09 00:00:00Z,Hoffenheim,Freiburg,0.484,0.289,0.227,Hoffenheim,0.581,Yes,0.641,Over 2.5,9.5,0.625,Hoffenheim,Hoffenheim,0.62,Yes,OK
-29,2027-04-09 00:00:00Z,Stuttgart,SV Elversberg,0.624,0.175,0.201,Stuttgart,0.561,Yes,0.611,Over 2.5,9.31,0.608,Stuttgart,Stuttgart,0.736,Yes,Low (promoted/new team)
-29,2027-04-09 00:00:00Z,Borussia Dortmund,Schalke 04,0.519,0.244,0.237,Borussia Dortmund,0.556,Yes,0.504,Over 2.5,9.47,0.59,Borussia Dortmund,Borussia Dortmund,0.76,Yes,Low (promoted/new team)
-30,2027-04-16 00:00:00Z,SV Elversberg,Paderborn,0.518,0.25,0.232,SV Elversberg,0.564,Yes,0.495,Under 2.5,9.72,0.59,SV Elversberg,SV Elversberg,0.752,Yes,Low (promoted/new team)
-30,2027-04-16 00:00:00Z,Schalke 04,Hamburg,0.399,0.264,0.337,Schalke 04,0.58,Yes,0.534,Over 2.5,10.25,0.403,Hamburg,Hamburg,0.631,Yes,OK
-30,2027-04-16 00:00:00Z,Union Berlin,Stuttgart,0.402,0.337,0.262,Union Berlin,0.616,Yes,0.629,Over 2.5,10.58,0.426,Stuttgart,Stuttgart,0.596,Yes,OK
-30,2027-04-16 00:00:00Z,Augsburg,Borussia Dortmund,0.415,0.208,0.376,Augsburg,0.55,Yes,0.597,Over 2.5,9.06,0.542,Augsburg,Augsburg,0.582,Yes,Low (promoted/new team)
-30,2027-04-16 00:00:00Z,Ein Frankfurt,M'gladbach,0.496,0.252,0.252,Ein Frankfurt,0.57,Yes,0.546,Over 2.5,9.66,0.621,Ein Frankfurt,Ein Frankfurt,0.636,Yes,OK
-30,2027-04-16 00:00:00Z,Freiburg,Mainz,0.456,0.301,0.244,Freiburg,0.618,Yes,0.604,Over 2.5,9.67,0.598,Freiburg,Freiburg,0.61,Yes,OK
-30,2027-04-16 00:00:00Z,Leverkusen,Werder Bremen,0.663,0.19,0.146,Leverkusen,0.581,Yes,0.636,Over 2.5,9.67,0.663,Leverkusen,Leverkusen,0.797,Yes,OK
-30,2027-04-16 00:00:00Z,RB Leipzig,FC Koln,0.681,0.196,0.123,RB Leipzig,0.594,Yes,0.643,Over 2.5,9.18,0.628,RB Leipzig,RB Leipzig,0.817,Yes,OK
-30,2027-04-16 00:00:00Z,Bayern Munich,Hoffenheim,0.649,0.184,0.168,Bayern Munich,0.588,Yes,0.598,Over 2.5,10.05,0.693,Bayern Munich,Bayern Munich,0.756,Yes,OK
-31,2027-04-23 00:00:00Z,Paderborn,Augsburg,0.326,0.277,0.397,Augsburg,0.602,Yes,0.592,Over 2.5,9.59,0.41,Augsburg,Augsburg,0.706,Yes,OK
-31,2027-04-23 00:00:00Z,Werder Bremen,Bayern Munich,0.208,0.206,0.585,Bayern Munich,0.595,Yes,0.72,Over 2.5,9.66,0.345,Bayern Munich,Bayern Munich,0.792,Yes,OK
-31,2027-04-23 00:00:00Z,FC Koln,Mainz,0.346,0.309,0.346,FC Koln,0.603,Yes,0.61,Over 2.5,9.83,0.435,Mainz,Mainz,0.622,Yes,OK
-31,2027-04-23 00:00:00Z,Hamburg,SV Elversberg,0.347,0.196,0.457,SV Elversberg,0.557,Yes,0.582,Over 2.5,9.25,0.514,Hamburg,SV Elversberg,0.597,Yes,Low (promoted/new team)
-31,2027-04-23 00:00:00Z,M'gladbach,Schalke 04,0.551,0.256,0.193,M'gladbach,0.592,Yes,0.504,Over 2.5,9.87,0.599,M'gladbach,M'gladbach,0.774,Yes,OK
-31,2027-04-23 00:00:00Z,Ein Frankfurt,Leverkusen,0.39,0.278,0.333,Ein Frankfurt,0.624,Yes,0.699,Over 2.5,9.8,0.413,Leverkusen,Leverkusen,0.602,Yes,OK
-31,2027-04-23 00:00:00Z,Hoffenheim,Union Berlin,0.495,0.268,0.237,Hoffenheim,0.614,Yes,0.636,Over 2.5,9.94,0.615,Hoffenheim,Hoffenheim,0.73,Yes,OK
-31,2027-04-23 00:00:00Z,Stuttgart,Freiburg,0.605,0.211,0.184,Stuttgart,0.587,Yes,0.599,Over 2.5,9.45,0.659,Stuttgart,Stuttgart,0.77,Yes,OK
-31,2027-04-23 00:00:00Z,Borussia Dortmund,RB Leipzig,0.361,0.211,0.428,RB Leipzig,0.581,Yes,0.617,Over 2.5,8.94,0.355,RB Leipzig,RB Leipzig,0.668,Yes,Low (promoted/new team)
-32,2027-05-07 00:00:00Z,SV Elversberg,Hoffenheim,0.328,0.208,0.465,Hoffenheim,0.576,Yes,0.582,Over 2.5,9.28,0.368,Hoffenheim,Hoffenheim,0.685,Yes,Low (promoted/new team)
-32,2027-05-07 00:00:00Z,Schalke 04,Ein Frankfurt,0.306,0.291,0.403,Ein Frankfurt,0.59,Yes,0.538,Over 2.5,9.9,0.363,Ein Frankfurt,Ein Frankfurt,0.637,Yes,OK
-32,2027-05-07 00:00:00Z,Union Berlin,Werder Bremen,0.535,0.271,0.194,Union Berlin,0.593,Yes,0.576,Over 2.5,9.85,0.599,Union Berlin,Union Berlin,0.559,Yes,OK
-32,2027-05-07 00:00:00Z,Mainz,Borussia Dortmund,0.47,0.21,0.319,Mainz,0.543,Yes,0.585,Over 2.5,9.53,0.571,Mainz,Mainz,0.593,Yes,Low (promoted/new team)
-32,2027-05-07 00:00:00Z,Augsburg,Stuttgart,0.297,0.348,0.354,Stuttgart,0.621,Yes,0.641,Over 2.5,10.14,0.437,Stuttgart,Stuttgart,0.67,Yes,OK
-32,2027-05-07 00:00:00Z,Freiburg,FC Koln,0.537,0.238,0.226,Freiburg,0.611,Yes,0.609,Over 2.5,9.15,0.623,Freiburg,Freiburg,0.755,Yes,OK
-32,2027-05-07 00:00:00Z,Leverkusen,Hamburg,0.658,0.213,0.129,Leverkusen,0.589,Yes,0.713,Over 2.5,10.12,0.657,Leverkusen,Leverkusen,0.817,Yes,OK
-32,2027-05-07 00:00:00Z,RB Leipzig,Paderborn,0.668,0.218,0.114,RB Leipzig,0.588,Yes,0.641,Over 2.5,9.77,0.639,RB Leipzig,RB Leipzig,0.814,Yes,OK
-32,2027-05-07 00:00:00Z,Bayern Munich,M'gladbach,0.792,0.123,0.085,Bayern Munich,0.553,Yes,0.682,Over 2.5,10.28,0.7,Bayern Munich,Bayern Munich,0.82,Yes,OK
-33,2027-05-14 00:00:00Z,Paderborn,Union Berlin,0.289,0.232,0.479,Union Berlin,0.605,Yes,0.636,Over 2.5,9.71,0.378,Union Berlin,Union Berlin,0.716,Yes,OK
-33,2027-05-14 00:00:00Z,Werder Bremen,Schalke 04,0.466,0.227,0.307,Werder Bremen,0.57,Yes,0.509,Over 2.5,9.78,0.608,Werder Bremen,Werder Bremen,0.721,Yes,OK
-33,2027-05-14 00:00:00Z,Hamburg,Freiburg,0.364,0.259,0.377,Freiburg,0.571,Yes,0.538,Over 2.5,9.36,0.41,Freiburg,Freiburg,0.619,Yes,OK
-33,2027-05-14 00:00:00Z,M'gladbach,Augsburg,0.445,0.318,0.237,M'gladbach,0.606,Yes,0.569,Over 2.5,9.09,0.568,M'gladbach,Augsburg,0.599,Yes,OK
-33,2027-05-14 00:00:00Z,Ein Frankfurt,SV Elversberg,0.479,0.211,0.311,Ein Frankfurt,0.552,Yes,0.593,Over 2.5,9.35,0.567,Ein Frankfurt,Ein Frankfurt,0.593,Yes,Low (promoted/new team)
-33,2027-05-14 00:00:00Z,Leverkusen,Bayern Munich,0.413,0.241,0.346,Leverkusen,0.609,Yes,0.695,Over 2.5,9.54,0.428,Bayern Munich,Bayern Munich,0.616,Yes,OK
-33,2027-05-14 00:00:00Z,Hoffenheim,Mainz,0.485,0.292,0.222,Hoffenheim,0.603,Yes,0.639,Over 2.5,9.79,0.622,Hoffenheim,Hoffenheim,0.633,Yes,OK
-33,2027-05-14 00:00:00Z,Stuttgart,RB Leipzig,0.486,0.239,0.276,Stuttgart,0.614,Yes,0.641,Over 2.5,9.43,0.628,Stuttgart,Stuttgart,0.567,Yes,OK
-33,2027-05-14 00:00:00Z,Borussia Dortmund,FC Koln,0.465,0.253,0.282,Borussia Dortmund,0.561,Yes,0.575,Over 2.5,8.71,0.588,Borussia Dortmund,Borussia Dortmund,0.711,Yes,Low (promoted/new team)
-34,2027-05-22 13:30:00Z,SV Elversberg,Werder Bremen,0.49,0.274,0.236,SV Elversberg,0.561,Yes,0.52,Over 2.5,9.23,0.591,SV Elversberg,SV Elversberg,0.646,Yes,Low (promoted/new team)
-34,2027-05-22 13:30:00Z,Schalke 04,Leverkusen,0.243,0.26,0.497,Leverkusen,0.583,Yes,0.689,Over 2.5,9.96,0.34,Leverkusen,Leverkusen,0.718,Yes,OK
-34,2027-05-22 13:30:00Z,FC Koln,Paderborn,0.476,0.221,0.304,FC Koln,0.567,Yes,0.532,Over 2.5,9.67,0.615,FC Koln,FC Koln,0.702,Yes,OK
-34,2027-05-22 13:30:00Z,Union Berlin,M'gladbach,0.541,0.246,0.213,Union Berlin,0.569,Yes,0.528,Over 2.5,10.13,0.52,Union Berlin,M'gladbach,0.552,Yes,OK
-34,2027-05-22 13:30:00Z,Mainz,Stuttgart,0.353,0.368,0.279,Draw,0.599,Yes,0.634,Over 2.5,10.29,0.437,Stuttgart,Stuttgart,0.567,Yes,OK
-34,2027-05-22 13:30:00Z,Augsburg,Hamburg,0.45,0.307,0.243,Augsburg,0.587,Yes,0.544,Over 2.5,9.52,0.589,Augsburg,Augsburg,0.624,Yes,OK
-34,2027-05-22 13:30:00Z,Freiburg,Borussia Dortmund,0.493,0.196,0.311,Freiburg,0.56,Yes,0.554,Over 2.5,9.22,0.566,Freiburg,Freiburg,0.594,Yes,Low (promoted/new team)
-34,2027-05-22 13:30:00Z,RB Leipzig,Hoffenheim,0.584,0.193,0.224,RB Leipzig,0.607,Yes,0.625,Over 2.5,9.7,0.615,RB Leipzig,RB Leipzig,0.725,Yes,OK
-34,2027-05-22 13:30:00Z,Bayern Munich,Ein Frankfurt,0.688,0.183,0.129,Bayern Munich,0.583,Yes,0.602,Over 2.5,9.99,0.708,Bayern Munich,Bayern Munich,0.79,Yes,OK
+1,2026-08-28 18:30:00Z,Bayern Munich,Stuttgart,0.722,0.16,0.118,Bayern Munich,0.557,Yes,0.73,Over 2.5,10.24,0.736,Bayern Munich,Bayern Munich,0.782,Yes,OK
+1,2026-08-29 13:30:00Z,SV Elversberg,Leverkusen,0.245,0.345,0.41,Leverkusen,0.577,Yes,0.711,Over 2.5,9.72,0.298,Leverkusen,Leverkusen,0.648,Yes,Low (promoted/new team)
+1,2026-08-29 13:30:00Z,FC Koln,Hoffenheim,0.352,0.251,0.398,Hoffenheim,0.597,Yes,0.732,Over 2.5,9.64,0.372,Hoffenheim,Hoffenheim,0.653,Yes,OK
+1,2026-08-29 13:30:00Z,Union Berlin,Ein Frankfurt,0.436,0.341,0.224,Union Berlin,0.577,Yes,0.586,Over 2.5,10.37,0.422,Ein Frankfurt,Ein Frankfurt,0.524,Yes,OK
+1,2026-08-29 13:30:00Z,Mainz,Paderborn,0.604,0.217,0.179,Mainz,0.558,Yes,0.585,Over 2.5,10.14,0.623,Mainz,Mainz,0.775,Yes,OK
+1,2026-08-29 13:30:00Z,RB Leipzig,M'gladbach,0.681,0.208,0.111,RB Leipzig,0.553,Yes,0.668,Over 2.5,9.65,0.64,RB Leipzig,RB Leipzig,0.803,Yes,OK
+1,2026-08-29 16:30:00Z,Borussia Dortmund,Hamburg,0.425,0.305,0.27,Borussia Dortmund,0.574,Yes,0.579,Over 2.5,9.42,0.575,Borussia Dortmund,Borussia Dortmund,0.638,Yes,Low (promoted/new team)
+1,2026-08-30 13:30:00Z,Freiburg,Werder Bremen,0.551,0.277,0.172,Freiburg,0.58,Yes,0.547,Over 2.5,9.73,0.62,Freiburg,Freiburg,0.71,Yes,OK
+1,2026-08-30 15:30:00Z,Augsburg,Schalke 04,0.604,0.238,0.158,Augsburg,0.583,Yes,0.539,Over 2.5,10.12,0.627,Augsburg,Augsburg,0.786,Yes,OK
+2,2026-09-04 18:30:00Z,Stuttgart,FC Koln,0.63,0.187,0.182,Stuttgart,0.579,Yes,0.716,Over 2.5,9.56,0.673,Stuttgart,Stuttgart,0.797,Yes,OK
+2,2026-09-05 13:30:00Z,Paderborn,Freiburg,0.278,0.213,0.508,Freiburg,0.574,Yes,0.516,Over 2.5,9.68,0.379,Freiburg,Freiburg,0.619,Yes,OK
+2,2026-09-05 13:30:00Z,Werder Bremen,RB Leipzig,0.264,0.272,0.464,RB Leipzig,0.592,Yes,0.634,Over 2.5,9.37,0.336,RB Leipzig,RB Leipzig,0.709,Yes,OK
+2,2026-09-05 13:30:00Z,M'gladbach,SV Elversberg,0.468,0.219,0.313,M'gladbach,0.56,Yes,0.598,Over 2.5,9.28,0.544,M'gladbach,M'gladbach,0.507,Yes,Low (promoted/new team)
+2,2026-09-05 13:30:00Z,Leverkusen,Union Berlin,0.61,0.222,0.168,Leverkusen,0.596,Yes,0.726,Over 2.5,9.82,0.66,Leverkusen,Leverkusen,0.778,Yes,OK
+2,2026-09-05 13:30:00Z,Hoffenheim,Borussia Dortmund,0.682,0.137,0.181,Hoffenheim,0.558,Yes,0.726,Over 2.5,9.77,0.627,Hoffenheim,Hoffenheim,0.667,Yes,Low (promoted/new team)
+2,2026-09-05 16:30:00Z,Schalke 04,Bayern Munich,0.099,0.154,0.747,Bayern Munich,0.604,Yes,0.711,Over 2.5,9.72,0.315,Bayern Munich,Bayern Munich,0.741,Yes,OK
+2,2026-09-06 13:30:00Z,Hamburg,Mainz,0.318,0.332,0.35,Mainz,0.603,Yes,0.554,Over 2.5,9.84,0.369,Mainz,Mainz,0.627,Yes,OK
+2,2026-09-06 15:30:00Z,Ein Frankfurt,Augsburg,0.487,0.309,0.204,Ein Frankfurt,0.614,Yes,0.686,Over 2.5,9.84,0.63,Ein Frankfurt,Ein Frankfurt,0.609,Yes,OK
+3,2026-09-11 18:30:00Z,Union Berlin,Schalke 04,0.644,0.215,0.142,Union Berlin,0.587,Yes,0.494,Under 2.5,10.15,0.63,Union Berlin,Union Berlin,0.768,Yes,OK
+3,2026-09-12 13:30:00Z,Mainz,Ein Frankfurt,0.411,0.325,0.264,Mainz,0.564,Yes,0.604,Over 2.5,10.12,0.603,Mainz,Ein Frankfurt,0.533,Yes,OK
+3,2026-09-12 13:30:00Z,Augsburg,Leverkusen,0.297,0.398,0.305,Draw,0.609,Yes,0.702,Over 2.5,10.38,0.353,Leverkusen,Leverkusen,0.658,Yes,OK
+3,2026-09-12 13:30:00Z,Freiburg,M'gladbach,0.533,0.259,0.209,Freiburg,0.552,Yes,0.564,Over 2.5,9.8,0.621,Freiburg,Freiburg,0.6,Yes,OK
+3,2026-09-12 13:30:00Z,Hoffenheim,Stuttgart,0.521,0.275,0.204,Hoffenheim,0.601,Yes,0.741,Over 2.5,10.66,0.486,Stuttgart,Stuttgart,0.564,Yes,OK
+3,2026-09-12 13:30:00Z,Borussia Dortmund,Paderborn,0.495,0.262,0.243,Borussia Dortmund,0.57,Yes,0.582,Over 2.5,9.52,0.588,Borussia Dortmund,Borussia Dortmund,0.74,Yes,Low (promoted/new team)
+3,2026-09-12 16:30:00Z,FC Koln,Werder Bremen,0.462,0.288,0.249,FC Koln,0.569,Yes,0.509,Over 2.5,9.57,0.507,FC Koln,Werder Bremen,0.558,Yes,OK
+3,2026-09-13 13:30:00Z,RB Leipzig,Hamburg,0.701,0.206,0.093,RB Leipzig,0.587,Yes,0.681,Over 2.5,9.94,0.641,RB Leipzig,RB Leipzig,0.815,Yes,OK
+3,2026-09-13 15:30:00Z,SV Elversberg,Bayern Munich,0.186,0.223,0.591,Bayern Munich,0.585,Yes,0.7,Over 2.5,9.67,0.282,Bayern Munich,Bayern Munich,0.684,Yes,Low (promoted/new team)
+4,2026-09-18 18:30:00Z,Bayern Munich,Union Berlin,0.71,0.168,0.121,Bayern Munich,0.566,Yes,0.719,Over 2.5,10.44,0.724,Bayern Munich,Bayern Munich,0.807,Yes,OK
+4,2026-09-19 13:30:00Z,Werder Bremen,Augsburg,0.345,0.338,0.317,Werder Bremen,0.583,Yes,0.558,Over 2.5,9.65,0.49,Augsburg,Augsburg,0.626,Yes,OK
+4,2026-09-19 13:30:00Z,Hamburg,FC Koln,0.34,0.322,0.338,Hamburg,0.583,Yes,0.552,Over 2.5,9.02,0.581,Hamburg,Hamburg,0.697,Yes,OK
+4,2026-09-19 13:30:00Z,M'gladbach,Mainz,0.384,0.369,0.247,M'gladbach,0.612,Yes,0.523,Over 2.5,9.94,0.455,Mainz,Mainz,0.545,Yes,OK
+4,2026-09-19 13:30:00Z,Ein Frankfurt,Freiburg,0.499,0.239,0.262,Ein Frankfurt,0.559,Yes,0.568,Over 2.5,9.7,0.613,Ein Frankfurt,Ein Frankfurt,0.524,Yes,OK
+4,2026-09-19 16:30:00Z,Stuttgart,Borussia Dortmund,0.695,0.137,0.168,Stuttgart,0.574,Yes,0.724,Over 2.5,9.4,0.652,Stuttgart,Stuttgart,0.765,Yes,Low (promoted/new team)
+4,2026-09-20 13:30:00Z,Leverkusen,RB Leipzig,0.553,0.197,0.25,Leverkusen,0.592,Yes,0.701,Over 2.5,9.79,0.661,Leverkusen,Leverkusen,0.592,Yes,OK
+4,2026-09-20 15:30:00Z,Schalke 04,SV Elversberg,0.29,0.173,0.537,SV Elversberg,0.576,Yes,0.546,Over 2.5,9.68,0.351,SV Elversberg,SV Elversberg,0.56,Yes,Low (promoted/new team)
+4,2026-09-20 17:30:00Z,Paderborn,Hoffenheim,0.202,0.184,0.614,Hoffenheim,0.609,Yes,0.717,Over 2.5,9.99,0.324,Hoffenheim,Hoffenheim,0.719,Yes,OK
+5,2026-10-09 00:00:00Z,Paderborn,Stuttgart,0.244,0.216,0.54,Stuttgart,0.584,Yes,0.758,Over 2.5,10.5,0.348,Stuttgart,Stuttgart,0.729,Yes,OK
+5,2026-10-09 00:00:00Z,FC Koln,M'gladbach,0.49,0.246,0.264,FC Koln,0.549,Yes,0.514,Over 2.5,9.77,0.428,M'gladbach,M'gladbach,0.568,Yes,OK
+5,2026-10-09 00:00:00Z,Union Berlin,SV Elversberg,0.54,0.19,0.27,Union Berlin,0.565,Yes,0.621,Over 2.5,9.65,0.566,Union Berlin,SV Elversberg,0.487,No,Low (promoted/new team)
+5,2026-10-09 00:00:00Z,Mainz,Leverkusen,0.322,0.352,0.326,Draw,0.603,Yes,0.69,Over 2.5,10.32,0.389,Leverkusen,Leverkusen,0.605,Yes,OK
+5,2026-10-09 00:00:00Z,Augsburg,Bayern Munich,0.232,0.231,0.537,Bayern Munich,0.621,Yes,0.744,Over 2.5,10.04,0.308,Bayern Munich,Bayern Munich,0.699,Yes,OK
+5,2026-10-09 00:00:00Z,Freiburg,Schalke 04,0.652,0.214,0.134,Freiburg,0.566,Yes,0.568,Over 2.5,9.85,0.617,Freiburg,Freiburg,0.769,Yes,OK
+5,2026-10-09 00:00:00Z,Hoffenheim,Hamburg,0.69,0.199,0.111,Hoffenheim,0.589,Yes,0.663,Over 2.5,10.42,0.645,Hoffenheim,Hoffenheim,0.724,Yes,OK
+5,2026-10-09 00:00:00Z,RB Leipzig,Ein Frankfurt,0.609,0.263,0.129,RB Leipzig,0.577,Yes,0.688,Over 2.5,9.71,0.638,RB Leipzig,RB Leipzig,0.745,Yes,OK
+5,2026-10-09 00:00:00Z,Borussia Dortmund,Werder Bremen,0.404,0.318,0.278,Borussia Dortmund,0.566,Yes,0.479,Under 2.5,9.27,0.591,Borussia Dortmund,Borussia Dortmund,0.611,Yes,Low (promoted/new team)
+6,2026-10-16 00:00:00Z,SV Elversberg,Augsburg,0.355,0.385,0.259,Draw,0.572,Yes,0.635,Over 2.5,9.26,0.571,SV Elversberg,Augsburg,0.637,Yes,Low (promoted/new team)
+6,2026-10-16 00:00:00Z,Schalke 04,Mainz,0.22,0.297,0.484,Mainz,0.601,Yes,0.508,Over 2.5,10.28,0.36,Mainz,Mainz,0.655,Yes,OK
+6,2026-10-16 00:00:00Z,Werder Bremen,Paderborn,0.49,0.229,0.28,Werder Bremen,0.566,Yes,0.537,Over 2.5,9.92,0.606,Werder Bremen,Werder Bremen,0.729,Yes,OK
+6,2026-10-16 00:00:00Z,Hamburg,Stuttgart,0.29,0.329,0.382,Stuttgart,0.605,Yes,0.712,Over 2.5,10.18,0.352,Stuttgart,Stuttgart,0.699,Yes,OK
+6,2026-10-16 00:00:00Z,M'gladbach,Hoffenheim,0.405,0.259,0.336,M'gladbach,0.611,Yes,0.616,Over 2.5,9.81,0.328,Hoffenheim,Hoffenheim,0.595,Yes,OK
+6,2026-10-16 00:00:00Z,Union Berlin,Borussia Dortmund,0.54,0.19,0.27,Union Berlin,0.565,Yes,0.621,Over 2.5,9.65,0.566,Union Berlin,Borussia Dortmund,0.487,No,Low (promoted/new team)
+6,2026-10-16 00:00:00Z,Ein Frankfurt,FC Koln,0.552,0.247,0.201,Ein Frankfurt,0.585,Yes,0.629,Over 2.5,9.24,0.63,Ein Frankfurt,Ein Frankfurt,0.738,Yes,OK
+6,2026-10-16 00:00:00Z,Leverkusen,Freiburg,0.691,0.17,0.14,Leverkusen,0.55,Yes,0.68,Over 2.5,9.46,0.668,Leverkusen,Leverkusen,0.805,Yes,OK
+6,2026-10-16 00:00:00Z,Bayern Munich,RB Leipzig,0.703,0.15,0.148,Bayern Munich,0.576,Yes,0.701,Over 2.5,9.74,0.733,Bayern Munich,Bayern Munich,0.764,Yes,OK
+7,2026-10-23 00:00:00Z,Paderborn,Hamburg,0.388,0.228,0.384,Paderborn,0.598,Yes,0.563,Over 2.5,10.29,0.397,Hamburg,Hamburg,0.661,Yes,OK
+7,2026-10-23 00:00:00Z,FC Koln,Schalke 04,0.565,0.225,0.21,FC Koln,0.574,Yes,0.494,Under 2.5,9.72,0.599,FC Koln,FC Koln,0.634,Yes,OK
+7,2026-10-23 00:00:00Z,Mainz,Werder Bremen,0.552,0.25,0.198,Mainz,0.558,Yes,0.446,Under 2.5,9.81,0.63,Mainz,Mainz,0.713,Yes,OK
+7,2026-10-23 00:00:00Z,Augsburg,Union Berlin,0.369,0.367,0.264,Augsburg,0.605,Yes,0.631,Over 2.5,9.97,0.616,Augsburg,Augsburg,0.616,Yes,OK
+7,2026-10-23 00:00:00Z,Freiburg,Bayern Munich,0.265,0.262,0.473,Bayern Munich,0.63,Yes,0.776,Over 2.5,9.6,0.287,Bayern Munich,Bayern Munich,0.658,Yes,OK
+7,2026-10-23 00:00:00Z,Hoffenheim,Leverkusen,0.473,0.298,0.229,Hoffenheim,0.615,Yes,0.783,Over 2.5,10.64,0.436,Leverkusen,Leverkusen,0.585,Yes,OK
+7,2026-10-23 00:00:00Z,Stuttgart,M'gladbach,0.674,0.181,0.145,Stuttgart,0.57,Yes,0.682,Over 2.5,10.05,0.677,Stuttgart,Stuttgart,0.803,Yes,OK
+7,2026-10-23 00:00:00Z,RB Leipzig,SV Elversberg,0.662,0.171,0.166,RB Leipzig,0.56,Yes,0.747,Over 2.5,9.17,0.613,RB Leipzig,RB Leipzig,0.748,Yes,Low (promoted/new team)
+7,2026-10-23 00:00:00Z,Borussia Dortmund,Ein Frankfurt,0.32,0.363,0.316,Draw,0.556,Yes,0.52,Over 2.5,9.38,0.356,Ein Frankfurt,Ein Frankfurt,0.583,Yes,Low (promoted/new team)
+8,2026-10-30 00:00:00Z,SV Elversberg,Mainz,0.326,0.361,0.313,Draw,0.58,Yes,0.549,Over 2.5,9.42,0.388,Mainz,Mainz,0.601,Yes,Low (promoted/new team)
+8,2026-10-30 00:00:00Z,Schalke 04,RB Leipzig,0.155,0.246,0.599,RB Leipzig,0.592,Yes,0.644,Over 2.5,9.79,0.313,RB Leipzig,RB Leipzig,0.703,Yes,OK
+8,2026-10-30 00:00:00Z,Werder Bremen,Hoffenheim,0.278,0.212,0.51,Hoffenheim,0.601,Yes,0.679,Over 2.5,9.74,0.364,Hoffenheim,Hoffenheim,0.696,Yes,OK
+8,2026-10-30 00:00:00Z,M'gladbach,Paderborn,0.586,0.246,0.168,M'gladbach,0.581,Yes,0.557,Over 2.5,9.81,0.585,M'gladbach,M'gladbach,0.765,Yes,OK
+8,2026-10-30 00:00:00Z,Union Berlin,FC Koln,0.473,0.279,0.248,Union Berlin,0.566,Yes,0.594,Over 2.5,9.76,0.625,Union Berlin,Union Berlin,0.582,Yes,OK
+8,2026-10-30 00:00:00Z,Augsburg,Freiburg,0.45,0.296,0.254,Augsburg,0.558,Yes,0.528,Over 2.5,9.67,0.516,Augsburg,Freiburg,0.556,Yes,OK
+8,2026-10-30 00:00:00Z,Ein Frankfurt,Hamburg,0.54,0.289,0.17,Ein Frankfurt,0.608,Yes,0.629,Over 2.5,10.02,0.634,Ein Frankfurt,Ein Frankfurt,0.682,Yes,OK
+8,2026-10-30 00:00:00Z,Leverkusen,Stuttgart,0.585,0.223,0.193,Leverkusen,0.593,Yes,0.746,Over 2.5,10.41,0.644,Leverkusen,Leverkusen,0.614,Yes,OK
+8,2026-10-30 00:00:00Z,Bayern Munich,Borussia Dortmund,0.746,0.117,0.137,Bayern Munich,0.551,Yes,0.797,Over 2.5,10.05,0.714,Bayern Munich,Bayern Munich,0.764,Yes,Low (promoted/new team)
+9,2026-11-06 00:00:00Z,Paderborn,Ein Frankfurt,0.291,0.248,0.461,Ein Frankfurt,0.579,Yes,0.603,Over 2.5,10.15,0.343,Ein Frankfurt,Ein Frankfurt,0.651,Yes,OK
+9,2026-11-06 00:00:00Z,FC Koln,Leverkusen,0.285,0.366,0.349,Draw,0.601,Yes,0.738,Over 2.5,10.24,0.329,Leverkusen,Leverkusen,0.665,Yes,OK
+9,2026-11-06 00:00:00Z,Hamburg,M'gladbach,0.369,0.305,0.326,Hamburg,0.571,Yes,0.533,Over 2.5,9.37,0.572,Hamburg,M'gladbach,0.602,Yes,OK
+9,2026-11-06 00:00:00Z,Mainz,Bayern Munich,0.269,0.199,0.532,Bayern Munich,0.613,Yes,0.74,Over 2.5,10.07,0.318,Bayern Munich,Bayern Munich,0.665,Yes,OK
+9,2026-11-06 00:00:00Z,Freiburg,Union Berlin,0.39,0.38,0.229,Freiburg,0.615,Yes,0.681,Over 2.5,9.66,0.611,Freiburg,Freiburg,0.684,Yes,OK
+9,2026-11-06 00:00:00Z,Hoffenheim,Schalke 04,0.741,0.152,0.108,Hoffenheim,0.573,Yes,0.7,Over 2.5,10.2,0.647,Hoffenheim,Hoffenheim,0.782,Yes,OK
+9,2026-11-06 00:00:00Z,Stuttgart,Werder Bremen,0.66,0.194,0.146,Stuttgart,0.584,Yes,0.623,Over 2.5,10.0,0.677,Stuttgart,Stuttgart,0.809,Yes,OK
+9,2026-11-06 00:00:00Z,RB Leipzig,Augsburg,0.615,0.264,0.121,RB Leipzig,0.595,Yes,0.793,Over 2.5,9.61,0.636,RB Leipzig,RB Leipzig,0.809,Yes,OK
+9,2026-11-06 00:00:00Z,Borussia Dortmund,SV Elversberg,0.354,0.23,0.416,SV Elversberg,0.549,Yes,0.611,Over 2.5,9.07,0.553,Borussia Dortmund,Borussia Dortmund,0.564,Yes,Low (promoted/new team)
+10,2026-11-20 00:00:00Z,SV Elversberg,Freiburg,0.351,0.302,0.347,SV Elversberg,0.532,Yes,0.529,Over 2.5,9.07,0.394,Freiburg,Freiburg,0.571,Yes,Low (promoted/new team)
+10,2026-11-20 00:00:00Z,Schalke 04,Stuttgart,0.2,0.284,0.516,Stuttgart,0.585,Yes,0.711,Over 2.5,10.73,0.356,Stuttgart,Stuttgart,0.707,Yes,OK
+10,2026-11-20 00:00:00Z,Werder Bremen,Hamburg,0.433,0.273,0.295,Werder Bremen,0.585,Yes,0.592,Over 2.5,9.98,0.515,Werder Bremen,Hamburg,0.613,Yes,OK
+10,2026-11-20 00:00:00Z,M'gladbach,Borussia Dortmund,0.468,0.219,0.313,M'gladbach,0.56,Yes,0.598,Over 2.5,9.28,0.544,M'gladbach,M'gladbach,0.507,Yes,Low (promoted/new team)
+10,2026-11-20 00:00:00Z,Union Berlin,RB Leipzig,0.391,0.323,0.286,Union Berlin,0.595,Yes,0.662,Over 2.5,10.0,0.4,RB Leipzig,RB Leipzig,0.582,Yes,OK
+10,2026-11-20 00:00:00Z,Augsburg,Mainz,0.378,0.375,0.246,Augsburg,0.605,Yes,0.602,Over 2.5,10.22,0.49,Mainz,Mainz,0.598,Yes,OK
+10,2026-11-20 00:00:00Z,Ein Frankfurt,Hoffenheim,0.43,0.243,0.327,Ein Frankfurt,0.621,Yes,0.711,Over 2.5,10.0,0.488,Hoffenheim,Hoffenheim,0.585,Yes,OK
+10,2026-11-20 00:00:00Z,Leverkusen,Paderborn,0.74,0.151,0.108,Leverkusen,0.571,Yes,0.75,Over 2.5,10.8,0.662,Leverkusen,Leverkusen,0.799,Yes,OK
+10,2026-11-20 00:00:00Z,Bayern Munich,FC Koln,0.757,0.12,0.123,Bayern Munich,0.547,Yes,0.738,Over 2.5,10.12,0.731,Bayern Munich,Bayern Munich,0.808,Yes,OK
+11,2026-11-27 00:00:00Z,Paderborn,Schalke 04,0.397,0.242,0.361,Paderborn,0.591,Yes,0.491,Under 2.5,10.12,0.479,Schalke 04,Schalke 04,0.631,Yes,OK
+11,2026-11-27 00:00:00Z,Werder Bremen,M'gladbach,0.417,0.24,0.343,Werder Bremen,0.552,Yes,0.467,Under 2.5,9.75,0.495,M'gladbach,M'gladbach,0.569,Yes,OK
+11,2026-11-27 00:00:00Z,FC Koln,SV Elversberg,0.425,0.206,0.369,FC Koln,0.567,Yes,0.695,Over 2.5,9.23,0.394,SV Elversberg,SV Elversberg,0.55,Yes,Low (promoted/new team)
+11,2026-11-27 00:00:00Z,Hamburg,Bayern Munich,0.184,0.207,0.609,Bayern Munich,0.619,Yes,0.692,Over 2.5,9.4,0.254,Bayern Munich,Bayern Munich,0.738,Yes,OK
+11,2026-11-27 00:00:00Z,Mainz,Union Berlin,0.388,0.347,0.265,Mainz,0.602,Yes,0.62,Over 2.5,9.88,0.622,Mainz,Mainz,0.694,Yes,OK
+11,2026-11-27 00:00:00Z,Freiburg,RB Leipzig,0.372,0.324,0.304,Freiburg,0.615,Yes,0.685,Over 2.5,9.45,0.365,RB Leipzig,RB Leipzig,0.584,Yes,OK
+11,2026-11-27 00:00:00Z,Hoffenheim,Augsburg,0.617,0.246,0.138,Hoffenheim,0.601,Yes,0.767,Over 2.5,10.04,0.642,Hoffenheim,Hoffenheim,0.72,Yes,OK
+11,2026-11-27 00:00:00Z,Stuttgart,Ein Frankfurt,0.581,0.253,0.166,Stuttgart,0.593,Yes,0.64,Over 2.5,10.2,0.673,Stuttgart,Stuttgart,0.78,Yes,OK
+11,2026-11-27 00:00:00Z,Borussia Dortmund,Leverkusen,0.245,0.345,0.41,Leverkusen,0.577,Yes,0.711,Over 2.5,9.72,0.298,Leverkusen,Leverkusen,0.648,Yes,Low (promoted/new team)
+12,2026-12-04 00:00:00Z,SV Elversberg,Stuttgart,0.284,0.378,0.338,Draw,0.576,Yes,0.693,Over 2.5,9.84,0.346,Stuttgart,Stuttgart,0.654,Yes,Low (promoted/new team)
+12,2026-12-04 00:00:00Z,Schalke 04,Borussia Dortmund,0.29,0.173,0.537,Borussia Dortmund,0.576,Yes,0.546,Over 2.5,9.68,0.351,Borussia Dortmund,Borussia Dortmund,0.56,Yes,Low (promoted/new team)
+12,2026-12-04 00:00:00Z,Union Berlin,Hamburg,0.5,0.324,0.177,Union Berlin,0.596,Yes,0.538,Over 2.5,10.3,0.602,Union Berlin,Hamburg,0.552,Yes,OK
+12,2026-12-04 00:00:00Z,Augsburg,FC Koln,0.461,0.285,0.255,Augsburg,0.576,Yes,0.622,Over 2.5,9.51,0.623,Augsburg,Augsburg,0.713,Yes,OK
+12,2026-12-04 00:00:00Z,Ein Frankfurt,Werder Bremen,0.574,0.255,0.171,Ein Frankfurt,0.579,Yes,0.528,Over 2.5,9.75,0.636,Ein Frankfurt,Ein Frankfurt,0.711,Yes,OK
+12,2026-12-04 00:00:00Z,Freiburg,Hoffenheim,0.403,0.272,0.325,Freiburg,0.618,Yes,0.688,Over 2.5,9.87,0.436,Hoffenheim,Hoffenheim,0.581,Yes,OK
+12,2026-12-04 00:00:00Z,Leverkusen,M'gladbach,0.743,0.143,0.114,Leverkusen,0.543,Yes,0.706,Over 2.5,9.87,0.668,Leverkusen,Leverkusen,0.792,Yes,OK
+12,2026-12-04 00:00:00Z,RB Leipzig,Mainz,0.579,0.287,0.134,RB Leipzig,0.601,Yes,0.695,Over 2.5,9.81,0.64,RB Leipzig,RB Leipzig,0.781,Yes,OK
+12,2026-12-04 00:00:00Z,Bayern Munich,Paderborn,0.813,0.116,0.07,Bayern Munich,0.559,Yes,0.818,Over 2.5,10.75,0.728,Bayern Munich,Bayern Munich,0.811,Yes,OK
+13,2026-12-11 00:00:00Z,Paderborn,SV Elversberg,0.344,0.15,0.507,SV Elversberg,0.575,Yes,0.45,Under 2.5,9.66,0.341,SV Elversberg,SV Elversberg,0.605,Yes,Low (promoted/new team)
+13,2026-12-11 00:00:00Z,Werder Bremen,Leverkusen,0.217,0.32,0.462,Leverkusen,0.593,Yes,0.657,Over 2.5,9.94,0.331,Leverkusen,Leverkusen,0.718,Yes,OK
+13,2026-12-11 00:00:00Z,FC Koln,RB Leipzig,0.312,0.32,0.369,RB Leipzig,0.598,Yes,0.671,Over 2.5,9.35,0.341,RB Leipzig,RB Leipzig,0.675,Yes,OK
+13,2026-12-11 00:00:00Z,Hamburg,Schalke 04,0.548,0.236,0.217,Hamburg,0.585,Yes,0.515,Over 2.5,9.79,0.583,Hamburg,Hamburg,0.778,Yes,OK
+13,2026-12-11 00:00:00Z,M'gladbach,Ein Frankfurt,0.396,0.36,0.244,M'gladbach,0.594,Yes,0.575,Over 2.5,9.82,0.429,Ein Frankfurt,Ein Frankfurt,0.533,Yes,OK
+13,2026-12-11 00:00:00Z,Mainz,Freiburg,0.436,0.298,0.266,Mainz,0.556,Yes,0.525,Over 2.5,9.77,0.609,Mainz,Freiburg,0.498,No,OK
+13,2026-12-11 00:00:00Z,Hoffenheim,Bayern Munich,0.374,0.236,0.39,Bayern Munich,0.616,Yes,0.79,Over 2.5,10.13,0.371,Bayern Munich,Bayern Munich,0.612,Yes,OK
+13,2026-12-11 00:00:00Z,Stuttgart,Union Berlin,0.542,0.271,0.186,Stuttgart,0.618,Yes,0.689,Over 2.5,9.95,0.67,Stuttgart,Stuttgart,0.779,Yes,OK
+13,2026-12-11 00:00:00Z,Borussia Dortmund,Augsburg,0.355,0.385,0.259,Draw,0.572,Yes,0.635,Over 2.5,9.26,0.571,Borussia Dortmund,Augsburg,0.637,Yes,Low (promoted/new team)
+14,2026-12-18 00:00:00Z,SV Elversberg,Hamburg,0.425,0.305,0.27,SV Elversberg,0.574,Yes,0.579,Over 2.5,9.42,0.575,SV Elversberg,SV Elversberg,0.638,Yes,Low (promoted/new team)
+14,2026-12-18 00:00:00Z,Schalke 04,M'gladbach,0.246,0.265,0.489,M'gladbach,0.562,Yes,0.456,Under 2.5,10.16,0.382,M'gladbach,M'gladbach,0.622,Yes,OK
+14,2026-12-18 00:00:00Z,Union Berlin,Hoffenheim,0.42,0.275,0.304,Union Berlin,0.594,Yes,0.699,Over 2.5,10.3,0.394,Hoffenheim,Hoffenheim,0.584,Yes,OK
+14,2026-12-18 00:00:00Z,Mainz,FC Koln,0.506,0.236,0.258,Mainz,0.56,Yes,0.601,Over 2.5,9.48,0.625,Mainz,Mainz,0.762,Yes,OK
+14,2026-12-18 00:00:00Z,Augsburg,Paderborn,0.543,0.293,0.165,Augsburg,0.575,Yes,0.559,Over 2.5,10.18,0.62,Augsburg,Augsburg,0.784,Yes,OK
+14,2026-12-18 00:00:00Z,Freiburg,Stuttgart,0.397,0.355,0.248,Freiburg,0.615,Yes,0.753,Over 2.5,10.3,0.409,Stuttgart,Stuttgart,0.596,Yes,OK
+14,2026-12-18 00:00:00Z,Leverkusen,Ein Frankfurt,0.639,0.198,0.164,Leverkusen,0.573,Yes,0.664,Over 2.5,10.02,0.667,Leverkusen,Leverkusen,0.794,Yes,OK
+14,2026-12-18 00:00:00Z,RB Leipzig,Borussia Dortmund,0.662,0.171,0.166,RB Leipzig,0.56,Yes,0.747,Over 2.5,9.17,0.613,RB Leipzig,RB Leipzig,0.748,Yes,Low (promoted/new team)
+14,2026-12-18 00:00:00Z,Bayern Munich,Werder Bremen,0.779,0.134,0.087,Bayern Munich,0.546,Yes,0.629,Over 2.5,10.5,0.733,Bayern Munich,Bayern Munich,0.811,Yes,OK
+15,2027-01-08 00:00:00Z,Paderborn,RB Leipzig,0.182,0.198,0.62,RB Leipzig,0.596,Yes,0.675,Over 2.5,9.7,0.304,RB Leipzig,RB Leipzig,0.731,Yes,OK
+15,2027-01-08 00:00:00Z,Werder Bremen,Union Berlin,0.298,0.292,0.41,Union Berlin,0.598,Yes,0.646,Over 2.5,9.7,0.577,Werder Bremen,Union Berlin,0.643,Yes,OK
+15,2027-01-08 00:00:00Z,FC Koln,Freiburg,0.422,0.28,0.298,FC Koln,0.54,Yes,0.532,Over 2.5,9.46,0.441,Freiburg,Freiburg,0.583,Yes,OK
+15,2027-01-08 00:00:00Z,Hamburg,Leverkusen,0.224,0.373,0.403,Leverkusen,0.609,Yes,0.67,Over 2.5,9.64,0.299,Leverkusen,Leverkusen,0.708,Yes,OK
+15,2027-01-08 00:00:00Z,M'gladbach,Bayern Munich,0.277,0.238,0.485,Bayern Munich,0.621,Yes,0.723,Over 2.5,9.75,0.256,Bayern Munich,Bayern Munich,0.667,Yes,OK
+15,2027-01-08 00:00:00Z,Ein Frankfurt,Schalke 04,0.672,0.197,0.132,Ein Frankfurt,0.58,Yes,0.541,Over 2.5,9.97,0.636,Ein Frankfurt,Ein Frankfurt,0.761,Yes,OK
+15,2027-01-08 00:00:00Z,Hoffenheim,SV Elversberg,0.682,0.137,0.181,Hoffenheim,0.558,Yes,0.726,Over 2.5,9.77,0.627,Hoffenheim,Hoffenheim,0.667,Yes,Low (promoted/new team)
+15,2027-01-08 00:00:00Z,Stuttgart,Augsburg,0.628,0.224,0.148,Stuttgart,0.604,Yes,0.763,Over 2.5,9.95,0.672,Stuttgart,Stuttgart,0.799,Yes,OK
+15,2027-01-08 00:00:00Z,Borussia Dortmund,Mainz,0.326,0.361,0.313,Draw,0.58,Yes,0.549,Over 2.5,9.42,0.388,Mainz,Mainz,0.601,Yes,Low (promoted/new team)
+16,2027-01-12 00:00:00Z,SV Elversberg,Ein Frankfurt,0.32,0.363,0.316,Draw,0.556,Yes,0.52,Over 2.5,9.38,0.356,Ein Frankfurt,Ein Frankfurt,0.583,Yes,Low (promoted/new team)
+16,2027-01-12 00:00:00Z,Schalke 04,Werder Bremen,0.249,0.267,0.484,Werder Bremen,0.578,Yes,0.517,Over 2.5,9.92,0.39,Werder Bremen,Werder Bremen,0.569,Yes,OK
+16,2027-01-12 00:00:00Z,FC Koln,Borussia Dortmund,0.425,0.206,0.369,FC Koln,0.567,Yes,0.695,Over 2.5,9.23,0.394,Borussia Dortmund,Borussia Dortmund,0.55,Yes,Low (promoted/new team)
+16,2027-01-12 00:00:00Z,Union Berlin,Paderborn,0.587,0.259,0.154,Union Berlin,0.575,Yes,0.569,Over 2.5,10.22,0.623,Union Berlin,Union Berlin,0.779,Yes,OK
+16,2027-01-12 00:00:00Z,Mainz,Hoffenheim,0.395,0.236,0.369,Mainz,0.59,Yes,0.716,Over 2.5,10.03,0.452,Hoffenheim,Hoffenheim,0.585,Yes,OK
+16,2027-01-12 00:00:00Z,Augsburg,M'gladbach,0.516,0.264,0.219,Augsburg,0.557,Yes,0.566,Over 2.5,10.13,0.608,Augsburg,Augsburg,0.584,Yes,OK
+16,2027-01-12 00:00:00Z,Freiburg,Hamburg,0.54,0.285,0.175,Freiburg,0.596,Yes,0.63,Over 2.5,10.08,0.615,Freiburg,Freiburg,0.665,Yes,OK
+16,2027-01-12 00:00:00Z,RB Leipzig,Stuttgart,0.536,0.294,0.17,RB Leipzig,0.592,Yes,0.694,Over 2.5,10.13,0.607,RB Leipzig,Stuttgart,0.626,Yes,OK
+16,2027-01-12 00:00:00Z,Bayern Munich,Leverkusen,0.653,0.203,0.144,Bayern Munich,0.589,Yes,0.814,Over 2.5,10.28,0.73,Bayern Munich,Bayern Munich,0.783,Yes,OK
+17,2027-01-15 00:00:00Z,Paderborn,FC Koln,0.263,0.238,0.499,FC Koln,0.578,Yes,0.59,Over 2.5,9.64,0.369,FC Koln,FC Koln,0.648,Yes,OK
+17,2027-01-15 00:00:00Z,Werder Bremen,SV Elversberg,0.392,0.167,0.441,SV Elversberg,0.563,Yes,0.536,Over 2.5,9.33,0.452,SV Elversberg,SV Elversberg,0.582,Yes,Low (promoted/new team)
+17,2027-01-15 00:00:00Z,Hamburg,Augsburg,0.332,0.386,0.282,Draw,0.613,Yes,0.586,Over 2.5,9.17,0.562,Hamburg,Augsburg,0.651,Yes,OK
+17,2027-01-15 00:00:00Z,M'gladbach,Union Berlin,0.336,0.371,0.293,Draw,0.614,Yes,0.602,Over 2.5,9.62,0.581,M'gladbach,M'gladbach,0.569,Yes,OK
+17,2027-01-15 00:00:00Z,Ein Frankfurt,Bayern Munich,0.312,0.225,0.464,Bayern Munich,0.638,Yes,0.739,Over 2.5,9.97,0.339,Bayern Munich,Bayern Munich,0.659,Yes,OK
+17,2027-01-15 00:00:00Z,Leverkusen,Schalke 04,0.774,0.137,0.09,Leverkusen,0.557,Yes,0.757,Over 2.5,9.95,0.667,Leverkusen,Leverkusen,0.804,Yes,OK
+17,2027-01-15 00:00:00Z,Hoffenheim,RB Leipzig,0.489,0.253,0.258,Hoffenheim,0.598,Yes,0.736,Over 2.5,10.07,0.44,RB Leipzig,RB Leipzig,0.552,Yes,OK
+17,2027-01-15 00:00:00Z,Stuttgart,Mainz,0.578,0.252,0.17,Stuttgart,0.611,Yes,0.688,Over 2.5,10.29,0.674,Stuttgart,Stuttgart,0.785,Yes,OK
+17,2027-01-15 00:00:00Z,Borussia Dortmund,Freiburg,0.351,0.302,0.347,Borussia Dortmund,0.532,Yes,0.529,Over 2.5,9.07,0.394,Freiburg,Freiburg,0.571,Yes,Low (promoted/new team)
+18,2027-01-22 00:00:00Z,Paderborn,Mainz,0.255,0.275,0.47,Mainz,0.604,Yes,0.544,Over 2.5,10.14,0.36,Mainz,Mainz,0.689,Yes,OK
+18,2027-01-22 00:00:00Z,Schalke 04,Augsburg,0.233,0.298,0.469,Augsburg,0.601,Yes,0.613,Over 2.5,10.09,0.386,Augsburg,Augsburg,0.674,Yes,OK
+18,2027-01-22 00:00:00Z,Werder Bremen,Freiburg,0.352,0.275,0.372,Freiburg,0.553,Yes,0.456,Under 2.5,9.48,0.442,Freiburg,Freiburg,0.57,Yes,OK
+18,2027-01-22 00:00:00Z,Hamburg,Borussia Dortmund,0.407,0.186,0.407,Borussia Dortmund,0.568,Yes,0.6,Over 2.5,9.27,0.54,Hamburg,Borussia Dortmund,0.56,Yes,Low (promoted/new team)
+18,2027-01-22 00:00:00Z,M'gladbach,RB Leipzig,0.355,0.315,0.33,M'gladbach,0.612,Yes,0.611,Over 2.5,9.48,0.323,RB Leipzig,RB Leipzig,0.597,Yes,OK
+18,2027-01-22 00:00:00Z,Ein Frankfurt,Union Berlin,0.469,0.302,0.229,Ein Frankfurt,0.615,Yes,0.7,Over 2.5,9.9,0.628,Ein Frankfurt,Ein Frankfurt,0.677,Yes,OK
+18,2027-01-22 00:00:00Z,Leverkusen,SV Elversberg,0.699,0.127,0.174,Leverkusen,0.558,Yes,0.76,Over 2.5,9.29,0.644,Leverkusen,Leverkusen,0.76,Yes,Low (promoted/new team)
+18,2027-01-22 00:00:00Z,Hoffenheim,FC Koln,0.629,0.192,0.179,Hoffenheim,0.565,Yes,0.756,Over 2.5,9.71,0.641,Hoffenheim,Hoffenheim,0.756,Yes,OK
+18,2027-01-22 00:00:00Z,Stuttgart,Bayern Munich,0.352,0.242,0.406,Bayern Munich,0.638,Yes,0.799,Over 2.5,9.75,0.393,Bayern Munich,Bayern Munich,0.652,Yes,OK
+19,2027-01-29 00:00:00Z,SV Elversberg,M'gladbach,0.404,0.278,0.318,SV Elversberg,0.531,Yes,0.516,Over 2.5,9.29,0.586,SV Elversberg,M'gladbach,0.595,Yes,Low (promoted/new team)
+19,2027-01-29 00:00:00Z,FC Koln,Stuttgart,0.32,0.378,0.302,Draw,0.599,Yes,0.726,Over 2.5,10.16,0.392,Stuttgart,Stuttgart,0.668,Yes,OK
+19,2027-01-29 00:00:00Z,Union Berlin,Leverkusen,0.321,0.399,0.28,Draw,0.609,Yes,0.692,Over 2.5,10.48,0.375,Leverkusen,Leverkusen,0.603,Yes,OK
+19,2027-01-29 00:00:00Z,Mainz,Hamburg,0.492,0.321,0.186,Mainz,0.582,Yes,0.579,Over 2.5,10.05,0.625,Mainz,Mainz,0.658,Yes,OK
+19,2027-01-29 00:00:00Z,Augsburg,Ein Frankfurt,0.396,0.376,0.228,Augsburg,0.584,Yes,0.575,Over 2.5,9.95,0.482,Ein Frankfurt,Ein Frankfurt,0.56,Yes,OK
+19,2027-01-29 00:00:00Z,Freiburg,Paderborn,0.602,0.246,0.152,Freiburg,0.581,Yes,0.595,Over 2.5,9.91,0.615,Freiburg,Freiburg,0.765,Yes,OK
+19,2027-01-29 00:00:00Z,RB Leipzig,Werder Bremen,0.655,0.22,0.125,RB Leipzig,0.572,Yes,0.634,Over 2.5,9.58,0.641,RB Leipzig,RB Leipzig,0.81,Yes,OK
+19,2027-01-29 00:00:00Z,Borussia Dortmund,Hoffenheim,0.271,0.273,0.456,Hoffenheim,0.56,Yes,0.719,Over 2.5,9.42,0.33,Hoffenheim,Hoffenheim,0.636,Yes,Low (promoted/new team)
+19,2027-01-29 00:00:00Z,Bayern Munich,Schalke 04,0.842,0.095,0.064,Bayern Munich,0.541,Yes,0.71,Over 2.5,10.55,0.732,Bayern Munich,Bayern Munich,0.814,Yes,OK
+20,2027-02-05 00:00:00Z,Paderborn,Borussia Dortmund,0.344,0.15,0.507,Borussia Dortmund,0.575,Yes,0.45,Under 2.5,9.66,0.341,Borussia Dortmund,Borussia Dortmund,0.605,Yes,Low (promoted/new team)
+20,2027-02-05 00:00:00Z,Schalke 04,Union Berlin,0.186,0.295,0.52,Union Berlin,0.607,Yes,0.598,Over 2.5,9.94,0.361,Union Berlin,Union Berlin,0.664,Yes,OK
+20,2027-02-05 00:00:00Z,Werder Bremen,FC Koln,0.352,0.218,0.43,FC Koln,0.56,Yes,0.605,Over 2.5,9.19,0.604,Werder Bremen,Werder Bremen,0.617,Yes,OK
+20,2027-02-05 00:00:00Z,Hamburg,RB Leipzig,0.248,0.308,0.444,RB Leipzig,0.604,Yes,0.608,Over 2.5,9.25,0.314,RB Leipzig,RB Leipzig,0.67,Yes,OK
+20,2027-02-05 00:00:00Z,M'gladbach,Freiburg,0.424,0.301,0.276,M'gladbach,0.562,Yes,0.512,Over 2.5,9.55,0.464,Freiburg,Freiburg,0.512,Yes,OK
+20,2027-02-05 00:00:00Z,Ein Frankfurt,Mainz,0.441,0.341,0.218,Ein Frankfurt,0.614,Yes,0.644,Over 2.5,10.1,0.61,Ein Frankfurt,Ein Frankfurt,0.558,Yes,OK
+20,2027-02-05 00:00:00Z,Leverkusen,Augsburg,0.677,0.194,0.129,Leverkusen,0.589,Yes,0.779,Over 2.5,9.77,0.663,Leverkusen,Leverkusen,0.8,Yes,OK
+20,2027-02-05 00:00:00Z,Stuttgart,Hoffenheim,0.511,0.249,0.24,Stuttgart,0.609,Yes,0.702,Over 2.5,10.29,0.66,Stuttgart,Stuttgart,0.733,Yes,OK
+20,2027-02-05 00:00:00Z,Bayern Munich,SV Elversberg,0.746,0.117,0.137,Bayern Munich,0.551,Yes,0.797,Over 2.5,10.05,0.714,Bayern Munich,Bayern Munich,0.764,Yes,Low (promoted/new team)
+21,2027-02-12 00:00:00Z,SV Elversberg,Schalke 04,0.543,0.245,0.211,SV Elversberg,0.568,Yes,0.503,Over 2.5,9.41,0.591,SV Elversberg,SV Elversberg,0.746,Yes,Low (promoted/new team)
+21,2027-02-12 00:00:00Z,FC Koln,Hamburg,0.515,0.27,0.215,FC Koln,0.588,Yes,0.643,Over 2.5,9.95,0.466,Hamburg,Hamburg,0.606,Yes,OK
+21,2027-02-12 00:00:00Z,Union Berlin,Bayern Munich,0.28,0.254,0.466,Bayern Munich,0.62,Yes,0.775,Over 2.5,9.96,0.339,Bayern Munich,Bayern Munich,0.648,Yes,OK
+21,2027-02-12 00:00:00Z,Mainz,M'gladbach,0.522,0.244,0.234,Mainz,0.545,Yes,0.563,Over 2.5,9.98,0.63,Mainz,Mainz,0.573,Yes,OK
+21,2027-02-12 00:00:00Z,Augsburg,Werder Bremen,0.461,0.316,0.223,Augsburg,0.567,Yes,0.557,Over 2.5,9.74,0.63,Augsburg,Augsburg,0.579,Yes,OK
+21,2027-02-12 00:00:00Z,Freiburg,Ein Frankfurt,0.418,0.372,0.21,Freiburg,0.6,Yes,0.65,Over 2.5,9.76,0.595,Freiburg,Ein Frankfurt,0.531,Yes,OK
+21,2027-02-12 00:00:00Z,Hoffenheim,Paderborn,0.713,0.167,0.12,Hoffenheim,0.57,Yes,0.741,Over 2.5,10.34,0.64,Hoffenheim,Hoffenheim,0.786,Yes,OK
+21,2027-02-12 00:00:00Z,RB Leipzig,Leverkusen,0.467,0.32,0.213,RB Leipzig,0.62,Yes,0.789,Over 2.5,10.11,0.501,RB Leipzig,Leverkusen,0.621,Yes,OK
+21,2027-02-12 00:00:00Z,Borussia Dortmund,Stuttgart,0.284,0.378,0.338,Draw,0.576,Yes,0.693,Over 2.5,9.84,0.346,Stuttgart,Stuttgart,0.654,Yes,Low (promoted/new team)
+22,2027-02-19 00:00:00Z,SV Elversberg,Union Berlin,0.284,0.361,0.355,Draw,0.577,Yes,0.611,Over 2.5,9.23,0.57,SV Elversberg,SV Elversberg,0.621,Yes,Low (promoted/new team)
+22,2027-02-19 00:00:00Z,Schalke 04,Freiburg,0.205,0.269,0.526,Freiburg,0.565,Yes,0.492,Under 2.5,9.86,0.409,Freiburg,Freiburg,0.626,Yes,OK
+22,2027-02-19 00:00:00Z,Werder Bremen,Borussia Dortmund,0.392,0.167,0.441,Borussia Dortmund,0.563,Yes,0.536,Over 2.5,9.33,0.452,Borussia Dortmund,Borussia Dortmund,0.582,Yes,Low (promoted/new team)
+22,2027-02-19 00:00:00Z,Hamburg,Hoffenheim,0.278,0.288,0.434,Hoffenheim,0.615,Yes,0.711,Over 2.5,9.41,0.314,Hoffenheim,Hoffenheim,0.669,Yes,OK
+22,2027-02-19 00:00:00Z,M'gladbach,FC Koln,0.489,0.261,0.25,M'gladbach,0.584,Yes,0.574,Over 2.5,9.19,0.587,M'gladbach,M'gladbach,0.687,Yes,OK
+22,2027-02-19 00:00:00Z,Ein Frankfurt,RB Leipzig,0.383,0.284,0.333,Ein Frankfurt,0.619,Yes,0.686,Over 2.5,9.53,0.409,RB Leipzig,RB Leipzig,0.565,Yes,OK
+22,2027-02-19 00:00:00Z,Leverkusen,Mainz,0.646,0.207,0.148,Leverkusen,0.591,Yes,0.697,Over 2.5,10.1,0.664,Leverkusen,Leverkusen,0.792,Yes,OK
+22,2027-02-19 00:00:00Z,Stuttgart,Paderborn,0.706,0.178,0.116,Stuttgart,0.597,Yes,0.699,Over 2.5,10.48,0.671,Stuttgart,Stuttgart,0.806,Yes,OK
+22,2027-02-19 00:00:00Z,Bayern Munich,Augsburg,0.742,0.166,0.092,Bayern Munich,0.57,Yes,0.801,Over 2.5,10.39,0.734,Bayern Munich,Bayern Munich,0.817,Yes,OK
+23,2027-02-26 00:00:00Z,Paderborn,Werder Bremen,0.307,0.235,0.458,Werder Bremen,0.577,Yes,0.48,Under 2.5,9.87,0.373,Werder Bremen,Werder Bremen,0.612,Yes,OK
+23,2027-02-26 00:00:00Z,FC Koln,Ein Frankfurt,0.422,0.316,0.263,FC Koln,0.577,Yes,0.634,Over 2.5,9.79,0.408,Ein Frankfurt,Ein Frankfurt,0.585,Yes,OK
+23,2027-02-26 00:00:00Z,Mainz,Schalke 04,0.595,0.234,0.171,Mainz,0.565,Yes,0.546,Over 2.5,9.92,0.63,Mainz,Mainz,0.787,Yes,OK
+23,2027-02-26 00:00:00Z,Augsburg,SV Elversberg,0.489,0.193,0.318,Augsburg,0.562,Yes,0.588,Over 2.5,9.51,0.578,Augsburg,Augsburg,0.538,Yes,Low (promoted/new team)
+23,2027-02-26 00:00:00Z,Freiburg,Leverkusen,0.332,0.375,0.294,Draw,0.62,Yes,0.727,Over 2.5,10.26,0.365,Leverkusen,Leverkusen,0.581,Yes,OK
+23,2027-02-26 00:00:00Z,Hoffenheim,M'gladbach,0.678,0.187,0.135,Hoffenheim,0.555,Yes,0.694,Over 2.5,10.29,0.648,Hoffenheim,Hoffenheim,0.71,Yes,OK
+23,2027-02-26 00:00:00Z,Stuttgart,Hamburg,0.689,0.201,0.111,Stuttgart,0.601,Yes,0.693,Over 2.5,10.33,0.676,Stuttgart,Stuttgart,0.808,Yes,OK
+23,2027-02-26 00:00:00Z,RB Leipzig,Bayern Munich,0.351,0.262,0.388,Bayern Munich,0.624,Yes,0.812,Over 2.5,9.46,0.384,Bayern Munich,Bayern Munich,0.643,Yes,OK
+23,2027-02-26 00:00:00Z,Borussia Dortmund,Union Berlin,0.284,0.361,0.355,Draw,0.577,Yes,0.611,Over 2.5,9.23,0.57,Borussia Dortmund,Borussia Dortmund,0.621,Yes,Low (promoted/new team)
+24,2027-03-02 00:00:00Z,SV Elversberg,RB Leipzig,0.296,0.287,0.417,RB Leipzig,0.572,Yes,0.663,Over 2.5,9.19,0.318,RB Leipzig,RB Leipzig,0.631,Yes,Low (promoted/new team)
+24,2027-03-02 00:00:00Z,Schalke 04,FC Koln,0.213,0.268,0.519,FC Koln,0.578,Yes,0.566,Over 2.5,9.66,0.399,FC Koln,FC Koln,0.589,Yes,OK
+24,2027-03-02 00:00:00Z,Werder Bremen,Mainz,0.313,0.327,0.36,Mainz,0.591,Yes,0.528,Over 2.5,9.98,0.416,Mainz,Mainz,0.632,Yes,OK
+24,2027-03-02 00:00:00Z,Hamburg,Paderborn,0.516,0.24,0.243,Hamburg,0.583,Yes,0.539,Over 2.5,9.85,0.577,Hamburg,Hamburg,0.785,Yes,OK
+24,2027-03-02 00:00:00Z,M'gladbach,Stuttgart,0.343,0.362,0.295,Draw,0.604,Yes,0.695,Over 2.5,10.28,0.369,Stuttgart,Stuttgart,0.622,Yes,OK
+24,2027-03-02 00:00:00Z,Union Berlin,Augsburg,0.453,0.368,0.179,Union Berlin,0.598,Yes,0.59,Over 2.5,10.22,0.508,Union Berlin,Augsburg,0.548,Yes,OK
+24,2027-03-02 00:00:00Z,Ein Frankfurt,Borussia Dortmund,0.542,0.196,0.263,Ein Frankfurt,0.567,Yes,0.642,Over 2.5,9.37,0.607,Ein Frankfurt,Ein Frankfurt,0.553,Yes,Low (promoted/new team)
+24,2027-03-02 00:00:00Z,Leverkusen,Hoffenheim,0.569,0.205,0.226,Leverkusen,0.593,Yes,0.763,Over 2.5,10.12,0.653,Leverkusen,Leverkusen,0.76,Yes,OK
+24,2027-03-02 00:00:00Z,Bayern Munich,Freiburg,0.76,0.143,0.097,Bayern Munich,0.512,Yes,0.629,Over 2.5,9.5,0.735,Bayern Munich,Bayern Munich,0.825,Yes,OK
+25,2027-03-05 00:00:00Z,Paderborn,M'gladbach,0.303,0.226,0.471,M'gladbach,0.579,Yes,0.48,Under 2.5,10.04,0.381,M'gladbach,M'gladbach,0.625,Yes,OK
+25,2027-03-05 00:00:00Z,FC Koln,Union Berlin,0.341,0.348,0.31,Draw,0.601,Yes,0.643,Over 2.5,9.51,0.47,Union Berlin,Union Berlin,0.602,Yes,OK
+25,2027-03-05 00:00:00Z,Hamburg,Ein Frankfurt,0.34,0.341,0.319,Draw,0.591,Yes,0.594,Over 2.5,9.67,0.356,Ein Frankfurt,Ein Frankfurt,0.587,Yes,OK
+25,2027-03-05 00:00:00Z,Mainz,SV Elversberg,0.51,0.182,0.308,Mainz,0.565,Yes,0.548,Over 2.5,9.44,0.604,Mainz,Mainz,0.558,Yes,Low (promoted/new team)
+25,2027-03-05 00:00:00Z,Freiburg,Augsburg,0.455,0.359,0.186,Freiburg,0.608,Yes,0.643,Over 2.5,9.75,0.614,Freiburg,Freiburg,0.609,Yes,OK
+25,2027-03-05 00:00:00Z,Hoffenheim,Werder Bremen,0.656,0.202,0.143,Hoffenheim,0.567,Yes,0.661,Over 2.5,9.94,0.647,Hoffenheim,Hoffenheim,0.767,Yes,OK
+25,2027-03-05 00:00:00Z,Stuttgart,Leverkusen,0.486,0.272,0.242,Stuttgart,0.626,Yes,0.805,Over 2.5,10.38,0.559,Stuttgart,Leverkusen,0.607,Yes,OK
+25,2027-03-05 00:00:00Z,RB Leipzig,Schalke 04,0.761,0.155,0.084,RB Leipzig,0.554,Yes,0.642,Over 2.5,9.61,0.642,RB Leipzig,RB Leipzig,0.808,Yes,OK
+25,2027-03-05 00:00:00Z,Borussia Dortmund,Bayern Munich,0.186,0.223,0.591,Bayern Munich,0.585,Yes,0.7,Over 2.5,9.67,0.282,Bayern Munich,Bayern Munich,0.684,Yes,Low (promoted/new team)
+26,2027-03-12 00:00:00Z,SV Elversberg,Borussia Dortmund,0.354,0.23,0.416,Borussia Dortmund,0.549,Yes,0.611,Over 2.5,9.07,0.553,SV Elversberg,SV Elversberg,0.564,Yes,Low (promoted/new team)
+26,2027-03-12 00:00:00Z,Schalke 04,Hoffenheim,0.159,0.217,0.623,Hoffenheim,0.603,Yes,0.677,Over 2.5,10.06,0.319,Hoffenheim,Hoffenheim,0.694,Yes,OK
+26,2027-03-12 00:00:00Z,Werder Bremen,Stuttgart,0.282,0.305,0.413,Stuttgart,0.585,Yes,0.691,Over 2.5,10.29,0.38,Stuttgart,Stuttgart,0.707,Yes,OK
+26,2027-03-12 00:00:00Z,M'gladbach,Hamburg,0.454,0.349,0.197,M'gladbach,0.603,Yes,0.539,Over 2.5,9.72,0.569,M'gladbach,M'gladbach,0.587,Yes,OK
+26,2027-03-12 00:00:00Z,Union Berlin,Freiburg,0.488,0.283,0.23,Union Berlin,0.553,Yes,0.528,Over 2.5,9.89,0.461,Freiburg,Freiburg,0.502,Yes,OK
+26,2027-03-12 00:00:00Z,Augsburg,RB Leipzig,0.336,0.343,0.321,Draw,0.6,Yes,0.661,Over 2.5,9.55,0.382,RB Leipzig,RB Leipzig,0.648,Yes,OK
+26,2027-03-12 00:00:00Z,Ein Frankfurt,Paderborn,0.633,0.214,0.153,Ein Frankfurt,0.584,Yes,0.589,Over 2.5,10.06,0.628,Ein Frankfurt,Ein Frankfurt,0.761,Yes,OK
+26,2027-03-12 00:00:00Z,Leverkusen,FC Koln,0.674,0.158,0.168,Leverkusen,0.568,Yes,0.74,Over 2.5,9.48,0.664,Leverkusen,Leverkusen,0.795,Yes,OK
+26,2027-03-12 00:00:00Z,Bayern Munich,Mainz,0.714,0.186,0.1,Bayern Munich,0.566,Yes,0.705,Over 2.5,10.13,0.731,Bayern Munich,Bayern Munich,0.814,Yes,OK
+27,2027-03-19 00:00:00Z,Paderborn,Leverkusen,0.178,0.238,0.584,Leverkusen,0.594,Yes,0.699,Over 2.5,10.24,0.298,Leverkusen,Leverkusen,0.721,Yes,OK
+27,2027-03-19 00:00:00Z,FC Koln,Bayern Munich,0.217,0.203,0.58,Bayern Munich,0.621,Yes,0.741,Over 2.5,9.54,0.306,Bayern Munich,Bayern Munich,0.713,Yes,OK
+27,2027-03-19 00:00:00Z,Hamburg,Werder Bremen,0.395,0.29,0.315,Hamburg,0.584,Yes,0.521,Over 2.5,9.49,0.586,Hamburg,Hamburg,0.606,Yes,OK
+27,2027-03-19 00:00:00Z,Mainz,Augsburg,0.458,0.313,0.229,Mainz,0.585,Yes,0.593,Over 2.5,9.89,0.624,Mainz,Mainz,0.619,Yes,OK
+27,2027-03-19 00:00:00Z,Freiburg,SV Elversberg,0.531,0.212,0.257,Freiburg,0.554,Yes,0.705,Over 2.5,9.23,0.591,Freiburg,Freiburg,0.569,Yes,Low (promoted/new team)
+27,2027-03-19 00:00:00Z,Hoffenheim,Ein Frankfurt,0.563,0.258,0.18,Hoffenheim,0.581,Yes,0.716,Over 2.5,10.37,0.638,Hoffenheim,Hoffenheim,0.575,Yes,OK
+27,2027-03-19 00:00:00Z,Stuttgart,Schalke 04,0.75,0.152,0.097,Stuttgart,0.589,Yes,0.659,Over 2.5,10.19,0.677,Stuttgart,Stuttgart,0.807,Yes,OK
+27,2027-03-19 00:00:00Z,RB Leipzig,Union Berlin,0.551,0.299,0.15,RB Leipzig,0.598,Yes,0.724,Over 2.5,9.56,0.634,RB Leipzig,RB Leipzig,0.772,Yes,OK
+27,2027-03-19 00:00:00Z,Borussia Dortmund,M'gladbach,0.404,0.278,0.318,Borussia Dortmund,0.531,Yes,0.516,Over 2.5,9.29,0.586,Borussia Dortmund,M'gladbach,0.595,Yes,Low (promoted/new team)
+28,2027-04-02 00:00:00Z,SV Elversberg,FC Koln,0.392,0.307,0.301,SV Elversberg,0.548,Yes,0.62,Over 2.5,9.03,0.591,SV Elversberg,SV Elversberg,0.68,Yes,Low (promoted/new team)
+28,2027-04-02 00:00:00Z,Schalke 04,Paderborn,0.326,0.238,0.436,Paderborn,0.582,Yes,0.566,Over 2.5,10.42,0.539,Schalke 04,Schalke 04,0.583,Yes,OK
+28,2027-04-02 00:00:00Z,M'gladbach,Werder Bremen,0.479,0.307,0.214,M'gladbach,0.585,Yes,0.458,Under 2.5,9.46,0.592,M'gladbach,M'gladbach,0.545,Yes,OK
+28,2027-04-02 00:00:00Z,Union Berlin,Mainz,0.431,0.337,0.232,Union Berlin,0.6,Yes,0.566,Over 2.5,10.47,0.432,Mainz,Mainz,0.543,Yes,OK
+28,2027-04-02 00:00:00Z,Augsburg,Hoffenheim,0.371,0.301,0.329,Augsburg,0.602,Yes,0.717,Over 2.5,10.08,0.383,Hoffenheim,Hoffenheim,0.637,Yes,OK
+28,2027-04-02 00:00:00Z,Ein Frankfurt,Stuttgart,0.435,0.305,0.261,Ein Frankfurt,0.619,Yes,0.755,Over 2.5,10.49,0.458,Stuttgart,Stuttgart,0.585,Yes,OK
+28,2027-04-02 00:00:00Z,Leverkusen,Borussia Dortmund,0.699,0.127,0.174,Leverkusen,0.558,Yes,0.76,Over 2.5,9.29,0.644,Leverkusen,Leverkusen,0.76,Yes,Low (promoted/new team)
+28,2027-04-02 00:00:00Z,RB Leipzig,Freiburg,0.628,0.237,0.135,RB Leipzig,0.544,Yes,0.631,Over 2.5,9.26,0.642,RB Leipzig,RB Leipzig,0.77,Yes,OK
+28,2027-04-02 00:00:00Z,Bayern Munich,Hamburg,0.798,0.135,0.067,Bayern Munich,0.557,Yes,0.677,Over 2.5,10.75,0.734,Bayern Munich,Bayern Munich,0.83,Yes,OK
+29,2027-04-09 00:00:00Z,Paderborn,Bayern Munich,0.122,0.111,0.767,Bayern Munich,0.603,Yes,0.71,Over 2.5,9.87,0.284,Bayern Munich,Bayern Munich,0.761,Yes,OK
+29,2027-04-09 00:00:00Z,Werder Bremen,Ein Frankfurt,0.352,0.303,0.346,Werder Bremen,0.566,Yes,0.598,Over 2.5,9.8,0.406,Ein Frankfurt,Ein Frankfurt,0.605,Yes,OK
+29,2027-04-09 00:00:00Z,FC Koln,Augsburg,0.422,0.346,0.232,FC Koln,0.595,Yes,0.62,Over 2.5,9.63,0.436,Augsburg,Augsburg,0.63,Yes,OK
+29,2027-04-09 00:00:00Z,Hamburg,Union Berlin,0.291,0.319,0.39,Union Berlin,0.614,Yes,0.639,Over 2.5,9.6,0.56,Hamburg,Hamburg,0.645,Yes,OK
+29,2027-04-09 00:00:00Z,M'gladbach,Leverkusen,0.299,0.382,0.319,Draw,0.612,Yes,0.647,Over 2.5,9.93,0.296,Leverkusen,Leverkusen,0.625,Yes,OK
+29,2027-04-09 00:00:00Z,Mainz,RB Leipzig,0.376,0.295,0.329,Mainz,0.596,Yes,0.691,Over 2.5,9.79,0.389,RB Leipzig,RB Leipzig,0.576,Yes,OK
+29,2027-04-09 00:00:00Z,Hoffenheim,Freiburg,0.563,0.248,0.189,Hoffenheim,0.551,Yes,0.633,Over 2.5,10.04,0.644,Hoffenheim,Hoffenheim,0.56,Yes,OK
+29,2027-04-09 00:00:00Z,Stuttgart,SV Elversberg,0.695,0.137,0.168,Stuttgart,0.574,Yes,0.724,Over 2.5,9.4,0.652,Stuttgart,Stuttgart,0.765,Yes,Low (promoted/new team)
+29,2027-04-09 00:00:00Z,Borussia Dortmund,Schalke 04,0.543,0.245,0.211,Borussia Dortmund,0.568,Yes,0.503,Over 2.5,9.41,0.591,Borussia Dortmund,Borussia Dortmund,0.746,Yes,Low (promoted/new team)
+30,2027-04-16 00:00:00Z,SV Elversberg,Paderborn,0.495,0.262,0.243,SV Elversberg,0.57,Yes,0.582,Over 2.5,9.52,0.588,SV Elversberg,SV Elversberg,0.74,Yes,Low (promoted/new team)
+30,2027-04-16 00:00:00Z,Schalke 04,Hamburg,0.302,0.286,0.411,Hamburg,0.595,Yes,0.592,Over 2.5,10.44,0.409,Hamburg,Hamburg,0.628,Yes,OK
+30,2027-04-16 00:00:00Z,Union Berlin,Stuttgart,0.397,0.348,0.255,Union Berlin,0.594,Yes,0.711,Over 2.5,10.72,0.425,Stuttgart,Stuttgart,0.602,Yes,OK
+30,2027-04-16 00:00:00Z,Augsburg,Borussia Dortmund,0.489,0.193,0.318,Augsburg,0.562,Yes,0.588,Over 2.5,9.51,0.578,Augsburg,Augsburg,0.538,Yes,Low (promoted/new team)
+30,2027-04-16 00:00:00Z,Ein Frankfurt,M'gladbach,0.557,0.234,0.21,Ein Frankfurt,0.564,Yes,0.539,Over 2.5,10.03,0.635,Ein Frankfurt,Ein Frankfurt,0.607,Yes,OK
+30,2027-04-16 00:00:00Z,Freiburg,Mainz,0.416,0.36,0.224,Freiburg,0.609,Yes,0.618,Over 2.5,10.03,0.599,Freiburg,Freiburg,0.562,Yes,OK
+30,2027-04-16 00:00:00Z,Leverkusen,Werder Bremen,0.683,0.173,0.143,Leverkusen,0.568,Yes,0.64,Over 2.5,9.85,0.668,Leverkusen,Leverkusen,0.805,Yes,OK
+30,2027-04-16 00:00:00Z,RB Leipzig,FC Koln,0.645,0.212,0.143,RB Leipzig,0.565,Yes,0.722,Over 2.5,9.24,0.637,RB Leipzig,RB Leipzig,0.805,Yes,OK
+30,2027-04-16 00:00:00Z,Bayern Munich,Hoffenheim,0.694,0.147,0.159,Bayern Munich,0.563,Yes,0.736,Over 2.5,10.03,0.724,Bayern Munich,Bayern Munich,0.792,Yes,OK
+31,2027-04-23 00:00:00Z,Paderborn,Augsburg,0.273,0.306,0.422,Augsburg,0.601,Yes,0.538,Over 2.5,9.75,0.393,Augsburg,Augsburg,0.698,Yes,OK
+31,2027-04-23 00:00:00Z,Werder Bremen,Bayern Munich,0.154,0.165,0.681,Bayern Munich,0.613,Yes,0.689,Over 2.5,9.59,0.31,Bayern Munich,Bayern Munich,0.753,Yes,OK
+31,2027-04-23 00:00:00Z,FC Koln,Mainz,0.38,0.357,0.264,FC Koln,0.597,Yes,0.603,Over 2.5,9.88,0.417,Mainz,Mainz,0.598,Yes,OK
+31,2027-04-23 00:00:00Z,Hamburg,SV Elversberg,0.407,0.186,0.407,SV Elversberg,0.568,Yes,0.6,Over 2.5,9.27,0.54,Hamburg,SV Elversberg,0.56,Yes,Low (promoted/new team)
+31,2027-04-23 00:00:00Z,M'gladbach,Schalke 04,0.613,0.238,0.149,M'gladbach,0.591,Yes,0.515,Over 2.5,9.82,0.59,M'gladbach,M'gladbach,0.767,Yes,OK
+31,2027-04-23 00:00:00Z,Ein Frankfurt,Leverkusen,0.38,0.323,0.297,Ein Frankfurt,0.629,Yes,0.758,Over 2.5,10.32,0.408,Leverkusen,Leverkusen,0.596,Yes,OK
+31,2027-04-23 00:00:00Z,Hoffenheim,Union Berlin,0.569,0.257,0.174,Hoffenheim,0.603,Yes,0.738,Over 2.5,10.15,0.638,Hoffenheim,Hoffenheim,0.717,Yes,OK
+31,2027-04-23 00:00:00Z,Stuttgart,Freiburg,0.634,0.197,0.169,Stuttgart,0.566,Yes,0.656,Over 2.5,9.64,0.677,Stuttgart,Stuttgart,0.793,Yes,OK
+31,2027-04-23 00:00:00Z,Borussia Dortmund,RB Leipzig,0.296,0.287,0.417,RB Leipzig,0.572,Yes,0.663,Over 2.5,9.19,0.318,RB Leipzig,RB Leipzig,0.631,Yes,Low (promoted/new team)
+32,2027-05-07 00:00:00Z,SV Elversberg,Hoffenheim,0.271,0.273,0.456,Hoffenheim,0.56,Yes,0.719,Over 2.5,9.42,0.33,Hoffenheim,Hoffenheim,0.636,Yes,Low (promoted/new team)
+32,2027-05-07 00:00:00Z,Schalke 04,Ein Frankfurt,0.229,0.279,0.493,Ein Frankfurt,0.578,Yes,0.606,Over 2.5,10.35,0.353,Ein Frankfurt,Ein Frankfurt,0.631,Yes,OK
+32,2027-05-07 00:00:00Z,Union Berlin,Werder Bremen,0.482,0.303,0.215,Union Berlin,0.572,Yes,0.48,Under 2.5,10.03,0.609,Union Berlin,Union Berlin,0.524,Yes,OK
+32,2027-05-07 00:00:00Z,Mainz,Borussia Dortmund,0.51,0.182,0.308,Mainz,0.565,Yes,0.548,Over 2.5,9.44,0.604,Mainz,Mainz,0.558,Yes,Low (promoted/new team)
+32,2027-05-07 00:00:00Z,Augsburg,Stuttgart,0.33,0.384,0.286,Draw,0.598,Yes,0.7,Over 2.5,10.35,0.436,Stuttgart,Stuttgart,0.662,Yes,OK
+32,2027-05-07 00:00:00Z,Freiburg,FC Koln,0.512,0.268,0.219,Freiburg,0.584,Yes,0.662,Over 2.5,9.28,0.615,Freiburg,Freiburg,0.744,Yes,OK
+32,2027-05-07 00:00:00Z,Leverkusen,Hamburg,0.714,0.19,0.096,Leverkusen,0.583,Yes,0.674,Over 2.5,10.2,0.665,Leverkusen,Leverkusen,0.803,Yes,OK
+32,2027-05-07 00:00:00Z,RB Leipzig,Paderborn,0.707,0.198,0.095,RB Leipzig,0.575,Yes,0.715,Over 2.5,9.83,0.634,RB Leipzig,RB Leipzig,0.807,Yes,OK
+32,2027-05-07 00:00:00Z,Bayern Munich,M'gladbach,0.805,0.115,0.08,Bayern Munich,0.526,Yes,0.717,Over 2.5,10.42,0.735,Bayern Munich,Bayern Munich,0.827,Yes,OK
+33,2027-05-14 00:00:00Z,Paderborn,Union Berlin,0.228,0.251,0.521,Union Berlin,0.611,Yes,0.635,Over 2.5,9.97,0.357,Union Berlin,Union Berlin,0.684,Yes,OK
+33,2027-05-14 00:00:00Z,Werder Bremen,Schalke 04,0.514,0.219,0.267,Werder Bremen,0.577,Yes,0.434,Under 2.5,9.87,0.61,Werder Bremen,Werder Bremen,0.708,Yes,OK
+33,2027-05-14 00:00:00Z,Hamburg,Freiburg,0.32,0.288,0.392,Freiburg,0.572,Yes,0.529,Over 2.5,9.45,0.394,Freiburg,Freiburg,0.58,Yes,OK
+33,2027-05-14 00:00:00Z,M'gladbach,Augsburg,0.436,0.353,0.212,M'gladbach,0.605,Yes,0.57,Over 2.5,9.51,0.567,M'gladbach,Augsburg,0.549,Yes,OK
+33,2027-05-14 00:00:00Z,Ein Frankfurt,SV Elversberg,0.542,0.196,0.263,Ein Frankfurt,0.567,Yes,0.642,Over 2.5,9.37,0.607,Ein Frankfurt,Ein Frankfurt,0.553,Yes,Low (promoted/new team)
+33,2027-05-14 00:00:00Z,Leverkusen,Bayern Munich,0.384,0.202,0.414,Bayern Munich,0.616,Yes,0.789,Over 2.5,9.87,0.4,Bayern Munich,Bayern Munich,0.633,Yes,OK
+33,2027-05-14 00:00:00Z,Hoffenheim,Mainz,0.519,0.303,0.178,Hoffenheim,0.602,Yes,0.713,Over 2.5,10.31,0.64,Hoffenheim,Hoffenheim,0.575,Yes,OK
+33,2027-05-14 00:00:00Z,Stuttgart,RB Leipzig,0.497,0.257,0.245,Stuttgart,0.611,Yes,0.76,Over 2.5,9.93,0.647,Stuttgart,Stuttgart,0.593,Yes,OK
+33,2027-05-14 00:00:00Z,Borussia Dortmund,FC Koln,0.392,0.307,0.301,Borussia Dortmund,0.548,Yes,0.62,Over 2.5,9.03,0.591,Borussia Dortmund,Borussia Dortmund,0.68,Yes,Low (promoted/new team)
+34,2027-05-22 13:30:00Z,SV Elversberg,Werder Bremen,0.404,0.318,0.278,SV Elversberg,0.566,Yes,0.479,Under 2.5,9.27,0.591,SV Elversberg,SV Elversberg,0.611,Yes,Low (promoted/new team)
+34,2027-05-22 13:30:00Z,Schalke 04,Leverkusen,0.15,0.294,0.556,Leverkusen,0.594,Yes,0.694,Over 2.5,10.29,0.327,Leverkusen,Leverkusen,0.701,Yes,OK
+34,2027-05-22 13:30:00Z,FC Koln,Paderborn,0.577,0.23,0.192,FC Koln,0.561,Yes,0.613,Over 2.5,9.94,0.596,FC Koln,FC Koln,0.705,Yes,OK
+34,2027-05-22 13:30:00Z,Union Berlin,M'gladbach,0.541,0.26,0.2,Union Berlin,0.558,Yes,0.557,Over 2.5,10.2,0.514,Union Berlin,M'gladbach,0.525,Yes,OK
+34,2027-05-22 13:30:00Z,Mainz,Stuttgart,0.367,0.336,0.296,Mainz,0.589,Yes,0.717,Over 2.5,10.51,0.442,Stuttgart,Stuttgart,0.589,Yes,OK
+34,2027-05-22 13:30:00Z,Augsburg,Hamburg,0.503,0.31,0.187,Augsburg,0.596,Yes,0.55,Over 2.5,10.16,0.602,Augsburg,Augsburg,0.624,Yes,OK
+34,2027-05-22 13:30:00Z,Freiburg,Borussia Dortmund,0.531,0.212,0.257,Freiburg,0.554,Yes,0.705,Over 2.5,9.23,0.591,Freiburg,Freiburg,0.569,Yes,Low (promoted/new team)
+34,2027-05-22 13:30:00Z,RB Leipzig,Hoffenheim,0.543,0.239,0.218,RB Leipzig,0.591,Yes,0.784,Over 2.5,9.67,0.625,RB Leipzig,RB Leipzig,0.719,Yes,OK
+34,2027-05-22 13:30:00Z,Bayern Munich,Ein Frankfurt,0.743,0.159,0.098,Bayern Munich,0.549,Yes,0.661,Over 2.5,10.01,0.73,Bayern Munich,Bayern Munich,0.825,Yes,OK

@@ -33,10 +33,14 @@ $DegenPython = "$DegenRoot\venv_train\Scripts\python.exe"
 $Bash = "C:\Program Files\Git\bin\bash.exe"
 
 try {
-    Log "==> Retraining investment_scoring (crypto/US stocks/India stocks)"
+    Log "==> Retraining multi-horizon stocks (6m-25y) + model selection"
     Push-Location $InvestmentRoot
-    & $InvestmentPython main.py 2>&1 | Tee-Object -FilePath $LogFile -Append
-    if ($LASTEXITCODE -ne 0) { throw "main.py failed (exit $LASTEXITCODE)" }
+    & $InvestmentPython train_multi_horizon_stocks.py 2>&1 | Tee-Object -FilePath $LogFile -Append
+    if ($LASTEXITCODE -ne 0) { throw "train_multi_horizon_stocks.py failed (exit $LASTEXITCODE)" }
+
+    Log "==> Retraining uncertainty-aware crypto horizons (6m-3y)"
+    & $InvestmentPython train_multi_horizon_crypto.py 2>&1 | Tee-Object -FilePath $LogFile -Append
+    if ($LASTEXITCODE -ne 0) { throw "train_multi_horizon_crypto.py failed (exit $LASTEXITCODE)" }
 
     Log "==> Adding sentiment scores"
     & $InvestmentPython fetch_sentiment.py 2>&1 | Tee-Object -FilePath $LogFile -Append
@@ -46,9 +50,11 @@ try {
     Pop-Location
 
     Log "==> Copying output into webapp"
-    $Dest = "$DegenRoot\webapp\data\investment_scoring\ranked_assets.csv"
-    New-Item -ItemType Directory -Force -Path (Split-Path $Dest) | Out-Null
+    $Dest = "$DegenRoot\data\investment_scoring"
+    New-Item -ItemType Directory -Force -Path $Dest | Out-Null
     Copy-Item "$InvestmentRoot\output\ranked_assets.csv" $Dest -Force
+    Copy-Item "$InvestmentRoot\output\crypto_history_span.json" $Dest -Force
+    Copy-Item "$InvestmentRoot\output\crypto_horizon_model_metrics.json" $Dest -Force
 
     Log "==> Running test suite as a safety gate before deploying"
     Push-Location "$DegenRoot\webapp"

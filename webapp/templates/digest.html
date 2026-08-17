@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+{% block title %}Today's 3 best picks — Degen Predictions{% endblock %}
+{% block description %}{{ share_text[:160] if share_text else "Today's 3 best high-confidence ML sports picks from Degen Predictions. Educational estimates, not betting advice." }}{% endblock %}
+{% block keywords %}today's best picks, sports predictions today, degen predictions digest, ML sports picks, combo picks{% endblock %}
+{% block og_image %}https://degenpredictions.com{{ url_for('static', filename='logo.png') }}{% endblock %}
+{% block twitter_card %}summary_large_image{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back, nav_crumbs %}
+<style>
+  .digest-slip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 1.1rem 1.15rem 1.15rem;
+  }
+  .digest-slip-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .digest-slip-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .digest-slip-mix {
+    display: block;
+    margin-top: 0.2rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text);
+  }
+  .digest-slip-joint {
+    flex-shrink: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .digest-slip-joint span {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .digest-leg {
+    padding: 0.7rem 0 0;
+    border-top: 1px solid rgba(148, 175, 200, 0.14);
+  }
+  .digest-leg:first-of-type {
+    border-top: none;
+    padding-top: 0.15rem;
+  }
+  .digest-leg-sport {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+  .digest-leg-event {
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .digest-leg-pick {
+    margin-top: 0.28rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+  .digest-leg-pick strong {
+    color: var(--text);
+    font-weight: 650;
+  }
+  .digest-pick-card .digest-leg-sport { margin-bottom: 0.25rem; }
+  .digest-grid {
+    gap: 1rem;
+  }
+  .digest-section-title {
+    font-size: 1.05rem;
+    margin: 1.6rem 0 0.35rem;
+    font-family: var(--font-display);
+  }
+  .digest-section-note {
+    margin: 0 0 0.85rem;
+    font-size: 0.88rem;
+  }
+</style>
+
+{% macro digest_leg_block(leg) %}
+<div class="digest-leg">
+  <div class="digest-leg-sport">{{ leg.sport_label or leg.sport_key or 'Sport' }}{% if leg.league_label %} · {{ leg.league_label }}{% endif %}</div>
+  <div class="digest-leg-event">{% if leg.url %}<a href="{{ leg.url }}" style="color:inherit; text-decoration:none;">{{ leg.matchup }}</a>{% else %}{{ leg.matchup }}{% endif %}</div>
+  <div class="digest-leg-pick">{{ leg.selection_line or ((leg.pick or '') ~ (' · ' ~ leg.market if leg.market else '') ~ (' · ' ~ (leg.confidence_pct|int)|string ~ '%' if leg.confidence_pct is not none else '')) }}</div>
+</div>
+{% endmacro %}
+
+{% macro digest_combo_card(c, size_label, idx) %}
+<article class="fixture-card ok-confidence digest-slip" style="--card-index: {{ idx }}; cursor:default;">
+  <div class="digest-slip-kicker" style="margin-bottom:0.15rem;">
+    {{ size_label }}{% if c.joint_pct is not none %} · {{ c.joint_pct|round|int }}%{% endif %}
+  </div>
+  {% for leg in c.legs %}
+  {{ digest_leg_block(leg) }}
+  {% endfor %}
+</article>
+{% endmacro %}
+
+<nav class="page-nav" aria-label="Page">
+  {{ nav_back('/todays-picks', "Today's Picks") }}
+  {{ nav_crumbs([
+    {"href": "/todays-picks", "label": "Picks"},
+    {"label": "Daily digest"},
+  ]) }}
+  <a class="page-nav-link" href="/todays-picks/combos">Combos</a>
+</nav>
+
+<div class="leagues-hero">
+  <h1>Today's 3 best picks — Degen Predictions</h1>
+  <p class="muted">
+    Same high-confidence cards as <a href="/todays-picks">Today's Picks</a>
+    {% if digest.has_combos %} · <a href="/todays-picks/combos">Best Combos</a> also live{% endif %}
+    · {{ digest.date }} · selective board.
+    Estimates only — not betting advice.
+  </p>
+  <p class="leagues-hero-ctas" style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:.55rem;">
+    <a class="league-cta" href="/todays-picks" style="text-decoration:none;">All Today's Picks</a>
+    {% if digest.has_combos %}
+    <a class="league-cta" href="/todays-picks/combos" style="text-decoration:none;">Best Combos</a>
+    {% else %}
+    <a class="league-cta is-secondary" href="/todays-picks/combos" style="text-decoration:none;">Best Combos</a>
+    {% endif %}
+    <a class="league-cta is-secondary" href="/accuracy" style="text-decoration:none;">Accuracy ledger</a>
+  </p>
+</div>
+
+<aside class="share-card" style="margin-top:1.25rem;">
+  <p class="muted" style="margin:0;">
+    Manual Telegram send lives on the admin console:
+    <a href="/admin?section=telegram"><strong>Admin → Send to Telegram</strong></a>.
+    Channel posts never include probability %.
+  </p>
+</aside>
+
+{% set share_url = digest.digest_url %}
+{% set share_text = share_text %}
+{% include "partials/share_bar.html" %}
+{% include "partials/telegram_cta.html" %}
+
+{% if not picks %}
+<div class="empty-state-pro">
+  <h2>No high-confidence picks yet</h2>
+  <p class="muted">Nothing cleared the selective bar across leagues for {{ digest.date }}. Check league boards or Best Combos.</p>
+  <div class="empty-actions">
+    <a class="league-cta" href="/todays-picks">Today's Picks</a>
+    <a class="league-cta is-secondary" href="/todays-picks/combos">Best Combos</a>
+  </div>
+</div>
+{% else %}
+<div class="fixture-grid digest-grid" style="margin-top:1.25rem;">
+  {% for p in picks %}
+  <article class="fixture-card ok-confidence digest-pick-card digest-slip"
+       style="--card-index: {{ loop.index0 }};"
+       data-share-card
+       data-matchup="{{ p.matchup|e }}"
+       data-pick="{{ p.pick|e }}"
+       data-market="{{ p.market|e }}"
+       data-pct="{{ p.confidence_pct if p.confidence_pct is not none else '' }}"
+       data-league="{{ p.league_label|e }}">
+    <div class="digest-leg-sport">{{ p.sport_label or p.sport_key or 'Sport' }}{% if p.league_label %} · {{ p.league_label }}{% endif %}</div>
+    {% if p.url %}
+    <a class="digest-leg-event" href="{{ p.url }}" style="color:inherit; text-decoration:none;">{{ p.matchup }}</a>
+    {% else %}
+    <div class="digest-leg-event">{{ p.matchup }}</div>
+    {% endif %}
+    <div class="digest-leg-pick">{{ p.selection_line or ((p.pick or '') ~ (' · ' ~ p.market if p.market else '') ~ (' · ' ~ (p.confidence_pct|int)|string ~ '%' if p.confidence_pct is not none else '')) }}</div>
+    <div class="share-actions" style="margin-top:0.35rem;">
+      <button type="button" data-export-share-card>Share image</button>
+      <button type="button" data-native-share
+              data-share-title="Degen Predictions pick"
+              data-share-text="{{ p.sport_label or p.sport_key or 'Sport' }}{% if p.league_label %} · {{ p.league_label }}{% endif %}
+{{ p.matchup }}
+{{ p.selection_line or p.pick }}
+{{ digest.digest_url }}">Share</button>
+    </div>
+    <div class="pick-share-canvas-src" hidden aria-hidden="true">
+      <div class="pick-share-brand">Degen Predictions</div>
+      <div class="pick-share-league">{{ p.sport_label or p.sport_key or 'Sport' }}{% if p.league_label %} · {{ p.league_label }}{% endif %}</div>
+      <div class="pick-share-match">{{ p.matchup }}</div>
+      <div class="pick-share-pick">{{ p.selection_line or p.pick }}</div>
+      <div class="pick-share-meta"></div>
+      <div class="pick-share-foot">degenpredictions.com · estimates only</div>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% set c2 = digest.combos_2 or [] %}
+{% set c3 = digest.combos_3 or [] %}
+{% set m2 = digest.mixed_2 or [] %}
+{% set m3 = digest.mixed_3 or [] %}
+{% if c2 or c3 or m2 or m3 %}
+<section style="margin-top:2rem;">
+  <h2 style="font-size:1.15rem; margin:0 0 0.35rem;">Featured Best Combos</h2>
+  <p class="muted digest-section-note">
+    Same board as <a href="/todays-picks/combos">Best Combos</a>.
+    Mixed only shows slips that are not already listed under Best.
+  </p>
+
+  {% if c2 %}
+  <h3 class="digest-section-title">Best 2-leg</h3>
+  <div class="fixture-grid digest-grid">
+    {% for c in c2 %}
+    {{ digest_combo_card(c, "Best 2-leg", loop.index0) }}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if c3 %}
+  <h3 class="digest-section-title">Best 3-leg</h3>
+  <div class="fixture-grid digest-grid">
+    {% for c in c3 %}
+    {{ digest_combo_card(c, "Best 3-leg", loop.index0) }}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if m2 %}
+  <h3 class="digest-section-title">Mixed 2-leg</h3>
+  <div class="fixture-grid digest-grid">
+    {% for c in m2 %}
+    {{ digest_combo_card(c, "Mixed 2-leg", loop.index0) }}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if m3 %}
+  <h3 class="digest-section-title">Mixed 3-leg</h3>
+  <div class="fixture-grid digest-grid">
+    {% for c in m3 %}
+    {{ digest_combo_card(c, "Mixed 3-leg", loop.index0) }}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <p style="margin-top:1rem;">
+    <a class="league-cta" href="/todays-picks/combos" style="text-decoration:none;">Open full Best Combos board</a>
+  </p>
+</section>
+{% endif %}
+
+{% if digest.league_urls %}
+<section style="margin-top:1.5rem;">
+  <h2 style="font-size:1.05rem; margin:0 0 0.55rem;">League boards with picks today</h2>
+  <div class="strip-actions" style="display:flex; flex-wrap:wrap; gap:0.45rem;">
+    {% for row in digest.league_urls[:8] %}
+    <a class="league-cta is-secondary" href="{{ row.path }}" style="text-decoration:none;">{{ row.league_label }}</a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<aside class="share-card" id="digest-share-block" style="margin-top:1.5rem;">
+  <h2 style="font-size:1rem; margin:0 0 0.65rem;">Share today's digest</h2>
+  <div class="share-card-preview" id="digest-share-preview">
+    <div class="share-title">Today's 3 best picks</div>
+    <div class="muted">{{ digest.date }} · Degen Predictions</div>
+    {% for p in picks %}
+    <div style="margin-top:0.45rem;">
+      <div>{{ loop.index }}. {{ p.sport_label or p.sport_key or 'Sport' }}{% if p.league_label %} · {{ p.league_label }}{% endif %}</div>
+      <div><strong>{{ p.matchup }}</strong></div>
+      <div class="muted">{{ p.pick }}{% if p.confidence_pct is not none %} · {{ p.confidence_pct }}%{% endif %}</div>
+    </div>
+    {% else %}
+    <div class="muted">Empty slate today</div>
+    {% endfor %}
+    {% if c2 or c3 or m2 or m3 %}
+    <div class="muted" style="margin-top:0.55rem; font-size:0.85rem;">
+      Combos:
+      {% if c2 %}{{ c2|length }}×2-leg{% endif %}
+      {% if c3 %}{% if c2 %} · {% endif %}{{ c3|length }}×3-leg{% endif %}
+      {% if m2 %}{% if c2 or c3 %} · {% endif %}{{ m2|length }}×mixed-2{% endif %}
+      {% if m3 %}{% if c2 or c3 or m2 %} · {% endif %}{{ m3|length }}×mixed-3{% endif %}
+    </div>
+    {% endif %}
+    <div class="muted" style="font-size:0.78rem; margin-top:0.25rem;">Educational ML · not betting advice</div>
+  </div>
+  {% include "partials/share_bar.html" %}
+</aside>
+
+{% set habit_title = "Same time every morning" %}
+{% set habit_blurb = "This digest refreshes automatically. Bookmark it and check back each morning for the same high-confidence board." %}
+{% set share_text = share_text %}
+{% include "partials/daily_habit.html" %}
+
+<p class="muted" style="margin-top:1.25rem; font-size:0.85rem;">
+  JSON: <a href="/todays-picks/top3">/todays-picks/top3</a>
+</p>
+{% endblock %}

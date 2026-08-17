@@ -1,7 +1,10 @@
 {% extends "base.html" %}
-{% block title %}{{ match.HomeTeam }} vs {{ match.AwayTeam }} Prediction | {{ league_label }}{% endblock %}
-{% block description %}{{ match.HomeTeam }} vs {{ match.AwayTeam }} prediction: match result, BTTS, total goals, and corners forecast from our {{ league_label }} machine-learning model, {{ match.MatchDate }}.{% endblock %}
+{% block title %}{{ match.HomeTeam }} vs {{ match.AwayTeam }} Prediction {{ match.MatchDate }} | {{ league_label }}{% endblock %}
+{% block description %}{{ seo_description or ((match.HomeTeam ~ ' vs ' ~ match.AwayTeam ~ ' ML prediction for ' ~ match.MatchDate ~ ': Safer Result, BTTS, total goals, and corners from our ' ~ league_label ~ ' model. Free forecast -- not betting advice.')) }}{% endblock %}
+{% block robots %}{% if not indexable %}<meta name="robots" content="noindex,follow">{% endif %}{% endblock %}
+{% block canonical %}{{ match_canonical or ('https://degenpredictions.com' ~ request.path) }}{% endblock %}
 {% block content %}
+{% include "partials/breadcrumbs.html" %}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -23,33 +26,64 @@
         {"@type": "SportsTeam", "name": {{ match.HomeTeam | tojson }}},
         {"@type": "SportsTeam", "name": {{ match.AwayTeam | tojson }}}
     ],
-    "description": {{ (league_label ~ " match prediction: result, BTTS, goals, and corners forecast.") | tojson }}
+    "description": {{ (seo_intro or (league_label ~ " match prediction: result, BTTS, goals, and corners forecast.")) | tojson }}
 }
 </script>
-<a href="/{{ league_key }}/">&larr; Back to fixtures</a>
-<h1>{{ match.HomeTeam }} vs {{ match.AwayTeam }}</h1>
-<p class="muted">{{ match.MatchDate }} · Round {{ match.RoundNumber }} · Data confidence: {{ match.Data_Confidence }}</p>
+{% set shell_extras = [
+    {"href": "/" ~ league_key ~ "/predictions-today", "label": "Predictions today"},
+    {"href": "/" ~ league_key ~ "/", "label": "Fixtures"},
+    {"href": "/" ~ league_key ~ "/backtest", "label": "Backtest"},
+    {"href": "/todays-picks/soccer/" ~ league_key, "label": "Today's Picks"},
+] %}
+{% with back_href="/" ~ league_key ~ "/predictions-today", back_label="Predictions today", extra_links=shell_extras %}
+{% include "partials/match_shell_nav.html" %}
+{% endwith %}
 
-{% if context.home_form_sentence or context.away_form_sentence or context.h2h_sentence %}
-<div class="card" style="margin-top: 1rem;">
-    <h2>Match Context</h2>
-    {% if context.home_form_sentence %}<p>{{ context.home_form_sentence }}</p>{% endif %}
-    {% if context.away_form_sentence %}<p>{{ context.away_form_sentence }}</p>{% endif %}
-    {% if context.h2h_sentence %}<p>{{ context.h2h_sentence }}</p>{% endif %}
-    <p class="muted" style="font-size: 0.85rem;">Recent form and head-to-head record are computed directly from this league's historical match data -- the same data the prediction model is trained on, not a separate estimate.</p>
-</div>
+<h1>{{ match.HomeTeam }} vs {{ match.AwayTeam }} prediction</h1>
+<p class="muted">
+    {{ match.MatchDate }} · Round {{ match.RoundNumber }} ·
+    {% set confidence = none %}
+    {% set tier_label = none %}
+    {% set data_conf = match.Data_Confidence %}
+    {% include "partials/confidence_badge.html" %}
+</p>
+{% if seo_intro %}
+<p class="seo-match-intro">{{ seo_intro }}</p>
 {% endif %}
+
+{# 1) Primary tips + probability board first #}
+<div class="tips-card" style="margin-top:1rem;">
+    <h2>Prediction Insights</h2>
+    {% for tip in tips %}
+    <div class="tip-row">
+        <span class="tip-market">{{ tip.market }}</span>
+        <span class="tip-pick">{{ tip.pick }}</span>
+        <span class="tip-note">{{ tip.note or '' }}</span>
+        <span class="conf-badge-row">
+            {% if tip.confidence %}
+            <span class="conf-badge {% if tip.confidence|lower == 'high' %}conf-badge--tier{% elif tip.confidence|lower == 'medium' %}conf-badge--model{% else %}conf-badge--data{% endif %}">{{ tip.confidence }}</span>
+            {% endif %}
+            {% if tip.probability is not none %}
+            <span class="conf-badge conf-badge--model">{{ (tip.probability * 100) | round(0) | int }}% model</span>
+            {% endif %}
+        </span>
+    </div>
+    {% else %}
+    <p class="muted">No insights available for this fixture.</p>
+    {% endfor %}
+    <p class="disclaimer">Model-derived leans only — not betting advice.</p>
+</div>
 
 <div class="card-grid">
     <div class="card">
-        <h2>Match Result (1X2)</h2>
+        <h2>Underlying 1X2 probabilities</h2>
         <div class="bar"><div class="bar-fill home" style="width: {{ match.P_Home_Win * 100 }}%"></div></div>
         <p>{{ match.HomeTeam }} win: {{ (match.P_Home_Win * 100) | round(1) }}%</p>
         <div class="bar"><div class="bar-fill draw" style="width: {{ match.P_Draw * 100 }}%"></div></div>
         <p>Draw: {{ (match.P_Draw * 100) | round(1) }}%</p>
         <div class="bar"><div class="bar-fill away" style="width: {{ match.P_Away_Win * 100 }}%"></div></div>
         <p>{{ match.AwayTeam }} win: {{ (match.P_Away_Win * 100) | round(1) }}%</p>
-        <p class="predicted">Predicted: <strong>{{ match.Predicted_Result }}</strong></p>
+        <p class="muted">Highest 1X2 model score: <strong>{{ match.Predicted_Result }}</strong>. The actionable result pick, if one qualifies, is labelled <strong>Safer Result</strong> above.</p>
     </div>
 
     <div class="card">
@@ -71,26 +105,14 @@
             ({{ (match.P_Home_More_Corners * 100) | round(1) }}% home / {{ (100 - match.P_Home_More_Corners * 100) | round(1) }}% away)</p>
     </div>
 
-    {% if match.P_Favorite_Avoids_Defeat is defined and match.P_Favorite_Avoids_Defeat == match.P_Favorite_Avoids_Defeat %}
-    <div class="card">
-        <h2>Favorite Avoids Defeat</h2>
-        <p class="muted">Favorite: {{ match.Favorite_Team }}</p>
-        <p class="big">{{ match.Favorite_Avoids_Defeat_Prediction }}</p>
-        <p>Probability {{ match.Favorite_Team }} wins or draws: {{ (match.P_Favorite_Avoids_Defeat * 100) | round(1) }}%</p>
-        <p class="muted">Higher base-rate market — favourites historically avoid defeat ~75.6% of the time
-            regardless of any model, so treat this probability as a fine-tuned adjustment around that
-            baseline, not as a standalone insight. See <a href="/{{ league_key }}/about">Model Info</a> for the honest
-            accuracy-vs-baseline breakdown.</p>
-    </div>
-    {% endif %}
 </div>
 
 {% if lineup_info %}
-<div class="tips-card">
-    <h2>Live Lineup &amp; Injury Watch</h2>
+<details class="analysis-accordion">
+    <summary>Live lineup &amp; injury watch</summary>
     <p class="muted">Pulled live from FotMob. Confirmed starting lineups are only released
         ~1 hour before kickoff — until then, this shows known unavailable/injured players.
-        This is informational only and is not yet fed back into the model's prediction above.</p>
+        Informational only; not yet fed into the model probabilities above.</p>
     <div class="card-grid">
         {% for side in ['home', 'away'] %}
         {% set team = lineup_info[side] %}
@@ -114,23 +136,99 @@
         </div>
         {% endfor %}
     </div>
-</div>
+</details>
+{% else %}
+<p class="muted" style="margin-top:1rem; font-size:0.9rem;">Live lineup data unavailable for this fixture.</p>
 {% endif %}
 
-<div class="tips-card">
-    <h2>Prediction Insights</h2>
-    {% for tip in tips %}
-    <div class="tip-row">
-        <span class="tip-market">{{ tip.market }}</span>
-        <span class="tip-pick">{{ tip.pick }}</span>
-        <span class="tip-note">{{ tip.note or '' }} ({{ (tip.probability * 100) | round(0) }}% model probability)</span>
-        <span class="tip-badge {{ tip.confidence | lower }}">{{ tip.confidence }}</span>
+{% if context.home_form_sentence or context.away_form_sentence or context.h2h_sentence %}
+<details class="analysis-accordion">
+    <summary>Match context (form &amp; H2H)</summary>
+    {% if context.home_form_sentence %}<p>{{ context.home_form_sentence }}</p>{% endif %}
+    {% if context.away_form_sentence %}<p>{{ context.away_form_sentence }}</p>{% endif %}
+    {% if context.h2h_sentence %}<p>{{ context.h2h_sentence }}</p>{% endif %}
+    <p class="muted" style="font-size: 0.85rem;">Form and H2H come from this league's historical match data — the same training inputs, not a separate estimate.</p>
+</details>
+{% endif %}
+
+{# 3) Analysis accordion (collapsed by default) #}
+{% if context.analysis and context.analysis.available %}
+<details class="analysis-accordion">
+    <summary>Match Analysis</summary>
+    <p class="muted" style="font-size: 0.9rem;">{{ context.analysis.disclaimer }}</p>
+    {% set a = context.analysis.sections %}
+
+    {% if a.squad %}
+    <h3 style="margin-top:1rem; font-size:1.05rem;">Squad by role</h3>
+    {% if a.squad.home_sentence %}<p>{{ a.squad.home_sentence }}</p>{% endif %}
+    {% if a.squad.away_sentence %}<p>{{ a.squad.away_sentence }}</p>{% endif %}
+    <div class="card-grid" style="margin-top:0.5rem;">
+        {% for side, label in [('home', match.HomeTeam), ('away', match.AwayTeam)] %}
+        {% set roles = a.squad[side] %}
+        <div class="card">
+            <h2 style="font-size:1rem;">{{ label }}</h2>
+            {% for role, title in [('GK','Goalkeeper'), ('DEF','Defence'), ('MID','Midfield'), ('WING','Wings'), ('ATT','Attack')] %}
+            {% if roles[role] %}
+            <p style="margin:0.35rem 0 0;"><strong>{{ title }}:</strong>
+                {% for p in roles[role] %}
+                {{ p.name }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
     </div>
-    {% else %}
-    <p class="muted">No insights available for this fixture.</p>
-    {% endfor %}
-    <p class="disclaimer">These are model-derived probability leans, not guaranteed outcomes — football
-        has high inherent variance and even well-calibrated models miss regularly. For research/
-        educational use only; this is not betting advice.</p>
-</div>
+    {% if a.squad.lineup_note %}<p class="muted" style="font-size:0.85rem;">{{ a.squad.lineup_note }}</p>{% endif %}
+    {% endif %}
+
+    {% if a.player_team %}
+    <h3 style="margin-top:1rem; font-size:1.05rem;">Players mapped to team form</h3>
+    {% if a.player_team.home_sentence %}<p>{{ a.player_team.home_sentence }}</p>{% endif %}
+    {% if a.player_team.away_sentence %}<p>{{ a.player_team.away_sentence }}</p>{% endif %}
+    {% endif %}
+
+    {% if a.home_away %}
+    <h3 style="margin-top:1rem; font-size:1.05rem;">Home / away ground</h3>
+    {% for s in a.home_away.sentences %}<p>{{ s }}</p>{% endfor %}
+    {% endif %}
+
+    {% if a.multi_year %}
+    <h3 style="margin-top:1rem; font-size:1.05rem;">Multi-year player form</h3>
+    {% for s in a.multi_year.sentences %}<p>{{ s }}</p>{% endfor %}
+    {% endif %}
+
+    {% if a.fair_play %}
+    <h3 style="margin-top:1rem; font-size:1.05rem;">Fair play</h3>
+    {% for s in a.fair_play.sentences %}<p>{{ s }}</p>{% endfor %}
+    {% endif %}
+
+    {% if a.underdog %}
+    <h3 style="margin-top:1rem; font-size:1.05rem;">Underdog edge</h3>
+    <p>{{ a.underdog.sentence }}</p>
+    {% endif %}
+
+    {% if a.attack %}
+    <h3 style="margin-top:1rem; font-size:1.05rem;">Attack &amp; counter</h3>
+    {% for s in a.attack.sentences %}<p>{{ s }}</p>{% endfor %}
+    <p class="muted" style="font-size:0.85rem;">{{ a.attack.shot_weight_note }}</p>
+    {% endif %}
+
+    {% if a.transfers %}
+    <h3 style="margin-top:1rem; font-size:1.05rem;">Squad changes ({{ a.transfers.from_season }} → {{ a.transfers.to_season }})</h3>
+    {% for s in a.transfers.sentences %}<p>{{ s }}</p>{% endfor %}
+    {% endif %}
+
+    {% if a.weather %}
+    <h3 style="margin-top:1rem; font-size:1.05rem;">Weather</h3>
+    <p>{{ a.weather.sentence }}</p>
+    {% endif %}
+
+    {% if context.analysis.verdict %}
+    <h3 style="margin-top:1.25rem; font-size:1.05rem;">Scout verdict</h3>
+    <p><strong>{{ context.analysis.verdict }}</strong></p>
+    {% endif %}
+</details>
+{% endif %}
+
 {% endblock %}

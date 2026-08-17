@@ -5,12 +5,21 @@ live-pitcher-ERA blend, since spaia.jp's schedule API only gives a starting
 pitcher's *name*, not their season stats (see scripts/npb/npb_config.py)."""
 import math
 import os
+from datetime import date, datetime
 
 import pandas as pd
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data", "npb")
 HOME_ADVANTAGE = 24.0  # must match scripts/npb/npb_config.py
+MAX_REST_DAYS = 14.0
+DEFAULT_REST_DAYS = 3.0
+
+NPB_ML_FEATURE_NAMES = [
+    "EloDiff", "HomeLast10WinRate", "AwayLast10WinRate", "HomeStreak", "AwayStreak",
+    "H2HMeetings", "HomeH2HWinRate", "RunsForDiff", "RunsAllowedDiff",
+    "HomeDaysRest", "AwayDaysRest",
+]
 
 
 def load_npb_elo():
@@ -25,6 +34,49 @@ def load_npb_history():
     if not os.path.exists(path):
         return pd.DataFrame()
     return pd.read_csv(path)
+
+
+def _parse_as_of_date(as_of_date):
+    if as_of_date is None or as_of_date == "":
+        return date.today()
+    if isinstance(as_of_date, date) and not isinstance(as_of_date, datetime):
+        return as_of_date
+    try:
+        return pd.to_datetime(as_of_date).date()
+    except (ValueError, TypeError):
+        return date.today()
+
+
+def _days_rest_from_last_game(last_game_date, as_of):
+    if last_game_date is None or (isinstance(last_game_date, float) and math.isnan(last_game_date)):
+        return DEFAULT_REST_DAYS
+    try:
+        prev = pd.to_datetime(last_game_date).date()
+    except (ValueError, TypeError):
+        return DEFAULT_REST_DAYS
+    return float(min(max((as_of - prev).days, 0), MAX_REST_DAYS))
+
+
+def build_npb_ml_features(home_row, away_row, h2h, as_of_date=None):
+    """Feature vector matching scripts/npb/train_ml_models.py FEATURES."""
+    as_of = _parse_as_of_date(as_of_date)
+    h2h_meetings = h2h["meetings"]
+    h2h_home_rate = (h2h["home_wins"] / h2h_meetings) if h2h_meetings else 0.5
+    home_last10_rate = (home_row.get("Last10Wins", 0) / home_row["Last10Played"]) if home_row.get("Last10Played") else 0.5
+    away_last10_rate = (away_row.get("Last10Wins", 0) / away_row["Last10Played"]) if away_row.get("Last10Played") else 0.5
+    return {
+        "EloDiff": float(home_row["Elo"]) - float(away_row["Elo"]),
+        "HomeLast10WinRate": float(home_last10_rate),
+        "AwayLast10WinRate": float(away_last10_rate),
+        "HomeStreak": int(home_row.get("CurrentStreak", 0)),
+        "AwayStreak": int(away_row.get("CurrentStreak", 0)),
+        "H2HMeetings": h2h_meetings,
+        "HomeH2HWinRate": h2h_home_rate,
+        "RunsForDiff": float(home_row["AvgRunsScored"]) - float(away_row["AvgRunsScored"]),
+        "RunsAllowedDiff": float(away_row["AvgRunsAllowed"]) - float(home_row["AvgRunsAllowed"]),
+        "HomeDaysRest": _days_rest_from_last_game(home_row.get("LastGameDate"), as_of),
+        "AwayDaysRest": _days_rest_from_last_game(away_row.get("LastGameDate"), as_of),
+    }
 
 
 def get_h2h_record(history, home_id, away_id):
@@ -106,8 +158,21 @@ def _streak_label(streak):
 
 
 def generate_insights(home_name, away_name, home_row, away_row, h2h,
-                       home_streak, away_streak, favourite_name, predicted_total_runs):
+                       home_streak, away_streak, favourite_name, predicted_total_runs,
+                       home_prob=None, away_prob=None):
     insights = []
+    dog_name = away_name if favourite_name == home_name else home_name
+
+    if home_prob is not None and away_prob is not None:
+        fav_p = float(home_prob) if favourite_name == home_name else float(away_prob)
+        dog_p = float(away_prob) if favourite_name == home_name else float(home_prob)
+        if fav_p <= 0.57:
+            insights.append(
+                f"This is a coin-flip moneyline ({favourite_name} {fav_p * 100:.0f}% / "
+                f"{dog_name} {dog_p * 100:.0f}%). Underdog {dog_name} is live — "
+                f"winner markets are noisy in NPB; prefer totals or team runs."
+            )
+
     elo_diff = abs(float(home_row["Elo"]) - float(away_row["Elo"]))
     if elo_diff >= 15:
         insights.append(

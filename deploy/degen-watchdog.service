@@ -1,0 +1,8 @@
+[Unit]
+Description=Degen Predictions healthz watchdog (restarts app if hung)
+After=degen-predictions.service
+
+[Service]
+# Runs as root (default) -- needed to restart the degen-predictions unit.
+Type=oneshot
+ExecStart=/home/ubuntu/Degen_predictions/deploy/healthcheck_watchdog.sh

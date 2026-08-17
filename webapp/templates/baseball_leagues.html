@@ -2,10 +2,21 @@
 {% block title %}Baseball Predictions -- MLB & NPB | Degen Predictions{% endblock %}
 {% block description %}Free machine-learning baseball predictions for MLB and NPB -- winner, total runs, and more, updated daily.{% endblock %}
 {% block content %}
-<a href="/sports">&larr; Back to Sports</a>
+{% from "macros.html" import nav_back %}
+{{ nav_back('/sports', 'Sports') }}
 <div class="leagues-hero">
     <h1>Pick Your Baseball League</h1>
-    <p class="muted">Choose a league to see fixtures and predictions.</p>
+    <p class="muted">Open Today's Picks for MLB or NPB, or browse the full fixture lists below.</p>
+    <div class="leagues-hero-ctas">
+        <a class="league-cta" href="/todays-picks/baseball">Baseball today's picks</a>
+        <a class="league-cta is-secondary" href="/todays-picks/combos">Best Combos</a>
+    </div>
+    <div class="leagues-hero-links">
+        <a href="/mlb/fixtures" class="muted">MLB fixtures</a>
+        <a href="/npb/fixtures" class="muted">NPB fixtures</a>
+        <a href="/npb/results" class="muted">NPB results</a>
+        <a href="/mlb/results" class="muted">MLB track record</a>
+    </div>
 </div>
 
 {% macro baseball_card(info, href) %}
@@ -19,7 +30,7 @@
             <h2>{{ info.label|upper }}</h2>
             {% if info.available %}
             <p class="league-desc">{{ info.country }} &middot; {{ info.fixture_count }} upcoming fixtures.</p>
-            <span class="league-cta">Get Predictions</span>
+            <span class="league-cta">See fixtures</span>
             {% else %}
             <p class="league-desc">{{ info.country }} &middot; Coming soon.</p>
             {% endif %}

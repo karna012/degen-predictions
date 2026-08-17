@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}{{ league_label }} Predictions Today {{ board.today }} | Degen Predictions{% endblock %}
+{% block description %}{{ league_label }} predictions today ({{ board.today }}): {{ board.count }} upcoming fixture{{ 's' if board.count != 1 else '' }} with ML leans for Safer Result, BTTS, goals, and corners. Free forecasts — not betting advice.{% endblock %}
+{% block keywords %}{{ league_keywords }}{% endblock %}
+{% block canonical %}https://degenpredictions.com/{{ league_key }}/predictions-today{% endblock %}
+{% block content %}
+{% include "partials/breadcrumbs.html" %}
+
+<section class="fixtures-hero">
+    <p class="fixtures-eyebrow">Updated for {{ board.today }} · {{ board.tz }}</p>
+    <h1>{{ league_label }} predictions today</h1>
+    <p class="fixtures-lead muted">
+        Today's {{ league_label }} slate with model leans. Open a match for full probabilities,
+        Safer Result, BTTS, goals, and corners.
+    </p>
+    <p class="fixtures-links muted">
+        <a href="/{{ league_key }}/">All fixtures</a>
+        <span class="fixtures-sep" aria-hidden="true"></span>
+        <a href="/todays-picks/soccer/{{ league_key }}">Today's Picks</a>
+        <span class="fixtures-sep" aria-hidden="true"></span>
+        <a href="/{{ league_key }}/results">Results</a>
+        <span class="fixtures-sep" aria-hidden="true"></span>
+        <a href="/accuracy">Accuracy</a>
+    </p>
+</section>
+
+{% if board.count == 0 %}
+<p class="muted">No upcoming {{ league_label }} fixtures dated {{ board.today }}. See the
+    <a href="/{{ league_key }}/">full fixtures board</a> for later rounds.</p>
+{% else %}
+<ul class="pred-today-list">
+    {% for f in board.fixtures %}
+    <li class="pred-today-card">
+        <a class="pred-today-link" href="{{ f.href }}">
+            <strong>{{ f.matchup }}</strong>
+            <span class="muted">{{ f.when }}</span>
+            {% if f.predicted %}
+            <span class="pred-today-lean">1X2 lean · {{ f.predicted }}
+                {% if f.p_home is not none %}
+                ({{ (f.p_home * 100)|round(0)|int }}% / {{ (f.p_draw * 100)|round(0)|int }}% / {{ (f.p_away * 100)|round(0)|int }}%)
+                {% endif %}
+            </span>
+            {% endif %}
+            {% if f.top_tip %}
+            <span class="pred-today-tip">{{ f.top_tip.market }} → {{ f.top_tip.pick }}
+                {% if f.top_tip.probability is not none %}· {{ (f.top_tip.probability * 100)|round(0)|int }}%{% endif %}
+            </span>
+            {% endif %}
+        </a>
+        <p class="pred-today-blurb muted">{{ f.seo_intro }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<section class="pred-today-more" style="margin-top:1.5rem;">
+    <h2>More {{ league_label }}</h2>
+    <p class="muted">
+        Browse every upcoming round on <a href="/{{ league_key }}/">{{ league_label }} fixtures</a>,
+        check <a href="/{{ league_key }}/results">results</a>, or jump to
+        <a href="/todays-picks">Today's Picks</a> and <a href="/todays-picks/combos">Best Combos</a>.
+    </p>
+</section>
+{% endblock %}

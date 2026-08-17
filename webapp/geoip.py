@@ -22,6 +22,13 @@ def _is_private(ip):
     return not ip or any(ip.startswith(p) for p in PRIVATE_PREFIXES) or ip.startswith("172.16.")
 
 
+def cached_location(ip):
+    """Never hits the network — Unknown until prefetch_locations ran."""
+    if _is_private(ip):
+        return "Private/Local"
+    return _cache.get(ip) or "Unknown"
+
+
 def get_location(ip):
     """Returns a short "City, Country" string, "Private/Local", or
     "Unknown" -- never raises."""
@@ -32,7 +39,7 @@ def get_location(ip):
     try:
         resp = requests.get(
             f"http://ip-api.com/json/{ip}",
-            params={"fields": "status,country,city"}, timeout=5,
+            params={"fields": "status,country,city"}, timeout=1.2,
         )
         data = resp.json()
         if data.get("status") == "success":
@@ -48,13 +55,12 @@ def get_location(ip):
     return label
 
 
-def prefetch_locations(ips, max_workers=10):
-    """Resolves every not-yet-cached IP in `ips` in parallel before the
-    caller starts rendering -- sequential lookups here caused the exact
-    same kind of slow-page-load problem the NPB pitcher-name lookups did
-    earlier in this project (see npb_fixtures.py), same fix applies."""
+def prefetch_locations(ips, max_workers=10, max_lookups=12):
+    """Resolves not-yet-cached IPs in parallel. Caps new lookups so a cold
+    admin page cannot stall on ip-api.com."""
     uncached = [ip for ip in set(ips) if ip not in _cache and not _is_private(ip)]
     if not uncached:
         return
+    uncached = uncached[: max(0, int(max_lookups))]
     with ThreadPoolExecutor(max_workers=max_workers) as pool:
         list(pool.map(get_location, uncached))

@@ -1,13 +1,13 @@
 TeamID,TeamName,Elo,GamesPlayed,AvgRunsScored,AvgRunsAllowed,Last10Wins,Last10Played,CurrentStreak,SeasonWins,SeasonLosses,LastGameDate
-5,Hanshin Tigers,1569.1,1068,3.77,2.94,7,10,4,47,28,2026-08-02
-12,Fukuoka SoftBank Hawks,1567.2,1069,4.93,3.2,8,10,3,46,30,2026-08-02
-8,Hokkaido Nippon-Ham Fighters,1525.0,1071,4.17,3.64,7,10,1,42,39,2026-08-02
-1,Yomiuri Giants,1519.5,1068,3.41,3.26,6,10,-2,41,36,2026-08-02
-3,Yokohama DeNA BayStars,1503.5,1067,4.08,3.49,5,10,2,36,38,2026-08-02
-11,Orix Buffaloes,1494.1,1073,3.29,4.18,5,10,-2,38,40,2026-08-02
-7,Saitama Seibu Lions,1479.5,1074,3.61,3.7,6,10,2,41,38,2026-08-02
-2,Tokyo Yakult Swallows,1473.8,1068,3.23,4.08,3,10,-4,38,39,2026-08-02
-376,Tohoku Rakuten Golden Eagles,1471.9,1067,3.41,4.24,3,10,-4,32,42,2026-08-02
-6,Hiroshima Toyo Carp,1470.3,1067,3.11,3.8,4,10,1,32,39,2026-08-02
-4,Chunichi Dragons,1463.9,1072,3.39,3.4,5,10,-1,32,46,2026-08-02
-9,Chiba Lotte Marines,1462.3,1066,3.48,3.95,3,10,-1,32,42,2026-08-02
+12,Fukuoka SoftBank Hawks,1567.2,1074,4.76,3.19,7,10,-1,49,32,2026-08-08
+5,Hanshin Tigers,1561.1,1073,3.79,3.18,5,10,-2,48,32,2026-08-08
+8,Hokkaido Nippon-Ham Fighters,1523.3,1076,4.04,3.63,6,10,-1,44,42,2026-08-08
+1,Yomiuri Giants,1520.2,1073,3.59,3.22,5,10,1,44,38,2026-08-08
+3,Yokohama DeNA BayStars,1509.4,1072,4.13,3.56,7,10,2,40,39,2026-08-08
+11,Orix Buffaloes,1495.1,1078,3.36,4.09,5,10,-1,41,42,2026-08-08
+7,Saitama Seibu Lions,1476.4,1078,3.47,3.78,4,10,1,42,41,2026-08-08
+4,Chunichi Dragons,1474.9,1077,3.5,3.21,7,10,5,37,46,2026-08-08
+376,Tohoku Rakuten Golden Eagles,1471.6,1072,3.43,4.13,3,10,1,34,45,2026-08-08
+2,Tokyo Yakult Swallows,1468.9,1073,3.06,4.09,2,10,-1,39,43,2026-08-08
+9,Chiba Lotte Marines,1466.3,1070,3.58,3.84,5,10,1,35,43,2026-08-08
+6,Hiroshima Toyo Carp,1465.4,1072,3.09,3.89,4,10,-4,33,43,2026-08-08

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block title %}{{ away_name }} vs {{ home_name }} Prediction | NPB{% endblock %}
-{% block description %}{{ away_name }} vs {{ home_name }} prediction: winner and total runs from our NPB Elo/H2H model{% if match_date %}, {{ match_date }}{% endif %}.{% endblock %}
+{% block title %}{{ away_name }} vs {{ home_name }} Prediction{% if match_date %} {{ match_date }}{% endif %} | NPB{% endblock %}
+{% block description %}{{ away_name }} vs {{ home_name }} NPB ML prediction{% if match_date %} for {{ match_date }}{% endif %}: winner and total runs from our Elo/H2H model. Free forecast -- not betting advice.{% endblock %}
 {% block keywords %}{{ away_name }} vs {{ home_name }} prediction, NPB predictions, Nippon Professional Baseball predictions, Japanese baseball predictions today{% endblock %}
 {% block content %}
 <script type="application/ld+json">
@@ -27,7 +27,13 @@
     "description": "NPB match prediction: winner and total runs."
 }
 </script>
-<a href="/npb/fixtures">&larr; Back to fixtures</a>
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/npb/fixtures', 'Fixtures') }}
+    <a class="page-nav-link" href="/npb/results">Results</a>
+    <a class="page-nav-link" href="/todays-picks/baseball/npb">Today's picks</a>
+    <a class="page-nav-link" href="/todays-picks/combos">Best Combos</a>
+</nav>
 <h1>{{ away_name }} vs {{ home_name }}</h1>
 <p class="muted">{{ match_date }}</p>
 

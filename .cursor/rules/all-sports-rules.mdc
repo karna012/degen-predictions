@@ -1,0 +1,126 @@
+---
+description: Canonical rules for every sport — fixtures, picks, combos, settle, results
+alwaysApply: true
+---
+
+# All-sports rules
+
+A league missing from `today_picks.TODAY_SPORTS` never appears in Today's Picks or Best Combos.
+
+## Universal (every sport)
+
+1. Wire fixtures **and** Today's Picks **and** Best Combos **and** settle in the same change.
+2. After full time: live score first. Never wait for weekly retrain / Cricsheet / football-data dump.
+3. Match teams **and** kickoff date. Prefer a **completed** row; do not grade a rematch from last week.
+4. No score / still live → stay **Pending**. Do not invent a result.
+5. Grade combo legs + published picks; roll up the slip (any pending leg keeps the slip pending; void/push ignored).
+6. Public `/results` must show the final even if the training archive lags.
+7. EC2 `degen-post-event.timer` (15 min) → `webapp/post_event_refresh.py`. Overdue = still pending >6h after kickoff (date-only kickoffs get +1d 12h).
+8. Finished + still Pending → fix the **lookup**, not the archive.
+
+Picks floors: public ≥68% / calibrated / wise 70%. Combos prefer ≥62%, soft-fill ≥55%. Max 6 public tips / league; combo gather up to 18.
+
+---
+
+## Soccer — PL, La Liga, Serie A, Bundesliga, Ligue 1, MLS
+
+| | |
+|--|--|
+| Kind | `soccer` |
+| Fixtures | `match_context` / league fixtures (FotMob-style upcoming) |
+| Markets | Result, Safer Result, DNB, handicap, BTTS, goals, corners |
+| Picks | Safer Result only where later-slice eval cleared 70% |
+| Settle | `_lookup_soccer` ← football-data **history** (`FTHG`/`FTAG`, corners if present) |
+| Results | League results / backtest pages from the same history |
+
+**Caveat:** soccer settle lags until football-data updates (often next day). Live scoreboard is not wired for combo settle yet.
+
+---
+
+## Baseball — MLB
+
+| | |
+|--|--|
+| Kind | `mlb` · tz America/New_York |
+| Fixtures / settle | ESPN scoreboard `site.api` / web API (`mlb_fixtures.get_fixtures`) |
+| Markets | Moneyline skipped on public Today's Picks (coin-flip ~55%). Totals, team runs, hits, Ks; Upset lean if close |
+| Results | `/mlb/results` from ESPN + Elo refresh every 3h (`degen-refresh-data`) |
+
+Prefer completed same-date game in a series.
+
+---
+
+## Baseball — NPB
+
+| | |
+|--|--|
+| Kind | `npb` · tz Asia/Tokyo |
+| Fixtures | spaia `schedules` (times/teams) |
+| **Finals** | spaia `games_info_by_date` (`homeTeamTotalRuns` / `gameStateId` 4). Season `schedules` **lags hours** on `HScore`/`GameState` — do not settle from that alone |
+| Markets | Same coin-flip moneyline skip as MLB; totals / team runs / Upset lean |
+| Results | `/npb/fixtures` shows live overlay; combo settle uses `completed` after overlay |
+
+Match home/away + kickoff date (same pairing plays several days).
+
+---
+
+## Cricket — The Hundred
+
+| | |
+|--|--|
+| Kind | `cricket` · `hundred` · tz Europe/London |
+| Fixtures | Wikipedia `{{Single-innings cricket match}}` (`hundred_fixtures`) |
+| Names | MI London → Oval Invincibles; Sunrisers Leeds → Northern Superchargers; Manchester Super Giants → Originals |
+| Picks | Match winner skipped on public board (coin-flip). Totals / team runs / Upset lean |
+| Settle | `_lookup_cricket` ← **full** `get_hundred_fixtures()` (not upcoming-only) |
+| Results | `/hundred/results` = Wikipedia completed **merged** onto Cricsheet. Archive alone stops days behind |
+
+---
+
+## Cricket — CPL
+
+Same pattern as Hundred: Wikipedia season article, rebrands (Kingsmen/Tallawahs, Tridents/Royals), settle from `get_cpl_fixtures()`, `/cpl/results` merges live finals.
+
+---
+
+## Cricket — IPL / BBL
+
+| | |
+|--|--|
+| Fixtures / settle | fixturedownload.com (`cricket_fd_fixtures.get_competition_fixtures`) |
+| Results | Cricsheet `/ipl/results` `/bbl/results` (fd feed also has completed flags) |
+| Season | IPL ~Mar–May; BBL ~Dec–Jan |
+
+---
+
+## Cricket — MLC
+
+No live schedule feed. Results = Cricsheet only. Season typically done by late summer. Do not pretend upcoming fixtures exist.
+
+---
+
+## Tennis — ATP men only
+
+| | |
+|--|--|
+| League | `atp` — **one** sport `/sports/tennis`. Surface = filter/feature, not a league |
+| Scope | GS / Masters / 500 / 250 **singles** only. Skip qualifying on the public fixture board; skip doubles / WTA |
+| Fixtures | ESPN `site.web.api.espn.com` (not `site.api` — 403 from cloud) + Wikipedia brackets |
+| Markets | Match winner, total sets (2.5/3.5), player to win a set, total games, handicap (±3.5 / ±5.5) |
+| Settle | `_lookup_tennis`: prefer **completed** within ±1 day of kickoff; never grade today’s pairing with a week-old rematch |
+| Score | `tennis_score.parse_tennis_score` (winner-first set string) |
+
+---
+
+## Not sports (same site)
+
+- **Stocks / crypto:** ranking boards, not combo legs. Show **relative** lean (vs board / Beat BTC). Do not paint every absolute equity-premium forecast as a buy.
+- Crypto: range-only when absolute USD direction fails OOS. No 5y–25y public chips.
+
+---
+
+## After-event automation
+
+`degen-post-event.timer` → bust caches (hundred/cpl/tennis/npb/mlb) → `settle_pending` → `data/feedback/post_event.json`.
+
+Install: `bash deploy/setup_automation.sh`

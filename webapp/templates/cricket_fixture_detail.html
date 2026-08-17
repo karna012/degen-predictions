@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block title %}{{ match.team1 }} vs {{ match.team2 }} {% if league_slug == 'ipl' %}IPL Match Prediction{% elif league_slug == 'cpl' %}CPL Match Prediction{% else %}Prediction{% endif %} {{ match.date }} | {{ match.competition_label or 'Cricket' }} | Degen Predictions{% endblock %}
+{% block description %}{{ match.team1 }} vs {{ match.team2 }} {% if league_slug == 'ipl' %}IPL{% elif league_slug == 'cpl' %}CPL{% else %}cricket{% endif %} prediction for {{ match.date }}: win probability, runs, pitch, players, home ground, sentiment. Free forecast -- not betting advice.{% endblock %}
+{% block keywords %}{{ match.team1 }} vs {{ match.team2 }} prediction, {% if league_slug == 'ipl' %}IPL predictions, IPL match predictions{% elif league_slug == 'cpl' %}CPL predictions, Caribbean Premier League predictions{% else %}cricket predictions{% endif %}{% endblock %}
+{% block body_class %} sport-atmosphere sport-{{ league_slug }} cricket-page{% endblock %}
+{% block content %}
+{% set league = league_slug or 'hundred' %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": {{ (match.team1 ~ " vs " ~ match.team2) | tojson }},
+    "startDate": {{ match.date | tojson }},
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {"@type": "Place", "name": {{ (match.venue or match.competition_label or 'Cricket') | tojson }}},
+    "sport": "Cricket",
+    "competitor": [
+        {"@type": "SportsTeam", "name": {{ match.team1 | tojson }}},
+        {"@type": "SportsTeam", "name": {{ match.team2 | tojson }}}
+    ],
+    "description": {% if league_slug == 'ipl' %}"IPL match prediction."{% elif league_slug == 'cpl' %}"CPL match prediction."{% else %}"Cricket match prediction."{% endif %}
+}
+</script>
+{% from "macros.html" import nav_back %}
+{% from "partials/team_crest.html" import team_crest %}
+{% from "partials/prob_board.html" import prob_board %}
+{{ nav_back('/' ~ league ~ '/fixtures', 'Fixtures') }}
+{% include "partials/cricket_league_nav.html" %}
+
+<div class="leagues-hero cricket-hero">
+    <div class="team-pair" style="margin-bottom:0.75rem;">
+        {{ team_crest(match.team1, size='lg', rgb=match.crest_rgb1) }}
+        <span class="vs">VS</span>
+        {{ team_crest(match.team2, size='lg', rgb=match.crest_rgb2) }}
+    </div>
+    <h1>{{ match.team1 }} vs {{ match.team2 }}</h1>
+    <p class="muted">{{ match.date }}{% if match.time %} &middot; {{ match.time }}{% endif %} &middot; {{ match.venue }}
+        {% if match.competition_label %} &middot; {{ match.competition_label }}{% endif %}
+    </p>
+    {% if match.completed %}
+    <p class="predicted" style="margin-top:0.75rem;">Final{% if match.result %}: <strong>{{ match.result }}</strong>{% endif %}{% if match.score1 or match.score2 %} · {{ match.score1 }} / {{ match.score2 }}{% endif %}</p>
+    {% endif %}
+</div>
+
+{% if match.prediction %}
+<section class="match-terminal">
+    <div class="match-terminal-head">
+        <div>
+            <h2 style="margin:0 0 0.35rem; font-size:1.15rem;">Match terminal</h2>
+            <p class="match-terminal-meta">{{ match.prediction.basis }}</p>
+        </div>
+        {% if match.insights %}
+        <div class="insight-strip">
+            {% for chip in match.insights %}
+            <span class="insight-chip{% if chip.accent %} insight-chip--accent{% endif %}">{{ chip.text }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    {{ prob_board(match.prediction.team1_win_prob, match.prediction.team2_win_prob, match.team1, match.team2) }}
+
+    {% set fav_p = match.prediction.team1_win_prob if match.predicted_winner == match.team1 else match.prediction.team2_win_prob %}
+    {% if fav_p <= 0.57 %}
+    <p class="predicted" style="margin-top:1rem;">Coin-flip lean: <strong>{{ match.predicted_winner }}</strong> — prefer totals / team runs.</p>
+    {% else %}
+    <p class="predicted" style="margin-top:1rem;">Model edge: <strong>{{ match.predicted_winner }}</strong></p>
+    {% endif %}
+
+    <div class="match-terminal-stats">
+        {% if match.prediction.predicted_team1_runs is not none %}
+        <div class="terminal-stat">
+            <span class="label">{{ match.team1 }} runs</span>
+            <span class="value">{{ match.prediction.predicted_team1_runs }}</span>
+        </div>
+        <div class="terminal-stat">
+            <span class="label">{{ match.team2 }} runs</span>
+            <span class="value">{{ match.prediction.predicted_team2_runs }}</span>
+        </div>
+        <div class="terminal-stat">
+            <span class="label">Match total</span>
+            <span class="value">{{ match.prediction.predicted_total_runs }}</span>
+        </div>
+        {% endif %}
+        {% if match.prediction.elo_team1 is not none %}
+        <div class="terminal-stat">
+            <span class="label">Elo {{ match.team1 }}</span>
+            <span class="value">{{ match.prediction.elo_team1 }}</span>
+        </div>
+        <div class="terminal-stat">
+            <span class="label">Elo {{ match.team2 }}</span>
+            <span class="value">{{ match.prediction.elo_team2 }}</span>
+        </div>
+        {% endif %}
+        {% if match.weather %}
+        <div class="terminal-stat">
+            <span class="label">Weather</span>
+            <span class="value" style="font-size:0.95rem;">{{ match.weather.temp_min_c }}–{{ match.weather.temp_max_c }}°C</span>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% set fav_pct = ((match.prediction.team1_win_prob if match.predicted_winner == match.team1 else match.prediction.team2_win_prob) * 100)|round(0)|int %}
+{% set title = match.team1 ~ ' vs ' ~ match.team2 %}
+{% set subtitle = (match.date or '') ~ ((' · ' ~ match.venue) if match.venue else '') %}
+{% set lines = [
+  ('Lean: ' ~ match.predicted_winner ~ ' (' ~ fav_pct ~ '%)') if match.predicted_winner else none,
+  ('Total runs ~' ~ match.prediction.predicted_total_runs) if match.prediction.predicted_total_runs else none,
+]|reject('none')|list %}
+{% set share_text = title ~ '\n' ~ subtitle ~ '\n' ~ (lines|join('\n')) ~ '\nhttps://degenpredictions.com' ~ request.path %}
+{% include "partials/share_card.html" %}
+{% else %}
+{% set title = "No prediction available" %}
+{% set body = "Insufficient rating history for one or both teams under the current name." %}
+{% set actions = [{"href": "/" ~ league ~ "/fixtures", "label": "Back to fixtures"}] %}
+{% set season_window = none %}
+{% include "partials/empty_state.html" %}
+{% endif %}
+
+{% set team_analysis = match.team_analysis %}
+{% set player_analysis = match.player_analysis %}
+{% set home_ground = match.home_ground %}
+{% set sentiment = match.sentiment %}
+{% set stat_analysis = none %}
+{% include "partials/cricket_analysis.html" %}
+
+{% if match.pitch_report %}
+<div class="card" style="margin-top:1rem;">
+    <h2>Pitch Report</h2>
+    <p>{{ match.pitch_report.venue }} &mdash; historically
+        <strong>{{ match.pitch_report.pitch_type }}</strong>
+        (avg 1st-innings score {{ match.pitch_report.avg_first_innings }}, avg 2nd-innings score
+        {{ match.pitch_report.avg_second_innings }}, across {{ match.pitch_report.matches_played }}
+        match{{ 'es' if match.pitch_report.matches_played != 1 else '' }} on record).</p>
+    {% if match.pitch_report.thin_history %}
+    <p class="muted">Only {{ match.pitch_report.matches_played }} match{{ 'es' if match.pitch_report.matches_played != 1 else '' }}
+        of history at this ground — treat this pitch read as early/low-confidence.</p>
+    {% endif %}
+</div>
+{% endif %}
+
+{% if match.weather %}
+<div class="card" style="margin-top:1rem;">
+    <h2>Weather Forecast</h2>
+    <p>{{ match.weather.date }}: {{ match.weather.temp_min_c }}&deg;C &ndash; {{ match.weather.temp_max_c }}&deg;C,
+        {{ match.weather.precipitation_probability_pct }}% chance of rain.</p>
+    <p class="muted">Forecast only shown for fixtures within Open-Meteo's ~16-day forecast window.</p>
+</div>
+{% endif %}
+
+<div class="tips-card" style="margin-top:1.25rem;">
+    <h2>About This Prediction</h2>
+    <p>Live fixture board. When provisional XI form is available the full ML stack runs; otherwise Elo + venue.
+        Lineups are last-known Cricsheet XIs, not official announced sides. Estimates only — not betting advice.</p>
+</div>
+{% endblock %}

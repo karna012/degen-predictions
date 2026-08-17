@@ -1,0 +1,9 @@
+{# Match page breadcrumb shell — pass back_href, back_label, extra_links list of {href,label} #}
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back(back_href, back_label) }}
+    {% for link in extra_links or [] %}
+    <a class="page-nav-link" href="{{ link.href }}">{{ link.label }}</a>
+    {% endfor %}
+    <a class="page-nav-link" href="/todays-picks/combos">Best combos</a>
+</nav>

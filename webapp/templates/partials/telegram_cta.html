@@ -1,0 +1,19 @@
+{# Show only when TELEGRAM_CHANNEL_URL is configured (never invent a link).
+   Expects: telegram_channel_url from context processor. #}
+{% if telegram_channel_url %}
+<aside class="telegram-cta" aria-label="Telegram channel">
+  <p class="telegram-cta-copy">
+    <strong>Daily picks on Telegram</strong>
+    <span class="muted"> — same Today's Picks / Best Combos board, posted each morning.</span>
+  </p>
+  <a class="league-cta footer-social-link footer-social-link--telegram"
+     href="/go/telegram"
+     target="_blank" rel="noopener noreferrer"
+     style="text-decoration:none;">
+    <svg class="footer-social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+      <path d="M21.95 5.15c.27-1.02-.68-1.84-1.6-1.48L2.9 10.6c-.98.38-.97 1.83.02 2.19l4.34 1.57 1.68 5.4c.22.7 1.07.92 1.6.4l2.35-2.27 4.46 3.36c.75.57 1.83.15 2.03-.79l3.07-14.9v-.01zm-3.62 2.65-8.3 7.53a.6.6 0 0 0-.19.36l-.35 2.6-1.36-4.36a.6.6 0 0 1 .26-.68l9.6-5.9c.2-.12.4.15.24.31l.1.14z"/>
+    </svg>
+    <span>Join Telegram</span>
+  </a>
+</aside>
+{% endif %}

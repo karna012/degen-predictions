@@ -1,0 +1,368 @@
+{% extends "base.html" %}
+{% block title %}{% if market == 'crypto' %}Crypto Predictions &amp; Bitcoin Rankings — {{ horizon_label }} ML Forecast | Degen Predictions{% elif market == 'us' %}US Stock Predictions — S&amp;P {{ horizon_label }} ML Rankings | Degen Predictions{% elif market == 'india' %}India Stock Predictions — Nifty {{ horizon_label }} ML Rankings | Degen Predictions{% else %}{{ category_label }} ML Rankings — {{ horizon_label }} | Degen Predictions{% endif %}{% endblock %}
+{% block description %}{% if market == 'crypto' %}Free crypto predictions and Bitcoin rankings for a {{ horizon_label }} window: ML crypto forecast board with Beat BTC probability, peer lean, and 80% return ranges when absolute point forecasts are withheld. Research only — not investment advice.{% elif market == 'us' %}Free US stock predictions (S&amp;P 500) ranked by ML predicted {{ horizon_label }} return. Walk-forward models with outperform % and data confidence. Not investment advice.{% elif market == 'india' %}Free India stock predictions (Nifty 50) ranked by ML predicted {{ horizon_label }} return. Walk-forward models with outperform % and data confidence. Not investment advice.{% else %}{{ category_label }} ranked by estimated {{ horizon_label }} return from a walk-forward ML model. Not investment advice.{% endif %}{% endblock %}
+{% block keywords %}{% if market == 'crypto' %}crypto predictions, Bitcoin predictions, crypto forecast, ML crypto rankings, cryptocurrency predictions, Beat BTC, degen predictions crypto{% elif market == 'us' %}US stock predictions, S&amp;P predictions, stock predictions, ML stock rankings, stock forecast, degen predictions stocks{% elif market == 'india' %}India stock predictions, Nifty predictions, stock predictions, Indian stock forecast, ML stock rankings{% else %}{{ category_label|lower }} predictions, {{ category_label|lower }} rankings, AI {{ category_label|lower }} predictions, {{ horizon_label }} forecast{% endif %}{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+{% set is_crypto = market == 'crypto' %}
+{% set accent = '#f7931a' if is_crypto else ('#1565c0' if market == 'us' else '#c45c14') %}
+{{ nav_back(back_href, 'Home' if is_crypto else 'Markets') }}
+
+<div class="stocks-hero" style="--market-accent: {{ accent }};">
+    <p class="stocks-kicker">
+        {% if is_crypto %}Digital assets · multi-horizon
+        {% elif market == 'us' %}United States · S&amp;P 500
+        {% else %}India · Nifty 50
+        {% endif %}
+    </p>
+    <h1>{% if is_crypto %}Crypto Predictions{% elif market == 'us' %}US Stock Predictions{% elif market == 'india' %}India Stock Predictions{% else %}{{ category_label }}{% endif %}</h1>
+    <p class="muted">
+        {% if is_crypto %}
+        Ranked by relative lean vs Bitcoin, not a USD price target. Absolute % returns are withheld when direction fails holdout. Research only.
+        {% elif market == 'us' %}
+        S&amp;P 500: cards lead with the gap vs the board and beat-index %, not an all-green absolute return tape.
+        {% elif market == 'india' %}
+        Nifty 50: cards lead with the gap vs the board and beat-index %, not an all-green absolute return tape.
+        {% else %}
+        Cards lead with the gap vs the board and beat-index %, because absolute window estimates are usually positive.
+        {% endif %}
+    </p>
+</div>
+
+{% if horizons %}
+<form class="horizon-bar" method="get" action="{{ '/crypto' if is_crypto else '/stocks/' ~ market }}" id="horizon-form">
+    <label for="horizon-select">Investment timeframe</label>
+    <div class="horizon-chips" role="listbox" aria-label="Investment timeframe">
+        {% for h in [6, 12, 24, 36, 60, 120, 180, 240, 300] %}
+        {% set available = h in horizons %}
+        <button type="submit" name="horizon" value="{{ h }}"
+                class="horizon-chip {{ 'is-active' if h == selected_horizon else '' }} {{ 'is-disabled' if not available else '' }}"
+                {% if not available %}disabled title="{% if is_crypto %}Not enough crypto history to train this horizon yet{% else %}Not enough history to train this horizon yet{% endif %}"{% endif %}>
+            {{ horizon_labels.get(h, h ~ 'm') }}
+        </button>
+        {% endfor %}
+    </div>
+</form>
+{% endif %}
+
+{% if board_as_of %}
+<p class="muted stocks-window">Board as of <strong>{{ board_as_of }}</strong>{% if board_hold_until %} · recommended hold through <strong>{{ board_hold_until }}</strong>{% endif %} · {{ horizon_label }} window.</p>
+{% endif %}
+
+{% if is_crypto and (board_analysis or live_board_stats) %}
+<div class="edge-callout">
+    <strong>How this crypto board is analysed</strong>
+    <p>
+        {% if board_analysis and not board_analysis.absolute_ok %}
+        Point USD returns are not published for this window — purged out-of-sample direction did not clear the bar.
+        {% endif %}
+        {% if live_board_stats %}
+        {{ live_board_stats.n_beat_btc }} of {{ live_board_stats.n }} names have ≥50% chance to beat BTC
+        ({{ live_board_stats.n_lag_btc }} lean under).
+        {% if live_board_stats.median_downside is not none %}
+        Median estimated downside probability {{ '%.0f'|format(live_board_stats.median_downside * 100) }}%.
+        {% endif %}
+        {% endif %}
+        {% if board_analysis and board_analysis.ic is not none %}
+        Walk-forward rank IC {{ '%+.3f'|format(board_analysis.ic) }}.
+        {% endif %}
+        Rank is a relative lean, not a price target.
+    </p>
+</div>
+{% elif stock_analysis %}
+<div class="edge-callout">
+    <strong>How this stock board is analysed</strong>
+    <p>
+        {% if stock_analysis.all_absolute_positive %}
+        Every name has a positive absolute {{ horizon_label }} estimate (equity drift). That is not a buy signal.
+        {% endif %}
+        The ranking uses the gap vs the board median
+        {% if stock_analysis.peer_median is not none %}
+        ({{ '%+.1f'|format(stock_analysis.peer_median * 100) }}% typical)
+        {% endif %}
+        and vs the index: <strong>{{ stock_analysis.n_above }} above the board</strong>,
+        {{ stock_analysis.n_below }} below;
+        {{ stock_analysis.n_beat }} names ≥50% to outperform the benchmark,
+        {{ stock_analysis.n_lag }} lean under.
+        Green / red on each card is that relative gap.
+    </p>
+</div>
+{% endif %}
+
+<div id="not-financial-advice-overlay"
+     data-dismiss-key="dismissed-not-financial-advice-{{ market }}"
+     style="position:fixed; top:0; right:0; bottom:0; left:0; inset:0; background:rgba(0,0,0,0.55); z-index:10050; display:flex; align-items:center; justify-content:center; padding:1rem;">
+    <div class="disclaimer" id="not-financial-advice-banner" style="max-width:70ch; max-height:85vh; overflow-y:auto; border:2px solid #c0392b; padding:1.25rem; border-radius:8px; position:relative; background:var(--bg, #0d0d16);">
+        <button type="button" onclick="dismissDisclaimer()" aria-label="Dismiss"
+                style="position:absolute; top:0.5rem; right:0.6rem; background:none; border:none; color:inherit; font-size:1.4rem; line-height:1; cursor:pointer; opacity:0.7;">&times;</button>
+        <strong>&#9888; NOT FINANCIAL ADVICE -- READ BEFORE ACTING ON ANYTHING BELOW.</strong>
+        <p style="margin-top:0.5rem;">Experimental ML rankings for education/research only -- not investment advice.
+            {% if is_crypto %}Crypto history is short and noisy.{% else %}Longer horizons have fewer independent training windows and weaker signal.{% endif %}
+            Always check data confidence. Full terms: <a href="/terms">/terms</a>.</p>
+    </div>
+</div>
+<script>
+(function() {
+    var overlay = document.getElementById("not-financial-advice-overlay");
+    if (!overlay) return;
+    var key = overlay.getAttribute("data-dismiss-key") || "dismissed-not-financial-advice";
+    if (sessionStorage.getItem(key)) {
+        overlay.classList.add("is-dismissed");
+        return;
+    }
+    if (overlay.parentNode !== document.body) document.body.appendChild(overlay);
+    var timer = null;
+    function armDismiss() {
+        timer = setTimeout(dismissDisclaimer, 6000);
+        overlay.addEventListener("click", function(e) {
+            if (e.target === overlay) { clearTimeout(timer); dismissDisclaimer(); }
+        });
+    }
+    // Start the 6s clock after DOM is ready so heavy boards (e.g. US stocks)
+    // still show the overlay for a full visible window, not parse time.
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", armDismiss);
+    } else {
+        armDismiss();
+    }
+})();
+function dismissDisclaimer() {
+    var overlay = document.getElementById("not-financial-advice-overlay");
+    if (!overlay) return;
+    overlay.classList.add("is-dismissed");
+    var key = overlay.getAttribute("data-dismiss-key") || "dismissed-not-financial-advice";
+    sessionStorage.setItem(key, "1");
+}
+</script>
+
+{% if tv_symbol_map and rows %}
+<h2 class="stocks-section-title">Live chart — <span id="tv-asset-label">tap a name</span></h2>
+<div class="tradingview-widget-container table-wrap" id="tv-asset-container" style="margin-bottom: 0.5rem; overflow: hidden; min-height: 48px;">
+  <p class="muted" style="padding:0.75rem 0;">Click any card to load its TradingView chart (kept off the critical path for speed).</p>
+</div>
+{% endif %}
+
+{% if rows %}
+<div class="stocks-toolbar">
+    <input type="text" id="asset-search" placeholder="Search ticker..."
+           oninput="filterAssetRows(this.value)">
+    <p class="muted" id="asset-search-count"></p>
+</div>
+
+<div class="stocks-grid" id="asset-rows">
+    {% for r in rows %}
+    {% set detail_href = ('/crypto/asset/' ~ r.ticker ~ '?horizon=' ~ selected_horizon) if is_crypto else ('/' ~ category ~ '/asset/' ~ r.ticker ~ '?horizon=' ~ selected_horizon) %}
+    <article class="stock-card {{ 'is-crypto' if is_crypto else '' }}" data-ticker="{{ r.ticker|lower }}"
+             {% if tv_symbol_map %}data-tv-ticker="{{ r.ticker }}" onclick="loadAssetWidget(this.dataset.tvTicker)"{% endif %}>
+        <div class="stock-card-top">
+            <div class="stock-identity">
+                {% if r.logo_url %}
+                <img class="asset-logo" src="{{ r.logo_url }}" alt="" width="36" height="36" loading="lazy"
+                     onerror="this.style.display='none'; var m=this.nextElementSibling; if(m) m.style.display='inline-flex';">
+                {% endif %}
+                <span class="asset-monogram" style="{% if r.logo_url %}display:none;{% else %}display:inline-flex;{% endif %}">{{ r.ticker[:2]|upper }}</span>
+                <div>
+                    <a class="stock-ticker" href="{{ detail_href }}" onclick="event.stopPropagation();">{{ r.ticker }}</a>
+                    <div class="muted stock-rank">Rank #{{ r.rank_within_asset_class }}</div>
+                </div>
+            </div>
+            {% if is_crypto and r.forecast_mode == 'range_only' %}
+            <div class="stock-return {{ 'is-up' if (r.predicted_outperform_probability or 0) >= 0.5 else 'is-down' }}">
+                {{ '%.0f'|format((r.predicted_outperform_probability or 0) * 100) }}%
+                <div class="stock-return-sub">Beat BTC</div>
+            </div>
+            {% else %}
+            <div class="stock-return {{ 'is-up' if (r.display_edge or 0) >= 0 else 'is-down' }}">
+                {{ '%+.1f'|format((r.display_edge or 0) * 100) }}%
+                <div class="stock-return-sub">vs board</div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="stock-card-meta">
+            {% if is_crypto and r.forecast_mode == 'range_only' %}
+            <span>Peer lean {{ (r.relative_lean_pct or 0)|int }}th pct</span>
+            <span>80% range {{ '%+.0f'|format((r.prediction_interval_low or 0) * 100) }}% to {{ '%+.0f'|format((r.prediction_interval_high or 0) * 100) }}%</span>
+            <span class="muted">Downside {{ ((r.predicted_downside_probability or 0) * 100) | round(0) | int }}% (residual)</span>
+            {% else %}
+            <span>Window {{ '%+.1f'|format((r.predicted_forward_return or 0) * 100) }}%{% if r.annualized_return is not none %} · {{ '%+.1f'|format(r.annualized_return * 100) }}%/yr{% endif %}</span>
+            <span>{% if is_crypto %}Beat BTC{% else %}Beat index{% endif %} {{ ((r.predicted_outperform_probability or 0) * 100) | round(0) | int }}%</span>
+            {% endif %}
+            <span>{{ r.data_confidence }} confidence</span>
+            {% if r.sentiment_score is defined and r.sentiment_score is not none %}
+            <span>Sentiment {{ r.sentiment_score | round(2) }}</span>
+            {% endif %}
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% else %}
+<p class="muted" style="margin-top:1.5rem;">No ranking data{% if not is_crypto %} for this timeframe{% endif %} yet.</p>
+{% endif %}
+
+<style>
+.stocks-hero {
+    margin: 1rem 0 1.5rem;
+    padding: 1.5rem 1.25rem;
+    border-radius: 18px;
+    background:
+        radial-gradient(ellipse at top right, color-mix(in srgb, var(--market-accent) 28%, transparent), transparent 55%),
+        linear-gradient(145deg, rgba(18, 28, 55, 0.95), rgba(10, 14, 30, 0.92));
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.stocks-kicker {
+    margin: 0 0 0.4rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--market-accent) 80%, white);
+    font-weight: 700;
+}
+.stocks-hero h1 { margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.2rem); }
+.horizon-bar { margin: 0 0 1.25rem; }
+.horizon-bar label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 0.55rem;
+    font-weight: 700;
+}
+.horizon-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.horizon-chip {
+    appearance: none;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+}
+.horizon-chip.is-active {
+    background: color-mix(in srgb, var(--market-accent, #1565c0) 75%, black);
+    border-color: transparent;
+    color: #fff;
+}
+.horizon-chip.is-disabled { opacity: 0.35; cursor: not-allowed; }
+.model-banner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background: rgba(19, 79, 246, 0.12);
+    border: 1px solid rgba(19, 79, 246, 0.25);
+    margin-bottom: 1rem;
+}
+.model-banner strong { display: block; margin-top: 0.15rem; text-transform: capitalize; }
+.model-metrics { display: flex; gap: 1rem; align-items: center; color: var(--muted); font-size: 0.9rem; }
+.stocks-window { margin-bottom: 0.75rem; }
+.edge-callout {
+    margin: 0 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+.edge-callout p { margin: 0.35rem 0 0; color: var(--muted); }
+.stocks-section-title { font-size: 1.05rem; margin: 0 0 0.6rem; }
+.stocks-toolbar { margin: 0 0 1rem; }
+.stocks-toolbar input {
+    width: 100%;
+    max-width: 320px;
+    padding: 0.6rem 0.85rem;
+    border-radius: 10px;
+    border: 1px solid var(--border, #444);
+    background: var(--card-bg, #1a1a1a);
+    color: inherit;
+}
+.stocks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.85rem;
+}
+.stock-card {
+    padding: 1rem;
+    border-radius: 14px;
+    background: linear-gradient(160deg, rgba(24, 34, 64, 0.9), rgba(12, 16, 34, 0.95));
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+}
+.stock-card.is-crypto {
+    background: linear-gradient(160deg, rgba(48, 34, 18, 0.92), rgba(18, 14, 10, 0.96));
+}
+.stock-card:hover { border-color: color-mix(in srgb, var(--market-accent, #1565c0) 55%, white); transform: translateY(-1px); }
+.stock-card-top { display: flex; justify-content: space-between; gap: 0.75rem; align-items: flex-start; }
+.stock-identity { display: flex; gap: 0.65rem; align-items: center; min-width: 0; }
+.stock-identity img, .stock-identity .asset-monogram {
+    width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+}
+.stock-identity .asset-monogram {
+    background: rgba(255,255,255,0.08);
+    align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700;
+}
+.stock-ticker { font-weight: 700; color: inherit; text-decoration: none; word-break: break-all; }
+.stock-rank { font-size: 0.78rem; }
+.stock-return { font-size: 1.25rem; font-weight: 800; white-space: nowrap; text-align: right; line-height: 1.15; }
+.stock-return-sub { font-size: 0.65rem; font-weight: 600; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.04em; }
+.stock-return.is-up { color: #3ddc97; }
+.stock-return.is-down { color: #ff6b6b; }
+.stock-card-meta {
+    display: flex; flex-wrap: wrap; gap: 0.45rem 0.75rem;
+    margin-top: 0.85rem; font-size: 0.78rem; color: var(--muted);
+}
+@media (max-width: 640px) {
+    .stocks-hero { padding: 1.15rem 1rem; }
+    .horizon-chip { padding: 0.4rem 0.7rem; font-size: 0.78rem; }
+}
+</style>
+
+<script>
+function filterAssetRows(q) {
+    q = (q || "").trim().toLowerCase();
+    const cards = document.querySelectorAll("#asset-rows .stock-card");
+    let shown = 0;
+    cards.forEach(card => {
+        const hit = !q || (card.dataset.ticker || "").includes(q);
+        card.style.display = hit ? "" : "none";
+        if (hit) shown += 1;
+    });
+    const count = document.getElementById("asset-search-count");
+    if (count) count.textContent = q ? (shown + " match" + (shown === 1 ? "" : "es")) : "";
+}
+{% if tv_symbol_map and rows %}
+const TV_SYMBOL_MAP = {{ tv_symbol_map | tojson }};
+function loadAssetWidget(ticker) {
+    const label = document.getElementById("tv-asset-label");
+    if (label) label.textContent = ticker;
+    const container = document.getElementById("tv-asset-container");
+    if (!container) return;
+    const symbol = TV_SYMBOL_MAP[ticker];
+    container.innerHTML = "";
+    if (!symbol) {
+        container.innerHTML = "<p class='muted' style='padding:1rem;'>No TradingView symbol mapped for " + ticker + ".</p>";
+        return;
+    }
+    const widget = document.createElement("div");
+    widget.className = "tradingview-widget-container__widget";
+    container.appendChild(widget);
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+        symbol: symbol, width: "100%", height: "220", locale: "en",
+        dateRange: "12M", colorTheme: "dark", isTransparent: true,
+    });
+    container.appendChild(script);
+}
+{% endif %}
+</script>
+{% endblock %}

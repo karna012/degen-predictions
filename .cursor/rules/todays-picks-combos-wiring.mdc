@@ -1,0 +1,160 @@
+---
+description: Today's Picks + Best Combos wiring checklist and selection logic
+alwaysApply: true
+---
+
+# Today's Picks + Best Combos
+
+Primary code: `webapp/today_picks.py`, `webapp/app.py` (`_rebuild_combo_bundle`, `todays_picks_league`), settle in `webapp/combo_results.py`.
+
+Best Combos is driven by `today_picks.TODAY_SPORTS` via `_rebuild_combo_bundle`. A league missing from `TODAY_SPORTS` never appears in combos.
+
+Whenever you add a **new sport** or **new league**, wire Today's Picks and Best Combos in the same change. Do not ship fixtures/results-only without this.
+
+---
+
+## Wiring checklist
+
+### New league under an existing sport (e.g. cricket)
+
+1. `webapp/today_picks.py` → `TODAY_SPORTS[<sport>]["leagues"][<slug>]` with `label`, `tz`, `kind`, `color`, `empty_hint`
+2. Threshold path: `_SPORT_THRESHOLD_PATHS` (+ `comp_map` / competition map inside the sport's `build_*_today` if needed)
+3. Live fixtures must feed that builder (so match-day picks exist)
+4. Fixture detail URLs in the builder when `slug` exists
+5. `webapp/combo_results.py` → `lookup_score_for_leg` / sport-specific lookup for settle. Prefer a **completed** fixture on the kickoff date (NPB series / tennis rematches / cricket season lists). NPB finals come from spaia `games_info_by_date` — the season `schedules` feed lags hours on `HScore`/`GameState`. Tennis skips Wikipedia unfinished brackets when ESPN already has a final, but will not grade a week-old rematch against today's still-scheduled pairing.
+6. Sitemap + `/todays-picks/...` static entries in `app.py` when applicable
+7. Accuracy hub / nav / about lists if the sport already lists leagues there
+
+Cricket reference: IPL/BBL/Hundred/MLC/CPL (`build_cricket_today`, `CRICKET_COMPETITION_BY_SLUG`, fixture source, combo cricket lookup).
+
+Tennis reference: ATP men (`kind=tennis`, league `atp`, `build_tennis_today`, ESPN + Wikipedia fixtures, `_lookup_tennis`, surface Elo — surface is a **filter/feature**, not a separate league).
+
+Tennis markets (predictions + Today's Picks / Best Combos): **Match winner**, **Total sets** (O/U 2.5 or 3.5), **Player to win a set**, **Total games** (O/U), **Handicap** (games ±3.5 / ±5.5). Models in `data/tennis/ml_markets_model.joblib`; settle via parsed score in `tennis_score.parse_tennis_score`.
+
+### New sport (new `kind`)
+
+All of the above, plus:
+
+1. New `build_<sport>_today(...)` in `today_picks.py`
+2. Handle `kind` in **both** `_rebuild_combo_bundle` and `todays_picks_league` in `app.py` (missing branch → silent empty / 404)
+3. `annotate_leg` fields so combo slips carry `sport_key` / `league_id`
+4. Settlement path in `combo_results.py`
+5. Add sport to `_diversify_leg_pool` `sport_order` so it gets early round-robin slots
+
+### Done when
+
+- League shows under `/todays-picks/<sport>/<league>`
+- Match-day tips can enter `/todays-picks/combos` (subject to confidence floors)
+- Combo/pick settlement can resolve the fixture after the game
+- After deploy: if combos look empty of the new sport, rebuild/clear `combo_full.pkl` / page cache (stale cache can hide newly wired legs)
+
+---
+
+## Today's Picks — selection logic
+
+**Route:** `/todays-picks` → sport → `/todays-picks/<sport>/<league>`
+
+**Goal:** short list of high-confidence **single** tips for one league’s games today (plus live).
+
+### Flow
+
+1. Resolve league from `TODAY_SPORTS` (`kind`, `tz`, builder).
+2. Load today’s fixtures for that league (timezone = league `tz`).
+3. For each fixture, compute model probabilities for that sport’s markets.
+4. Emit tips only if probability clears the **per-tip bar** (below).
+5. Rank by confidence; keep up to `MAX_PICKS_PER_LEAGUE` (**6**).
+6. Label: calibrated bar cleared → “70%+ confidence tier”; else high-confidence / wise.
+
+### Probability floors (constants in `today_picks.py`)
+
+| Constant | Default | Role |
+|----------|---------|------|
+| `HIGH_CONF_MIN` | 0.55 | Soft default when no calibrated bar |
+| `HIGH_PROB_MIN` | 0.68 | Never tip below this on public Today's Picks (hard markets) |
+| `WISE_PROB_MIN` | 0.70 | Stricter floor for soft/derived markets when uncalibrated |
+| `effective_high_prob_min()` | ≥ 0.68 | `max(HIGH_PROB_MIN, live_calibration)` — live feedback may **raise** only |
+
+Calibrated bars come from `data/<sport>/confidence_thresholds.json` (e.g. tennis `match_winner`, MLB `moneyline`). Mapping: tip label → key via `_SPORT_MARKET_KEYS` / soccer `_MARKET_THRESHOLD_KEYS`.
+
+**Bar for a tip:** `max(calibrated_threshold, effective_high_prob_min())` when the market is in the 70% tier; else wise floor. If calibration `met_target` is false, market is **unavailable** as a 70% tip (`sport_market_min_conf` / soccer equivalent returns `None`).
+
+### Sport-specific tip rules
+
+- **Soccer:** result / Safer Result / DNB / handicap / BTTS / goals / corners — Safer Result only where later-slice eval cleared 70%.
+- **Baseball / cricket:** full-slate winners near coin-flip → public Today's Picks often **skips favorite Match winner / Moneyline**; may show **Upset lean** when game is close (`COINFLIP_FAV_MAX` / `UPSET_LEAN_MIN`). Props/handicap still tip when strong. Combo gather (`min_conf` set) still takes match winners for the pool.
+- **Tennis (ATP):** favorite **Match winner** when strong; optional Upset lean if close. Surface is a model feature + UI filter, not a league.
+
+### Public vs combo gather in the same builder
+
+Builders take `min_conf=None` (public board) or `min_conf=COMBO_SOFT_FILL_MIN` (combo pool):
+
+- Public: stricter — tip must clear `effective_high_prob_min()` / calibrated wise bar (`_combo_gather_bar` returns `wise_bar`).
+- Combo gather: wider — up to `MAX_PICKS_FOR_COMBOS` (**18**); soft floor can include legs down toward soft-fill (see Best Combos).
+
+---
+
+## Best Combos — selection logic
+
+**Route:** `/todays-picks/combos`
+
+**Goal:** publish **2-leg** and **3-leg** slips with **~70%+ empirical slip hit rate** (prefer higher; slight under-70 OK). Quality over quantity.
+
+### Flow
+
+1. **Gather** — for every league in `TODAY_SPORTS`, call the same `build_*_today(..., max_n=MAX_PICKS_FOR_COMBOS, min_conf=COMBO_SOFT_FILL_MIN)` and `annotate_leg` (`sport_key`, `league_id`, …).
+2. **Usable floors** — try `COMBO_PREFER_MIN` (**0.70**) first (outstanding), then `COMBO_FALLBACK_MIN` / `COMBO_SOFT_FILL_MIN` (**0.68**). Never soft-fill near coin-flip.
+3. **Usable legs** — drop finals, blank picks, and **Upset lean** (coin-flip drag).
+4. **Diversify** — `_diversify_leg_pool`: round-robin sport → league → market family. Cap `COMBO_POOL_CAP` (**48**).
+5. **Candidates** — beam search (`COMBO_BEAM_WIDTH`); legs on one slip must be **distinct fixtures**.
+6. **Quality gate** (`_filter_quality_candidates`) — reject min-leg < `COMBO_MIN_LEG` (0.68), high-corr + soft joint, upset leans. Mark `is_outstanding` when every leg (and avg) ≥ `COMBO_TARGET_HIT_RATE` (0.70). Prefer outstanding pool when it can fill `min_k`.
+7. **Joint probability** — product of leg confidences (independence assumption). UI may note correlation risk.
+8. **Score** (`_make_combo`) — `log(joint)` plus:
+   - Strong bonus: outstanding (≥70% all legs) / high min+avg confidence
+   - Bonus: multiple markets / market families
+   - Bonus: Cross-sport > Cross-league; penalty: Same-league
+   - Penalty: correlation / same-side O/U spam
+9. **Publish quotas**
+   - Main boards `2` / `3`: up to `MAX_COMBOS_PER_SIZE` (**3**), at least `MIN_COMBOS_PER_SIZE` (**2**) when quality pool allows; prefer fixture-disjoint; soft-fill may share fixtures (`is_soft_fill`) but legs stay ≥68%.
+   - Mixed boards `mixed_2` / `mixed_3`: prefer Cross-sport (else Cross-league), same size quotas.
+
+### Why a strong sport may not dominate the page
+
+- Calibrated **~70% hit rate** ≠ every single-leg prob is 70%+.
+- Tennis (example): holdout bar may be p≥0.60 for 70% accuracy, but public tip bar is still `max(0.60, 0.68)=0.68`; combo soft-fill can take mid-60s legs.
+- Ranking prefers **cross-sport mixed** cards; a 65% ATP favorite competes with baseball/soccer legs of similar or higher confidence.
+- **Stale cache:** `combo_full.pkl` / in-memory page cache can hide newly wired sports until rebuild/restart.
+
+### Snapshot / settle
+
+- On full (live) combo rebuild: `combo_results.snapshot_published_picks` + `snapshot_published_combos`.
+- Settle: `lookup_score_for_leg` → sport lookup (soccer / MLB / NPB / cricket / tennis) → `settle_leg_against_score`. Tennis often settles via `winner_name` when box scores are non-numeric.
+
+### After an event finishes (do not skip)
+
+1. Live score feed first — never wait for Cricsheet / football-data / spaia season `schedules`.
+2. Match teams **and** kickoff date; prefer a **completed** row over a scheduled duplicate.
+3. Grade combo legs + published picks; roll up the slip.
+4. Public results pages must merge live finals (Hundred/CPL Wikipedia, NPB `games_info_by_date`, ESPN tennis).
+5. EC2 timer `degen-post-event.timer` (15 min) runs `webapp/post_event_refresh.py` (bust caches → `settle_pending` → `data/feedback/post_event.json` overdue list). Install via `deploy/setup_automation.sh`.
+6. If a finished game is still Pending after the timer, fix the **lookup**, not the archive.
+
+---
+
+## Quick compare
+
+| | Today's Picks | Best Combos |
+|--|---------------|-------------|
+| Unit | 1 tip | 2–3 tips |
+| Scope | One league | All `TODAY_SPORTS` leagues |
+| Cap | 6 / league | 18 / league into pool; 48 pool; 3+3 main + mixed |
+| Bar | ≥68% / calibrated / wise 70% | Prefer ≥62%; soft-fill ≥55% |
+| Ranking | Confidence | Joint × mix × correlation score |
+
+---
+
+## Key files
+
+- `webapp/today_picks.py` — `TODAY_SPORTS`, floors, builders, `build_best_combos`
+- `webapp/app.py` — `_rebuild_combo_bundle`, `/todays-picks/...`, combo cache
+- `webapp/combo_results.py` — snapshot + settle
+- Calibration writers: `scripts/calibrate_confidence.py` (soccer), `scripts/calibrate_sports_confidence.py` (MLB/NPB/cricket/tennis)

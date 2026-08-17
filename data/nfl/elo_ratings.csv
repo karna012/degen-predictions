@@ -1,0 +1,33 @@
+Team,TeamName,Elo,AvgPointsScored,AvgPointsAllowed,CurrentStreak,SeasonWins,SeasonLosses,Last10Wins,Last10Played,LastGameDate,GamesPlayed
+CIN,Cincinnati Bengals,1508.4,16.0,14.0,1,1,0,1,1,2026-08-13,1
+DET,Detroit Lions,1491.6,14.0,16.0,-1,0,1,0,1,2026-08-13,1
+PIT,Pittsburgh Steelers,1508.4,28.0,9.0,1,1,0,1,1,2026-08-13,1
+GB,Green Bay Packers,1491.6,9.0,28.0,-1,0,1,0,1,2026-08-13,1
+NE,New England Patriots,1498.4,13.0,13.0,0,0,0,0,1,2026-08-13,1
+IND,Indianapolis Colts,1501.6,13.0,13.0,0,0,0,0,1,2026-08-13,1
+LV,Las Vegas Raiders,1488.4,14.0,27.0,-1,0,1,0,1,2026-08-14,1
+ARI,Arizona Cardinals,1511.6,27.0,14.0,1,1,0,1,1,2026-08-14,1
+HOU,Houston Texans,1488.4,7.0,27.0,-1,0,1,0,1,2026-08-14,1
+LAC,Los Angeles Chargers,1511.6,27.0,7.0,1,1,0,1,1,2026-08-14,1
+SF,San Francisco 49ers,1488.4,13.0,19.0,-1,0,1,0,1,2026-08-14,1
+TEN,Tennessee Titans,1511.6,19.0,13.0,1,1,0,1,1,2026-08-14,1
+ATL,Atlanta Falcons,1488.4,7.0,27.0,-1,0,1,0,1,2026-08-14,1
+DEN,Denver Broncos,1511.6,27.0,7.0,1,1,0,1,1,2026-08-14,1
+NYJ,New York Jets,1488.4,16.0,24.0,-1,0,1,0,1,2026-08-14,1
+TB,Tampa Bay Buccaneers,1511.6,24.0,16.0,1,1,0,1,1,2026-08-14,1
+WSH,Washington Commanders,1508.4,20.0,7.0,1,1,0,1,1,2026-08-14,1
+MIA,Miami Dolphins,1491.6,7.0,20.0,-1,0,1,0,1,2026-08-14,1
+BUF,Buffalo Bills,1508.4,29.0,14.0,1,1,0,1,1,2026-08-15,1
+CAR,Carolina Panthers,1491.6,14.0,29.0,-1,0,1,0,1,2026-08-15,1
+CHI,Chicago Bears,1508.4,34.0,10.0,1,1,0,1,1,2026-08-15,1
+CLE,Cleveland Browns,1491.6,10.0,34.0,-1,0,1,0,1,2026-08-15,1
+NYG,New York Giants,1488.4,10.0,13.0,-1,0,1,0,1,2026-08-15,1
+MIN,Minnesota Vikings,1511.6,13.0,10.0,1,1,0,1,1,2026-08-15,1
+KC,Kansas City Chiefs,1488.4,12.0,20.0,-1,0,1,0,1,2026-08-15,1
+LAR,Los Angeles Rams,1511.6,20.0,12.0,1,1,0,1,1,2026-08-15,1
+NO,New Orleans Saints,1488.4,20.0,24.0,-1,0,1,0,1,2026-08-15,1
+JAX,Jacksonville Jaguars,1511.6,24.0,20.0,1,1,0,1,1,2026-08-15,1
+BAL,Baltimore Ravens,1508.4,24.0,7.0,1,1,0,1,1,2026-08-15,1
+PHI,Philadelphia Eagles,1491.6,7.0,24.0,-1,0,1,0,1,2026-08-15,1
+SEA,Seattle Seahawks,1488.4,7.0,17.0,-1,0,1,0,1,2026-08-16,1
+DAL,Dallas Cowboys,1511.6,17.0,7.0,1,1,0,1,1,2026-08-16,1

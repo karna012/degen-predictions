@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Degen X Poster</title>
+  <style>
+    body {
+      font: 13px/1.4 system-ui, sans-serif;
+      margin: 0;
+      padding: 12px 14px;
+      width: 320px;
+      color: #e8eef8;
+      background: #0b1220;
+    }
+    h1 { font-size: 14px; margin: 0 0 8px; }
+    p { margin: 0 0 10px; color: #9aabc7; }
+    label { display: flex; gap: 8px; align-items: center; margin: 8px 0; justify-content: space-between; }
+    input[type="number"] {
+      width: 88px;
+      background: #121a2b;
+      border: 1px solid #334155;
+      color: #e8eef8;
+      border-radius: 6px;
+      padding: 4px 6px;
+    }
+    button {
+      margin-top: 10px;
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #2dd4bf;
+      color: #042f2e;
+    }
+    .ok { color: #2dd4bf; font-size: 12px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Degen X Poster</h1>
+  <p>On Admin → X / Twitter: click <strong>Auto-post ALL</strong> once. Extension fills caption, attaches <em>one</em> image, clicks Post, then continues the queue.</p>
+  <label>
+    Fill delay (ms)
+    <input type="number" id="delayMs" min="500" max="8000" step="100">
+  </label>
+  <label>
+    Gap between posts (ms)
+    <input type="number" id="gapMs" min="5000" max="60000" step="1000">
+  </label>
+  <button type="button" id="save">Save</button>
+  <div class="ok" id="status" hidden>Saved.</div>
+  <script src="popup.js"></script>
+</body>
+</html>

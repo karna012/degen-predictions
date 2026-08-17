@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% block title %}NFL Predictions Today — Fixtures &amp; ML Tips | Degen Predictions{% endblock %}
+{% block description %}NFL predictions today: live and upcoming NFL fixtures with Elo/H2H forecasts — winner, total points, and spread. Free American football predictions — not betting advice.{% endblock %}
+{% block keywords %}NFL predictions, NFL predictions today, American football predictions, NFL tips today, NFL Elo ratings, NFL total points, NFL spread predictions{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/todays-picks/american_football/nfl', "Today's picks") }}
+    <a class="page-nav-link" href="/nfl/results">Results</a>
+</nav>
+<h1>NFL Predictions Today — Fixtures</h1>
+<p class="muted">Live and upcoming NFL games with free ML American football predictions. Finished games are on
+    <a href="/nfl/results">NFL results</a>. For today's pre-loaded picks, see
+    <a href="/todays-picks/american_football/nfl">Today's NFL picks</a>. Predictions blend Elo, head-to-head, and scoring rates from recent completed games.</p>
+
+{% macro fixture_card(m, index) %}
+    {% set match_href = '/nfl/match/' ~ m.home_code ~ '/' ~ m.away_code ~ '?home_name=' ~ (m.home_team | urlencode) ~ '&away_name=' ~ (m.away_team | urlencode) ~ '&date=' ~ ((m.date or '') | urlencode) %}
+    <article class="fixture-card {{ 'ok-confidence' if m.has_rating else 'low-confidence' }}"
+         style="--card-index: {{ index }};{% if m.has_rating %} cursor: pointer;{% endif %}"
+         data-home="{{ m.home_code }}" data-away="{{ m.away_code }}"
+         {% if m.has_rating %}data-lock="1"{% endif %}
+         {% if m.has_rating %}
+         data-href="{{ match_href }}"
+         tabindex="0"
+         role="link"
+         aria-label="{{ m.away_team }} at {{ m.home_team }} match page"
+         {% endif %}>
+        <div class="fixture-card-head">
+            <div>
+                {% if m.has_rating %}
+                <a class="fixture-teams" href="{{ match_href }}">{{ m.away_team }} vs {{ m.home_team }}</a>
+                {% else %}
+                <span class="fixture-teams">{{ m.away_team }} vs {{ m.home_team }}</span>
+                {% endif %}
+                <div class="fixture-date">
+                    {% if m.away_record or m.home_record %}
+                    {{ m.away_record or '—' }} vs {{ m.home_record or '—' }}
+                    {% endif %}
+                    {% if not m.completed and m.status != 'in' %}
+                    <span class="countdown muted" data-kickoff="{{ m.date }}"></span>
+                    {% endif %}
+                </div>
+            </div>
+            {% if m.completed and m.home_score not in (none, '') and m.away_score not in (none, '') %}
+            <span class="muted fixture-final-score">Final: {{ m.away_score }}-{{ m.home_score }}</span>
+            {% endif %}
+            {% if m.has_rating %}
+            <button type="button" class="predict-btn" onclick="event.stopPropagation(); runNflPredict(this)">Unlock prediction</button>
+            {% elif not m.completed %}
+            <span class="muted" title="One or both teams don't have enough rated games yet">No rating yet</span>
+            {% endif %}
+        </div>
+        <div class="predict-status muted" hidden></div>
+
+        {% if m.has_rating %}
+        <div class="fixture-empty">
+            <span class="fixture-empty-label">Markets locked</span>
+            <span class="fixture-empty-hint">Tap Unlock prediction to reveal win prob, total points &amp; spread</span>
+        </div>
+        {% endif %}
+
+        <div class="fixture-outcomes"{% if m.has_rating %} hidden{% endif %}>
+            <div class="outcome-row"><span class="outcome-label">Win Prob.</span><span class="c-prob">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Predicted Winner</span><span class="c-winner">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Predicted Total Points</span><span class="c-points">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Points Split (Away / Home)</span><span class="c-points-split">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Spread</span><span class="c-spread">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Current Streak (A/H)</span><span class="c-streak">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Season Record (A/H)</span><span class="c-season">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Elo</span><span class="c-elo">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Head-to-Head</span><span class="c-h2h">&mdash;</span></div>
+        </div>
+        <ul class="c-insights" hidden style="margin:0.75rem 0 0; padding-left:1.1rem; font-size:0.92em;"></ul>
+
+        {% if m.status == 'in' %}
+        <div class="fixture-card-foot"><span class="confidence-alert" data-live="1">🏈 Live — {{ m.status_detail }} ({{ m.away_score }}-{{ m.home_score }})</span></div>
+        {% endif %}
+    </article>
+{% endmacro %}
+
+{% if not grouped_by_date and not postponed %}
+<p class="muted">No fixtures found right now — check back soon.</p>
+{% endif %}
+
+{% for day, matches in grouped_by_date.items() %}
+<h2 style="margin-top:2rem;">{{ day }}</h2>
+<div class="fixture-grid">
+    {% for m in matches %}{{ fixture_card(m, loop.index0) }}{% endfor %}
+</div>
+{% endfor %}
+
+{% if postponed %}
+<h2 style="margin-top:2rem;">Postponed — Makeup Date TBD</h2>
+<div class="fixture-grid">
+    {% for m in postponed %}
+    <div class="fixture-card low-confidence" style="--card-index: {{ loop.index0 }};">
+        <div class="fixture-card-head">
+            <div>
+                <span class="fixture-teams">{{ m.away_team }} vs {{ m.home_team }}</span>
+                <div class="fixture-date">Originally {{ m.date[:10] if m.date else '' }}</div>
+            </div>
+            <span class="muted">Postponed</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    scheduleSoftReload({
+        hasLive: document.querySelector(".confidence-alert") !== null,
+        liveMs: 180000,
+        idleMs: 900000,
+    });
+});
+
+function updateCountdowns() {
+    const now = Date.now();
+    document.querySelectorAll(".countdown[data-kickoff]").forEach(el => {
+        const kickoff = new Date(el.dataset.kickoff).getTime();
+        if (isNaN(kickoff)) return;
+        const diff = kickoff - now;
+        if (diff <= 0) {
+            el.textContent = "· kickoff imminent";
+            return;
+        }
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        if (days > 0) el.textContent = `· kickoff in ${days}d ${hours}h`;
+        else if (hours > 0) el.textContent = `· kickoff in ${hours}h ${mins}m`;
+        else el.textContent = `· kickoff in ${mins}m`;
+    });
+}
+updateCountdowns();
+setInterval(updateCountdowns, 60000);
+
+async function runNflPredict(btn) {
+    const row = btn.closest(".fixture-card");
+    const status = row.querySelector(".predict-status");
+    const empty = row.querySelector(".fixture-empty");
+    const outcomes = row.querySelector(".fixture-outcomes");
+    const { home, away } = row.dataset;
+
+    window.__predictInFlight = (window.__predictInFlight || 0) + 1;
+    btn.disabled = true;
+    btn.textContent = "Predicting...";
+    if (status) {
+        status.hidden = false;
+        status.textContent = "Running model...";
+    }
+
+    try {
+        const params = new URLSearchParams({ home, away });
+        const resp = await fetch(`/nfl/api/predict?${params.toString()}`);
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || "Prediction failed");
+
+        row.querySelector(".c-prob").textContent =
+            `${data.away_name || away}: ${Math.round(data.away_prob * 100)}% · ${data.home_name || home}: ${Math.round(data.home_prob * 100)}%`;
+        row.querySelector(".c-winner").innerHTML = `<strong>${data.favourite === home ? (data.home_name || home) : (data.away_name || away)}</strong>`;
+        row.querySelector(".c-points").textContent =
+            `${data.predicted_total_points} (range ${data.predicted_total_points_low}-${data.predicted_total_points_high})`;
+        row.querySelector(".c-points-split").textContent =
+            `${data.away_predicted_points} / ${data.home_predicted_points}`;
+        row.querySelector(".c-spread").textContent =
+            `${data.spread_pick} (${data.spread_pick_probability}%)`;
+        row.querySelector(".c-streak").textContent = `${data.away_streak} / ${data.home_streak}`;
+        row.querySelector(".c-season").textContent = `${data.away_season_record} / ${data.home_season_record}`;
+        row.querySelector(".c-elo").textContent = `${data.elo_away} vs ${data.elo_home}`;
+        row.querySelector(".c-h2h").textContent =
+            data.h2h_meetings > 0 ? `Home ${data.h2h_home_wins}-${data.h2h_away_wins} Away (${data.h2h_meetings} meetings)` : "First meeting";
+
+        const insightsList = row.querySelector(".c-insights");
+        insightsList.innerHTML = "";
+        (data.insights || []).forEach(text => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            insightsList.appendChild(li);
+        });
+        insightsList.hidden = !(data.insights || []).length;
+
+        if (empty) empty.hidden = true;
+        if (outcomes) {
+            outcomes.hidden = false;
+            outcomes.classList.add("is-revealed");
+        }
+        row.classList.add("is-predicted");
+
+        if (status) status.textContent = "";
+        btn.textContent = "Unlocked";
+        btn.classList.add("is-unlocked");
+        btn.disabled = true;
+        showToast(`${data.favourite} favoured · predicted total ${data.predicted_total_points} points`, "success");
+    } catch (err) {
+        if (status) {
+            status.hidden = false;
+            status.textContent = `Error: ${err.message}`;
+        }
+        btn.textContent = "Unlock prediction";
+        btn.disabled = false;
+        showToast(err.message, "error");
+    } finally {
+        window.__predictInFlight = Math.max(0, (window.__predictInFlight || 1) - 1);
+    }
+}
+</script>
+{% endblock %}

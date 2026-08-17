@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Degen Predictions -- ML & AI Crypto, Stocks, Real Estate, Metals & Sports Forecasts{% endblock %}
-{% block description %}Free ML & AI-powered predictions for crypto, stocks, Dubai real estate, metals, and sports. Price forecasts and investment calculators trained on historical data with real market cycles.{% endblock %}
+{% block title %}Sports Predictions, MLB, Tennis &amp; Today's Picks | Degen Predictions{% endblock %}
+{% block description %}Free sports predictions: MLB predictions, tennis match today, EPL &amp; La Liga football tips, CPL cricket, Today's Picks, and multi-bet Best Combos — ML forecasts with public accuracy. Not betting advice.{% endblock %}
+{% block keywords %}sports predictions, MLB predictions, tennis predictions, tennis match today, todays picks, multi bet prediction, football predictions, CPL predictions, EPL predictions, La Liga predictions, Premier League predictions, IPL predictions, degen predictions{% endblock %}
 {% block content %}
 <script type="application/ld+json">
 {
@@ -8,68 +9,306 @@
     "@type": "ItemList",
     "name": "Degen Predictions Categories",
     "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Crypto Predictions", "url": "https://degenpredictions.com/crypto"},
-        {"@type": "ListItem", "position": 2, "name": "Dubai Real Estate ROI Calculator", "url": "https://degenpredictions.com/dubai"},
-        {"@type": "ListItem", "position": 3, "name": "Metals Price Calculator", "url": "https://degenpredictions.com/metals"},
-        {"@type": "ListItem", "position": 4, "name": "Stock Predictions", "url": "https://degenpredictions.com/stocks"},
-        {"@type": "ListItem", "position": 5, "name": "Sports Predictions", "url": "https://degenpredictions.com/sports"}
+        {"@type": "ListItem", "position": 1, "name": "Sports Predictions", "url": "https://degenpredictions.com/sports"},
+        {"@type": "ListItem", "position": 2, "name": "Crypto Predictions", "url": "https://degenpredictions.com/crypto"},
+        {"@type": "ListItem", "position": 3, "name": "Stock Predictions", "url": "https://degenpredictions.com/stocks"}
     ]
 }
 </script>
-<div class="leagues-hero">
-    <picture>
-        <source srcset="{{ url_for('static', filename='logo-nav.webp') }}?v={{ static_version('logo-nav.webp') }}" type="image/webp">
-        <img src="{{ url_for('static', filename='logo-nav.png') }}?v={{ static_version('logo-nav.png') }}" alt="Degen Predictions" class="leagues-hero-logo" data-keyout-black>
-    </picture>
-    <h1>ML & AI-Powered Predictions Across Crypto, Metals, Real Estate, Stocks & Sports</h1>
-    <p class="muted">Pick a category to see machine learning (ML) forecasts powered by advanced AI models trained on real historical data.</p>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Popular sports leagues",
+    "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Premier League predictions", "url": "https://degenpredictions.com/premier_league/"},
+        {"@type": "ListItem", "position": 2, "name": "La Liga predictions", "url": "https://degenpredictions.com/la_liga/"},
+        {"@type": "ListItem", "position": 3, "name": "IPL predictions", "url": "https://degenpredictions.com/ipl/"},
+        {"@type": "ListItem", "position": 4, "name": "MLB predictions", "url": "https://degenpredictions.com/mlb/"},
+        {"@type": "ListItem", "position": 5, "name": "NFL predictions", "url": "https://degenpredictions.com/nfl/"},
+        {"@type": "ListItem", "position": 6, "name": "ATP tennis predictions", "url": "https://degenpredictions.com/tennis/"},
+        {"@type": "ListItem", "position": 7, "name": "CPL predictions", "url": "https://degenpredictions.com/cpl/"},
+        {"@type": "ListItem", "position": 8, "name": "Serie A predictions", "url": "https://degenpredictions.com/serie_a/"},
+        {"@type": "ListItem", "position": 9, "name": "Bundesliga predictions", "url": "https://degenpredictions.com/bundesliga/"},
+        {"@type": "ListItem", "position": 10, "name": "Today's Picks", "url": "https://degenpredictions.com/todays-picks"},
+        {"@type": "ListItem", "position": 11, "name": "Multi bet Best Combos", "url": "https://degenpredictions.com/todays-picks/combos"}
+    ]
+}
+</script>
+
+<a class="home-ticker" href="/go/telegram" target="_blank" rel="noopener noreferrer">
+    <span class="home-ticker-tag">Limited offer</span>
+    <span class="home-ticker-sr">Join Telegram to unlock full potential for free. Limited time offer only.</span>
+    <div class="home-ticker-mask" aria-hidden="true">
+        <div class="home-ticker-track">
+            {% for dup in [1, 2] %}
+            <div class="home-ticker-seq">
+                <span>Join Telegram to unlock full potential — FREE</span>
+                <span class="home-ticker-dot"></span>
+                <span>Limited time offer only</span>
+                <span class="home-ticker-dot"></span>
+                <span>Daily picks &amp; Best Combos in the channel</span>
+                <span class="home-ticker-dot"></span>
+                <span>Unlock full potential · join free on Telegram</span>
+                <span class="home-ticker-dot"></span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</a>
+
+<div class="home-page">
+<div class="leagues-hero home-hero">
+    <h1>Sports Predictions &amp; Today's Picks</h1>
+    <p class="muted home-hero-lead">A new drop every day — next kickoff, unlock the call. Free ML forecasts with a public track record. Not betting advice.</p>
+    <div class="home-hero-ctas">
+        <a class="league-cta" href="/todays-picks">Today's Picks</a>
+        <a class="league-cta is-secondary" href="/todays-picks/combos">Best Combos</a>
+        {% if telegram_channel_url %}
+        <a class="footer-social-link footer-social-link--telegram home-hero-tg" href="/go/telegram" target="_blank" rel="noopener noreferrer">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                <path d="M21.95 5.15c.27-1.02-.68-1.84-1.6-1.48L2.9 10.6c-.98.38-.97 1.83.02 2.19l4.34 1.57 1.68 5.4c.22.7 1.07.92 1.6.4l2.35-2.27 4.46 3.36c.75.57 1.83.15 2.03-.79l3.07-14.9v-.01zm-3.62 2.65-8.3 7.53a.6.6 0 0 0-.19.36l-.35 2.6-1.36-4.36a.6.6 0 0 1 .26-.68l9.6-5.9c.2-.12.4.15.24.31l.1.14z"/>
+            </svg>
+            <span>Join Telegram</span>
+        </a>
+        {% endif %}
+    </div>
 </div>
 
+{% if home_daily is defined %}
+<section class="home-drop" aria-label="Today's drop">
+    <div class="home-drop-top">
+        <div>
+            <p class="home-drop-kicker">Today’s drop</p>
+            <h2 class="home-drop-date">{{ home_daily.weekday }} {{ home_daily.date_label }}</h2>
+            <p class="muted home-drop-meta">
+                <span id="home-ist-clock">{{ home_daily.ist_clock }}</span>
+                {% if home_daily.live_count %}
+                <span class="home-drop-live">{{ home_daily.live_count }} live now</span>
+                {% endif %}
+            </p>
+        </div>
+        <div class="home-drop-streak" id="home-streak" hidden>
+            <span class="home-drop-streak-n" id="home-streak-n">1</span>
+            <span class="home-drop-streak-label">day streak</span>
+            <span class="muted" id="home-streak-hint">Come back tomorrow</span>
+        </div>
+    </div>
+
+    {% if home_daily.next %}
+    <a class="home-drop-next" href="{{ home_daily.next.href }}">
+        <div class="home-drop-next-copy">
+            <span class="home-drop-league">{{ home_daily.next.league }}</span>
+            <strong class="home-drop-matchup">{{ home_daily.next.matchup }}</strong>
+            {% if home_daily.next.live %}
+            <span class="home-drop-live">Live now</span>
+            {% else %}
+            <span class="muted">Next kickoff</span>
+            {% endif %}
+        </div>
+        <div class="home-drop-count" data-kickoff="{{ home_daily.next.kickoff_iso }}" data-live="{{ 1 if home_daily.next.live else 0 }}">
+            <span class="home-drop-count-value">—</span>
+            <span class="home-drop-count-label">until kickoff</span>
+        </div>
+    </a>
+    {% else %}
+    <div class="home-drop-empty">
+        <p>Today’s board is warming up. Open Today's Picks for the latest calls.</p>
+        <a class="league-cta" href="/todays-picks">Open Today's Picks</a>
+    </div>
+    {% endif %}
+
+    {% if home_daily.upcoming %}
+    <ul class="home-drop-more">
+        {% for ev in home_daily.upcoming %}
+        <li>
+            <a href="{{ ev.href }}">
+                <span class="home-drop-league">{{ ev.league }}</span>
+                <strong>{{ ev.matchup }}</strong>
+                {% if ev.live %}
+                <span class="home-drop-live">Live</span>
+                {% elif ev.kickoff_iso %}
+                <span class="countdown muted" data-kickoff="{{ ev.kickoff_iso }}"></span>
+                {% endif %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="home-drop-foot">
+        <span class="muted">New drop every morning · unlock when you’re ready</span>
+        <a class="home-drop-cta" href="/todays-picks">Unlock today’s calls</a>
+    </div>
+</section>
+<script>
+(function () {
+    function pad(n) { return String(n).padStart(2, "0"); }
+    function tickClock() {
+        var el = document.getElementById("home-ist-clock");
+        if (!el) return;
+        var parts = new Intl.DateTimeFormat("en-GB", {
+            timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", hour12: false
+        }).formatToParts(new Date());
+        var h = "", m = "";
+        parts.forEach(function (p) {
+            if (p.type === "hour") h = p.value;
+            if (p.type === "minute") m = p.value;
+        });
+        el.textContent = h + ":" + m + " IST";
+    }
+    function fmtCountdown(el) {
+        var iso = el.getAttribute("data-kickoff") || "";
+        var live = el.getAttribute("data-live") === "1";
+        var value = el.querySelector(".home-drop-count-value") || el;
+        var label = el.querySelector(".home-drop-count-label");
+        if (live) {
+            value.textContent = "LIVE";
+            if (label) label.textContent = "on now";
+            return;
+        }
+        var t = Date.parse(iso);
+        if (!t) return;
+        var diff = t - Date.now();
+        if (diff <= 0) {
+            value.textContent = "LIVE";
+            if (label) label.textContent = "on now";
+            return;
+        }
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+        value.textContent = d > 0 ? (d + "d " + pad(h) + "h") : (pad(h) + ":" + pad(m) + ":" + pad(s));
+        if (label) label.textContent = "until kickoff";
+    }
+    function tickCountdowns() {
+        document.querySelectorAll(".home-drop-count[data-kickoff], .home-drop .countdown[data-kickoff]").forEach(fmtCountdown);
+    }
+    function istToday() {
+        return new Intl.DateTimeFormat("en-CA", {
+            timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit"
+        }).format(new Date());
+    }
+    function yesterdayOf(isoDay) {
+        var p = isoDay.split("-").map(Number);
+        var dt = new Date(Date.UTC(p[0], p[1] - 1, p[2]));
+        dt.setUTCDate(dt.getUTCDate() - 1);
+        return dt.toISOString().slice(0, 10);
+    }
+    function paintStreak() {
+        var box = document.getElementById("home-streak");
+        var nEl = document.getElementById("home-streak-n");
+        var hint = document.getElementById("home-streak-hint");
+        if (!box || !nEl) return;
+        var today = istToday();
+        var streak = 1;
+        try {
+            var raw = localStorage.getItem("dp_daily_streak");
+            var prev = raw ? JSON.parse(raw) : null;
+            if (prev && prev.date === today) {
+                streak = Math.max(1, parseInt(prev.streak, 10) || 1);
+            } else if (prev && prev.date === yesterdayOf(today)) {
+                streak = Math.max(1, (parseInt(prev.streak, 10) || 0) + 1);
+            }
+            localStorage.setItem("dp_daily_streak", JSON.stringify({ date: today, streak: streak }));
+        } catch (e) {
+            streak = 1;
+        }
+        nEl.textContent = String(streak);
+        box.hidden = false;
+        if (hint) hint.textContent = streak > 1 ? "Come back tomorrow to keep it" : "Come back tomorrow";
+    }
+    tickClock();
+    tickCountdowns();
+    paintStreak();
+    setInterval(tickClock, 30000);
+    setInterval(tickCountdowns, 1000);
+})();
+</script>
+{% endif %}
+
+{% if home_now is defined and home_now %}
+<section class="home-now" aria-label="What's on now">
+    <div class="home-now-head">
+        <p class="home-drop-kicker">What's on now</p>
+        <h2 class="home-now-title">Picks · Combos · Markets</h2>
+    </div>
+    <div class="home-now-grid">
+        {% if home_now.pick %}
+        <a class="home-now-card" href="{{ home_now.pick.href }}">
+            <span class="home-now-kind">Today's pick</span>
+            <strong>{{ home_now.pick.matchup }}</strong>
+            <span class="muted">{{ home_now.pick.league }} · {{ home_now.pick.market }}{% if home_now.pick.pick %} → {{ home_now.pick.pick }}{% endif %}</span>
+        </a>
+        {% endif %}
+        {% if home_now.combo %}
+        <a class="home-now-card is-combo" href="{{ home_now.combo.href }}">
+            <span class="home-now-kind">Best combo</span>
+            <strong>{{ home_now.combo.title }}</strong>
+            <span class="muted">{{ home_now.combo.legs_preview or (home_now.combo.n_legs ~ '-leg slip') }}</span>
+        </a>
+        {% endif %}
+        {% if home_now.crypto %}
+        <a class="home-now-card is-crypto" href="{{ home_now.crypto.href }}">
+            <span class="home-now-kind">Crypto</span>
+            <strong>{{ home_now.crypto.ticker }}{% if home_now.crypto.rank %} · #{{ home_now.crypto.rank }}{% endif %}</strong>
+            <span class="muted">Board lean · research only</span>
+        </a>
+        {% endif %}
+        {% if home_now.stock %}
+        <a class="home-now-card is-stock" href="{{ home_now.stock.href }}">
+            <span class="home-now-kind">US stock</span>
+            <strong>{{ home_now.stock.ticker }}{% if home_now.stock.rank %} · #{{ home_now.stock.rank }}{% endif %}</strong>
+            <span class="muted">Board lean · research only</span>
+        </a>
+        {% endif %}
+        {% if home_now.track and home_now.track.hit_rate is not none %}
+        <a class="home-now-card is-track" href="{{ home_now.track.href }}">
+            <span class="home-now-kind">30-day track</span>
+            <strong>{{ (home_now.track.hit_rate * 100)|round(1) }}% hit rate</strong>
+            <span class="muted">{{ home_now.track.decided }} decided published slips</span>
+        </a>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+{% include "partials/popular_leagues.html" %}
+
 <div class="league-grid">
+    <a class="league-card" href="/sports" style="--league-color: #2e7d32;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>SPORTS</h2>
+            <p class="league-desc">Premier League, La Liga, Serie A, IPL, CPL, MLB, NPB, and ATP tennis — daily picks plus public OOS track records.</p>
+            <span class="league-cta">Explore</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">&#9917;</span></div>
+    </a>
     <a class="league-card" href="/crypto" style="--league-color: #f7931a;">
         <div class="league-card-glow"></div>
         <div class="league-card-content">
             <h2>CRYPTO</h2>
-            <p class="league-desc">ML-ranked crypto assets by AI-predicted 6-month forward return.</p>
+            <p class="league-desc">Crypto predictions &amp; Bitcoin rankings by horizon — Beat BTC / range when absolute returns are withheld.</p>
             <span class="league-cta">Explore</span>
         </div>
         <div class="league-badge"><span class="league-monogram">&#8383;</span></div>
-    </a>
-    <a class="league-card" href="/dubai" style="--league-color: #d4a574;">
-        <div class="league-card-glow"></div>
-        <div class="league-card-content">
-            <h2>DUBAI REAL ESTATE</h2>
-            <p class="league-desc">ML & AI property ROI predictions. Capital appreciation + rental yield forecasts.</p>
-            <span class="league-cta">Calculate ROI</span>
-        </div>
-        <div class="league-badge"><span class="league-monogram">🏢</span></div>
-    </a>
-    <a class="league-card" href="/metals" style="--league-color: #9aa5b3;">
-        <div class="league-card-glow"></div>
-        <div class="league-card-content">
-            <h2>METALS</h2>
-            <p class="league-desc">ML & AI price forecasts for precious and industrial metals, with live spot pricing, in USD.</p>
-            <span class="league-cta">Predict Returns</span>
-        </div>
-        <div class="league-badge"><span class="league-monogram">⚙️</span></div>
     </a>
     <a class="league-card" href="/stocks" style="--league-color: #1565c0;">
         <div class="league-card-glow"></div>
         <div class="league-card-content">
             <h2>STOCKS</h2>
-            <p class="league-desc">ML & AI stock rankings for US and India. Predicted 6-month forward return.</p>
+            <p class="league-desc">US &amp; India stock predictions · S&amp;P / Nifty · 6m–25y · predicted return per window.</p>
             <span class="league-cta">Explore</span>
         </div>
         <div class="league-badge"><span class="league-monogram">$</span></div>
     </a>
-    <a class="league-card" href="/sports" style="--league-color: #2e7d32;">
-        <div class="league-card-glow"></div>
-        <div class="league-card-content">
-            <h2>SPORTS</h2>
-            <p class="league-desc">ML & AI match predictions for football, baseball, and cricket. Result, goals/runs, and more.</p>
-            <span class="league-cta">Explore</span>
-        </div>
-        <div class="league-badge"><span class="league-monogram">&#9917;</span></div>
-    </a>
+</div>
+
+{% set accuracy_strip_mode = 'home' %}
+{% set accuracy_strip_show_actions = false %}
+{% include "partials/accuracy_strip.html" %}
+{% include "partials/seo_hub_links.html" %}
 </div>
 {% endblock %}

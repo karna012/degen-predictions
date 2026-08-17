@@ -1,0 +1,7 @@
+{# Visitor-facing delayed-feed notice #}
+{% if feed_stale %}
+<div class="feed-stale-banner" role="status">
+    <strong>{{ feed_stale.title }}</strong>
+    <span>{{ feed_stale.detail }}</span>
+</div>
+{% endif %}

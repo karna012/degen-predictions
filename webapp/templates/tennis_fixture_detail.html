@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}{{ match.player1 }} vs {{ match.player2 }} Tennis Prediction | ATP | Degen Predictions{% endblock %}
+{% block description %}{{ match.player1 }} vs {{ match.player2 }} ATP tennis ML forecast{% if match.date %} for {{ match.date }}{% endif %}: match-winner probability, surface Elo, H2H. Free tennis prediction — not betting advice.{% endblock %}
+{% block keywords %}{{ match.player1 }} vs {{ match.player2 }} prediction, tennis predictions, ATP tennis predictions{% endblock %}
+{% block body_class %} sport-atmosphere tennis-page{% endblock %}
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": {{ (match.player1 ~ " vs " ~ match.player2) | tojson }},
+    {% if match.date %}"startDate": {{ match.date | tojson }},{% endif %}
+    "eventStatus": "https://schema.org/EventScheduled",
+    {% if match.tournament or match.venue %}
+    "location": {"@type": "Place", "name": {{ (match.tournament or match.venue or "ATP Tour") | tojson }}},
+    {% endif %}
+    "image": "https://degenpredictions.com{{ url_for('static', filename='logo.png') }}",
+    "organizer": {"@type": "Organization", "name": "Degen Predictions", "url": "https://degenpredictions.com"},
+    "sport": "Tennis",
+    "competitor": [
+        {"@type": "Person", "name": {{ match.player1 | tojson }}},
+        {"@type": "Person", "name": {{ match.player2 | tojson }}}
+    ],
+    "description": "ATP men's tennis ML prediction: match winner and total games."
+}
+</script>
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/tennis/fixtures', 'Fixtures') }}
+    <a class="page-nav-link" href="/tennis/results">Results</a>
+    <a class="page-nav-link" href="/todays-picks/tennis/atp">Today's picks</a>
+    <a class="page-nav-link" href="/sports/tennis">Tennis hub</a>
+</nav>
+{% set pred = match.prediction or {} %}
+{% set analysis = match.analysis or {} %}
+<div class="leagues-hero">
+    <h1>{{ match.player1 }} vs {{ match.player2 }} — Tennis Prediction</h1>
+    <p class="muted">
+        {{ match.date }}{% if match.time %} · {{ match.time }}{% endif %}
+        {% if match.tournament %} · {{ match.tournament }}{% endif %}
+        {% if match.round %} · {{ match.round }}{% endif %}
+        {% if pred.surface %} · {{ pred.surface }}{% endif %}
+        {% if pred.level %} · level {{ pred.level }}{% endif %}
+    </p>
+</div>
+<div class="card" style="max-width:70ch;">
+    <h2>Match winner</h2>
+    {% if pred %}
+    <p><strong>{{ match.player1 }}</strong>: {{ (pred.player1_win_prob * 100)|round(1) }}%</p>
+    <p><strong>{{ match.player2 }}</strong>: {{ (pred.player2_win_prob * 100)|round(1) }}%</p>
+    <p class="muted">Model: {{ pred.model_name }} · data {{ pred.data_confidence }} · best of {{ pred.best_of }}</p>
+    {% else %}
+    <p class="muted">Prediction unavailable for this matchup.</p>
+    {% endif %}
+</div>
+{% set mkt = pred.markets or {} %}
+{% if mkt %}
+<div class="card" style="max-width:70ch; margin-top:1rem;">
+    <h2>Other markets</h2>
+    <ul class="muted">
+        {% if mkt.total_games_pick %}
+        <li>Total games: <strong>{{ mkt.total_games_pick }}</strong> ({{ (mkt.total_games_prob * 100)|round(0) }}%){% if mkt.predicted_total_games is defined and mkt.predicted_total_games is not none %} · model {{ mkt.predicted_total_games|round(1) }} games{% endif %}</li>
+        {% elif mkt.predicted_total_games is defined and mkt.predicted_total_games is not none %}
+        <li>Projected total games: {{ mkt.predicted_total_games|round(1) }}</li>
+        {% endif %}
+        {% if mkt.over_sets_prob is defined and mkt.over_sets_prob is not none %}
+        <li>Total sets {{ mkt.sets_line }}: Over {{ (mkt.over_sets_prob * 100)|round(0) }}% / Under {{ (mkt.under_sets_prob * 100)|round(0) }}%</li>
+        {% endif %}
+        {% if mkt.player1_wins_set_prob is defined and mkt.player1_wins_set_prob is not none %}
+        <li>{{ match.player1 }} to win a set: {{ (mkt.player1_wins_set_prob * 100)|round(0) }}%</li>
+        {% endif %}
+        {% if mkt.player2_wins_set_prob is defined and mkt.player2_wins_set_prob is not none %}
+        <li>{{ match.player2 }} to win a set: {{ (mkt.player2_wins_set_prob * 100)|round(0) }}%</li>
+        {% endif %}
+    </ul>
+</div>
+{% endif %}
+<div class="card" style="max-width:70ch; margin-top:1rem;">
+    <h2>Analysis</h2>
+    <ul class="muted">
+        <li>Overall Elo: {{ analysis.elo1|round(0) if analysis.elo1 else '—' }} vs {{ analysis.elo2|round(0) if analysis.elo2 else '—' }}</li>
+        <li>Surface Elo ({{ analysis.surface or '—' }}): {{ analysis.surface_elo1|round(0) if analysis.surface_elo1 else '—' }} vs {{ analysis.surface_elo2|round(0) if analysis.surface_elo2 else '—' }}</li>
+        <li>H2H meetings: {{ analysis.h2h_meetings|int if analysis.h2h_meetings is not none else 0 }}
+            {% if analysis.h2h_meetings %}(P1 win rate {{ (analysis.h2h_p1 * 100)|round(0) }}%){% endif %}</li>
+    </ul>
+    <p class="disclaimer">Estimates only — not betting advice.</p>
+</div>
+{% endblock %}

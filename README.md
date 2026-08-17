@@ -1,8 +1,8 @@
 # Degen Predictions
 
-A free, multi-category ML/AI prediction platform: **Crypto**, **Stocks** (US & India), **Dubai Real Estate** (ROI calculator), **Metals** (precious + industrial price forecasts), and **Sports** (soccer, MLB, NPB, cricket). No paywall — every calculator and prediction tool is free, with account/login optional (Google or email/password) and not required to use anything.
+A free ML/AI prediction platform focused on **Sports**, **Crypto**, and **Stocks** (US & India). No paywall — every prediction tool is free, with account/login optional (Google or email/password) and not required to use anything.
 
-> Educational/research project. Not betting, financial, investment, or real estate advice (see `/terms`, `/privacy`, `/faq` in the running app).
+> Educational/research project. Not betting or financial advice (see `/terms`, `/privacy`, `/faq` in the running app).
 
 Live at **[degenpredictions.com](https://degenpredictions.com)**.
 
@@ -12,13 +12,15 @@ Live at **[degenpredictions.com](https://degenpredictions.com)**.
 
 | Category | Route | What it does |
 |---|---|---|
+| Sports | `/sports`, `/sports/soccer`, `/sports/baseball`, `/sports/cricket`, plus per-league/per-match routes | Soccer (Premier League, La Liga, Serie A, Bundesliga, Ligue 1), MLB, NPB, and cricket (The Hundred, MLC) match predictions — result, BTTS, total goals, corners, using ELO ratings blended with trained ML ensembles |
 | Crypto | `/crypto`, `/crypto/asset/<ticker>` | Cryptocurrencies ranked by AI-predicted 6-month forward return, live CoinGecko prices, embedded TradingView chart per asset |
 | Stocks | `/stocks`, `/stocks/<us\|india>`, `/stocks/<market>/asset/<ticker>` | US and India stock rankings by predicted 6-month return |
-| Dubai Real Estate | `/dubai`, `/dubai/guide`, `/dubai/api/calculate` | Property ROI calculator (capital appreciation + rental yield), with **real, live prices from actual DLD-registered transactions**, refreshed daily — not synthetic or static estimates. See `docs/DATA_SOURCES.md`. |
-| Metals | `/metals`, `/metals/insights`, `/metals/api/predict` | Price forecasts for precious metals (gold, silver, platinum, palladium) and industrial metals (copper, aluminum, steel, zinc, nickel, lithium), live spot pricing where a real feed exists |
-| Sports | `/sports`, `/sports/soccer`, `/sports/baseball`, `/sports/cricket`, plus per-league/per-match routes | Soccer (Premier League, La Liga, Serie A, Bundesliga, Ligue 1), MLB, NPB, and cricket (The Hundred, MLC) match predictions — result, BTTS, total goals, corners, using ELO ratings blended with trained ML ensembles |
+
+Legacy calculators for Dubai real estate (`/dubai`) and metals (`/metals`) remain reachable by URL but are no longer part of the primary product surface (nav / homepage / marketing).
 
 Every external data feed the platform depends on — which numbers are real/live vs. which are hand-set modeling assumptions — is catalogued in **[`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md)**. Read that before assuming any given number is "real."
+
+Traffic / SEO ops: [`docs/SEARCH_CONSOLE.md`](docs/SEARCH_CONSOLE.md), [`docs/TRAFFIC_30_DAY.md`](docs/TRAFFIC_30_DAY.md).
 
 ---
 
@@ -31,8 +33,7 @@ flowchart LR
     end
 
     subgraph automation/
-        FETCH[data_fetchers.py<br/>per-category fetchers] --> CACHE[(data/*/*.json, *.csv<br/>cached snapshots)]
-        SCHED[scheduler.py] --> FETCH
+        FETCH[data_fetchers.py<br/>Dubai + metals caches] --> CACHE[(data/*/*.json<br/>cached snapshots)]
         LIVE[live_match_tracker.py]
     end
 
@@ -60,7 +61,7 @@ Fetchers and training scripts run offline/on a schedule (systemd timers in produ
 
 | Layer | Choice |
 |---|---|
-| ML models | scikit-learn ensembles (RandomForest/XGBoost/CatBoost per category), ELO ratings for sports, walk-forward-validated ranking models for crypto/stocks |
+| ML models | Slim stack: calibrated XGBoost (+ logistic/ridge) with Elo for sports; walk-forward XGBoost/Ridge for crypto/stocks (LSTM only if it beats tabular IC) |
 | Web framework | Flask, no required accounts — optional login via email/password (`flask-login`) or Google OAuth (`authlib`), gated by `ACCOUNTS_ENABLED` |
 | Accounts storage | DynamoDB (`boto3`), only used when accounts are enabled |
 | Frontend | Server-rendered Jinja2 templates, vanilla JS, no build step, no framework (the animated space background used to be a React component — removed in favor of a plain canvas/DOM setup, since it was never re-rendered) |
@@ -76,8 +77,7 @@ Fetchers and training scripts run offline/on a schedule (systemd timers in produ
 ```
 Degen_predictions/
 ├── automation/
-│   ├── data_fetchers.py          # Per-category live data fetchers (crypto, metals, real estate, ...)
-│   ├── scheduler.py               # Daily automation entry point (fetch/retrain/predict cycle)
+│   ├── data_fetchers.py          # Live Dubai + metals price caches
 │   └── live_match_tracker.py      # Single-pass live match score poller
 ├── scripts/
 │   ├── leagues.py                 # Soccer league config (fd_code, paths, name maps, fixture slug)
@@ -150,9 +150,8 @@ Systemd timers on the EC2 instance:
 |---|---|---|
 | `degen-refresh-data.timer` | Every 3h | MLB/NPB current-season data + Elo rebuild |
 | `degen-refresh-dubai-prices.timer` | Daily, 05:00 UTC | Real Dubai transaction prices via RapidAPI (rate-limited to stay under the free-tier monthly cap — see the fetcher's docstring before adding areas/calls) |
-| `degen-automation.timer` | Daily | Full fetch/retrain/predict/track cycle (`automation/scheduler.py`) |
 | `degen-live-tracker.timer` | Frequent | Live match score polling |
-| `degen-reboot.timer` | Daily, 04:00 UTC | Instance reboot ahead of the automation cycle |
+| `degen-reboot.timer` | Daily, 04:00 UTC | Instance reboot |
 
 Install/enable these the same way as the main app service (`sudo cp ... /etc/systemd/system/ && sudo systemctl enable --now ...`) — they're not currently wired into `setup_ec2.sh`, so a from-scratch server rebuild needs them added manually.
 

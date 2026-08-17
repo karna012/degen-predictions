@@ -1,0 +1,98 @@
+{# Shared cricket analysis panels: team / player / pitch / home / sentiment / stats #}
+{% if team_analysis %}
+<details class="analysis-accordion" open>
+    <summary>Team analysis</summary>
+    <div class="card-grid" style="margin-top:0.75rem;">
+        {% for side in [team_analysis.team1, team_analysis.team2] %}
+        <div class="card">
+            <h3 style="font-size:1rem; margin:0 0 0.5rem;">{{ side.name }}</h3>
+            <p>Elo: <strong>{{ side.elo if side.elo is not none else '—' }}</strong></p>
+            <p class="muted">Recent WR: {{ '%.0f'|format((side.recent_win_rate or 0)*100) if side.recent_win_rate is not none else '—' }}%
+                &middot; Recent RPO: {{ side.recent_run_rate if side.recent_run_rate is not none else '—' }}</p>
+            {% if side.season_win_rate is not none %}
+            <p class="muted">Career sample WR: {{ '%.0f'|format(side.season_win_rate*100) }}%
+                ({{ side.matches }} matches) &middot; avg {{ side.avg_runs_for }} / {{ side.avg_runs_against }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% if team_analysis.h2h %}
+    <p class="muted">H2H (this competition): {{ team_analysis.h2h.meetings }} meetings —
+        {{ team_analysis.team1.name }} {{ team_analysis.h2h.team1_wins }}–{{ team_analysis.h2h.team2_wins }} {{ team_analysis.team2.name }}</p>
+    {% endif %}
+</details>
+{% endif %}
+
+{% if player_analysis %}
+<details class="analysis-accordion">
+    <summary>Player analysis &amp; provisional XI</summary>
+    <p class="muted" style="margin-top:0.5rem;">Provisional XI = last known Cricsheet lineup for each franchise — not the official announced XI.</p>
+    {% for label, side in [('team1', player_analysis.team1), ('team2', player_analysis.team2)] %}
+    <h3 style="font-size:1rem;">{{ team_analysis.team1.name if label == 'team1' else team_analysis.team2.name }}</h3>
+    <p class="muted">{{ side.label }}</p>
+    {% if side.xi %}
+    <p><strong>XI:</strong> {{ side.xi | join(', ') }}</p>
+    {% endif %}
+    {% if side.top_batters %}
+    <p><strong>Top batters (SR):</strong>
+        {% for p in side.top_batters %}{{ p.name }} {{ p.strike_rate }}{% if not loop.last %}, {% endif %}{% endfor %}
+    </p>
+    {% endif %}
+    {% if side.top_bowlers %}
+    <p><strong>Top bowlers (econ):</strong>
+        {% for p in side.top_bowlers %}{{ p.name }} {{ p.economy }}{% if not loop.last %}, {% endif %}{% endfor %}
+    </p>
+    {% endif %}
+    {% endfor %}
+</details>
+{% endif %}
+
+{% if home_ground %}
+<details class="analysis-accordion">
+    <summary>Pitch &amp; home ground</summary>
+    {% if home_ground.pitch %}
+    <p style="margin-top:0.5rem;">{{ home_ground.pitch.venue }} — <strong>{{ home_ground.pitch.pitch_type }}</strong>
+        (avg 1st {{ home_ground.pitch.avg_first_innings }}, 2nd {{ home_ground.pitch.avg_second_innings }},
+        {{ home_ground.pitch.matches_played }} matches).</p>
+    {% if home_ground.pitch.thin_history %}
+    <p class="muted">Thin ground history — treat as early read.</p>
+    {% endif %}
+    {% endif %}
+    {% if home_ground.home_team %}
+    <p>Home franchise at this ground: <strong>{{ home_ground.home_team }}</strong>
+        {% if home_ground.home_advantage_league %}(HA applied in Elo/ML for IPL/BBL/CPL){% endif %}.</p>
+    {% endif %}
+    {% if home_ground.avg_home_team_runs is not none %}
+    <p class="muted">Home batting avg at venue: {{ home_ground.avg_home_team_runs }}
+        &middot; Away batting avg: {{ home_ground.avg_away_team_runs }}
+        (n={{ home_ground.home_matches }}/{{ home_ground.away_matches }})</p>
+    {% endif %}
+</details>
+{% endif %}
+
+{% if sentiment %}
+<details class="analysis-accordion">
+    <summary>Sentiment analysis</summary>
+    <p style="margin-top:0.5rem;">
+        {{ sentiment.team1 }}: {{ sentiment.score1 if sentiment.score1 is not none else 'warming cache…' }}
+        &middot; {{ sentiment.team2 }}: {{ sentiment.score2 if sentiment.score2 is not none else 'warming cache…' }}
+        {% if sentiment.diff is not none %}&middot; diff {{ '%+.2f'|format(sentiment.diff) }}{% endif %}
+    </p>
+    <p class="muted">{{ sentiment.note }}</p>
+</details>
+{% endif %}
+
+{% if stat_analysis %}
+<details class="analysis-accordion">
+    <summary>Statistical / match-event signals</summary>
+    <ul style="margin-top:0.5rem;">
+        {% if stat_analysis.venue_rpo is not none %}<li>Venue RPO (pre-match): {{ '%.2f'|format(stat_analysis.venue_rpo) }}</li>{% endif %}
+        {% if stat_analysis.team1_sr is not none %}<li>Team1 XI avg SR: {{ '%.1f'|format(stat_analysis.team1_sr) }} · Team2: {{ '%.1f'|format(stat_analysis.team2_sr or 0) }}</li>{% endif %}
+        {% if stat_analysis.team1_econ is not none %}<li>Team1 XI avg econ: {{ '%.2f'|format(stat_analysis.team1_econ) }} · Team2: {{ '%.2f'|format(stat_analysis.team2_econ or 0) }}</li>{% endif %}
+        {% if stat_analysis.team1_death_uplift is not none %}<li>Death-overs uplift T1/T2: {{ '%.1f'|format(stat_analysis.team1_death_uplift) }} / {{ '%.1f'|format(stat_analysis.team2_death_uplift or 0) }}</li>{% endif %}
+        {% if stat_analysis.actual_total is defined and stat_analysis.actual_total is not none %}
+        <li>Actual totals: {{ stat_analysis.actual_team1_runs }} / {{ stat_analysis.actual_team2_runs }} ({{ stat_analysis.actual_total }})</li>
+        {% endif %}
+    </ul>
+</details>
+{% endif %}

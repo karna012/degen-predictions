@@ -1,0 +1,33 @@
+{# Top-searched leagues we already cover — homepage + /sports SEO surface. #}
+{% set popular_leagues = popular_leagues|default([
+  {"label": "Premier League", "href": "/premier_league/", "hint": "EPL predictions"},
+  {"label": "La Liga", "href": "/la_liga/", "hint": "Spain"},
+  {"label": "Serie A", "href": "/serie_a/", "hint": "Italy"},
+  {"label": "Bundesliga", "href": "/bundesliga/", "hint": "Germany"},
+  {"label": "IPL", "href": "/ipl/", "hint": "Cricket"},
+  {"label": "CPL", "href": "/cpl/", "hint": "Caribbean"},
+  {"label": "MLB", "href": "/mlb/", "hint": "Baseball"},
+  {"label": "NFL", "href": "/nfl/", "hint": "American football"},
+  {"label": "ATP Tennis", "href": "/tennis/", "hint": "Men's singles"},
+]) %}
+<section class="popular-leagues" aria-label="Popular leagues">
+    <div class="popular-leagues-head">
+        <h2>{{ popular_leagues_title|default("Popular leagues") }}</h2>
+        <p class="muted">{{ popular_leagues_blurb|default("Top-searched competitions with live fixtures, Today's Picks, and public track records.") }}</p>
+    </div>
+    <ul class="popular-leagues-list">
+        {% for L in popular_leagues %}
+        <li>
+            <a href="{{ L.href }}" class="popular-league-chip">
+                <strong>{{ L.label }}</strong>
+                {% if L.hint %}<span class="muted">{{ L.hint }}</span>{% endif %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p class="popular-leagues-more muted">
+        <a href="/todays-picks">Today's Picks by league</a>
+        · <a href="/todays-picks/combos">Best Combos</a>
+        · <a href="/sports">All sports</a>
+    </p>
+</section>

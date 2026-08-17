@@ -16,34 +16,39 @@ import sys
 import numpy as np
 import pandas as pd
 
-from leagues import LEAGUES, SEASONS, UNDERSTAT_SEASON_MAP
+from leagues import LEAGUES, UNDERSTAT_SEASON_MAP, league_seasons, resolve_league_paths
 
 ROLL_WINDOW = 5
+
+_MATCH_STAT_COLS = ["HS", "AS", "HST", "AST", "HC", "AC", "HY", "AY", "HR", "AR", "HF", "AF"]
 
 
 def load_matches(cfg):
     data_dir = cfg["data_dir"]
     fd_code = cfg["fd_code"]
     frames = []
-    for s in SEASONS:
+    for s in league_seasons(cfg):
         path = f"{data_dir}/{fd_code}_{s}.csv"
         if not os.path.exists(path):
             continue
         df = pd.read_csv(path)
         df["Season"] = s
-        cols = ["Season", "Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR",
-                "HS", "AS", "HST", "AST", "HC", "AC", "HY", "AY", "HR", "AR"]
-        if "HF" in df.columns and "AF" in df.columns:
-            cols += ["HF", "AF"]
-        else:
-            df["HF"], df["AF"] = np.nan, np.nan
-            cols += ["HF", "AF"]
+        for col in _MATCH_STAT_COLS:
+            if col not in df.columns:
+                df[col] = np.nan
+        cols = ["Season", "Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR"] + _MATCH_STAT_COLS
         if "Referee" in df.columns:
             cols.append("Referee")
         frames.append(df[cols])
+    if not frames:
+        raise FileNotFoundError(f"No match CSVs found under {data_dir} for {fd_code}")
     matches = pd.concat(frames, ignore_index=True)
-    matches["HF"] = matches["HF"].fillna(matches["HF"].mean())
-    matches["AF"] = matches["AF"].fillna(matches["AF"].mean())
+    # Mean-fill fouls when some rows have them; leave all-NaN (MLS) as NaN
+    # for the train-time imputer rather than inventing a fake constant.
+    if matches["HF"].notna().any():
+        matches["HF"] = matches["HF"].fillna(matches["HF"].mean())
+    if matches["AF"].notna().any():
+        matches["AF"] = matches["AF"].fillna(matches["AF"].mean())
     if "Referee" not in matches.columns:
         matches["Referee"] = "Unknown"
     matches["Referee"] = matches["Referee"].fillna("Unknown")
@@ -53,13 +58,29 @@ def load_matches(cfg):
     return matches
 
 
-def squad_quality_by_season(cfg):
-    """Per (understat_season, team) -> normalized attacking-quality score."""
+def _player_season_files(cfg):
+    """Yield (match_season_code, players_json_path) for squad-quality lookup."""
     players_dir = os.path.join(cfg["data_dir"], "players")
-    name_map = cfg["name_map"]
+    if cfg.get("understat_league"):
+        for season_code, u_season in UNDERSTAT_SEASON_MAP.items():
+            yield season_code, os.path.join(players_dir, f"players_{u_season}.json")
+    elif cfg.get("asa_league"):
+        # ASA / MLS use calendar-year season codes that match the match CSVs.
+        for season in league_seasons(cfg):
+            yield season, os.path.join(players_dir, f"players_{season}.json")
+
+
+def squad_quality_by_season(cfg):
+    """Per (season_code, team) -> normalized attacking-quality score.
+
+    Understat (EPL etc.) or ASA (MLS) player files both expose goals/assists/xG
+    under the same keys after download_data.py normalization.
+    """
+    if not (cfg.get("understat_league") or cfg.get("asa_league")):
+        return {}
+    name_map = cfg.get("name_map", {})
     raw = {}
-    for season_code, u_season in UNDERSTAT_SEASON_MAP.items():
-        path = os.path.join(players_dir, f"players_{u_season}.json")
+    for season_code, path in _player_season_files(cfg):
         if not os.path.exists(path):
             continue
         with open(path, encoding="utf-8") as f:
@@ -67,7 +88,11 @@ def squad_quality_by_season(cfg):
         team_scores = {}
         for p in players:
             team = name_map.get(p["team_title"], p["team_title"])
-            contrib = float(p["goals"]) + float(p["assists"]) + float(p["xG"])
+            # Prefer goals-added when ASA provides it; else classic xG blend.
+            if p.get("goals_added") is not None and p.get("source") == "asa":
+                contrib = float(p["goals_added"]) + 0.5 * float(p.get("xG_chain") or 0)
+            else:
+                contrib = float(p["goals"]) + float(p["assists"]) + float(p["xG"])
             team_scores[team] = team_scores.get(team, 0.0) + contrib
         vals = np.array(list(team_scores.values()))
         if len(vals) == 0:
@@ -78,10 +103,8 @@ def squad_quality_by_season(cfg):
     return raw
 
 
-# Shots-on-target count fully; shots that missed the target count for 75% of
-# an on-target shot's weight -- a cheap proxy for "shot quality" without
-# needing xG-per-shot data we don't have at match level.
-OFF_TARGET_WEIGHT = 0.75
+# Off-target shots count as half an on-target shot for ShotQuality features.
+OFF_TARGET_WEIGHT = 0.5
 
 
 def long_format(matches):
@@ -395,8 +418,12 @@ def build_training_rows(matches_with_elo, long_df, quality):
     df["Target_Result"] = df["FTR"]  # H / D / A
     df["Target_BTTS"] = ((df["FTHG"] > 0) & (df["FTAG"] > 0)).astype(int)
     df["Target_Over25"] = ((df["FTHG"] + df["FTAG"]) > 2.5).astype(int)
-    df["Target_TotalCorners"] = df["HC"] + df["AC"]
-    df["Target_HomeMoreCorners"] = (df["HC"] > df["AC"]).astype(int)
+    # Corner targets are NaN when match files lack HC/AC (MLS /new/ format).
+    has_corners = df["HC"].notna() & df["AC"].notna()
+    df["Target_TotalCorners"] = np.where(has_corners, df["HC"] + df["AC"], np.nan)
+    df["Target_HomeMoreCorners"] = np.where(
+        has_corners, (df["HC"] > df["AC"]).astype(float), np.nan
+    )
 
     # Higher-base-rate reframing: does the pre-match favourite (by Elo, a
     # feature already known before kickoff) avoid losing outright? Favourites
@@ -457,7 +484,7 @@ def build_latest_form(long_df, quality, final_elo, final_strengths, final_home_a
 def build_for_league(league_key):
     import pickle
 
-    cfg = LEAGUES[league_key]
+    cfg = resolve_league_paths(LEAGUES[league_key])
     data_dir = cfg["data_dir"]
     print(f"=== {cfg['label']} ===")
 

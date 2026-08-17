@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% block title %}{{ league.label }} Today's Picks{% if pick_count %} — {{ pick_count }} picks{% endif %}{% if og_accuracy_bit %}{{ og_accuracy_bit }}{% endif %} | Degen Predictions{% endblock %}
+{% block description %}{% if pick_count %}Degen Predictions — {{ league.label }} Today's Picks ({{ today_local }}): {{ pick_count }} selective high-probability ML tip{{ 's' if pick_count != 1 else '' }}{% if og_accuracy_bit %}{{ og_accuracy_bit }}{% endif %}. Share the board — estimates, not betting advice.{% else %}Degen Predictions — {{ league.label }} Today's Picks for {{ today_local }}. Selective high-probability markets — or no match today if the slate is empty.{% endif %}{% endblock %}
+{% block keywords %}{{ league.label }} predictions today, {{ league.label }} picks, today's sports predictions, degen predictions{% endblock %}
+{% block og_image %}{{ page_og_image or ('https://degenpredictions.com' ~ url_for('static', filename='logo.png')) }}{% endblock %}
+{% block twitter_card %}summary_large_image{% endblock %}
+{% block twitter_image %}{{ page_og_image or ('https://degenpredictions.com' ~ url_for('static', filename='logo.png')) }}{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back, nav_crumbs, breadcrumb_jsonld %}
+{{ breadcrumb_jsonld([
+    {"label": "Home", "href": "/"},
+    {"label": "Today's Picks", "href": "/todays-picks"},
+    {"label": sport.label, "href": "/todays-picks/" ~ sport_key},
+    {"label": league.label},
+]) }}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/todays-picks/' ~ sport_key, sport.label) }}
+    {{ nav_crumbs([
+        {"href": "/todays-picks", "label": "Picks"},
+        {"href": "/todays-picks/" ~ sport_key, "label": sport.label},
+        {"label": league.label},
+    ]) }}
+    {% if schedule_url %}<a class="page-nav-link" href="{{ schedule_url }}">Fixtures</a>{% endif %}
+    <a class="page-nav-link" href="/todays-picks/combos">Combos</a>
+    <button type="button" class="page-nav-link watch-toggle"
+            data-kind="league" data-key="{{ sport_key }}-{{ league_id }}"
+            data-label="{{ league.label }} picks"
+            data-href="/todays-picks/{{ sport_key }}/{{ league_id }}">★ Watch</button>
+</nav>
+
+<div class="board-skeleton" id="board-skeleton" aria-hidden="true">
+    <div class="skel-line"></div><div class="skel-line skel-short"></div>
+    <div class="skel-cards"><span></span><span></span><span></span></div>
+</div>
+<div class="board-ready" id="board-ready">
+<div class="leagues-hero">
+    <h1>{{ league.label }} — Today's Picks</h1>
+    <p class="muted">{{ today_local }} ({{ league.tz }}) · tap Unlock prediction on a match card. Estimates, not betting advice.</p>
+    {% include "partials/updated_stamp.html" %}
+    {% if schedule_url %}
+    <p class="leagues-hero-ctas">
+        <a class="league-cta" href="{{ schedule_url }}" style="display:inline-block; text-decoration:none;">See fixtures</a>
+    </p>
+    {% endif %}
+</div>
+{% set share_text = share_headline %}
+{% include "partials/share_bar.html" %}
+{% include "partials/telegram_cta.html" %}
+
+{% if picks and slate_correlation and slate_correlation.label != 'Low' %}
+<p class="muted" style="margin:1rem 0 0; font-size:0.9rem;">
+    Slate overlap: <strong>{{ slate_correlation.label }}</strong>
+    · {{ slate_correlation.note }}
+</p>
+{% endif %}
+
+{% if not picks %}
+<div class="fixture-card low-confidence" style="cursor:default; max-width:40rem; margin-top:1.5rem;">
+    {% if fixtures_today %}
+    <p style="margin:0; font-size:1.15rem;"><strong>No high-probability picks today</strong></p>
+    <p class="muted" style="margin:0.75rem 0 0;">{{ fixtures_today }} {{ league.label }} match{{ 'es' if fixtures_today != 1 else '' }} on the slate, but none cleared the high-probability bar across our markets.{% if league.empty_hint %} {{ league.empty_hint }}{% endif %} Check the full schedule for lower-confidence reads, or try <a href="/todays-picks/combos">Best Combos</a>.</p>
+    {% else %}
+    <p style="margin:0; font-size:1.15rem;"><strong>No match today</strong></p>
+    <p class="muted" style="margin:0.75rem 0 0;">Nothing on the {{ league.label }} slate for {{ today_local }}.{% if league.empty_hint %} {{ league.empty_hint }}{% endif %} Check back on a matchday, or browse the full schedule.</p>
+    {% endif %}
+    {% if schedule_url %}
+    <p style="margin:1rem 0 0;"><a class="league-cta" href="{{ schedule_url }}" style="display:inline-block; text-decoration:none;">See fixtures</a></p>
+    {% endif %}
+</div>
+{% else %}
+<div class="fixture-grid" style="margin-top:1.5rem;">
+    {% for p in picks %}
+    <article class="fixture-card {% if p.market == 'Upset lean' %}low-confidence{% else %}ok-confidence{% endif %}"
+         style="--card-index: {{ loop.index0 }}; cursor:pointer;"
+         data-unlock-kind="pick"
+         data-unlock-event="{{ league.label }} · {{ p.matchup }} · {{ p.market or 'pick' }}"
+         data-lock="1"
+         {% if p.url or schedule_url %}data-href="{{ p.url or schedule_url }}" tabindex="0" role="link" aria-label="{{ p.matchup }}"{% endif %}>
+        <div class="fixture-card-head">
+            <div>
+                {% if p.url %}
+                <a class="fixture-teams" href="{{ p.url }}">{{ p.matchup }}</a>
+                {% else %}
+                <span class="fixture-teams">{{ p.matchup }}</span>
+                {% endif %}
+                <div class="fixture-date">
+                    {% if p.kickoff_iso %}
+                    <span class="kickoff-when muted" data-iso="{{ p.kickoff_iso }}">{{ p.when }}</span>
+                    {% else %}
+                    <span class="muted">{{ p.when }}</span>
+                    {% endif %}
+                    {% if p.status == 'upcoming' and p.kickoff_iso %}
+                    <span class="countdown muted" data-kickoff="{{ p.kickoff_iso }}"></span>
+                    {% endif %}
+                </div>
+            </div>
+            {% if p.status == 'live' %}
+            <span class="confidence-alert">{{ p.status_label }}</span>
+            {% endif %}
+            <button type="button" class="predict-btn js-unlock-slate">Unlock prediction</button>
+        </div>
+        <div class="fixture-empty">
+            <span class="fixture-empty-label">Pick locked</span>
+            <span class="fixture-empty-hint">Tap Unlock prediction to reveal the market</span>
+        </div>
+        <div class="fixture-outcomes" hidden style="margin-top:0.4rem;">
+            {% if p.market == 'Upset lean' %}
+            <span class="conf-badge-row" style="margin-bottom:0.4rem; display:flex;">
+                <span class="conf-badge conf-badge--upset">Upset lean</span>
+                {% if p.confidence is not none %}
+                <span class="conf-badge conf-badge--model">{{ (p.confidence * 100) | round(0) | int }}%</span>
+                {% endif %}
+            </span>
+            {% else %}
+            {% set confidence = p.confidence %}
+            {% set tier_label = 'High probability' if (p.confidence or 0) >= 0.68 else none %}
+            {% set data_conf = none %}
+            {% include "partials/confidence_badge.html" %}
+            {% endif %}
+            {% if p.status_label and p.status == 'upcoming' and p.market != 'Upset lean' %}
+            <p class="muted" style="margin:0.15rem 0 0; font-size:0.82rem;">{{ p.status_label }}</p>
+            {% elif p.market == 'Upset lean' %}
+            <p class="muted" style="margin:0.15rem 0 0; font-size:0.82rem;">Close game underdog lean — not a 70% tier pick</p>
+            {% endif %}
+            {% if p.market %}
+            <div class="outcome-row"><span class="outcome-label">Market</span><span>{{ p.market }}</span></div>
+            {% endif %}
+            <div class="outcome-row"><span class="outcome-label">Today's pick</span><span><strong>{{ p.pick or '—' }}</strong></span></div>
+            {% for row in p.detail_rows %}
+            {% if row.label != 'Market' %}
+            <div class="outcome-row"><span class="outcome-label">{{ row.label }}</span><span>{{ row.value }}</span></div>
+            {% endif %}
+            {% endfor %}
+            {% if p.correlation and p.correlation.label != 'Low' %}
+            <div class="outcome-row">
+                <span class="outcome-label">Overlap</span>
+                <span>
+                    <strong>{{ p.correlation.label }}</strong>
+                    <span class="muted"> · {{ p.correlation.note }}</span>
+                </span>
+            </div>
+            {% endif %}
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% if schedule_url %}
+<p class="muted" style="margin-top:1.5rem;"><a href="{{ schedule_url }}">Full {{ league.label }} fixtures</a></p>
+{% endif %}
+{% endif %}
+
+{% set habit_title = "Come back tomorrow" %}
+{% set habit_blurb = "Bookmark this " ~ league.label ~ " picks page and share it — Degen Predictions refreshes the slate on matchdays." %}
+{% set share_text = share_headline %}
+{% include "partials/daily_habit.html" %}
+
+<script>
+function formatKickoffs() {
+    document.querySelectorAll(".kickoff-when[data-iso]").forEach(el => {
+        let raw = el.dataset.iso;
+        if (!raw) return;
+        if (!/[zZ]|[+-]\d{2}:?\d{2}$/.test(raw)) raw = raw.replace(" ", "T") + (raw.includes("T") ? "Z" : "");
+        const d = new Date(raw);
+        if (isNaN(d.getTime())) return;
+        try {
+            el.textContent = d.toLocaleString(undefined, {
+                weekday: "short", month: "short", day: "numeric",
+                hour: "numeric", minute: "2-digit",
+            });
+        } catch (e) {}
+    });
+}
+function updateCountdowns() {
+    const now = Date.now();
+    document.querySelectorAll(".countdown[data-kickoff]").forEach(el => {
+        let raw = el.dataset.kickoff;
+        if (raw && !/[zZ]|[+-]\d{2}:?\d{2}$/.test(raw)) raw = raw.replace(" ", "T") + "Z";
+        const kickoff = new Date(raw).getTime();
+        if (isNaN(kickoff)) return;
+        const diff = kickoff - now;
+        if (diff <= 0) { el.textContent = "· starting soon"; return; }
+        const hours = Math.floor(diff / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        if (hours >= 24) {
+            const days = Math.floor(hours / 24);
+            el.textContent = `· in ${days}d ${hours % 24}h`;
+        } else if (hours > 0) el.textContent = `· in ${hours}h ${mins}m`;
+        else el.textContent = `· in ${mins}m`;
+    });
+}
+formatKickoffs();
+updateCountdowns();
+setInterval(updateCountdowns, 60000);
+(function () {
+    var sk = document.getElementById("board-skeleton");
+    var ready = document.getElementById("board-ready");
+    if (sk) sk.hidden = true;
+    if (ready) ready.classList.add("is-visible");
+})();
+</script>
+</div>
+{% endblock %}

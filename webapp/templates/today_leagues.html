@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Today's Picks -- {{ sport.label }} | Degen Predictions{% endblock %}
+{% block description %}Open {{ sport.label|lower }} fixture boards — Unlock prediction is on each match card.{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back, nav_crumbs, breadcrumb_jsonld %}
+{{ breadcrumb_jsonld([
+    {"label": "Home", "href": "/"},
+    {"label": "Today's Picks", "href": "/todays-picks"},
+    {"label": sport.label},
+]) }}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/todays-picks', "Today's picks") }}
+    {{ nav_crumbs([
+        {"href": "/todays-picks", "label": "Picks"},
+        {"label": sport.label},
+    ]) }}
+    <a class="page-nav-link" href="/todays-picks/combos">Combos</a>
+</nav>
+
+<div class="leagues-hero">
+    <h1>{{ sport.label }}</h1>
+    <p class="muted">Open a league's fixture board. Unlock prediction is on each match card, not on these league cards.</p>
+</div>
+
+<div class="league-grid">
+    {% for league_id, league in sport.leagues.items() %}
+    <a class="league-card" href="{{ schedule_urls.get(league_id) or '/sports' }}" style="--league-color: {{ league.color }};">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>{{ league.label|upper }}</h2>
+            <p class="league-desc">Today's fixtures</p>
+            <span class="league-cta">See fixtures</span>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

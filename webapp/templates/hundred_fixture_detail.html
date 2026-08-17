@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block title %}{{ match.team1 }} vs {{ match.team2 }} Prediction | The Hundred{% endblock %}
-{% block description %}{{ match.team1 }} vs {{ match.team2 }} (The Hundred) prediction: win probability, predicted innings totals, total match runs, pitch report and weather, {{ match.date }}.{% endblock %}
+{% block title %}{{ match.team1 }} vs {{ match.team2 }} Prediction {{ match.date }} | The Hundred{% endblock %}
+{% block description %}{{ match.team1 }} vs {{ match.team2 }} (The Hundred) ML prediction for {{ match.date }}: win probability, predicted innings totals, total match runs, pitch report and weather. Free forecast -- not betting advice.{% endblock %}
 {% block keywords %}{{ match.team1 }} vs {{ match.team2 }} prediction, The Hundred predictions, cricket predictions{% endblock %}
 {% block content %}
 <script type="application/ld+json">
@@ -19,7 +19,8 @@
     "description": "The Hundred match prediction: win probability, predicted innings totals, and total match runs."
 }
 </script>
-<a href="/hundred/fixtures">&larr; Back to The Hundred Fixtures</a>
+{% from "macros.html" import nav_back %}
+{{ nav_back('/hundred/fixtures', 'Fixtures') }}
 
 <div class="leagues-hero">
     <h1>{{ match.team1 }} vs {{ match.team2 }}</h1>

@@ -1,0 +1,12 @@
+{# confidence: float 0-1 optional; tier_label: string; data_conf: optional string #}
+<span class="conf-badge-row">
+    {% if tier_label %}
+    <span class="conf-badge conf-badge--tier">{{ tier_label }}</span>
+    {% endif %}
+    {% if confidence is not none %}
+    <span class="conf-badge conf-badge--model">{{ (confidence * 100) | round(0) | int }}% model</span>
+    {% endif %}
+    {% if data_conf %}
+    <span class="conf-badge conf-badge--data">Data: {{ data_conf }}</span>
+    {% endif %}
+</span>

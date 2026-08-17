@@ -12,10 +12,21 @@ WorkingDirectory=/home/ubuntu/Degen_predictions/webapp
 EnvironmentFile=/home/ubuntu/Degen_predictions/deploy/production.env
 ExecStart=/home/ubuntu/Degen_predictions/venv/bin/gunicorn \
     --workers 3 \
+    --threads 2 \
+    --worker-class gthread \
+    --timeout 120 \
+    --keep-alive 5 \
+    --max-requests 800 \
+    --max-requests-jitter 100 \
+    --preload \
     --bind 127.0.0.1:8000 \
     --access-logfile /home/ubuntu/Degen_predictions/gunicorn-access.log \
     --error-logfile /home/ubuntu/Degen_predictions/gunicorn-error.log \
     app:app
+# Fire-and-forget: warms the combo-picks disk cache after every (re)start
+# so the first real visitor doesn't pay the ~10-15s cold-build cost. Backgrounds
+# itself and exits immediately -- never delays this unit reaching "active".
+ExecStartPost=/home/ubuntu/Degen_predictions/deploy/warm_combo_cache.sh
 Restart=on-failure
 RestartSec=5
 

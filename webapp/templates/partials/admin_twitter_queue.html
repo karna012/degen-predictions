@@ -1,0 +1,77 @@
+<section class="admin-section {{ 'is-visible' if admin_section == 'twitter' else '' }}" data-admin-section="twitter">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>X / Twitter — ready to post</h3>
+            <span class="muted">Today's Picks, combos, or RESULT cards you queued from admin · short caption · no %</span>
+        </div>
+        <div class="panel-body">
+            {% set tq = twitter_queue or {} %}
+            {% set posts = tq.posts or [] %}
+            {% if request.args.get('tg') and request.args.get('tg').startswith('ok_') %}
+            <p style="margin:0 0 0.85rem;">
+                <strong class="badge badge-human">Queued for X</strong>
+                {% if request.args.get('tgm') %}<span class="muted"> — {{ request.args.get('tgm') }}</span>{% endif %}
+            </p>
+            {% endif %}
+            <p class="muted" style="margin-top:0;">
+                Queue slips from <strong>Send to Telegram &amp; X</strong> (tick X) or send results with X ticked.
+                Post them here (extension or copy/open X). Nothing auto-posts.
+                {% if tq.source == 'telegram' %}
+                From last Telegram send{% if tq.date %} · {{ tq.date }}{% endif %}{% if tq.sent_at %} · {{ tq.sent_at }}{% endif %}.
+                {% else %}
+                Telegram send not saved yet — using today's digest slips{% if tq.date %} ({{ tq.date }}){% endif %}.
+                {% endif %}
+                Finished games are dropped as they settle — remaining fixtures refresh from today's board.
+                {{ tq.count or 0 }} post{{ 's' if (tq.count or 0) != 1 else '' }}.
+            </p>
+            <p class="muted" id="tw-ext-note">Install extension v1.0.3+. After you verify and send from Telegram, use this queue for X — nothing auto-posts.</p>
+            <div class="tw-toolbar">
+                <a class="btn btn-sm" href="/admin?section=twitter">Use last Telegram send</a>
+                <a class="btn btn-sm" href="/admin?section=twitter&source=digest">Use today's digest</a>
+                <a class="btn btn-sm" href="/admin?section=telegram">Back to Telegram</a>
+            </div>
+
+            {% if posts %}
+            <div id="tw-queue" data-tw-count="{{ posts|length }}">
+                {% for post in posts %}
+                <article class="tw-card{% if not loop.first %} is-hidden{% endif %}"
+                         data-tw-index="{{ loop.index0 }}"
+                         data-intent="{{ post.intent_url }}"
+                         data-image-url="{{ post.image_url or '' }}"
+                         data-image-name="{{ post.image_download_name or '' }}">
+                    <div class="tw-card-meta">
+                        <strong>Post {{ loop.index }} / {{ posts|length }}</strong>
+                        <span class="muted">{{ post.title }} · {{ post.leg_count }} leg{{ 's' if post.leg_count != 1 else '' }}</span>
+                        <span class="tw-chars muted" data-tw-chars>{{ post.char_count }} / 280</span>
+                    </div>
+                    <div class="tw-layout">
+                        {% if post.has_image and post.image_url %}
+                        <div class="tw-image-wrap">
+                            <img class="tw-image" src="{{ post.image_url }}" alt="Slip card for {{ post.title }}" loading="lazy">
+                            <a class="btn btn-sm tw-download" href="{{ post.image_url }}" download="{{ post.image_download_name }}">Download image</a>
+                            <button type="button" class="btn btn-sm tw-copy-image">Copy image</button>
+                        </div>
+                        {% else %}
+                        <p class="muted">No slip image for this post — text only.</p>
+                        {% endif %}
+                        <div class="tw-copy-wrap">
+                            <textarea class="input tw-text" rows="10" spellcheck="false">{{ post.text }}</textarea>
+                        </div>
+                    </div>
+                    <div class="tw-actions">
+                        <button type="button" class="btn btn-sm tw-prev" {% if loop.first %}disabled{% endif %}>Previous</button>
+                        <button type="button" class="btn btn-sm tw-copy">Copy text</button>
+                        <button type="button" class="btn btn-primary btn-sm tw-ext-post-page" data-auto="1">Auto-post this slip</button>
+                        <button type="button" class="btn btn-sm tw-post-x">Copy text + open X</button>
+                        <button type="button" class="btn btn-sm tw-next" {% if loop.last %}disabled{% endif %}>Next pick</button>
+                    </div>
+                    <p class="tw-status muted" aria-live="polite">Extension: Post via extension · or manual: download PNG → open X → attach</p>
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="empty">No slips queued. Send Today's Picks, combos, or results with <strong>X</strong> ticked.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>

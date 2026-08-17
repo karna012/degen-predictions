@@ -1,0 +1,29 @@
+---
+description: After a sports event finishes — live scores, settle, public results
+alwaysApply: true
+---
+
+# Post-event results (do not forget)
+
+When a match/game is over, **do not** wait for weekly retrain or Cricsheet.
+
+## Required pipeline
+
+1. Fetch from the **live** fixture/score source (Wikipedia Hundred/CPL, ESPN tennis, spaia `games_info_by_date` for NPB, ESPN MLB).
+2. Identify the fixture by teams **and** date. Skip unfinished duplicates; do not grade a rematch from last week.
+3. `combo_results.settle_pending()` — legs, slips, published picks.
+4. League `/results` pages must show that final even if the training archive lags (see `live_completed_result_views` for Hundred/CPL).
+
+## Automation already on EC2
+
+- `degen-post-event.timer` every **5 minutes** → `webapp/post_event_refresh.py`
+- `degen-live-tracker.timer` every **5 minutes** also runs the same settle (via `live_match_tracker.py`)
+- Busts fixture caches (and a shared `live_cache_bust` file so gunicorn workers drop stale scores), settles pending, drops `mlb_results_cache.html` / `results_cache.html`, writes `data/feedback/post_event.json` (overdue pending = kickoff >6h still ungraded)
+- Public results + combo-results routes call `refresh_for_finished_events` on visit
+- Reinstall timers: `bash deploy/setup_automation.sh` (Git Bash)
+
+## Agent checklist
+
+- New sport/league: live lookup **and** results merge, not fixtures-only
+- “Results not showing” → check live feed + settle job, not just `matches_for_competition`
+- After a settle/results fix: deploy webapp **and** confirm `systemctl is-active degen-post-event.timer`

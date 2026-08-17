@@ -1,0 +1,13 @@
+[Unit]
+Description=Degen Predictions daily Top-3 digest + channel distribute
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/Degen_predictions/webapp
+EnvironmentFile=-/home/ubuntu/Degen_predictions/deploy/production.env
+ExecStart=/home/ubuntu/Degen_predictions/deploy/daily_distribute.sh
+Nice=10

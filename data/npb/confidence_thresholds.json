@@ -1,0 +1,52 @@
+{
+  "sport": "baseball",
+  "league": "npb",
+  "target_accuracy": 0.7,
+  "oos_n": 966,
+  "full_slate_acc": 0.5807453416149069,
+  "model_name": "Random Forest (bagging)",
+  "shipped_holdout_accuracy": 0.5807453416149069,
+  "markets": {
+    "moneyline": {
+      "best": {
+        "threshold": 0.55,
+        "n": 409,
+        "acc": 0.5990220048899756,
+        "coverage": 0.42339544513457555,
+        "met_target": false
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.86,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.87,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.88,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.89,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.9,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        }
+      ]
+    }
+  }
+}

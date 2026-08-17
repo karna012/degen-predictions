@@ -17,15 +17,15 @@ def test_load_backtest_handles_mixed_date_formats_without_crashing(league_key):
 def test_low_confidence_fixtures_get_alert_badge_not_dimmed(client):
     """Regression: low-confidence fixtures used to just be faded (opacity),
     which read as broken/disabled rather than a deliberate warning. They must
-    render the explicit alert badge instead."""
+    render an explicit low-confidence chip/note instead."""
     df = app_module.load_predictions("premier_league")
     low_conf = df[df["Data_Confidence"].str.contains("Low", na=False)]
     if low_conf.empty:
         return
     resp = client.get("/premier_league/")
     body = resp.data.decode()
-    assert "confidence-alert" in body
-    assert "Low confidence" in body
+    assert "confidence-chip is-low" in body or "confidence-alert" in body
+    assert "Low conf" in body or "Low confidence" in body
 
 
 def test_nav_shows_login_signup_when_logged_out(client):
@@ -85,8 +85,10 @@ def test_fixture_card_predict_button_says_get_predictions(client):
     ('Predict (free)', 'Unlock $X.XX', ...) -- confirm it's settled."""
     resp = client.get("/premier_league/")
     body = resp.data.decode()
-    assert "Get Predictions" in body
+    assert "Unlock prediction" in body
     assert "Predict (free)" not in body
+    if "Unlock prediction" in body:
+        assert 'data-lock="1"' in body
 
 
 def test_select_elements_have_dark_color_scheme_applied():
@@ -98,7 +100,7 @@ def test_select_elements_have_dark_color_scheme_applied():
     )
     with open(css_path, encoding="utf-8") as f:
         css = f.read()
-    assert "color-scheme: dark" in css
+    assert "color-scheme:dark" in css or "color-scheme: dark" in css
 
 
 def test_no_forced_ad_gate_prediction_lock():
@@ -119,12 +121,15 @@ def test_no_forced_ad_gate_prediction_lock():
 
 
 def test_adsense_verification_script_present(client):
-    """AdSense was explicitly (re)enabled -- the publisher verification
-    script must be present in the page head."""
+    """AdSense site verification requires the publisher script literally in
+    <head> (Google's crawler often fails if it is only injected deferred)."""
     resp = client.get("/")
     body = resp.data.decode()
     assert "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" in body
     assert "ca-pub-9692020533590575" in body
+    head = body.split("</head>", 1)[0]
+    assert "adsbygoogle.js?client=ca-pub-9692020533590575" in head
+    assert 'crossorigin="anonymous"' in head
 
 
 def test_about_page_has_no_metrics_table(client, league_key):
@@ -134,11 +139,14 @@ def test_about_page_has_no_metrics_table(client, league_key):
     just author info + general, non-technical content, no <table> at all."""
     resp = client.get(f"/{league_key}/about")
     body = resp.data.decode()
-    assert "<table>" not in body
-    assert "<th>" not in body
-    assert "Accuracy" not in body
-    assert "Log Loss" not in body
-    assert "Winner used" not in body
+    # Scope to the page's own content, not the site-wide footer (which links
+    # to the separate /accuracy hub page on every page).
+    main = body.split('<main', 1)[1].split("</main>", 1)[0]
+    assert "<table>" not in main
+    assert "<th>" not in main
+    assert "Accuracy" not in main
+    assert "Log Loss" not in main
+    assert "Winner used" not in main
 
 
 def test_no_model_architecture_names_leaked_anywhere(client, league_key):
@@ -153,12 +161,13 @@ def test_no_model_architecture_names_leaked_anywhere(client, league_key):
             assert banned not in body, f"{banned!r} leaked on {path}"
 
 
-def test_about_page_shows_author_and_valuable_content(client):
-    """The About page should be author info + genuinely useful, non-technical
-    content -- not empty, not a stub."""
+def test_about_page_shows_valuable_content(client):
+    """The About page should be genuinely useful, non-technical content --
+    not empty, not a stub, and without author/hosting/methodology UI blocks."""
     resp = client.get("/premier_league/about")
     body = resp.data.decode()
-    assert "About the Author" in body
-    assert "Karan R" in body
+    assert "About the Author" not in body
+    assert "Deployment & Hosting" not in body
+    assert "How we score (full slate vs 70% tier)" not in body
     assert "What this site does" in body
     assert "Honest limitations" in body

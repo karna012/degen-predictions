@@ -1,0 +1,291 @@
+RoundNumber,DateUtc,HomeTeam,AwayTeam,P_Home_Win,P_Draw,P_Away_Win,Predicted_Result,P_BTTS_Yes,BTTS_Prediction,P_Over_2.5_Goals,Goals_Prediction,Exp_Total_Corners,P_Home_More_Corners,More_Corners_Prediction,Favorite_Team,P_Favorite_Avoids_Defeat,Favorite_Avoids_Defeat_Prediction,Data_Confidence
+2,2026-08-16 19:30:00Z,Sp Braga,Gil Vicente,0.339,0.288,0.373,Gil Vicente,0.477,No,0.96,Over 2.5,10.62,0.24,Gil Vicente,Sp Braga,0.599,Yes,OK
+2,2026-08-17 19:15:00Z,Casa Pia,Benfica,0.144,0.225,0.631,Benfica,0.508,Yes,0.932,Over 2.5,9.65,0.009,Benfica,Benfica,0.555,Yes,OK
+3,2026-08-22 14:30:00Z,Maritimo,Academico Viseu,0.167,0.233,0.6,Academico Viseu,0.5,Yes,0.95,Over 2.5,10.49,0.251,Academico Viseu,Academico Viseu,0.461,No,Low (promoted/new team)
+3,2026-08-22 17:00:00Z,Estoril,Rio Ave,0.309,0.322,0.37,Rio Ave,0.508,Yes,0.915,Over 2.5,10.56,0.113,Rio Ave,Estoril,0.583,Yes,OK
+3,2026-08-22 19:30:00Z,Sp Lisbon,Alverca,0.614,0.238,0.148,Sp Lisbon,0.477,No,0.934,Over 2.5,10.78,0.366,Alverca,Sp Lisbon,0.673,Yes,OK
+3,2026-08-23 14:30:00Z,Guimaraes,Nacional,0.327,0.315,0.358,Nacional,0.477,No,0.924,Over 2.5,10.15,0.399,Nacional,Guimaraes,0.602,Yes,OK
+3,2026-08-23 17:00:00Z,Santa Clara,Famalicao,0.22,0.279,0.501,Famalicao,0.477,No,0.924,Over 2.5,9.86,0.132,Famalicao,Famalicao,0.542,Yes,OK
+3,2026-08-23 19:30:00Z,Porto,Arouca,0.557,0.265,0.178,Porto,0.5,Yes,0.924,Over 2.5,9.77,0.286,Arouca,Porto,0.638,Yes,OK
+3,2026-08-24 19:15:00Z,Gil Vicente,Casa Pia,0.422,0.317,0.261,Gil Vicente,0.477,No,0.856,Over 2.5,9.85,0.566,Gil Vicente,Gil Vicente,0.59,Yes,OK
+3,2026-09-09 19:15:00Z,Moreirense,Benfica,0.141,0.259,0.6,Benfica,0.482,No,0.926,Over 2.5,9.71,0.013,Benfica,Benfica,0.525,Yes,OK
+3,2026-09-10 19:15:00Z,Estrela,Sp Braga,0.161,0.28,0.56,Sp Braga,0.47,No,0.886,Over 2.5,10.32,0.044,Sp Braga,Sp Braga,0.607,Yes,OK
+4,2026-08-28 19:15:00Z,Rio Ave,Sp Lisbon,0.109,0.176,0.714,Sp Lisbon,0.508,Yes,0.966,Over 2.5,9.77,0.017,Sp Lisbon,Sp Lisbon,0.583,Yes,OK
+4,2026-08-29 14:30:00Z,Alverca,Santa Clara,0.223,0.277,0.499,Santa Clara,0.482,No,0.882,Over 2.5,9.86,0.073,Santa Clara,Santa Clara,0.59,Yes,OK
+4,2026-08-29 14:30:00Z,Arouca,Maritimo,0.298,0.322,0.381,Maritimo,0.508,Yes,0.93,Over 2.5,10.18,0.175,Maritimo,Arouca,0.562,Yes,OK
+4,2026-08-29 17:00:00Z,Academico Viseu,Porto,0.178,0.238,0.584,Porto,0.47,No,0.398,Under 2.5,9.77,0.226,Porto,Porto,0.583,Yes,Low (promoted/new team)
+4,2026-08-30 14:30:00Z,Nacional,Estrela,0.285,0.318,0.397,Estrela,0.508,Yes,0.841,Over 2.5,9.96,0.323,Estrela,Nacional,0.5,Yes,OK
+4,2026-08-30 17:00:00Z,Casa Pia,Moreirense,0.246,0.335,0.419,Moreirense,0.489,No,0.88,Over 2.5,9.57,0.163,Moreirense,Moreirense,0.476,No,OK
+4,2026-08-30 19:30:00Z,Famalicao,Gil Vicente,0.301,0.301,0.397,Gil Vicente,0.542,Yes,0.952,Over 2.5,10.46,0.155,Gil Vicente,Famalicao,0.589,Yes,OK
+4,2026-08-31 17:45:00Z,Benfica,Estoril,0.572,0.241,0.187,Benfica,0.304,No,0.949,Over 2.5,10.12,0.319,Estoril,Benfica,0.626,Yes,OK
+4,2026-08-31 19:45:00Z,Sp Braga,Guimaraes,0.358,0.28,0.361,Guimaraes,0.47,No,0.938,Over 2.5,9.83,0.151,Guimaraes,Sp Braga,0.613,Yes,OK
+5,2026-09-05 23:00:00Z,Alverca,Sp Braga,0.16,0.259,0.581,Sp Braga,0.47,No,0.891,Over 2.5,10.02,0.047,Sp Braga,Sp Braga,0.62,Yes,OK
+5,2026-09-05 23:00:00Z,Estrela,Famalicao,0.181,0.269,0.55,Famalicao,0.478,No,0.927,Over 2.5,9.99,0.036,Famalicao,Famalicao,0.555,Yes,OK
+5,2026-09-05 23:00:00Z,Estoril,Arouca,0.289,0.331,0.38,Arouca,0.508,Yes,0.924,Over 2.5,9.61,0.068,Arouca,Arouca,0.477,No,OK
+5,2026-09-05 23:00:00Z,Gil Vicente,Academico Viseu,0.249,0.302,0.448,Academico Viseu,0.47,No,0.925,Over 2.5,10.48,0.332,Academico Viseu,Gil Vicente,0.593,Yes,Low (promoted/new team)
+5,2026-09-05 23:00:00Z,Maritimo,Benfica,0.145,0.211,0.644,Benfica,0.5,Yes,0.943,Over 2.5,9.55,0.012,Benfica,Benfica,0.556,Yes,OK
+5,2026-09-05 23:00:00Z,Porto,Moreirense,0.554,0.256,0.19,Porto,0.47,No,0.92,Over 2.5,9.81,0.463,Moreirense,Porto,0.647,Yes,OK
+5,2026-09-05 23:00:00Z,Santa Clara,Rio Ave,0.363,0.305,0.332,Santa Clara,0.489,No,0.899,Over 2.5,10.68,0.246,Rio Ave,Santa Clara,0.545,Yes,OK
+5,2026-09-05 23:00:00Z,Sp Lisbon,Nacional,0.62,0.211,0.168,Sp Lisbon,0.489,No,0.974,Over 2.5,10.35,0.46,Nacional,Sp Lisbon,0.661,Yes,OK
+5,2026-09-05 23:00:00Z,Guimaraes,Casa Pia,0.357,0.343,0.3,Guimaraes,0.477,No,0.879,Over 2.5,9.77,0.489,Casa Pia,Guimaraes,0.59,Yes,OK
+6,2026-09-12 23:00:00Z,Academico Viseu,Guimaraes,0.342,0.281,0.378,Guimaraes,0.477,No,0.237,Under 2.5,10.07,0.347,Guimaraes,Guimaraes,0.501,Yes,Low (promoted/new team)
+6,2026-09-12 23:00:00Z,Arouca,Santa Clara,0.226,0.279,0.495,Santa Clara,0.489,No,0.937,Over 2.5,10.09,0.156,Santa Clara,Arouca,0.576,Yes,OK
+6,2026-09-12 23:00:00Z,Sp Braga,Estoril,0.399,0.301,0.299,Sp Braga,0.477,No,0.912,Over 2.5,10.01,0.315,Estoril,Sp Braga,0.577,Yes,OK
+6,2026-09-12 23:00:00Z,Casa Pia,Porto,0.109,0.19,0.702,Porto,0.508,Yes,0.946,Over 2.5,9.53,0.021,Porto,Porto,0.572,Yes,OK
+6,2026-09-12 23:00:00Z,Famalicao,Sp Lisbon,0.18,0.25,0.57,Sp Lisbon,0.489,No,0.966,Over 2.5,9.53,0.041,Sp Lisbon,Sp Lisbon,0.545,Yes,OK
+6,2026-09-12 23:00:00Z,Moreirense,Maritimo,0.296,0.361,0.343,Draw,0.47,No,0.891,Over 2.5,9.99,0.111,Maritimo,Moreirense,0.532,Yes,OK
+6,2026-09-12 23:00:00Z,Nacional,Alverca,0.268,0.342,0.39,Alverca,0.508,Yes,0.839,Over 2.5,10.48,0.218,Alverca,Alverca,0.48,No,OK
+6,2026-09-12 23:00:00Z,Rio Ave,Estrela,0.291,0.333,0.377,Estrela,0.477,No,0.897,Over 2.5,10.09,0.246,Estrela,Rio Ave,0.525,Yes,OK
+6,2026-09-12 23:00:00Z,Benfica,Gil Vicente,0.519,0.244,0.237,Benfica,0.477,No,0.977,Over 2.5,10.67,0.249,Gil Vicente,Benfica,0.631,Yes,OK
+7,2026-09-19 23:00:00Z,Alverca,Rio Ave,0.312,0.316,0.372,Rio Ave,0.477,No,0.899,Over 2.5,10.52,0.123,Rio Ave,Alverca,0.545,Yes,OK
+7,2026-09-19 23:00:00Z,Estrela,Academico Viseu,0.16,0.238,0.602,Academico Viseu,0.482,No,0.943,Over 2.5,10.6,0.113,Academico Viseu,Academico Viseu,0.502,Yes,Low (promoted/new team)
+7,2026-09-19 23:00:00Z,Estoril,Casa Pia,0.279,0.347,0.374,Casa Pia,0.508,Yes,0.879,Over 2.5,9.8,0.268,Casa Pia,Estoril,0.577,Yes,OK
+7,2026-09-19 23:00:00Z,Gil Vicente,Maritimo,0.412,0.297,0.29,Gil Vicente,0.477,No,0.915,Over 2.5,10.19,0.221,Maritimo,Gil Vicente,0.609,Yes,OK
+7,2026-09-19 23:00:00Z,Nacional,Famalicao,0.192,0.258,0.55,Famalicao,0.5,Yes,0.906,Over 2.5,9.79,0.087,Famalicao,Famalicao,0.48,No,OK
+7,2026-09-19 23:00:00Z,Porto,Benfica,0.3,0.291,0.409,Benfica,0.482,No,0.956,Over 2.5,9.77,0.039,Benfica,Benfica,0.518,Yes,OK
+7,2026-09-19 23:00:00Z,Santa Clara,Sp Braga,0.198,0.273,0.529,Sp Braga,0.392,No,0.901,Over 2.5,10.12,0.12,Sp Braga,Sp Braga,0.59,Yes,OK
+7,2026-09-19 23:00:00Z,Sp Lisbon,Arouca,0.67,0.198,0.132,Sp Lisbon,0.508,Yes,0.973,Over 2.5,9.9,0.199,Arouca,Sp Lisbon,0.638,Yes,OK
+7,2026-09-19 23:00:00Z,Guimaraes,Moreirense,0.333,0.327,0.341,Moreirense,0.477,No,0.925,Over 2.5,9.65,0.264,Moreirense,Guimaraes,0.545,Yes,OK
+8,2026-10-10 23:00:00Z,Academico Viseu,Estoril,0.342,0.295,0.363,Estoril,0.47,No,0.225,Under 2.5,10.29,0.646,Academico Viseu,Estoril,0.484,No,Low (promoted/new team)
+8,2026-10-10 23:00:00Z,Arouca,Estrela,0.324,0.333,0.343,Estrela,0.508,Yes,0.912,Over 2.5,10.05,0.43,Estrela,Arouca,0.57,Yes,OK
+8,2026-10-10 23:00:00Z,Sp Braga,Sp Lisbon,0.179,0.235,0.585,Sp Lisbon,0.47,No,0.969,Over 2.5,9.58,0.077,Sp Lisbon,Sp Lisbon,0.582,Yes,OK
+8,2026-10-10 23:00:00Z,Casa Pia,Santa Clara,0.203,0.275,0.522,Santa Clara,0.508,Yes,0.904,Over 2.5,9.89,0.081,Santa Clara,Santa Clara,0.48,No,OK
+8,2026-10-10 23:00:00Z,Famalicao,Alverca,0.357,0.369,0.274,Draw,0.489,No,0.866,Over 2.5,10.36,0.261,Alverca,Famalicao,0.614,Yes,OK
+8,2026-10-10 23:00:00Z,Maritimo,Porto,0.123,0.191,0.686,Porto,0.489,No,0.951,Over 2.5,9.54,0.032,Porto,Porto,0.603,Yes,OK
+8,2026-10-10 23:00:00Z,Moreirense,Gil Vicente,0.213,0.322,0.465,Gil Vicente,0.477,No,0.917,Over 2.5,10.42,0.095,Gil Vicente,Gil Vicente,0.455,No,OK
+8,2026-10-10 23:00:00Z,Rio Ave,Nacional,0.276,0.295,0.429,Nacional,0.485,No,0.942,Over 2.5,10.22,0.246,Nacional,Rio Ave,0.503,Yes,OK
+8,2026-10-10 23:00:00Z,Benfica,Guimaraes,0.537,0.233,0.23,Benfica,0.477,No,0.964,Over 2.5,10.02,0.156,Guimaraes,Benfica,0.645,Yes,OK
+9,2026-10-24 23:00:00Z,Alverca,Arouca,0.293,0.331,0.376,Arouca,0.478,No,0.908,Over 2.5,9.55,0.054,Arouca,Arouca,0.456,No,OK
+9,2026-10-24 23:00:00Z,Estrela,Casa Pia,0.279,0.345,0.376,Casa Pia,0.477,No,0.858,Over 2.5,10.07,0.254,Casa Pia,Casa Pia,0.501,Yes,OK
+9,2026-10-24 23:00:00Z,Estoril,Moreirense,0.268,0.34,0.392,Moreirense,0.508,Yes,0.903,Over 2.5,9.64,0.096,Moreirense,Estoril,0.57,Yes,OK
+9,2026-10-24 23:00:00Z,Gil Vicente,Porto,0.165,0.228,0.607,Porto,0.477,No,0.955,Over 2.5,9.6,0.064,Porto,Porto,0.583,Yes,OK
+9,2026-10-24 23:00:00Z,Nacional,Sp Braga,0.171,0.25,0.579,Sp Braga,0.508,Yes,0.879,Over 2.5,10.09,0.081,Sp Braga,Sp Braga,0.569,Yes,OK
+9,2026-10-24 23:00:00Z,Rio Ave,Famalicao,0.173,0.241,0.586,Famalicao,0.489,No,0.955,Over 2.5,9.91,0.087,Famalicao,Famalicao,0.48,No,OK
+9,2026-10-24 23:00:00Z,Santa Clara,Benfica,0.149,0.23,0.622,Benfica,0.478,No,0.919,Over 2.5,9.76,0.017,Benfica,Benfica,0.545,Yes,OK
+9,2026-10-24 23:00:00Z,Sp Lisbon,Academico Viseu,0.458,0.259,0.283,Sp Lisbon,0.489,No,0.979,Over 2.5,10.69,0.315,Academico Viseu,Sp Lisbon,0.639,Yes,Low (promoted/new team)
+9,2026-10-24 23:00:00Z,Guimaraes,Maritimo,0.374,0.318,0.308,Guimaraes,0.477,No,0.933,Over 2.5,10.19,0.156,Maritimo,Guimaraes,0.582,Yes,OK
+10,2026-11-01 00:00:00Z,Academico Viseu,Rio Ave,0.396,0.292,0.312,Academico Viseu,0.47,No,0.3,Under 2.5,10.87,0.758,Academico Viseu,Academico Viseu,0.583,Yes,Low (promoted/new team)
+10,2026-11-01 00:00:00Z,Arouca,Nacional,0.289,0.313,0.398,Nacional,0.508,Yes,0.947,Over 2.5,10.2,0.351,Nacional,Arouca,0.479,No,OK
+10,2026-11-01 00:00:00Z,Sp Braga,Famalicao,0.288,0.293,0.419,Famalicao,0.47,No,0.954,Over 2.5,9.83,0.347,Famalicao,Sp Braga,0.62,Yes,OK
+10,2026-11-01 00:00:00Z,Casa Pia,Sp Lisbon,0.11,0.193,0.698,Sp Lisbon,0.508,Yes,0.943,Over 2.5,9.54,0.019,Sp Lisbon,Sp Lisbon,0.576,Yes,OK
+10,2026-11-01 00:00:00Z,Gil Vicente,Guimaraes,0.301,0.283,0.416,Guimaraes,0.477,No,0.909,Over 2.5,9.84,0.11,Guimaraes,Gil Vicente,0.584,Yes,OK
+10,2026-11-01 00:00:00Z,Maritimo,Santa Clara,0.24,0.258,0.503,Santa Clara,0.508,Yes,0.916,Over 2.5,10.06,0.152,Santa Clara,Santa Clara,0.532,Yes,OK
+10,2026-11-01 00:00:00Z,Moreirense,Estrela,0.286,0.373,0.341,Draw,0.477,No,0.829,Over 2.5,9.74,0.324,Estrela,Moreirense,0.511,Yes,OK
+10,2026-11-01 00:00:00Z,Porto,Estoril,0.539,0.257,0.204,Porto,0.47,No,0.898,Over 2.5,10.15,0.309,Estoril,Porto,0.639,Yes,OK
+10,2026-11-01 00:00:00Z,Benfica,Alverca,0.567,0.268,0.165,Benfica,0.477,No,0.924,Over 2.5,10.65,0.426,Alverca,Benfica,0.672,Yes,OK
+11,2026-11-08 00:00:00Z,Alverca,Casa Pia,0.282,0.345,0.373,Casa Pia,0.477,No,0.85,Over 2.5,9.64,0.292,Casa Pia,Alverca,0.59,Yes,OK
+11,2026-11-08 00:00:00Z,Estrela,Benfica,0.116,0.224,0.66,Benfica,0.482,No,0.923,Over 2.5,10.06,0.004,Benfica,Benfica,0.553,Yes,OK
+11,2026-11-08 00:00:00Z,Estoril,Maritimo,0.314,0.325,0.361,Maritimo,0.508,Yes,0.914,Over 2.5,10.08,0.05,Maritimo,Estoril,0.583,Yes,OK
+11,2026-11-08 00:00:00Z,Famalicao,Arouca,0.355,0.339,0.306,Famalicao,0.509,Yes,0.933,Over 2.5,9.65,0.163,Arouca,Famalicao,0.569,Yes,OK
+11,2026-11-08 00:00:00Z,Nacional,Academico Viseu,0.16,0.226,0.614,Academico Viseu,0.5,Yes,0.928,Over 2.5,10.56,0.243,Academico Viseu,Academico Viseu,0.48,No,Low (promoted/new team)
+11,2026-11-08 00:00:00Z,Rio Ave,Sp Braga,0.174,0.263,0.563,Sp Braga,0.477,No,0.942,Over 2.5,10.17,0.075,Sp Braga,Sp Braga,0.599,Yes,OK
+11,2026-11-08 00:00:00Z,Santa Clara,Gil Vicente,0.259,0.281,0.459,Gil Vicente,0.477,No,0.923,Over 2.5,10.55,0.099,Gil Vicente,Gil Vicente,0.496,No,OK
+11,2026-11-08 00:00:00Z,Sp Lisbon,Moreirense,0.64,0.209,0.151,Sp Lisbon,0.477,No,0.976,Over 2.5,10.03,0.302,Moreirense,Sp Lisbon,0.651,Yes,OK
+11,2026-11-08 00:00:00Z,Guimaraes,Porto,0.169,0.241,0.589,Porto,0.477,No,0.961,Over 2.5,9.44,0.051,Porto,Porto,0.576,Yes,OK
+12,2026-11-29 00:00:00Z,Academico Viseu,Alverca,0.353,0.312,0.335,Academico Viseu,0.47,No,0.248,Under 2.5,10.71,0.853,Academico Viseu,Academico Viseu,0.583,Yes,Low (promoted/new team)
+12,2026-11-29 00:00:00Z,Arouca,Rio Ave,0.295,0.328,0.377,Rio Ave,0.508,Yes,0.936,Over 2.5,10.75,0.317,Rio Ave,Arouca,0.575,Yes,OK
+12,2026-11-29 00:00:00Z,Casa Pia,Sp Braga,0.165,0.277,0.559,Sp Braga,0.508,Yes,0.911,Over 2.5,9.99,0.072,Sp Braga,Sp Braga,0.584,Yes,OK
+12,2026-11-29 00:00:00Z,Gil Vicente,Estoril,0.326,0.31,0.365,Estoril,0.467,No,0.867,Over 2.5,10.06,0.256,Estoril,Gil Vicente,0.555,Yes,OK
+12,2026-11-29 00:00:00Z,Maritimo,Nacional,0.31,0.282,0.408,Nacional,0.508,Yes,0.931,Over 2.5,10.11,0.269,Nacional,Nacional,0.429,No,OK
+12,2026-11-29 00:00:00Z,Moreirense,Santa Clara,0.238,0.316,0.446,Santa Clara,0.47,No,0.9,Over 2.5,9.87,0.101,Santa Clara,Santa Clara,0.556,Yes,OK
+12,2026-11-29 00:00:00Z,Porto,Sp Lisbon,0.253,0.254,0.493,Sp Lisbon,0.47,No,0.966,Over 2.5,9.57,0.069,Sp Lisbon,Sp Lisbon,0.535,Yes,OK
+12,2026-11-29 00:00:00Z,Benfica,Famalicao,0.47,0.262,0.268,Benfica,0.477,No,0.977,Over 2.5,9.84,0.312,Famalicao,Benfica,0.62,Yes,OK
+12,2026-11-29 00:00:00Z,Guimaraes,Estrela,0.397,0.334,0.269,Guimaraes,0.477,No,0.867,Over 2.5,9.84,0.397,Estrela,Guimaraes,0.597,Yes,OK
+13,2026-12-06 00:00:00Z,Alverca,Moreirense,0.269,0.341,0.39,Moreirense,0.47,No,0.882,Over 2.5,9.53,0.105,Moreirense,Moreirense,0.545,Yes,OK
+13,2026-12-06 00:00:00Z,Estrela,Gil Vicente,0.185,0.284,0.531,Gil Vicente,0.485,No,0.917,Over 2.5,10.78,0.033,Gil Vicente,Gil Vicente,0.515,Yes,OK
+13,2026-12-06 00:00:00Z,Sp Braga,Arouca,0.447,0.309,0.244,Sp Braga,0.489,No,0.937,Over 2.5,9.72,0.274,Arouca,Sp Braga,0.6,Yes,OK
+13,2026-12-06 00:00:00Z,Estoril,Guimaraes,0.216,0.297,0.487,Guimaraes,0.5,Yes,0.905,Over 2.5,9.7,0.023,Guimaraes,Guimaraes,0.556,Yes,OK
+13,2026-12-06 00:00:00Z,Famalicao,Academico Viseu,0.262,0.319,0.419,Academico Viseu,0.508,Yes,0.941,Over 2.5,10.31,0.288,Academico Viseu,Famalicao,0.603,Yes,Low (promoted/new team)
+13,2026-12-06 00:00:00Z,Nacional,Benfica,0.116,0.201,0.683,Benfica,0.508,Yes,0.904,Over 2.5,9.81,0.01,Benfica,Benfica,0.525,Yes,OK
+13,2026-12-06 00:00:00Z,Rio Ave,Casa Pia,0.271,0.33,0.399,Casa Pia,0.477,No,0.894,Over 2.5,9.85,0.353,Casa Pia,Rio Ave,0.545,Yes,OK
+13,2026-12-06 00:00:00Z,Santa Clara,Porto,0.154,0.221,0.625,Porto,0.477,No,0.94,Over 2.5,9.65,0.036,Porto,Porto,0.597,Yes,OK
+13,2026-12-06 00:00:00Z,Sp Lisbon,Maritimo,0.665,0.193,0.142,Sp Lisbon,0.482,No,0.975,Over 2.5,10.25,0.217,Maritimo,Sp Lisbon,0.646,Yes,OK
+14,2026-12-13 00:00:00Z,Academico Viseu,Arouca,0.38,0.303,0.317,Academico Viseu,0.482,No,0.304,Under 2.5,9.91,0.59,Academico Viseu,Arouca,0.503,Yes,Low (promoted/new team)
+14,2026-12-13 00:00:00Z,Casa Pia,Nacional,0.256,0.304,0.44,Nacional,0.508,Yes,0.93,Over 2.5,10.09,0.241,Nacional,Nacional,0.503,Yes,OK
+14,2026-12-13 00:00:00Z,Estoril,Santa Clara,0.228,0.287,0.484,Santa Clara,0.5,Yes,0.904,Over 2.5,9.93,0.061,Santa Clara,Estoril,0.612,Yes,OK
+14,2026-12-13 00:00:00Z,Gil Vicente,Sp Lisbon,0.163,0.217,0.62,Sp Lisbon,0.477,No,0.956,Over 2.5,9.65,0.051,Sp Lisbon,Sp Lisbon,0.552,Yes,OK
+14,2026-12-13 00:00:00Z,Maritimo,Rio Ave,0.349,0.297,0.354,Rio Ave,0.508,Yes,0.922,Over 2.5,10.64,0.206,Rio Ave,Rio Ave,0.422,No,OK
+14,2026-12-13 00:00:00Z,Moreirense,Famalicao,0.199,0.3,0.501,Famalicao,0.47,No,0.921,Over 2.5,9.7,0.121,Famalicao,Famalicao,0.48,No,OK
+14,2026-12-13 00:00:00Z,Porto,Estrela,0.548,0.263,0.188,Porto,0.47,No,0.888,Over 2.5,10.25,0.53,Porto,Porto,0.673,Yes,OK
+14,2026-12-13 00:00:00Z,Benfica,Sp Braga,0.465,0.266,0.268,Benfica,0.467,No,0.97,Over 2.5,10.11,0.293,Sp Braga,Benfica,0.642,Yes,OK
+14,2026-12-13 00:00:00Z,Guimaraes,Alverca,0.313,0.368,0.319,Draw,0.477,No,0.826,Over 2.5,10.47,0.313,Alverca,Guimaraes,0.606,Yes,OK
+15,2026-12-20 00:00:00Z,Alverca,Gil Vicente,0.194,0.274,0.533,Gil Vicente,0.477,No,0.896,Over 2.5,10.4,0.053,Gil Vicente,Gil Vicente,0.497,No,OK
+15,2026-12-20 00:00:00Z,Estrela,Maritimo,0.269,0.341,0.39,Maritimo,0.477,No,0.878,Over 2.5,10.39,0.044,Maritimo,Estrela,0.524,Yes,OK
+15,2026-12-20 00:00:00Z,Arouca,Casa Pia,0.279,0.338,0.384,Casa Pia,0.508,Yes,0.914,Over 2.5,9.87,0.547,Arouca,Arouca,0.59,Yes,OK
+15,2026-12-20 00:00:00Z,Sp Braga,Academico Viseu,0.324,0.303,0.373,Academico Viseu,0.489,No,0.949,Over 2.5,10.41,0.426,Academico Viseu,Sp Braga,0.626,Yes,Low (promoted/new team)
+15,2026-12-20 00:00:00Z,Famalicao,Porto,0.177,0.248,0.575,Porto,0.477,No,0.961,Over 2.5,9.45,0.063,Porto,Porto,0.599,Yes,OK
+15,2026-12-20 00:00:00Z,Nacional,Moreirense,0.272,0.296,0.432,Moreirense,0.508,Yes,0.866,Over 2.5,9.67,0.183,Moreirense,Moreirense,0.449,No,OK
+15,2026-12-20 00:00:00Z,Rio Ave,Benfica,0.13,0.22,0.65,Benfica,0.508,Yes,0.956,Over 2.5,9.93,0.009,Benfica,Benfica,0.563,Yes,OK
+15,2026-12-20 00:00:00Z,Santa Clara,Guimaraes,0.287,0.279,0.434,Guimaraes,0.326,No,0.881,Over 2.5,9.91,0.062,Guimaraes,Guimaraes,0.476,No,OK
+15,2026-12-20 00:00:00Z,Sp Lisbon,Estoril,0.602,0.223,0.175,Sp Lisbon,0.477,No,0.963,Over 2.5,10.53,0.214,Estoril,Sp Lisbon,0.651,Yes,OK
+16,2026-12-27 00:00:00Z,Casa Pia,Famalicao,0.178,0.271,0.551,Famalicao,0.508,Yes,0.931,Over 2.5,9.68,0.081,Famalicao,Famalicao,0.525,Yes,OK
+16,2026-12-27 00:00:00Z,Estoril,Alverca,0.274,0.374,0.352,Draw,0.508,Yes,0.825,Over 2.5,10.47,0.147,Alverca,Estoril,0.577,Yes,OK
+16,2026-12-27 00:00:00Z,Gil Vicente,Arouca,0.364,0.322,0.315,Gil Vicente,0.477,No,0.905,Over 2.5,9.82,0.225,Arouca,Gil Vicente,0.552,Yes,OK
+16,2026-12-27 00:00:00Z,Maritimo,Sp Braga,0.171,0.246,0.583,Sp Braga,0.508,Yes,0.925,Over 2.5,10.04,0.098,Sp Braga,Sp Braga,0.576,Yes,OK
+16,2026-12-27 00:00:00Z,Moreirense,Academico Viseu,0.187,0.282,0.531,Academico Viseu,0.478,No,0.916,Over 2.5,10.43,0.2,Academico Viseu,Academico Viseu,0.545,Yes,Low (promoted/new team)
+16,2026-12-27 00:00:00Z,Porto,Nacional,0.528,0.26,0.212,Porto,0.489,No,0.943,Over 2.5,10.52,0.485,Nacional,Porto,0.658,Yes,OK
+16,2026-12-27 00:00:00Z,Santa Clara,Estrela,0.335,0.326,0.339,Estrela,0.477,No,0.825,Over 2.5,10.35,0.289,Estrela,Santa Clara,0.566,Yes,OK
+16,2026-12-27 00:00:00Z,Benfica,Sp Lisbon,0.28,0.239,0.481,Sp Lisbon,0.477,No,0.984,Over 2.5,9.57,0.072,Sp Lisbon,Sp Lisbon,0.545,Yes,OK
+16,2026-12-27 00:00:00Z,Guimaraes,Rio Ave,0.377,0.319,0.304,Guimaraes,0.477,No,0.933,Over 2.5,10.65,0.315,Rio Ave,Guimaraes,0.57,Yes,OK
+17,2027-01-10 00:00:00Z,Academico Viseu,Casa Pia,0.404,0.295,0.302,Academico Viseu,0.477,No,0.218,Under 2.5,10.09,0.904,Academico Viseu,Academico Viseu,0.577,Yes,Low (promoted/new team)
+17,2027-01-10 00:00:00Z,Alverca,Maritimo,0.275,0.323,0.402,Maritimo,0.477,No,0.898,Over 2.5,9.98,0.077,Maritimo,Alverca,0.582,Yes,OK
+17,2027-01-10 00:00:00Z,Estrela,Estoril,0.226,0.329,0.445,Estoril,0.477,No,0.865,Over 2.5,10.23,0.062,Estoril,Estoril,0.449,No,OK
+17,2027-01-10 00:00:00Z,Arouca,Benfica,0.134,0.224,0.643,Benfica,0.5,Yes,0.957,Over 2.5,9.76,0.018,Benfica,Benfica,0.563,Yes,OK
+17,2027-01-10 00:00:00Z,Sp Braga,Porto,0.185,0.247,0.568,Porto,0.477,No,0.97,Over 2.5,9.47,0.09,Porto,Porto,0.613,Yes,OK
+17,2027-01-10 00:00:00Z,Famalicao,Guimaraes,0.305,0.3,0.395,Guimaraes,0.477,No,0.927,Over 2.5,9.73,0.094,Guimaraes,Famalicao,0.551,Yes,OK
+17,2027-01-10 00:00:00Z,Nacional,Gil Vicente,0.171,0.24,0.589,Gil Vicente,0.508,Yes,0.896,Over 2.5,10.55,0.077,Gil Vicente,Gil Vicente,0.455,No,OK
+17,2027-01-10 00:00:00Z,Rio Ave,Moreirense,0.27,0.32,0.41,Moreirense,0.477,No,0.932,Over 2.5,9.75,0.135,Moreirense,Moreirense,0.515,Yes,OK
+17,2027-01-10 00:00:00Z,Sp Lisbon,Santa Clara,0.56,0.225,0.215,Sp Lisbon,0.477,No,0.975,Over 2.5,10.24,0.22,Santa Clara,Sp Lisbon,0.67,Yes,OK
+18,2027-01-17 00:00:00Z,Sp Lisbon,Estrela,0.676,0.201,0.123,Sp Lisbon,0.477,No,0.95,Over 2.5,10.26,0.482,Estrela,Sp Lisbon,0.673,Yes,OK
+18,2027-01-17 00:00:00Z,Famalicao,Estoril,0.343,0.329,0.328,Famalicao,0.479,No,0.897,Over 2.5,9.96,0.207,Estoril,Famalicao,0.59,Yes,OK
+18,2027-01-17 00:00:00Z,Rio Ave,Gil Vicente,0.174,0.249,0.578,Gil Vicente,0.479,No,0.953,Over 2.5,10.66,0.067,Gil Vicente,Gil Vicente,0.476,No,OK
+18,2027-01-17 00:00:00Z,Casa Pia,Maritimo,0.276,0.335,0.388,Maritimo,0.508,Yes,0.898,Over 2.5,9.94,0.079,Maritimo,Casa Pia,0.484,No,OK
+18,2027-01-17 00:00:00Z,Sp Braga,Moreirense,0.433,0.301,0.267,Sp Braga,0.477,No,0.939,Over 2.5,9.73,0.418,Moreirense,Sp Braga,0.62,Yes,OK
+18,2027-01-17 00:00:00Z,Alverca,Porto,0.111,0.205,0.684,Porto,0.47,No,0.937,Over 2.5,9.53,0.012,Porto,Porto,0.614,Yes,OK
+18,2027-01-17 00:00:00Z,Nacional,Santa Clara,0.213,0.249,0.539,Santa Clara,0.5,Yes,0.864,Over 2.5,10.02,0.13,Santa Clara,Santa Clara,0.501,Yes,OK
+18,2027-01-17 00:00:00Z,Academico Viseu,Benfica,0.196,0.258,0.547,Benfica,0.5,No,0.349,Under 2.5,9.87,0.103,Benfica,Benfica,0.525,Yes,Low (promoted/new team)
+18,2027-01-17 00:00:00Z,Arouca,Guimaraes,0.22,0.306,0.475,Guimaraes,0.489,No,0.922,Over 2.5,9.8,0.086,Guimaraes,Guimaraes,0.511,Yes,OK
+19,2027-01-24 00:00:00Z,Santa Clara,Academico Viseu,0.206,0.275,0.52,Academico Viseu,0.5,Yes,0.911,Over 2.5,10.64,0.243,Academico Viseu,Santa Clara,0.542,Yes,Low (promoted/new team)
+19,2027-01-24 00:00:00Z,Estrela,Alverca,0.24,0.367,0.392,Alverca,0.477,No,0.826,Over 2.5,10.72,0.16,Alverca,Alverca,0.504,Yes,OK
+19,2027-01-24 00:00:00Z,Moreirense,Arouca,0.297,0.375,0.327,Draw,0.508,Yes,0.895,Over 2.5,9.57,0.086,Arouca,Arouca,0.411,No,OK
+19,2027-01-24 00:00:00Z,Gil Vicente,Sp Braga,0.252,0.302,0.446,Sp Braga,0.477,No,0.93,Over 2.5,10.07,0.191,Sp Braga,Sp Braga,0.599,Yes,OK
+19,2027-01-24 00:00:00Z,Benfica,Casa Pia,0.668,0.204,0.128,Benfica,0.467,No,0.939,Over 2.5,9.96,0.682,Benfica,Benfica,0.672,Yes,OK
+19,2027-01-24 00:00:00Z,Maritimo,Famalicao,0.189,0.254,0.556,Famalicao,0.508,Yes,0.935,Over 2.5,9.75,0.129,Famalicao,Famalicao,0.532,Yes,OK
+19,2027-01-24 00:00:00Z,Estoril,Nacional,0.285,0.322,0.393,Nacional,0.508,Yes,0.93,Over 2.5,10.1,0.138,Nacional,Estoril,0.576,Yes,OK
+19,2027-01-24 00:00:00Z,Porto,Rio Ave,0.565,0.249,0.186,Porto,0.5,Yes,0.942,Over 2.5,10.8,0.45,Rio Ave,Porto,0.672,Yes,OK
+19,2027-01-24 00:00:00Z,Guimaraes,Sp Lisbon,0.16,0.221,0.619,Sp Lisbon,0.477,No,0.959,Over 2.5,9.5,0.043,Sp Lisbon,Sp Lisbon,0.531,Yes,OK
+20,2027-01-31 00:00:00Z,Sp Braga,Estrela,0.478,0.301,0.221,Sp Braga,0.477,No,0.877,Over 2.5,10.09,0.629,Sp Braga,Sp Braga,0.646,Yes,OK
+20,2027-01-31 00:00:00Z,Rio Ave,Estoril,0.258,0.314,0.428,Estoril,0.477,No,0.895,Over 2.5,10.06,0.098,Estoril,Estoril,0.429,No,OK
+20,2027-01-31 00:00:00Z,Casa Pia,Gil Vicente,0.177,0.266,0.556,Gil Vicente,0.565,Yes,0.928,Over 2.5,10.43,0.066,Gil Vicente,Gil Vicente,0.503,Yes,OK
+20,2027-01-31 00:00:00Z,Academico Viseu,Maritimo,0.392,0.285,0.323,Academico Viseu,0.47,No,0.334,Under 2.5,10.3,0.678,Academico Viseu,Academico Viseu,0.566,Yes,Low (promoted/new team)
+20,2027-01-31 00:00:00Z,Benfica,Moreirense,0.599,0.232,0.169,Benfica,0.467,No,0.964,Over 2.5,9.79,0.443,Moreirense,Benfica,0.647,Yes,OK
+20,2027-01-31 00:00:00Z,Arouca,Porto,0.115,0.2,0.685,Porto,0.477,No,0.965,Over 2.5,9.81,0.045,Porto,Porto,0.593,Yes,OK
+20,2027-01-31 00:00:00Z,Famalicao,Santa Clara,0.31,0.301,0.389,Santa Clara,0.489,No,0.937,Over 2.5,9.88,0.178,Santa Clara,Famalicao,0.614,Yes,OK
+20,2027-01-31 00:00:00Z,Alverca,Sp Lisbon,0.107,0.195,0.698,Sp Lisbon,0.482,No,0.932,Over 2.5,9.49,0.011,Sp Lisbon,Sp Lisbon,0.586,Yes,OK
+20,2027-01-31 00:00:00Z,Nacional,Guimaraes,0.208,0.259,0.533,Guimaraes,0.5,Yes,0.842,Over 2.5,9.75,0.045,Guimaraes,Guimaraes,0.476,No,OK
+21,2027-02-07 00:00:00Z,Porto,Academico Viseu,0.416,0.283,0.301,Porto,0.482,No,0.942,Over 2.5,10.59,0.415,Academico Viseu,Porto,0.636,Yes,Low (promoted/new team)
+21,2027-02-07 00:00:00Z,Santa Clara,Alverca,0.328,0.352,0.32,Draw,0.477,No,0.773,Over 2.5,10.59,0.269,Alverca,Santa Clara,0.549,Yes,OK
+21,2027-02-07 00:00:00Z,Maritimo,Arouca,0.31,0.312,0.378,Arouca,0.508,Yes,0.902,Over 2.5,9.62,0.11,Arouca,Arouca,0.473,No,OK
+21,2027-02-07 00:00:00Z,Guimaraes,Sp Braga,0.206,0.291,0.503,Sp Braga,0.477,No,0.935,Over 2.5,9.96,0.163,Sp Braga,Sp Braga,0.576,Yes,OK
+21,2027-02-07 00:00:00Z,Moreirense,Casa Pia,0.287,0.379,0.333,Draw,0.477,No,0.804,Over 2.5,9.74,0.393,Casa Pia,Moreirense,0.577,Yes,OK
+21,2027-02-07 00:00:00Z,Gil Vicente,Famalicao,0.258,0.288,0.454,Famalicao,0.47,No,0.939,Over 2.5,9.86,0.238,Famalicao,Famalicao,0.531,Yes,OK
+21,2027-02-07 00:00:00Z,Estrela,Nacional,0.279,0.3,0.422,Nacional,0.489,No,0.932,Over 2.5,10.37,0.14,Nacional,Nacional,0.454,No,OK
+21,2027-02-07 00:00:00Z,Sp Lisbon,Rio Ave,0.688,0.185,0.127,Sp Lisbon,0.489,No,0.976,Over 2.5,11.01,0.396,Rio Ave,Sp Lisbon,0.697,Yes,OK
+21,2027-02-07 00:00:00Z,Estoril,Benfica,0.122,0.218,0.66,Benfica,0.5,Yes,0.942,Over 2.5,9.65,0.005,Benfica,Benfica,0.553,Yes,OK
+22,2027-02-14 00:00:00Z,Sp Braga,Alverca,0.437,0.334,0.229,Sp Braga,0.477,No,0.827,Over 2.5,10.75,0.537,Sp Braga,Sp Braga,0.62,Yes,OK
+22,2027-02-14 00:00:00Z,Famalicao,Estrela,0.394,0.338,0.267,Famalicao,0.477,No,0.882,Over 2.5,9.85,0.42,Estrela,Famalicao,0.642,Yes,OK
+22,2027-02-14 00:00:00Z,Arouca,Estoril,0.227,0.316,0.457,Estoril,0.477,No,0.918,Over 2.5,10.06,0.236,Estoril,Arouca,0.449,No,OK
+22,2027-02-14 00:00:00Z,Academico Viseu,Gil Vicente,0.34,0.289,0.371,Gil Vicente,0.482,No,0.323,Under 2.5,10.68,0.496,Gil Vicente,Gil Vicente,0.459,No,Low (promoted/new team)
+22,2027-02-14 00:00:00Z,Benfica,Maritimo,0.634,0.209,0.157,Benfica,0.477,No,0.962,Over 2.5,10.21,0.345,Maritimo,Benfica,0.646,Yes,OK
+22,2027-02-14 00:00:00Z,Moreirense,Porto,0.146,0.248,0.606,Porto,0.477,No,0.938,Over 2.5,9.59,0.033,Porto,Porto,0.57,Yes,OK
+22,2027-02-14 00:00:00Z,Rio Ave,Santa Clara,0.221,0.265,0.514,Santa Clara,0.489,No,0.937,Over 2.5,10.12,0.082,Santa Clara,Santa Clara,0.501,Yes,OK
+22,2027-02-14 00:00:00Z,Nacional,Sp Lisbon,0.1,0.168,0.733,Sp Lisbon,0.5,Yes,0.923,Over 2.5,9.64,0.02,Sp Lisbon,Sp Lisbon,0.545,Yes,OK
+22,2027-02-14 00:00:00Z,Casa Pia,Guimaraes,0.209,0.279,0.512,Guimaraes,0.508,Yes,0.904,Over 2.5,9.79,0.031,Guimaraes,Guimaraes,0.475,No,OK
+23,2027-02-21 00:00:00Z,Guimaraes,Academico Viseu,0.222,0.299,0.48,Academico Viseu,0.47,No,0.934,Over 2.5,10.21,0.279,Academico Viseu,Guimaraes,0.575,Yes,Low (promoted/new team)
+23,2027-02-21 00:00:00Z,Santa Clara,Arouca,0.347,0.324,0.329,Santa Clara,0.489,No,0.881,Over 2.5,9.76,0.122,Arouca,Arouca,0.455,No,OK
+23,2027-02-21 00:00:00Z,Estoril,Sp Braga,0.171,0.262,0.567,Sp Braga,0.508,Yes,0.928,Over 2.5,9.97,0.042,Sp Braga,Sp Braga,0.598,Yes,OK
+23,2027-02-21 00:00:00Z,Porto,Casa Pia,0.616,0.234,0.149,Porto,0.47,No,0.882,Over 2.5,9.95,0.658,Porto,Porto,0.67,Yes,OK
+23,2027-02-21 00:00:00Z,Sp Lisbon,Famalicao,0.504,0.25,0.246,Sp Lisbon,0.477,No,0.984,Over 2.5,9.97,0.206,Famalicao,Sp Lisbon,0.633,Yes,OK
+23,2027-02-21 00:00:00Z,Maritimo,Moreirense,0.312,0.297,0.391,Moreirense,0.489,No,0.915,Over 2.5,9.61,0.166,Moreirense,Moreirense,0.503,Yes,OK
+23,2027-02-21 00:00:00Z,Alverca,Nacional,0.276,0.308,0.416,Nacional,0.485,No,0.941,Over 2.5,9.99,0.18,Nacional,Alverca,0.51,Yes,OK
+23,2027-02-21 00:00:00Z,Estrela,Rio Ave,0.3,0.327,0.373,Rio Ave,0.477,No,0.906,Over 2.5,10.87,0.1,Rio Ave,Rio Ave,0.429,No,OK
+23,2027-02-21 00:00:00Z,Gil Vicente,Benfica,0.184,0.25,0.566,Benfica,0.47,No,0.945,Over 2.5,9.84,0.027,Benfica,Benfica,0.552,Yes,OK
+24,2027-02-28 00:00:00Z,Rio Ave,Alverca,0.279,0.358,0.363,Alverca,0.477,No,0.857,Over 2.5,10.64,0.192,Alverca,Alverca,0.504,Yes,OK
+24,2027-02-28 00:00:00Z,Academico Viseu,Estrela,0.359,0.309,0.331,Academico Viseu,0.47,No,0.246,Under 2.5,10.12,0.875,Academico Viseu,Academico Viseu,0.583,Yes,Low (promoted/new team)
+24,2027-02-28 00:00:00Z,Casa Pia,Estoril,0.218,0.314,0.468,Estoril,0.489,No,0.881,Over 2.5,9.9,0.124,Estoril,Estoril,0.445,No,OK
+24,2027-02-28 00:00:00Z,Maritimo,Gil Vicente,0.193,0.254,0.553,Gil Vicente,0.508,Yes,0.939,Over 2.5,10.58,0.087,Gil Vicente,Gil Vicente,0.461,No,OK
+24,2027-02-28 00:00:00Z,Famalicao,Nacional,0.378,0.32,0.301,Famalicao,0.491,No,0.938,Over 2.5,10.11,0.382,Nacional,Famalicao,0.621,Yes,OK
+24,2027-02-28 00:00:00Z,Benfica,Porto,0.365,0.265,0.371,Porto,0.467,No,0.983,Over 2.5,9.53,0.097,Porto,Benfica,0.613,Yes,OK
+24,2027-02-28 00:00:00Z,Sp Braga,Santa Clara,0.366,0.281,0.353,Sp Braga,0.477,No,0.94,Over 2.5,10.08,0.319,Santa Clara,Sp Braga,0.637,Yes,OK
+24,2027-02-28 00:00:00Z,Arouca,Sp Lisbon,0.12,0.197,0.683,Sp Lisbon,0.482,No,0.967,Over 2.5,9.67,0.033,Sp Lisbon,Sp Lisbon,0.552,Yes,OK
+24,2027-02-28 00:00:00Z,Moreirense,Guimaraes,0.227,0.326,0.447,Guimaraes,0.477,No,0.885,Over 2.5,9.74,0.051,Guimaraes,Guimaraes,0.459,No,OK
+25,2027-03-07 00:00:00Z,Estoril,Academico Viseu,0.173,0.257,0.57,Academico Viseu,0.5,Yes,0.944,Over 2.5,10.47,0.105,Academico Viseu,Estoril,0.59,Yes,Low (promoted/new team)
+25,2027-03-07 00:00:00Z,Estrela,Arouca,0.287,0.337,0.376,Arouca,0.5,Yes,0.912,Over 2.5,9.91,0.045,Arouca,Arouca,0.429,No,OK
+25,2027-03-07 00:00:00Z,Sp Lisbon,Sp Braga,0.505,0.249,0.246,Sp Lisbon,0.477,No,0.977,Over 2.5,10.25,0.206,Sp Braga,Sp Lisbon,0.655,Yes,OK
+25,2027-03-07 00:00:00Z,Santa Clara,Casa Pia,0.355,0.323,0.323,Santa Clara,0.339,No,0.815,Over 2.5,9.82,0.407,Casa Pia,Santa Clara,0.546,Yes,OK
+25,2027-03-07 00:00:00Z,Alverca,Famalicao,0.205,0.284,0.511,Famalicao,0.47,No,0.925,Over 2.5,9.59,0.042,Famalicao,Famalicao,0.513,Yes,OK
+25,2027-03-07 00:00:00Z,Porto,Maritimo,0.566,0.245,0.19,Porto,0.477,No,0.926,Over 2.5,10.29,0.324,Maritimo,Porto,0.646,Yes,OK
+25,2027-03-07 00:00:00Z,Gil Vicente,Moreirense,0.352,0.307,0.341,Gil Vicente,0.477,No,0.908,Over 2.5,9.74,0.353,Moreirense,Gil Vicente,0.59,Yes,OK
+25,2027-03-07 00:00:00Z,Nacional,Rio Ave,0.305,0.301,0.394,Rio Ave,0.508,Yes,0.871,Over 2.5,10.68,0.247,Rio Ave,Rio Ave,0.459,No,OK
+25,2027-03-07 00:00:00Z,Guimaraes,Benfica,0.182,0.258,0.559,Benfica,0.47,No,0.952,Over 2.5,9.67,0.021,Benfica,Benfica,0.545,Yes,OK
+26,2027-03-14 00:00:00Z,Arouca,Alverca,0.248,0.381,0.371,Draw,0.489,No,0.89,Over 2.5,10.66,0.303,Alverca,Arouca,0.524,Yes,OK
+26,2027-03-14 00:00:00Z,Casa Pia,Estrela,0.254,0.33,0.417,Estrela,0.489,No,0.878,Over 2.5,9.72,0.311,Estrela,Casa Pia,0.521,Yes,OK
+26,2027-03-14 00:00:00Z,Moreirense,Estoril,0.243,0.371,0.386,Estoril,0.477,No,0.83,Over 2.5,9.92,0.129,Estoril,Estoril,0.429,No,OK
+26,2027-03-14 00:00:00Z,Porto,Gil Vicente,0.474,0.269,0.257,Porto,0.5,Yes,0.953,Over 2.5,10.63,0.238,Gil Vicente,Porto,0.628,Yes,OK
+26,2027-03-14 00:00:00Z,Sp Braga,Nacional,0.448,0.29,0.262,Sp Braga,0.489,No,0.946,Over 2.5,10.19,0.521,Sp Braga,Sp Braga,0.639,Yes,OK
+26,2027-03-14 00:00:00Z,Famalicao,Rio Ave,0.395,0.321,0.284,Famalicao,0.491,No,0.942,Over 2.5,10.6,0.323,Rio Ave,Famalicao,0.628,Yes,OK
+26,2027-03-14 00:00:00Z,Benfica,Santa Clara,0.535,0.236,0.229,Benfica,0.477,No,0.965,Over 2.5,10.18,0.33,Santa Clara,Benfica,0.661,Yes,OK
+26,2027-03-14 00:00:00Z,Academico Viseu,Sp Lisbon,0.18,0.234,0.586,Sp Lisbon,0.482,No,0.412,Under 2.5,9.81,0.176,Sp Lisbon,Sp Lisbon,0.532,Yes,Low (promoted/new team)
+26,2027-03-14 00:00:00Z,Maritimo,Guimaraes,0.221,0.264,0.515,Guimaraes,0.508,Yes,0.912,Over 2.5,9.72,0.048,Guimaraes,Guimaraes,0.504,Yes,OK
+27,2027-03-21 00:00:00Z,Rio Ave,Academico Viseu,0.171,0.256,0.573,Academico Viseu,0.489,No,0.951,Over 2.5,10.84,0.152,Academico Viseu,Academico Viseu,0.496,No,Low (promoted/new team)
+27,2027-03-21 00:00:00Z,Nacional,Arouca,0.3,0.316,0.385,Arouca,0.5,Yes,0.869,Over 2.5,9.72,0.1,Arouca,Arouca,0.455,No,OK
+27,2027-03-21 00:00:00Z,Famalicao,Sp Braga,0.238,0.325,0.437,Sp Braga,0.477,No,0.936,Over 2.5,9.98,0.194,Sp Braga,Sp Braga,0.586,Yes,OK
+27,2027-03-21 00:00:00Z,Sp Lisbon,Casa Pia,0.746,0.167,0.087,Sp Lisbon,0.477,No,0.947,Over 2.5,10.05,0.615,Sp Lisbon,Sp Lisbon,0.675,Yes,OK
+27,2027-03-21 00:00:00Z,Guimaraes,Gil Vicente,0.259,0.299,0.442,Gil Vicente,0.477,No,0.944,Over 2.5,10.48,0.157,Gil Vicente,Gil Vicente,0.514,Yes,OK
+27,2027-03-21 00:00:00Z,Santa Clara,Maritimo,0.36,0.298,0.342,Santa Clara,0.477,No,0.887,Over 2.5,10.14,0.185,Maritimo,Santa Clara,0.575,Yes,OK
+27,2027-03-21 00:00:00Z,Estrela,Moreirense,0.261,0.329,0.41,Moreirense,0.47,No,0.891,Over 2.5,9.89,0.085,Moreirense,Moreirense,0.525,Yes,OK
+27,2027-03-21 00:00:00Z,Estoril,Porto,0.113,0.202,0.685,Porto,0.477,No,0.954,Over 2.5,9.45,0.012,Porto,Porto,0.601,Yes,OK
+27,2027-03-21 00:00:00Z,Alverca,Benfica,0.109,0.218,0.672,Benfica,0.478,No,0.91,Over 2.5,9.64,0.006,Benfica,Benfica,0.57,Yes,OK
+28,2027-04-03 23:00:00Z,Casa Pia,Alverca,0.237,0.366,0.397,Alverca,0.508,Yes,0.839,Over 2.5,10.38,0.231,Alverca,Alverca,0.507,Yes,OK
+28,2027-04-03 23:00:00Z,Benfica,Estrela,0.626,0.224,0.15,Benfica,0.467,No,0.939,Over 2.5,10.06,0.566,Benfica,Benfica,0.669,Yes,OK
+28,2027-04-03 23:00:00Z,Maritimo,Estoril,0.286,0.3,0.414,Estoril,0.489,No,0.873,Over 2.5,9.97,0.117,Estoril,Estoril,0.473,No,OK
+28,2027-04-03 23:00:00Z,Arouca,Famalicao,0.208,0.276,0.516,Famalicao,0.47,No,0.956,Over 2.5,9.83,0.156,Famalicao,Famalicao,0.475,No,OK
+28,2027-04-03 23:00:00Z,Academico Viseu,Nacional,0.339,0.28,0.381,Nacional,0.482,No,0.388,Under 2.5,10.37,0.866,Academico Viseu,Academico Viseu,0.57,Yes,Low (promoted/new team)
+28,2027-04-03 23:00:00Z,Sp Braga,Rio Ave,0.483,0.28,0.236,Sp Braga,0.477,No,0.943,Over 2.5,10.8,0.506,Sp Braga,Sp Braga,0.638,Yes,OK
+28,2027-04-03 23:00:00Z,Gil Vicente,Santa Clara,0.294,0.287,0.419,Santa Clara,0.477,No,0.919,Over 2.5,10.09,0.221,Santa Clara,Gil Vicente,0.606,Yes,OK
+28,2027-04-03 23:00:00Z,Moreirense,Sp Lisbon,0.133,0.225,0.641,Sp Lisbon,0.47,No,0.947,Over 2.5,9.55,0.021,Sp Lisbon,Sp Lisbon,0.552,Yes,OK
+28,2027-04-03 23:00:00Z,Porto,Guimaraes,0.506,0.25,0.243,Porto,0.47,No,0.932,Over 2.5,9.89,0.136,Guimaraes,Porto,0.628,Yes,OK
+29,2027-04-10 23:00:00Z,Alverca,Academico Viseu,0.16,0.235,0.605,Academico Viseu,0.5,No,0.953,Over 2.5,10.4,0.185,Academico Viseu,Academico Viseu,0.533,Yes,Low (promoted/new team)
+29,2027-04-10 23:00:00Z,Rio Ave,Arouca,0.284,0.335,0.381,Arouca,0.489,No,0.932,Over 2.5,9.78,0.073,Arouca,Arouca,0.48,No,OK
+29,2027-04-10 23:00:00Z,Sp Braga,Casa Pia,0.485,0.296,0.219,Sp Braga,0.477,No,0.89,Over 2.5,9.85,0.688,Sp Braga,Sp Braga,0.64,Yes,OK
+29,2027-04-10 23:00:00Z,Estoril,Gil Vicente,0.196,0.277,0.526,Gil Vicente,0.508,Yes,0.938,Over 2.5,10.48,0.039,Gil Vicente,Gil Vicente,0.515,Yes,OK
+29,2027-04-10 23:00:00Z,Nacional,Maritimo,0.278,0.295,0.427,Maritimo,0.508,Yes,0.872,Over 2.5,10.15,0.117,Maritimo,Nacional,0.482,No,OK
+29,2027-04-10 23:00:00Z,Santa Clara,Moreirense,0.323,0.316,0.362,Moreirense,0.386,No,0.883,Over 2.5,9.74,0.216,Moreirense,Santa Clara,0.5,Yes,OK
+29,2027-04-10 23:00:00Z,Sp Lisbon,Porto,0.379,0.263,0.358,Sp Lisbon,0.477,No,0.987,Over 2.5,9.67,0.065,Porto,Sp Lisbon,0.613,Yes,OK
+29,2027-04-10 23:00:00Z,Famalicao,Benfica,0.193,0.275,0.532,Benfica,0.508,Yes,0.957,Over 2.5,9.65,0.022,Benfica,Benfica,0.525,Yes,OK
+29,2027-04-10 23:00:00Z,Estrela,Guimaraes,0.2,0.283,0.518,Guimaraes,0.482,No,0.877,Over 2.5,10.01,0.018,Guimaraes,Guimaraes,0.525,Yes,OK
+30,2027-04-17 23:00:00Z,Moreirense,Alverca,0.25,0.408,0.342,Draw,0.47,No,0.781,Over 2.5,10.41,0.227,Alverca,Moreirense,0.563,Yes,OK
+30,2027-04-17 23:00:00Z,Gil Vicente,Estrela,0.441,0.309,0.249,Gil Vicente,0.477,No,0.844,Over 2.5,10.04,0.493,Estrela,Gil Vicente,0.623,Yes,OK
+30,2027-04-17 23:00:00Z,Arouca,Sp Braga,0.171,0.26,0.569,Sp Braga,0.489,No,0.944,Over 2.5,10.19,0.139,Sp Braga,Sp Braga,0.599,Yes,OK
+30,2027-04-17 23:00:00Z,Guimaraes,Estoril,0.321,0.325,0.354,Estoril,0.477,No,0.887,Over 2.5,9.97,0.19,Estoril,Guimaraes,0.494,No,OK
+30,2027-04-17 23:00:00Z,Academico Viseu,Famalicao,0.258,0.294,0.447,Famalicao,0.482,No,0.33,Under 2.5,10.0,0.561,Academico Viseu,Famalicao,0.511,Yes,Low (promoted/new team)
+30,2027-04-17 23:00:00Z,Benfica,Nacional,0.586,0.226,0.188,Benfica,0.477,No,0.968,Over 2.5,10.28,0.546,Benfica,Benfica,0.661,Yes,OK
+30,2027-04-17 23:00:00Z,Casa Pia,Rio Ave,0.286,0.319,0.396,Rio Ave,0.508,Yes,0.917,Over 2.5,10.6,0.192,Rio Ave,Rio Ave,0.445,No,OK
+30,2027-04-17 23:00:00Z,Porto,Santa Clara,0.518,0.244,0.239,Porto,0.482,No,0.938,Over 2.5,10.18,0.273,Santa Clara,Porto,0.641,Yes,OK
+30,2027-04-17 23:00:00Z,Maritimo,Sp Lisbon,0.117,0.176,0.708,Sp Lisbon,0.5,Yes,0.957,Over 2.5,9.47,0.021,Sp Lisbon,Sp Lisbon,0.559,Yes,OK
+31,2027-04-24 23:00:00Z,Arouca,Academico Viseu,0.171,0.255,0.573,Academico Viseu,0.482,No,0.957,Over 2.5,10.67,0.3,Academico Viseu,Arouca,0.527,Yes,Low (promoted/new team)
+31,2027-04-24 23:00:00Z,Nacional,Casa Pia,0.296,0.316,0.388,Casa Pia,0.508,Yes,0.82,Over 2.5,9.77,0.387,Casa Pia,Nacional,0.513,Yes,OK
+31,2027-04-24 23:00:00Z,Santa Clara,Estoril,0.305,0.315,0.38,Estoril,0.314,No,0.811,Over 2.5,10.14,0.173,Estoril,Estoril,0.445,No,OK
+31,2027-04-24 23:00:00Z,Sp Lisbon,Gil Vicente,0.558,0.227,0.215,Sp Lisbon,0.489,No,0.982,Over 2.5,10.76,0.18,Gil Vicente,Sp Lisbon,0.633,Yes,OK
+31,2027-04-24 23:00:00Z,Rio Ave,Maritimo,0.273,0.325,0.402,Maritimo,0.508,Yes,0.93,Over 2.5,10.21,0.095,Maritimo,Rio Ave,0.545,Yes,OK
+31,2027-04-24 23:00:00Z,Famalicao,Moreirense,0.348,0.327,0.325,Famalicao,0.477,No,0.925,Over 2.5,9.67,0.32,Moreirense,Famalicao,0.613,Yes,OK
+31,2027-04-24 23:00:00Z,Estrela,Porto,0.106,0.2,0.694,Porto,0.477,No,0.94,Over 2.5,9.84,0.01,Porto,Porto,0.623,Yes,OK
+31,2027-04-24 23:00:00Z,Sp Braga,Benfica,0.206,0.266,0.527,Benfica,0.47,No,0.961,Over 2.5,9.72,0.041,Benfica,Benfica,0.545,Yes,OK
+31,2027-04-24 23:00:00Z,Alverca,Guimaraes,0.217,0.3,0.483,Guimaraes,0.478,No,0.867,Over 2.5,9.59,0.023,Guimaraes,Guimaraes,0.48,No,OK
+32,2027-05-01 23:00:00Z,Gil Vicente,Alverca,0.354,0.349,0.297,Gil Vicente,0.477,No,0.761,Over 2.5,10.6,0.45,Alverca,Gil Vicente,0.599,Yes,OK
+32,2027-05-01 23:00:00Z,Maritimo,Estrela,0.309,0.336,0.355,Estrela,0.508,Yes,0.842,Over 2.5,10.0,0.289,Estrela,Estrela,0.504,Yes,OK
+32,2027-05-01 23:00:00Z,Casa Pia,Arouca,0.256,0.337,0.407,Arouca,0.508,Yes,0.926,Over 2.5,9.5,0.083,Arouca,Arouca,0.412,No,OK
+32,2027-05-01 23:00:00Z,Academico Viseu,Sp Braga,0.258,0.3,0.443,Sp Braga,0.47,No,0.284,Under 2.5,10.26,0.512,Academico Viseu,Sp Braga,0.546,Yes,Low (promoted/new team)
+32,2027-05-01 23:00:00Z,Porto,Famalicao,0.425,0.283,0.292,Porto,0.47,No,0.949,Over 2.5,9.93,0.326,Famalicao,Porto,0.635,Yes,OK
+32,2027-05-01 23:00:00Z,Moreirense,Nacional,0.293,0.337,0.37,Nacional,0.477,No,0.902,Over 2.5,10.17,0.318,Nacional,Moreirense,0.534,Yes,OK
+32,2027-05-01 23:00:00Z,Benfica,Rio Ave,0.652,0.207,0.142,Benfica,0.477,No,0.969,Over 2.5,10.83,0.494,Rio Ave,Benfica,0.687,Yes,OK
+32,2027-05-01 23:00:00Z,Guimaraes,Santa Clara,0.267,0.287,0.446,Santa Clara,0.477,No,0.927,Over 2.5,9.92,0.179,Santa Clara,Guimaraes,0.593,Yes,OK
+32,2027-05-01 23:00:00Z,Estoril,Sp Lisbon,0.116,0.192,0.693,Sp Lisbon,0.5,Yes,0.959,Over 2.5,9.49,0.009,Sp Lisbon,Sp Lisbon,0.586,Yes,OK
+33,2027-05-08 23:00:00Z,Famalicao,Casa Pia,0.408,0.338,0.254,Famalicao,0.477,No,0.884,Over 2.5,9.74,0.517,Famalicao,Famalicao,0.633,Yes,OK
+33,2027-05-08 23:00:00Z,Alverca,Estoril,0.226,0.327,0.448,Estoril,0.477,No,0.843,Over 2.5,9.9,0.091,Estoril,Estoril,0.449,No,OK
+33,2027-05-08 23:00:00Z,Arouca,Gil Vicente,0.195,0.281,0.524,Gil Vicente,0.489,No,0.95,Over 2.5,10.64,0.139,Gil Vicente,Gil Vicente,0.447,No,OK
+33,2027-05-08 23:00:00Z,Sp Braga,Maritimo,0.448,0.291,0.261,Sp Braga,0.477,No,0.936,Over 2.5,10.14,0.325,Maritimo,Sp Braga,0.638,Yes,OK
+33,2027-05-08 23:00:00Z,Academico Viseu,Moreirense,0.363,0.3,0.337,Academico Viseu,0.47,No,0.27,Under 2.5,9.9,0.718,Academico Viseu,Academico Viseu,0.576,Yes,Low (promoted/new team)
+33,2027-05-08 23:00:00Z,Nacional,Porto,0.112,0.187,0.701,Porto,0.508,Yes,0.929,Over 2.5,9.7,0.022,Porto,Porto,0.569,Yes,OK
+33,2027-05-08 23:00:00Z,Estrela,Santa Clara,0.201,0.285,0.514,Santa Clara,0.508,Yes,0.902,Over 2.5,10.26,0.034,Santa Clara,Santa Clara,0.525,Yes,OK
+33,2027-05-08 23:00:00Z,Sp Lisbon,Benfica,0.35,0.267,0.383,Benfica,0.485,No,0.984,Over 2.5,9.73,0.026,Benfica,Sp Lisbon,0.563,Yes,OK
+33,2027-05-08 23:00:00Z,Rio Ave,Guimaraes,0.193,0.259,0.548,Guimaraes,0.489,No,0.933,Over 2.5,9.83,0.035,Guimaraes,Guimaraes,0.48,No,OK
+34,2027-05-15 23:00:00Z,Casa Pia,Academico Viseu,0.159,0.233,0.608,Academico Viseu,0.5,Yes,0.942,Over 2.5,10.48,0.194,Academico Viseu,Academico Viseu,0.496,No,Low (promoted/new team)
+34,2027-05-15 23:00:00Z,Maritimo,Alverca,0.292,0.354,0.354,Draw,0.489,No,0.843,Over 2.5,10.6,0.252,Alverca,Alverca,0.506,Yes,OK
+34,2027-05-15 23:00:00Z,Estoril,Estrela,0.306,0.334,0.36,Estrela,0.508,Yes,0.868,Over 2.5,9.98,0.207,Estrela,Estoril,0.583,Yes,OK
+34,2027-05-15 23:00:00Z,Benfica,Arouca,0.639,0.216,0.145,Benfica,0.477,No,0.962,Over 2.5,9.96,0.294,Arouca,Benfica,0.624,Yes,OK
+34,2027-05-15 23:00:00Z,Porto,Sp Braga,0.431,0.286,0.283,Porto,0.47,No,0.945,Over 2.5,10.14,0.248,Sp Braga,Porto,0.655,Yes,OK
+34,2027-05-15 23:00:00Z,Guimaraes,Famalicao,0.253,0.3,0.447,Famalicao,0.47,No,0.946,Over 2.5,9.74,0.191,Famalicao,Famalicao,0.48,No,OK
+34,2027-05-15 23:00:00Z,Gil Vicente,Nacional,0.398,0.295,0.307,Gil Vicente,0.485,No,0.917,Over 2.5,10.19,0.441,Nacional,Gil Vicente,0.593,Yes,OK
+34,2027-05-15 23:00:00Z,Moreirense,Rio Ave,0.304,0.359,0.337,Draw,0.477,No,0.897,Over 2.5,10.62,0.224,Rio Ave,Moreirense,0.524,Yes,OK
+34,2027-05-15 23:00:00Z,Santa Clara,Sp Lisbon,0.132,0.203,0.665,Sp Lisbon,0.508,Yes,0.94,Over 2.5,9.66,0.029,Sp Lisbon,Sp Lisbon,0.575,Yes,OK

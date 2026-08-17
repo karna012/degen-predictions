@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{ league_label }} Results — Final Scores | Degen Predictions{% endblock %}
+{% block description %}Recent {{ league_label }} full-time scores. Finished matches leave the fixtures board and land here. Educational — not betting advice.{% endblock %}
+{% block keywords %}{{ league_label }} results, {{ league_label }} scores, football results{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/' ~ league_key ~ '/', 'Fixtures') }}
+    <a class="page-nav-link" href="/todays-picks/soccer/{{ league_key }}">Today's picks</a>
+    <a class="page-nav-link" href="/sports/soccer">Football</a>
+</nav>
+
+<h1>{{ league_label }} Results</h1>
+<p class="muted">{{ result_count }} finished match{{ 'es' if result_count != 1 else '' }} from the current predictions feed. Upcoming slate stays on <a href="/{{ league_key }}/">fixtures</a>.</p>
+
+{% if not grouped_finished %}
+<p class="muted">No finished {{ league_label }} matches on the board yet.</p>
+{% endif %}
+
+{% for day, matches in grouped_finished.items() %}
+<h2 style="margin-top:1.75rem;">{{ day }}</h2>
+<div class="table-wrap">
+<table class="rankings-table">
+    <thead>
+        <tr>
+            <th>Matchup</th>
+            <th>Final</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in matches %}
+        <tr>
+            <td>
+                <a href="/{{ league_key }}/match/{{ m.HomeTeam }}/{{ m.AwayTeam }}">
+                    {{ m.HomeTeam }} vs {{ m.AwayTeam }}
+                </a>
+            </td>
+            <td>
+                {% if m.home_score is not none and m.away_score is not none %}
+                <strong>{{ m.home_score }}–{{ m.away_score }}</strong>
+                {% else %}
+                <span class="muted">FT</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endfor %}
+
+<p class="muted" style="margin-top:2rem;">Upcoming slate: <a href="/{{ league_key }}/">{{ league_label }} fixtures</a></p>
+{% endblock %}

@@ -50,9 +50,15 @@ def test_admin_dashboard_shows_feedback(client, monkeypatch):
     monkeypatch.setattr(app_module, "ADMIN_USER", "admin")
     monkeypatch.setattr(app_module, "ADMIN_PASSWORD", "secret123")
 
-    client.post("/feedback", data={"name": "Visible User", "message": "Shows up in admin?"})
+    client.post("/feedback", data={
+        "name": "Visible User", "email": "visible-user@example.com",
+        "message": "Shows up in admin?",
+    })
 
-    resp = client.get("/admin", headers=_basic_auth_header("admin", "secret123"))
+    resp = client.get(
+        "/admin?section=feedback",
+        headers=_basic_auth_header("admin", "secret123"),
+    )
     assert resp.status_code == 200
     assert b"Visible User" in resp.data
     assert b"Shows up in admin?" in resp.data

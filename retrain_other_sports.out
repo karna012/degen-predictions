@@ -1,0 +1,209 @@
+
+===== START cricket_build =====
+
+======================================================================
+MISSING DATA REPORT -- Cricket (The Hundred + MLC)
+======================================================================
+Total rows: 295
+  venue_thin           70 rows (23.7%) flagged thin
+  sr_thin              48 rows (16.3%) flagged thin
+  econ_thin            183 rows (62.0%) flagged thin
+  uplift_thin          25 rows (8.5%) flagged thin
+  sentiment_missing    0 rows (0.0%) flagged thin
+  h2h_thin             4 rows (1.4%) flagged thin
+
+data_confidence distribution:
+DataConfidence
+medium    151
+high      103
+low        41
+Numeric feature NaN rates (left as NaN for the model to handle via imputation at train time, never silently zero-filled here):
+EloDiff                   0.000
+Team1RecentWinRate        0.000
+Team2RecentWinRate        0.000
+Team1RecentRunRate        0.031
+Team2RecentRunRate        0.027
+VenueAvgFirstInnings      0.047
+VenueAvgSecondInnings     0.047
+VenueAvgRunsPerOver       0.047
+VenueAvgWicketsPerOver    0.047
+VenueMatchesSeen          0.000
+Team1AvgSR                0.037
+Team2AvgSR                0.044
+Team1AvgEcon              0.047
+Team2AvgEcon              0.051
+Team1DeathUplift          0.014
+Team2DeathUplift          0.017
+Team1MatchupEdge          0.014
+Team2MatchupEdge          0.014
+SentimentDiff             0.000
+Team1Runs                 0.000
+Team2Runs                 0.000
+TotalRuns                 0.000
+Winner                    0.020
+======================================================================
+
+Wrote 295 rows -> F:\Api_claude_projects\pro2\Degen_predictions\data\cricket\training_dataset.csv
+===== END cricket_build exit=0 =====
+
+===== START cricket_train =====
+Loaded 295 matches
+Train: 236 matches, Holdout (most recent): 59 matches
+
+Honesty note: small-sample young-competition holdout -- treat metrics as directional.
+
+Training Team1Runs model...
+  [Team1Runs] ridge              holdout MAE = 29.15
+  [Team1Runs] random_forest      holdout MAE = 25.63
+  [Team1Runs] gradient_boosting  holdout MAE = 28.24
+  [Team1Runs] baseline (mean)    holdout MAE = 30.71
+  [Team1Runs] best model: random_forest (MAE 25.63 vs baseline 30.71)
+
+Training Team2Runs model...
+  [Team2Runs] ridge              holdout MAE = 29.87
+  [Team2Runs] random_forest      holdout MAE = 26.61
+  [Team2Runs] gradient_boosting  holdout MAE = 29.14
+  [Team2Runs] baseline (mean)    holdout MAE = 32.25
+  [Team2Runs] best model: random_forest (MAE 26.61 vs baseline 32.25)
+
+Training TotalRuns model...
+  [TotalRuns] ridge              holdout MAE = 56.52
+  [TotalRuns] random_forest      holdout MAE = 48.97
+  [TotalRuns] gradient_boosting  holdout MAE = 52.45
+  [TotalRuns] baseline (mean)    holdout MAE = 60.18
+  [TotalRuns] best model: random_forest (MAE 48.97 vs baseline 60.18)
+
+Training Winner classification model...
+  [Winner] logistic           holdout accuracy = 0.569
+  [Winner] random_forest      holdout accuracy = 0.552
+  [Winner] gradient_boosting  holdout accuracy = 0.552
+  [Winner] baseline (majority) holdout accuracy = 0.586
+  [Winner] best model: logistic (accuracy 0.569 vs baseline 0.586)
+
+======================================================================
+SUMMARY
+  Team1Runs   : random_forest      MAE 25.63 (baseline 30.71)
+  Team2Runs   : random_forest      MAE 26.61 (baseline 32.25)
+  TotalRuns   : random_forest      MAE 48.97 (baseline 60.18)
+  Winner      : logistic           accuracy 0.569 (baseline 0.586)
+======================================================================
+===== END cricket_train exit=0 =====
+
+===== START cricket_calibrate =====
+=== Cricket winner calibration (target 70%) ===
+  full-slate OOS: 56.9% n=58
+  match_winner: {'threshold': 0.67, 'n': 22, 'acc': 0.5909090909090909, 'coverage': 0.3793103448275862, 'met_target': False}
+  [hnd_male] {'n': 24, 'full_slate_acc': 0.6666666666666666, 'best': {'threshold': 0.55, 'n': 14, 'acc': 0.7142857142857143, 'coverage': 0.5833333333333334, 'met_target': True}}
+  [mlc_male] {'n': 34, 'full_slate_acc': 0.5, 'best': {'threshold': 0.67, 'n': 17, 'acc': 0.5294117647058824, 'coverage': 0.5, 'met_target': False}}
+  wrote F:\Api_claude_projects\pro2\Degen_predictions\data\cricket\confidence_thresholds.json
+
+=== High-confidence OOS (target 70%) ===
+
+cricket full-slate=56.9%:
+  match_winner: BEST acc=59.1% @ p>=0.67 coverage=37.9% n=22
+===== END cricket_calibrate exit=0 =====
+
+===== START mlb_train =====
+Train: 14896 games, Test (holdout): 2629 games
+Baseline (always predict home win): 0.531 accuracy
+
+Tuning Decision Tree...
+  [DecisionTree] best params: {'min_samples_leaf': 200, 'max_depth': 3} (CV acc 0.563)
+Tuning Random Forest (bagging)...
+  [RandomForest] best params: {'n_estimators': 200, 'min_samples_leaf': 5, 'max_features': 'log2', 'max_depth': 6} (CV acc 0.574)
+Tuning explicit Bagging ensemble...
+  [Bagging] best params: {'n_estimators': 100, 'max_samples': 0.7, 'max_features': 0.7} (CV acc 0.575)
+Tuning AdaBoost (boosting)...
+  [AdaBoost] best params: {'n_estimators': 50, 'learning_rate': 0.5} (CV acc 0.573)
+Tuning XGBoost (boosting)...
+  [XGBoost] best params: {'subsample': 0.85, 'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.01, 'colsample_bytree': 0.85} (CV acc 0.574)
+Tuning SVM (scaled features, subsampled for speed)...
+  [SVM] best params: {'kernel': 'rbf', 'gamma': 0.01, 'C': 0.1} (CV acc 0.560)
+Tuning Neural Network (MLP)...
+  [MLP] best params: {'learning_rate_init': 0.001, 'hidden_layer_sizes': (16,), 'alpha': 0.1} (CV acc 0.554)
+
+--- Per-model holdout accuracy ---
+  Decision Tree                0.548
+  Random Forest (bagging)      0.548
+  Bagging (explicit)           0.553
+  AdaBoost (boosting)          0.547
+  XGBoost (boosting)           0.555
+  SVM                          0.552
+  Neural Network (MLP)         0.550
+
+Building ensembles (soft voting + stacking) on scaled features for all models...
+  Voting Ensemble              0.548
+  Stacking Ensemble            0.543
+
+Best model on holdout: XGBoost (boosting) (0.555 accuracy)
+Previous shipped holdout: 0.553 (delta +0.002)
+Holdout Brier: 0.2465  log-loss: 0.6860
+Does NOT meet the 65% target -- this is expected for MLB win/loss prediction on real held-out games (see script docstring); reporting the honest number rather than an overfit one.
+
+Saved model (XGBoost (boosting), acc 0.555, delta +0.002) -> F:\Api_claude_projects\pro2\Degen_predictions\data\mlb\ml_ensemble_model.joblib
+===== END mlb_train exit=0 =====
+
+===== START mlb_calibrate =====
+=== MLB moneyline calibration (target 70%) ===
+  full-slate OOS: 55.5% n=2629
+  moneyline: {'threshold': 0.68, 'n': 46, 'acc': 0.717391304347826, 'coverage': 0.017497147204260176, 'met_target': True}
+  wrote F:\Api_claude_projects\pro2\Degen_predictions\data\mlb\confidence_thresholds.json
+
+=== High-confidence OOS (target 70%) ===
+
+mlb full-slate=55.5%:
+  moneyline: HIT acc=71.7% @ p>=0.68 coverage=1.7% n=46
+===== END mlb_calibrate exit=0 =====
+
+===== START npb_train =====
+Train: 5472 games, Test (holdout): 966 games
+Baseline (always predict home win): 0.530 accuracy
+
+Tuning Decision Tree...
+  [DecisionTree] best params: {'min_samples_leaf': 100, 'max_depth': 4} (CV acc 0.509)
+Tuning Random Forest (bagging)...
+  [RandomForest] best params: {'n_estimators': 200, 'min_samples_leaf': 20, 'max_features': 'sqrt', 'max_depth': 4} (CV acc 0.514)
+Tuning explicit Bagging ensemble...
+  [Bagging] best params: {'n_estimators': 100, 'max_samples': 0.5, 'max_features': 1.0} (CV acc 0.515)
+Tuning AdaBoost (boosting)...
+  [AdaBoost] best params: {'n_estimators': 50, 'learning_rate': 0.05} (CV acc 0.514)
+Tuning XGBoost (boosting)...
+  [XGBoost] best params: {'subsample': 0.85, 'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.01, 'colsample_bytree': 0.85} (CV acc 0.510)
+Tuning SVM (scaled features, subsampled for speed)...
+  [SVM] best params: {'kernel': 'rbf', 'gamma': 'auto', 'C': 0.1} (CV acc 0.531)
+Tuning Neural Network (MLP)...
+  [MLP] best params: {'learning_rate_init': 0.001, 'hidden_layer_sizes': (16,), 'alpha': 0.0001} (CV acc 0.505)
+
+--- Per-model holdout accuracy ---
+  Decision Tree                0.560
+  Random Forest (bagging)      0.581
+  Bagging (explicit)           0.559
+  AdaBoost (boosting)          0.577
+  XGBoost (boosting)           0.573
+  SVM                          0.567
+  Neural Network (MLP)         0.546
+
+Building ensembles (soft voting + stacking) on scaled features for all models...
+  Voting Ensemble              0.581
+  Stacking Ensemble            0.573
+
+Best model on holdout: Random Forest (bagging) (0.581 accuracy)
+Previous shipped holdout: 0.581 (delta -0.001)
+Does NOT meet the 65% target -- reporting the honest holdout number rather than an overfit one.
+
+Saved model (Random Forest (bagging), acc 0.581, delta -0.001) -> F:\Api_claude_projects\pro2\Degen_predictions\data\npb\ml_ensemble_model.joblib
+===== END npb_train exit=0 =====
+
+===== START npb_calibrate =====
+=== NPB moneyline calibration (target 70%) ===
+  full-slate OOS: 58.1% n=966
+  moneyline: {'threshold': 0.55, 'n': 409, 'acc': 0.5990220048899756, 'coverage': 0.42339544513457555, 'met_target': False}
+  wrote F:\Api_claude_projects\pro2\Degen_predictions\data\npb\confidence_thresholds.json
+
+=== High-confidence OOS (target 70%) ===
+
+npb full-slate=58.1%:
+  moneyline: BEST acc=59.9% @ p>=0.55 coverage=42.3% n=409
+===== END npb_calibrate exit=0 =====
+
+ALL_OTHER_SPORTS_DONE

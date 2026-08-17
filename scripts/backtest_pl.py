@@ -17,7 +17,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from leagues import LEAGUES
+from leagues import LEAGUES, REPO_ROOT, resolve_league_paths
 
 DISPLAY_SEASONS = ["2122", "2223", "2324", "2425", "2526"]  # past 5 completed seasons
 
@@ -31,11 +31,14 @@ def load_models(MODEL_DIR):
         training_metrics = pickle.load(f)
 
     def load(name):
+        metrics = training_metrics.get(name, {})
+        if metrics.get("skipped"):
+            return None
         with open(f"{MODEL_DIR}/{name}_base_models.pkl", "rb") as f:
             base_models = pickle.load(f)
         with open(f"{MODEL_DIR}/{name}_meta.pkl", "rb") as f:
             meta = pickle.load(f)
-        best_strategy = training_metrics.get(name, {}).get("best_strategy", "stacked")
+        best_strategy = metrics.get("best_strategy", "stacked")
         return base_models, meta, best_strategy
 
     models = {
@@ -66,9 +69,9 @@ def regress(base_models, meta, best_strategy, X):
 
 
 def backtest_for_league(league_key):
-    cfg = LEAGUES[league_key]
+    cfg = resolve_league_paths(LEAGUES[league_key])
     data_dir, model_dir = cfg["data_dir"], cfg["model_dir"]
-    output_path = f"output_tables/{cfg['output_name']}_backtest.csv"
+    output_path = os.path.join(REPO_ROOT, "output_tables", f"{cfg['output_name']}_backtest.csv")
     print(f"=== {cfg['label']} ===")
 
     models, feature_cols, result_label_map = load_models(model_dir)
@@ -81,7 +84,8 @@ def backtest_for_league(league_key):
     full_df["Sample_Type"] = ["In-Sample (model trained on this match)"] * split_idx + \
         ["Out-of-Sample (genuine holdout)"] * (len(full_df) - split_idx)
 
-    df = full_df[full_df["Season"].isin(DISPLAY_SEASONS)].reset_index(drop=True)
+    display_seasons = cfg.get("display_seasons", DISPLAY_SEASONS)
+    df = full_df[full_df["Season"].isin(display_seasons)].reset_index(drop=True)
     X_all = df[feature_cols]
 
     base_models, meta, strat = models["result"]
@@ -98,16 +102,30 @@ def backtest_for_league(league_key):
     df["P_Over25"] = classify(base_models, meta, strat, X_all)[:, 1]
     df["Predicted_Goals"] = np.where(df["P_Over25"] >= 0.5, "Over 2.5", "Under 2.5")
 
-    base_models, meta, strat = models["home_more_corners"]
-    df["P_HomeMoreCorners"] = classify(base_models, meta, strat, X_all)[:, 1]
-    df["Predicted_HomeMoreCorners"] = df["P_HomeMoreCorners"] >= 0.5
+    if models["home_more_corners"] is None:
+        df["P_HomeMoreCorners"] = np.nan
+        df["Predicted_HomeMoreCorners"] = False
+    else:
+        base_models, meta, strat = models["home_more_corners"]
+        df["P_HomeMoreCorners"] = classify(base_models, meta, strat, X_all)[:, 1]
+        df["Predicted_HomeMoreCorners"] = df["P_HomeMoreCorners"] >= 0.5
 
     base_models, meta, strat = models["favorite_avoids_defeat"]
     df["P_FavoriteAvoidsDefeat"] = classify(base_models, meta, strat, X_all)[:, 1]
     df["Predicted_FavoriteAvoidsDefeat"] = df["P_FavoriteAvoidsDefeat"] >= 0.5
 
-    base_models, meta, strat = models["total_corners"]
-    df["Predicted_TotalCorners"] = regress(base_models, meta, strat, X_all)
+    if models["total_corners"] is None:
+        df["Predicted_TotalCorners"] = np.nan
+    else:
+        base_models, meta, strat = models["total_corners"]
+        df["Predicted_TotalCorners"] = regress(base_models, meta, strat, X_all)
+
+    actual_home_more = df["Target_HomeMoreCorners"]
+    corners_winner_correct = np.where(
+        actual_home_more.notna(),
+        actual_home_more.astype(bool) == df["Predicted_HomeMoreCorners"],
+        np.nan,
+    )
 
     out = pd.DataFrame({
         "Season": df["Season"], "Date": df["Date"],
@@ -123,9 +141,9 @@ def backtest_for_league(league_key):
         "Goals_Correct": df["Target_Over25"] == (df["Predicted_Goals"] == "Over 2.5").astype(int),
         "Actual_TotalCorners": df["Target_TotalCorners"],
         "Predicted_TotalCorners": df["Predicted_TotalCorners"].round(1),
-        "Actual_HomeMoreCorners": df["Target_HomeMoreCorners"].astype(bool),
+        "Actual_HomeMoreCorners": actual_home_more,
         "Predicted_HomeMoreCorners": df["Predicted_HomeMoreCorners"],
-        "Corners_Winner_Correct": df["Target_HomeMoreCorners"].astype(bool) == df["Predicted_HomeMoreCorners"],
+        "Corners_Winner_Correct": corners_winner_correct,
         "Favorite_Team": np.where(df["Home_Is_Favorite"], df["HomeTeam"], df["AwayTeam"]),
         "Actual_FavoriteAvoidsDefeat": df["Target_FavoriteAvoidsDefeat"].astype(bool),
         "Predicted_FavoriteAvoidsDefeat": df["Predicted_FavoriteAvoidsDefeat"],
@@ -142,9 +160,11 @@ def backtest_for_league(league_key):
         print(f"  Result accuracy: {g['Result_Correct'].mean():.3f}")
         print(f"  BTTS accuracy: {g['BTTS_Correct'].mean():.3f}")
         print(f"  Goals O/U accuracy: {g['Goals_Correct'].mean():.3f}")
-        print(f"  Corners winner accuracy: {g['Corners_Winner_Correct'].mean():.3f}")
+        corner_acc = g["Corners_Winner_Correct"].dropna().mean()
+        print(f"  Corners winner accuracy: {corner_acc if pd.notna(corner_acc) else float('nan'):.3f}")
         print(f"  Favorite-avoids-defeat accuracy: {g['FavoriteAvoidsDefeat_Correct'].mean():.3f}")
-        print(f"  Total corners MAE: {(g['Actual_TotalCorners'] - g['Predicted_TotalCorners']).abs().mean():.2f}")
+        corner_mae = (g["Actual_TotalCorners"] - g["Predicted_TotalCorners"]).abs().dropna().mean()
+        print(f"  Total corners MAE: {corner_mae if pd.notna(corner_mae) else float('nan'):.2f}")
 
 
 def main():

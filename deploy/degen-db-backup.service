@@ -1,0 +1,8 @@
+[Unit]
+Description=Degen Predictions - application-consistent SQLite database backups
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Degen_predictions
+ExecStart=/home/ubuntu/Degen_predictions/deploy/backup_databases.sh

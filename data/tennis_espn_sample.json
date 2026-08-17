@@ -1,0 +1,339 @@
+{
+  "leagues": [
+    {
+      "id": "851",
+      "uid": "s:850~l:851",
+      "name": "ATP",
+      "abbreviation": "ATP",
+      "midsizeName": "ATP",
+      "slug": "atp",
+      "season": {
+        "year": 2026,
+        "startDate": "2026-01-01T08:00Z",
+        "endDate": "2027-01-01T07:59Z",
+        "displayName": "2026",
+        "type": {
+          "id": "2",
+          "type": 2,
+          "name": "Regular Season",
+          "abbreviation": "reg"
+        }
+      },
+      "logos": [
+        {
+          "href": "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png",
+          "width": 500,
+          "height": 500,
+          "alt": "",
+          "rel": [
+            "full",
+            "default"
+          ],
+          "lastUpdated": "2026-08-09T17:36Z"
+        },
+        {
+          "href": "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png",
+          "width": 500,
+          "height": 500,
+          "alt": "",
+          "rel": [
+            "full",
+            "dark"
+          ],
+          "lastUpdated": "2026-08-09T17:36Z"
+        }
+      ],
+      "calendarType": "day",
+      "calendarIsWhitelist": true,
+      "calendarStartDate": "2026-01-01T08:00Z",
+      "calendarEndDate": "2027-01-01T07:59Z",
+      "calendar": [
+        "2026-01-01T08:00Z",
+        "2026-01-02T08:00Z",
+        "2026-01-03T08:00Z",
+        "<252 more>"
+      ]
+    }
+  ],
+  "season": {
+    "type": 2,
+    "year": 2026
+  },
+  "day": {
+    "date": "2026-08-10"
+  },
+  "events": [
+    {
+      "id": "421-2026",
+      "uid": "s:850~l:851~e:421-2026",
+      "date": "2026-08-01T04:00Z",
+      "endDate": "2026-08-14T03:59Z",
+      "major": false,
+      "name": "National Bank Open presented by Rogers",
+      "shortName": "National Bank Open presented by Rogers",
+      "season": {
+        "year": 2026,
+        "type": 2
+      },
+      "groupings": [
+        {
+          "grouping": {
+            "id": "1",
+            "slug": "mens-singles",
+            "displayName": "Men's Singles"
+          },
+          "competitions": [
+            {
+              "id": "...",
+              "uid": "...",
+              "date": "...",
+              "startDate": "...",
+              "timeValid": "...",
+              "recent": "...",
+              "status": "...",
+              "venue": "...",
+              "format": "...",
+              "broadcast": "...",
+              "competitors": "...",
+              "tournamentId": "...",
+              "type": "...",
+              "round": "...",
+              "wasSuspended": "..."
+            },
+            {
+              "id": "...",
+              "uid": "...",
+              "date": "...",
+              "startDate": "...",
+              "timeValid": "...",
+              "recent": "...",
+              "status": "...",
+              "venue": "...",
+              "format": "...",
+              "broadcast": "...",
+              "competitors": "...",
+              "tournamentId": "...",
+              "type": "...",
+              "round": "...",
+              "wasSuspended": "..."
+            },
+            {
+              "id": "...",
+              "uid": "...",
+              "date": "...",
+              "startDate": "...",
+              "timeValid": "...",
+              "recent": "...",
+              "status": "...",
+              "venue": "...",
+              "format": "...",
+              "broadcast": "...",
+              "competitors": "...",
+              "tournamentId": "...",
+              "type": "...",
+              "round": "...",
+              "wasSuspended": "..."
+            },
+            "<108 more>"
+          ]
+        },
+        {
+          "grouping": {
+            "id": "2",
+            "slug": "womens-singles",
+            "displayName": "Women's Singles"
+          },
+          "competitions": [
+            {
+              "id": "...",
+              "uid": "...",
+              "date": "...",
+              "startDate": "...",
+              "timeValid": "...",
+              "recent": "...",
+              "status": "...",
+              "venue": "...",
+              "format": "...",
+              "broadcast": "...",
+              "competitors": "...",
+              "tournamentId": "...",
+              "type": "...",
+              "round": "...",
+              "wasSuspended": "..."
+            },
+            {
+              "id": "...",
+              "uid": "...",
+              "date": "...",
+              "startDate": "...",
+              "timeValid": "...",
+              "recent": "...",
+              "status": "...",
+              "venue": "...",
+              "format": "...",
+              "broadcast": "...",
+              "competitors": "...",
+              "tournamentId": "...",
+              "type": "...",
+              "round": "...",
+              "wasSuspended": "..."
+            },
+            {
+              "id": "...",
+              "uid": "...",
+              "date": "...",
+              "startDate": "...",
+              "timeValid": "...",
+              "recent": "...",
+              "status": "...",
+              "venue": "...",
+              "format": "...",
+              "broadcast": "...",
+              "competitors": "...",
+              "tournamentId": "...",
+              "type": "...",
+              "round": "...",
+              "wasSuspended": "..."
+            },
+            "<108 more>"
+          ]
+        },
+        {
+          "grouping": {
+            "id": "4",
+            "slug": "womens-doubles",
+            "displayName": "Women's Doubles"
+          },
+          "competitions": [
+            {
+              "id": "...",
+              "uid": "...",
+              "date": "...",
+              "startDate": "...",
+              "timeValid": "...",
+              "recent": "...",
+              "status": "...",
+              "venue": "...",
+              "format": "...",
+              "broadcast": "...",
+              "competitors": "...",
+              "tournamentId": "...",
+              "type": "...",
+              "round": "...",
+              "wasSuspended": "..."
+            },
+            {
+              "id": "...",
+              "uid": "...",
+              "date": "...",
+              "startDate": "...",
+              "timeValid": "...",
+              "recent": "...",
+              "status": "...",
+              "venue": "...",
+              "format": "...",
+              "broadcast": "...",
+              "competitors": "...",
+              "tournamentId": "...",
+              "type": "...",
+              "round": "...",
+              "wasSuspended": "..."
+            },
+            {
+              "id": "...",
+              "uid": "...",
+              "date": "...",
+              "startDate": "...",
+              "timeValid": "...",
+              "recent": "...",
+              "status": "...",
+              "venue": "...",
+              "format": "...",
+              "broadcast": "...",
+              "competitors": "...",
+              "tournamentId": "...",
+              "type": "...",
+              "round": "...",
+              "wasSuspended": "..."
+            },
+            "<28 more>"
+          ]
+        },
+        "<1 more>"
+      ],
+      "status": {
+        "period": 3,
+        "type": {
+          "id": "3",
+          "name": "STATUS_FINAL",
+          "state": "post",
+          "completed": true,
+          "description": "Final",
+          "detail": "Final",
+          "shortDetail": "Final"
+        }
+      },
+      "venue": {
+        "displayName": "Toronto, Canada"
+      },
+      "previousWinners": [
+        {
+          "displayName": "Ben Shelton",
+          "shortDisplayName": "B. Shelton",
+          "type": {
+            "id": "1",
+            "text": "Men's Singles",
+            "slug": "mens-singles"
+          }
+        },
+        {
+          "displayName": "Victoria Mboko",
+          "shortDisplayName": "V. Mboko",
+          "type": {
+            "id": "2",
+            "text": "Women's Singles",
+            "slug": "womens-singles"
+          }
+        },
+        {
+          "displayName": "Julian Cash / Lloyd Glasspool",
+          "shortDisplayName": "J. Cash / L. Glasspool",
+          "type": {
+            "id": "3",
+            "text": "Men's Doubles",
+            "slug": "mens-doubles"
+          },
+          "athletes": [
+            {
+              "displayName": "...",
+              "shortDisplayName": "..."
+            },
+            {
+              "displayName": "...",
+              "shortDisplayName": "..."
+            }
+          ]
+        },
+        "<1 more>"
+      ],
+      "calendar": {
+        "type": "day",
+        "timeZone": "America/New_York",
+        "startDate": "2026-08-01T04:00Z",
+        "endDate": "2026-08-13T04:00Z",
+        "calendar": [
+          "2026-08-01T04:00Z",
+          "2026-08-02T04:00Z",
+          "2026-08-03T04:00Z",
+          "<10 more>"
+        ]
+      }
+    }
+  ],
+  "provider": {
+    "id": "100",
+    "name": "Draft Kings",
+    "displayName": "Draft Kings",
+    "priority": 1
+  }
+}

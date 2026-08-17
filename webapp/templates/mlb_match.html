@@ -1,8 +1,10 @@
 {% extends "base.html" %}
-{% block title %}{{ away_name }} vs {{ home_name }} Prediction | MLB{% endblock %}
-{% block description %}{{ away_name }} vs {{ home_name }} prediction: winner, total runs, hits, home runs, and strikeouts from our MLB Elo/H2H/pitcher model{% if match_date %}, {{ match_date }}{% endif %}.{% endblock %}
+{% block title %}{{ away_name }} vs {{ home_name }} Prediction{% if match_date %} {{ match_date }}{% endif %} | MLB{% endblock %}
+{% block description %}{{ away_name }} vs {{ home_name }} MLB ML prediction{% if match_date %} for {{ match_date }}{% endif %}: winner, total runs, hits, home runs, and strikeouts from our Elo/H2H/pitcher model. Free forecast -- not betting advice.{% endblock %}
 {% block keywords %}{{ away_name }} vs {{ home_name }} prediction, MLB predictions, MLB total runs prediction, MLB moneyline predictions, baseball predictions today{% endblock %}
+{% block canonical %}{{ page_canonical or ('https://degenpredictions.com' ~ request.path) }}{% endblock %}
 {% block content %}
+{% include "partials/breadcrumbs.html" %}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -27,8 +29,14 @@
     "description": "MLB match prediction: winner, total runs, hits, home runs, and strikeouts."
 }
 </script>
-<a href="/mlb/fixtures">&larr; Back to fixtures</a>
-<h1>{{ away_name }} vs {{ home_name }}</h1>
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/todays-picks/baseball/mlb', "Today's picks") }}
+    <a class="page-nav-link" href="/mlb/fixtures">Fixtures</a>
+    <a class="page-nav-link" href="/mlb/results">Track record</a>
+    <a class="page-nav-link" href="/todays-picks/combos">Best Combos</a>
+</nav>
+<h1>{{ away_name }} vs {{ home_name }} prediction</h1>
 <p class="muted">{{ match_date }}{% if home_era %} &middot; Probable starters: {{ away_era }} ERA (away) vs {{ home_era }} ERA (home){% endif %}</p>
 
 {% macro streak_phrase(streak) -%}

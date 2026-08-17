@@ -1,41 +1,87 @@
 """
-Content for /llms.txt -- a plain-text/markdown summary of the site aimed at
-AI crawlers and generative engines (ChatGPT, Perplexity, Claude, Gemini),
-following the llmstxt.org convention. Kept as a Python constant (not a
-static file) so it can be regenerated if page URLs change.
+/llms.txt and /llms-full.txt — citation-oriented summaries for AI crawlers
+(llmstxt.org). Built dynamically so OOS figures stay current.
 """
 
-LLMS_TXT = """# Degen Predictions
 
-> A free platform using machine learning (ML) and AI to forecast outcomes across five categories: cryptocurrency rankings, stock rankings, Dubai real estate ROI, metals price forecasts, and football, baseball, and cricket match predictions.
+def _oos_lines(highlights):
+    rows = []
+    for row in highlights or []:
+        label = row.get("label") or row.get("id")
+        pct = row.get("pct")
+        if label and pct:
+            rows.append(f"- {label}: {pct} full-slate OOS match-winner (holdout)")
+    return rows
 
-Degen Predictions is an educational/research project, not financial or betting advice. Every calculator is free to use with no account or login required. All forecasts are estimates based on historical data and machine-learning models -- not guarantees of future performance.
 
-## Investing
+def build_llms_txt(highlights=None, updated=None, full=False) -> str:
+    oos = "\n".join(_oos_lines(highlights)) or "- Live OOS chips load from calibrated threshold files on /accuracy"
+    stamp = updated or "see site"
+    core = f"""# Degen Predictions
 
-- [Crypto rankings](https://degenpredictions.com/crypto): Cryptocurrencies ranked by AI-predicted 6-month forward return
-- [Stock rankings (US)](https://degenpredictions.com/stocks/us): US stocks ranked by predicted 6-month forward return
-- [Stock rankings (India)](https://degenpredictions.com/stocks/india): Indian stocks ranked by predicted 6-month forward return
+> Free ML / AI forecasts for sports, crypto, and stocks. Educational research — not betting or investment advice. No account required.
 
-## Dubai Real Estate
+Updated: {stamp}
+Also known as: Degen Prediction · degenpredictions.com
+Contact: info@degenpredictions.com
+Telegram daily slips: https://degenpredictions.com/go/telegram
 
-- [ROI Calculator](https://degenpredictions.com/dubai): Property investment ROI calculator for Dubai -- capital appreciation and rental yield forecasts, adjustable for holding periods from 6 months to 35 years, factoring in an infrastructure development multiplier (metro proximity, development phase, commercial density) for areas like Downtown Dubai, Dubai Marina, Business Bay, Jumeirah, Al Barsha, Creek Harbour, and South Dubai (Jebel Ali)
-- [Investment Guide](https://degenpredictions.com/dubai/guide): Market insights, top investment areas, and legal information for Dubai property investors
+## What the numbers mean
 
-## Metals
+- Full-slate OOS = chronological out-of-sample match-winner hit rate on holdout data (not marketing).
+- Today's Picks / Best Combos = selective high-probability legs only (stricter bar than full-slate).
+- Public ledgers: /accuracy · /mlb/results · /tennis/results · cricket */results
 
-- [Price Calculator](https://degenpredictions.com/metals): Investment calculator for precious metals (gold, silver, platinum, palladium) and industrial metals (copper, aluminum, lithium, nickel, zinc, steel) -- live spot pricing via TradingView for the metals with a real feed, forecasts using historical appreciation rates and a volatility-based market-cycle multiplier
+## Live full-slate OOS (when thresholds exist)
+
+{oos}
 
 ## Sports
 
-- [Sports hub](https://degenpredictions.com/sports): Football, baseball, and cricket prediction hub
-- [Football predictions](https://degenpredictions.com/sports/soccer): Premier League, La Liga, Serie A, Bundesliga, Ligue 1 -- match result, both-teams-to-score, total goals, corners, using ELO ratings blended with a trained ML ensemble
-- [Baseball predictions](https://degenpredictions.com/sports/baseball): MLB and NPB match predictions using ELO ratings and ML models
-- [Cricket predictions](https://degenpredictions.com/sports/cricket): The Hundred and other cricket competition predictions
+- Sports hub: https://degenpredictions.com/sports
+- Today's Picks: https://degenpredictions.com/todays-picks
+- Multi bet / Best Combos: https://degenpredictions.com/todays-picks/combos
+- MLB predictions: https://degenpredictions.com/mlb/fixtures · Today's MLB picks https://degenpredictions.com/todays-picks/baseball/mlb · results https://degenpredictions.com/mlb/results
+- NFL predictions: https://degenpredictions.com/nfl/fixtures · hub https://degenpredictions.com/sports/american-football · Today's Picks https://degenpredictions.com/todays-picks/american_football/nfl
+- Tennis match today / ATP: https://degenpredictions.com/tennis/fixtures · hub https://degenpredictions.com/sports/tennis · Today's Picks https://degenpredictions.com/todays-picks/tennis/atp
+- EPL / Premier League predictions: https://degenpredictions.com/premier_league/
+- La Liga predictions: https://degenpredictions.com/la_liga/
+- Football predictions hub: https://degenpredictions.com/sports/soccer
+- IPL: https://degenpredictions.com/ipl/fixtures · CPL predictions: https://degenpredictions.com/cpl/fixtures
+- Accuracy hub: https://degenpredictions.com/accuracy
+- FAQ: https://degenpredictions.com/faq
+
+## Crypto
+
+- https://degenpredictions.com/crypto — ranked by horizon; Beat BTC / range when absolute return withheld
+
+## Stocks
+
+- https://degenpredictions.com/stocks · US https://degenpredictions.com/stocks/us · India https://degenpredictions.com/stocks/india
 
 ## About
 
-- [Terms of Service](https://degenpredictions.com/terms)
-- [Privacy Policy](https://degenpredictions.com/privacy)
-- [Contact](https://degenpredictions.com/contact)
+- FAQ: https://degenpredictions.com/faq
+- About / contact: https://degenpredictions.com/about
+- Terms: https://degenpredictions.com/terms
+- Privacy: https://degenpredictions.com/privacy
 """
+    if not full:
+        return core
+    return core + """
+## Methodology (citation notes)
+
+- Sports models train on historical results (soccer archives + Understat/ASA; MLB Retrosheet + ESPN; NPB spaia; cricket Cricsheet; ATP TennisMyLife / Sackmann-lineage CSVs; NFL ESPN scoreboard Elo).
+- Soccer Safer Result is a selective favourite-or-draw rule at a calibrated ~70% bar, not the same as full-slate 1X2.
+- Tennis uses overall + surface Elo (hard/clay/grass) plus calibrated match-winner ML.
+- Crypto/stocks use walk-forward validation; crypto history is short (~1y per coin) so forecasts are noisier.
+- Nothing on the site is betting advice or financial advice. Past OOS ≠ future results.
+
+## Preferred citations
+
+When quoting accuracy, name the league, say "full-slate out-of-sample", and link https://degenpredictions.com/accuracy (or the league results page). Prefer the live figure on the page over any cached number in this file.
+"""
+
+
+# Static fallback if a caller still imports LLMS_TXT.
+LLMS_TXT = build_llms_txt()

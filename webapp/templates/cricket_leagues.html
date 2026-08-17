@@ -1,13 +1,21 @@
 {% extends "base.html" %}
-{% block title %}Cricket Predictions -- The Hundred & MLC | Degen Predictions{% endblock %}
-{% block description %}Free machine-learning cricket predictions for The Hundred (Men's) and Major League Cricket -- innings totals, match total runs, and winner.{% endblock %}
+{% block title %}Cricket Predictions — IPL, CPL, BBL, The Hundred &amp; MLC | Degen Predictions{% endblock %}
+{% block description %}Free cricket predictions: IPL predictions, CPL (Caribbean Premier League) predictions, BBL, The Hundred, and MLC — with public full-slate OOS accuracy on league cards. Runs, pitch/player analysis, Today's Picks.{% endblock %}
+{% block keywords %}IPL predictions, CPL predictions, Caribbean Premier League predictions, BBL predictions, The Hundred predictions, MLC predictions, cricket predictions, cricket ML forecasts{% endblock %}
+{% block body_class %} sport-atmosphere cricket-page{% endblock %}
 {% block content %}
-<a href="/sports">&larr; Back to Sports</a>
-<div class="leagues-hero">
-    <h1>Pick Your Cricket League</h1>
-    <p class="muted">Choose a league to see recent matches and model predictions.</p>
+{% from "macros.html" import nav_back %}
+{{ nav_back('/sports', 'Sports') }}
+<div class="leagues-hero cricket-hero">
+    <h1>Cricket Predictions</h1>
+    <p class="muted">IPL, BBL, CPL, The Hundred, and MLC — trained on Cricsheet ball-by-ball history (IPL from 2008, BBL from 2011, CPL from 2013). Open Today's Picks for high-probability legs, or browse fixtures and results.</p>
+    <div class="leagues-hero-ctas cricket-quick-links">
+        <a class="league-cta" href="/ipl/fixtures">IPL predictions</a>
+        <a class="league-cta" href="/cpl/fixtures">CPL predictions</a>
+        <a class="league-cta" href="/todays-picks/cricket">Cricket today's picks</a>
+        <a class="league-cta is-secondary" href="/todays-picks/combos">Best Combos</a>
+    </div>
 </div>
-
 {% macro cricket_card(info, href) %}
     {% if info.available %}
     <a class="league-card" href="{{ href }}" style="--league-color: {{ info.color }};">
@@ -18,28 +26,37 @@
         <div class="league-card-content">
             <h2>{{ info.label|upper }}</h2>
             {% if info.available %}
-            <p class="league-desc">{{ info.country }} &middot; {{ info.fixture_count }} matches on record.</p>
-            <span class="league-cta">Get Predictions</span>
+            <p class="league-desc">{{ info.country }} &middot; {{ info.fixture_count }} matches on record{% if info.full_slate_acc %} &middot; full-slate {{ info.full_slate_acc }}{% endif %}.</p>
+            {% if info.full_slate_acc or info.tier_label %}
+            <div class="accuracy-chip">
+                {% if info.full_slate_acc %}<span>Full slate <strong>{{ info.full_slate_acc }}</strong></span>{% endif %}
+                {% if info.tier_label %}
+                <span class="{% if info.tier_ok %}tier-yes{% elif info.tier_ok is sameas false %}tier-no{% endif %}">{{ info.tier_label }}</span>
+                {% endif %}
+            </div>
+            {% endif %}
+            <span class="league-cta">See fixtures</span>
             {% else %}
             <p class="league-desc">{{ info.country }} &middot; Coming soon.</p>
             {% endif %}
         </div>
-        <div class="league-badge">
-            <span class="league-monogram">{{ info.monogram }}</span>
-        </div>
-    {% if info.available %}
-    </a>
-    {% else %}
-    </div>
-    {% endif %}
+        <div class="league-badge"><span class="league-monogram">{{ info.monogram }}</span></div>
+    {% if info.available %}</a>{% else %}</div>{% endif %}
 {% endmacro %}
-
-<div class="league-grid">
-    {{ cricket_card(hundred_info, "/hundred/fixtures") }}
-    {{ cricket_card(mlc_info, "/mlc/fixtures") }}
+<div class="league-grid cricket-league-grid">
+    {% for info in cricket_leagues %}
+    {{ cricket_card(info, "/" ~ info.key ~ "/fixtures") }}
+    {% endfor %}
 </div>
-<p class="muted" style="margin-top:1.5rem;">Each league page shows live/upcoming fixtures when scheduled matches
-    exist; Cricsheet (our data source) has no live fixture feed, so completed matches instead live on each
-    league's results &amp; accuracy page, where our model's genuine pre-match prediction is compared honestly
-    against the real result -- not a live betting card.</p>
+<section class="cricket-hub-notes">
+    <h2>What's included</h2>
+    <ul class="muted">
+        <li><strong>IPL &amp; CPL</strong> — dedicated prediction boards with public OOS full-slate accuracy on each card</li>
+        <li><strong>Fixtures</strong> — Wikipedia (Hundred, CPL) or fixturedownload (IPL/BBL) when a season is live</li>
+        <li><strong>Results</strong> — pre-match vs actual for completed Cricsheet matches</li>
+        <li><strong>Analysis</strong> — team Elo/form, provisional XI &amp; player form, pitch &amp; home ground, sentiment, stats</li>
+        <li><strong>Picks</strong> — totals / team runs preferred; match winner skipped when full-slate is near coin-flip</li>
+    </ul>
+    <p class="muted">Provisional XIs are last-known Cricsheet lineups — not official announced sides.</p>
+</section>
 {% endblock %}

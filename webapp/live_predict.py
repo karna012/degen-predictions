@@ -56,16 +56,36 @@ def _load_state(league_key):
     with open(f"{predict_pl.DATA_DIR}/h2h_history.pkl", "rb") as f:
         h2h_history = pickle.load(f)
 
-    current_season_players = os.path.join(predict_pl.DATA_DIR, "players", "players_2025.json")
+    players_dir = os.path.join(predict_pl.DATA_DIR, "players")
+    current_season_players = None
+    if os.path.isdir(players_dir):
+        candidates = sorted(
+            f for f in os.listdir(players_dir)
+            if f.startswith("players_") and f.endswith(".json")
+        )
+        if candidates:
+            current_season_players = os.path.join(players_dir, candidates[-1])
     players_by_team = {}
-    if os.path.exists(current_season_players):
+    if current_season_players and os.path.exists(current_season_players):
         with open(current_season_players, encoding="utf-8") as f:
             players = json.load(f)
         for p in players:
-            team = cfg["name_map"].get(p["team_title"], p["team_title"])
-            contrib = max(float(p["goals"]) + float(p["assists"]) + float(p["xG"]), 0.0)
+            team = cfg.get("name_map", {}).get(p.get("team_title"), p.get("team_title"))
+            if not team:
+                continue
+            if p.get("source") == "asa":
+                contrib = max(
+                    float(p.get("goals_added") or 0) + 0.5 * float(p.get("xG_chain") or 0),
+                    0.0,
+                )
+            else:
+                contrib = max(
+                    float(p.get("goals") or 0) + float(p.get("assists") or 0) + float(p.get("xG") or 0),
+                    0.0,
+                )
+            pname = p.get("player_name") or p.get("player") or ""
             players_by_team.setdefault(team, []).append({
-                "name": p["player_name"], "norm": _normalize_person(p["player_name"]),
+                "name": pname, "norm": _normalize_person(pname),
                 "contrib": contrib,
             })
 
@@ -157,16 +177,28 @@ def predict_fixture_live(home, away, match_date, league_key="premier_league"):
     base_models, meta, best_strategy = models["over25"]
     p_over25 = predict_pl.best_classify(base_models, meta, best_strategy, X)[0][1]
 
-    base_models, meta, best_strategy = models["home_more_corners"]
-    p_home_more_corners = predict_pl.best_classify(base_models, meta, best_strategy, X)[0][1]
+    # Corner markets are skipped at train time for leagues without corner
+    # stats (MLS via ASA). load_stacked_models() returns None for those;
+    # match predict_all()'s empty-string fallback so live predict doesn't
+    # unpack None and 500 the fixture card.
+    if models["home_more_corners"] is None:
+        p_home_more_corners = None
+        more_corners_pred = ""
+    else:
+        base_models, meta, best_strategy = models["home_more_corners"]
+        p_home_more_corners = predict_pl.best_classify(base_models, meta, best_strategy, X)[0][1]
+        more_corners_pred = home if p_home_more_corners >= 0.5 else away
 
     home_is_favorite = float(X["Elo_Diff"].iloc[0]) >= 0
     favorite_team = home if home_is_favorite else away
     base_models, meta, best_strategy = models["favorite_avoids_defeat"]
     p_favorite_avoids_defeat = predict_pl.best_classify(base_models, meta, best_strategy, X)[0][1]
 
-    base_models, meta, best_strategy = models["total_corners"]
-    exp_total_corners = predict_pl.best_regress(base_models, meta, best_strategy, X)[0]
+    if models["total_corners"] is None:
+        exp_total_corners = None
+    else:
+        base_models, meta, best_strategy = models["total_corners"]
+        exp_total_corners = predict_pl.best_regress(base_models, meta, best_strategy, X)[0]
 
     return {
         "HomeTeam": home, "AwayTeam": away,
@@ -178,9 +210,13 @@ def predict_fixture_live(home, away, match_date, league_key="premier_league"):
         "BTTS_Prediction": "Yes" if p_btts >= 0.5 else "No",
         "P_Over_2.5_Goals": round(float(p_over25), 3),
         "Goals_Prediction": "Over 2.5" if p_over25 >= 0.5 else "Under 2.5",
-        "Exp_Total_Corners": round(float(exp_total_corners), 2),
-        "P_Home_More_Corners": round(float(p_home_more_corners), 3),
-        "More_Corners_Prediction": home if p_home_more_corners >= 0.5 else away,
+        "Exp_Total_Corners": (
+            "" if exp_total_corners is None else round(float(exp_total_corners), 2)
+        ),
+        "P_Home_More_Corners": (
+            "" if p_home_more_corners is None else round(float(p_home_more_corners), 3)
+        ),
+        "More_Corners_Prediction": more_corners_pred,
         "Favorite_Team": favorite_team,
         "P_Favorite_Avoids_Defeat": round(float(p_favorite_avoids_defeat), 3),
         "Favorite_Avoids_Defeat_Prediction": "Yes" if p_favorite_avoids_defeat >= 0.5 else "No",

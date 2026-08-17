@@ -1,147 +1,1235 @@
-{% extends "base.html" %}
+{% extends "admin_base.html" %}
 {% block title %}Admin Dashboard | Degen Predictions{% endblock %}
-{% block description %}Internal traffic dashboard.{% endblock %}
-{% block content %}
-<h1>Admin Dashboard</h1>
-<p class="muted">Server-side request log -- no cookies, no third-party analytics. Excludes static
-    assets and this dashboard's own requests. <a href="/results">Prediction accuracy &rarr;</a></p>
-<p class="muted">
-    <a href="/results?refresh=1" class="predict-btn" style="display:inline-block; text-decoration:none;">
-        &#128260; Force-refresh Predicted vs Actual now
-    </a>
-    <span style="margin-left:0.5rem;">(normally auto-refreshes every 3 hours; this recomputes immediately --
-        takes a few seconds since it re-fetches live news sentiment for recent matchups)</span>
-</p>
+{% block admin_content %}
 
-<h2 style="margin-top:1.5rem;">User Feedback &amp; Suggestions ({{ feedback_count }} total)</h2>
-{% if feedback_list %}
-<div class="table-wrap" style="margin-bottom:2rem;">
-<table>
-    <thead><tr><th>Time (UTC)</th><th>Time (IST)</th><th>Name</th><th>Email</th><th>Message</th><th>Page</th><th>IP</th><th>Location</th></tr></thead>
-    <tbody>
-    {% for f in feedback_list %}
-    <tr>
-        <td style="white-space:nowrap;">{{ f.ts[:19].replace('T', ' ') }}</td>
-        <td style="white-space:nowrap;">{{ f.ts_ist }}</td>
-        <td>{{ f.name or '-' }}</td>
-        <td>{{ f.email or '-' }}</td>
-        <td style="max-width:320px;">
-            <div class="feedback-msg" style="max-height:4.5em; overflow-y:auto; white-space:pre-wrap; word-break:break-word; line-height:1.5em; cursor:pointer;"
-                 onclick="this.style.maxHeight = this.style.maxHeight === 'none' ? '4.5em' : 'none';"
-                 title="Click to expand/collapse">{{ f.message }}</div>
-        </td>
-        <td style="max-width:200px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ f.page or '-' }}</td>
-        <td>{{ f.ip }}</td>
-        <td style="white-space:nowrap;">{{ f.location }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-</div>
-{% else %}
-<p class="muted" style="margin-bottom:2rem;">No feedback submitted yet.</p>
-{% endif %}
-
-<div class="card-grid" style="margin-bottom:1.5rem;">
-    <div class="card">
-        <h2>Last 30 Days</h2>
-        <p>Page views: <strong>{{ summary.total_visits }}</strong></p>
-        <p>Unique visitors: <strong>{{ summary.unique_visitors }}</strong></p>
+<section class="admin-section {{ 'is-visible' if admin_section == 'overview' else '' }}" data-admin-section="overview">
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="label">Page views · 30d</div>
+            <div class="value">{{ summary.total_visits }}</div>
+            <div class="sub">{{ summary.human_visits }} human · {{ summary.bot_visits }} bot</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Unique visitors · 30d</div>
+            <div class="value">{{ summary.unique_visitors }}</div>
+            <div class="sub">Deduped by IP</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Page views · 24h</div>
+            <div class="value">{{ summary.today_visits }}</div>
+            <div class="sub">{{ summary.today_human_visits }} human · {{ summary.today_bot_visits }} bot</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Unique · 24h</div>
+            <div class="value">{{ summary.today_unique_visitors }}</div>
+            <div class="sub">Feedback inbox: {{ feedback_count }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Unlock prediction · humans · 30d</div>
+            <div class="value">{{ gp_stats.clicks }}</div>
+            <div class="sub">{{ gp_stats.unique_events }} events · {{ gp_stats.unique_humans }} people</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Sports events · 30d</div>
+            <div class="value">{{ gp_stats.fixture_clicks }}</div>
+            <div class="sub">24h {{ gp_stats.today_fixture_clicks }} · fixture boards</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Today's Picks unlocks · 30d</div>
+            <div class="value">{{ gp_stats.pick_clicks }}</div>
+            <div class="sub">24h {{ gp_stats.today_pick_clicks }} · league slates</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Unlock combo · 30d</div>
+            <div class="value">{{ gp_stats.combo_clicks }}</div>
+            <div class="sub">24h {{ gp_stats.today_combo_clicks }} · Best Combos</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">All unlocks · humans · 24h</div>
+            <div class="value">{{ gp_stats.today_clicks }}</div>
+            <div class="sub">fixtures {{ gp_stats.today_fixture_clicks }} · combo {{ gp_stats.today_combo_clicks }} · picks {{ gp_stats.today_pick_clicks }}</div>
+        </div>
     </div>
-    <div class="card">
-        <h2>Last 24 Hours</h2>
-        <p>Page views: <strong>{{ summary.today_visits }}</strong></p>
-        <p>Unique visitors: <strong>{{ summary.today_unique_visitors }}</strong></p>
+
+    {% set mon = board_monitor or {} %}
+    {% set settle = mon.settle or {} %}
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Board monitor</h3>
+            <span class="muted">Fixtures and scores refresh every 5 minutes. You send Telegram and X.</span>
+        </div>
+        <div class="panel-body">
+            <p style="margin:0;">
+                Last pass {{ mon.updated_at or '—' }}
+                · settled {{ settle.slips_settled or 0 }} slips / {{ settle.picks_settled or 0 }} picks
+                · overdue {{ mon.overdue_count or 0 }}
+                · results waiting TG {{ (mon.results_waiting or {}).telegram or 0 }} / X {{ (mon.results_waiting or {}).twitter or 0 }}
+            </p>
+        </div>
     </div>
-</div>
 
-<h2 style="margin-top:2rem;">Daily Traffic (last 14 days)</h2>
-{% if daily %}
-<div class="table-wrap">
-<table>
-    <thead><tr><th>Day</th><th>Page Views</th><th>Unique Visitors</th><th></th></tr></thead>
-    <tbody>
-    {% set max_visits = (daily | map(attribute='visits') | list | max) if daily else 1 %}
-    {% for d in daily %}
-    <tr>
-        <td>{{ d.day }}</td>
-        <td>{{ d.visits }}</td>
-        <td>{{ d.unique_visitors }}</td>
-        <td style="width:200px;">
-            <div class="bar"><div class="bar-fill home" style="width: {{ (d.visits / max_visits * 100) if max_visits else 0 }}%"></div></div>
-        </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-</div>
-{% else %}
-<p class="muted">No traffic recorded yet.</p>
-{% endif %}
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Daily traffic</h3>
+            <span class="muted">Last 14 days</span>
+            <div class="panel-tools">
+                <a class="btn btn-sm" href="/admin?section=traffic&filter={{ visitor_filter }}">Open traffic</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            {% if daily %}
+            {% set max_visits = (daily | map(attribute='visits') | list | max) if daily else 1 %}
+            <div class="table-wrap">
+            <table class="admin-table">
+                <thead><tr><th>Day</th><th>Views</th><th>Uniques</th><th style="width:40%;">Spark</th></tr></thead>
+                <tbody>
+                {% for d in daily %}
+                <tr>
+                    <td class="mono">{{ d.day }}</td>
+                    <td class="mono">{{ d.visits }}</td>
+                    <td class="mono">{{ d.unique_visitors }}</td>
+                    <td><div class="bar"><div class="bar-fill" style="width: {{ (d.visits / max_visits * 100) if max_visits else 0 }}%"></div></div></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No traffic recorded yet.</p>
+            {% endif %}
+        </div>
+    </div>
 
-<h2 style="margin-top:2.5rem;">Top Pages (last 30 days)</h2>
-{% if top_pages %}
-<div class="table-wrap">
-<table>
-    <thead><tr><th>Path</th><th>Views</th></tr></thead>
-    <tbody>
-    {% for p in top_pages %}
-    <tr><td>{{ p.path }}</td><td>{{ p.visits }}</td></tr>
-    {% endfor %}
-    </tbody>
-</table>
-</div>
-{% else %}
-<p class="muted">No traffic recorded yet.</p>
-{% endif %}
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Unlock prediction clicks</h3>
+            <span class="muted">Humans only · last 30 days · sports events, Today's Picks, Unlock combo</span>
+            <div class="panel-tools">
+                <a class="btn btn-sm" href="/admin?section=gp&filter=human">All events</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            {% if gp_stats.events %}
+            <div class="table-wrap">
+            <table class="admin-table">
+                <thead><tr><th>Event</th><th>Kind</th><th>League</th><th>Clicks</th><th>People</th></tr></thead>
+                <tbody>
+                {% for e in gp_stats.events[:10] %}
+                <tr>
+                    <td>{{ e.label }}</td>
+                    <td class="mono">{{ e.kind_label }}</td>
+                    <td class="mono">{{ e.league_label }}</td>
+                    <td class="mono">{{ e.clicks }}</td>
+                    <td class="mono">{{ e.unique_humans }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No human Unlock prediction clicks in this window yet.</p>
+            {% endif %}
+        </div>
+    </div>
 
-<h2 style="margin-top:2.5rem;">Top Visitors by IP (last 30 days)</h2>
-{% if top_visitors %}
-<div class="table-wrap">
-<table>
-    <thead><tr><th>IP</th><th>Location</th><th>Requests</th><th>Distinct Pages</th>
-        <th>First Seen (UTC)</th><th>First Seen (IST)</th><th>Last Seen (UTC)</th><th>Last Seen (IST)</th></tr></thead>
-    <tbody>
-    {% for v in top_visitors %}
-    <tr>
-        <td>{{ v.ip }}</td><td style="white-space:nowrap;">{{ v.location }}</td>
-        <td>{{ v.visits }}</td><td>{{ v.distinct_pages }}</td>
-        <td style="white-space:nowrap;">{{ v.first_seen[:19].replace('T', ' ') }}</td>
-        <td style="white-space:nowrap;">{{ v.first_seen_ist }}</td>
-        <td style="white-space:nowrap;">{{ v.last_seen[:19].replace('T', ' ') }}</td>
-        <td style="white-space:nowrap;">{{ v.last_seen_ist }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-</div>
-{% else %}
-<p class="muted">No traffic recorded yet.</p>
-{% endif %}
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Quick actions</h3>
+        </div>
+        <div class="panel-body">
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>Accuracy ledger</h4>
+                    <p>Predicted vs actual across leagues. Force refresh recomputes now.</p>
+                    <a class="btn btn-primary btn-sm" href="/results?refresh=1">Refresh accuracy</a>
+                    <a class="btn btn-sm" href="/results">Open ledger</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Feedback inbox</h4>
+                    <p>{{ feedback_count }} message{{ 's' if feedback_count != 1 else '' }} waiting in the queue.</p>
+                    <a class="btn btn-sm" href="/admin?section=feedback&filter={{ visitor_filter }}">Review feedback</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Today's picks board</h4>
+                    <p>Admin-only slate across sports with sport / league / market filters.</p>
+                    <a class="btn btn-sm" href="/admin?section=picks">Open picks</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Best combos board</h4>
+                    <p>Market-mixed 2-leg / 3-leg slips with the same filters.</p>
+                    <a class="btn btn-sm" href="/admin?section=combos">Open combos</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Combo results</h4>
+                    <p>Snapshotted daily slips graded after fixtures finish — hit / pending / lost.</p>
+                    <a class="btn btn-sm" href="/admin?section=combo_results">Open results</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Send to Telegram &amp; X</h4>
+                    <p>Today's Picks and best combos — you send to Telegram and/or X.</p>
+                    <a class="btn btn-primary btn-sm" href="/admin?section=telegram">Open sender</a>
+                </div>
+                <div class="tool-card">
+                    <h4>X / Twitter posts</h4>
+                    <p>Queued Today's Picks, combos, and RESULT cards — post when you want.</p>
+                    <a class="btn btn-primary btn-sm" href="/admin?section=twitter">Open queue</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Results (Telegram &amp; X)</h4>
+                    <p>Settled slips wait here. You send RESULT cards to Telegram and/or X.</p>
+                    <a class="btn btn-primary btn-sm" href="/admin?section=degen_team">Open results</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Live requests</h4>
+                    <p>Last 100 hits with bot/human tags and geo.</p>
+                    <a class="btn btn-sm" href="/admin?section=requests&filter={{ visitor_filter }}">View stream</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<h2 style="margin-top:2.5rem;">Recent Requests (last 100)</h2>
-{% if recent %}
-<div class="table-wrap">
-<table>
-    <thead><tr><th>Time (UTC)</th><th>Time (IST)</th><th>IP</th><th>Location</th><th>Method</th><th>Path</th><th>Status</th><th>Referrer</th><th>User Agent</th></tr></thead>
-    <tbody>
-    {% for r in recent %}
-    <tr>
-        <td style="white-space:nowrap;">{{ r.ts[:19].replace('T', ' ') }}</td>
-        <td style="white-space:nowrap;">{{ r.ts_ist }}</td>
-        <td>{{ r.ip }}</td>
-        <td style="white-space:nowrap;">{{ r.location }}</td>
-        <td>{{ r.method }}</td>
-        <td>{{ r.path }}</td>
-        <td>{{ r.status }}</td>
-        <td>{{ r.referrer or '-' }}</td>
-        <td style="max-width:260px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ r.user_agent or '-' }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-</div>
-{% else %}
-<p class="muted">No traffic recorded yet.</p>
-{% endif %}
+<section class="admin-section {{ 'is-visible' if admin_section == 'feedback' else '' }}" data-admin-section="feedback">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>User feedback &amp; suggestions</h3>
+            <span class="muted">{{ feedback_count }} total</span>
+            <div class="panel-tools">
+                <input class="input js-table-search" data-table="feedback-table" type="search" placeholder="Search feedback…">
+            </div>
+        </div>
+        <div class="panel-body">
+            {% if feedback_list %}
+            <div class="table-wrap">
+            <table class="admin-table" id="feedback-table">
+                <thead>
+                <tr>
+                    <th>UTC</th><th>IST</th><th>Name</th><th>Email</th><th>Message</th>
+                    <th>Page</th><th>IP</th><th>Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for f in feedback_list %}
+                <tr>
+                    <td class="mono">{{ f.ts[:19].replace('T', ' ') }}</td>
+                    <td class="mono">{{ f.ts_ist }}</td>
+                    <td>{{ f.name or '—' }}</td>
+                    <td>{{ f.email or '—' }}</td>
+                    <td style="min-width:220px;"><div class="feedback-msg" title="Click to expand">{{ f.message }}</div></td>
+                    <td class="clip">{{ f.page or '—' }}</td>
+                    <td class="mono">{{ f.ip }}</td>
+                    <td class="mono">{{ f.location }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No feedback submitted yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="admin-section {{ 'is-visible' if admin_section == 'traffic' else '' }}" data-admin-section="traffic">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Daily traffic</h3>
+            <span class="muted">Last 14 days · page views &amp; uniques</span>
+        </div>
+        <div class="panel-body">
+            {% if daily %}
+            {% set max_visits = (daily | map(attribute='visits') | list | max) if daily else 1 %}
+            <div class="table-wrap">
+            <table class="admin-table">
+                <thead><tr><th>Day</th><th>Page views</th><th>Unique visitors</th><th style="width:45%;"></th></tr></thead>
+                <tbody>
+                {% for d in daily %}
+                <tr>
+                    <td class="mono">{{ d.day }}</td>
+                    <td class="mono">{{ d.visits }}</td>
+                    <td class="mono">{{ d.unique_visitors }}</td>
+                    <td><div class="bar"><div class="bar-fill" style="width: {{ (d.visits / max_visits * 100) if max_visits else 0 }}%"></div></div></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No traffic recorded yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="admin-section {{ 'is-visible' if admin_section == 'pages' else '' }}" data-admin-section="pages">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Top pages</h3>
+            <span class="muted">Last 30 days</span>
+            <div class="panel-tools">
+                <input class="input js-table-search" data-table="pages-table" type="search" placeholder="Filter paths…">
+            </div>
+        </div>
+        <div class="panel-body">
+            {% if top_pages %}
+            <div class="table-wrap">
+            <table class="admin-table" id="pages-table">
+                <thead><tr><th>Path</th><th>Views</th></tr></thead>
+                <tbody>
+                {% for p in top_pages %}
+                <tr><td>{{ p.path }}</td><td class="mono">{{ p.visits }}</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No traffic recorded yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="admin-section {{ 'is-visible' if admin_section == 'gp' else '' }}" data-admin-section="gp">
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="label">Clicks · humans · 30d</div>
+            <div class="value">{{ gp_stats.clicks }}</div>
+            <div class="sub">events {{ gp_stats.fixture_clicks }} · Today's Picks {{ gp_stats.pick_clicks }} · combo {{ gp_stats.combo_clicks }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Events · 30d</div>
+            <div class="value">{{ gp_stats.unique_events }}</div>
+            <div class="sub">Distinct fixtures unlocked</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">People · 30d</div>
+            <div class="value">{{ gp_stats.unique_humans }}</div>
+            <div class="sub">Deduped by IP</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Clicks · 24h</div>
+            <div class="value">{{ gp_stats.today_clicks }}</div>
+            <div class="sub">{{ gp_stats.today_unique_events }} events · {{ gp_stats.today_unique_humans }} people</div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Unlock prediction by event</h3>
+            <span class="muted">Humans only · last 30 days</span>
+            <div class="panel-tools">
+                <input class="input js-table-search" data-table="gp-table" type="search" placeholder="Filter events…">
+            </div>
+        </div>
+        <div class="panel-body">
+            {% if gp_stats.events %}
+            <div class="table-wrap">
+            <table class="admin-table" id="gp-table">
+                <thead>
+                <tr>
+                    <th>Event</th><th>Kind</th><th>League</th><th>Clicks</th><th>People</th><th>Last</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for e in gp_stats.events %}
+                <tr>
+                    <td>{{ e.label }}</td>
+                    <td class="mono">{{ e.kind_label }}</td>
+                    <td class="mono">{{ e.league_label }}</td>
+                    <td class="mono">{{ e.clicks }}</td>
+                    <td class="mono">{{ e.unique_humans }}</td>
+                    <td class="mono">{{ (e.last_seen or '')[:19].replace('T', ' ') }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No human Unlock prediction clicks in this window yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="admin-section {{ 'is-visible' if admin_section == 'recurring' else '' }}" data-admin-section="recurring">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Recurring visitors</h3>
+            <span class="muted">2+ distinct days · last 30 days · filter: {{ visitor_filter }}</span>
+            <div class="panel-tools">
+                <div class="chip-row">
+                    <a class="chip {{ 'is-active' if visitor_filter == 'all' else '' }}" href="/admin?section=recurring&filter=all">All</a>
+                    <a class="chip {{ 'is-active' if visitor_filter == 'human' else '' }}" href="/admin?section=recurring&filter=human">Humans</a>
+                    <a class="chip {{ 'is-active' if visitor_filter == 'bot' else '' }}" href="/admin?section=recurring&filter=bot">Bots</a>
+                </div>
+                <input class="input js-table-search" data-table="recurring-table" type="search" placeholder="Search IPs…">
+            </div>
+        </div>
+        <div class="panel-body">
+            {% if recurring %}
+            <div class="table-wrap">
+            <table class="admin-table" id="recurring-table">
+                <thead>
+                <tr>
+                    <th>IP</th><th>Type</th><th>Location</th><th>Days</th><th>Requests</th><th>Pages</th>
+                    <th>First UTC</th><th>First IST</th><th>Last UTC</th><th>Last IST</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for v in recurring %}
+                <tr>
+                    <td class="mono">{{ v.ip }}</td>
+                    <td><span class="badge {{ 'badge-bot' if v.is_bot else 'badge-human' }}">{{ "Bot" if v.is_bot else "Human" }}</span></td>
+                    <td class="mono">{{ v.location }}</td>
+                    <td class="mono">{{ v.distinct_days }}</td>
+                    <td class="mono">{{ v.visits }}</td>
+                    <td class="mono">{{ v.distinct_pages }}</td>
+                    <td class="mono">{{ v.first_seen[:19].replace('T', ' ') }}</td>
+                    <td class="mono">{{ v.first_seen_ist }}</td>
+                    <td class="mono">{{ v.last_seen[:19].replace('T', ' ') }}</td>
+                    <td class="mono">{{ v.last_seen_ist }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No recurring visitors in this window{% if visitor_filter != 'all' %} matching this filter{% endif %}.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="admin-section {{ 'is-visible' if admin_section == 'visitors' else '' }}" data-admin-section="visitors">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Top visitors by IP</h3>
+            <span class="muted">Last 30 days · filter: {{ visitor_filter }}</span>
+            <div class="panel-tools">
+                <div class="chip-row">
+                    <a class="chip {{ 'is-active' if visitor_filter == 'all' else '' }}" href="/admin?section=visitors&filter=all">All</a>
+                    <a class="chip {{ 'is-active' if visitor_filter == 'human' else '' }}" href="/admin?section=visitors&filter=human">Humans</a>
+                    <a class="chip {{ 'is-active' if visitor_filter == 'bot' else '' }}" href="/admin?section=visitors&filter=bot">Bots</a>
+                </div>
+                <input class="input js-table-search" data-table="visitors-table" type="search" placeholder="Search IPs…">
+            </div>
+        </div>
+        <div class="panel-body">
+            {% if top_visitors %}
+            <div class="table-wrap">
+            <table class="admin-table" id="visitors-table">
+                <thead>
+                <tr>
+                    <th>IP</th><th>Type</th><th>Location</th><th>Requests</th><th>Pages</th>
+                    <th>First UTC</th><th>First IST</th><th>Last UTC</th><th>Last IST</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for v in top_visitors %}
+                <tr>
+                    <td class="mono">{{ v.ip }}</td>
+                    <td><span class="badge {{ 'badge-bot' if v.is_bot else 'badge-human' }}">{{ "Bot" if v.is_bot else "Human" }}</span></td>
+                    <td class="mono">{{ v.location }}</td>
+                    <td class="mono">{{ v.visits }}</td>
+                    <td class="mono">{{ v.distinct_pages }}</td>
+                    <td class="mono">{{ v.first_seen[:19].replace('T', ' ') }}</td>
+                    <td class="mono">{{ v.first_seen_ist }}</td>
+                    <td class="mono">{{ v.last_seen[:19].replace('T', ' ') }}</td>
+                    <td class="mono">{{ v.last_seen_ist }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No traffic recorded yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="admin-section {{ 'is-visible' if admin_section == 'requests' else '' }}" data-admin-section="requests">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Recent requests</h3>
+            <span class="muted">Last 100 · filter: {{ visitor_filter }}</span>
+            <div class="panel-tools">
+                <div class="chip-row">
+                    <a class="chip {{ 'is-active' if visitor_filter == 'all' else '' }}" href="/admin?section=requests&filter=all">All</a>
+                    <a class="chip {{ 'is-active' if visitor_filter == 'human' else '' }}" href="/admin?section=requests&filter=human">Humans</a>
+                    <a class="chip {{ 'is-active' if visitor_filter == 'bot' else '' }}" href="/admin?section=requests&filter=bot">Bots</a>
+                </div>
+                <input class="input js-table-search" data-table="requests-table" type="search" placeholder="Search path / IP / UA…">
+            </div>
+        </div>
+        <div class="panel-body">
+            {% if recent %}
+            <div class="table-wrap">
+            <table class="admin-table" id="requests-table">
+                <thead>
+                <tr>
+                    <th>UTC</th><th>IST</th><th>IP</th><th>Type</th><th>Location</th>
+                    <th>Method</th><th>Path</th><th>Status</th><th>Referrer</th><th>User agent</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for r in recent %}
+                <tr>
+                    <td class="mono">{{ r.ts[:19].replace('T', ' ') }}</td>
+                    <td class="mono">{{ r.ts_ist }}</td>
+                    <td class="mono">{{ r.ip }}</td>
+                    <td><span class="badge {{ 'badge-bot' if r.is_bot else 'badge-human' }}">{{ "Bot" if r.is_bot else "Human" }}</span></td>
+                    <td class="mono">{{ r.location }}</td>
+                    <td>{{ r.method }}</td>
+                    <td>{{ r.path }}</td>
+                    <td class="mono">{{ r.status }}</td>
+                    <td class="clip">{{ r.referrer or '—' }}</td>
+                    <td class="clip" title="{{ r.user_agent or '' }}">{{ r.user_agent or '—' }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No traffic recorded yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="admin-section {{ 'is-visible' if admin_section == 'tools' else '' }}" data-admin-section="tools">
+    {% set health = admin_ops_health or {} %}
+    {% set disk = health.disk or {} %}
+    {% if admin_job_flash %}
+    <div class="src-toast {% if admin_job_flash == 'ok' %}is-ok{% else %}is-err{% endif %}">
+        <strong>{% if admin_job_flash == 'ok' %}Job done{% else %}Job failed{% endif %}</strong>
+        <span>{{ admin_job_flash_msg }}</span>
+    </div>
+    {% endif %}
+
+    <div class="panel" style="margin-bottom:1rem;">
+        <div class="panel-head">
+            <h3>System health</h3>
+            <span class="muted">{% if health.checked_at %}{{ health.checked_at }}{% else %}open this tab to refresh{% endif %}</span>
+        </div>
+        <div class="panel-body">
+            <div class="src-hero-kpis" style="margin-bottom:1rem;">
+                <div class="src-kpi {% if health.service_ok %}is-ok{% else %}is-bad{% endif %}">
+                    <span class="src-kpi-n">{% if health.service_ok %}UP{% else %}?{% endif %}</span>
+                    <span class="src-kpi-l">Web service</span>
+                </div>
+                <div class="src-kpi is-info">
+                    <span class="src-kpi-n">{{ disk.used_pct or 0 }}%</span>
+                    <span class="src-kpi-l">Disk used</span>
+                </div>
+                <div class="src-kpi {% if (health.alert_count or 0) %}is-bad{% else %}is-ok{% endif %}">
+                    <span class="src-kpi-n">{{ health.alert_count or 0 }}</span>
+                    <span class="src-kpi-l">Broken feeds</span>
+                </div>
+                <div class="src-kpi is-ok">
+                    <span class="src-kpi-n">{{ (health.sources or {}).working or 0 }}</span>
+                    <span class="src-kpi-l">Sources OK</span>
+                </div>
+            </div>
+            {% if health.units %}
+            <div class="table-wrap">
+                <table class="admin-table">
+                    <thead><tr><th>Unit</th><th>Active</th><th>Enabled</th><th>Last</th></tr></thead>
+                    <tbody>
+                        {% for u in health.units %}
+                        <tr>
+                            <td><code>{{ u.name }}</code></td>
+                            <td>
+                                {% if u.ok %}<span class="src-badge src-working">{{ u.active }}</span>
+                                {% else %}<span class="src-badge src-down">{{ u.active }}</span>{% endif %}
+                            </td>
+                            <td class="muted">{{ u.enabled }}</td>
+                            <td class="muted">{{ u.last }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+            <p class="muted" style="margin:0.75rem 0 0;">
+                Disk {{ disk.used_gb or 0 }}/{{ disk.total_gb or 0 }} GB
+                ({{ disk.free_gb or 0 }} free)
+            </p>
+            {% set inv = health.investment or {} %}
+            {% set inv_csv = inv.csv or {} %}
+            {% if inv and not inv.error %}
+            <div class="sources-feed-card" style="margin-top:1rem;">
+                <div class="sources-feed-head">
+                    <strong>Stocks / crypto</strong>
+                    <span class="muted">
+                        {% if inv.stocks_enabled %}stocks on{% else %}stocks off{% endif %}
+                        · {% if inv.crypto_enabled %}crypto on{% else %}crypto off{% endif %}
+                    </span>
+                </div>
+                <p class="muted" style="margin:0;">
+                    {% if inv_csv.exists %}
+                    CSV {{ inv_csv.rows or 0 }} rows (stocks {{ inv_csv.stocks_rows or 0 }} · crypto {{ inv_csv.crypto_rows or 0 }})
+                    · age {{ inv_csv.age_hours or '?' }}h
+                    {% if inv_csv.stale %}<span class="src-badge src-degraded">stale</span>{% endif %}
+                    {% else %}
+                    ranked_assets.csv missing
+                    {% endif %}
+                </p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="panel" style="margin-bottom:1rem;">
+        <div class="panel-head">
+            <h3>One-click jobs</h3>
+            <span class="muted">safe ops — no shell</span>
+        </div>
+        <div class="panel-body">
+            <div class="tools-grid">
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="probe_sources">
+                    <h4>Probe all APIs</h4>
+                    <p>Fresh health check for every alternate source.</p>
+                    <button type="submit" class="btn btn-primary">Run probe</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="heal_sources">
+                    <h4>Auto-fix broken feeds</h4>
+                    <p>Switch broken primaries to working backups.</p>
+                    <button type="submit" class="btn">Heal now</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="clear_mlb_cache">
+                    <h4>Clear MLB cache</h4>
+                    <p>Force the next MLB fixtures page to re-fetch.</p>
+                    <button type="submit" class="btn">Clear MLB</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="clear_nfl_cache">
+                    <h4>Clear NFL cache</h4>
+                    <p>Force the next NFL fixtures page to re-fetch.</p>
+                    <button type="submit" class="btn">Clear NFL</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="clear_soccer_cache">
+                    <h4>Clear soccer cache</h4>
+                    <p>Force PL / La Liga / … live feeds to re-fetch after a source switch.</p>
+                    <button type="submit" class="btn">Clear soccer</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="clear_rankings_cache">
+                    <h4>Clear stocks/crypto cache</h4>
+                    <p>Drop in-memory ranked_assets.csv cache so boards reload from disk.</p>
+                    <button type="submit" class="btn">Clear rankings</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="refresh_asset_logos">
+                    <h4>Warm asset logos</h4>
+                    <p>Hit CoinGecko/FMP for a sample of ranked tickers (logo cache).</p>
+                    <button type="submit" class="btn">Refresh logos</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="alert_stale_rankings">
+                    <h4>Stale CSV Telegram alert</h4>
+                    <p>Ping if ranked_assets.csv is missing or older than 45 days.</p>
+                    <button type="submit" class="btn">Check &amp; alert</button>
+                </form>
+                <form method="post" action="/admin/ops/upload-rankings" class="tool-card" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <h4>Upload ranked_assets.csv</h4>
+                    <p>Replace the stocks/crypto board file (keeps a timestamped backup).</p>
+                    <input type="file" name="csv_file" accept=".csv,text/csv" required class="select" style="margin:0.5rem 0;">
+                    <button type="submit" class="btn btn-primary">Upload CSV</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="alert_down_now">
+                    <h4>Telegram down alert</h4>
+                    <p>Send (or re-send) a Telegram ping for broken primaries.</p>
+                    <button type="submit" class="btn">Send alert</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="build_digest">
+                    <h4>Build today's digest</h4>
+                    <p>Writes picks/combos + slip PNGs. Does not auto-post to Telegram/X.</p>
+                    <button type="submit" class="btn btn-primary">Build digest</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="settle_due_results">
+                    <h4>Post due results</h4>
+                    <p>Send settled RESULT cards to Telegram (X stays on Results tab).</p>
+                    <button type="submit" class="btn">Settle due</button>
+                </form>
+                <form method="post" action="/admin/ops/job" class="tool-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="job" value="refresh_accuracy">
+                    <h4>Clear accuracy cache</h4>
+                    <p>Next /results?refresh=1 rebuilds Predicted vs Actual.</p>
+                    <button type="submit" class="btn">Clear cache</button>
+                </form>
+            </div>
+            {% set dig = health.digest or {} %}
+            {% if dig %}
+            <div class="sources-feed-card" style="margin-top:1rem;">
+                <div class="sources-feed-head">
+                    <strong>Digest / queue</strong>
+                    <span class="muted">today {{ dig.today or '—' }}</span>
+                </div>
+                <p class="muted" style="margin:0;">
+                    Latest digest:
+                    {% if dig.latest_digest %}
+                    {{ dig.latest_digest.date }} · {{ dig.latest_digest.picks }} picks · {{ dig.latest_digest.combos }} combo buckets
+                    {% else %}none{% endif %}
+                    · X queue {{ dig.twitter_queue or 0 }}
+                    {% if dig.last_telegram_send %}
+                    · last TG send {{ dig.last_telegram_send.day }} ({{ dig.last_telegram_send.count }} slips)
+                    {% endif %}
+                </p>
+            </div>
+            {% endif %}
+            {% if health.recent_jobs %}
+            <div class="table-wrap" style="margin-top:1rem;">
+                <table class="admin-table">
+                    <thead><tr><th>When</th><th>Job</th><th>OK</th><th>Detail</th><th>ms</th></tr></thead>
+                    <tbody>
+                        {% for j in health.recent_jobs %}
+                        <tr>
+                            <td class="muted">{{ j.ts }}</td>
+                            <td><code>{{ j.job }}</code></td>
+                            <td>{% if j.ok %}<span class="src-badge src-working">ok</span>{% else %}<span class="src-badge src-down">fail</span>{% endif %}</td>
+                            <td class="muted">{{ j.detail }}</td>
+                            <td class="muted">{{ j.ms or '—' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Operations</h3>
+            <span class="muted">Admin-only actions</span>
+        </div>
+        <div class="panel-body">
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>Force-refresh Predicted vs Actual</h4>
+                    <p>Normally auto-refreshes every 3 hours. This recomputes immediately (may take a few seconds; re-fetches live news sentiment for recent matchups).</p>
+                    <a class="btn btn-primary" href="/results?refresh=1">↻ Run refresh now</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Accuracy ledger</h4>
+                    <p>Browse football / MLB / NPB predicted-vs-actual summaries.</p>
+                    <a class="btn" href="/results">Open /results</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Past seasons / backtests</h4>
+                    <p>Per-league match-by-match football backtests (admin-only).</p>
+                    <div class="chip-row" style="margin-top:0.5rem; flex-wrap:wrap;">
+                        {% for key, cfg in leagues.items() %}
+                        <a class="chip" href="/{{ key }}/backtest">{{ cfg.label }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <h4>Player analysis</h4>
+                    <p>Per-league player stats / xG tables (admin-only).</p>
+                    <div class="chip-row" style="margin-top:0.5rem; flex-wrap:wrap;">
+                        {% for key, cfg in leagues.items() %}
+                        <a class="chip" href="/{{ key }}/players">{{ cfg.label }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <h4>Today's picks / Best combos</h4>
+                    <p>Admin boards with sport, league, market, and Over/Under filters.</p>
+                    <a class="btn btn-sm" href="/admin?section=picks">Picks</a>
+                    <a class="btn btn-sm" href="/admin?section=combos">Combos</a>
+                    <a class="btn btn-sm" href="/admin?section=combo_results">Combo results</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Public site</h4>
+                    <p>Jump out to the live product surface.</p>
+                    <a class="btn" href="/" target="_blank" rel="noopener">Open homepage</a>
+                </div>
+                <div class="tool-card">
+                    <h4>Visitor filter</h4>
+                    <p>Current filter applies to recurring, top visitors, and live requests.</p>
+                    <div class="chip-row" style="margin-top:0.5rem;">
+                        <a class="chip {{ 'is-active' if visitor_filter == 'all' else '' }}" href="/admin?section=tools&filter=all">All</a>
+                        <a class="chip {{ 'is-active' if visitor_filter == 'human' else '' }}" href="/admin?section=tools&filter=human">Humans</a>
+                        <a class="chip {{ 'is-active' if visitor_filter == 'bot' else '' }}" href="/admin?section=tools&filter=bot">Bots</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% set pf = picks_filters or {} %}
+<section class="admin-section {{ 'is-visible' if admin_section == 'picks' else '' }}" data-admin-section="picks">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Today's picks</h3>
+            <span class="muted">Combo-pool legs · {{ admin_pick_legs|length }} shown · admin only</span>
+        </div>
+        <div class="panel-body">
+            <form class="filters" method="get" action="/admin">
+                <input type="hidden" name="section" value="picks">
+                <input type="hidden" name="filter" value="{{ visitor_filter }}">
+                <label>Sport
+                    <select name="sport" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        {% for sk, sp in today_sports.items() %}
+                        <option value="{{ sk }}" {{ 'selected' if pf.sport == sk else '' }}>{{ sp.label }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>League
+                    <select name="league" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        {% for lid, llabel in admin_pick_leagues %}
+                        <option value="{{ lid }}" {{ 'selected' if pf.league == lid else '' }}>{{ llabel }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>Market
+                    <select name="market" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        {% for m in admin_pick_markets %}
+                        <option value="{{ m }}" {{ 'selected' if pf.market == m else '' }}>{{ m }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>Side
+                    <select name="side" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        <option value="over" {{ 'selected' if pf.side == 'over' else '' }}>Over</option>
+                        <option value="under" {{ 'selected' if pf.side == 'under' else '' }}>Under</option>
+                        <option value="other" {{ 'selected' if pf.side == 'other' else '' }}>Other (non O/U)</option>
+                    </select>
+                </label>
+                <label>Status
+                    <select name="status" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        <option value="upcoming" {{ 'selected' if pf.status == 'upcoming' else '' }}>Upcoming</option>
+                        <option value="live" {{ 'selected' if pf.status == 'live' else '' }}>Live</option>
+                        <option value="final" {{ 'selected' if pf.status == 'final' else '' }}>Final</option>
+                    </select>
+                </label>
+                <label>Min conf
+                    <select name="min_conf" onchange="this.form.submit()">
+                        <option value="">Any</option>
+                        <option value="0.55" {{ 'selected' if pf.min_conf == 0.55 else '' }}>≥55%</option>
+                        <option value="0.65" {{ 'selected' if pf.min_conf == 0.65 else '' }}>≥65%</option>
+                        <option value="0.68" {{ 'selected' if pf.min_conf == 0.68 else '' }}>≥68%</option>
+                        <option value="0.70" {{ 'selected' if pf.min_conf == 0.70 else '' }}>≥70%</option>
+                    </select>
+                </label>
+                <a class="btn btn-sm" href="/admin?section=picks&filter={{ visitor_filter }}">Clear</a>
+            </form>
+
+            {% if admin_pick_legs %}
+            <div class="table-wrap">
+            <table class="admin-table" id="admin-picks-table">
+                <thead>
+                <tr>
+                    <th>Sport</th><th>League</th><th>Matchup</th><th>Market</th>
+                    <th>Pick</th><th>Conf</th><th>Corr</th><th>Side</th><th>Status</th><th>When</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for leg in admin_pick_legs %}
+                <tr>
+                    <td>{{ leg.sport_label }}</td>
+                    <td>
+                        <span style="display:inline-block;width:0.5rem;height:0.5rem;border-radius:50%;background:{{ leg.league_color or '#888' }};margin-right:0.3rem;vertical-align:middle;"></span>
+                        {{ leg.league_label }}
+                    </td>
+                    <td>{% if leg.url %}<a href="{{ leg.url }}" target="_blank" rel="noopener">{{ leg.matchup }}</a>{% else %}{{ leg.matchup }}{% endif %}</td>
+                    <td>{{ leg.market }}</td>
+                    <td><strong>{{ leg.pick }}</strong></td>
+                    <td class="mono">{% if leg.confidence is not none %}{{ (leg.confidence * 100)|round(0)|int }}%{% else %}—{% endif %}</td>
+                    <td class="mono">
+                        {% if leg.correlation %}
+                        <strong>{{ leg.correlation.label }}</strong>
+                        <br><span class="muted" style="font-size:0.72rem;">{{ (leg.correlation.score * 100)|round(0)|int }}%{% if leg.correlation.reasons %} · {{ leg.correlation.reasons|join(' · ') }}{% endif %}</span>
+                        {% else %}—{% endif %}
+                    </td>
+                    <td class="mono">{% if leg.ou_side == 'over' %}Over{% elif leg.ou_side == 'under' %}Under{% else %}—{% endif %}</td>
+                    <td>{{ leg.status_label or leg.status }}</td>
+                    <td class="mono">{{ leg.when or '—' }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No picks match these filters (or today's slate is empty).</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="admin-section {{ 'is-visible' if admin_section == 'combos' else '' }}" data-admin-section="combos">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Best combos</h3>
+            <span class="muted">Mixed-market + mixed sports/leagues · {{ admin_combos_2|length }} / {{ admin_combos_3|length }} best · {{ admin_mixed_2|length }} / {{ admin_mixed_3|length }} mixed · admin only</span>
+        </div>
+        <div class="panel-body">
+            <form class="filters" method="get" action="/admin">
+                <input type="hidden" name="section" value="combos">
+                <input type="hidden" name="filter" value="{{ visitor_filter }}">
+                <label>Sport
+                    <select name="sport" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        {% for sk, sp in today_sports.items() %}
+                        <option value="{{ sk }}" {{ 'selected' if pf.sport == sk else '' }}>{{ sp.label }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>League
+                    <select name="league" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        {% for lid, llabel in admin_pick_leagues %}
+                        <option value="{{ lid }}" {{ 'selected' if pf.league == lid else '' }}>{{ llabel }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>Market
+                    <select name="market" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        {% for m in admin_pick_markets %}
+                        <option value="{{ m }}" {{ 'selected' if pf.market == m else '' }}>{{ m }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>Side
+                    <select name="side" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        <option value="over" {{ 'selected' if pf.side == 'over' else '' }}>Has Over</option>
+                        <option value="under" {{ 'selected' if pf.side == 'under' else '' }}>Has Under</option>
+                        <option value="other" {{ 'selected' if pf.side == 'other' else '' }}>Has non O/U</option>
+                    </select>
+                </label>
+                <label>Mix
+                    <select name="mix" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        <option value="mixed" {{ 'selected' if picks_mix == 'mixed' else '' }}>Mixed sports/leagues</option>
+                        <option value="cross" {{ 'selected' if picks_mix == 'cross' else '' }}>Cross-sport</option>
+                        <option value="league" {{ 'selected' if picks_mix == 'league' else '' }}>Cross-league</option>
+                        <option value="same" {{ 'selected' if picks_mix == 'same' else '' }}>Same-league</option>
+                    </select>
+                </label>
+                <label>Min joint
+                    <select name="min_joint" onchange="this.form.submit()">
+                        <option value="">Any</option>
+                        <option value="0.30" {{ 'selected' if picks_min_joint == '0.30' else '' }}>≥30%</option>
+                        <option value="0.40" {{ 'selected' if picks_min_joint == '0.40' else '' }}>≥40%</option>
+                        <option value="0.50" {{ 'selected' if picks_min_joint == '0.50' else '' }}>≥50%</option>
+                    </select>
+                </label>
+                <a class="btn btn-sm" href="/admin?section=combos&filter={{ visitor_filter }}">Clear</a>
+            </form>
+
+            {% for size, combos, title in [
+                (2, admin_mixed_2, 'Mixed sports & leagues · 2-leg'),
+                (3, admin_mixed_3, 'Mixed sports & leagues · 3-leg'),
+                (2, admin_combos_2, 'Best 2-leg'),
+                (3, admin_combos_3, 'Best 3-leg'),
+            ] %}
+            <h4 style="margin:1.25rem 0 0.5rem;">{{ title }} · {{ combos|length }} slip{{ 's' if combos|length != 1 else '' }}</h4>
+            {% if combos %}
+            <div class="table-wrap" style="margin-bottom:1rem;">
+            <table class="admin-table">
+                <thead>
+                <tr>
+                    <th>#</th><th>Mix</th><th>Joint</th><th>Corr</th><th>Legs</th><th>Fallback</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for c in combos %}
+                <tr>
+                    <td class="mono">{{ loop.index }}</td>
+                    <td>{{ c.mix_label }}<br><span class="muted">{{ c.mix_kind }}</span></td>
+                    <td class="mono"><strong>{{ (c.joint_prob * 100)|round(1) }}%</strong>
+                        {% if c.joint_formula %}<br><span class="muted" style="font-size:0.75rem;">{{ c.joint_formula }}</span>{% endif %}
+                    </td>
+                    <td class="mono">
+                        <strong>{{ c.corr_label or '—' }}</strong>
+                        {% if c.corr_score is not none %}<br><span class="muted" style="font-size:0.75rem;">{{ (c.corr_score * 100)|round(0)|int }}%</span>{% endif %}
+                        {% if c.correlation and c.correlation.reasons %}<br><span class="muted" style="font-size:0.72rem;">{{ c.correlation.reasons|join(' · ') }}</span>{% endif %}
+                    </td>
+                    <td style="min-width:280px;">
+                        {% for leg in c.legs %}
+                        <div style="margin-bottom:0.35rem;">
+                            <span style="display:inline-block;width:0.45rem;height:0.45rem;border-radius:50%;background:{{ leg.league_color or '#888' }};margin-right:0.3rem;vertical-align:middle;"></span>
+                            <strong>{{ leg.pick }}</strong>
+                            <span class="muted">· {{ leg.market }} · {{ (leg.confidence * 100)|round(0)|int }}% · {{ leg.league_label }}</span><br>
+                            <span class="muted">{% if leg.url %}<a href="{{ leg.url }}" target="_blank" rel="noopener">{{ leg.matchup }}</a>{% else %}{{ leg.matchup }}{% endif %}</span>
+                        </div>
+                        {% endfor %}
+                    </td>
+                    <td>{% if c.is_fallback %}<span class="badge badge-bot">Nearest</span>{% else %}<span class="badge badge-human">High-prob</span>{% endif %}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No {{ title|lower }} slips match these filters.</p>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="admin-section {{ 'is-visible' if admin_section == 'combo_results' else '' }}" data-admin-section="combo_results">
+    {% set crs = combo_results_summary or {} %}
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Combo results</h3>
+            <span class="muted">Last {{ crs.days or 30 }} days · snapshotted published slips · graded when fixtures finish</span>
+        </div>
+        <div class="panel-body">
+            <div class="tools-grid" style="margin-bottom:1rem;">
+                <div class="tool-card">
+                    <h4>Hit rate</h4>
+                    <p style="font-size:1.6rem; margin:0.25rem 0;">
+                        {% if crs.hit_rate is not none %}
+                        <strong>{{ (crs.hit_rate * 100)|round(1) }}%</strong>
+                        {% else %}—{% endif %}
+                    </p>
+                    <p class="muted" style="margin:0;">{{ crs.won or 0 }} won / {{ crs.lost or 0 }} lost
+                        ({{ crs.decided or 0 }} decided)</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Pending</h4>
+                    <p style="font-size:1.6rem; margin:0.25rem 0;"><strong>{{ crs.pending or 0 }}</strong></p>
+                    <p class="muted" style="margin:0;">Slips waiting on final scores</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Void / push</h4>
+                    <p style="font-size:1.6rem; margin:0.25rem 0;"><strong>{{ crs.void or 0 }}</strong></p>
+                    <p class="muted" style="margin:0;">DNB draws or unsettleable markets</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Actions</h4>
+                    <p class="muted">Re-settle pending legs from live / historical scores.</p>
+                    <a class="btn btn-primary btn-sm" href="/admin?section=combo_results&settle=1&filter={{ visitor_filter }}">Settle now</a>
+                    <a class="btn btn-sm" href="/admin?section=combos&filter={{ visitor_filter }}">Today's board</a>
+                </div>
+            </div>
+            {% if combo_settle_stats %}
+            <p class="muted" style="margin-top:0;">
+                Last settle pass: checked {{ combo_settle_stats.legs_checked }} legs,
+                updated {{ combo_settle_stats.legs_settled }} legs /
+                {{ combo_settle_stats.slips_settled }} slips.
+            </p>
+            {% endif %}
+
+            <form class="filters" method="get" action="/admin">
+                <input type="hidden" name="section" value="combo_results">
+                <input type="hidden" name="filter" value="{{ visitor_filter }}">
+                <input type="hidden" name="settle" value="1">
+                <label>Status
+                    <select name="combo_status" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        <option value="pending" {{ 'selected' if combo_status_filter == 'pending' else '' }}>Pending</option>
+                        <option value="won" {{ 'selected' if combo_status_filter == 'won' else '' }}>Won</option>
+                        <option value="lost" {{ 'selected' if combo_status_filter == 'lost' else '' }}>Lost</option>
+                        <option value="void" {{ 'selected' if combo_status_filter == 'void' else '' }}>Void</option>
+                    </select>
+                </label>
+            </form>
+
+            {% if combo_results_slips %}
+            <div class="table-wrap">
+            <table class="admin-table">
+                <thead>
+                <tr>
+                    <th>Date</th><th>Slip</th><th>Joint</th><th>Status</th><th>Legs</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for s in combo_results_slips %}
+                <tr>
+                    <td class="mono">{{ s.slate_date }}</td>
+                    <td>
+                        {{ s.size }}-leg · {{ s.bucket }}
+                        {% if s.mix_kind %}<br><span class="muted">{{ s.mix_kind }}{% if s.mix_label %} · {{ s.mix_label }}{% endif %}</span>{% endif %}
+                        {% if s.is_soft_fill %}<br><span class="badge badge-bot">Extra slip</span>{% endif %}
+                        {% if s.is_fallback %}<br><span class="badge badge-bot">Nearest</span>{% endif %}
+                    </td>
+                    <td class="mono"><strong>{{ ((s.joint_prob or 0) * 100)|round(1) }}%</strong></td>
+                    <td>
+                        {% if s.status == 'won' %}
+                        <span class="badge badge-human">Won</span>
+                        {% elif s.status == 'lost' %}
+                        <span class="badge badge-bot">Lost</span>
+                        {% elif s.status == 'void' %}
+                        <span class="badge">Void</span>
+                        {% else %}
+                        <span class="badge">Pending</span>
+                        {% endif %}
+                    </td>
+                    <td style="min-width:280px;">
+                        {% for leg in s.legs %}
+                        <div style="margin-bottom:0.4rem;">
+                            {% if leg.status == 'won' %}
+                            <span class="badge badge-human">Hit</span>
+                            {% elif leg.status == 'lost' %}
+                            <span class="badge badge-bot">Miss</span>
+                            {% elif leg.status == 'push' %}
+                            <span class="badge">Push</span>
+                            {% elif leg.status == 'void' %}
+                            <span class="badge">Void</span>
+                            {% else %}
+                            <span class="badge">…</span>
+                            {% endif %}
+                            <strong>{{ leg.pick }}</strong>
+                            <span class="muted">· {{ leg.market }} · {{ leg.league_label or leg.league_id }}</span><br>
+                            <span class="muted">{{ leg.matchup }}{% if leg.actual_note %} · {{ leg.actual_note }}{% endif %}</span>
+                        </div>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No snapshotted combo slips yet. Open Best Combos (or wait for a live rebuild) to capture today's board, then return here after games finish.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% include "partials/admin_telegram_sender.html" %}
+{% include "partials/admin_lifecycle.html" %}
+{% include "partials/admin_sources.html" %}
+{% include "partials/admin_security.html" %}
+{% include "partials/admin_degen_team.html" %}
+{% include "partials/admin_twitter_queue.html" %}
+
+{% endblock %}
+
+{% block admin_scripts %}
+{% include "partials/admin_telegram_scripts.html" %}
+<script>
+(function () {
+  const root = document.getElementById("tw-queue");
+  if (!root) return;
+  const cards = Array.from(root.querySelectorAll(".tw-card"));
+  let idx = 0;
+
+  function tweetLen(text) {
+    const url = (text.match(/https?:\/\/\S+/g) || [])[0] || "";
+    if (!url) return text.length;
+    return text.length - url.length + 23;
+  }
+
+  function show(i) {
+    idx = Math.max(0, Math.min(cards.length - 1, i));
+    cards.forEach((card, n) => card.classList.toggle("is-hidden", n !== idx));
+  }
+
+  function refreshChars(card) {
+    const ta = card.querySelector(".tw-text");
+    const chars = card.querySelector("[data-tw-chars]");
+    if (!ta || !chars) return;
+    const n = tweetLen(ta.value);
+    chars.textContent = n + " / 280";
+    chars.classList.toggle("tw-over", n > 280);
+  }
+
+  function intentUrl(text) {
+    return "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text);
+  }
+
+  async function copyText(card) {
+    const ta = card.querySelector(".tw-text");
+    const status = card.querySelector(".tw-status");
+    try {
+      await navigator.clipboard.writeText(ta.value);
+      if (status) status.textContent = "Caption copied.";
+      return true;
+    } catch (err) {
+      ta.select();
+      if (status) status.textContent = "Select-all ready — copy with Ctrl+C.";
+      return false;
+    }
+  }
+
+  async function copyImage(card) {
+    const status = card.querySelector(".tw-status");
+    const img = card.querySelector(".tw-image");
+    const url = card.dataset.imageUrl || (img && img.src) || "";
+    if (!url) {
+      if (status) status.textContent = "No image on this slip.";
+      return false;
+    }
+    try {
+      const resp = await fetch(url, { credentials: "same-origin" });
+      if (!resp.ok) throw new Error("fetch failed");
+      const blob = await resp.blob();
+      if (navigator.clipboard && window.ClipboardItem) {
+        await navigator.clipboard.write([
+          new ClipboardItem({ [blob.type || "image/png"]: blob }),
+        ]);
+        if (status) status.textContent = "Image copied — paste into X with Ctrl+V.";
+        return true;
+      }
+      throw new Error("clipboard image unsupported");
+    } catch (err) {
+      const dl = card.querySelector(".tw-download");
+      if (dl) dl.click();
+      if (status) status.textContent = "Download started — attach that PNG in X.";
+      return false;
+    }
+  }
+
+  function downloadImage(card) {
+    const dl = card.querySelector(".tw-download");
+    if (dl) dl.click();
+  }
+
+  cards.forEach((card) => {
+    const ta = card.querySelector(".tw-text");
+    const status = card.querySelector(".tw-status");
+    if (ta) ta.addEventListener("input", () => refreshChars(card));
+    card.querySelector(".tw-prev")?.addEventListener("click", () => show(idx - 1));
+    card.querySelector(".tw-next")?.addEventListener("click", () => show(idx + 1));
+    card.querySelector(".tw-copy")?.addEventListener("click", () => copyText(card));
+    card.querySelector(".tw-copy-image")?.addEventListener("click", () => copyImage(card));
+    card.querySelector(".tw-post-x")?.addEventListener("click", async () => {
+      await copyText(card);
+      downloadImage(card);
+      const url = intentUrl(ta.value);
+      window.open(url, "_blank", "noopener,noreferrer");
+      if (status) {
+        status.textContent = "Caption copied + image download started. Prefer Auto-post ALL via the extension.";
+      }
+    });
+    // Extension owns .tw-ext-post-page (capture listener). Do not also dispatch
+    // degen-x-queue-post here — that was posting / attaching the image twice.
+    refreshChars(card);
+  });
+})();
+</script>
 {% endblock %}

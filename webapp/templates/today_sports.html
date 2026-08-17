@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Today's Picks — Sports Predictions Today | Degen Predictions{% endblock %}
+{% block description %}Today's Picks: free high-probability sports predictions today for MLB, tennis, EPL, La Liga, CPL, and more — plus multi-bet Best Combos across leagues. Educational estimates, not betting advice.{% endblock %}
+{% block keywords %}todays picks, today's picks, sports predictions today, MLB picks today, tennis picks today, football predictions today, EPL predictions, La Liga predictions, CPL predictions, multi bet prediction{% endblock %}
+{% block content %}
+{% from "macros.html" import breadcrumb_jsonld %}
+{{ breadcrumb_jsonld([
+    {"label": "Home", "href": "/"},
+    {"label": "Today's Picks", "href": "/todays-picks"},
+]) }}
+<div class="leagues-hero">
+    <h1>Today's Picks</h1>
+    <p class="muted">Today's sports predictions by league — MLB, tennis match tips, EPL, La Liga, CPL, and more. High-probability markets only (up to 8 tips per league). Estimates, not betting advice.</p>
+    {% include "partials/updated_stamp.html" %}
+    <p style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:.55rem;">
+        <a class="league-cta" href="/todays-picks/combos" style="display:inline-block; text-decoration:none;">Multi bet / Best Combos</a>
+    </p>
+</div>
+{% set share_text = "Degen Predictions — Today's Picks: https://degenpredictions.com/todays-picks" %}
+{% include "partials/share_bar.html" %}
+{% include "partials/telegram_cta.html" %}
+
+
+<div class="league-grid">
+    {% for sport_key, sport in sports.items() %}
+    <a class="league-card" href="/todays-picks/{{ sport_key }}" style="--league-color: {{ sport.color }};">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>{{ sport.label|upper }}</h2>
+            <p class="league-desc">{{ sport.leagues|length }} league{{ 's' if sport.leagues|length != 1 else '' }} · multi-market tips</p>
+            <span class="league-cta">Choose league</span>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% set habit_title = "Make it a daily habit" %}
+{% set habit_blurb = "Browse Today's Picks by league each morning. Daily Top-3 slips post on Telegram — Join Telegram when the channel link is shown above." %}
+{% set share_text = "Degen Predictions — Today's Picks: https://degenpredictions.com/todays-picks" %}
+{% set habit_primary_href = "/todays-picks/combos" %}
+{% set habit_primary_label = "Best Combos" %}
+{% set habit_secondary_href = "/accuracy" %}
+{% set habit_secondary_label = "Accuracy ledger" %}
+{% include "partials/daily_habit.html" %}
+{% include "partials/seo_hub_links.html" %}
+{% endblock %}

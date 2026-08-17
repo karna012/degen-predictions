@@ -1,7 +1,7 @@
 """Event-driven cricket retrain: checks whether Cricsheet's The Hundred /
-MLC archives have NEW completed matches since the last retrain (hash of the
-downloaded raw JSON directories), and only rebuilds features + retrains +
-redeploys if so -- mirrors scripts/check_and_retrain_soccer.py's
+MLC / IPL / BBL archives have NEW completed matches since the last retrain
+(hash of the downloaded raw JSON directories), and only rebuilds features +
+retrains + redeploys if so -- mirrors scripts/check_and_retrain_soccer.py's
 hash-and-skip pattern exactly, adapted for Cricsheet's "one zip per
 competition" shape instead of per-league season CSVs.
 

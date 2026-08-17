@@ -1,0 +1,241 @@
+{# All-sports lifecycle: upcoming → live → final → settled → RESULT posted. #}
+<section class="admin-section {{ 'is-visible' if admin_section == 'lifecycle' else '' }}" data-admin-section="lifecycle">
+    {% set lb = lifecycle_board or {} %}
+    {% set lf = lifecycle_filters or {} %}
+    {% set kpis = lb.kpis or {} %}
+    {% set mon = board_monitor or {} %}
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Lifecycle — all sports</h3>
+            <span class="muted">Upcoming → live → settled → RESULT on Telegram / X</span>
+        </div>
+        <div class="panel-body">
+            {% if dt_flash %}
+            <p style="margin:0 0 0.85rem;">
+                {% if dt_flash.startswith('ok_') %}
+                <strong class="badge badge-human">{{ dt_flash.replace('ok_', '')|upper }}</strong>
+                {% if dt_flash_msg %}<span class="muted"> — {{ dt_flash_msg }}</span>{% endif %}
+                {% else %}
+                <strong class="badge badge-bot">Action failed</strong>
+                {% if dt_flash_msg %}<span class="muted"> — {{ dt_flash_msg }}</span>{% endif %}
+                {% endif %}
+            </p>
+            {% endif %}
+
+            <div class="stat-grid lifecycle-kpis">
+                <div class="stat-card">
+                    <div class="label">Rows</div>
+                    <div class="value">{{ kpis.total or 0 }}</div>
+                    <div class="sub">filtered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Upcoming</div>
+                    <div class="value">{{ kpis.upcoming or 0 }}</div>
+                    <div class="sub">live {{ kpis.live or 0 }} · final {{ kpis.final or 0 }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Overdue</div>
+                    <div class="value">{{ kpis.overdue or 0 }}</div>
+                    <div class="sub">monitor {{ mon.overdue_count or 0 }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Waiting RESULT</div>
+                    <div class="value">{{ (kpis.waiting_tg or 0) + (kpis.waiting_x or 0) }}</div>
+                    <div class="sub">TG {{ kpis.waiting_tg or 0 }} · X {{ kpis.waiting_x or 0 }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Channel sent</div>
+                    <div class="value">{{ kpis.channel_sent or 0 }}</div>
+                    <div class="sub">board-only {{ kpis.board_only or 0 }}</div>
+                </div>
+            </div>
+
+            <form method="get" action="/admin" class="lifecycle-filters filters">
+                <input type="hidden" name="section" value="lifecycle">
+                <input type="hidden" name="filter" value="{{ visitor_filter }}">
+                <label>
+                    Sport
+                    <select name="lc_sport" class="select" onchange="this.form.submit()">
+                        <option value="">All sports</option>
+                        {% for sk in (lb.sports or []) %}
+                        <option value="{{ sk }}" {{ 'selected' if lf.sport == sk else '' }}>{{ sk }}</option>
+                        {% endfor %}
+                        {% for sk, sport in (today_sports or {}).items() %}
+                        {% if sk not in (lb.sports or []) %}
+                        <option value="{{ sk }}" {{ 'selected' if lf.sport == sk else '' }}>{{ sport.label or sk }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>
+                    League
+                    <select name="lc_league" class="select" onchange="this.form.submit()">
+                        <option value="">All leagues</option>
+                        {% for lid, ll in (lb.leagues or []) %}
+                        <option value="{{ lid }}" {{ 'selected' if lf.league == lid else '' }}>{{ ll or lid }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>
+                    Phase
+                    <select name="lc_phase" class="select" onchange="this.form.submit()">
+                        <option value="">All phases</option>
+                        <option value="upcoming" {{ 'selected' if lf.phase == 'upcoming' else '' }}>Upcoming</option>
+                        <option value="live" {{ 'selected' if lf.phase == 'live' else '' }}>Live</option>
+                        <option value="final" {{ 'selected' if lf.phase == 'final' else '' }}>Final</option>
+                    </select>
+                </label>
+                <label>
+                    Settle
+                    <select name="lc_settle" class="select" onchange="this.form.submit()">
+                        <option value="">Any</option>
+                        <option value="pending" {{ 'selected' if lf.settle == 'pending' else '' }}>Pending</option>
+                        <option value="won" {{ 'selected' if lf.settle == 'won' else '' }}>Won</option>
+                        <option value="lost" {{ 'selected' if lf.settle == 'lost' else '' }}>Lost</option>
+                        <option value="void" {{ 'selected' if lf.settle == 'void' else '' }}>Void</option>
+                    </select>
+                </label>
+                <label class="tg-market-row">
+                    <input type="checkbox" name="lc_overdue" value="1" {{ 'checked' if lf.overdue else '' }} onchange="this.form.submit()">
+                    <span>Overdue</span>
+                </label>
+                <label class="tg-market-row">
+                    <input type="checkbox" name="lc_waiting" value="1" {{ 'checked' if lf.waiting else '' }} onchange="this.form.submit()">
+                    <span>Waiting RESULT</span>
+                </label>
+                <label class="tg-market-row">
+                    <input type="checkbox" name="lc_channel" value="1" {{ 'checked' if lf.channel else '' }} onchange="this.form.submit()">
+                    <span>Channel sent</span>
+                </label>
+                <label class="tg-market-row">
+                    <input type="checkbox" name="lc_board" value="1" {{ 'checked' if lf.board else '' }} onchange="this.form.submit()">
+                    <span>Not sent</span>
+                </label>
+                <a class="btn btn-sm" href="/admin?section=lifecycle&settle=1&filter={{ visitor_filter }}">Settle now</a>
+                <a class="btn btn-sm" href="/admin?section=telegram&filter={{ visitor_filter }}">Open send</a>
+            </form>
+
+            {% set rows = lb.rows or [] %}
+            {% if rows %}
+            <form method="post" action="/admin/telegram-results-post" id="lifecycle-results-form">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <input type="hidden" name="select_mode" value="1">
+                <input type="hidden" name="next_section" value="lifecycle">
+                <div class="tg-send-row" style="margin:0.85rem 0;">
+                    <label class="tg-market-row">
+                        <input type="checkbox" name="channel_telegram" value="1" checked>
+                        <span>Telegram</span>
+                    </label>
+                    <label class="tg-market-row">
+                        <input type="checkbox" name="channel_x" value="1" checked>
+                        <span>X</span>
+                    </label>
+                    <button type="submit" class="btn btn-primary btn-sm">Send selected RESULT</button>
+                </div>
+            </form>
+            <div class="table-wrap">
+            <table class="admin-table lifecycle-table">
+                <thead>
+                    <tr>
+                        <th>Send</th>
+                        <th>Sport</th>
+                        <th>Matchup</th>
+                        <th>When (IST)</th>
+                        <th>Phase</th>
+                        <th>Tip</th>
+                        <th>Channel</th>
+                        <th>Settle</th>
+                        <th>RESULT</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for r in rows %}
+                <tr class="lifecycle-row phase-{{ r.phase or 'upcoming' }}">
+                    <td>
+                        {% if r.waiting_tg or r.waiting_x %}
+                        <input type="checkbox" class="admin-result-cb" form="lifecycle-results-form"
+                               name="result_key" value="{{ r.result_key }}"
+                               {% if r.waiting_tg %}checked{% endif %}>
+                        {% else %}—{% endif %}
+                    </td>
+                    <td>
+                        <strong>{{ r.sport_key or '—' }}</strong><br>
+                        <span class="muted">{{ r.league_label or r.league_id or '' }}</span>
+                    </td>
+                    <td style="min-width:160px;">
+                        {% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.matchup or '—' }}</a>
+                        {% else %}{{ r.matchup or '—' }}{% endif %}
+                        {% if r.actual_note %}<br><span class="muted">{{ r.actual_note }}</span>{% endif %}
+                    </td>
+                    <td class="mono">{{ r.kickoff_ist or '—' }}</td>
+                    <td>
+                        {% if r.phase == 'live' %}<span class="badge badge-human">LIVE</span>
+                        {% elif r.phase == 'final' %}<span class="badge">FINAL</span>
+                        {% else %}<span class="badge">UPCOMING</span>{% endif %}
+                        {% if r.hours_overdue %}<br><span class="muted">+{{ r.hours_overdue }}h</span>{% endif %}
+                    </td>
+                    <td style="min-width:180px;">{{ r.tip or '—' }}</td>
+                    <td class="mono">
+                        {% if r.channel_sent %}
+                            {% if r.channel_serial %}#T-{{ '%05d'|format(r.channel_serial) }}{% else %}sent{% endif %}
+                        {% else %}
+                        <span class="muted">not sent</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if r.settle_status == 'won' %}<span class="badge badge-human">WON</span>
+                        {% elif r.settle_status == 'lost' %}<span class="badge badge-bot">LOST</span>
+                        {% elif r.settle_status in ('void', 'push') %}<span class="badge">VOID</span>
+                        {% elif r.settle_status == 'pending' %}<span class="badge">Pending</span>
+                        {% else %}<span class="muted">—</span>{% endif %}
+                    </td>
+                    <td>
+                        {% if r.result_blocked %}<span class="badge badge-bot">blocked</span>
+                        {% elif r.tg_result_posted or r.x_result_posted %}
+                        <span class="muted">{% if r.tg_result_posted %}TG{% endif %}{% if r.tg_result_posted and r.x_result_posted %} · {% endif %}{% if r.x_result_posted %}X{% endif %}</span>
+                        {% elif r.waiting_tg or r.waiting_x %}
+                        <span class="badge badge-human">waiting</span>
+                        {% else %}<span class="muted">—</span>{% endif %}
+                    </td>
+                    <td style="min-width:200px;">
+                        {% if r.channel_sent and r.settle_status == 'pending' and r.id %}
+                        <form method="post" action="/admin/degen-team/settle" class="lifecycle-inline-form">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <input type="hidden" name="kind" value="{{ r.kind }}">
+                            <input type="hidden" name="id" value="{{ r.id }}">
+                            <input type="hidden" name="next_section" value="lifecycle">
+                            <button class="btn btn-sm" name="status" value="won" type="submit">W</button>
+                            <button class="btn btn-sm" name="status" value="lost" type="submit">L</button>
+                            <button class="btn btn-sm" name="status" value="void" type="submit">V</button>
+                        </form>
+                        {% endif %}
+                        {% if r.channel_sent and r.id and r.kind %}
+                        <form method="post" action="/admin/lifecycle/block" class="lifecycle-inline-form">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <input type="hidden" name="kind" value="{{ r.kind }}">
+                            <input type="hidden" name="id" value="{{ r.id }}">
+                            {% if r.result_blocked %}
+                            <input type="hidden" name="blocked" value="0">
+                            <button class="btn btn-sm" type="submit">Unblock</button>
+                            {% else %}
+                            <input type="hidden" name="blocked" value="1">
+                            <button class="btn btn-sm" type="submit">Block RESULT</button>
+                            {% endif %}
+                        </form>
+                        {% endif %}
+                        {% if not r.channel_sent %}
+                        <a class="btn btn-sm" href="/admin?section=telegram&filter={{ visitor_filter }}{% if r.sport_key %}&sport={{ r.sport_key }}{% endif %}">Send</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            {% else %}
+            <p class="empty">No lifecycle rows for these filters. Clear filters or open Send to Telegram for today's slate.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>

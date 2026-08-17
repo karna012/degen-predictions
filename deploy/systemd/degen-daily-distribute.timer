@@ -1,0 +1,14 @@
+[Unit]
+Description=Daily Top-3 digest + catch-up (IST morning through afternoon)
+
+[Timer]
+OnCalendar=*-*-* 03:30:00
+OnCalendar=*-*-* 05:00:00
+OnCalendar=*-*-* 07:30:00
+OnCalendar=*-*-* 10:00:00
+Persistent=true
+AccuracySec=1min
+Unit=degen-daily-distribute.service
+
+[Install]
+WantedBy=timers.target

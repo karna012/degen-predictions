@@ -1,0 +1,195 @@
+{
+  "verdict": "FAIL",
+  "webapp_pytest": {
+    "total": 405,
+    "passed": 400,
+    "failed": 5,
+    "errors": 0,
+    "skipped": 0,
+    "by_file": [
+      {
+        "file": "test_admin",
+        "role": "admin",
+        "passed": 8,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_analytics",
+        "role": "analytics",
+        "passed": 14,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_cricket",
+        "role": "cricket functional",
+        "passed": 47,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0,
+        "failures": [
+          {
+            "name": "test_hundred_fixture_detail_includes_pitch_and_weather_when_available",
+            "message": "assert 'Pitch Report' in '<!doctype html>\\n<html lang=\"en\">\\n<head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5\">\\n    <meta name=\"color-scheme\" content=\"dark light\">\\n    <meta name=\"theme-color\" content=\"#"
+          },
+          {
+            "name": "test_hundred_match_detail_page_loads",
+            "message": "assert 'Match terminal' in '<!doctype html>\\n<html lang=\"en\">\\n<head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5\">\\n    <meta name=\"color-scheme\" content=\"dark light\">\\n    <meta name=\"theme-color\" content="
+          },
+          {
+            "name": "test_ipl_results_match_detail_has_analysis",
+            "message": "assert ('Team analysis' in '<!doctype html>\\n<html lang=\"en\">\\n<head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5\">\\n    <meta name=\"color-scheme\" content=\"dark light\">\\n    <meta name=\"theme-color\" content="
+          }
+        ]
+      },
+      {
+        "file": "test_feedback",
+        "role": "feedback",
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_functional",
+        "role": "functional / API (Flask client)",
+        "passed": 71,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_investment_scoring",
+        "role": "investment boards (stocks/crypto)",
+        "passed": 24,
+        "failed": 1,
+        "errors": 0,
+        "skipped": 0,
+        "failures": [
+          {
+            "name": "test_crypto_range_detail_has_no_fake_trajectory",
+            "message": "assert ('absolute usd return direction failed' in '<!doctype html>\\n<html lang=\"en\">\\n<head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5\">\\n    <meta name=\"color-scheme\" content=\"dark light\">\\n    <meta name"
+          }
+        ]
+      },
+      {
+        "file": "test_mlb",
+        "role": "MLB functional",
+        "passed": 44,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_npb",
+        "role": "NPB functional",
+        "passed": 28,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_performance",
+        "role": "performance (incl. slow)",
+        "passed": 21,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_regression",
+        "role": "regression / contract",
+        "passed": 43,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_safer_result",
+        "role": "safer-result logic",
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_seo",
+        "role": "SEO",
+        "passed": 32,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_soccer_match_analysis",
+        "role": "soccer match analysis",
+        "passed": 8,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_soccer_players",
+        "role": "soccer players",
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      },
+      {
+        "file": "test_today_picks",
+        "role": "today's picks",
+        "passed": 26,
+        "failed": 1,
+        "errors": 0,
+        "skipped": 0,
+        "failures": [
+          {
+            "name": "test_combo_picks_page_loads",
+            "message": "EOFError: Ran out of input"
+          }
+        ]
+      },
+      {
+        "file": "test_unit",
+        "role": "unit",
+        "passed": 19,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": []
+      }
+    ]
+  },
+  "investment_scoring_lstm": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  },
+  "live_blackbox_smoke": {
+    "total": 25,
+    "passed": 25,
+    "failed": 0,
+    "failures": []
+  },
+  "not_present_in_repo": [
+    "No dedicated A/B test harness",
+    "No Playwright/Cypress/Selenium E2E suite",
+    "No separate Postman/Newman API collection"
+  ]
+}

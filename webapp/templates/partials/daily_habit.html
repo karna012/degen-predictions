@@ -1,0 +1,29 @@
+{# Lightweight retention nudge — no fake Telegram/WhatsApp channels.
+   Expects optional: share_text, habit_title, habit_blurb, share_url,
+   habit_primary_href, habit_primary_label, habit_secondary_href, habit_secondary_label #}
+{% set _title = habit_title|default("Get daily picks") %}
+{% set _blurb = habit_blurb|default("Bookmark this page and share Today's Picks when the slate drops. No account required.") %}
+{% set _share = share_text|default("Degen Predictions — Today's Picks: free ML sports picks") %}
+{% set _primary_href = habit_primary_href|default("/todays-picks") %}
+{% set _primary_label = habit_primary_label|default("Open Today's Picks") %}
+{% set _secondary_href = habit_secondary_href|default("/todays-picks") %}
+{% set _secondary_label = habit_secondary_label|default("Open Today's Picks") %}
+{% if telegram_channel_url and not habit_secondary_href %}
+  {% set _secondary_href = "/go/telegram" %}
+  {% set _secondary_label = "Join Telegram" %}
+{% endif %}
+<section class="daily-habit" aria-label="Follow daily picks">
+  <div class="daily-habit-copy">
+    <h2>{{ _title }}</h2>
+    <p class="muted">{{ _blurb }}</p>
+  </div>
+  <div class="daily-habit-actions">
+    <button type="button" class="league-cta is-secondary" data-bookmark-hint style="border:0; cursor:pointer;">
+      Bookmark this page
+    </button>
+    <a class="league-cta" href="{{ _primary_href }}" style="text-decoration:none;">{{ _primary_label }}</a>
+    <a class="league-cta is-secondary" href="{{ _secondary_href }}" style="text-decoration:none;">{{ _secondary_label }}</a>
+  </div>
+  {% set share_text = _share %}
+  {% include "partials/share_bar.html" %}
+</section>

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Tennis Match Today — ATP Predictions &amp; Fixtures{% if full_slate_acc %} ({{ full_slate_acc }} OOS){% endif %} | Degen Predictions{% endblock %}
+{% block description %}Tennis match today: ATP men's singles predictions for upcoming and live fixtures{% if full_slate_acc %} — {{ full_slate_acc }} full-slate out-of-sample match-winner accuracy{% endif %}. Free tennis predictions with surface Elo. Not betting advice.{% endblock %}
+{% block keywords %}tennis match today, tennis predictions, ATP fixtures, ATP tennis predictions, men's tennis ML, match winner predictions, tennis tips today{% endblock %}
+{% block body_class %} sport-atmosphere tennis-page{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+{{ nav_back('/sports/tennis', 'Tennis') }}
+<div class="leagues-hero">
+    <h1>Tennis Match Today — ATP Predictions</h1>
+    <p class="muted">Live and upcoming tour-level singles with free ML tennis predictions.{% if full_slate_acc %} Model full-slate OOS: <strong>{{ full_slate_acc }}</strong>.{% endif %} Filter by surface when multiple events run. Track record on <a href="/tennis/results">results</a>.</p>
+    <p class="cricket-quick-links">
+        <a class="league-cta" href="/tennis/results">Results</a>
+        <a class="league-cta" href="/todays-picks/tennis/atp">Today's Picks</a>
+    </p>
+</div>
+{% if surfaces|length > 1 %}
+<p class="muted" style="margin:0.5rem 0 1rem;">
+    Surface: <a href="/tennis/fixtures">All</a>
+    {% for s in surfaces %} · <a href="/tennis/fixtures?surface={{ s }}">{{ s }}</a>{% endfor %}
+</p>
+{% endif %}
+{% if fixtures %}
+<div class="fixture-grid">
+{% for m in fixtures %}
+    {% set pred = m.prediction or {} %}
+    {% set href = ('/tennis/fixture/' ~ m.slug) if m.slug else None %}
+    <article class="fixture-card {{ 'ok-confidence' if pred.get('data_confidence') == 'high' else 'low-confidence' }}"
+         style="--card-index: {{ loop.index0 }};{% if href %} cursor:pointer;{% endif %}"
+         {% if href %}data-lock="1"{% endif %}>
+        <div class="fixture-card-head">
+            <div class="fixture-matchup">
+                <span class="fixture-teams">{{ m.player1 }} vs {{ m.player2 }}</span>
+                <div class="fixture-date">
+                    {{ m.date }}{% if m.time %} · {{ m.time }}{% endif %}
+                    {% if m.tournament %} · {{ m.tournament }}{% endif %}
+                    {% if m.round %} · {{ m.round }}{% endif %}
+                    {% if pred.surface or m.surface %} · {{ pred.surface or m.surface }}{% endif %}
+                </div>
+            </div>
+            {% if m.completed %}
+            <span class="muted fixture-final-score">Final{% if m.score %} · {{ m.score }}{% endif %}</span>
+            {% endif %}
+            {% if href %}
+            <a class="predict-btn" href="/go/gp{{ href }}" onclick="event.stopPropagation();">Unlock prediction</a>
+            {% endif %}
+        </div>
+        {% if href %}
+        <div class="fixture-empty">
+            <span class="fixture-empty-label">Markets locked</span>
+            <span class="fixture-empty-hint">Tap Unlock prediction for win probs &amp; total games</span>
+        </div>
+        {% endif %}
+    </article>
+{% endfor %}
+</div>
+{% else %}
+<p class="muted">No upcoming ATP main-draw singles right now. Check <a href="/tennis/results">results</a> for recent matches.</p>
+{% endif %}
+{% endblock %}

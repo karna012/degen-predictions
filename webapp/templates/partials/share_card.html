@@ -1,0 +1,18 @@
+{# Share / print card. Expects: title, subtitle, lines (list of strings), share_text #}
+<aside class="share-card" id="share-card">
+  <h2 style="font-size:1rem; margin:0 0 0.65rem;">Share this forecast</h2>
+  <div class="share-card-preview">
+    <div class="share-title">{{ title }}</div>
+    {% if subtitle %}<div class="muted">{{ subtitle }}</div>{% endif %}
+    {% for line in lines %}
+    <div>{{ line }}</div>
+    {% endfor %}
+    <div class="muted" style="font-size:0.78rem; margin-top:0.25rem;">degenpredictions.com · estimates only</div>
+  </div>
+  <div class="share-actions">
+    <a class="share-bar-btn" href="https://api.whatsapp.com/send?text={{ share_text|urlencode }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="share-bar-btn" href="https://twitter.com/intent/tweet?text={{ share_text|urlencode }}" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+    <button type="button" data-copy-share="{{ share_text|e }}">Copy text</button>
+    <button type="button" data-print-share>Print / PDF</button>
+  </div>
+</aside>

@@ -1,4 +1,5 @@
 """Tests for the cricket (The Hundred + MLC) section."""
+import markupsafe
 import pandas as pd
 import pytest
 
@@ -68,8 +69,10 @@ def test_hundred_fixtures_cards_have_get_prediction_button(client):
     resp = client.get("/hundred/fixtures")
     body = resp.data.decode()
     if "fixture-card" in body:
-        assert "Get Prediction" in body
+        assert "Unlock prediction" in body
         assert "/hundred/fixture/" in body
+        assert 'data-lock="1"' in body
+        assert "window.location.href" not in body
 
 
 def test_hundred_fixture_detail_page_loads_for_real_fixture(client):
@@ -81,7 +84,7 @@ def test_hundred_fixture_detail_page_loads_for_real_fixture(client):
     assert resp.status_code == 200
     body = resp.data.decode()
     assert fixtures[0]["team1"] in body and fixtures[0]["team2"] in body
-    assert "Winner" in body
+    assert "Match terminal" in body
 
 
 def test_hundred_fixture_detail_unknown_slug_is_404(client):
@@ -144,13 +147,84 @@ def test_hundred_results_cards_link_to_match_detail(client):
     resp = client.get("/hundred/results")
     body = resp.data.decode()
     if "fixture-card" in body:
-        assert "/hundred/match/" in body
+        assert "/hundred/match/" in body or "/hundred/fixture/" in body
+        assert "Unlock prediction" in body
+        assert "js-unlock-slate" in body
+        assert 'data-lock="1"' in body
+        assert "onclick=\"window.location.href" not in body
+        assert "fixture-final-score" in body
+
+
+def test_hundred_results_include_live_completed_not_in_archive(client):
+    """Wikipedia finals must appear even when Cricsheet still lags."""
+    import hundred_fixtures
+    live = [f for f in hundred_fixtures.get_hundred_fixtures() if f.get("completed")]
+    if not live:
+        pytest.skip("no completed Hundred fixtures from Wikipedia")
+    archive = cricket_predict.matches_for_competition("hnd_male", limit=80)
+    archive_keys = set()
+    if archive is not None and not archive.empty:
+        for _, row in archive.iterrows():
+            day = row["Date"].strftime("%Y-%m-%d") if hasattr(row["Date"], "strftime") else str(row["Date"])[:10]
+            archive_keys.add(cricket_predict.result_pair_key(day, row["Team1"], row["Team2"]))
+    missing = [
+        f for f in live
+        if cricket_predict.result_pair_key(f.get("date"), f.get("team1"), f.get("team2")) not in archive_keys
+    ]
+    if not missing:
+        pytest.skip("archive already has every Wikipedia final")
+    body = client.get("/hundred/results").data.decode()
+    sample = missing[0]
+    assert sample["team1"] in body
+    assert sample["team2"] in body
+    assert "/hundred/fixture/" in body
 
 
 def test_upcoming_fixtures_mlc_is_empty_list():
     """MLC has no real upcoming-fixture source (2026 season already
     concluded) -- see cricket_predict module docstring."""
     assert cricket_predict.upcoming_fixtures("mlc_male") == []
+
+
+def test_upcoming_fixtures_cpl_never_raises():
+    """Whether or not CPL is in-season, this must never raise."""
+    fixtures = cricket_predict.upcoming_fixtures("cpl_male")
+    assert isinstance(fixtures, list)
+
+
+def test_cpl_routes_load(client):
+    for path in ("/cpl/", "/cpl/fixtures", "/cpl/results"):
+        resp = client.get(path)
+        assert resp.status_code in (200, 301, 302), path
+
+
+def test_cricket_landing_lists_cpl(client):
+    body = client.get("/sports/cricket").data.decode()
+    assert "CPL" in body
+
+
+def test_cpl_fixtures_page_reflects_upcoming_state(client):
+    fixtures = cricket_predict.upcoming_fixtures("cpl_male")
+    body = client.get("/cpl/fixtures").data.decode()
+    if fixtures:
+        assert "/cpl/fixture/" in body or fixtures[0]["team1"] in body
+    else:
+        assert "No upcoming" in body or "no upcoming" in body.lower() or "check results" in body.lower()
+
+
+def test_cpl_fixture_detail_page_loads_for_real_fixture(client):
+    fixtures = cricket_predict.upcoming_fixtures("cpl_male")
+    if not fixtures:
+        pytest.skip("no upcoming CPL fixtures")
+    slug = fixtures[0]["slug"]
+    resp = client.get(f"/cpl/fixture/{slug}")
+    assert resp.status_code == 200
+    body = resp.data.decode()
+    # Jinja HTML-escapes rendered text, so team names with special
+    # characters (e.g. "St Kitts & Nevis Patriots") won't appear verbatim.
+    team1 = str(markupsafe.escape(fixtures[0]["team1"]))
+    team2 = str(markupsafe.escape(fixtures[0]["team2"]))
+    assert team1 in body and team2 in body
 
 
 def test_upcoming_fixtures_unknown_competition_is_empty_list():
@@ -180,8 +254,8 @@ def test_hundred_match_detail_page_loads(client):
     resp = client.get(f"/hundred/match/{match_id}")
     assert resp.status_code == 200
     body = resp.data.decode()
-    assert "Winner" in body
-    assert "Total Match Runs" in body
+    assert "Match terminal" in body
+    assert "Match total" in body
 
 
 def test_mlc_match_detail_page_loads(client):
@@ -213,7 +287,50 @@ def test_load_dataset_has_both_competitions():
     df = cricket_predict.load_dataset()
     if df.empty:
         pytest.skip("no cricket training dataset available")
-    assert set(df["Competition"].unique()) <= {"hnd_male", "mlc_male"}
+    comps = set(df["Competition"].unique())
+    assert comps <= {"hnd_male", "mlc_male", "ipl_male", "bbl_male", "cpl_male"}
+    assert "ipl_male" in comps and "bbl_male" in comps
+
+
+def test_ipl_and_bbl_routes_load(client):
+    for path in ("/ipl/", "/ipl/fixtures", "/ipl/results", "/bbl/", "/bbl/fixtures", "/bbl/results"):
+        resp = client.get(path)
+        assert resp.status_code in (200, 301, 302), path
+
+
+def test_cricket_landing_lists_ipl_bbl(client):
+    body = client.get("/sports/cricket").data.decode()
+    assert "IPL" in body and "BBL" in body
+
+
+def test_ipl_results_match_detail_has_analysis(client):
+    df = cricket_predict.matches_for_competition("ipl_male", limit=1)
+    if df.empty:
+        pytest.skip("no IPL matches")
+    match_id = int(df.iloc[0]["match_id"])
+    resp = client.get(f"/ipl/match/{match_id}")
+    assert resp.status_code == 200
+    body = resp.data.decode()
+    assert "Team analysis" in body or "Player analysis" in body
+
+
+def test_provisional_xi_cache_exists():
+    xi = cricket_predict.load_provisional_xi()
+    assert "ipl_male" in xi or "bbl_male" in xi
+
+
+def test_upcoming_fixtures_ipl_bbl_never_raise():
+    assert isinstance(cricket_predict.upcoming_fixtures("ipl_male"), list)
+    assert isinstance(cricket_predict.upcoming_fixtures("bbl_male"), list)
+
+
+def test_fd_fixtures_module_parses_or_fails_soft():
+    import cricket_fd_fixtures
+    fixtures = cricket_fd_fixtures.get_competition_fixtures("ipl")
+    assert isinstance(fixtures, list)
+    if fixtures:
+        f = fixtures[0]
+        assert f["team1"] and f["team2"] and f["date"]
 
 
 def test_load_elo_ratings():
@@ -251,6 +368,18 @@ def test_build_match_view_includes_actual_and_predicted():
     assert "predicted_total_runs" in view
     assert "actual_total_runs" in view
     assert view["team1"] and view["team2"]
+    assert "insights" in view
+    assert "crest_rgb1" in view
+
+
+def test_fixture_insight_chips_coin_flip():
+    chips = cricket_predict.fixture_insight_chips(
+        "A", "B",
+        {"team1_win_prob": 0.52, "team2_win_prob": 0.48, "predicted_total_runs": 320, "basis": "Elo"},
+    )
+    texts = " ".join(c["text"] for c in chips).lower()
+    assert "coin-flip" in texts
+    assert "total" in texts
 
 
 def test_get_venue_pitch_report_flags_thin_history():
@@ -337,6 +466,54 @@ def test_hundred_fixtures_get_upcoming_and_live_excludes_past_dates():
 def test_hundred_fixtures_malformed_wikitext_fails_soft():
     import hundred_fixtures
     assert hundred_fixtures._parse_fixtures("not valid wikitext at all") == []
+
+
+def test_hundred_fixtures_parse_includes_knockout_final():
+    """Knockout Final/Eliminator use the same Single-innings template as
+    league matches — parser must accept them so the board is not empty
+    after the group stage ends."""
+    import hundred_fixtures
+    wt = """
+{{Single-innings cricket match
+| round = {{anchor|match34}} '''Final'''
+| date = 16 August 2026
+| time = 18:00
+| daynight = y
+| team1 = {{cr-ENG|tr}}
+| team2 = {{cr-ENG|msg}}
+| score1 =
+| score2 =
+| result =
+| venue = [[Lord's]], [[London]]
+}}
+"""
+    fx = hundred_fixtures._parse_fixtures(wt)
+    assert len(fx) == 1
+    assert fx[0]["team1"] == "Trent Rockets"
+    assert fx[0]["team2"] == "Manchester Super Giants"
+    assert fx[0]["team2_elo_name"] == "Manchester Originals"
+    assert fx[0]["date"] == "2026-08-16"
+    assert fx[0]["completed"] is False
+
+
+def test_hundred_fixtures_fetch_includes_knockout_when_live():
+    """Live Wikipedia fetch must merge Knockout stages > Men, not only
+    Fixtures > Men — otherwise Final day shows an empty board."""
+    import hundred_fixtures
+    hundred_fixtures._cache.clear()
+    fixtures = hundred_fixtures.get_hundred_fixtures()
+    if not fixtures:
+        pytest.skip("Wikipedia fixture fetch unavailable in this environment")
+    knockout = [
+        f for f in fixtures
+        if (f.get("date") or "")[:10] >= "2026-08-14"
+    ]
+    if not knockout:
+        pytest.skip("season article has no knockout fixtures yet")
+    assert any(
+        f["team1"] and f["team2"] and f.get("date")
+        for f in knockout
+    )
 
 
 def test_predict_live_fixture_returns_none_for_unknown_teams():

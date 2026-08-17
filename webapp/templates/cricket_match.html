@@ -1,7 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{ match.team1 }} vs {{ match.team2 }} Prediction | {{ match.competition_label }}{% endblock %}
-{% block description %}{{ match.team1 }} vs {{ match.team2 }} ({{ match.competition_label }}) prediction: innings totals, total match runs, and winner from our cricket model, {{ match.date }}.{% endblock %}
-{% block keywords %}{{ match.team1 }} vs {{ match.team2 }} prediction, {{ match.competition_label }} predictions, cricket predictions{% endblock %}
+{% block title %}{{ match.team1 }} vs {{ match.team2 }} {% if league_slug == 'ipl' %}IPL Match Prediction{% elif league_slug == 'cpl' %}CPL Match Prediction{% else %}Prediction{% endif %} {{ match.date }} | {{ match.competition_label }} | Degen Predictions{% endblock %}
+{% block description %}{{ match.team1 }} vs {{ match.team2 }} {% if league_slug == 'ipl' %}IPL match prediction{% elif league_slug == 'cpl' %}CPL / Caribbean Premier League match prediction{% else %}({{ match.competition_label }}) ML prediction{% endif %} for {{ match.date }}: innings totals, total match runs, and winner. Free forecast -- not betting advice.{% endblock %}
+{% block keywords %}{{ match.team1 }} vs {{ match.team2 }} prediction, {% if league_slug == 'ipl' %}IPL predictions, IPL match predictions{% elif league_slug == 'cpl' %}CPL predictions, Caribbean Premier League predictions{% else %}{{ match.competition_label }} predictions{% endif %}, cricket predictions{% endblock %}
+{% block body_class %} sport-atmosphere sport-{{ league_slug }} cricket-page{% endblock %}
 {% block content %}
 <script type="application/ld+json">
 {
@@ -19,83 +20,124 @@
     "description": "Cricket match prediction: innings totals, total match runs, and winner."
 }
 </script>
-<a href="/{{ league_slug }}/results">&larr; Back to {{ match.competition_label }} Results</a>
-<h1>{{ match.team1 }} vs {{ match.team2 }}</h1>
-<p class="muted">{{ match.date }} &middot; {{ match.venue }} &middot;
-    Data confidence: <span class="confidence-badge confidence-{{ match.data_confidence }}">{{ match.data_confidence|capitalize }}</span>
-    {% if match.data_confidence == 'low' %}<span class="muted">(thin rolling history for this matchup -- treat this prediction as directional, not precise)</span>{% endif %}
-</p>
+{% from "macros.html" import nav_back %}
+{% from "partials/team_crest.html" import team_crest %}
+{% from "partials/prob_board.html" import prob_board %}
+{% include "partials/cricket_league_nav.html" %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/' ~ league_slug ~ '/fixtures', 'Fixtures') }}
+    <a class="page-nav-link" href="/{{ league_slug }}/results">Results</a>
+    <a class="page-nav-link" href="/todays-picks/cricket/{{ league_slug }}">Today's picks</a>
+    <a class="page-nav-link" href="/todays-picks/combos">Best Combos</a>
+</nav>
 
-<div class="card-grid">
-    <div class="card">
-        <h2>Winner</h2>
-        {% if match.team1_win_prob is not none %}
-        <div class="bar"><div class="bar-fill home" style="width: {{ match.team1_win_prob * 100 }}%"></div></div>
-        <p>{{ match.team1 }} win probability: {{ (match.team1_win_prob * 100) | round(1) }}%</p>
-        <div class="bar"><div class="bar-fill away" style="width: {{ match.team2_win_prob * 100 }}%"></div></div>
-        <p>{{ match.team2 }} win probability: {{ (match.team2_win_prob * 100) | round(1) }}%</p>
-        <p class="predicted">Predicted winner: <strong>{{ match.predicted_winner }}</strong></p>
-        {% else %}
-        <p class="muted">Winner model unavailable.</p>
-        {% endif %}
-        {% if match.actual_winner %}
-        <p class="muted">Actual winner: <strong>{{ match.actual_winner }}</strong>
-            {% if match.predicted_winner == match.actual_winner %}(model got this one right){% else %}(model missed this one){% endif %}</p>
-        {% endif %}
+<div class="leagues-hero cricket-hero">
+    <div class="team-pair" style="margin-bottom:0.75rem;">
+        {{ team_crest(match.team1, size='lg', rgb=match.crest_rgb1) }}
+        <span class="vs">VS</span>
+        {{ team_crest(match.team2, size='lg', rgb=match.crest_rgb2) }}
     </div>
-
-    <div class="card">
-        <h2>Innings Totals</h2>
-        <p>{{ match.team1 }}: predicted <strong>{{ match.predicted_team1_runs }}</strong>
-            <span class="muted">(actual {{ match.actual_team1_runs }})</span></p>
-        <p>{{ match.team2 }}: predicted <strong>{{ match.predicted_team2_runs }}</strong>
-            <span class="muted">(actual {{ match.actual_team2_runs }})</span></p>
-    </div>
-
-    <div class="card">
-        <h2>Total Match Runs</h2>
-        <p class="big">{{ match.predicted_total_runs }}</p>
-        <p class="muted">Actual: {{ match.actual_total_runs }}</p>
-    </div>
-
-    <div class="card">
-        <h2>Team Strength (Elo)</h2>
-        <p class="muted">Elo difference ({{ match.team1 }} minus {{ match.team2 }}): <strong>{{ match.elo_diff }}</strong></p>
-    </div>
-
-    {% if pitch_report %}
-    <div class="card">
-        <h2>Pitch Report</h2>
-        <p>{{ pitch_report.venue }} &mdash; historically
-            <strong>{{ pitch_report.pitch_type }}</strong>
-            (avg 1st-innings score {{ pitch_report.avg_first_innings }}, avg 2nd-innings score
-            {{ pitch_report.avg_second_innings }}, across {{ pitch_report.matches_played }} match{{ 'es' if pitch_report.matches_played != 1 else '' }} on record).</p>
-        {% if pitch_report.thin_history %}
-        <p class="muted">Only {{ pitch_report.matches_played }} match{{ 'es' if pitch_report.matches_played != 1 else '' }} of history at
-            this ground -- treat this pitch read as early/low-confidence, not established.</p>
-        {% endif %}
-    </div>
-    {% endif %}
-
-    {% if weather %}
-    <div class="card">
-        <h2>Weather Forecast</h2>
-        <p>{{ weather.date }}: {{ weather.temp_min_c }}&deg;C &ndash; {{ weather.temp_max_c }}&deg;C,
-            {{ weather.precipitation_probability_pct }}% chance of rain.</p>
-        <p class="muted">Forecast only shown for fixtures within Open-Meteo's ~16-day forecast window.</p>
-    </div>
-    {% endif %}
+    <h1>{{ match.team1 }} vs {{ match.team2 }}</h1>
+    <p class="muted">{{ match.date }} &middot; {{ match.venue }} &middot;
+        Data confidence: <span class="confidence-badge confidence-{{ match.data_confidence }}">{{ match.data_confidence|capitalize }}</span>
+        {% if match.data_confidence == 'low' %}<span class="muted">(thin rolling history — directional only)</span>{% endif %}
+    </p>
 </div>
 
-<div class="tips-card">
+<section class="match-terminal">
+    <div class="match-terminal-head">
+        <div>
+            <h2 style="margin:0 0 0.35rem; font-size:1.15rem;">Match terminal</h2>
+            <p class="match-terminal-meta">Historical board with model vs actual</p>
+        </div>
+        {% if match.insights %}
+        <div class="insight-strip">
+            {% for chip in match.insights %}
+            <span class="insight-chip{% if chip.accent %} insight-chip--accent{% endif %}">{{ chip.text }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    {% if match.team1_win_prob is not none %}
+    {{ prob_board(match.team1_win_prob, match.team2_win_prob, match.team1, match.team2) }}
+    <p class="predicted" style="margin-top:1rem;">Predicted winner: <strong>{{ match.predicted_winner }}</strong>
+        {% if match.actual_winner %}
+        &middot; Actual: <strong>{{ match.actual_winner }}</strong>
+        {% if match.predicted_winner == match.actual_winner %}(hit){% else %}(miss){% endif %}
+        {% endif %}
+    </p>
+    {% else %}
+    <p class="muted">Winner model unavailable for this match.</p>
+    {% endif %}
+
+    <div class="match-terminal-stats">
+        <div class="terminal-stat">
+            <span class="label">{{ match.team1 }} runs</span>
+            <span class="value">{{ match.predicted_team1_runs }}</span>
+            <span class="muted" style="font-size:0.75rem;">actual {{ match.actual_team1_runs }}</span>
+        </div>
+        <div class="terminal-stat">
+            <span class="label">{{ match.team2 }} runs</span>
+            <span class="value">{{ match.predicted_team2_runs }}</span>
+            <span class="muted" style="font-size:0.75rem;">actual {{ match.actual_team2_runs }}</span>
+        </div>
+        <div class="terminal-stat">
+            <span class="label">Match total</span>
+            <span class="value">{{ match.predicted_total_runs }}</span>
+            <span class="muted" style="font-size:0.75rem;">actual {{ match.actual_total_runs }}</span>
+        </div>
+        {% if match.elo_diff is not none %}
+        <div class="terminal-stat">
+            <span class="label">Elo diff</span>
+            <span class="value">{{ match.elo_diff }}</span>
+        </div>
+        {% endif %}
+        {% if weather %}
+        <div class="terminal-stat">
+            <span class="label">Weather</span>
+            <span class="value" style="font-size:0.95rem;">{{ weather.temp_min_c }}–{{ weather.temp_max_c }}°C</span>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% if pitch_report %}
+<div class="card" style="margin-top:1rem;">
+    <h2>Pitch Report</h2>
+    <p>{{ pitch_report.venue }} &mdash; historically
+        <strong>{{ pitch_report.pitch_type }}</strong>
+        (avg 1st-innings score {{ pitch_report.avg_first_innings }}, avg 2nd-innings score
+        {{ pitch_report.avg_second_innings }}, across {{ pitch_report.matches_played }}
+        match{{ 'es' if pitch_report.matches_played != 1 else '' }} on record).</p>
+    {% if pitch_report.thin_history %}
+    <p class="muted">Only {{ pitch_report.matches_played }} match{{ 'es' if pitch_report.matches_played != 1 else '' }}
+        of history at this ground — treat this pitch read as early/low-confidence.</p>
+    {% endif %}
+</div>
+{% endif %}
+
+{% if weather %}
+<div class="card" style="margin-top:1rem;">
+    <h2>Weather Forecast</h2>
+    <p>{{ weather.date }}: {{ weather.temp_min_c }}&deg;C &ndash; {{ weather.temp_max_c }}&deg;C,
+        {{ weather.precipitation_probability_pct }}% chance of rain.</p>
+    <p class="muted">Forecast only shown for fixtures within Open-Meteo's ~16-day forecast window.</p>
+</div>
+{% endif %}
+
+{% set team_analysis = match.team_analysis %}
+{% set player_analysis = match.player_analysis %}
+{% set home_ground = match.home_ground %}
+{% set sentiment = match.sentiment if match.sentiment is defined else none %}
+{% set stat_analysis = match.stat_analysis %}
+{% include "partials/cricket_analysis.html" %}
+
+<div class="tips-card" style="margin-top:1.25rem;">
     <h2>About This Prediction</h2>
-    <p>Built from team Elo, rolling recent form (not season-long averages), venue-specific historical scoring
-        and wicket-fall rates, rolling player batting strike-rate / bowling economy over the named playing XI,
-        each player's death-overs acceleration vs their overall strike rate, batter-vs-bowler pairing history
-        (with sample-size-weighted backoff when a pairing has little history), and team news sentiment.</p>
-    <p class="disclaimer">The Hundred (since 2021) and Major League Cricket (since 2023) are both young
-        competitions with limited match history -- predictions, especially where data confidence is flagged
-        "low" or "medium", are directional estimates, not guaranteed outcomes. For research/educational use
-        only; this is not betting advice.</p>
+    <p>Built from team Elo, rolling recent form, venue history, rolling player SR/economy, death-overs uplift,
+        batter-vs-bowler pairings, and team news sentiment where available.</p>
+    <p class="disclaimer">Young competitions with thin history can flag medium/low data confidence —
+        treat those as directional estimates. Research/educational use only; not betting advice.</p>
 </div>
 {% endblock %}

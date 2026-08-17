@@ -1,0 +1,136 @@
+{
+  "target_accuracy": 0.7,
+  "oos_n": 529,
+  "markets": {
+    "result": {
+      "best": {
+        "threshold": 0.69,
+        "n": 51,
+        "acc": 0.7058823529411765,
+        "coverage": 0.09640831758034027,
+        "met_target": true
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.81,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.82,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.83,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.84,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.85,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        }
+      ]
+    },
+    "btts": {
+      "best": {
+        "threshold": 0.61,
+        "n": 64,
+        "acc": 0.578125,
+        "coverage": 0.12098298676748583,
+        "met_target": false
+      }
+    },
+    "over25": {
+      "best": {
+        "threshold": 0.64,
+        "n": 55,
+        "acc": 0.6545454545454545,
+        "coverage": 0.10396975425330812,
+        "met_target": false
+      }
+    },
+    "favorite_avoids_defeat": {
+      "best": {
+        "threshold": 0.5,
+        "n": 529,
+        "acc": 0.7523629489603024,
+        "coverage": 1.0,
+        "met_target": true
+      }
+    },
+    "home_more_corners": {
+      "best": {
+        "threshold": 0.69,
+        "n": 203,
+        "acc": 0.7142857142857143,
+        "coverage": 0.3837429111531191,
+        "met_target": true
+      }
+    },
+    "result_merged": {
+      "best": {
+        "win_threshold": 0.64,
+        "threshold": 0.5,
+        "n": 529,
+        "acc": 0.7088846880907372,
+        "coverage": 1.0,
+        "win_share": 0.19281663516068054,
+        "met_target": true
+      },
+      "curve_tail": [
+        {
+          "win_threshold": 0.8,
+          "threshold": 0.77,
+          "n": 199,
+          "acc": 0.864321608040201,
+          "coverage": 0.3761814744801512,
+          "win_share": 0.0
+        },
+        {
+          "win_threshold": 0.8,
+          "threshold": 0.78,
+          "n": 182,
+          "acc": 0.8846153846153846,
+          "coverage": 0.3440453686200378,
+          "win_share": 0.0
+        },
+        {
+          "win_threshold": 0.8,
+          "threshold": 0.79,
+          "n": 174,
+          "acc": 0.8850574712643678,
+          "coverage": 0.32892249527410206,
+          "win_share": 0.0
+        },
+        {
+          "win_threshold": 0.8,
+          "threshold": 0.8,
+          "n": 165,
+          "acc": 0.8909090909090909,
+          "coverage": 0.31190926275992437,
+          "win_share": 0.0
+        },
+        {
+          "win_threshold": 0.8,
+          "threshold": 0.81,
+          "n": 149,
+          "acc": 0.8926174496644296,
+          "coverage": 0.28166351606805295,
+          "win_share": 0.0
+        }
+      ]
+    }
+  }
+}

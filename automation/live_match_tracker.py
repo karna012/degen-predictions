@@ -87,14 +87,22 @@ def main():
     matches = get_matches_in_live_window()
     if not matches:
         logger.info("No matches currently in their live window.")
-        return
+    else:
+        logger.info(f"Polling {len(matches)} live match(es)...")
+        for match in matches:
+            try:
+                process_match(match)
+            except Exception:
+                logger.exception(f"Error processing match {match.get('id')}")
 
-    logger.info(f"Polling {len(matches)} live match(es)...")
-    for match in matches:
-        try:
-            process_match(match)
-        except Exception:
-            logger.exception(f"Error processing match {match.get('id')}")
+    # Same 5-minute timer also settles finished events so league/combo
+    # results update without waiting for the post-event job.
+    import sys
+    webapp_dir = str(BASE_DIR / "webapp")
+    if webapp_dir not in sys.path:
+        sys.path.insert(0, webapp_dir)
+    from post_event_refresh import main as refresh_finished
+    return refresh_finished()
 
 
 if __name__ == '__main__':

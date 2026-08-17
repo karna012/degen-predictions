@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %}Best Combos Results — Public Track Record | Degen Predictions{% endblock %}
+{% block description %}Published Best Combos slips graded after the games finish. Hit rate, pending cards, and every snapshotted 2-leg / 3-leg ticket from the last 30 days.{% endblock %}
+{% block keywords %}best combo results, parlay track record, combo picks hit rate, degen predictions combos{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back, breadcrumb_jsonld %}
+{{ breadcrumb_jsonld([
+    {"label": "Home", "href": "/"},
+    {"label": "Best Combos", "href": "/todays-picks/combos"},
+    {"label": "Results", "href": "/todays-picks/combos/results"},
+]) }}
+{% set crs = summary or {} %}
+
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/todays-picks/combos', 'Best Combos') }}
+    <a class="page-nav-link" href="/todays-picks">Today's picks</a>
+    <a class="page-nav-link" href="/accuracy">Accuracy</a>
+</nav>
+
+<div class="leagues-hero">
+    <h1>Best Combos results</h1>
+    <p class="muted">
+        Public ledger of slips published on <a href="/todays-picks/combos">Best Combos</a>.
+        Cards are snapshotted when the board rebuilds, then graded when fixtures finish.
+        Last {{ crs.days or 30 }} days. Estimates, not betting advice.
+    </p>
+    <div class="leagues-hero-ctas cricket-quick-links">
+        <a class="league-cta" href="/todays-picks/combos">Today's board</a>
+        <a class="league-cta is-secondary" href="/todays-picks">Today's Picks</a>
+    </div>
+</div>
+{% include "partials/telegram_cta.html" %}
+
+<div class="league-grid" style="margin-top:1.25rem;">
+    <div class="league-card" style="--league-color: #2dd4bf; cursor:default;">
+        <div class="league-card-content">
+            <h2>Hit rate</h2>
+            <p class="league-desc">
+                {% if crs.hit_rate is not none %}
+                <strong>{{ (crs.hit_rate * 100)|round(1) }}%</strong>
+                {% else %}—{% endif %}
+                · {{ crs.won or 0 }} won / {{ crs.lost or 0 }} lost
+                ({{ crs.decided or 0 }} decided)
+            </p>
+        </div>
+    </div>
+    <div class="league-card" style="--league-color: #c4a35a; cursor:default;">
+        <div class="league-card-content">
+            <h2>Pending</h2>
+            <p class="league-desc"><strong>{{ crs.pending or 0 }}</strong> slips waiting on final scores</p>
+        </div>
+    </div>
+    <div class="league-card" style="--league-color: #9aabc7; cursor:default;">
+        <div class="league-card-content">
+            <h2>Void / push</h2>
+            <p class="league-desc"><strong>{{ crs.void or 0 }}</strong> DNB draws or unsettleable markets</p>
+        </div>
+    </div>
+</div>
+
+<form class="filters" method="get" action="/todays-picks/combos/results" style="margin-top:1.5rem;">
+    <label>Status
+        <select name="status" onchange="this.form.submit()">
+            <option value="" {{ 'selected' if not status_filter else '' }}>All</option>
+            <option value="pending" {{ 'selected' if status_filter == 'pending' else '' }}>Pending</option>
+            <option value="won" {{ 'selected' if status_filter == 'won' else '' }}>Won</option>
+            <option value="lost" {{ 'selected' if status_filter == 'lost' else '' }}>Lost</option>
+            <option value="void" {{ 'selected' if status_filter == 'void' else '' }}>Void</option>
+        </select>
+    </label>
+</form>
+
+{% if slips %}
+<div class="fixture-grid" style="margin-top:1.25rem;">
+{% for s in slips %}
+    <article class="fixture-card {{ 'ok-confidence' if s.status == 'won' else ('low-confidence' if s.status == 'lost' else '') }}"
+         style="--card-index: {{ loop.index0 }}; cursor:default;">
+        <div class="fixture-card-head">
+            <div class="fixture-matchup">
+                <span class="fixture-teams">
+                    {{ s.size }}-leg · {{ s.bucket }}
+                </span>
+                <div class="fixture-date">
+                    {{ s.slate_date }}
+                    {% if s.mix_kind %} · {{ s.mix_kind }}{% endif %}
+                    {% if s.mix_label %} · {{ s.mix_label }}{% endif %}
+                    {% if s.is_soft_fill %} · Extra slip{% endif %}
+                </div>
+            </div>
+            <div>
+                <strong>{{ ((s.joint_prob or 0) * 100)|round(1) }}%</strong>
+                <span class="muted">joint</span><br>
+                {% if s.status == 'won' %}
+                <span class="insight-chip insight-chip--accent">Won</span>
+                {% elif s.status == 'lost' %}
+                <span class="insight-chip">Lost</span>
+                {% elif s.status == 'void' %}
+                <span class="insight-chip">Void</span>
+                {% else %}
+                <span class="insight-chip">Pending</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="fixture-outcomes" style="margin-top:0.5rem;">
+            {% for leg in s.legs %}
+            <div class="outcome-row" style="align-items:flex-start;{% if not loop.last %} margin-bottom:0.45rem; padding-bottom:0.45rem; border-bottom:1px solid rgba(255,255,255,0.08);{% endif %}">
+                <span class="outcome-label">
+                    {% if leg.status == 'won' %}Hit
+                    {% elif leg.status == 'lost' %}Miss
+                    {% elif leg.status == 'push' %}Push
+                    {% elif leg.status == 'void' %}Void
+                    {% else %}…{% endif %}
+                </span>
+                <span>
+                    {% if leg.url %}<a href="{{ leg.url }}" style="color:inherit;">{% endif %}
+                    <strong>{{ leg.pick }}</strong>
+                    <span class="muted"> · {{ leg.market }} · {{ leg.league_label or leg.league_id }}</span><br>
+                    <span class="muted">{{ leg.matchup }}{% if leg.actual_note %} · {{ leg.actual_note }}{% endif %}</span>
+                    {% if leg.url %}</a>{% endif %}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+    </article>
+{% endfor %}
+</div>
+{% else %}
+<p class="muted" style="margin-top:1.5rem;">
+    No published combo slips in this window yet. Check
+    <a href="/todays-picks/combos">today's Best Combos</a> — cards appear here after the board is snapshotted.
+</p>
+{% endif %}
+
+<p class="disclaimer" style="margin-top:2rem;">
+    A slip wins only if every non-void leg hits. Joint % assumes independence and is optimistic when legs share a slate.
+</p>
+{% endblock %}

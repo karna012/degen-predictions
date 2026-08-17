@@ -43,6 +43,38 @@ def test_npb_fixtures_page_loads(client):
     assert resp.status_code == 200
 
 
+def test_npb_results_page_loads(client):
+    resp = client.get("/npb/results")
+    assert resp.status_code == 200
+    body = resp.data.decode()
+    assert "NPB Results" in body
+
+
+def test_npb_fixtures_include_finished_when_present(client, monkeypatch):
+    sample = [{
+        "date": "2026-08-11T18:00:00",
+        "home_team_id": 1, "away_team_id": 5,
+        "home_team": "Yomiuri Giants", "away_team": "Hanshin Tigers",
+        "home_pitcher": None, "away_pitcher": None,
+        "completed": True, "postponed": False, "is_live": False,
+        "home_score": 1, "away_score": 9,
+        "has_rating": True,
+    }]
+    monkeypatch.setattr("npb_fixtures.get_fixtures", lambda *a, **k: sample)
+    monkeypatch.setattr("app.get_npb_fixtures", lambda *a, **k: sample)
+    import pandas as pd
+    monkeypatch.setattr(
+        "app.load_npb_elo",
+        lambda: pd.DataFrame({"TeamID": [1, 5]}),
+    )
+    fixtures_body = client.get("/npb/fixtures").data.decode()
+    assert "Recent results" not in fixtures_body
+    assert "Final: 9-1" not in fixtures_body
+    results_body = client.get("/npb/results").data.decode()
+    assert "Yomiuri Giants" in results_body
+    assert "9" in results_body and "1" in results_body
+
+
 def test_nav_has_npb_link(client):
     resp = client.get("/sports/baseball")
     body = resp.data.decode()
@@ -177,6 +209,18 @@ def test_generate_insights_falls_back_when_nothing_stands_out():
     assert "close" in insights[0]
 
 
+def test_generate_insights_flags_coinflip_underdog():
+    home_row = pd.Series({"Elo": 1510.0, "TeamName": "Home"})
+    away_row = pd.Series({"Elo": 1500.0, "TeamName": "Away"})
+    h2h = {"home_wins": 0, "away_wins": 0, "meetings": 0}
+    insights = npb_predict.generate_insights(
+        "Home", "Away", home_row, away_row, h2h, 0, 0, "Home", 6.5,
+        home_prob=0.53, away_prob=0.47,
+    )
+    assert any("coin-flip" in i.lower() for i in insights)
+    assert any("Away" in i for i in insights)
+
+
 # ---- total runs range (+/- empirical std dev, see TOTAL_RUNS_STD_DEV) -----
 
 def test_total_runs_range_is_plus_minus_std_dev():
@@ -196,6 +240,21 @@ def test_npb_api_predict_includes_runs_range(client):
         data["predicted_total_runs"] - npb_predict.TOTAL_RUNS_STD_DEV)
     assert data["predicted_total_runs_high"] == pytest.approx(
         data["predicted_total_runs"] + npb_predict.TOTAL_RUNS_STD_DEV)
+
+
+def test_apply_games_info_marks_final():
+    fx = {
+        "completed": False, "postponed": False, "is_live": True,
+        "home_score": None, "away_score": None,
+    }
+    npb_fixtures._apply_games_info(fx, {
+        "gameStateId": 4,
+        "homeTeamTotalRuns": 5,
+        "visitorTeamTotalRuns": 2,
+    })
+    assert fx["completed"] is True
+    assert fx["home_score"] == 5 and fx["away_score"] == 2
+    assert fx["is_live"] is False
 
 
 # ---- data sanity -------------------------------------------------------------

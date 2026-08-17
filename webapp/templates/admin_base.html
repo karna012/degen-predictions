@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="color-scheme" content="dark">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>{% block title %}Admin | Degen Predictions{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ static_version('style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}?v={{ static_version('admin.css') }}">
+</head>
+<body class="admin-body">
+{% set admin_section = admin_section|default('overview') %}
+{% set visitor_filter = visitor_filter|default('all') %}
+{% set feedback_count = feedback_count|default(0) %}
+{% set gp_stats = gp_stats|default({'today_clicks': 0, 'clicks': 0, 'unique_events': 0, 'events': []}) %}
+{% set section_titles = {
+  'overview': 'Overview',
+  'feedback': 'Feedback',
+  'traffic': 'Traffic',
+  'pages': 'Top Pages',
+  'gp': 'Unlock prediction',
+  'recurring': 'Recurring Visitors',
+  'visitors': 'Top Visitors',
+  'requests': 'Live Requests',
+  'tools': 'Tools',
+  'picks': "Today's Picks",
+  'combos': 'Best Combos',
+  'combo_results': 'Combo Results',
+  'telegram': 'Send to Telegram & X',
+  'degen_team': 'Results (Telegram & X)',
+  'lifecycle': 'Lifecycle (all sports)',
+  'sources': 'Sources & integrations',
+  'security': 'Security / 2FA',
+  'twitter': 'X / Twitter posts',
+  'results': 'Accuracy Ledger',
+  'backtest': 'Backtest',
+  'players': 'Player Analysis',
+} %}
+<div class="admin-shell" id="admin-shell">
+    <aside class="admin-sidebar" aria-label="Admin navigation">
+        <div class="admin-brand">
+            <picture>
+                <source srcset="{{ url_for('static', filename='logo-nav.webp') }}?v={{ static_version('logo-nav.webp') }}" type="image/webp">
+                <img src="{{ url_for('static', filename='logo-nav.png') }}?v={{ static_version('logo-nav.png') }}" alt="" class="admin-brand-logo" width="36" height="36">
+            </picture>
+            <div>
+                <h1>Admin Console</h1>
+                <p>Degen Predictions</p>
+            </div>
+        </div>
+        <nav class="admin-nav">
+            <div class="admin-nav-label">Monitor</div>
+            <a href="/admin?section=overview&filter={{ visitor_filter }}" data-admin-section-link="overview" data-title="Overview"
+               class="{{ 'is-active' if admin_section == 'overview' else '' }}">
+                <span class="nav-ico">◉</span> Overview
+            </a>
+            <a href="/admin?section=feedback&filter={{ visitor_filter }}" data-admin-section-link="feedback" data-title="Feedback"
+               class="{{ 'is-active' if admin_section == 'feedback' else '' }}">
+                <span class="nav-ico">✎</span> Feedback
+                {% if feedback_count %}<span class="nav-count">{{ feedback_count }}</span>{% endif %}
+            </a>
+            <a href="/admin?section=traffic&filter={{ visitor_filter }}" data-admin-section-link="traffic" data-title="Traffic"
+               class="{{ 'is-active' if admin_section == 'traffic' else '' }}">
+                <span class="nav-ico">▥</span> Traffic
+            </a>
+            <a href="/admin?section=pages&filter={{ visitor_filter }}" data-admin-section-link="pages" data-title="Top Pages"
+               class="{{ 'is-active' if admin_section == 'pages' else '' }}">
+                <span class="nav-ico">▣</span> Top Pages
+            </a>
+            <a href="/admin?section=gp&filter=human" data-admin-section-link="gp" data-title="Unlock prediction"
+               class="{{ 'is-active' if admin_section == 'gp' else '' }}">
+                <span class="nav-ico">▶</span> Unlock prediction
+                {% if gp_stats and gp_stats.today_clicks %}<span class="nav-count">{{ gp_stats.today_clicks }}</span>{% endif %}
+            </a>
+
+            <div class="admin-nav-label">Visitors</div>
+            <a href="/admin?section=recurring&filter={{ visitor_filter }}" data-admin-section-link="recurring" data-title="Recurring Visitors"
+               class="{{ 'is-active' if admin_section == 'recurring' else '' }}">
+                <span class="nav-ico">↺</span> Recurring
+            </a>
+            <a href="/admin?section=visitors&filter={{ visitor_filter }}" data-admin-section-link="visitors" data-title="Top Visitors"
+               class="{{ 'is-active' if admin_section == 'visitors' else '' }}">
+                <span class="nav-ico">◎</span> Top Visitors
+            </a>
+            <a href="/admin?section=requests&filter={{ visitor_filter }}" data-admin-section-link="requests" data-title="Live Requests"
+               class="{{ 'is-active' if admin_section == 'requests' else '' }}">
+                <span class="nav-ico">≡</span> Live Requests
+            </a>
+
+            <div class="admin-nav-label">Ops</div>
+            <a href="/admin?section=tools&filter={{ visitor_filter }}" data-admin-section-link="tools" data-title="Tools"
+               class="{{ 'is-active' if admin_section == 'tools' else '' }}">
+                <span class="nav-ico">⚙</span> Tools
+            </a>
+            <a href="/admin?section=picks&filter={{ visitor_filter }}"
+               class="{{ 'is-active' if admin_section == 'picks' else '' }}">
+                <span class="nav-ico">★</span> Today's picks
+            </a>
+            <a href="/admin?section=combos&filter={{ visitor_filter }}"
+               class="{{ 'is-active' if admin_section == 'combos' else '' }}">
+                <span class="nav-ico">⧉</span> Best combos
+            </a>
+            <a href="/admin?section=combo_results&filter={{ visitor_filter }}"
+               class="{{ 'is-active' if admin_section == 'combo_results' else '' }}">
+                <span class="nav-ico">▣</span> Combo results
+            </a>
+            <a href="/admin?section=telegram&filter={{ visitor_filter }}"
+               class="{{ 'is-active' if admin_section == 'telegram' else '' }}">
+                <span class="nav-ico">✈</span> Send to Telegram &amp; X
+            </a>
+            <a href="/admin?section=lifecycle&filter={{ visitor_filter }}"
+               class="{{ 'is-active' if admin_section == 'lifecycle' else '' }}">
+                <span class="nav-ico">↻</span> Lifecycle (all sports)
+            </a>
+            <a href="/admin?section=sources&filter={{ visitor_filter }}"
+               class="{{ 'is-active' if admin_section == 'sources' else '' }}">
+                <span class="nav-ico">⬡</span> Sources &amp; APIs
+            </a>
+            <a href="/admin?section=security&filter={{ visitor_filter }}"
+               class="{{ 'is-active' if admin_section == 'security' else '' }}">
+                <span class="nav-ico">⛨</span> Security / 2FA
+            </a>
+            <a href="/admin?section=degen_team&filter={{ visitor_filter }}"
+               class="{{ 'is-active' if admin_section == 'degen_team' else '' }}">
+                <span class="nav-ico">✓</span> Results (Telegram &amp; X)
+            </a>
+            <a href="/admin?section=twitter&filter={{ visitor_filter }}"
+               data-admin-section-link="twitter" data-title="X / Twitter posts"
+               class="{{ 'is-active' if admin_section == 'twitter' else '' }}">
+                <span class="nav-ico">𝕏</span> X / Twitter posts
+            </a>
+            <a href="/results" class="{{ 'is-active' if admin_section == 'results' else '' }}">
+                <span class="nav-ico">✓</span> Accuracy ledger
+            </a>
+            <a href="/accuracy" target="_blank" rel="noopener">
+                <span class="nav-ico">◫</span> Public OOS table
+            </a>
+            <a href="/stocks" target="_blank" rel="noopener">
+                <span class="nav-ico">$</span> Stocks board
+            </a>
+            <a href="/crypto" target="_blank" rel="noopener">
+                <span class="nav-ico">₿</span> Crypto board
+            </a>
+            <a href="/" target="_blank" rel="noopener">
+                <span class="nav-ico">↗</span> Open site
+            </a>
+        </nav>
+        <div class="admin-sidebar-foot">
+            Server-side request log · no cookies · no third-party analytics
+        </div>
+    </aside>
+
+    <div class="admin-backdrop" id="admin-backdrop"></div>
+
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <button type="button" class="admin-menu-btn" id="admin-menu-btn" aria-label="Open menu">☰</button>
+            <h2 id="admin-section-title">{{ section_titles.get(admin_section, 'Admin') }}</h2>
+            <div class="admin-topbar-actions">
+                {% if admin_section in ('overview','feedback','traffic','pages','gp','recurring','visitors','requests','tools') %}
+                <form method="get" action="/admin" id="visitor-filter-form" class="admin-filter-form">
+                    <input type="hidden" name="section" id="filter-section-field" value="{{ admin_section }}">
+                    <label class="admin-filter-label" for="visitor-filter">Visitors</label>
+                    <select class="select" id="visitor-filter" name="filter" onchange="this.form.submit()">
+                        <option value="all" {{ 'selected' if visitor_filter == 'all' else '' }}>All traffic</option>
+                        <option value="human" {{ 'selected' if visitor_filter == 'human' else '' }}>Humans only</option>
+                        <option value="bot" {{ 'selected' if visitor_filter == 'bot' else '' }}>Bots only</option>
+                    </select>
+                </form>
+                {% endif %}
+                {% if admin_section in ('picks', 'combos') %}
+                <a class="btn btn-sm" href="/todays-picks{% if admin_section == 'combos' %}/combos{% endif %}" target="_blank" rel="noopener">Public page ↗</a>
+                {% endif %}
+                <a class="btn btn-primary btn-sm" href="/results?refresh=1">↻ Refresh accuracy</a>
+                <form method="post" action="/admin/logout" class="admin-logout-form" style="display:inline;margin:0;">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <button type="submit" class="btn btn-sm admin-logout-btn">Log out{% if admin_actor %} ({{ admin_actor }}){% endif %}</button>
+                </form>
+                {% if admin_role %}
+                <span class="src-badge src-needs_key" title="Admin role">{{ admin_role }}</span>
+                {% endif %}
+            </div>
+        </header>
+        <main class="admin-content">
+            {% block admin_content %}{% endblock %}
+        </main>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='admin.js') }}?v={{ static_version('admin.js') }}"></script>
+{% block admin_scripts %}{% endblock %}
+</body>
+</html>

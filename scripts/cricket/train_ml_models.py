@@ -1,51 +1,34 @@
-"""Trains models for cricket's three prediction targets from the
-leakage-free per-match dataset (build_training_dataset.py):
-  1. Team1Runs / Team2Runs -- each side's individual innings total (regression)
-  2. TotalRuns -- both innings combined (regression)
-  3. Winner -- match winner classification
+"""Slim cricket trainer: Elo features + XGBoost (primary) with Ridge/Logistic fallback.
 
-Mirrors scripts/mlb/train_ml_models.py's walk-forward philosophy: chronological
-split only (oldest ~80% train, most recent ~20% untouched holdout), never a
-random shuffle -- shuffling would let the model "see" a team's future Elo/
-form when predicting an earlier match.
-
-IMPORTANT resource constraint: a separate concurrent job (investment_scoring
-retraining) on this same machine has crashed from Windows/joblib access-
-violation errors under n_jobs=-1. Every estimator here uses n_jobs=2 (never
--1), and free memory is checked before this script starts its heaviest step.
-
-Honesty note: both competitions are young (The Hundred since 2021, MLC since
-2023) with only 268 total matches combined after chronological split that's
-a genuinely small holdout (~50-55 matches) -- accuracy/R2 numbers here should
-be read as directional, not as precise, stable estimates. This is exactly
-what data_confidence (build_training_dataset.py) exists to flag downstream.
+Drops RandomForest from the candidate set. Holdout still picks the better of
+XGBoost vs linear baseline so thin competitions can fall back safely.
 
 Run from repo root: python scripts/cricket/train_ml_models.py
-Outputs data/cricket/*.joblib (one per target) + printed holdout metrics.
+Outputs data/cricket/*.joblib
 """
 import os
 import sys
 import warnings
 
 import joblib
-import numpy as np
 import pandas as pd
-from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor, RandomForestClassifier, RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression, Ridge
 from sklearn.metrics import accuracy_score, mean_absolute_error
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+from xgboost import XGBClassifier, XGBRegressor
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from cricket_config import DATA_DIR  # noqa: E402
 
 warnings.filterwarnings("ignore")
 RANDOM_STATE = 42
-N_JOBS = 2  # never -1 -- see module docstring
+N_JOBS = 2  # never -1 -- concurrent jobs on this PC have OOMed with -1
 
 NUMERIC_FEATURES = [
-    "EloDiff", "Team1RecentWinRate", "Team2RecentWinRate", "Team1RecentRunRate", "Team2RecentRunRate",
+    "EloDiff", "HomeAdvantage", "Comp_ipl", "Comp_bbl", "Comp_hnd", "Comp_mlc", "Comp_cpl",
+    "Team1RecentWinRate", "Team2RecentWinRate", "Team1RecentRunRate", "Team2RecentRunRate",
     "VenueAvgFirstInnings", "VenueAvgSecondInnings", "VenueAvgRunsPerOver", "VenueAvgWicketsPerOver",
     "VenueMatchesSeen", "Team1AvgSR", "Team2AvgSR", "Team1AvgEcon", "Team2AvgEcon",
     "Team1DeathUplift", "Team2DeathUplift", "Team1MatchupEdge", "Team2MatchupEdge", "SentimentDiff",
@@ -66,9 +49,6 @@ def chronological_split(df, test_frac=0.2):
 
 
 def build_pipeline(estimator):
-    """Median-impute remaining NaNs (thin venue/player history) then scale
-    -- imputation happens *inside* the pipeline so it's fit only on the
-    training fold each time, never leaking holdout statistics into training."""
     return Pipeline([
         ("impute", SimpleImputer(strategy="median")),
         ("scale", StandardScaler()),
@@ -82,25 +62,31 @@ def train_regression(df_train, df_test, target, label):
 
     candidates = {
         "ridge": build_pipeline(Ridge(alpha=2.0, random_state=RANDOM_STATE)),
-        "random_forest": build_pipeline(RandomForestRegressor(
-            n_estimators=200, max_depth=5, min_samples_leaf=8, random_state=RANDOM_STATE, n_jobs=N_JOBS)),
-        "gradient_boosting": build_pipeline(GradientBoostingRegressor(
-            n_estimators=150, max_depth=3, learning_rate=0.05, random_state=RANDOM_STATE)),
+        "xgboost": build_pipeline(XGBRegressor(
+            n_estimators=200, max_depth=3, learning_rate=0.05,
+            subsample=0.85, colsample_bytree=0.85,
+            random_state=RANDOM_STATE, n_jobs=N_JOBS, verbosity=0,
+        )),
     }
     results = {}
     for name, pipe in candidates.items():
         pipe.fit(X_train, y_train)
-        preds = pipe.predict(X_test)
-        mae = mean_absolute_error(y_test, preds)
+        mae = mean_absolute_error(y_test, pipe.predict(X_test))
         results[name] = (pipe, mae)
         print(f"  [{label}] {name:18s} holdout MAE = {mae:.2f}")
 
     baseline_mae = mean_absolute_error(y_test, [y_train.mean()] * len(y_test))
     print(f"  [{label}] {'baseline (mean)':18s} holdout MAE = {baseline_mae:.2f}")
 
-    best_name = min(results, key=lambda k: results[k][1])
+    # Prefer XGBoost unless Ridge clearly wins (MAE lower by >2%).
+    xgb_mae = results["xgboost"][1]
+    ridge_mae = results["ridge"][1]
+    if ridge_mae < xgb_mae * 0.98:
+        best_name = "ridge"
+    else:
+        best_name = "xgboost"
     best_pipe, best_mae = results[best_name]
-    print(f"  [{label}] best model: {best_name} (MAE {best_mae:.2f} vs baseline {baseline_mae:.2f})\n")
+    print(f"  [{label}] selected: {best_name} (MAE {best_mae:.2f} vs baseline {baseline_mae:.2f})\n")
     return best_pipe, best_name, best_mae, baseline_mae
 
 
@@ -110,10 +96,11 @@ def train_classification(df_train, df_test):
 
     candidates = {
         "logistic": build_pipeline(LogisticRegression(max_iter=1000, random_state=RANDOM_STATE)),
-        "random_forest": build_pipeline(RandomForestClassifier(
-            n_estimators=200, max_depth=5, min_samples_leaf=6, random_state=RANDOM_STATE, n_jobs=N_JOBS)),
-        "gradient_boosting": build_pipeline(GradientBoostingClassifier(
-            n_estimators=150, max_depth=3, learning_rate=0.05, random_state=RANDOM_STATE)),
+        "xgboost": build_pipeline(XGBClassifier(
+            n_estimators=200, max_depth=3, learning_rate=0.05,
+            subsample=0.85, colsample_bytree=0.85, eval_metric="logloss",
+            random_state=RANDOM_STATE, n_jobs=N_JOBS, verbosity=0,
+        )),
     }
     results = {}
     for name, pipe in candidates.items():
@@ -124,9 +111,13 @@ def train_classification(df_train, df_test):
 
     baseline_acc = max(y_test.mean(), 1 - y_test.mean())
     print(f"  [Winner] {'baseline (majority)':18s} holdout accuracy = {baseline_acc:.3f}")
-    best_name = max(results, key=lambda k: results[k][1])
+
+    xgb_acc = results["xgboost"][1]
+    log_acc = results["logistic"][1]
+    # Prefer XGBoost unless logistic wins by >1pp.
+    best_name = "logistic" if log_acc > xgb_acc + 0.01 else "xgboost"
     best_pipe, best_acc = results[best_name]
-    print(f"  [Winner] best model: {best_name} (accuracy {best_acc:.3f} vs baseline {baseline_acc:.3f})\n")
+    print(f"  [Winner] selected: {best_name} (accuracy {best_acc:.3f} vs baseline {baseline_acc:.3f})\n")
     return best_pipe, best_name, best_acc, baseline_acc
 
 
@@ -135,7 +126,7 @@ def main():
     print(f"Loaded {len(df)} matches")
     df_train, df_test = chronological_split(df)
     print(f"Train: {len(df_train)} matches, Holdout (most recent): {len(df_test)} matches\n")
-    print("Honesty note: small-sample young-competition holdout -- treat metrics as directional.\n")
+    print("Slim stack: XGBoost primary, Ridge/Logistic fallback\n")
 
     df_train_w = df_train.dropna(subset=["Winner"])
     df_test_w = df_test.dropna(subset=["Winner"])

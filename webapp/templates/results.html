@@ -1,11 +1,13 @@
-{% extends "base.html" %}
-{% block title %}Predicted vs Actual Results | Degen Predictions{% endblock %}
-{% block description %}How accurate are Degen Predictions? See predicted vs actual results across every league -- football, MLB, and NPB -- for every target we predict.{% endblock %}
-{% block content %}
-<h1>Predicted vs Actual</h1>
-<p class="muted">A track record for every model on this site, checked against what actually happened.</p>
-<p class="muted">Last updated: {{ results_generated_at }} &middot; refreshes automatically every 3 hours
-    &middot; <a href="/results?refresh=1">force refresh now</a></p>
+{% extends "admin_base.html" %}
+{% block title %}Predicted vs Actual Results | Admin{% endblock %}
+{% block admin_content %}
+<div class="admin-page-intro">
+    <h1>Predicted vs Actual</h1>
+    <p class="muted">Track record for every model on this site, checked against what actually happened.</p>
+    <p class="muted">Last updated: {{ results_generated_at }} &middot; refreshes automatically every 3 hours
+        &middot; <a href="/results?refresh=1">force refresh now</a>
+        &middot; <a href="/admin?section=tools">Back to tools</a></p>
+</div>
 
 <h2 style="margin-top:2rem;">Football</h2>
 <p class="muted">Out-of-sample backtest accuracy (matches the model never trained on) -- click a league for the full match-by-match breakdown.</p>
@@ -44,7 +46,7 @@
     </div>
 </div>
 <div class="table-wrap">
-<table>
+<table class="admin-table">
     <thead><tr>
         <th>Date</th><th>Matchup</th><th>Predicted Winner</th><th>Actual Winner</th><th>✓</th>
         <th>Total Runs Pick</th><th>Actual Total</th><th>✓</th>
@@ -54,19 +56,19 @@
     <tbody>
     {% for r in mlb_rows %}
     <tr>
-        <td>{{ r.date }}</td>
+        <td class="mono">{{ r.date }}</td>
         <td>{{ r.away }} @ {{ r.home }}</td>
         <td>{{ r.predicted_winner }}</td>
         <td>{{ r.actual_winner }}</td>
         <td>{{ "✅" if r.winner_correct else "❌" }}</td>
         <td>{{ r.total_runs_pick }} {{ r.total_runs_line }}</td>
-        <td>{{ r.actual_total_runs | int }}</td>
+        <td class="mono">{{ r.actual_total_runs | int }}</td>
         <td>{{ "✅" if r.runs_correct else "❌" }}</td>
         <td>{{ r.away_runs_pick }} {{ r.away_runs_line }}</td>
-        <td>{{ r.actual_away_runs | int }}</td>
+        <td class="mono">{{ r.actual_away_runs | int }}</td>
         <td>{{ "✅" if r.away_runs_correct else "❌" }}</td>
         <td>{{ r.home_runs_pick }} {{ r.home_runs_line }}</td>
-        <td>{{ r.actual_home_runs | int }}</td>
+        <td class="mono">{{ r.actual_home_runs | int }}</td>
         <td>{{ "✅" if r.home_runs_correct else "❌" }}</td>
     </tr>
     {% endfor %}
@@ -74,7 +76,7 @@
 </table>
 </div>
 {% else %}
-<p class="muted">No finished games to compare yet.</p>
+<p class="empty">No finished games to compare yet.</p>
 {% endif %}
 
 <h2 style="margin-top:2.5rem;">NPB</h2>
@@ -91,7 +93,7 @@
     </div>
 </div>
 <div class="table-wrap">
-<table>
+<table class="admin-table">
     <thead><tr>
         <th>Date</th><th>Matchup</th><th>Predicted Winner</th><th>Actual Winner</th><th>✓</th>
         <th>Total Runs Pick</th><th>Actual Total</th><th>✓</th>
@@ -101,19 +103,19 @@
     <tbody>
     {% for r in npb_rows %}
     <tr>
-        <td>{{ r.date }}</td>
+        <td class="mono">{{ r.date }}</td>
         <td>{{ r.away }} @ {{ r.home }}</td>
         <td>{{ r.predicted_winner }}</td>
         <td>{{ r.actual_winner }}</td>
         <td>{{ "✅" if r.winner_correct else "❌" }}</td>
         <td>{{ r.total_runs_pick }} {{ r.total_runs_line }}</td>
-        <td>{{ r.actual_total_runs | int }}</td>
+        <td class="mono">{{ r.actual_total_runs | int }}</td>
         <td>{{ "✅" if r.runs_correct else "❌" }}</td>
         <td>{{ r.away_runs_pick }} {{ r.away_runs_line }}</td>
-        <td>{{ r.actual_away_runs | int }}</td>
+        <td class="mono">{{ r.actual_away_runs | int }}</td>
         <td>{{ "✅" if r.away_runs_correct else "❌" }}</td>
         <td>{{ r.home_runs_pick }} {{ r.home_runs_line }}</td>
-        <td>{{ r.actual_home_runs | int }}</td>
+        <td class="mono">{{ r.actual_home_runs | int }}</td>
         <td>{{ "✅" if r.home_runs_correct else "❌" }}</td>
     </tr>
     {% endfor %}
@@ -121,6 +123,6 @@
 </table>
 </div>
 {% else %}
-<p class="muted">No finished games to compare yet.</p>
+<p class="empty">No finished games to compare yet.</p>
 {% endif %}
 {% endblock %}

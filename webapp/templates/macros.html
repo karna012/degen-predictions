@@ -1,0 +1,38 @@
+{# Shared up-nav control. Prefer short labels: "Crypto", "Sports", "Fixtures". #}
+{% macro nav_back(href, label='Back') -%}
+<a class="nav-back" href="{{ href }}"><span class="nav-back-chevron" aria-hidden="true">&larr;</span><span class="nav-back-label">{{ label }}</span></a>
+{%- endmacro %}
+
+{# Compact muted path: items = list of {href?, label}. Last item is current (no link). #}
+{% macro nav_crumbs(items) -%}
+<span class="nav-crumbs" aria-label="Breadcrumb">
+{%- for item in items -%}
+    {%- if not loop.first -%}<span class="nav-crumb-sep" aria-hidden="true">/</span>{%- endif -%}
+    {%- if item.href and not loop.last -%}
+    <a class="nav-crumb" href="{{ item.href }}">{{ item.label }}</a>
+    {%- else -%}
+    <span class="nav-crumb{% if loop.last %} nav-crumb-current{% endif %}">{{ item.label }}</span>
+    {%- endif -%}
+{%- endfor -%}
+</span>
+{%- endmacro %}
+
+{# BreadcrumbList JSON-LD. items = [{label, href?}]. Last item may omit href. #}
+{% macro breadcrumb_jsonld(items) -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+  {%- for item in items %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "name": {{ item.label|tojson }},
+      "item": "https://degenpredictions.com{{ item.href or request.path }}"
+    }{% if not loop.last %},{% endif %}
+  {%- endfor %}
+  ]
+}
+</script>
+{%- endmacro %}

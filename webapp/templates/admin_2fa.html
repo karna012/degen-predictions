@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="color-scheme" content="dark">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>Admin 2FA | Degen Predictions</title>
+    <link rel="icon" href="/favicon.ico?v=brand2" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon-96.png') }}?v={{ static_version('favicon-96.png') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=optional">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}?v={{ static_version('admin.css') }}">
+</head>
+<body class="admin-login-body">
+    <div class="admin-login-atmosphere" aria-hidden="true">
+        <div class="admin-login-glow admin-login-glow-a"></div>
+        <div class="admin-login-glow admin-login-glow-b"></div>
+        <div class="admin-login-grid"></div>
+    </div>
+
+    <main class="admin-login-stage">
+        <div class="admin-login-brand">
+            <picture>
+                <source srcset="{{ url_for('static', filename='logo-nav.webp') }}?v={{ static_version('logo-nav.webp') }}" type="image/webp">
+                <img
+                    src="{{ url_for('static', filename='logo.png') }}?v={{ static_version('logo.png') }}"
+                    alt="Degen Predictions"
+                    class="admin-login-logo"
+                    width="120"
+                    height="120"
+                >
+            </picture>
+            <p class="admin-login-lockup">DEGEN <span>PREDICTIONS</span></p>
+            <h1 class="admin-login-title">Two-factor code</h1>
+            <p class="admin-login-sub">Open your authenticator app and enter the 6-digit code.</p>
+        </div>
+
+        <form method="post" action="/admin/2fa" class="admin-login-form" autocomplete="one-time-code">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <input type="hidden" name="next" value="{{ next_url }}">
+
+            {% if error %}
+            <div class="admin-login-error" role="alert">{{ error }}</div>
+            {% endif %}
+
+            <label class="admin-login-field" for="admin-otp">
+                <span>Authentication code</span>
+                <input
+                    id="admin-otp"
+                    type="text"
+                    name="code"
+                    required
+                    inputmode="numeric"
+                    pattern="[0-9A-Za-z\- ]{6,16}"
+                    maxlength="16"
+                    autocomplete="one-time-code"
+                    autofocus
+                    spellcheck="false"
+                    placeholder="123456"
+                >
+            </label>
+
+            <button type="submit" class="admin-login-submit">Verify &amp; continue</button>
+        </form>
+
+        <p class="admin-login-foot">
+            Lost your phone? Use a backup code instead.
+            <br>
+            <a href="/admin/logout">← Cancel and sign out</a>
+        </p>
+    </main>
+</body>
+</html>

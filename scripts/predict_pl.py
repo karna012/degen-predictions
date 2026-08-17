@@ -20,15 +20,17 @@ import pandas as pd
 import requests
 
 from build_features import h2h_features_from_history
-from leagues import LEAGUES
+from leagues import LEAGUES, REPO_ROOT, correct_fixture_dateutc
 
 # Defaults to the Premier League; configure_league() (or webapp/live_predict.py
 # overriding these attributes directly) switches to any other league.
-DATA_DIR = "data/pl_5yr"
-MODEL_DIR = "model/pl"
-OUTPUT_PATH = "output_tables/PremierLeague_ml_predictions.csv"
+# Paths are always under REPO_ROOT so cwd (scripts/ vs repo root) cannot split brains.
+DATA_DIR = os.path.join(REPO_ROOT, "data/pl_5yr")
+MODEL_DIR = os.path.join(REPO_ROOT, "model/pl")
+OUTPUT_PATH = os.path.join(REPO_ROOT, "output_tables/PremierLeague_ml_predictions.csv")
 FIXTURE_SLUG = "epl-2026"
 FIXTURE_NAME_MAP = LEAGUES["premier_league"]["fixture_name_map"]
+CURRENT_LEAGUE_KEY = "premier_league"
 
 LEAGUE_AVG_ROW = {
     "Points_avg5": 1.35, "GF_avg5": 1.45, "GA_avg5": 1.45, "Shots_avg5": 12.5,
@@ -39,8 +41,8 @@ LEAGUE_AVG_ROW = {
     "AwayAttackStrength": 1.0, "AwayDefenseStrength": 1.0,
     "TeamHomeAdvantage": 0.35,
     "Fouls_avg5": 10.5, "FoulsAgainst_avg5": 10.5,
-    "ShotQuality_avg5": 4.3 + 0.75 * (12.5 - 4.3),
-    "ShotQualityAgainst_avg5": 4.3 + 0.75 * (12.5 - 4.3),
+    "ShotQuality_avg5": 4.3 + 0.5 * (12.5 - 4.3),
+    "ShotQualityAgainst_avg5": 4.3 + 0.5 * (12.5 - 4.3),
 }
 
 # Referee is not known this far ahead of kickoff -> always fall back to the
@@ -49,18 +51,21 @@ REFEREE_UNKNOWN_ROW = {"Referee_AvgCards": 3.6, "Referee_AvgGoals": 2.7, "Refere
 
 
 def configure_league(league_key, base_dir=None):
-    """Points every module-level path/config at the given league. base_dir,
-    if given, is prepended to the (repo-root-relative) data_dir/model_dir
-    from leagues.py -- needed by webapp code whose cwd isn't the repo root."""
-    global DATA_DIR, MODEL_DIR, OUTPUT_PATH, FIXTURE_SLUG, FIXTURE_NAME_MAP
+    """Points every module-level path/config at the given league.
+
+    Paths are always absolute under the repo root (or ``base_dir`` when the
+    webapp passes its BASE_DIR). This prevents train/predict writing under
+    ``scripts/model`` when cwd is ``scripts/``.
+    """
+    global DATA_DIR, MODEL_DIR, OUTPUT_PATH, FIXTURE_SLUG, FIXTURE_NAME_MAP, CURRENT_LEAGUE_KEY
     cfg = LEAGUES[league_key]
-    DATA_DIR = os.path.join(base_dir, cfg["data_dir"]) if base_dir else cfg["data_dir"]
-    MODEL_DIR = os.path.join(base_dir, cfg["model_dir"]) if base_dir else cfg["model_dir"]
-    OUTPUT_PATH = os.path.join(
-        base_dir if base_dir else "", "output_tables", f"{cfg['output_name']}_ml_predictions.csv"
-    )
+    root = base_dir if base_dir is not None else REPO_ROOT
+    DATA_DIR = os.path.join(root, cfg["data_dir"])
+    MODEL_DIR = os.path.join(root, cfg["model_dir"])
+    OUTPUT_PATH = os.path.join(root, "output_tables", f"{cfg['output_name']}_ml_predictions.csv")
     FIXTURE_SLUG = cfg["fixturedownload_slug"]
     FIXTURE_NAME_MAP = cfg["fixture_name_map"]
+    CURRENT_LEAGUE_KEY = league_key
 
 
 def load_stacked_models():
@@ -72,11 +77,14 @@ def load_stacked_models():
         training_metrics = pickle.load(f)
 
     def load(name):
+        metrics = training_metrics.get(name, {})
+        if metrics.get("skipped"):
+            return None
         with open(f"{MODEL_DIR}/{name}_base_models.pkl", "rb") as f:
             base_models = pickle.load(f)
         with open(f"{MODEL_DIR}/{name}_meta.pkl", "rb") as f:
             meta = pickle.load(f)
-        best_strategy = training_metrics.get(name, {}).get("best_strategy", "stacked")
+        best_strategy = metrics.get("best_strategy", "stacked")
         return base_models, meta, best_strategy
 
     models = {
@@ -185,19 +193,30 @@ def predict_all():
         base_models, meta, best_strategy = models["over25"]
         p_over25 = best_classify(base_models, meta, best_strategy, X)[0][1]
 
-        base_models, meta, best_strategy = models["home_more_corners"]
-        p_home_more_corners = best_classify(base_models, meta, best_strategy, X)[0][1]
+        if models["home_more_corners"] is None:
+            p_home_more_corners = float("nan")
+            more_corners_pred = ""
+        else:
+            base_models, meta, best_strategy = models["home_more_corners"]
+            p_home_more_corners = best_classify(base_models, meta, best_strategy, X)[0][1]
+            more_corners_pred = home if p_home_more_corners >= 0.5 else away
 
         home_is_favorite = float(X["Elo_Diff"].iloc[0]) >= 0
         favorite_team = home if home_is_favorite else away
         base_models, meta, best_strategy = models["favorite_avoids_defeat"]
         p_favorite_avoids_defeat = best_classify(base_models, meta, best_strategy, X)[0][1]
 
-        base_models, meta, best_strategy = models["total_corners"]
-        exp_total_corners = best_regress(base_models, meta, best_strategy, X)[0]
+        if models["total_corners"] is None:
+            exp_total_corners = float("nan")
+        else:
+            base_models, meta, best_strategy = models["total_corners"]
+            exp_total_corners = best_regress(base_models, meta, best_strategy, X)[0]
 
         rows.append({
-            "RoundNumber": fx["RoundNumber"], "DateUtc": fx["DateUtc"],
+            "RoundNumber": fx["RoundNumber"],
+            "DateUtc": correct_fixture_dateutc(
+                CURRENT_LEAGUE_KEY, fx["DateUtc"], home, away,
+            ),
             "HomeTeam": home, "AwayTeam": away,
             "P_Home_Win": round(float(result_proba.get("H", 0)), 3),
             "P_Draw": round(float(result_proba.get("D", 0)), 3),
@@ -207,9 +226,15 @@ def predict_all():
             "BTTS_Prediction": "Yes" if p_btts >= 0.5 else "No",
             "P_Over_2.5_Goals": round(float(p_over25), 3),
             "Goals_Prediction": "Over 2.5" if p_over25 >= 0.5 else "Under 2.5",
-            "Exp_Total_Corners": round(float(exp_total_corners), 2),
-            "P_Home_More_Corners": round(float(p_home_more_corners), 3),
-            "More_Corners_Prediction": home if p_home_more_corners >= 0.5 else away,
+            "Exp_Total_Corners": (
+                "" if (isinstance(exp_total_corners, float) and np.isnan(exp_total_corners))
+                else round(float(exp_total_corners), 2)
+            ),
+            "P_Home_More_Corners": (
+                "" if (isinstance(p_home_more_corners, float) and np.isnan(p_home_more_corners))
+                else round(float(p_home_more_corners), 3)
+            ),
+            "More_Corners_Prediction": more_corners_pred,
             "Favorite_Team": favorite_team,
             "P_Favorite_Avoids_Defeat": round(float(p_favorite_avoids_defeat), 3),
             "Favorite_Avoids_Defeat_Prediction": "Yes" if p_favorite_avoids_defeat >= 0.5 else "No",

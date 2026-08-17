@@ -1,0 +1,649 @@
+{# Admin: data sources — status, one-click switch, API keys. #}
+<section class="admin-section {{ 'is-visible' if admin_section == 'sources' else '' }}" data-admin-section="sources">
+    {% set src = source_settings or {} %}
+    {% set tg = src.telegram or {} %}
+    {% set apis = src.apis or {} %}
+    {% set board = src.status_board or {} %}
+    {% set summary = board.summary or {} %}
+    {% set alerts = board.alerts or [] %}
+    {% set vault = src.secrets_vault or {} %}
+    {% set sports = board.sports or [] %}
+
+    {% if sources_flash %}
+    <div class="src-toast {% if sources_flash.startswith('ok') %}is-ok{% else %}is-err{% endif %}">
+        <strong>{% if sources_flash.startswith('ok') %}Done{% else %}Error{% endif %}</strong>
+        <span>{{ sources_flash_msg or ('Saved' if sources_flash.startswith('ok') else 'Action failed') }}</span>
+    </div>
+    {% endif %}
+
+    <div class="src-hero">
+        <div class="src-hero-copy">
+            <h2 class="src-hero-title">Sources &amp; API keys</h2>
+            <p class="src-hero-sub">
+                Sports fixtures plus stocks &amp; crypto board data.
+                Check feeds, switch a broken API, or paste keys.
+                {% if board.checked_at %}<span class="muted">Last check {{ board.checked_at }}</span>{% endif %}
+            </p>
+        </div>
+        <div class="src-hero-kpis">
+            <div class="src-kpi is-ok">
+                <span class="src-kpi-n">{{ summary.working or 0 }}</span>
+                <span class="src-kpi-l">Working</span>
+            </div>
+            <div class="src-kpi is-bad">
+                <span class="src-kpi-n">{{ summary.down or 0 }}</span>
+                <span class="src-kpi-l">Down</span>
+            </div>
+            <div class="src-kpi is-info">
+                <span class="src-kpi-n">{{ summary.needs_key or 0 }}</span>
+                <span class="src-kpi-l">Need key</span>
+            </div>
+            <div class="src-kpi {% if board.alert_count %}is-bad{% else %}is-ok{% endif %}">
+                <span class="src-kpi-n">{{ board.alert_count or 0 }}</span>
+                <span class="src-kpi-l">Broken</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="src-tabs" id="src-tabs" aria-label="Sources sections">
+        <button type="button" class="src-tab is-active" data-src-tab="status">1 · Status &amp; switch</button>
+        <button type="button" class="src-tab" data-src-tab="keys">
+            2 · API keys
+            {% if vault.count_unset %}
+            <span class="src-tab-dot">{{ vault.count_unset }}</span>
+            {% endif %}
+        </button>
+        <button type="button" class="src-tab" data-src-tab="advanced">3 · Advanced</button>
+    </nav>
+
+    {# ========== TAB: Status & switch ========== #}
+    <div class="src-pane is-active" data-src-pane="status">
+        <div class="panel sources-fix-panel">
+            <div class="panel-head">
+                <h3>What should I do?</h3>
+                <span class="muted">Two buttons · then pick stocks/crypto or a sport</span>
+            </div>
+            <div class="panel-body">
+                <div class="src-steps">
+                    <form method="post" action="/admin/sources/probe" class="src-step-card">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <div class="src-step-num">1</div>
+                        <div class="src-step-body">
+                            <strong>Check APIs</strong>
+                            <p>Probe every source and refresh the badges below.</p>
+                            <button type="submit" class="btn btn-primary">Check now</button>
+                        </div>
+                    </form>
+                    <form method="post" action="/admin/sources/heal" class="src-step-card {% if not alerts %}is-disabled{% endif %}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <div class="src-step-num">2</div>
+                        <div class="src-step-body">
+                            <strong>Auto-fix broken</strong>
+                            <p>
+                                {% if alerts %}
+                                Switch {{ alerts|length }} broken primary feed{{ 's' if alerts|length != 1 else '' }} to a working backup.
+                                {% else %}
+                                Nothing broken right now — you’re good.
+                                {% endif %}
+                            </p>
+                            <button type="submit" class="btn {% if alerts %}btn-primary{% endif %}"
+                                    {% if not alerts %}disabled{% endif %}>
+                                {% if alerts %}Fix {{ alerts|length }} now{% else %}All healthy{% endif %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                {% if alerts %}
+                <div class="sources-alert-list">
+                    <h4 class="src-section-label">Needs attention</h4>
+                    {% for a in alerts %}
+                    <div class="sources-alert-card">
+                        <div class="sources-alert-main">
+                            <div class="sources-alert-title">
+                                <strong>{{ a.sport_label }}</strong>
+                                <span class="src-badge src-{{ a.broken_status }}">{{ a.broken_status|replace('_',' ') }}</span>
+                            </div>
+                            <p class="sources-alert-copy">
+                                <em>{{ a.broken_label }}</em> is failing for {{ a.role_label }}.
+                                {% if a.broken_detail %}<span class="muted">{{ a.broken_detail }}</span>{% endif %}
+                            </p>
+                            {% if a.recommend_id %}
+                            <p class="sources-alert-rec">
+                                Best backup: <strong>{{ a.recommend_label }}</strong>
+                                <span class="src-badge src-{{ a.recommend_status }}">{{ a.recommend_status|replace('_',' ') }}</span>
+                            </p>
+                            {% endif %}
+                        </div>
+                        {% if a.recommend_id %}
+                        <form method="post" action="/admin/sources/switch" class="sources-alert-action">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <input type="hidden" name="sport" value="{{ a.sport_id }}">
+                            <input type="hidden" name="role" value="{{ a.role }}">
+                            <input type="hidden" name="provider" value="{{ a.recommend_id }}">
+                            <button type="submit" class="btn btn-primary">Use {{ a.recommend_label }}</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="sources-all-good">
+                    <span class="src-badge src-working">all good</span>
+                    Active fixtures &amp; results look healthy.
+                </div>
+                {% endif %}
+
+                {% set inv = src.investment or {} %}
+                {% set inv_csv = inv.csv or {} %}
+                {% if inv and not inv.error %}
+                <div class="sources-markets-panel">
+                    <h4 class="src-section-label">Stocks &amp; crypto board</h4>
+                    <div class="sources-markets-grid">
+                        <div class="sources-markets-card">
+                            <strong>ranked_assets.csv</strong>
+                            {% if inv_csv.exists %}
+                            <span class="src-badge {% if inv_csv.stale %}src-degraded{% else %}src-working{% endif %}">
+                                {% if inv_csv.stale %}stale{% else %}on disk{% endif %}
+                            </span>
+                            <p class="muted" style="margin:0.4rem 0 0;">
+                                {{ inv_csv.rows or 0 }} rows · stocks {{ inv_csv.stocks_rows or 0 }} · crypto {{ inv_csv.crypto_rows or 0 }}
+                                · age {{ inv_csv.age_hours or '?' }}h
+                            </p>
+                            {% else %}
+                            <span class="src-badge src-down">missing</span>
+                            <p class="muted" style="margin:0.4rem 0 0;">{{ inv_csv.detail or 'Copy CSV from investment_scoring pipeline' }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="sources-markets-card">
+                            <strong>Public boards</strong>
+                            <p class="muted" style="margin:0.4rem 0 0;">
+                                Stocks
+                                {% if inv.stocks_enabled %}<span class="src-badge src-working">on</span>{% else %}<span class="src-badge src-down">off</span>{% endif %}
+                                · Crypto
+                                {% if inv.crypto_enabled %}<span class="src-badge src-working">on</span>{% else %}<span class="src-badge src-down">off</span>{% endif %}
+                            </p>
+                            <p class="muted" style="margin:0.35rem 0 0; font-size:0.82rem;">
+                                Prefs: stocks board {{ (inv.stocks_prefs or {}).board or '—' }} /
+                                quotes {{ (inv.stocks_prefs or {}).quotes or '—' }}
+                                · crypto {{ (inv.crypto_prefs or {}).board or '—' }} /
+                                {{ (inv.crypto_prefs or {}).quotes or '—' }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <h4 class="src-section-label">Per sport / market — click a working source to switch</h4>
+                {% if sports %}
+                <div class="sources-sport-switchers">
+                    {% for sport in sports %}
+                    {% set roles = sport.roles or {} %}
+                    {% set needs = sport.attention or [] %}
+                    {% set rl = sport.role_labels or {} %}
+                    <details class="sources-sport-switch {% if needs %}needs-attention{% endif %} {% if sport.kind == 'markets' %}is-markets{% endif %}"
+                             {% if needs or loop.first or sport.kind == 'markets' %}open{% endif %}>
+                        <summary class="sources-feed-head sources-sport-summary">
+                            <span class="sources-sport-title">
+                                <strong>{{ sport.label }}</strong>
+                                {% if sport.kind == 'markets' %}<span class="src-badge src-needs_key">markets</span>{% endif %}
+                                <span class="src-badge src-{{ sport.health or 'unknown' }}">{{ (sport.health or 'unknown')|replace('_',' ') }}</span>
+                                {% if sport.enabled is defined and not sport.enabled %}
+                                <span class="src-badge src-down">disabled</span>
+                                {% endif %}
+                            </span>
+                            <span class="muted sources-sport-hint">
+                                {% if needs %}{{ needs|length }} to fix{% else %}tap to manage{% endif %}
+                            </span>
+                        </summary>
+
+                        <div class="sources-enable-row">
+                            <form method="post" action="/admin/sources/toggle" class="lifecycle-inline-form">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                                <input type="hidden" name="sport" value="{{ sport.id }}">
+                                {% if sport.enabled %}
+                                <input type="hidden" name="enabled" value="0">
+                                <button type="submit" class="btn btn-sm">Disable {{ sport.label }}</button>
+                                {% else %}
+                                <input type="hidden" name="enabled" value="1">
+                                <button type="submit" class="btn btn-sm btn-primary">Enable {{ sport.label }}</button>
+                                {% endif %}
+                            </form>
+                            {% if sport.kind == 'markets' %}
+                            <span class="muted" style="font-size:0.8rem;">
+                                Off hides public /{{ sport.id }}{% if sport.id == 'stocks' %} and /stocks/us|/india{% endif %} boards.
+                            </span>
+                            {% endif %}
+                        </div>
+
+                        {% for key, default_title in [
+                            ('fixtures_primary', 'Fixtures'),
+                            ('results_primary', 'Results'),
+                        ] %}
+                        {% set title = rl.get(key) or default_title %}
+                        {% set role = roles.get(key) or {} %}
+                        <div class="sources-role-row {% if role.broken %}is-broken{% endif %}">
+                            <div class="sources-role-meta">
+                                <span class="sources-role-title">{{ title }}</span>
+                                <span class="src-badge src-{{ role.status or 'unknown' }}">{{ (role.status or 'unknown')|replace('_',' ') }}</span>
+                                <div class="muted">Now: {{ role.label or '—' }}</div>
+                            </div>
+                            <div class="sources-role-picks">
+                                {% for opt in sport.options or [] %}
+                                {% set role_kind = 'fixtures' if 'fixtures' in key else 'results' %}
+                                {% if role_kind in (opt.roles or []) %}
+                                <form method="post" action="/admin/sources/switch" class="lifecycle-inline-form">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                                    <input type="hidden" name="sport" value="{{ sport.id }}">
+                                    <input type="hidden" name="role" value="{{ key }}">
+                                    <input type="hidden" name="provider" value="{{ opt.id }}">
+                                    <button type="submit"
+                                        class="btn btn-sm src-pick
+                                            {% if opt.id == role.provider_id %}is-active-source{% elif opt.status == 'working' %}is-good-source{% endif %}
+                                            {% if opt.status == 'down' %}is-down-source{% endif %}"
+                                        {% if opt.id == role.provider_id %}disabled title="Already active"{% endif %}
+                                        {% if opt.status == 'down' %}title="This source is down"{% endif %}>
+                                        {% if opt.id == role.provider_id %}✓ {% endif %}{{ opt.label }}
+                                        <span class="src-mini src-{{ opt.status }}">{{ opt.status|replace('_',' ') }}</span>
+                                    </button>
+                                </form>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <details class="sources-backup-fold">
+                            <summary>Backup sources (fallback)</summary>
+                            {% for key, default_title in [
+                                ('fixtures_fallback', 'Fixtures backup'),
+                                ('results_fallback', 'Results backup'),
+                            ] %}
+                            {% set title = rl.get(key) or default_title %}
+                            {% set role = roles.get(key) or {} %}
+                            <div class="sources-role-row">
+                                <div class="sources-role-meta">
+                                    <span class="sources-role-title">{{ title }}</span>
+                                    <span class="src-badge src-{{ role.status or 'unknown' }}">{{ (role.status or 'unknown')|replace('_',' ') }}</span>
+                                    <div class="muted">Now: {{ role.label or '—' }}</div>
+                                </div>
+                                <div class="sources-role-picks">
+                                    {% for opt in sport.options or [] %}
+                                    {% set role_kind = 'fixtures' if 'fixtures' in key else 'results' %}
+                                    {% if role_kind in (opt.roles or []) %}
+                                    <form method="post" action="/admin/sources/switch" class="lifecycle-inline-form">
+                                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                                        <input type="hidden" name="sport" value="{{ sport.id }}">
+                                        <input type="hidden" name="role" value="{{ key }}">
+                                        <input type="hidden" name="provider" value="{{ opt.id }}">
+                                        <button type="submit"
+                                            class="btn btn-sm src-pick
+                                                {% if opt.id == role.provider_id %}is-active-source{% elif opt.status == 'working' %}is-good-source{% endif %}"
+                                            {% if opt.id == role.provider_id %}disabled{% endif %}>
+                                            {% if opt.id == role.provider_id %}✓ {% endif %}{{ opt.label }}
+                                            <span class="src-mini src-{{ opt.status }}">{{ opt.status|replace('_',' ') }}</span>
+                                        </button>
+                                    </form>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </details>
+                    </details>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="muted src-empty">Hit <strong>Check now</strong> to load live status for each sport.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {# ========== TAB: API keys ========== #}
+    <div class="src-pane" data-src-pane="keys">
+        <div class="panel vault-panel">
+            <div class="panel-head">
+                <h3>API keys &amp; secrets</h3>
+                <span class="vault-progress">
+                    <span class="src-badge {% if (vault.count_unset or 0) == 0 %}src-working{% else %}src-needs_key{% endif %}">
+                        {{ vault.count_set or 0 }}/{{ vault.count_total or 0 }} set
+                    </span>
+                    {% if vault.count_unset %}
+                    <span class="muted">{{ vault.count_unset }} missing</span>
+                    {% endif %}
+                </span>
+            </div>
+            <div class="panel-body">
+                <form method="post" action="/admin/sources/secrets" class="vault-form" id="vault-form">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+                    <div class="vault-toolbar">
+                        <p class="vault-blurb">
+                            Paste keys below. Save updates admin overrides and
+                            <code>{{ vault.production_env_path or 'deploy/production.env' }}</code>.
+                            Flask / admin login need a service restart.
+                        </p>
+                        <div class="vault-toolbar-actions">
+                            <label class="vault-toggle">
+                                <input type="checkbox" id="vault-unset-only" {% if vault.count_unset %}checked{% endif %}>
+                                Unset only
+                            </label>
+                            <label class="vault-toggle">
+                                <input type="checkbox" id="vault-reveal-all"> Reveal secrets
+                            </label>
+                            <button type="button" class="btn btn-sm" id="vault-expand-all">Expand all</button>
+                            <button type="button" class="btn btn-sm" id="vault-collapse-all">Collapse</button>
+                        </div>
+                    </div>
+
+                    <div class="vault-groups">
+                        {% for group in vault.groups or [] %}
+                        <details class="vault-group {% if group.complete %}is-complete{% else %}needs-attention{% endif %}"
+                                 {% if not group.complete %}open{% endif %}
+                                 data-unset="{{ group.count_unset or 0 }}">
+                            <summary class="vault-group-head">
+                                <span class="vault-group-name">{{ group.name }}</span>
+                                <span class="vault-group-meta">
+                                    {% if group.complete %}
+                                    <span class="src-badge src-working">complete</span>
+                                    {% else %}
+                                    <span class="src-badge src-needs_key">{{ group.count_unset }} unset</span>
+                                    {% endif %}
+                                    <span class="muted">{{ group.count_set }}/{{ group.count_total }}</span>
+                                </span>
+                            </summary>
+                            <div class="vault-fields">
+                                {% for item in group.entries or [] %}
+                                <div class="vault-field {% if item.set %}is-set{% else %}is-unset{% endif %}"
+                                     data-set="{{ 1 if item.set else 0 }}">
+                                    <div class="vault-field-top">
+                                        <label class="vault-field-label" for="secret-{{ item.env }}">{{ item.label }}</label>
+                                        <span class="vault-field-status">
+                                            {% if item.set %}
+                                            <span class="src-badge src-working">set</span>
+                                            {% else %}
+                                            <span class="src-badge src-needs_key">unset</span>
+                                            {% endif %}
+                                            <span class="vault-source" title="Resolved from">{{ item.source }}</span>
+                                        </span>
+                                    </div>
+                                    <div class="vault-input-row">
+                                        <input
+                                            id="secret-{{ item.env }}"
+                                            type="{% if item.sensitive %}password{% else %}text{% endif %}"
+                                            name="secret_{{ item.env }}"
+                                            class="select vault-input {% if item.sensitive %}is-sensitive{% endif %}"
+                                            value="{{ item.value }}"
+                                            autocomplete="off"
+                                            spellcheck="false"
+                                            placeholder="{% if item.set %}••••••••{% else %}paste value{% endif %}"
+                                        >
+                                        {% if item.sensitive %}
+                                        <button type="button" class="btn btn-sm vault-eye" title="Show / hide" aria-label="Show or hide value">Show</button>
+                                        {% endif %}
+                                    </div>
+                                    <div class="vault-field-foot">
+                                        <code>{{ item.env }}</code>
+                                        {% if item.hint %}<span class="muted">{{ item.hint }}</span>{% endif %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </details>
+                        {% endfor %}
+                    </div>
+
+                    <div class="vault-savebar">
+                        <span class="muted">Scroll freely — Save stays here</span>
+                        <button type="submit" class="btn btn-primary">Save all secrets</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {# ========== TAB: Advanced ========== #}
+    <div class="src-pane" data-src-pane="advanced">
+        <div class="panel">
+            <div class="panel-head">
+                <h3>Advanced settings</h3>
+                <span class="muted">Telegram · dropdowns · notes{% if src.updated_at %} · saved {{ src.updated_at }}{% endif %}</span>
+            </div>
+            <div class="panel-body">
+                <p class="muted" style="margin:0 0 1rem;">
+                    Most people only need the Status and API keys tabs. Use this for Telegram CTA, enabling/disabling sports, or notes.
+                </p>
+
+                <form method="post" action="/admin/sources/save" class="sources-form">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+                    <h4 class="sources-h">Telegram (quick)</h4>
+                    <div class="sources-grid">
+                        <label>
+                            Public invite URL
+                            <input type="text" name="tg_channel_url" class="select" value="{{ tg.channel_url or '' }}"
+                                   placeholder="{{ tg.env_channel_url or 'https://t.me/+' }}">
+                        </label>
+                        <label>
+                            Bot chat ID
+                            <input type="text" name="tg_chat_id" class="select" value="{{ tg.chat_id or '' }}"
+                                   placeholder="{{ tg.env_chat_id or '-100…' }}">
+                        </label>
+                        <label>
+                            Bot token
+                            <input type="text" name="tg_bot_token" class="select" autocomplete="off"
+                                   value="{{ tg.bot_token or '' }}"
+                                   placeholder="paste bot token">
+                            <span class="muted">Source: {{ tg.bot_token_source }}</span>
+                        </label>
+                        <label class="tg-market-row sources-check">
+                            <input type="checkbox" name="tg_auto_post" value="1" {{ 'checked' if tg.auto_post else '' }}>
+                            <span>Allow CHANNEL_AUTO_POST</span>
+                        </label>
+                    </div>
+
+                    <h4 class="sources-h">Sports API keys (quick)</h4>
+                    <div class="sources-grid">
+                        {% for key, meta in apis.items() %}
+                        <label>
+                            {{ meta.label }}
+                            <input type="text" name="api_{{ key }}" class="select" autocomplete="off"
+                                   value="{{ meta.value or '' }}"
+                                   placeholder="{{ meta.env }}">
+                            <span class="muted">{{ meta.hint }} · {{ meta.source }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+
+                    <h4 class="sources-h">Fixtures / board data &amp; results / quotes</h4>
+                    <div class="sources-feeds">
+                        {% for feed in src.feeds or [] %}
+                        {% set rl = feed.role_labels or {} %}
+                        <div class="sources-feed-card {% if feed.kind == 'markets' %}is-markets{% endif %}">
+                            <div class="sources-feed-head">
+                                <strong>{{ feed.label }}</strong>
+                                {% if feed.kind == 'markets' %}<span class="src-badge src-needs_key">markets</span>{% endif %}
+                                <span class="src-badge src-{{ feed.health or 'unknown' }}">{{ (feed.health or 'unknown')|replace('_',' ') }}</span>
+                                <label class="tg-market-row">
+                                    <input type="checkbox" name="feed_{{ feed.id }}_enabled" value="1"
+                                           {{ 'checked' if feed.enabled else '' }}>
+                                    <span>Enabled</span>
+                                </label>
+                            </div>
+                            <div class="sources-grid sources-grid-4">
+                                <label>
+                                    {{ rl.get('fixtures_primary') or 'Fixtures primary' }}
+                                    <select name="feed_{{ feed.id }}_fixtures_primary" class="select">
+                                        {% for opt in feed.fixture_options %}
+                                        <option value="{{ opt.id }}" {{ 'selected' if feed.fixtures_primary == opt.id else '' }}>
+                                            [{{ opt.status|replace('_',' ') }}] {{ opt.label }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </label>
+                                <label>
+                                    {{ rl.get('fixtures_fallback') or 'Fixtures fallback' }}
+                                    <select name="feed_{{ feed.id }}_fixtures_fallback" class="select">
+                                        {% for opt in feed.fixture_options %}
+                                        <option value="{{ opt.id }}" {{ 'selected' if feed.fixtures_fallback == opt.id else '' }}>
+                                            [{{ opt.status|replace('_',' ') }}] {{ opt.label }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </label>
+                                <label>
+                                    {{ rl.get('results_primary') or 'Results primary' }}
+                                    <select name="feed_{{ feed.id }}_results_primary" class="select">
+                                        {% for opt in feed.result_options %}
+                                        <option value="{{ opt.id }}" {{ 'selected' if feed.results_primary == opt.id else '' }}>
+                                            [{{ opt.status|replace('_',' ') }}] {{ opt.label }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </label>
+                                <label>
+                                    {{ rl.get('results_fallback') or 'Results fallback' }}
+                                    <select name="feed_{{ feed.id }}_results_fallback" class="select">
+                                        {% for opt in feed.result_options %}
+                                        <option value="{{ opt.id }}" {{ 'selected' if feed.results_fallback == opt.id else '' }}>
+                                            [{{ opt.status|replace('_',' ') }}] {{ opt.label }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <h4 class="sources-h">Notes</h4>
+                    <label>
+                        <textarea name="notes" class="select sources-notes" rows="3"
+                                  placeholder="Provider outages, plan renewals…">{{ src.notes or '' }}</textarea>
+                    </label>
+
+                    <div class="sources-actions">
+                        <button type="submit" class="btn btn-primary">Save advanced</button>
+                        <a class="btn" href="/admin?section=sources&amp;filter={{ visitor_filter }}">Reset</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% if src.feed_health %}
+        <div class="panel" style="margin-top:1rem;">
+            <div class="panel-head">
+                <h3>Cached feed snapshots</h3>
+                <span class="muted">debug · feed_store</span>
+            </div>
+            <div class="panel-body">
+                <div class="table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Feed</th>
+                                <th>OK</th>
+                                <th>Items</th>
+                                <th>Age</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name, row in src.feed_health.items()|sort %}
+                            <tr>
+                                <td><code>{{ name }}</code></td>
+                                <td>
+                                    {% if row.ok %}<span class="badge badge-human">ok</span>
+                                    {% elif row.degraded %}<span class="badge badge-bot">degraded</span>
+                                    {% else %}<span class="badge badge-bot">fail</span>{% endif %}
+                                </td>
+                                <td>{{ row.items }}</td>
+                                <td>{% if row.age_s is not none %}{{ row.age_s }}s{% else %}—{% endif %}</td>
+                                <td class="muted">{{ row.reason or '' }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+    (function () {
+      var root = document.querySelector('[data-admin-section="sources"]');
+      if (!root) return;
+
+      /* Tabs — remember last tab */
+      var tabs = root.querySelectorAll('.src-tab');
+      var panes = root.querySelectorAll('.src-pane');
+      function showTab(id) {
+        tabs.forEach(function (t) { t.classList.toggle('is-active', t.getAttribute('data-src-tab') === id); });
+        panes.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-src-pane') === id); });
+        try { localStorage.setItem('degen_src_tab', id); } catch (e) {}
+      }
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { showTab(t.getAttribute('data-src-tab')); });
+      });
+      var saved = null;
+      try { saved = localStorage.getItem('degen_src_tab'); } catch (e) {}
+      {% if sources_flash == 'ok_secrets' %}
+      showTab('keys');
+      {% elif sources_flash and sources_flash.startswith('ok') %}
+      showTab('status');
+      {% elif saved %}
+      showTab(saved);
+      {% endif %}
+
+      /* Vault controls */
+      var form = document.getElementById('vault-form');
+      if (!form) return;
+      var unsetOnly = document.getElementById('vault-unset-only');
+      var revealAll = document.getElementById('vault-reveal-all');
+      var expandBtn = document.getElementById('vault-expand-all');
+      var collapseBtn = document.getElementById('vault-collapse-all');
+
+      function applyUnsetFilter() {
+        var on = unsetOnly && unsetOnly.checked;
+        form.classList.toggle('vault-filter-unset', on);
+        form.querySelectorAll('.vault-group').forEach(function (g) {
+          var n = parseInt(g.getAttribute('data-unset') || '0', 10);
+          g.hidden = on && n === 0;
+          if (on && n > 0) g.open = true;
+        });
+      }
+      function setReveal(on) {
+        form.querySelectorAll('input.is-sensitive').forEach(function (inp) {
+          inp.type = on ? 'text' : 'password';
+        });
+        form.querySelectorAll('.vault-eye').forEach(function (btn) {
+          btn.textContent = on ? 'Hide' : 'Show';
+        });
+      }
+
+      if (unsetOnly) {
+        unsetOnly.addEventListener('change', applyUnsetFilter);
+        applyUnsetFilter();
+      }
+      if (revealAll) revealAll.addEventListener('change', function () { setReveal(revealAll.checked); });
+      if (expandBtn) expandBtn.addEventListener('click', function () {
+        form.querySelectorAll('.vault-group').forEach(function (g) { if (!g.hidden) g.open = true; });
+      });
+      if (collapseBtn) collapseBtn.addEventListener('click', function () {
+        form.querySelectorAll('.vault-group').forEach(function (g) { g.open = false; });
+      });
+      form.addEventListener('click', function (e) {
+        var btn = e.target.closest('.vault-eye');
+        if (!btn) return;
+        var row = btn.closest('.vault-input-row');
+        var inp = row && row.querySelector('input');
+        if (!inp) return;
+        var show = inp.type === 'password';
+        inp.type = show ? 'text' : 'password';
+        btn.textContent = show ? 'Hide' : 'Show';
+      });
+    })();
+    </script>
+</section>

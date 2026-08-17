@@ -6,6 +6,7 @@ game environment instead of tennis's surface/best-of-N structure.
 """
 import math
 import os
+from datetime import date, datetime
 
 import pandas as pd
 
@@ -13,6 +14,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data", "mlb")
 HOME_ADVANTAGE = 24.0  # must match scripts/mlb/mlb_config.py -- kept in sync manually
                        # since the web app doesn't share Python path with scripts/.
+MAX_REST_DAYS = 14.0
+DEFAULT_REST_DAYS = 3.0
+DEFAULT_PARK_HOME_WIN_RATE = 0.54
+
+MLB_ML_FEATURE_NAMES = [
+    "EloDiff", "HomeLast10WinRate", "AwayLast10WinRate", "HomeStreak", "AwayStreak",
+    "H2HMeetings", "HomeH2HWinRate", "RunsForDiff", "RunsAllowedDiff",
+    "HitsForDiff", "HRForDiff", "SOInducedDiff",
+    "PitcherQualityDiff", "PitcherWinRateDiff", "PitcherStartsDiff",
+    "HomeDaysRest", "AwayDaysRest", "IsDayGame", "ParkHomeWinRate",
+]
 
 
 def load_mlb_elo():
@@ -27,6 +39,116 @@ def load_mlb_history():
     if not os.path.exists(path):
         return pd.DataFrame()
     return pd.read_csv(path)
+
+
+def load_park_home_win_rates():
+    path = os.path.join(DATA_DIR, "park_home_win_rate.csv")
+    if not os.path.exists(path):
+        return {}
+    df = pd.read_csv(path)
+    return {str(r.ParkID): float(r.HomeWinRate) for r in df.itertuples(index=False)}
+
+
+def _parse_as_of_date(as_of_date):
+    if as_of_date is None or as_of_date == "":
+        return date.today()
+    if isinstance(as_of_date, date) and not isinstance(as_of_date, datetime):
+        return as_of_date
+    try:
+        return pd.to_datetime(as_of_date).date()
+    except (ValueError, TypeError):
+        return date.today()
+
+
+def _days_rest_from_last_game(last_game_date, as_of):
+    if last_game_date is None or (isinstance(last_game_date, float) and math.isnan(last_game_date)):
+        return DEFAULT_REST_DAYS
+    try:
+        prev = pd.to_datetime(last_game_date).date()
+    except (ValueError, TypeError):
+        return DEFAULT_REST_DAYS
+    return float(min(max((as_of - prev).days, 0), MAX_REST_DAYS))
+
+
+def _pitcher_win_rate(wins, losses):
+    try:
+        w, l = int(wins), int(losses)
+    except (TypeError, ValueError):
+        return 0.5
+    total = w + l
+    return (w / total) if total else 0.5
+
+
+def _pitcher_starts_proxy(wins, losses):
+    """ESPN does not expose career starts here -- W+L is a rough activity proxy."""
+    try:
+        return max(0, int(wins) + int(losses))
+    except (TypeError, ValueError):
+        return 0
+
+
+def build_mlb_ml_features(home_row, away_row, h2h, home_era="", away_era="",
+                          home_pitcher=None, away_pitcher=None, as_of_date=None,
+                          is_day_game=0.0, park_id=None):
+    """Feature vector matching scripts/mlb/train_ml_models.py FEATURES.
+
+    Live ESPN starters usually lack Retrosheet IDs, so pitcher quality / win
+    rate / starts are proxied from ERA and W-L when available (same inverse-ERA
+    quality scale used in training). Missing pitcher info yields neutral diffs.
+    """
+    home_pitcher = home_pitcher or {}
+    away_pitcher = away_pitcher or {}
+    as_of = _parse_as_of_date(as_of_date)
+
+    h2h_meetings = h2h["meetings"]
+    h2h_home_rate = (h2h["home_wins"] / h2h_meetings) if h2h_meetings else 0.5
+    home_last10_rate = (home_row.get("Last10Wins", 0) / home_row["Last10Played"]) if home_row.get("Last10Played") else 0.5
+    away_last10_rate = (away_row.get("Last10Wins", 0) / away_row["Last10Played"]) if away_row.get("Last10Played") else 0.5
+
+    home_q = _era_to_quality(home_era)
+    away_q = _era_to_quality(away_era)
+    if home_q is None or away_q is None:
+        pitcher_quality_diff = 0.0
+    else:
+        pitcher_quality_diff = home_q - away_q
+
+    home_wr = _pitcher_win_rate(home_pitcher.get("wins"), home_pitcher.get("losses"))
+    away_wr = _pitcher_win_rate(away_pitcher.get("wins"), away_pitcher.get("losses"))
+    # Only apply W-L diff when both sides have a real record; otherwise neutral.
+    if home_pitcher.get("wins") is None and home_pitcher.get("losses") is None \
+            and away_pitcher.get("wins") is None and away_pitcher.get("losses") is None:
+        pitcher_win_rate_diff = 0.0
+        pitcher_starts_diff = 0.0
+    else:
+        pitcher_win_rate_diff = home_wr - away_wr
+        hs = _pitcher_starts_proxy(home_pitcher.get("wins"), home_pitcher.get("losses"))
+        aws = _pitcher_starts_proxy(away_pitcher.get("wins"), away_pitcher.get("losses"))
+        pitcher_starts_diff = math.log1p(hs) - math.log1p(aws)
+
+    park_rates = load_park_home_win_rates()
+    park_rate = park_rates.get(str(park_id), DEFAULT_PARK_HOME_WIN_RATE) if park_id else DEFAULT_PARK_HOME_WIN_RATE
+
+    return {
+        "EloDiff": float(home_row["Elo"]) - float(away_row["Elo"]),
+        "HomeLast10WinRate": float(home_last10_rate),
+        "AwayLast10WinRate": float(away_last10_rate),
+        "HomeStreak": int(home_row.get("CurrentStreak", 0)),
+        "AwayStreak": int(away_row.get("CurrentStreak", 0)),
+        "H2HMeetings": h2h_meetings,
+        "HomeH2HWinRate": h2h_home_rate,
+        "RunsForDiff": float(home_row["AvgRunsScored"]) - float(away_row["AvgRunsScored"]),
+        "RunsAllowedDiff": float(away_row["AvgRunsAllowed"]) - float(home_row["AvgRunsAllowed"]),
+        "HitsForDiff": float(home_row["AvgHitsFor"]) - float(away_row["AvgHitsFor"]),
+        "HRForDiff": float(home_row["AvgHRFor"]) - float(away_row["AvgHRFor"]),
+        "SOInducedDiff": float(home_row["AvgSOInduced"]) - float(away_row["AvgSOInduced"]),
+        "PitcherQualityDiff": pitcher_quality_diff,
+        "PitcherWinRateDiff": pitcher_win_rate_diff,
+        "PitcherStartsDiff": pitcher_starts_diff,
+        "HomeDaysRest": _days_rest_from_last_game(home_row.get("LastGameDate"), as_of),
+        "AwayDaysRest": _days_rest_from_last_game(away_row.get("LastGameDate"), as_of),
+        "IsDayGame": float(is_day_game),
+        "ParkHomeWinRate": float(park_rate),
+    }
 
 
 def get_h2h_record(history, home, away):
@@ -190,7 +312,8 @@ def _streak_label(streak):
 
 
 def generate_insights(home_code, away_code, home_row, away_row, h2h, home_era, away_era,
-                       home_streak, away_streak, favourite, predicted_total_runs):
+                       home_streak, away_streak, favourite, predicted_total_runs,
+                       home_prob=None, away_prob=None):
     """Turns the raw prediction inputs into plain-language reasons -- same
     idea as football's generate_betting_tips(), but framed as "why" rather
     than separate market-by-market tips, since MLB's card already surfaces
@@ -198,6 +321,16 @@ def generate_insights(home_code, away_code, home_row, away_row, h2h, home_era, a
     separation, same conservative-thresholds approach as football."""
     insights = []
     fav_name, dog_code = (home_code, away_code) if favourite == home_code else (away_code, home_code)
+
+    if home_prob is not None and away_prob is not None:
+        fav_p = float(home_prob) if favourite == home_code else float(away_prob)
+        dog_p = float(away_prob) if favourite == home_code else float(home_prob)
+        if fav_p <= 0.57:
+            insights.append(
+                f"This is a coin-flip moneyline ({fav_name} {fav_p * 100:.0f}% / "
+                f"{dog_code} {dog_p * 100:.0f}%). Underdog {dog_code} is live — "
+                f"winner markets are noisy in MLB; prefer totals, team runs, hits, or Ks."
+            )
 
     elo_diff = float(home_row["Elo"]) - float(away_row["Elo"])
     fav_elo_diff = abs(elo_diff)

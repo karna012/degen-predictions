@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Your watchlist | Degen Predictions{% endblock %}
+{% block description %}Pinned leagues and assets stored in your browser — no account required.{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+{{ nav_back('/', 'Home') }}
+<div class="leagues-hero">
+    <h1>Watchlist</h1>
+    <p class="muted">Saved in this browser only. Pin picks from sports, crypto, or stocks with the ★ button.</p>
+</div>
+
+{% if watch_items %}
+<ul class="watch-list" id="watch-list">
+    {% for item in watch_items %}
+    <li class="watch-item" data-kind="{{ item.kind }}" data-key="{{ item.key }}">
+        <a href="{{ item.href }}"><strong>{{ item.label }}</strong>
+            <span class="muted">{{ item.kind }}</span></a>
+        <button type="button" class="btn btn-sm watch-remove"
+                data-kind="{{ item.kind }}" data-key="{{ item.key }}"
+                data-href="{{ item.href }}" data-label="{{ item.label }}">Remove</button>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="muted" style="margin-top:1rem;">Nothing pinned yet. Open a league or asset and tap ★ Watch.</p>
+{% endif %}
+
+<p class="muted" style="margin-top:1.25rem;">
+    <a href="/todays-picks">Today's Picks</a> ·
+    <a href="/crypto">Crypto</a> ·
+    <a href="/stocks">Stocks</a>
+</p>
+<script>
+document.querySelectorAll(".watch-remove").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+        fetch("/api/watchlist", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                action: "remove",
+                kind: btn.getAttribute("data-kind"),
+                key: btn.getAttribute("data-key"),
+                href: btn.getAttribute("data-href"),
+                label: btn.getAttribute("data-label")
+            })
+        }).then(function () { location.reload(); });
+    });
+});
+</script>
+{% endblock %}

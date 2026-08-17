@@ -1,0 +1,15 @@
+{# Compact league switcher for cricket pages — normal flow (not sticky) #}
+<nav class="cricket-league-nav" aria-label="Cricket leagues">
+    {% set leagues = [
+        ('ipl', 'IPL'),
+        ('bbl', 'BBL'),
+        ('cpl', 'CPL'),
+        ('hundred', 'Hundred'),
+        ('mlc', 'MLC'),
+    ] %}
+    {% for key, label in leagues %}
+    <a href="/{{ key }}/fixtures"
+       class="cricket-league-pill{% if league_slug == key %} is-active{% endif %}">{{ label }}</a>
+    {% endfor %}
+    <a href="/sports/cricket" class="cricket-league-pill cricket-league-pill--muted">All</a>
+</nav>

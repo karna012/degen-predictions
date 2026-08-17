@@ -1,0 +1,11 @@
+[Unit]
+Description=Settle finished events every 5 minutes
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+AccuracySec=20sec
+Persistent=true
+
+[Install]
+WantedBy=timers.target

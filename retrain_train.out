@@ -1,0 +1,74 @@
+=== La Liga ===
+Training on 2642 rows, 111 features (missing values handled via median imputation, not dropped)
+[result] rf=0.527  xgb=0.535  catboost=0.537  |  avg-ensemble=0.531  stacked=0.533  logloss=0.971  -> BEST: catboost (0.537)  (272s)
+[btts] rf=0.592  xgb=0.590  catboost=0.594  |  avg-ensemble=0.584  stacked=0.590  logloss=0.679  -> BEST: catboost (0.594)  (147s)
+[over25] rf=0.577  xgb=0.561  catboost=0.582  |  avg-ensemble=0.569  stacked=0.567  logloss=0.678  -> BEST: catboost (0.582)  (122s)
+[favorite_avoids_defeat] rf=0.743  xgb=0.743  catboost=0.743  |  avg-ensemble=0.743  stacked=0.743  logloss=0.549  -> BEST: rf (0.743)  (145s)
+[home_more_corners] rf=0.635  xgb=0.620  catboost=0.597  |  avg-ensemble=0.628  stacked=0.629  logloss=0.651  -> BEST: rf (0.635)  (149s)
+[total_corners] rf=2.691  xgb=2.733  catboost=2.696  |  avg-ensemble=2.701  stacked=2.692  -> BEST: rf (2.691)  (117s)
+
+All models trained and saved to model/laliga
+
+Honest note: ~55-62% accuracy on 1X2/BTTS/Over-Under is near the
+ceiling for this problem even with tuning and 3-model stacking --
+bookmakers, who have far more information (injuries, lineups),
+land in the same range.
+=== Serie A ===
+Training on 2639 rows, 111 features (missing values handled via median imputation, not dropped)
+[result] rf=0.532  xgb=0.542  catboost=0.532  |  avg-ensemble=0.547  stacked=0.549  logloss=0.982  -> BEST: stacked (0.549)  (238s)
+[btts] rf=0.470  xgb=0.473  catboost=0.511  |  avg-ensemble=0.508  stacked=0.470  logloss=0.712  -> BEST: catboost (0.511)  (145s)
+[over25] rf=0.472  xgb=0.472  catboost=0.496  |  avg-ensemble=0.470  stacked=0.438  logloss=0.706  -> BEST: catboost (0.496)  (124s)
+[favorite_avoids_defeat] rf=0.780  xgb=0.780  catboost=0.777  |  avg-ensemble=0.780  stacked=0.780  logloss=0.518  -> BEST: rf (0.780)  (146s)
+[home_more_corners] rf=0.633  xgb=0.631  catboost=0.593  |  avg-ensemble=0.623  stacked=0.621  logloss=0.644  -> BEST: rf (0.633)  (138s)
+[total_corners] rf=2.653  xgb=2.744  catboost=2.664  |  avg-ensemble=2.680  stacked=2.657  -> BEST: rf (2.653)  (117s)
+
+All models trained and saved to model/seriea
+
+Honest note: ~55-62% accuracy on 1X2/BTTS/Over-Under is near the
+ceiling for this problem even with tuning and 3-model stacking --
+bookmakers, who have far more information (injuries, lineups),
+land in the same range.
+=== Bundesliga ===
+Training on 2124 rows, 111 features (missing values handled via median imputation, not dropped)
+[result] rf=0.511  xgb=0.501  catboost=0.525  |  avg-ensemble=0.492  stacked=0.492  logloss=0.994  -> BEST: catboost (0.525)  (225s)
+[btts] rf=0.558  xgb=0.562  catboost=0.551  |  avg-ensemble=0.565  stacked=0.602  logloss=0.672  -> BEST: stacked (0.602)  (128s)
+[over25] rf=0.621  xgb=0.616  catboost=0.633  |  avg-ensemble=0.616  stacked=0.621  logloss=0.651  -> BEST: catboost (0.633)  (109s)
+[favorite_avoids_defeat] rf=0.774  xgb=0.772  catboost=0.762  |  avg-ensemble=0.774  stacked=0.774  logloss=0.531  -> BEST: rf (0.774)  (113s)
+[home_more_corners] rf=0.607  xgb=0.581  catboost=0.595  |  avg-ensemble=0.593  stacked=0.598  logloss=0.668  -> BEST: rf (0.607)  (123s)
+[total_corners] rf=2.766  xgb=2.804  catboost=2.773  |  avg-ensemble=2.772  stacked=2.771  -> BEST: rf (2.766)  (112s)
+
+All models trained and saved to model/bundesliga
+
+Honest note: ~55-62% accuracy on 1X2/BTTS/Over-Under is near the
+ceiling for this problem even with tuning and 3-model stacking --
+bookmakers, who have far more information (injuries, lineups),
+land in the same range.
+=== Ligue 1 ===
+Training on 2319 rows, 111 features (missing values handled via median imputation, not dropped)
+[result] rf=0.534  xgb=0.541  catboost=0.524  |  avg-ensemble=0.537  stacked=0.537  logloss=0.980  -> BEST: xgb (0.541)  (233s)
+[btts] rf=0.530  xgb=0.522  catboost=0.528  |  avg-ensemble=0.528  stacked=0.526  logloss=0.690  -> BEST: rf (0.530)  (145s)
+[over25] rf=0.573  xgb=0.526  catboost=0.580  |  avg-ensemble=0.569  stacked=0.575  logloss=0.683  -> BEST: catboost (0.580)  (127s)
+[favorite_avoids_defeat] rf=0.728  xgb=0.731  catboost=0.722  |  avg-ensemble=0.728  stacked=0.731  logloss=0.560  -> BEST: xgb (0.731)  (129s)
+[home_more_corners] rf=0.655  xgb=0.642  catboost=0.638  |  avg-ensemble=0.649  stacked=0.655  logloss=0.628  -> BEST: rf (0.655)  (119s)
+[total_corners] rf=2.664  xgb=2.793  catboost=2.669  |  avg-ensemble=2.682  stacked=2.676  -> BEST: rf (2.664)  (104s)
+
+All models trained and saved to model/ligue1
+
+Honest note: ~55-62% accuracy on 1X2/BTTS/Over-Under is near the
+ceiling for this problem even with tuning and 3-model stacking --
+bookmakers, who have far more information (injuries, lineups),
+land in the same range.
+=== MLS ===
+Training on 3539 rows, 111 features (missing values handled via median imputation, not dropped)
+[result] rf=0.492  xgb=0.486  catboost=0.492  |  avg-ensemble=0.486  stacked=0.486  logloss=1.030  -> BEST: rf (0.492)  (91s)
+[btts] rf=0.620  xgb=0.620  catboost=0.600  |  avg-ensemble=0.617  stacked=0.613  logloss=0.666  -> BEST: rf (0.620)  (65s)
+[over25] rf=0.614  xgb=0.581  catboost=0.603  |  avg-ensemble=0.610  stacked=0.606  logloss=0.669  -> BEST: rf (0.614)  (65s)
+[favorite_avoids_defeat] rf=0.694  xgb=0.705  catboost=0.684  |  avg-ensemble=0.702  stacked=0.698  logloss=0.588  -> BEST: xgb (0.705)  (70s)
+Skipping corner markets: insufficient HC/AC data in source matches
+
+All models trained and saved to model/mls
+
+Honest note: ~55-62% accuracy on 1X2/BTTS/Over-Under is near the
+ceiling for this problem even with tuning and 3-model stacking --
+bookmakers, who have far more information (injuries, lineups),
+land in the same range.

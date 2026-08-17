@@ -1,0 +1,109 @@
+{
+  "sport": "cricket",
+  "league": "cricket",
+  "target_accuracy": 0.7,
+  "oos_n": 510,
+  "full_slate_acc": 0.5725490196078431,
+  "model_name": "xgboost",
+  "shipped_holdout_accuracy": 0.5725490196078431,
+  "markets": {
+    "match_winner": {
+      "best": {
+        "threshold": 0.79,
+        "n": 23,
+        "acc": 0.6956521739130435,
+        "coverage": 0.045098039215686274,
+        "met_target": false
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.86,
+          "n": 2,
+          "acc": null,
+          "coverage": 0.00392156862745098
+        },
+        {
+          "threshold": 0.87,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.88,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.89,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.9,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        }
+      ]
+    }
+  },
+  "by_competition": {
+    "bbl_male": {
+      "n": 84,
+      "full_slate_acc": 0.6309523809523809,
+      "best": {
+        "threshold": 0.64,
+        "n": 29,
+        "acc": 0.7586206896551724,
+        "coverage": 0.34523809523809523,
+        "met_target": true
+      }
+    },
+    "cpl_male": {
+      "n": 66,
+      "full_slate_acc": 0.6363636363636364,
+      "best": {
+        "threshold": 0.62,
+        "n": 25,
+        "acc": 0.72,
+        "coverage": 0.3787878787878788,
+        "met_target": true
+      }
+    },
+    "hnd_male": {
+      "n": 87,
+      "full_slate_acc": 0.6206896551724138,
+      "best": {
+        "threshold": 0.67,
+        "n": 27,
+        "acc": 0.7037037037037037,
+        "coverage": 0.3103448275862069,
+        "met_target": true
+      }
+    },
+    "ipl_male": {
+      "n": 184,
+      "full_slate_acc": 0.5434782608695652,
+      "best": {
+        "threshold": 0.8,
+        "n": 10,
+        "acc": 0.7,
+        "coverage": 0.05434782608695652,
+        "met_target": true
+      }
+    },
+    "mlc_male": {
+      "n": 89,
+      "full_slate_acc": 0.48314606741573035,
+      "best": {
+        "threshold": 0.66,
+        "n": 16,
+        "acc": 0.5625,
+        "coverage": 0.1797752808988764,
+        "met_target": false
+      }
+    }
+  }
+}

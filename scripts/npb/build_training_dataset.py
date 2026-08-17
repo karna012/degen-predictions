@@ -1,6 +1,7 @@
 """Builds a leakage-free, per-game training dataset for NPB win/loss
 classification -- same approach as scripts/mlb/build_training_dataset.py,
-minus the hits/HR/strikeouts features (not available from spaia.jp).
+minus the hits/HR/strikeouts/pitcher features (not available from spaia.jp).
+Adds rest-day schedule features that transfer from the MLB accuracy work.
 
 Run from repo root: python scripts/npb/build_training_dataset.py
 Outputs data/npb/training_dataset.csv
@@ -17,6 +18,8 @@ from npb_config import DATA_DIR, ELO_INITIAL, ELO_K  # noqa: E402
 
 LEAGUE_AVG_RUNS = 4.0
 RUNS_EMA_ALPHA = 0.02
+MAX_REST_DAYS = 14.0
+DEFAULT_REST_DAYS = 3.0
 
 
 def build_dataset():
@@ -28,11 +31,13 @@ def build_dataset():
     last10 = {}
     current_streak = {}
     h2h_wins = {}
+    last_game_date = {}
     rows = []
 
     for row in games.itertuples(index=False):
         home, away = int(row.HTeamID), int(row.VTeamID)
         home_score, away_score = row.HScore, row.VScore
+        game_date = row.Date
 
         elo_home = elo.get(home, ELO_INITIAL)
         elo_away = elo.get(away, ELO_INITIAL)
@@ -52,8 +57,18 @@ def build_dataset():
         h2h_meetings_before = sum(h2h_before.values())
         home_h2h_rate = (h2h_before.get(home, 0) / h2h_meetings_before) if h2h_meetings_before else 0.5
 
+        def days_rest(team):
+            prev = last_game_date.get(team)
+            if prev is None:
+                return DEFAULT_REST_DAYS
+            delta = (pd.Timestamp(game_date) - pd.Timestamp(prev)).days
+            return float(min(max(delta, 0), MAX_REST_DAYS))
+
+        home_rest = days_rest(home)
+        away_rest = days_rest(away)
+
         rows.append({
-            "Date": row.Date,
+            "Date": game_date,
             "EloDiff": elo_home - elo_away,
             "HomeLast10WinRate": (sum(home_last10) / len(home_last10)) if home_last10 else 0.5,
             "AwayLast10WinRate": (sum(away_last10) / len(away_last10)) if away_last10 else 0.5,
@@ -63,6 +78,8 @@ def build_dataset():
             "HomeH2HWinRate": home_h2h_rate,
             "RunsForDiff": home_runs_for - away_runs_for,
             "RunsAllowedDiff": away_runs_against - home_runs_against,
+            "HomeDaysRest": home_rest,
+            "AwayDaysRest": away_rest,
             "HomeWin": 1 if home_score > away_score else 0,
         })
 
@@ -86,6 +103,9 @@ def build_dataset():
         h2h_wins.setdefault(pair_key, {})
         winner = home if home_won else away
         h2h_wins[pair_key][winner] = h2h_wins[pair_key].get(winner, 0) + 1
+
+        last_game_date[home] = game_date
+        last_game_date[away] = game_date
 
     df = pd.DataFrame(rows)
     out_path = os.path.join(DATA_DIR, "training_dataset.csv")

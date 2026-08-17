@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}NPB Results — Final Scores | Degen Predictions{% endblock %}
+{% block description %}Recent NPB (Nippon Professional Baseball) final scores from the live spaia feed. Educational — not betting advice.{% endblock %}
+{% block keywords %}NPB results, NPB scores, Japanese baseball results, Nippon Professional Baseball finals{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/npb/fixtures', 'Fixtures') }}
+    <a class="page-nav-link" href="/todays-picks/baseball/npb">Today's picks</a>
+    <a class="page-nav-link" href="/sports/baseball">Baseball</a>
+</nav>
+
+<h1>NPB Results</h1>
+<p class="muted">{{ result_count }} finished game{{ 's' if result_count != 1 else '' }} from the last two weeks (live spaia scores, not the lagged training archive).</p>
+
+{% if not grouped_finished %}
+<p class="muted">No finished NPB games in this window yet.</p>
+{% endif %}
+
+{% for day, matches in grouped_finished.items() %}
+<h2 style="margin-top:1.75rem;">{{ day }}</h2>
+<div class="table-wrap">
+<table class="rankings-table">
+    <thead>
+        <tr>
+            <th>Matchup</th>
+            <th>Final</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in matches %}
+        <tr>
+            <td>
+                <a href="/npb/match/{{ m.home_team_id }}/{{ m.away_team_id }}?home_name={{ m.home_team|urlencode }}&amp;away_name={{ m.away_team|urlencode }}&amp;date={{ (m.date or '')|urlencode }}">
+                    {{ m.away_team }} @ {{ m.home_team }}
+                </a>
+            </td>
+            <td><strong>{{ m.away_score }}–{{ m.home_score }}</strong></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endfor %}
+
+<p class="muted" style="margin-top:2rem;">Upcoming slate: <a href="/npb/fixtures">NPB fixtures</a></p>
+{% endblock %}

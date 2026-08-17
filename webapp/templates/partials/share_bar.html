@@ -1,0 +1,29 @@
+{# Compact share actions. Expects: share_text (str). Optional: share_url. #}
+{% set _url = share_url if share_url is defined and share_url else ('https://degenpredictions.com' ~ request.path) %}
+{% if '?' not in _url %}
+  {% set _url = _url ~ '?utm_source=share&utm_medium=social&utm_campaign=share_bar' %}
+{% endif %}
+{% set _body = share_text %}
+{% set _wa = _body ~ '\n' ~ _url %}
+<aside class="share-bar" aria-label="Share this page">
+  <span class="share-bar-label">Share</span>
+  <div class="share-bar-actions">
+    <a class="share-bar-btn"
+       href="https://api.whatsapp.com/send?text={{ _wa|urlencode }}"
+       target="_blank" rel="noopener noreferrer"
+       data-share-channel="whatsapp">WhatsApp</a>
+    <a class="share-bar-btn"
+       href="https://t.me/share/url?url={{ _url|urlencode }}&amp;text={{ _body|urlencode }}"
+       target="_blank" rel="noopener noreferrer"
+       data-share-channel="telegram">Telegram</a>
+    <a class="share-bar-btn"
+       href="https://twitter.com/intent/tweet?text={{ _body|urlencode }}&amp;url={{ _url|urlencode }}"
+       target="_blank" rel="noopener noreferrer"
+       data-share-channel="x">X / Twitter</a>
+    {% if telegram_channel_url %}
+    <a class="share-bar-btn" href="/go/telegram" target="_blank" rel="noopener noreferrer"
+       data-share-channel="telegram-join">Join channel</a>
+    {% endif %}
+    <button type="button" class="share-bar-btn" data-copy-share="{{ _wa|e }}">Copy link</button>
+  </div>
+</aside>

@@ -1,70 +1,100 @@
 {% extends "base.html" %}
-{% block title %}About Degen Predictions -- {{ league_label }}{% endblock %}
-{% block description %}About Degen Predictions -- free {{ league_label }} match predictions, how fixtures update, data sources, and honest limitations to keep in mind.{% endblock %}
+{% block title %}About Degen Predictions{% if not site_wide %} — {{ league_label }}{% endif %}{% endblock %}
+{% block description %}About Degen Predictions — free sports, crypto, and stocks forecasts, data sources, 70% confidence tier, and honest limitations.{% endblock %}
 {% block content %}
-<a href="/">&larr; Back to home</a>
-<h1>About Degen Predictions</h1>
+{% from "macros.html" import nav_back %}
+{{ nav_back('/', 'Home') }}
+<div class="leagues-hero">
+    <h1>About Degen Predictions</h1>
+    <p class="muted">Free ML forecasts across sports, crypto, and stocks — with honest limits.</p>
+</div>
 
 <div class="card" style="max-width:70ch; margin-top:1rem;">
     <h2>What this site does</h2>
-    <p class="muted">Degen Predictions generates free forecasts across sports, crypto, and stocks. On the
-        sports side, that's pre-match predictions for {{ league_label }} and four other major European
-        soccer leagues, plus MLB and NPB baseball -- match result, total goals/runs, and related markets,
-        using statistical models trained on years of historical match data. On the crypto and stocks side,
-        it's a ranked list of assets by predicted 6-month forward return, from a separate machine-learning
-        model trained on price/volume history and fundamentals. All of it is built as an educational
-        project for people curious about how data-driven forecasting works, not as a betting service or
-        an investment advisory service.</p>
+    <p class="muted">Degen Predictions generates free forecasts across sports, crypto, and stocks.
+        Sports cover six soccer leagues (Premier League, La Liga, Serie A, Bundesliga, Ligue 1, MLS),
+        MLB and NPB baseball, cricket (IPL, BBL, CPL, The Hundred, MLC), and men's ATP tennis — match result / moneyline and related markets
+        from models trained on historical data.
+        <a href="/todays-picks">Today's Picks</a> and <a href="/todays-picks/combos">Best Combos</a>
+        surface high-probability multi-market legs (calibrated ~70% bars when available, otherwise a wise ≥65–68% floor).
+        Crypto and stocks are ranked by predicted forward return from a separate ML pipeline.
+        Educational research project — not betting or investment advice.</p>
 </div>
 
 <div class="card" style="max-width:70ch; margin-top:1rem;">
     <h2>How fixtures stay current</h2>
-    <p class="muted">Upcoming fixtures and predictions refresh automatically every day, and a new round
-        unlocks as soon as every fixture in the previous round has kicked off -- so you're always looking
+    <p class="muted">Upcoming fixtures and predictions refresh automatically every day, and a new soccer round
+        unlocks as soon as every fixture in the previous round has kicked off — so you're always looking
         at the next set of real, upcoming matches rather than a static list.</p>
 </div>
 
 <div class="card" style="max-width:70ch; margin-top:1rem;">
     <h2>Where the data comes from</h2>
     <p class="muted"><strong>Soccer:</strong> historical results and match statistics come from public
-        football data archives, player-level stats come from Understat, and upcoming fixture schedules come
+        football data archives, player-level stats come from Understat (European leagues) and American
+        Soccer Analysis (MLS), and upcoming fixture schedules come
         from fixturedownload.com.</p>
     <p class="muted" style="margin-top:0.5rem;"><strong>Baseball (MLB):</strong> historical game logs from
         Retrosheet, live fixtures and probable-pitcher stats from ESPN's public scoreboard API.</p>
     <p class="muted" style="margin-top:0.5rem;"><strong>Baseball (NPB):</strong> schedules and results from
         spaia.jp's public schedule API.</p>
+    <p class="muted" style="margin-top:0.5rem;"><strong>Cricket:</strong> Cricsheet ball-by-ball archives for
+        IPL, BBL, CPL, The Hundred, and MLC; fixtures from Wikipedia (Hundred, CPL) and fixturedownload (IPL/BBL);
+        Open-Meteo weather; provisional last-known XIs for live boards; Elo + ML for winner / runs.</p>
+    <p class="muted" style="margin-top:0.5rem;"><strong>Tennis (ATP men):</strong> tour-level match history from
+        TennisMyLife (Sackmann-compatible CSVs; Jeff Sackmann tennis_atp lineage, CC BY-NC-SA — educational use with attribution);
+        live boards from ESPN when available with Wikipedia bracket fallback;
+        overall + surface Elo (hard/clay/grass) and calibrated match-winner ML.</p>
     <p class="muted" style="margin-top:0.5rem;"><strong>Crypto:</strong> price/volume history and market data
         from CoinGecko's free public API; Bitcoin on-chain metrics (active addresses, hash rate) from
         blockchain.com. The asset universe is the top ~60 coins by market cap.</p>
     <p class="muted" style="margin-top:0.5rem;"><strong>Stocks:</strong> price history and fundamentals
         (P/E, margins, growth, debt ratios) from Yahoo Finance via yfinance. The universe is the S&amp;P 500
         (US) and NIFTY 50 (India) constituents, sourced from their official index pages.</p>
-    <p class="muted" style="margin-top:0.5rem;"><strong>News sentiment</strong> (crypto, stocks, and MLB/NPB
-        team form): recent headlines from Google News, scored locally with a lexicon-based sentiment model
-        (VADER) -- no third-party sentiment API.</p>
+    <p class="muted" style="margin-top:0.5rem;"><strong>News sentiment</strong> (crypto, stocks, baseball, and cricket
+        live boards): recent headlines from Google News, scored locally with VADER — no third-party sentiment API.</p>
     <p class="muted" style="margin-top:0.5rem;">Nothing on this site uses bookmaker odds, brokerage order
-        flow, or any paid data feed as an input -- every source above is free and publicly accessible.</p>
+        flow, or any paid data feed as an input — every source above is free and publicly accessible.</p>
 </div>
 
 <div class="card" style="max-width:70ch; margin-top:1rem;">
     <h2>Honest limitations</h2>
-    <p class="muted">Sports, crypto, and stocks are all high-variance by nature -- even a well-built model
+    <p class="muted">Sports, crypto, and stocks are all high-variance by nature — even a well-built model
         will miss regularly, and a confident-looking probability or ranking is not a guarantee. Treat every
-        prediction here as an estimate to inform your own thinking, not as a certainty. For sports, see the
-        <a href="/{{ league_key }}/backtest">Past Seasons</a> page for how these predictions have actually
-        performed against real, completed matches. For crypto and stocks, the <a href="/crypto">rankings</a>
-        pages are upfront about measured overfitting found in backtesting -- read that before trusting any
-        single number.</p>
+        prediction here as an estimate to inform your own thinking, not as a certainty.
+        Full-slate win markets typically land in the mid-50s%. Soccer <strong>Safer Result</strong>
+        is a different, selective rule: it uses favourite-or-draw at a calibrated 70% bar and only
+        upgrades to an exact favourite win when both calibrated and raw 1X2 scores reach 75%;
+        otherwise it makes no result pick. It is labelled
+        70%+ only where a later chronological evaluation slice actually cleared that mark with
+        adequate sample size and reported coverage.
+        See the public <a href="/mlb/results">MLB track record</a>
+        and cricket results pages. For crypto and stocks, rankings pages are upfront about measured
+        overfitting found in backtesting.</p>
 </div>
 
 <div class="card" style="max-width:70ch; margin-top:1rem;">
-    <h2>About the Author</h2>
-    <p class="muted">Built and maintained by <strong>Karan R</strong>.<br>
-        Questions or feedback: <a href="mailto:info@degenpredictions.com">info@degenpredictions.com</a></p>
+    <h2>Crypto &amp; stocks — honest limits</h2>
+    <p class="muted">Market boards rank assets from a separate walk-forward pipeline. They are research leans, not trade signals.
+        Crypto pages often withhold absolute USD return when direction fails holdout — you may see relative lean vs Bitcoin, peer median, or an empirical range instead.
+        Stock cards lead with gap-vs-board / beat-index style reads because absolute window returns are usually positive in long samples.
+        Refresh cadence depends on the ranked CSV (Admin can flag stale files). Always treat outputs as uncertain estimates; this is not financial advice.</p>
 </div>
 
-<div class="card" style="max-width:70ch; margin-top:1rem;">
-    <h2>Deployment &amp; Hosting</h2>
-    <p class="muted">Deployment and domain sponsorship by <strong>Prashanth Chandrappa</strong>.</p>
+<div class="card" id="contact" style="max-width:70ch; margin-top:1rem;">
+    <h2>Contact</h2>
+    <p class="muted">Email:
+        <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+    </p>
+    {% if telegram_channel_url %}
+    <p class="muted" style="margin-top:0.45rem;">Telegram:
+        <a href="{{ telegram_channel_url }}" target="_blank" rel="noopener noreferrer">Join the channel</a>
+    </p>
+    {% endif %}
+    {% if instagram_url %}
+    <p class="muted" style="margin-top:0.45rem;">Instagram:
+        <a href="{{ instagram_url }}" target="_blank" rel="noopener noreferrer">@degen_predictions467</a>
+    </p>
+    {% endif %}
 </div>
 {% endblock %}

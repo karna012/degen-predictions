@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}NFL Prediction Track Record -- Predicted vs Actual | Degen Predictions{% endblock %}
+{% block description %}Public NFL accuracy ledger: how our ML winner, total-points, and spread picks compared to real results on recent finished games. Educational estimates -- not betting advice.{% endblock %}
+{% block keywords %}NFL prediction accuracy, NFL model track record, American football predictions results, predicted vs actual NFL{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/todays-picks/american_football/nfl', "Today's picks") }}
+    <a class="page-nav-link" href="/nfl/fixtures">Fixtures</a>
+</nav>
+
+<h1>NFL Track Record</h1>
+<p class="muted">Predicted vs actual on the last {{ nfl_summary.n or 0 }} finished games.
+    Last updated: {{ results_generated_at }} &middot; refreshes about every 3 hours.
+    Finished games leave <a href="/nfl/fixtures">fixtures</a> as soon as they are final.</p>
+
+{% if latest_scores %}
+<h2>Latest scores</h2>
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    {% for m in latest_scores %}
+    <article class="card">
+        <p class="muted" style="margin:0 0 0.35rem;">{{ (m.date or "")[:16] }}</p>
+        <p style="margin:0;"><strong>{{ m.away_team }} vs {{ m.home_team }}</strong></p>
+        {% if m.home_score not in (none, '') and m.away_score not in (none, '') %}
+        <p class="muted fixture-final-score" style="margin:0.35rem 0 0;">Final: {{ m.away_score }}-{{ m.home_score }}</p>
+        {% endif %}
+    </article>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="card" style="margin:1rem 0 1.5rem; max-width:42rem;">
+    <p style="margin:0;">These numbers apply <strong>today's</strong> model and Elo/stats to recent finished games --
+        useful as a public ledger of how the current model leans, not a strict point-in-time backtest
+        frozen before each snap. Treat every pick as an estimate.</p>
+</div>
+
+{% if nfl_rows %}
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    <div class="card">
+        <h2>Summary</h2>
+        <p class="muted">{{ nfl_summary.n }} games</p>
+        <p>Winner accuracy: <strong>{{ (nfl_summary.winner_acc * 100) | round(1) }}%</strong></p>
+        <p>Total points pick: <strong>{{ (nfl_summary.points_acc * 100) | round(1) }}%</strong></p>
+        <p>Spread pick: <strong>{{ (nfl_summary.spread_acc * 100) | round(1) }}%</strong></p>
+    </div>
+</div>
+<div class="table-wrap">
+<table>
+    <thead><tr>
+        <th>Date</th><th>Matchup</th><th>Predicted</th><th>Actual</th><th>✓</th>
+        <th>Total Points Pick</th><th>Actual Total</th><th>✓</th>
+        <th>Spread</th><th>✓</th>
+    </tr></thead>
+    <tbody>
+    {% for r in nfl_rows %}
+    <tr>
+        <td>{{ r.date }}</td>
+        <td>{{ r.away }} @ {{ r.home }}</td>
+        <td>{{ r.predicted_winner }}</td>
+        <td>{{ r.actual_winner }}</td>
+        <td>{{ "Y" if r.winner_correct else "N" }}</td>
+        <td>{{ r.total_points_pick }} {{ r.total_points_line }}</td>
+        <td>{{ r.actual_total_points | int }}</td>
+        <td>{{ "Y" if r.points_correct else "N" }}</td>
+        <td>{{ r.spread_pick }}</td>
+        <td>{{ "Y" if r.spread_correct else "N" }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted">No finished games to compare yet.</p>
+{% endif %}
+
+<p class="muted" style="margin-top:2rem;">Want tonight's slate? <a href="/todays-picks/american_football/nfl">Today's NFL picks</a></p>
+{% endblock %}

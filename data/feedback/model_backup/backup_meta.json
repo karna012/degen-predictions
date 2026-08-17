@@ -1,0 +1,20 @@
+{
+  "backed_up_at": "2026-08-16T04:28:31.029426+00:00",
+  "paths": [
+    "model\\pl",
+    "model\\laliga",
+    "model\\seriea",
+    "model\\bundesliga",
+    "model\\ligue1",
+    "model\\mls",
+    "data\\mlb\\ml_ensemble_model.joblib",
+    "data\\npb\\ml_ensemble_model.joblib",
+    "data\\cricket\\winner_model.joblib",
+    "data\\cricket\\team1_runs_model.joblib",
+    "data\\cricket\\team2_runs_model.joblib",
+    "data\\cricket\\total_runs_model.joblib",
+    "data\\investment_scoring\\ranked_assets.csv",
+    "data\\investment_scoring\\crypto_horizon_model_metrics.json",
+    "data\\investment_scoring\\crypto_history_span.json"
+  ]
+}

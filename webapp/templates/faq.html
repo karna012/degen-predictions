@@ -1,173 +1,149 @@
 {% extends "base.html" %}
-{% block title %}Frequently Asked Questions | Degen Predictions{% endblock %}
-{% block description %}Answers to common questions about Degen Predictions -- how the ML & AI models work, live market data, and specifics on Crypto, Stocks, Dubai Real Estate, Metals, and Sports predictions.{% endblock %}
+{% block title %}FAQ — Sports Predictions, Today's Picks &amp; Multi Bets | Degen Predictions{% endblock %}
+{% block description %}FAQ for Degen Predictions: sports predictions, MLB predictions, tennis match today, Today's Picks, multi bet / Best Combos, EPL &amp; La Liga football tips, CPL cricket — how models work and where to see accuracy.{% endblock %}
+{% block keywords %}sports predictions faq, MLB predictions, tennis predictions, todays picks, multi bet prediction, EPL predictions, La Liga predictions, CPL predictions, football predictions{% endblock %}
 {% block content %}
-
-<div style="margin-bottom: 2rem;">
-    <a href="/">&larr; Back to categories</a>
-</div>
-
-<h1>Frequently Asked Questions</h1>
-<p class="muted">Everything in one place -- general platform questions plus specifics for every category, covering both physical assets (Dubai real estate, metals) and digital assets (crypto, stocks).</p>
-
-<section style="margin-top: 2rem;">
-    <h2 style="font-size: 1.2rem; color: #00d4ff;">General</h2>
-
-    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What is Degen Predictions?</h3>
-        <p class="muted" style="margin: 0;">A free platform that uses machine learning (ML) and AI to forecast outcomes across five categories: football, baseball, and cricket match predictions, cryptocurrency rankings, stock rankings, Dubai real estate ROI, and metals price forecasts.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Is Degen Predictions free to use?</h3>
-        <p class="muted" style="margin: 0;">Yes. Every calculator and prediction tool on the site is completely free, with no account, login, or payment required for any category.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How accurate are the predictions?</h3>
-        <p class="muted" style="margin: 0;">Each category is powered by models trained on real historical data -- walk-forward-validated ranking models for crypto/stocks, historically-grounded appreciation/volatility models for Dubai real estate and metals, and ELO ratings and ensemble ML for sports. All forecasts are estimates, not guarantees, and are clearly labelled as such.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What categories does Degen Predictions cover?</h3>
-        <p class="muted" style="margin: 0;">Crypto (AI-ranked digital assets by predicted 6-month return), Stocks (US and India rankings by predicted return), Dubai Real Estate (a physical-asset property ROI calculator), Metals (physical precious and industrial metal price forecasts with live spot pricing), and Sports (football, baseball, and cricket match predictions).</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Do the Crypto, Stocks, and Metals pages show live prices?</h3>
-        <p class="muted" style="margin: 0;">Yes. Each of those three pages embeds a live TradingView candlestick chart above the calculator/rankings table. Clicking any row (or, on Metals, changing the dropdown) switches the chart to that asset in real time, with interval controls from 1 minute up to monthly. Not every asset has a matching TradingView listing -- where one doesn't exist (mainly tokenized institutional fund products in crypto), the page shows a clear "not found in TradingView" notice instead of a chart, rather than guessing.</p>
-    </div>
-</section>
-
-<section style="margin-top: 2.5rem;">
-    <h2 style="font-size: 1.2rem; color: #f7931a;">Crypto (Digital Assets)</h2>
-
-    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How are the crypto rankings calculated?</h3>
-        <p class="muted" style="margin: 0;">A walk-forward-validated ML model ranks cryptocurrencies by predicted 6-month forward return, using price momentum, volatility, market capitalization, and news sentiment as inputs. Rankings refresh daily.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Which cryptocurrencies are covered?</h3>
-        <p class="muted" style="margin: 0;">60 digital assets, from major coins (Bitcoin, Ethereum, Solana, XRP) to DeFi tokens and stablecoins. Live TradingView charts are available for 50 of the 60 -- the other 10 are tokenized institutional fund products (e.g. BlackRock's BUIDL, Hashnote's USYC) with no real exchange listing anywhere, not a gap in this site's data.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Is crypto riskier than the other categories on this site?</h3>
-        <p class="muted" style="margin: 0;">The model itself flags this: crypto predictions are noted as especially noisy, since only 365 days of price history are available per coin for training, compared to years of data for stocks and real estate.</p>
-    </div>
-</section>
-
-<section style="margin-top: 2.5rem;">
-    <h2 style="font-size: 1.2rem; color: #1565c0;">Stocks (Digital Assets)</h2>
-
-    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How are stock rankings calculated?</h3>
-        <p class="muted" style="margin: 0;">The same 6-month forward-return ranking approach as crypto, but using stock-specific fundamentals (like P/E ratio) and price trend data. US and India stocks are modeled and ranked separately.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How many stocks are covered, and is live chart data available?</h3>
-        <p class="muted" style="margin: 0;">553 stocks total (roughly 500 US, 50 India). Every single one has a verified, working live TradingView chart -- 100% coverage, confirmed directly against TradingView's own data rather than assumed.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Are US and India stock predictions equally reliable?</h3>
-        <p class="muted" style="margin: 0;">No -- India stock predictions have shown weaker out-of-sample signal than US stocks in backtesting. Always check the data_confidence column on the rankings table before acting on either.</p>
-    </div>
-</section>
-
-<section style="margin-top: 2.5rem;">
-    <h2 style="font-size: 1.2rem; color: #d4a574;">Dubai Real Estate (Physical Asset)</h2>
-
-    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How is Dubai real estate ROI calculated?</h3>
-        <p class="muted" style="margin: 0;">ROI is the sum of capital appreciation (compound growth on the property value, adjusted by an area-specific infrastructure multiplier) plus rental income over your chosen holding period, shown as a percentage of your original investment.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What is a good ROI for Dubai real estate?</h3>
-        <p class="muted" style="margin: 0;">Dubai properties typically target a combined 6-10% annual return (capital appreciation plus rental yield). Areas with major infrastructure development -- new metro lines, roads, or master-planned communities -- can significantly exceed this range in the model's forecasts, with total combined ROI reaching 8-16%+ annually in areas like Creek Harbour or Al Barsha.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Does the calculator account for new metro stations and infrastructure?</h3>
-        <p class="muted" style="margin: 0;">Yes. Each of the 7 modeled areas has an infrastructure development multiplier based on metro proximity, development phase (emerging/growth/mature), and commercial density, which adjusts the base appreciation rate up or down accordingly.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How long should I hold a Dubai property for the best returns?</h3>
-        <p class="muted" style="margin: 0;">The calculator supports holding periods from 6 months to 35 years. Infrastructure-driven growth tends to be strongest in the first 10 years of a development phase, after which the model gradually tapers the multiplier as an area matures.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Does the calculator include buying costs like the DLD transfer fee?</h3>
-        <p class="muted" style="margin: 0;">No -- the calculator's ROI figures are gross capital appreciation and gross rental income only. Real transaction costs (4% DLD transfer fee, 2% agency commission, trustee/title deed fees, and annual service charges) typically total 5-9% of the purchase price and are covered in detail on the <a href="/dubai/guide">Investment Guide</a> page, not baked into the calculator's output.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Is this Dubai ROI calculator free?</h3>
-        <p class="muted" style="margin: 0;">Yes, completely free with no account or login required. Degen Predictions is an educational/research platform, not a real estate brokerage or financial advisory service.</p>
-    </div>
-</section>
-
-<section style="margin-top: 2.5rem;">
-    <h2 style="font-size: 1.2rem; color: #9aa5b3;">Metals (Physical Asset)</h2>
-
-    <div style="margin-top: 1rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">How accurate are metal price predictions?</h3>
-        <p class="muted" style="margin: 0;">Forecasts are based on each metal's historical annual appreciation rate and volatility, adjusted by a market-cycle multiplier. They are estimates, not guarantees -- commodity prices are influenced by supply/demand shifts, geopolitical events, and macroeconomic conditions no model can fully anticipate.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Are the metal prices actually live, or fixed estimates?</h3>
-        <p class="muted" style="margin: 0;">Both, depending on the metal. Gold, Silver, Platinum, Palladium, Copper, Steel, and Aluminum refresh daily from real market data feeds. Zinc, Nickel, and Lithium have no free live data source anywhere (verified directly, not assumed) and stay as periodically-updated benchmarks -- this is clearly labelled on the Market Insights page.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What is the average annual appreciation rate for gold?</h3>
-        <p class="muted" style="margin: 0;">This model uses a base annual appreciation rate of roughly 8.5% for gold, before applying its market-cycle multiplier based on historical volatility. Silver, lithium, and other higher-volatility metals use higher base rates to reflect their historically larger price swings.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">What happened to gemstones -- didn't this used to cover diamonds and rubies?</h3>
-        <p class="muted" style="margin: 0;">Gemstones were removed. Unlike metals, gemstones have no single quoted market price -- a "1-carat diamond" can vary 100x in price depending on cut, color, and clarity grading. Rather than show an invented number with no real source behind it, the category now covers only precious and industrial metals, which do have real, verifiable spot prices.</p>
-    </div>
-
-    <div style="margin-top: 0.75rem; padding: 1.25rem; background: var(--card-bg, #1a1a1a); border: 1px solid var(--border, #333); border-radius: 8px;">
-        <h3 style="font-size: 1rem; margin: 0 0 0.5rem;">Is the metals calculator free to use?</h3>
-        <p class="muted" style="margin: 0;">Yes, completely free with no account or login required. Degen Predictions is an educational/research platform, not a commodities broker or investment advisory service.</p>
-    </div>
-</section>
-
+{% from "macros.html" import nav_back, breadcrumb_jsonld %}
+{{ breadcrumb_jsonld([
+    {"label": "Home", "href": "/"},
+    {"label": "FAQ", "href": "/faq"},
+]) }}
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {"@type": "Question", "name": "What is Degen Predictions?", "acceptedAnswer": {"@type": "Answer", "text": "A free platform that uses machine learning (ML) and AI to forecast outcomes across five categories: cryptocurrency rankings, stock rankings, Dubai real estate ROI, metals price forecasts, and football, baseball, and cricket match predictions."}},
-        {"@type": "Question", "name": "Is Degen Predictions free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every calculator and prediction tool on the site is completely free, with no account, login, or payment required for any category."}},
-        {"@type": "Question", "name": "How accurate are the predictions?", "acceptedAnswer": {"@type": "Answer", "text": "Each category is powered by models trained on real historical data. All forecasts are estimates, not guarantees."}},
-        {"@type": "Question", "name": "What categories does Degen Predictions cover?", "acceptedAnswer": {"@type": "Answer", "text": "Crypto (digital assets), Stocks (digital assets), Dubai Real Estate (physical asset), Metals (physical asset), and Sports."}},
-        {"@type": "Question", "name": "Do the Crypto, Stocks, and Metals pages show live prices?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, via embedded TradingView candlestick charts that switch to whichever asset is selected, with a clear notice for the small number of assets with no TradingView listing."}},
-        {"@type": "Question", "name": "How are the crypto rankings calculated?", "acceptedAnswer": {"@type": "Answer", "text": "A walk-forward-validated ML model ranks cryptocurrencies by predicted 6-month forward return using price momentum, volatility, market cap, and news sentiment."}},
-        {"@type": "Question", "name": "Which cryptocurrencies are covered?", "acceptedAnswer": {"@type": "Answer", "text": "60 digital assets; live TradingView charts are available for 50 of the 60, the other 10 being tokenized institutional fund products with no real exchange listing."}},
-        {"@type": "Question", "name": "Is crypto riskier than the other categories on this site?", "acceptedAnswer": {"@type": "Answer", "text": "Crypto predictions are especially noisy since only 365 days of price history are available per coin for training."}},
-        {"@type": "Question", "name": "How are stock rankings calculated?", "acceptedAnswer": {"@type": "Answer", "text": "The same 6-month forward-return ranking approach as crypto, using stock-specific fundamentals like P/E ratio and price trend data, modeled separately for US and India."}},
-        {"@type": "Question", "name": "How many stocks are covered, and is live chart data available?", "acceptedAnswer": {"@type": "Answer", "text": "553 stocks total across US and India, all with verified, working live TradingView charts -- 100% coverage."}},
-        {"@type": "Question", "name": "Are US and India stock predictions equally reliable?", "acceptedAnswer": {"@type": "Answer", "text": "No, India stock predictions have shown weaker out-of-sample signal than US stocks in backtesting."}},
-        {"@type": "Question", "name": "How is Dubai real estate ROI calculated?", "acceptedAnswer": {"@type": "Answer", "text": "ROI is the sum of capital appreciation (adjusted by an infrastructure multiplier) plus rental income over the chosen holding period."}},
-        {"@type": "Question", "name": "What is a good ROI for Dubai real estate?", "acceptedAnswer": {"@type": "Answer", "text": "Dubai properties typically target a combined 6-10% annual return, with infrastructure-heavy areas reaching 8-16%+."}},
-        {"@type": "Question", "name": "Does the calculator account for new metro stations and infrastructure?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, via an infrastructure development multiplier based on metro proximity, development phase, and commercial density."}},
-        {"@type": "Question", "name": "How long should I hold a Dubai property for the best returns?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator supports 6 months to 35 years; infrastructure-driven growth is strongest in the first 10 years."}},
-        {"@type": "Question", "name": "Does the calculator include buying costs like the DLD transfer fee?", "acceptedAnswer": {"@type": "Answer", "text": "No, the calculator shows gross returns only; real transaction costs of 5-9% are covered separately on the Investment Guide page."}},
-        {"@type": "Question", "name": "Is this Dubai ROI calculator free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely free with no account or login required."}},
-        {"@type": "Question", "name": "How accurate are metal price predictions?", "acceptedAnswer": {"@type": "Answer", "text": "Forecasts are based on historical annual appreciation rate and volatility, adjusted by a market-cycle multiplier; they are estimates, not guarantees."}},
-        {"@type": "Question", "name": "Are the metal prices actually live, or fixed estimates?", "acceptedAnswer": {"@type": "Answer", "text": "Gold, Silver, Platinum, Palladium, Copper, Steel, and Aluminum refresh daily from real market data. Zinc, Nickel, and Lithium have no free live source and stay as periodic benchmarks."}},
-        {"@type": "Question", "name": "What is the average annual appreciation rate for gold?", "acceptedAnswer": {"@type": "Answer", "text": "Roughly 8.5% base annual rate before the market-cycle multiplier is applied."}},
-        {"@type": "Question", "name": "What happened to gemstones -- didn't this used to cover diamonds and rubies?", "acceptedAnswer": {"@type": "Answer", "text": "Gemstones were removed since they have no single quoted market price, unlike metals which have real, verifiable spot prices."}},
-        {"@type": "Question", "name": "Is the metals calculator free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely free with no account or login required."}}
-    ]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is Degen Predictions?", "acceptedAnswer": {"@type": "Answer", "text": "Degen Predictions is a free ML platform that forecasts sports matches, cryptocurrency rankings, and US/India stock rankings. It is an educational research project, not betting or investment advice."}},
+    {"@type": "Question", "name": "Where can I find Today's Picks?", "acceptedAnswer": {"@type": "Answer", "text": "Open https://degenpredictions.com/todays-picks for high-probability tips by sport and league (MLB, tennis, EPL, La Liga, CPL, and more)."}},
+    {"@type": "Question", "name": "Where are multi bet / Best Combos predictions?", "acceptedAnswer": {"@type": "Answer", "text": "The Best Combos page at https://degenpredictions.com/todays-picks/combos publishes selective 2-leg and 3-leg multi-bet style slips from high-probability legs across sports."}},
+    {"@type": "Question", "name": "Do you offer MLB predictions?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. See MLB fixtures at https://degenpredictions.com/mlb/fixtures and Today's MLB picks at https://degenpredictions.com/todays-picks/baseball/mlb, plus a public track record on /mlb/results."}},
+    {"@type": "Question", "name": "Where can I find tennis match today predictions?", "acceptedAnswer": {"@type": "Answer", "text": "ATP tennis match forecasts are on https://degenpredictions.com/tennis/fixtures and Today's Picks at https://degenpredictions.com/todays-picks/tennis/atp."}},
+    {"@type": "Question", "name": "Do you cover EPL and La Liga football predictions?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Premier League (EPL) predictions are at /premier_league/ and La Liga at /la_liga/, with Today's Picks under /todays-picks/soccer/."}},
+    {"@type": "Question", "name": "Do you offer CPL predictions?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Caribbean Premier League (CPL) predictions are at https://degenpredictions.com/cpl/fixtures with a public results ledger on /cpl/results."}},
+    {"@type": "Question", "name": "Is Degen Predictions free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every prediction tool on the site is free, with no account, login, or payment required."}},
+    {"@type": "Question", "name": "How accurate are the predictions?", "acceptedAnswer": {"@type": "Answer", "text": "Sports boards publish chronological out-of-sample hit rates from holdout data, not marketing numbers. See the accuracy hub for league OOS figures with sample size and coverage."}},
+    {"@type": "Question", "name": "Is Degen Predictions betting advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. Forecasts are educational machine-learning estimates. The site does not promote or facilitate sports betting, gambling, or trading."}},
+    {"@type": "Question", "name": "How accurate are Degen Predictions tennis forecasts?", "acceptedAnswer": {"@type": "Answer", "text": "Men's ATP match-winner models publish full-slate out-of-sample accuracy on the tennis hub and ATP results page. Always check the live figure."}},
+    {"@type": "Question", "name": "How accurate are IPL predictions on Degen Predictions?", "acceptedAnswer": {"@type": "Answer", "text": "IPL match-winner full-slate OOS is typically in the mid-50s on holdout. Prefer the accuracy hub and IPL results ledger over any third-party claim."}}
+  ]
 }
 </script>
+{{ nav_back('/', 'Home') }}
+<div class="leagues-hero">
+    <h1>Frequently Asked Questions</h1>
+    <p class="muted">Sports predictions, Today's Picks, multi bets, MLB, tennis, EPL, La Liga, CPL — plus crypto and stocks.</p>
+</div>
+<section class="faq-section">
+    <h2 class="faq-section-title">General</h2>
+    <div class="card faq-card">
+        <h3>What is Degen Predictions?</h3>
+        <p class="muted">Degen Predictions is a free ML platform that forecasts sports matches, cryptocurrency rankings, and US/India stock rankings. Sometimes typed as “Degen Prediction”. Educational research — not betting or investment advice.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Is Degen Predictions free to use?</h3>
+        <p class="muted">Yes. Every calculator and prediction tool on the site is completely free, with no account, login, or payment required for any category.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>How accurate are the predictions?</h3>
+        <p class="muted">Sports boards publish chronological out-of-sample hit rates from holdout data — not marketing numbers. Live chips and the <a href="/accuracy">accuracy hub</a> use the same calibrated threshold files as Today's Picks. Crypto and stocks use walk-forward-validated rankings; those are estimates, not guarantees. Also see the <a href="/mlb/results">MLB track record</a> and cricket/tennis results pages.</p>
+    </div>
+    <div class="card faq-card" id="not-betting-advice">
+        <h3>Is Degen Predictions betting advice?</h3>
+        <p class="muted">No. Forecasts are educational machine-learning estimates. The site does not promote or facilitate sports betting, gambling, or trading.</p>
+    </div>
+    <div class="card faq-card" id="degen-predictions-accuracy">
+        <h3>What is Degen Predictions accuracy?</h3>
+        <p class="muted"><strong>Degen Predictions</strong> reports chronological out-of-sample (OOS) hit rates with sample size and coverage — full-slate baselines plus selective ~70% tiers when a market can clear that bar honestly. Start at the <a href="/accuracy">accuracy hub</a>, then open league results (tennis, IPL, CPL, MLB) for predicted-vs-actual ledgers. Numbers are research estimates, not guarantees.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>What categories does Degen Predictions cover?</h3>
+        <p class="muted">Sports (football, baseball, cricket including IPL/CPL, and men’s ATP tennis), Crypto (ML rankings / Beat BTC by horizon), and Stocks (US S&amp;P and India Nifty, multi-horizon predicted-return boards).</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Do the Crypto and Stocks pages show live prices?</h3>
+        <p class="muted">Yes. Each rankings page embeds a live TradingView candlestick chart above the table. Clicking any row switches the chart to that asset in real time, with interval controls from 1 minute up to monthly. Where a TradingView listing does not exist (mainly tokenized institutional fund products in crypto), the page shows a clear notice instead of guessing.</p>
+    </div>
+    <div class="card faq-card" id="crypto-stocks-honesty">
+        <h3>How should I read crypto and stock rankings?</h3>
+        <p class="muted">They are walk-forward ML leans, not price targets. Absolute return estimates can be withheld when direction fails holdout checks (common on crypto — you may see Beat BTC / peer lean / ranges instead). Boards can be stale if the ranked CSV is old. Nothing here is investment advice; you can lose money.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>What do crypto and stock models not claim?</h3>
+        <p class="muted">They do not predict next-day candles, do not use your brokerage account, and do not guarantee beating Bitcoin or the S&amp;P. Prefer the on-page confidence / OOS notes and the <a href="/terms">terms</a> over any social screenshot.</p>
+    </div>
+</section>
+<section class="faq-section">
+    <h2 class="faq-section-title faq-section-title--sports">Sports</h2>
+    <div class="card faq-card">
+        <h3>Where can I find Today's Picks?</h3>
+        <p class="muted">Start at <a href="/todays-picks">Today's Picks</a> for high-probability tips by sport and league — MLB, tennis, EPL, La Liga, CPL, and more.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Where are multi bet / Best Combos predictions?</h3>
+        <p class="muted"><a href="/todays-picks/combos">Best Combos</a> publishes selective 2-leg and 3-leg multi-bet style slips from high-probability legs across sports.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Do you offer MLB predictions?</h3>
+        <p class="muted">Yes — <a href="/mlb/fixtures">MLB predictions today</a>, <a href="/todays-picks/baseball/mlb">Today's MLB picks</a>, and the public <a href="/mlb/results">MLB track record</a>.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Do you offer NFL predictions?</h3>
+        <p class="muted">Yes — <a href="/nfl/fixtures">NFL predictions today</a>, the <a href="/sports/american-football">American football</a> hub, <a href="/todays-picks/american_football/nfl">Today's NFL picks</a>, and the public <a href="/nfl/results">NFL track record</a>.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Where can I find tennis match today predictions?</h3>
+        <p class="muted">See <a href="/tennis/fixtures">tennis match today / ATP fixtures</a>, the <a href="/sports/tennis">tennis predictions</a> hub, and <a href="/todays-picks/tennis/atp">ATP Today's Picks</a>.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Do you cover EPL and La Liga football predictions?</h3>
+        <p class="muted">Yes — <a href="/premier_league/">EPL / Premier League predictions</a>, <a href="/la_liga/">La Liga predictions</a>, and soccer Today's Picks under <a href="/todays-picks/soccer">/todays-picks/soccer</a>.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Do you offer CPL predictions?</h3>
+        <p class="muted">Yes — <a href="/cpl/fixtures">CPL predictions</a> for the Caribbean Premier League, with graded outcomes on <a href="/cpl/results">CPL results</a>.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Which sports and leagues are covered?</h3>
+        <p class="muted">Football (Premier League, La Liga, Serie A, Bundesliga, Ligue 1, MLS, Primeira Liga), baseball (MLB, NPB), American football (NFL), cricket (IPL, BBL, CPL, The Hundred, MLC), and men's ATP tennis. Start at <a href="/nfl/fixtures">NFL predictions</a>, <a href="/ipl/fixtures">IPL predictions</a>, <a href="/cpl/fixtures">CPL predictions</a>, or <a href="/sports/tennis">tennis predictions</a>.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Where can I see past accuracy?</h3>
+        <p class="muted">See the public <a href="/mlb/results">MLB track record</a>, <a href="/nfl/results">NFL track record</a>, <a href="/ipl/results">IPL</a> / <a href="/cpl/results">CPL</a> / other cricket results, <a href="/tennis/results">ATP tennis results</a>, and the <a href="/accuracy">accuracy hub</a>.</p>
+    </div>
+    <div class="card faq-card" id="tennis-predictions-accuracy">
+        <h3>How accurate are Degen Predictions tennis forecasts?</h3>
+        <p class="muted">Men's ATP full-slate OOS is about 65% when thresholds are loaded — always check the live figure on the <a href="/sports/tennis">tennis predictions</a> hub and <a href="/tennis/results">ATP results</a>. Today's Picks for ATP only surfaces legs that clear a stricter high-probability bar.</p>
+    </div>
+    <div class="card faq-card" id="ipl-predictions-accuracy">
+        <h3>How accurate are IPL predictions on Degen Predictions?</h3>
+        <p class="muted"><a href="/ipl/fixtures">IPL predictions</a> use the same cricket match-winner stack as CPL/BBL. Full-slate OOS for IPL match-winner is typically lower than totals-led tips (often mid-50%s on holdout — see the live chip / <a href="/ipl/results">IPL results</a>). Prefer the accuracy hub and results ledger over any third-party claim.</p>
+    </div>
+</section>
+<section class="faq-section">
+    <h2 class="faq-section-title faq-section-title--crypto">Crypto</h2>
+    <div class="card faq-card">
+        <h3>How are crypto predictions calculated?</h3>
+        <p class="muted">A walk-forward-validated ML model ranks cryptocurrencies by investment window. When absolute point forecasts are withheld, the board leads with Beat BTC probability, peer lean, and an 80% return range — matching what you see on <a href="/crypto">/crypto</a>. Stablecoins are excluded. Rankings refresh regularly.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Which cryptocurrencies are covered?</h3>
+        <p class="muted">About 60 digital assets, from major coins (Bitcoin, Ethereum, Solana, XRP) to DeFi tokens. Live TradingView charts are available for most; a few tokenized institutional products have no exchange listing and are labelled clearly.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>Is crypto riskier than the other categories on this site?</h3>
+        <p class="muted">The model itself flags this: crypto predictions are especially noisy, since only about 365 days of price history are available per coin for training, compared to years of data for stocks.</p>
+    </div>
+</section>
+<section class="faq-section">
+    <h2 class="faq-section-title faq-section-title--stocks">Stocks</h2>
+    <div class="card faq-card">
+        <h3>How are US and India stock predictions calculated?</h3>
+        <p class="muted">For each investment window we pick the best walk-forward model (Ridge / XGBoost / LSTM / GRU). Boards on <a href="/stocks/us">US stock predictions</a> (S&amp;P) and <a href="/stocks/india">India stock predictions</a> (Nifty) lead with predicted return; outperform % is the chance of beating the market benchmark — not a restatement of the absolute forecast.</p>
+    </div>
+    <div class="card faq-card">
+        <h3>What horizons are available?</h3>
+        <p class="muted">Stocks go out to multi-year windows (up to 25 years where history allows). Crypto public boards stop earlier because longer crypto history is too thin for a credible forecast.</p>
+    </div>
+</section>
+{% include "partials/seo_hub_links.html" %}
 {% endblock %}

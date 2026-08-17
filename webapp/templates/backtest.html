@@ -1,16 +1,25 @@
-{% extends "base.html" %}
-{% block title %}{{ league_label }} Prediction Accuracy -- 5-Season Backtest | Degen Predictions{% endblock %}
-{% block description %}See how accurate our {{ league_label }} predictions really are -- backtested against 5 seasons of real, completed matches with full result/BTTS/goals/corners accuracy breakdowns.{% endblock %}
-{% block content %}
-<h1>Past 5 Seasons — {{ league_label }}: Predicted vs Actual</h1>
-<p class="muted">The trained model applied retroactively to real, completed {{ league_label }} matches
-    from 2021-22 through 2025-26, with predictions compared against what actually happened.</p>
+{% extends "admin_base.html" %}
+{% block title %}{{ league_label }} Backtest | Admin{% endblock %}
+{% block admin_content %}
+<div class="admin-page-intro">
+    <h1>Past 5 Seasons — {{ league_label }}</h1>
+    <p class="muted">Trained model applied retroactively to completed {{ league_label }} matches
+        (2021-22 through 2025-26), compared against what actually happened.
+        <a href="/admin?section=tools">Back to tools</a>
+        &middot; <a href="/results">Accuracy ledger</a></p>
+</div>
+
+<div class="backtest-oos-banner">
+    <strong>Trust Out-of-Sample.</strong>
+    The table below defaults to the holdout the model never trained on — that is the honest accuracy.
+    In-Sample numbers look better because of memorization; use them only for diagnosis.
+</div>
 
 {% if overall_summary %}
 <div class="card-grid" style="margin-bottom:1.5rem;">
     {% for sample_type, s in overall_summary.items() %}
-    <div class="card">
-        <h2>{{ sample_type }}</h2>
+    <div class="card {% if 'Out-of-Sample' in sample_type %}backtest-summary-oos{% else %}backtest-summary-in{% endif %}">
+        <h2>{{ sample_type }}{% if 'Out-of-Sample' in sample_type %} <span class="conf-badge conf-badge--tier">Honest</span>{% else %} <span class="conf-badge conf-badge--data">Inflated</span>{% endif %}</h2>
         <p class="muted">{{ s.n }} matches</p>
         <p>Match result accuracy: <strong>{{ (s.result_acc * 100) | round(1) }}%</strong></p>
         <p>BTTS accuracy: <strong>{{ (s.btts_acc * 100) | round(1) }}%</strong></p>
@@ -21,13 +30,6 @@
         {% endif %}
     </div>
     {% endfor %}
-</div>
-<div class="disclaimer" style="max-width:70ch; margin-bottom:1.5rem;">
-    <strong>Read the two cards differently.</strong> "In-Sample" matches are ones the model
-    actually trained on — its accuracy there is inflated by memorization, not a real skill
-    signal. "Out-of-Sample" matches are the genuine holdout the model never saw during
-    training — that number is the honest estimate of how this model performs on truly new
-    matches, and it's the one to trust.
 </div>
 {% endif %}
 
@@ -42,9 +44,9 @@
     </label>
     <label>Sample:
         <select name="sample" onchange="this.form.submit()">
-            <option value="">All</option>
             <option value="out" {% if sample_filter == 'out' %}selected{% endif %}>Out-of-Sample only</option>
             <option value="in" {% if sample_filter == 'in' %}selected{% endif %}>In-Sample only</option>
+            <option value="" {% if sample_filter == '' %}selected{% endif %}>All</option>
         </select>
     </label>
     <label>Team:
@@ -55,12 +57,13 @@
         Wrong predictions only
     </label>
     <button type="submit">Filter</button>
-    <a class="clear-link" href="/{{ league_key }}/backtest">Clear</a>
-    <span class="result-count">{{ total }} match(es)</span>
+    <a class="clear-link" href="/{{ league_key }}/backtest">Reset (OOS)</a>
+    <span class="result-count">{{ total }} match(es){% if sample_filter == 'out' %} · OOS default{% endif %}</span>
 </form>
 
+<p class="table-scroll-hint muted">&#8592; Swipe the table left/right to see all columns &#8594;</p>
 <div class="table-wrap">
-<table>
+<table class="admin-table">
     <thead>
         <tr>
             <th>Date</th><th>Season</th><th>Match</th>
@@ -73,7 +76,7 @@
     <tbody>
         {% for m in matches %}
         <tr class="{{ 'low-confidence' if 'In-Sample' in m.Sample_Type }}">
-            <td>{{ m.MatchDate }}</td>
+            <td class="mono">{{ m.MatchDate }}</td>
             <td>{{ season_labels.get(m.Season|string, m.Season) }}</td>
             <td>{{ m.HomeTeam }} vs {{ m.AwayTeam }}</td>
             <td>{{ m.Actual_Result }}</td>
@@ -88,7 +91,7 @@
             <td>{{ "Out" if "Out-of-Sample" in m.Sample_Type else "In" }}</td>
         </tr>
         {% else %}
-        <tr><td colspan="13">No backtest data found. Run <code>scripts/backtest_pl.py</code> first.</td></tr>
+        <tr><td colspan="13">No backtest data available yet for this league.</td></tr>
         {% endfor %}
     </tbody>
 </table>

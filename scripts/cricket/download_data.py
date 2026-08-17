@@ -1,10 +1,8 @@
 """Downloads Cricsheet ball-by-ball JSON archives (cricsheet.org/downloads/)
-for Men's The Hundred and Men's Major League Cricket, unpacking each match's
-JSON file into data/cricket/raw/<competition>/. Idempotent: re-running only
-downloads a competition's zip again and overwrites with whatever Cricsheet
-currently has (new matches get picked up automatically as they're played;
-existing files are just overwritten with the same content, which is cheap
-and avoids needing to diff match lists).
+for Men's The Hundred, MLC, IPL, and BBL, unpacking each match's JSON into
+data/cricket/raw/<competition>/. Idempotent: re-running only downloads a
+competition's zip again and overwrites with whatever Cricsheet currently
+has (new matches get picked up automatically as they're played).
 
 Run from repo root: python scripts/cricket/download_data.py
 """
@@ -24,7 +22,7 @@ def download_competition(comp_key, comp_info):
     os.makedirs(out_dir, exist_ok=True)
     url = comp_info["zip_url"]
     try:
-        resp = requests.get(url, timeout=60)
+        resp = requests.get(url, timeout=180)
         resp.raise_for_status()
     except Exception as exc:
         print(f"[{comp_key}] failed to download {url}: {exc}")
@@ -49,7 +47,7 @@ def download_people_registry():
     name strings) to a stable identifier -- used so a player's rolling form
     isn't fragmented by name-string variance across matches."""
     try:
-        resp = requests.get(PEOPLE_CSV_URL, timeout=30)
+        resp = requests.get(PEOPLE_CSV_URL, timeout=60)
         resp.raise_for_status()
     except Exception as exc:
         print(f"people.csv download failed (non-fatal -- player IDs will fall back to raw name "

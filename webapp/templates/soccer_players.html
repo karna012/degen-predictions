@@ -1,0 +1,190 @@
+{% extends "admin_base.html" %}
+{% block title %}{{ league_label }} Player Analysis | Admin{% endblock %}
+{% block admin_content %}
+<div class="admin-page-intro">
+    <h1>{{ league_label }} Player Analysis</h1>
+    <p class="muted">
+        {% if source == 'asa' %}
+        Season xG / xA / xPass / Goals Added from American Soccer Analysis.
+        {% else %}
+        Season xG / xA from Understat.
+        {% endif %}
+        Used as squad-quality signal in match predictions.
+        <a href="/admin?section=tools">Back to tools</a>
+        &middot; <a href="/{{ league_key }}/backtest">Past seasons</a>
+    </p>
+</div>
+
+{% if not seasons %}
+<p class="muted">No player stats available for this league yet. Check back after the next data refresh.</p>
+{% else %}
+
+<form class="filters" method="get" style="margin:1rem 0 1.5rem;">
+    <label>Season
+        <select name="season" onchange="this.form.submit()">
+            {% for s in seasons %}
+            <option value="{{ s }}" {% if s == season %}selected{% endif %}>{{ s }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <label>Team
+        <select name="team" onchange="this.form.submit()">
+            <option value="">All</option>
+            {% for t in teams %}
+            <option value="{{ t }}" {% if t == team %}selected{% endif %}>{{ t }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <label>Pos
+        <select name="position" onchange="this.form.submit()">
+            <option value="">All</option>
+            {% for p in positions %}
+            <option value="{{ p }}" {% if p == position %}selected{% endif %}>{{ p }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <label>Min minutes
+        <input type="number" name="min_minutes" value="{{ min_minutes }}" min="0" step="50" style="width:5rem;">
+    </label>
+    <label>Sort
+        <select name="sort">
+            {% if source == 'asa' %}
+            <option value="goals_added" {% if sort == 'goals_added' %}selected{% endif %}>Goals Added</option>
+            {% endif %}
+            <option value="goals" {% if sort == 'goals' %}selected{% endif %}>Goals</option>
+            <option value="xG" {% if sort == 'xG' %}selected{% endif %}>xG</option>
+            <option value="assists" {% if sort == 'assists' %}selected{% endif %}>Assists</option>
+            <option value="xA" {% if sort == 'xA' %}selected{% endif %}>xA</option>
+            <option value="finishing" {% if sort == 'finishing' %}selected{% endif %}>Goals − xG</option>
+            <option value="per90_xG" {% if sort == 'per90_xG' %}selected{% endif %}>xG / 90</option>
+            <option value="shots" {% if sort == 'shots' %}selected{% endif %}>Shots</option>
+            <option value="key_passes" {% if sort == 'key_passes' %}selected{% endif %}>Key passes</option>
+            {% if source == 'asa' %}
+            <option value="passes_over_expected" {% if sort == 'passes_over_expected' %}selected{% endif %}>Pass over xP</option>
+            {% endif %}
+            <option value="minutes" {% if sort == 'minutes' %}selected{% endif %}>Minutes</option>
+            <option value="player_name" {% if sort == 'player_name' %}selected{% endif %}>Name</option>
+        </select>
+    </label>
+    <label>Search
+        <input type="text" name="q" value="{{ q }}" placeholder="Player name" autocomplete="off">
+    </label>
+    <button type="submit" class="league-cta" style="border:0; cursor:pointer;">Apply</button>
+</form>
+
+{% if leaders %}
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    {% for label, rows in [
+        ('Top scorers', leaders.goals),
+        ('Top xG', leaders.xG),
+        ('Top assists', leaders.assists),
+        ('Top xA', leaders.xA),
+    ] %}
+    <div class="card">
+        <h2 style="font-size:1rem;">{{ label }}</h2>
+        <ol style="margin:0.5rem 0 0; padding-left:1.2rem;">
+            {% for p in rows %}
+            <li style="margin:0.25rem 0;">
+                <strong>{{ p.player_name }}</strong>
+                <span class="muted">{{ p.team_title }}</span>
+                —
+                {% if label == 'Top scorers' %}{{ p.goals|round(0)|int }}
+                {% elif label == 'Top xG' %}{{ '%.2f'|format(p.xG) }}
+                {% elif label == 'Top assists' %}{{ p.assists|round(0)|int }}
+                {% else %}{{ '%.2f'|format(p.xA) }}{% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+    {% endfor %}
+    {% if source == 'asa' and leaders.goals_added %}
+    <div class="card">
+        <h2 style="font-size:1rem;">Goals Added (g+)</h2>
+        <ol style="margin:0.5rem 0 0; padding-left:1.2rem;">
+            {% for p in leaders.goals_added %}
+            <li style="margin:0.25rem 0;">
+                <strong>{{ p.player_name }}</strong>
+                <span class="muted">{{ p.team_title }}</span>
+                — {{ '%.2f'|format(p.goals_added) }}
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+    <div class="card">
+        <h2 style="font-size:1rem;">Finishing (G − xG)</h2>
+        <ol style="margin:0.5rem 0 0; padding-left:1.2rem;">
+            {% for p in leaders.finishing %}
+            <li style="margin:0.25rem 0;">
+                <strong>{{ p.player_name }}</strong>
+                <span class="muted">{{ p.team_title }}</span>
+                — {{ '%+.2f'|format(p.finishing) }}
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+
+<p class="muted">{{ players|length }} players (min {{ min_minutes }}').</p>
+<p class="table-scroll-hint muted">&#8592; Swipe the table left/right to see all columns &#8594;</p>
+
+<div class="table-wrap">
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Pos</th>
+            <th class="mono">Min</th>
+            <th class="mono">G</th>
+            <th class="mono">xG</th>
+            <th class="mono">A</th>
+            <th class="mono">xA</th>
+            <th class="mono">G−xG</th>
+            {% if source == 'asa' %}
+            <th class="mono">g+</th>
+            <th class="mono">Pass vs xP</th>
+            {% endif %}
+            <th class="mono">Shots</th>
+            <th class="mono">KP</th>
+            <th class="mono">xG/90</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in players %}
+        <tr>
+            <td><strong>{{ p.player_name }}</strong></td>
+            <td class="muted">{{ p.team_title }}</td>
+            <td>{{ p.position }}</td>
+            <td class="mono">{{ p.minutes|round(0)|int }}</td>
+            <td class="mono">{{ p.goals|round(0)|int }}</td>
+            <td class="mono">{{ '%.2f'|format(p.xG) }}</td>
+            <td class="mono">{{ p.assists|round(0)|int }}</td>
+            <td class="mono">{{ '%.2f'|format(p.xA) }}</td>
+            <td class="mono">{{ '%+.2f'|format(p.finishing) }}</td>
+            {% if source == 'asa' %}
+            <td class="mono">{{ '%.2f'|format(p.goals_added or 0) }}</td>
+            <td class="mono">{{ '%+.1f'|format(p.passes_over_expected or 0) }}</td>
+            {% endif %}
+            <td class="mono">{{ p.shots|round(0)|int }}</td>
+            <td class="mono">{{ p.key_passes|round(0)|int }}</td>
+            <td class="mono">{{ '%.2f'|format(p.per90_xG) }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="14" class="muted">No players match these filters.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+<p class="muted" style="margin-top:1.25rem; max-width:70ch;">
+    {% if source == 'asa' %}
+    <strong>g+</strong> (goals added) estimates total on-ball value across shooting, passing, receiving, dribbling, fouling, and interrupting.
+    <strong>Pass vs xP</strong> is completed passes above/below expected. Data: American Soccer Analysis.
+    {% else %}
+    xG / xA from Understat. Finishing = goals minus xG (positive = clinical).
+    {% endif %}
+</p>
+{% endif %}
+{% endblock %}

@@ -1,17 +1,41 @@
 """Tests for the MLB Elo/prediction section."""
+import os
+
 import pandas as pd
 import pytest
 
 import app as app_module
+import combo_results
 import mlb_predict
 
 
 # ---- routes -------------------------------------------------------------
 
-def test_mlb_home_redirects_to_fixtures(client):
+def test_mlb_home_redirects_to_todays_picks(client):
     resp = client.get("/mlb/")
     assert resp.status_code in (301, 302)
-    assert resp.headers["Location"].endswith("/mlb/fixtures")
+    assert resp.headers["Location"].endswith("/todays-picks/baseball/mlb")
+
+
+def test_mlb_today_redirects_to_todays_picks(client):
+    resp = client.get("/mlb/today")
+    assert resp.status_code in (301, 302)
+    assert resp.headers["Location"].endswith("/todays-picks/baseball/mlb")
+
+
+def test_mlb_todays_picks_page_loads(client):
+    resp = client.get("/todays-picks/baseball/mlb")
+    assert resp.status_code == 200
+    body = resp.data.decode()
+    assert "Today's Picks" in body
+    assert "MLB" in body
+
+
+def test_mlb_results_page_is_public(client):
+    resp = client.get("/mlb/results")
+    assert resp.status_code == 200
+    body = resp.data.decode()
+    assert "Track Record" in body or "track record" in body.lower()
 
 
 def test_mlb_fixtures_page_loads(client):
@@ -19,10 +43,58 @@ def test_mlb_fixtures_page_loads(client):
     assert resp.status_code == 200
 
 
+def test_mlb_fixtures_include_finished_when_present(client, monkeypatch):
+    sample = [{
+        "date": "2026-08-11T23:00:00Z",
+        "home_team": "New York Yankees", "away_team": "Boston Red Sox",
+        "home_abbr": "NYY", "away_abbr": "BOS",
+        "home_code": "NYA", "away_code": "BOS",
+        "completed": True, "status": "post", "status_detail": "Final",
+        "home_score": 5, "away_score": 3,
+        "has_rating": False,
+    }]
+    monkeypatch.setattr("app.get_mlb_fixtures", lambda *a, **k: sample)
+    monkeypatch.setattr(combo_results, "refresh_for_finished_events", lambda **k: None)
+    fixtures_body = client.get("/mlb/fixtures").data.decode()
+    assert "Recent results" not in fixtures_body
+    assert "Final: 3-5" not in fixtures_body
+    results_body = client.get("/mlb/results?refresh=1").data.decode()
+    assert "Latest scores" in results_body
+    assert "Final: 3-5" in results_body
+    assert "New York Yankees" in results_body
+
+
+def test_mlb_scoreless_game_is_not_fake_final(client, monkeypatch):
+    """ESPN 'completed' with no score, or games beyond the 36h horizon,
+    must keep Unlock prediction — never Final: None-None."""
+    sample = [{
+        "date": "2099-08-20T23:00:00Z",
+        "home_team": "New York Yankees", "away_team": "Boston Red Sox",
+        "home_abbr": "NYY", "away_abbr": "BOS",
+        "completed": True, "status": "post", "status_detail": "Final",
+        "home_score": None, "away_score": None,
+        "home_pitcher": {"name": "A", "wins": 1, "losses": 1, "era": "3.00"},
+        "away_pitcher": {"name": "B", "wins": 1, "losses": 1, "era": "4.00"},
+    }]
+    monkeypatch.setattr("app.get_mlb_fixtures", lambda *a, **k: sample)
+    monkeypatch.setattr(combo_results, "refresh_for_finished_events", lambda **k: None)
+    monkeypatch.setattr(
+        "app.load_mlb_elo",
+        lambda: __import__("pandas").DataFrame(
+            {"Team": ["NYA", "BOS"], "TeamName": ["Yankees", "Red Sox"]}
+        ),
+    )
+    body = client.get("/mlb/fixtures").data.decode()
+    assert "Final: None-None" not in body
+    assert "Unlock prediction" in body
+    assert 'data-lock="1"' in body
+
+
 def test_nav_has_mlb_link(client):
     resp = client.get("/sports/baseball")
     body = resp.data.decode()
     assert 'href="/mlb/fixtures"' in body
+    assert "See fixtures" in body
 
 
 def test_mlb_api_predict_with_real_teams(client):
@@ -105,6 +177,55 @@ def test_blend_with_pitcher_has_modest_fixed_weight():
     configured weight."""
     blended = mlb_predict.blend_with_pitcher(0.5, "1.00", "9.00", weight=0.12)
     assert blended <= 0.5 + 0.12 + 1e-9
+
+
+# ---- unit: ML feature vector (must match trained model columns) ----------
+
+def test_build_mlb_ml_features_keys_match_expected_schema():
+    home_row = pd.Series({
+        "Elo": 1520.0, "Last10Wins": 6, "Last10Played": 10, "CurrentStreak": 2,
+        "AvgRunsScored": 4.5, "AvgRunsAllowed": 4.0, "AvgHitsFor": 8.5,
+        "AvgHRFor": 1.1, "AvgSOInduced": 8.5, "LastGameDate": "2026-08-05",
+    })
+    away_row = pd.Series({
+        "Elo": 1480.0, "Last10Wins": 4, "Last10Played": 10, "CurrentStreak": -1,
+        "AvgRunsScored": 4.0, "AvgRunsAllowed": 4.5, "AvgHitsFor": 8.0,
+        "AvgHRFor": 1.0, "AvgSOInduced": 8.0, "LastGameDate": "2026-08-04",
+    })
+    h2h = {"home_wins": 3, "away_wins": 2, "meetings": 5}
+    feats = mlb_predict.build_mlb_ml_features(
+        home_row, away_row, h2h, home_era="2.50", away_era="4.50",
+        home_pitcher={"wins": 8, "losses": 4}, away_pitcher={"wins": 5, "losses": 7},
+        as_of_date="2026-08-07",
+    )
+    assert list(feats.keys()) == mlb_predict.MLB_ML_FEATURE_NAMES
+    assert feats["EloDiff"] == pytest.approx(40.0)
+    assert feats["PitcherQualityDiff"] > 0
+    assert feats["HomeDaysRest"] == pytest.approx(2.0)
+    assert feats["AwayDaysRest"] == pytest.approx(3.0)
+
+
+def test_build_mlb_ml_features_matches_shipped_model_feature_list():
+    import joblib
+    path = os.path.join(mlb_predict.DATA_DIR, "ml_ensemble_model.joblib")
+    if not os.path.exists(path):
+        return
+    bundle = joblib.load(path)
+    assert bundle["features"] == mlb_predict.MLB_ML_FEATURE_NAMES
+
+
+def test_build_mlb_ml_features_neutral_pitcher_when_era_missing():
+    home_row = pd.Series({
+        "Elo": 1500.0, "Last10Wins": 5, "Last10Played": 10, "CurrentStreak": 0,
+        "AvgRunsScored": 4.5, "AvgRunsAllowed": 4.5, "AvgHitsFor": 8.5,
+        "AvgHRFor": 1.1, "AvgSOInduced": 8.5, "LastGameDate": None,
+    })
+    away_row = home_row.copy()
+    h2h = {"home_wins": 0, "away_wins": 0, "meetings": 0}
+    feats = mlb_predict.build_mlb_ml_features(home_row, away_row, h2h)
+    assert feats["PitcherQualityDiff"] == 0.0
+    assert feats["PitcherWinRateDiff"] == 0.0
+    assert feats["PitcherStartsDiff"] == 0.0
 
 
 # ---- unit: total runs -----------------------------------------------------
@@ -247,6 +368,18 @@ def test_generate_insights_falls_back_when_nothing_stands_out():
     assert "close" in insights[0]
 
 
+def test_generate_insights_flags_coinflip_underdog():
+    home_row = pd.Series({"Elo": 1510.0})
+    away_row = pd.Series({"Elo": 1500.0})
+    h2h = {"home_wins": 0, "away_wins": 0, "meetings": 0}
+    insights = mlb_predict.generate_insights(
+        "LAN", "COL", home_row, away_row, h2h, "", "", 0, 0, "LAN", 8.5,
+        home_prob=0.53, away_prob=0.47,
+    )
+    assert any("coin-flip" in i.lower() for i in insights)
+    assert any("COL" in i for i in insights)
+
+
 def test_mlb_api_predict_includes_insights(client):
     df = mlb_predict.load_mlb_elo()
     if len(df) < 2:
@@ -279,9 +412,25 @@ def test_mlb_match_detail_unknown_team_is_404(client):
     assert resp.status_code == 404
 
 
-def test_mlb_fixtures_cards_link_to_match_detail(client):
-    resp = client.get("/mlb/fixtures")
-    body = resp.data.decode()
+def test_mlb_fixtures_cards_link_to_match_detail(client, monkeypatch):
+    sample = [{
+        "date": "2099-08-20T23:00:00Z",
+        "home_team": "New York Yankees", "away_team": "Boston Red Sox",
+        "home_abbr": "NYY", "away_abbr": "BOS",
+        "completed": False, "status": "pre",
+        "home_score": None, "away_score": None,
+        "home_pitcher": {"name": "A", "wins": 1, "losses": 1, "era": "3.00"},
+        "away_pitcher": {"name": "B", "wins": 1, "losses": 1, "era": "4.00"},
+    }]
+    monkeypatch.setattr("app.get_mlb_fixtures", lambda *a, **k: sample)
+    monkeypatch.setattr(combo_results, "refresh_for_finished_events", lambda **k: None)
+    monkeypatch.setattr(
+        "app.load_mlb_elo",
+        lambda: __import__("pandas").DataFrame(
+            {"Team": ["NYA", "BOS"], "TeamName": ["Yankees", "Red Sox"]}
+        ),
+    )
+    body = client.get("/mlb/fixtures").data.decode()
     assert "/mlb/match/" in body
 
 
@@ -321,3 +470,40 @@ def test_mlb_elo_ratings_have_expanded_columns():
         "AvgSOAtBat", "AvgSOInduced", "CurrentStreak", "SeasonWins", "SeasonLosses",
     ):
         assert col in df.columns
+
+
+def test_mlb_statsapi_abbr_and_final_parse():
+    import mlb_fixtures
+    assert mlb_fixtures._normalize_abbr("AZ") == "ARI"
+    assert mlb_fixtures._normalize_abbr("CWS") == "CHW"
+    assert mlb_fixtures._normalize_abbr("NYY") == "NYY"
+    payload = {
+        "dates": [{
+            "games": [{
+                "gameDate": "2026-08-15T23:10:00Z",
+                "status": {
+                    "abstractGameState": "Final",
+                    "detailedState": "Final",
+                },
+                "teams": {
+                    "away": {
+                        "score": 4,
+                        "team": {"name": "Chicago White Sox", "abbreviation": "CWS"},
+                        "probablePitcher": {"id": 1, "fullName": "A Starter"},
+                    },
+                    "home": {
+                        "score": 3,
+                        "team": {"name": "Detroit Tigers", "abbreviation": "DET"},
+                        "probablePitcher": {},
+                    },
+                },
+            }]
+        }]
+    }
+    rows = mlb_fixtures._fixtures_from_statsapi(payload)
+    assert len(rows) == 1
+    assert rows[0]["away_abbr"] == "CHW"
+    assert rows[0]["completed"] is True
+    assert rows[0]["away_score"] == 4
+    assert rows[0]["home_score"] == 3
+    assert rows[0]["away_pitcher"]["name"] == "A Starter"

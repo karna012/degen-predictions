@@ -16,11 +16,21 @@ import app as app_module
 # the live traffic dashboard with fake request rows.
 analytics.DB_PATH = os.path.join(tempfile.gettempdir(), "degen_test_analytics.db")
 analytics.init_db()
+# The file above persists across separate pytest invocations (see
+# tests/test_analytics.py::_fake_ip), so without a periodic wipe it grows
+# without bound run after run and eventually pushes fresh rows past the
+# default `limit=25` on queries like recurring_visitors(), breaking tests
+# that expect their own just-inserted row to show up.
+with analytics.get_db() as _conn:
+    _conn.execute("DELETE FROM visits")
 
 # Same reasoning for the feedback form -- never let test submissions land
-# in the real feedback.db an admin actually reads.
+# in the real feedback.db an admin actually reads. Same unbounded-growth
+# risk as the analytics DB above, so wiped for the same reason.
 feedback.DB_PATH = os.path.join(tempfile.gettempdir(), "degen_test_feedback.db")
 feedback.init_db()
+with feedback.get_db() as _conn:
+    _conn.execute("DELETE FROM feedback")
 
 
 @pytest.fixture(scope="session")

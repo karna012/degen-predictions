@@ -1,11 +1,25 @@
 {% extends "base.html" %}
-{% block title %}{{ league_label }} Predictions -- Free Soccer & Football Match Forecasts | Degen Predictions{% endblock %}
-{% block description %}Free {{ league_label }} predictions for every upcoming fixture -- match result, both teams to score, total goals, and corner forecasts from a machine-learning model trained on 5 seasons of data.{% endblock %}
+{% block title %}{{ league_label }} Predictions{% if league_key == 'premier_league' %} — EPL Tips{% elif league_key == 'la_liga' %} — La Liga Tips{% endif %} | Degen Predictions{% endblock %}
+{% block description %}Free {{ league_label }} predictions{% if league_key == 'premier_league' %} (EPL){% endif %} for every upcoming fixture — match result, both teams to score, total goals, and corner forecasts from a machine-learning model. Also see Today's Picks. Not betting advice.{% endblock %}
 {% block keywords %}{{ league_keywords }}{% endblock %}
 {% block content %}
-<h1>2026/27 {{ league_label }} — Fixture Predictions</h1>
+{% include "partials/feed_stale_banner.html" %}
+<section class="fixtures-hero">
+    <p class="fixtures-eyebrow">2026/27 season</p>
+    <h1>{{ league_label }}{% if league_key == 'premier_league' %} (EPL){% endif %} <span class="fixtures-hero-sub">Predictions</span></h1>
+    <p class="fixtures-lead muted">Match result, BTTS, goals, and corners — unlock markets per fixture when you are ready.</p>
+    <p class="fixtures-links muted">
+        <a href="/{{ league_key }}/predictions-today">Predictions today</a>
+        <span class="fixtures-sep" aria-hidden="true"></span>
+        <a href="/todays-picks/soccer/{{ league_key }}">Today's Picks</a>
+        <span class="fixtures-sep" aria-hidden="true"></span>
+        <a href="/{{ league_key }}/results">Results</a>
+        <span class="fixtures-sep" aria-hidden="true"></span>
+        <a href="/{{ league_key }}/about">About</a>
+    </p>
+</section>
 
-<form class="filters" method="get" id="round-form">
+<form class="filters fixtures-filters" method="get" id="round-form">
     <label>Round:
         <div class="custom-select custom-select-pill" id="round-select">
             <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
@@ -36,6 +50,12 @@
     <a class="clear-link" href="/{{ league_key }}/">Clear</a>
     <span class="result-count" id="result-count">{{ total }} fixture(s)</span>
 </form>
+{% if selected_round is not none %}
+<p class="muted" style="margin:0.35rem 0 1rem; font-size:0.88rem;">
+    Showing Round {{ selected_round }} — upcoming and live fixtures only.
+    Finished matches move to <a href="/{{ league_key }}/results">results</a>.
+</p>
+{% endif %}
 
 <div class="fixture-grid" id="fixture-grid">
     {% for m in matches %}
@@ -43,36 +63,52 @@
          style="--card-index: {{ loop.index0 }}; cursor: pointer;"
          data-home="{{ m.HomeTeam }}" data-away="{{ m.AwayTeam }}"
          data-date="{{ m.DateUtc }}" data-confidence="{{ 0 if 'Low' in m.Data_Confidence else 1 }}"
-         onclick="window.location.href='/{{ league_key }}/match/{{ m.HomeTeam }}/{{ m.AwayTeam }}'">
+         data-lock="1"
+         data-href="/{{ league_key }}/match/{{ m.HomeTeam }}/{{ m.AwayTeam }}"
+         tabindex="0" role="link"
+         aria-label="{{ m.HomeTeam }} vs {{ m.AwayTeam }} match page">
         <div class="fixture-card-head">
-            <div>
-                <a class="fixture-teams" href="/{{ league_key }}/match/{{ m.HomeTeam }}/{{ m.AwayTeam }}">{{ m.HomeTeam }} vs {{ m.AwayTeam }}</a>
-                <div class="fixture-date">{{ m.MatchDate }} <span class="countdown muted" data-kickoff="{{ m.DateUtc }}"></span></div>
+            <div class="fixture-matchup">
+                <a class="fixture-teams" href="/{{ league_key }}/match/{{ m.HomeTeam }}/{{ m.AwayTeam }}" onclick="event.stopPropagation()">
+                    <span class="fixture-team">{{ m.HomeTeam }}</span>
+                    <span class="fixture-vs">vs</span>
+                    <span class="fixture-team">{{ m.AwayTeam }}</span>
+                </a>
+                <div class="fixture-meta">
+                    <span class="fixture-date">{{ m.MatchDate }}</span>
+                    <span class="countdown" data-kickoff="{{ m.DateUtc }}"></span>
+                </div>
             </div>
-            <button type="button" class="predict-btn" onclick="event.stopPropagation(); runLivePredict(this)">Get Predictions</button>
+            <button type="button" class="predict-btn" onclick="event.stopPropagation(); runLivePredict(this)">Unlock prediction</button>
         </div>
-        <div class="predict-status muted"></div>
+        <div class="predict-status muted" hidden></div>
 
-        <div class="fixture-outcomes">
-            <div class="outcome-row"><span class="outcome-label">1X2</span><span class="c-result outcome-hidden">H / D / A</span></div>
-            <div class="outcome-row"><span class="outcome-label">Predicted</span><span class="c-predicted outcome-hidden">&mdash;</span></div>
-            <div class="outcome-row"><span class="outcome-label">BTTS</span><span class="c-btts outcome-hidden">&mdash;</span></div>
-            <div class="outcome-row"><span class="outcome-label">Goals O/U 2.5</span><span class="c-goals outcome-hidden">&mdash;</span></div>
-            <div class="outcome-row"><span class="outcome-label">Corners</span><span class="c-corners outcome-hidden">&mdash;</span></div>
-            <div class="outcome-row"><span class="outcome-label">More Corners</span><span class="c-more-corners outcome-hidden">&mdash;</span></div>
-            <div class="outcome-row"><span class="outcome-label">Fav. Avoids Defeat</span><span class="c-favorite outcome-hidden">&mdash;</span></div>
+        <div class="fixture-empty">
+            <span class="fixture-empty-label">Markets locked</span>
+            <span class="fixture-empty-hint">Tap Unlock prediction to reveal Safer Result, 1X2, BTTS, goals &amp; corners</span>
+        </div>
+
+        <div class="fixture-outcomes" hidden>
+            <div class="outcome-row"><span class="outcome-label">Safer Result</span><span class="c-safer-result">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Underlying 1X2</span><span class="c-result">H / D / A</span></div>
+            <div class="outcome-row"><span class="outcome-label">BTTS</span><span class="c-btts">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Goals O/U 2.5</span><span class="c-goals">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">Corners</span><span class="c-corners">&mdash;</span></div>
+            <div class="outcome-row"><span class="outcome-label">More Corners</span><span class="c-more-corners">&mdash;</span></div>
         </div>
 
         <div class="fixture-card-foot">
             {% if 'Low' in m.Data_Confidence %}
-            <span class="confidence-alert">&#9888; Low confidence &mdash; new/promoted team</span>
-            {% else %}
-            <span class="muted">Confidence: {{ m.Data_Confidence }}</span>
+            <span class="confidence-alert">Low confidence — new/promoted team</span>
             {% endif %}
+            {% set confidence = none %}
+            {% set tier_label = none %}
+            {% set data_conf = m.Data_Confidence %}
+            {% include "partials/confidence_badge.html" %}
         </div>
     </div>
     {% else %}
-    <p>No fixtures found. Run <code>scripts/predict_pl.py</code> first.</p>
+    <p class="muted">No fixtures on this slate right now — check back on a matchday.</p>
     {% endfor %}
 </div>
 
@@ -85,15 +121,15 @@ function updateCountdowns() {
         if (isNaN(kickoff)) return;
         const diff = kickoff - now;
         if (diff <= 0) {
-            el.textContent = "-- kicked off";
+            el.textContent = "Kicked off";
             return;
         }
         const days = Math.floor(diff / 86400000);
         const hours = Math.floor((diff % 86400000) / 3600000);
         const mins = Math.floor((diff % 3600000) / 60000);
-        if (days > 0) el.textContent = `-- kicks off in ${days}d ${hours}h`;
-        else if (hours > 0) el.textContent = `-- kicks off in ${hours}h ${mins}m`;
-        else el.textContent = `-- kicks off in ${mins}m`;
+        if (days > 0) el.textContent = `Kicks off in ${days}d ${hours}h`;
+        else if (hours > 0) el.textContent = `Kicks off in ${hours}h ${mins}m`;
+        else el.textContent = `Kicks off in ${mins}m`;
     });
 }
 updateCountdowns();
@@ -156,10 +192,15 @@ async function runLivePredict(btn) {
     const row = btn.closest(".fixture-card");
     const status = row.querySelector(".predict-status");
     const home = row.dataset.home, away = row.dataset.away;
+    const empty = row.querySelector(".fixture-empty");
+    const outcomes = row.querySelector(".fixture-outcomes");
 
     btn.disabled = true;
     btn.textContent = "Predicting...";
-    status.textContent = "Fetching lineup...";
+    if (status) {
+        status.hidden = false;
+        status.textContent = "Fetching lineup...";
+    }
 
     try {
         const resp = await fetch(`/{{ league_key }}/api/predict/${encodeURIComponent(home)}/${encodeURIComponent(away)}`);
@@ -168,16 +209,26 @@ async function runLivePredict(btn) {
 
         row.querySelector(".c-result").textContent =
             `${Math.round(data.P_Home_Win * 100)}% / ${Math.round(data.P_Draw * 100)}% / ${Math.round(data.P_Away_Win * 100)}%`;
-        row.querySelector(".c-predicted").innerHTML = `<strong>${data.Predicted_Result}</strong>`;
+        row.querySelector(".c-safer-result").innerHTML = data.P_Safer_Result == null
+            ? "<strong>No pick</strong>"
+            : `<strong>${data.Safer_Result_Pick}</strong> (${Math.round(data.P_Safer_Result * 100)}%)`;
         row.querySelector(".c-btts").textContent =
             `${data.BTTS_Prediction} (${Math.round(data.P_BTTS_Yes * 100)}%)`;
         row.querySelector(".c-goals").textContent =
             `${data.Goals_Prediction} (${Math.round(data["P_Over_2.5_Goals"] * 100)}%)`;
-        row.querySelector(".c-corners").textContent = data.Exp_Total_Corners;
+        row.querySelector(".c-corners").textContent =
+            (data.Exp_Total_Corners === "" || data.Exp_Total_Corners == null)
+                ? "N/A" : data.Exp_Total_Corners;
         row.querySelector(".c-more-corners").textContent =
-            `${data.More_Corners_Prediction} (${Math.round(data.P_Home_More_Corners * 100)}%H)`;
-        row.querySelector(".c-favorite").textContent =
-            `${data.Favorite_Team}: ${data.Favorite_Avoids_Defeat_Prediction} (${Math.round(data.P_Favorite_Avoids_Defeat * 100)}%)`;
+            (data.P_Home_More_Corners === "" || data.P_Home_More_Corners == null)
+                ? "N/A"
+                : `${data.More_Corners_Prediction} (${Math.round(data.P_Home_More_Corners * 100)}%H)`;
+        if (empty) empty.hidden = true;
+        if (outcomes) {
+            outcomes.hidden = false;
+            outcomes.classList.add("is-revealed");
+        }
+        row.classList.add("is-predicted");
         row.querySelectorAll(".outcome-hidden").forEach(td => td.classList.remove("outcome-hidden"));
 
         const labels = {
@@ -188,14 +239,18 @@ async function runLivePredict(btn) {
         let note = labels[data.Lineup_Status] || data.Lineup_Status;
         const missing = [...(data.Home_Adjustment.missing || []), ...(data.Away_Adjustment.missing || [])];
         if (missing.length) note += ` (out: ${missing.join(", ")})`;
-        status.textContent = note;
+        if (status) status.textContent = note;
         btn.textContent = "Unlocked";
+        btn.classList.add("is-unlocked");
         btn.disabled = true;
         showToast(`${home} vs ${away}: ${data.Predicted_Result}`, "success");
         return;
     } catch (err) {
-        status.textContent = `Error: ${err.message}`;
-        btn.textContent = "Get Predictions";
+        if (status) {
+            status.hidden = false;
+            status.textContent = `Error: ${err.message}`;
+        }
+        btn.textContent = "Unlock prediction";
         showToast(err.message, "error");
     }
     btn.disabled = false;

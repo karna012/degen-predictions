@@ -1,0 +1,374 @@
+{# Admin Telegram sender — mirrors Today's Picks sport → league → event hierarchy. #}
+<section class="admin-section {{ 'is-visible' if admin_section == 'telegram' else '' }}" data-admin-section="telegram">
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Send to Telegram &amp; X</h3>
+            <span class="muted">You send Today's Picks, combos, and custom slips. Background jobs only watch fixtures and scores.</span>
+        </div>
+        <div class="panel-body">
+            {% if tg_flash %}
+            <p style="margin:0 0 0.85rem;">
+                {% if tg_flash.startswith('ok_') %}
+                <strong class="badge badge-human">Ready {{ tg_flash.split('_')[1] }} slip image(s)</strong>
+                {% if tg_flash_msg %}<span class="muted"> — {{ tg_flash_msg }}</span>{% endif %}
+                {% elif tg_flash == 'err_no_picks' %}
+                <strong class="badge badge-bot">Select at least one market</strong>
+                {% elif tg_flash == 'err_slip_count' %}
+                <strong class="badge badge-bot">Slip leg count does not match Single / N-leg setting</strong>
+                {% elif tg_flash == 'err_render' %}
+                <strong class="badge badge-bot">Could not render slip image(s)</strong>
+                {% else %}
+                <strong class="badge badge-bot">Telegram send failed</strong>
+                {% if tg_flash_msg %}<span class="muted"> — {{ tg_flash_msg }}</span>{% else %}<span class="muted"> — check bot token / chat id</span>{% endif %}
+                {% endif %}
+            </p>
+            {% endif %}
+
+            <div class="tg-upload-panel" style="margin-bottom:1.1rem;">
+                <div class="tg-upload-head">
+                    <h4>Today's digest — verify then send</h4>
+                    <span class="muted">Uncheck anything you don't want. Tick Telegram and/or X, then send.</span>
+                </div>
+                <div class="tg-upload-body">
+                    <form method="post" action="/admin/telegram-send">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <div class="tg-send-row" style="margin-bottom:0.85rem;">
+                            <label class="tg-market-row">
+                                <input type="checkbox" name="channel_telegram" value="1" checked>
+                                <span>Telegram</span>
+                            </label>
+                            <label class="tg-market-row">
+                                <input type="checkbox" name="channel_x" value="1" checked>
+                                <span>X</span>
+                            </label>
+                        </div>
+                        <div style="margin-bottom:0.85rem;">
+                            <strong>Today's Picks</strong>
+                            <span class="muted"> · {{ (tg_digest_picks or [])|length }} leg{{ 's' if (tg_digest_picks or [])|length != 1 else '' }}</span>
+                        </div>
+                        {% if tg_digest_picks %}
+                        <ul class="tg-slip-list" style="margin:0 0 0.85rem;">
+                            {% for leg in tg_digest_picks %}
+                            <li class="muted" style="margin-bottom:0.25rem;">
+                                {{ leg.matchup }} · {{ leg.pick }} · {{ leg.market }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <p class="muted">No Today's Picks on the live digest yet.</p>
+                        {% endif %}
+                        <div style="margin-bottom:0.65rem;">
+                            <strong>Featured combos</strong>
+                            <span class="muted"> — uncheck any you don't want</span>
+                        </div>
+                        {% if tg_featured_combos %}
+                        <ul class="tg-slip-list" style="margin:0 0 0.85rem;">
+                            {% for item in tg_featured_combos %}
+                            <li style="margin-bottom:0.55rem;">
+                                <label class="tg-market-row">
+                                    <input type="checkbox" name="combo_idx" value="{{ loop.index0 }}" checked>
+                                    <span>
+                                        <strong>{{ item.title }}</strong>
+                                        <span class="muted"> · {{ (item.combo.legs or [])|length }} legs</span><br>
+                                        {% for leg in item.combo.legs or [] %}
+                                        <span class="muted">{{ leg.matchup }} · {{ leg.pick }} · {{ leg.market }}</span>{% if not loop.last %}<br>{% endif %}
+                                        {% endfor %}
+                                    </span>
+                                </label>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <p class="muted">No featured combos on today's digest yet.</p>
+                        {% endif %}
+                        <div class="tg-send-row">
+                            <button type="submit" name="action" value="send_picks" class="btn btn-sm">Send Today's Picks</button>
+                            <button type="submit" name="action" value="send_combos" class="btn btn-sm">Send selected combos</button>
+                            <button type="submit" name="action" value="send_digest" class="btn-tg-send">Send Picks + selected combos</button>
+                            <a class="btn btn-sm" href="/admin?section=twitter">Open X queue</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {# Paste any number of images → parse → append to betslip. Images never saved. #}
+            <div class="tg-upload-panel" id="tg-upload-panel">
+                <div class="tg-upload-head">
+                    <h4>Paste slip images</h4>
+                    <span class="muted">Paste one slip at a time (Ctrl+V) · OCR runs <strong>in your browser</strong> · legs stack · images never uploaded if browser OCR works</span>
+                </div>
+                <div class="tg-upload-body">
+                    <div class="tg-paste-zone" id="tg-paste-zone" tabindex="0" role="button"
+                         aria-label="Paste bet slip images here">
+                        <strong>Click here, then paste (Ctrl+V) — repeat for more images</strong>
+                        <span class="muted">Each screenshot is OCR’d in memory and discarded. Legs stack in the betslip for you to customise.</span>
+                        <div class="tg-paste-previews" id="tg-paste-previews" hidden></div>
+                    </div>
+                    <div class="tg-upload-row">
+                        <input class="input" type="file" id="tg-slip-file" multiple
+                               accept="image/png,image/jpeg,image/webp,image/gif,.png,.jpg,.jpeg,.webp">
+                        <button type="button" class="btn btn-sm" id="tg-slip-parse-btn">
+                            Parse queued
+                        </button>
+                        <button type="button" class="btn btn-sm" id="tg-add-blank-leg-btn">
+                            + Blank leg
+                        </button>
+                        <button type="button" class="btn btn-sm" id="tg-clear-legs-btn">
+                            Clear all legs
+                        </button>
+                        <button type="button" class="btn btn-sm" id="tg-slip-clear-btn">
+                            Clear queue
+                        </button>
+                    </div>
+                    <details class="tg-upload-paste">
+                        <summary class="muted">Or paste bet-details text (OCR fallback)</summary>
+                        <textarea class="input" id="tg-slip-ocr-text" rows="4"
+                                  placeholder="e.g. 2 Leg Multi&#10;Soccer&#10;Both Teams to Score&#10;Yes&#10;Team A vs Team B&#10;…"></textarea>
+                    </details>
+                    <p class="tg-upload-status muted" id="tg-upload-status" aria-live="polite"></p>
+                </div>
+            </div>
+
+            <div class="tg-review-banner" id="tg-review-banner" hidden>
+                <strong>Customise freely, then Send</strong>
+                <span class="muted">Edit any field, delete legs with ×, add more via paste or + Blank leg. Source images were discarded.</span>
+            </div>
+
+            <div class="tg-edit-legs" id="tg-edit-legs" hidden>
+                <div class="tg-edit-legs-head">
+                    <h4>Betslip legs</h4>
+                    <span class="muted" id="tg-edit-legs-count">0 legs</span>
+                </div>
+                <div id="tg-edit-legs-list"></div>
+            </div>
+
+            <form method="post" action="/admin/telegram-send" id="admin-tg-send-form">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <div id="tg-custom-store" class="tg-custom-store" aria-hidden="true"></div>
+
+                <div class="tg-crumb" id="tg-crumb" aria-live="polite">
+                    <span class="tg-crumb-step is-active" data-step="sport">1. Sport</span>
+                    <span class="tg-crumb-sep">→</span>
+                    <span class="tg-crumb-step" data-step="league">2. League</span>
+                    <span class="tg-crumb-sep">→</span>
+                    <span class="tg-crumb-step" data-step="event">3. Event</span>
+                    <span class="tg-crumb-sep">→</span>
+                    <span class="tg-crumb-step" data-step="market">4. Markets</span>
+                </div>
+
+                <div class="tg-slip-type">
+                    <span class="tg-slip-type-label">Slip type</span>
+                    <label class="tg-radio">
+                        <input type="radio" name="slip_mode" value="single" checked>
+                        Single leg
+                    </label>
+                    <label class="tg-radio">
+                        <input type="radio" name="slip_mode" value="multi">
+                        N-leg multi
+                    </label>
+                    <label class="tg-n-wrap" id="tg-n-wrap" hidden>
+                        N =
+                        <input class="input" type="number" name="slip_n" id="tg-slip-n"
+                               min="2" max="12" value="3" style="width:4rem;">
+                    </label>
+                </div>
+
+                <div class="tg-hierarchy">
+                    {# ── 1. Sport (from TODAY_SPORTS) ── #}
+                    <div class="tg-pane" id="tg-sport-pane">
+                        <div class="tg-pane-head">
+                            <h4>1. Sport</h4>
+                            <span class="muted">Same list as /todays-picks</span>
+                        </div>
+                        <div class="tg-pane-body" id="tg-sport-list">
+                            {% for sport_key, sport in today_sports.items() %}
+                            <button type="button"
+                                    class="tg-chip-btn"
+                                    data-sport="{{ sport_key }}"
+                                    data-sport-label="{{ sport.label }}"
+                                    style="--chip-accent: {{ sport.color or '#14b8a6' }};">
+                                <strong>{{ sport.label }}</strong>
+                                <span class="muted">{{ sport.leagues|length }} league{{ 's' if sport.leagues|length != 1 else '' }}</span>
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    {# ── 2. League ── #}
+                    <div class="tg-pane" id="tg-league-pane">
+                        <div class="tg-pane-head">
+                            <div class="tg-pane-head-row">
+                                <div>
+                                    <h4>2. League</h4>
+                                    <span class="muted" id="tg-league-sub">Pick a sport first</span>
+                                </div>
+                                <button type="button" class="btn btn-sm tg-add-entity-btn" id="tg-add-league-btn">
+                                    + Custom league
+                                </button>
+                            </div>
+                            <div class="tg-inline-form" id="tg-league-form" hidden>
+                                <input class="input" type="text" id="tg-custom-sport-name"
+                                       placeholder="Sport name (if none selected)" autocomplete="off">
+                                <input class="input" type="text" id="tg-custom-league-name"
+                                       placeholder="League name" autocomplete="off">
+                                <div class="tg-inline-form-actions">
+                                    <button type="button" class="btn btn-sm" id="tg-custom-league-save">Add league</button>
+                                    <button type="button" class="btn btn-sm tg-cancel-btn" id="tg-custom-league-cancel">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tg-pane-body" id="tg-league-list">
+                            {% for sport_key, sport in today_sports.items() %}
+                              {% for league_id, league in sport.leagues.items() %}
+                              <button type="button"
+                                      class="tg-chip-btn"
+                                      data-sport="{{ sport_key }}"
+                                      data-sport-label="{{ sport.label }}"
+                                      data-league="{{ league_id }}"
+                                      data-league-label="{{ league.label }}"
+                                      hidden
+                                      style="--chip-accent: {{ league.color or sport.color or '#14b8a6' }};">
+                                  <strong>{{ league.label }}</strong>
+                                  <span class="muted">{{ sport.label }}</span>
+                              </button>
+                              {% endfor %}
+                            {% endfor %}
+                            <p class="tg-pane-hint" id="tg-league-hint">Select a sport to see leagues, or add a custom league.</p>
+                        </div>
+                    </div>
+
+                    {# ── 3. Events ── #}
+                    <div class="tg-pane" id="tg-event-pane">
+                        <div class="tg-pane-head">
+                            <div class="tg-pane-head-row">
+                                <div>
+                                    <h4>3. Event</h4>
+                                    <span class="muted" id="tg-event-sub">Pick a league</span>
+                                </div>
+                                <button type="button" class="btn btn-sm tg-add-entity-btn" id="tg-add-event-btn" hidden>
+                                    + Custom event
+                                </button>
+                            </div>
+                            <div class="tg-inline-form" id="tg-event-form" hidden>
+                                <input class="input" type="text" id="tg-custom-event-name"
+                                       placeholder="Event (e.g. Team A vs Team B)" autocomplete="off">
+                                <div class="tg-inline-form-actions">
+                                    <button type="button" class="btn btn-sm" id="tg-custom-event-save">Add event</button>
+                                    <button type="button" class="btn btn-sm tg-cancel-btn" id="tg-custom-event-cancel">Cancel</button>
+                                </div>
+                            </div>
+                            <input class="input tg-search" type="search" id="tg-search"
+                                   placeholder="Filter events…" autocomplete="off" hidden>
+                        </div>
+                        <div class="tg-pane-body" id="tg-event-list">
+                            {% for ev in tg_events %}
+                            <button type="button"
+                                    class="tg-event-btn"
+                                    hidden
+                                    data-event-id="{{ loop.index0 }}"
+                                    data-sport="{{ ev.sport_key }}"
+                                    data-league="{{ ev.league_id }}"
+                                    data-search="{{ (ev.matchup ~ ' ' ~ (ev.when or ''))|lower }}"
+                                    data-matchup="{{ ev.matchup }}"
+                                    data-sport-label="{{ ev.sport_label }}"
+                                    data-league-label="{{ ev.league_label }}">
+                                <span class="tg-event-btn-copy">
+                                    <span class="matchup">{{ ev.matchup }}</span>
+                                    {% if ev.when %}<span class="when">{{ ev.when }}</span>{% endif %}
+                                </span>
+                                <span class="badge">{{ ev.markets|length }}</span>
+                            </button>
+                            {% endfor %}
+                            <p class="tg-pane-hint" id="tg-event-hint">Select a league to see today's events, or add a custom event.</p>
+                            <p class="tg-pane-hint" id="tg-event-empty" hidden>No catalog events for this league — add a custom event.</p>
+                        </div>
+                    </div>
+
+                    {# ── 4. Markets ── #}
+                    <div class="tg-pane tg-pane-markets" id="tg-markets-wrap">
+                        <div class="tg-pane-head">
+                            <h4>4. Markets</h4>
+                            <span class="muted" id="tg-markets-subtitle">Select an event</span>
+                        </div>
+                        <div class="tg-pane-body" id="tg-markets-body">
+                            {% for ev in tg_events %}
+                            <div class="tg-markets-pane" data-event-id="{{ loop.index0 }}" hidden>
+                                {% for m in ev.markets %}
+                                <label class="tg-market-row">
+                                    <input type="checkbox"
+                                           name="pick_idx"
+                                           value="{{ m.idx }}"
+                                           class="tg-pick-cb"
+                                           data-matchup="{{ ev.matchup }}"
+                                           data-market="{{ m.market }}"
+                                           data-pick="{{ m.pick }}"
+                                           data-sport="{{ ev.sport_key }}"
+                                           data-league="{{ ev.league_id }}">
+                                    <span class="tg-market-text">
+                                        <span class="tg-market-name">{{ m.market or 'Market' }}</span>
+                                        <span class="tg-market-pick">{{ m.pick }}</span>
+                                    </span>
+                                </label>
+                                {% else %}
+                                <p class="muted">No priced markets for this event.</p>
+                                {% endfor %}
+
+                                <div class="tg-custom">
+                                    <h5>Custom market</h5>
+                                    <div class="tg-custom-grid">
+                                        <input class="input tg-custom-market" type="text"
+                                               placeholder="Market (e.g. Corners O/U)" autocomplete="off">
+                                        <input class="input tg-custom-pick" type="text"
+                                               placeholder="Selection (e.g. Over 9.5)" autocomplete="off">
+                                        <input class="input tg-custom-line" type="text"
+                                               placeholder="Optional line / note" autocomplete="off"
+                                               style="grid-column: 1 / -1;">
+                                    </div>
+                                    <div class="tg-custom-actions">
+                                        <button type="button" class="btn btn-sm tg-add-custom"
+                                                data-event-id="{{ loop.index0 }}">Add custom to slip</button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <p class="tg-markets-empty" id="tg-markets-empty">Pick sport → league → event to load markets.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="muted" style="margin:0 0 0.85rem; font-size:0.82rem;">
+                    {{ tg_events|length }} catalog event{{ 's' if tg_events|length != 1 else '' }} ·
+                    {{ tg_board_legs|length }} market{{ 's' if tg_board_legs|length != 1 else '' }} on today's board
+                    (same sports module as <a href="/todays-picks" target="_blank" rel="noopener">/todays-picks</a>).
+                    Custom league / event / market stay in this session until you leave the page.
+                </p>
+
+                <div class="tg-slip-tray" id="tg-slip-tray" aria-live="polite">
+                    <div class="tg-slip-tray-head">
+                        <h4>Betslip · <span id="tg-slip-count">0</span> leg(s)</h4>
+                        <span class="muted" id="tg-slip-hint">Choose slip type above</span>
+                    </div>
+                    <p class="tg-slip-empty" id="tg-slip-empty">No legs yet — walk Sport → League → Event → tick markets.</p>
+                    <ul class="tg-slip-list" id="tg-slip-list" hidden></ul>
+                    <div class="tg-send-row">
+                        <label class="tg-market-row">
+                            <input type="checkbox" name="channel_telegram" value="1" checked>
+                            <span>Telegram</span>
+                        </label>
+                        <label class="tg-market-row">
+                            <input type="checkbox" name="channel_x" value="1" checked>
+                            <span>X</span>
+                        </label>
+                        <input class="input" type="text" name="slip_title"
+                               placeholder="Optional title (e.g. 3-leg multi)">
+                        <button type="submit" name="action" value="send_custom" class="btn-tg-send" id="tg-send-btn">
+                            Send custom slip
+                        </button>
+                        <button type="submit" name="action" value="send_picks" class="btn btn-sm">
+                            Today's Picks card
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,5 +1,5 @@
 """Builds a leakage-free, per-match training dataset for cricket (The
-Hundred + MLC combined): one row per match, every feature computed
+Hundred + MLC + IPL + BBL + CPL): one row per match, every feature computed
 strictly from information available *before* that match's first ball
 (chronological walk-forward, mirroring scripts/mlb/build_training_dataset.py),
 with three targets: Team1Runs / Team2Runs (each side's innings total),
@@ -25,6 +25,7 @@ Feature groups (per the task spec):
 Run from repo root: python scripts/cricket/build_training_dataset.py
 Outputs data/cricket/training_dataset.csv
 """
+import json
 import os
 import sys
 from collections import deque
@@ -34,18 +35,17 @@ import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from cricket_config import (  # noqa: E402
-    DATA_DIR, ELO_INITIAL, ELO_K, MIN_H2H_BALLS, MIN_PLAYER_INNINGS, MIN_VENUE_MATCHES,
+    COMPETITIONS, DATA_DIR, ELO_HOME_ADVANTAGE, ELO_INITIAL, ELO_K,
+    MIN_H2H_BALLS, MIN_PLAYER_INNINGS, MIN_VENUE_MATCHES,
     PLAYER_FORM_INNINGS, ROLLING_FORM_MATCHES,
+    canonical_team, team_is_home_at_venue,
 )
 from cricket_data import innings_summary, iter_matches, match_result  # noqa: E402
 
-WEBAPP_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "webapp")
-sys.path.insert(0, WEBAPP_DIR)
-try:
-    from sentiment import get_team_sentiment  # noqa: E402
-except Exception as exc:  # pragma: no cover - sentiment module optional at build time
-    print(f"sentiment module unavailable ({exc}) -- SentimentDiff feature will be left NaN, not zero-filled")
-    get_team_sentiment = None
+# Bulk rebuild skips live Google News fetches (async cold-miss returns None
+# anyway and would just spam the network). Live fixture pages still blend
+# sentiment via webapp.sentiment at request time.
+get_team_sentiment = None
 
 LEAGUE_AVG_SR = 120.0     # runs per 100 balls, rough T20 league-average batting strike rate seed
 LEAGUE_AVG_ECON = 8.0     # runs per over, rough T20 league-average bowling economy seed
@@ -194,6 +194,9 @@ def build():
     venue_wpo = {}
     pair_stats = {}  # (batter, bowler) -> {"runs": int, "balls": int, "dismissals": int}
     store = RollingStore()
+    last_xi = {}  # (competition, team) -> list of player names
+    player_apps = {}  # (competition, team, player) -> appearances
+    team_season_form = {}  # (competition, team) -> {wins, matches, runs_for, ...}
 
     rows = []
     missing_log = {"venue_thin": 0, "sr_thin": 0, "econ_thin": 0, "uplift_thin": 0, "sentiment_missing": 0,
@@ -209,16 +212,28 @@ def build():
             continue
         venue = info.get("venue", "Unknown")
         players_by_team = info.get("players", {})
+        comp = match["_competition"]
+        use_ha = bool(COMPETITIONS.get(comp, {}).get("home_advantage"))
 
         summaries = [innings_summary(inn) for inn in innings_list[:2]]
-        team1, team2 = summaries[0]["team"], summaries[1]["team"]
-        if team1 not in teams or team2 not in teams:
+        team1 = canonical_team(summaries[0]["team"])
+        team2 = canonical_team(summaries[1]["team"])
+        # Map XI lists through original names in players_by_team
+        xi1_raw = players_by_team.get(summaries[0]["team"], []) or players_by_team.get(team1, [])
+        xi2_raw = players_by_team.get(summaries[1]["team"], []) or players_by_team.get(team2, [])
+        if team1 not in [canonical_team(t) for t in teams] or team2 not in [canonical_team(t) for t in teams]:
             continue
         runs1, runs2 = summaries[0]["total_runs"], summaries[1]["total_runs"]
-        xi1 = players_by_team.get(team1, [])
-        xi2 = players_by_team.get(team2, [])
+        xi1, xi2 = list(xi1_raw), list(xi2_raw)
 
         elo1, elo2 = elo.get(team1, ELO_INITIAL), elo.get(team2, ELO_INITIAL)
+        ha1 = ha2 = 0.0
+        if use_ha:
+            if team_is_home_at_venue(team1, venue):
+                ha1 = ELO_HOME_ADVANTAGE
+            elif team_is_home_at_venue(team2, venue):
+                ha2 = ELO_HOME_ADVANTAGE
+        elo_diff = (elo1 + ha1) - (elo2 + ha2)
 
         # ---- venue features (history strictly before this match) ----
         v_first_hist = venue_first.get(venue, [])
@@ -255,20 +270,14 @@ def build():
         if n_pairs_1 == 0 or n_pairs_2 == 0:
             missing_log["h2h_thin"] += 1
 
-        # ---- sentiment (same module/interface as MLB/NPB) ----
-        sent1 = get_team_sentiment(team1) if get_team_sentiment else None
-        sent2 = get_team_sentiment(team2) if get_team_sentiment else None
-        if sent1 is None or sent2 is None:
-            missing_log["sentiment_missing"] += 1
-        sentiment_diff = (sent1 - sent2) if (sent1 is not None and sent2 is not None) else None
+        # ---- sentiment left NaN at bulk build; live pages fill it ----
+        sentiment_diff = None
+        missing_log["sentiment_missing"] += 1
 
-        winner = match_result(match)
+        winner_raw = match_result(match)
+        winner = canonical_team(winner_raw) if winner_raw else None
         has_winner = winner in (team1, team2)
 
-        # ---- data_confidence: coarse 3-bucket score reflecting how much of
-        # this row rests on thin history (new competitions => common early
-        # on), same philosophy as investment_scoring's compute_data_confidence
-        # -- deliberately not a fabricated precise number. ----
         thin_flags = [
             venue_matches_seen < MIN_VENUE_MATCHES,
             xi1_feat["sr_known_frac"] < 0.5 or xi2_feat["sr_known_frac"] < 0.5,
@@ -285,9 +294,15 @@ def build():
             confidence = "low"
 
         rows.append({
-            "Date": match["_date"], "Competition": match["_competition"], "Venue": venue,
+            "Date": match["_date"], "Competition": comp, "Venue": venue,
             "Team1": team1, "Team2": team2,
-            "EloDiff": elo1 - elo2,
+            "EloDiff": elo_diff,
+            "HomeAdvantage": 1.0 if (ha1 or ha2) else 0.0,
+            "Comp_ipl": 1.0 if comp == "ipl_male" else 0.0,
+            "Comp_bbl": 1.0 if comp == "bbl_male" else 0.0,
+            "Comp_hnd": 1.0 if comp == "hnd_male" else 0.0,
+            "Comp_mlc": 1.0 if comp == "mlc_male" else 0.0,
+            "Comp_cpl": 1.0 if comp == "cpl_male" else 0.0,
             "Team1RecentWinRate": (sum(t1_results) / len(t1_results)) if t1_results else 0.5,
             "Team2RecentWinRate": (sum(t2_results) / len(t2_results)) if t2_results else 0.5,
             "Team1RecentRunRate": _mean_or_none(list(t1_rr)) if t1_rr else np.nan,
@@ -313,8 +328,8 @@ def build():
 
         # ---- update rolling state AFTER recording this row's features ----
         if has_winner:
-            elo1_new = elo1 + ELO_K * ((1.0 if winner == team1 else 0.0) - expected_score(elo1, elo2))
-            elo2_new = elo2 + ELO_K * ((1.0 if winner == team2 else 0.0) - expected_score(elo2, elo1))
+            elo1_new = elo1 + ELO_K * ((1.0 if winner == team1 else 0.0) - expected_score(elo1 + ha1, elo2 + ha2))
+            elo2_new = elo2 + ELO_K * ((1.0 if winner == team2 else 0.0) - expected_score(elo2 + ha2, elo1 + ha1))
             elo[team1], elo[team2] = elo1_new, elo2_new
             recent_results.setdefault(team1, deque(maxlen=ROLLING_FORM_MATCHES)).append(1 if winner == team1 else 0)
             recent_results.setdefault(team2, deque(maxlen=ROLLING_FORM_MATCHES)).append(1 if winner == team2 else 0)
@@ -340,23 +355,77 @@ def build():
                     stats["dismissals"] += 1
             store.update_from_innings(s)
 
+        # Caches for live provisional XI / analysis panels
+        last_xi[(comp, team1)] = xi1
+        last_xi[(comp, team2)] = xi2
+        for team, xi in ((team1, xi1), (team2, xi2)):
+            for p in xi:
+                key = (comp, team, p)
+                player_apps[key] = player_apps.get(key, 0) + 1
+            tf = team_season_form.setdefault((comp, team), {
+                "wins": 0, "matches": 0, "runs_for": 0, "runs_against": 0,
+            })
+            tf["matches"] += 1
+            if team == team1:
+                tf["runs_for"] += runs1
+                tf["runs_against"] += runs2
+            else:
+                tf["runs_for"] += runs2
+                tf["runs_against"] += runs1
+            if has_winner and winner == team:
+                tf["wins"] += 1
+
     df = pd.DataFrame(rows)
     os.makedirs(DATA_DIR, exist_ok=True)
     out_path = os.path.join(DATA_DIR, "training_dataset.csv")
     df.to_csv(out_path, index=False)
 
-    print(f"\n{'=' * 70}\nMISSING DATA REPORT -- Cricket (The Hundred + MLC)\n{'=' * 70}")
+    # ---- export caches for live provisional XI + analysis UI ----
+    player_form = {}
+    for (comp, team, player), apps in player_apps.items():
+        sr, n_bat = store.batter_sr(player)
+        econ, n_bowl = store.bowler_econ(player)
+        uplift = store.batter_death_uplift(player)
+        player_form.setdefault(comp, {}).setdefault(team, {})[player] = {
+            "appearances": apps,
+            "strike_rate": round(sr, 1) if sr is not None else None,
+            "economy": round(econ, 2) if econ is not None else None,
+            "death_uplift": round(uplift, 1) if uplift is not None else None,
+            "bat_innings": n_bat,
+            "bowl_innings": n_bowl,
+        }
+    provisional = {}
+    for (comp, team), xi in last_xi.items():
+        provisional.setdefault(comp, {})[team] = {
+            "xi": xi,
+            "label": "provisional (last known XI from Cricsheet — not official announced lineup)",
+        }
+    team_form_out = {}
+    for (comp, team), tf in team_season_form.items():
+        team_form_out.setdefault(comp, {})[team] = {
+            **tf,
+            "win_rate": round(tf["wins"] / tf["matches"], 3) if tf["matches"] else None,
+            "avg_runs_for": round(tf["runs_for"] / tf["matches"], 1) if tf["matches"] else None,
+            "avg_runs_against": round(tf["runs_against"] / tf["matches"], 1) if tf["matches"] else None,
+        }
+    with open(os.path.join(DATA_DIR, "player_form_cache.json"), "w", encoding="utf-8") as f:
+        json.dump(player_form, f)
+    with open(os.path.join(DATA_DIR, "provisional_xi.json"), "w", encoding="utf-8") as f:
+        json.dump(provisional, f)
+    with open(os.path.join(DATA_DIR, "team_form_cache.json"), "w", encoding="utf-8") as f:
+        json.dump(team_form_out, f)
+
+    print(f"\n{'=' * 70}\nMISSING DATA REPORT -- Cricket (Hundred + MLC + IPL + BBL + CPL)\n{'=' * 70}")
     print(f"Total rows: {len(df)}")
+    print("By competition:")
+    print(df["Competition"].value_counts().to_string())
     for key, count in missing_log.items():
-        print(f"  {key:20s} {count} rows ({count / len(df) * 100:.1f}%) flagged thin")
+        print(f"  {key:20s} {count} rows ({count / max(len(df), 1) * 100:.1f}%) flagged thin")
     print("\ndata_confidence distribution:")
     print(df["DataConfidence"].value_counts().to_string())
-    print("Numeric feature NaN rates (left as NaN for the model to handle via imputation at train time, "
-          "never silently zero-filled here):")
-    numeric_cols = df.select_dtypes(include=[np.number]).columns
-    print(df[numeric_cols].isna().mean().round(3).to_string())
     print(f"{'=' * 70}\n")
     print(f"Wrote {len(df)} rows -> {out_path}")
+    print(f"Caches: player_form_cache.json, provisional_xi.json, team_form_cache.json")
     return df
 
 

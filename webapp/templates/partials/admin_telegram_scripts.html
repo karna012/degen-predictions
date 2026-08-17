@@ -1,0 +1,1138 @@
+<script>
+(function () {
+  const form = document.getElementById("admin-tg-send-form");
+  if (!form) return;
+
+  const slipCount = document.getElementById("tg-slip-count");
+  const slipEmpty = document.getElementById("tg-slip-empty");
+  const slipList = document.getElementById("tg-slip-list");
+  const slipHint = document.getElementById("tg-slip-hint");
+  const customStore = document.getElementById("tg-custom-store");
+  const searchEl = document.getElementById("tg-search");
+  const subtitle = document.getElementById("tg-markets-subtitle");
+  const marketsEmpty = document.getElementById("tg-markets-empty");
+  const marketsBody = document.getElementById("tg-markets-body");
+  const nWrap = document.getElementById("tg-n-wrap");
+  const nInput = document.getElementById("tg-slip-n");
+  const leagueSub = document.getElementById("tg-league-sub");
+  const eventSub = document.getElementById("tg-event-sub");
+  const leagueHint = document.getElementById("tg-league-hint");
+  const eventHint = document.getElementById("tg-event-hint");
+  const eventEmpty = document.getElementById("tg-event-empty");
+  const sportList = document.getElementById("tg-sport-list");
+  const leagueList = document.getElementById("tg-league-list");
+  const eventList = document.getElementById("tg-event-list");
+
+  const leagueForm = document.getElementById("tg-league-form");
+  const eventForm = document.getElementById("tg-event-form");
+  const addLeagueBtn = document.getElementById("tg-add-league-btn");
+  const addEventBtn = document.getElementById("tg-add-event-btn");
+  const customSportName = document.getElementById("tg-custom-sport-name");
+  const customLeagueName = document.getElementById("tg-custom-league-name");
+  const customEventName = document.getElementById("tg-custom-event-name");
+  const crumbSteps = Array.from(document.querySelectorAll(".tg-crumb-step"));
+
+  let selectedSport = "";
+  let selectedLeague = "";
+  let selectedEvent = "";
+  let selectedSportLabel = "";
+  let selectedLeagueLabel = "";
+  let customSeq = 0;
+  let customLeagueSeq = 0;
+  let customEventSeq = 0;
+
+  function sportBtns() {
+    return Array.from(form.querySelectorAll("#tg-sport-list .tg-chip-btn"));
+  }
+  function leagueBtns() {
+    return Array.from(form.querySelectorAll("#tg-league-list .tg-chip-btn"));
+  }
+  function eventBtns() {
+    return Array.from(form.querySelectorAll("#tg-event-list .tg-event-btn"));
+  }
+  function marketPanes() {
+    return Array.from(form.querySelectorAll(".tg-markets-pane"));
+  }
+
+  function slipMode() {
+    const el = form.querySelector('input[name="slip_mode"]:checked');
+    return (el && el.value) || "single";
+  }
+
+  function targetN() {
+    if (slipMode() === "single") return 1;
+    const n = parseInt((nInput && nInput.value) || "2", 10);
+    return Math.max(2, Math.min(12, isNaN(n) ? 2 : n));
+  }
+
+  function customLegs() {
+    return Array.from(form.querySelectorAll(".tg-custom-leg"));
+  }
+
+  function legCount() {
+    return form.querySelectorAll(".tg-pick-cb:checked").length + customLegs().length;
+  }
+
+  function slugify(text) {
+    return String(text || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "_")
+      .replace(/^_|_$/g, "")
+      .slice(0, 48) || "custom";
+  }
+
+  function updateCrumb() {
+    const active =
+      selectedEvent !== "" ? "market" :
+      selectedLeague ? "event" :
+      selectedSport ? "league" : "sport";
+    crumbSteps.forEach(function (el) {
+      el.classList.toggle("is-active", el.getAttribute("data-step") === active);
+      const order = { sport: 0, league: 1, event: 2, market: 3 };
+      el.classList.toggle(
+        "is-done",
+        order[el.getAttribute("data-step")] < order[active]
+      );
+    });
+  }
+
+  function refreshSlip() {
+    const checked = Array.from(form.querySelectorAll(".tg-pick-cb:checked"));
+    const customs = customLegs();
+    const n = checked.length + customs.length;
+    const want = targetN();
+    if (slipCount) slipCount.textContent = String(n);
+    if (slipHint) {
+      if (slipMode() === "single") {
+        slipHint.textContent = n === 1 ? "Ready · single" : "Need exactly 1 leg";
+      } else {
+        slipHint.textContent = n === want
+          ? ("Ready · " + want + "-leg multi")
+          : ("Need " + want + " legs · have " + n);
+      }
+    }
+    if (!slipList || !slipEmpty) return;
+    slipList.innerHTML = "";
+    if (!n) {
+      slipEmpty.hidden = false;
+      slipList.hidden = true;
+      return;
+    }
+    slipEmpty.hidden = true;
+    slipList.hidden = false;
+
+    function addItem(matchup, market, pick, onRemove) {
+      const li = document.createElement("li");
+      li.className = "tg-slip-item";
+      const copy = document.createElement("div");
+      copy.className = "tg-slip-item-copy";
+      const strong = document.createElement("strong");
+      strong.textContent = matchup || "Event";
+      copy.appendChild(strong);
+      copy.appendChild(document.createTextNode((market || "Market") + " · " + (pick || "")));
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "tg-slip-remove";
+      btn.setAttribute("aria-label", "Remove leg");
+      btn.textContent = "×";
+      btn.addEventListener("click", onRemove);
+      li.appendChild(copy);
+      li.appendChild(btn);
+      slipList.appendChild(li);
+    }
+
+    checked.forEach(function (cb) {
+      addItem(
+        cb.getAttribute("data-matchup"),
+        cb.getAttribute("data-market"),
+        cb.getAttribute("data-pick"),
+        function () { cb.checked = false; refreshSlip(); }
+      );
+    });
+    customs.forEach(function (wrap) {
+      addItem(
+        wrap.querySelector('[name="custom_matchup"]').value,
+        wrap.querySelector('[name="custom_market"]').value,
+        wrap.querySelector('[name="custom_pick"]').value,
+        function () { wrap.remove(); refreshSlip(); }
+      );
+    });
+  }
+
+  function enforceSingle(changedCb) {
+    if (slipMode() !== "single" || !changedCb || !changedCb.checked) return;
+    form.querySelectorAll(".tg-pick-cb:checked").forEach(function (cb) {
+      if (cb !== changedCb) cb.checked = false;
+    });
+    customLegs().forEach(function (wrap) { wrap.remove(); });
+  }
+
+  function syncLeagueFormVisibility() {
+    if (!customSportName) return;
+    const needSport = !selectedSport;
+    customSportName.hidden = !needSport;
+    if (!needSport) customSportName.value = "";
+  }
+
+  function showLeagues() {
+    let any = false;
+    leagueBtns().forEach(function (btn) {
+      const show = !!selectedSport && btn.getAttribute("data-sport") === selectedSport;
+      btn.hidden = !show;
+      btn.classList.toggle("is-active", show && btn.getAttribute("data-league") === selectedLeague);
+      if (show) any = true;
+    });
+    if (leagueHint) leagueHint.hidden = any;
+    if (leagueSub) {
+      leagueSub.textContent = selectedSport
+        ? ("Leagues in selected sport")
+        : "Pick a sport first (or add free-form)";
+    }
+    if (addEventBtn) addEventBtn.hidden = !selectedLeague;
+    syncLeagueFormVisibility();
+  }
+
+  function showEvents() {
+    const q = ((searchEl && searchEl.value) || "").trim().toLowerCase();
+    let anyInLeague = false;
+    let visible = 0;
+    eventBtns().forEach(function (btn) {
+      const matchLeague =
+        selectedSport &&
+        selectedLeague &&
+        btn.getAttribute("data-sport") === selectedSport &&
+        btn.getAttribute("data-league") === selectedLeague;
+      const hay = btn.getAttribute("data-search") || "";
+      const matchSearch = !q || hay.indexOf(q) !== -1;
+      const show = !!(matchLeague && matchSearch);
+      btn.hidden = !show;
+      btn.classList.toggle("is-active", show && btn.getAttribute("data-event-id") === selectedEvent);
+      if (matchLeague) anyInLeague = true;
+      if (show) visible += 1;
+    });
+    if (searchEl) searchEl.hidden = !selectedLeague;
+    if (eventHint) eventHint.hidden = !!selectedLeague;
+    if (eventEmpty) eventEmpty.hidden = !selectedLeague || anyInLeague;
+    if (eventSub) {
+      eventSub.textContent = selectedLeague
+        ? (visible + " event(s)")
+        : "Pick a league";
+    }
+    if (addEventBtn) addEventBtn.hidden = !selectedLeague;
+  }
+
+  function selectSport(sportKey, sportLabel) {
+    selectedSport = sportKey || "";
+    selectedSportLabel = sportLabel || "";
+    if (!selectedSportLabel && selectedSport) {
+      const btn = sportBtns().find(function (b) {
+        return b.getAttribute("data-sport") === selectedSport;
+      });
+      if (btn) selectedSportLabel = btn.getAttribute("data-sport-label") || "";
+    }
+    selectedLeague = "";
+    selectedLeagueLabel = "";
+    selectedEvent = "";
+    sportBtns().forEach(function (btn) {
+      btn.classList.toggle("is-active", btn.getAttribute("data-sport") === selectedSport);
+    });
+    if (leagueForm) leagueForm.hidden = true;
+    if (eventForm) eventForm.hidden = true;
+    showLeagues();
+    showEvents();
+    selectEvent("");
+    updateCrumb();
+  }
+
+  function selectLeague(leagueId, leagueLabel) {
+    selectedLeague = leagueId || "";
+    selectedLeagueLabel = leagueLabel || "";
+    if (!selectedLeagueLabel && selectedLeague) {
+      const btn = leagueBtns().find(function (b) {
+        return b.getAttribute("data-league") === selectedLeague &&
+          b.getAttribute("data-sport") === selectedSport;
+      });
+      if (btn) {
+        selectedLeagueLabel = btn.getAttribute("data-league-label") || "";
+        if (!selectedSportLabel) {
+          selectedSportLabel = btn.getAttribute("data-sport-label") || "";
+        }
+      }
+    }
+    selectedEvent = "";
+    if (eventForm) eventForm.hidden = true;
+    showLeagues();
+    showEvents();
+    selectEvent("");
+    updateCrumb();
+  }
+
+  function selectEvent(eventId) {
+    selectedEvent = eventId === null || eventId === undefined ? "" : String(eventId);
+    eventBtns().forEach(function (btn) {
+      btn.classList.toggle(
+        "is-active",
+        !btn.hidden && btn.getAttribute("data-event-id") === selectedEvent
+      );
+    });
+    let shown = false;
+    marketPanes().forEach(function (pane) {
+      const on = selectedEvent !== "" && pane.getAttribute("data-event-id") === selectedEvent;
+      pane.hidden = !on;
+      if (on) shown = true;
+    });
+    if (marketsEmpty) marketsEmpty.hidden = shown;
+    const btn = eventBtns().find(function (b) {
+      return b.getAttribute("data-event-id") === selectedEvent;
+    });
+    if (subtitle) {
+      subtitle.textContent = btn
+        ? (btn.getAttribute("data-matchup") || "Markets")
+        : "Select an event";
+    }
+    updateCrumb();
+  }
+
+  function ensureCustomSport(sportKey, sportLabel) {
+    let btn = sportBtns().find(function (b) {
+      return b.getAttribute("data-sport") === sportKey;
+    });
+    if (btn) return btn;
+    if (!sportList) return null;
+    btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "tg-chip-btn tg-chip-custom";
+    btn.setAttribute("data-sport", sportKey);
+    btn.setAttribute("data-sport-label", sportLabel);
+    btn.style.setProperty("--chip-accent", "#f59e0b");
+    const strong = document.createElement("strong");
+    strong.textContent = sportLabel;
+    const muted = document.createElement("span");
+    muted.className = "muted";
+    muted.textContent = "Custom sport";
+    btn.appendChild(strong);
+    btn.appendChild(muted);
+    btn.addEventListener("click", function () {
+      selectSport(sportKey, sportLabel);
+    });
+    sportList.appendChild(btn);
+    return btn;
+  }
+
+  function addCustomLeague(sportKey, sportLabel, leagueLabel) {
+    customLeagueSeq += 1;
+    const leagueId = "custom_league_" + customLeagueSeq + "_" + slugify(leagueLabel);
+    ensureCustomSport(sportKey, sportLabel);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "tg-chip-btn tg-chip-custom";
+    btn.setAttribute("data-sport", sportKey);
+    btn.setAttribute("data-sport-label", sportLabel);
+    btn.setAttribute("data-league", leagueId);
+    btn.setAttribute("data-league-label", leagueLabel);
+    btn.setAttribute("data-custom", "1");
+    btn.style.setProperty("--chip-accent", "#f59e0b");
+    const strong = document.createElement("strong");
+    strong.textContent = leagueLabel;
+    const muted = document.createElement("span");
+    muted.className = "muted";
+    muted.textContent = sportLabel + " · custom";
+    btn.appendChild(strong);
+    btn.appendChild(muted);
+    btn.addEventListener("click", function () {
+      if (selectedSport !== sportKey) selectSport(sportKey, sportLabel);
+      selectLeague(leagueId, leagueLabel);
+    });
+    if (leagueHint && leagueHint.parentNode === leagueList) {
+      leagueList.insertBefore(btn, leagueHint);
+    } else if (leagueList) {
+      leagueList.appendChild(btn);
+    }
+    return { leagueId: leagueId, btn: btn };
+  }
+
+  function buildCustomMarketsPane(eventId) {
+    const pane = document.createElement("div");
+    pane.className = "tg-markets-pane";
+    pane.setAttribute("data-event-id", eventId);
+    pane.hidden = true;
+
+    const note = document.createElement("p");
+    note.className = "muted";
+    note.textContent = "Custom event — add a market below.";
+    pane.appendChild(note);
+
+    const custom = document.createElement("div");
+    custom.className = "tg-custom";
+    custom.innerHTML =
+      "<h5>Custom market</h5>" +
+      '<div class="tg-custom-grid">' +
+      '<input class="input tg-custom-market" type="text" placeholder="Market (e.g. Corners O/U)" autocomplete="off">' +
+      '<input class="input tg-custom-pick" type="text" placeholder="Selection (e.g. Over 9.5)" autocomplete="off">' +
+      '<input class="input tg-custom-line" type="text" placeholder="Optional line / note" autocomplete="off" style="grid-column: 1 / -1;">' +
+      "</div>" +
+      '<div class="tg-custom-actions">' +
+      '<button type="button" class="btn btn-sm tg-add-custom" data-event-id="' + eventId + '">Add custom to slip</button>' +
+      "</div>";
+    pane.appendChild(custom);
+
+    if (marketsEmpty && marketsBody) {
+      marketsBody.insertBefore(pane, marketsEmpty);
+    } else if (marketsBody) {
+      marketsBody.appendChild(pane);
+    }
+    return pane;
+  }
+
+  function addCustomEvent(matchup) {
+    customEventSeq += 1;
+    const eventId = "c" + customEventSeq;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "tg-event-btn tg-event-custom";
+    btn.setAttribute("data-event-id", eventId);
+    btn.setAttribute("data-sport", selectedSport);
+    btn.setAttribute("data-league", selectedLeague);
+    btn.setAttribute("data-search", matchup.toLowerCase());
+    btn.setAttribute("data-matchup", matchup);
+    btn.setAttribute("data-sport-label", selectedSportLabel || "");
+    btn.setAttribute("data-league-label", selectedLeagueLabel || "");
+    btn.setAttribute("data-custom", "1");
+
+    const copy = document.createElement("span");
+    copy.className = "tg-event-btn-copy";
+    const matchupEl = document.createElement("span");
+    matchupEl.className = "matchup";
+    matchupEl.textContent = matchup;
+    const whenEl = document.createElement("span");
+    whenEl.className = "when";
+    whenEl.textContent = "Custom event";
+    copy.appendChild(matchupEl);
+    copy.appendChild(whenEl);
+
+    const badge = document.createElement("span");
+    badge.className = "badge";
+    badge.textContent = "custom";
+
+    btn.appendChild(copy);
+    btn.appendChild(badge);
+    btn.addEventListener("click", function () {
+      selectEvent(eventId);
+    });
+
+    if (eventHint && eventHint.parentNode === eventList) {
+      eventList.insertBefore(btn, eventHint);
+    } else if (eventList) {
+      eventList.appendChild(btn);
+    }
+
+    buildCustomMarketsPane(eventId);
+    return eventId;
+  }
+
+  function addCustomLegFromPane(pane, eventBtn) {
+    if (!pane || !eventBtn || !customStore) return;
+    const marketIn = pane.querySelector(".tg-custom-market");
+    const pickIn = pane.querySelector(".tg-custom-pick");
+    const lineIn = pane.querySelector(".tg-custom-line");
+    const market = ((marketIn && marketIn.value) || "").trim();
+    let pick = ((pickIn && pickIn.value) || "").trim();
+    const line = ((lineIn && lineIn.value) || "").trim();
+    if (!pick) {
+      if (pickIn) pickIn.focus();
+      return;
+    }
+    if (line && pick.indexOf(line) === -1) pick = pick + " (" + line + ")";
+    if (slipMode() === "single") {
+      form.querySelectorAll(".tg-pick-cb:checked").forEach(function (cb) { cb.checked = false; });
+      customLegs().forEach(function (wrap) { wrap.remove(); });
+    }
+    customSeq += 1;
+    const wrap = document.createElement("div");
+    wrap.className = "tg-custom-leg";
+    function hidden(name, value) {
+      const inp = document.createElement("input");
+      inp.type = "hidden";
+      inp.name = name;
+      inp.value = value;
+      wrap.appendChild(inp);
+    }
+    hidden("custom_matchup", eventBtn.getAttribute("data-matchup") || "");
+    hidden("custom_market", market || "Custom");
+    hidden("custom_pick", pick);
+    hidden("custom_sport", eventBtn.getAttribute("data-sport-label") || selectedSportLabel || "");
+    hidden("custom_league", eventBtn.getAttribute("data-league-label") || selectedLeagueLabel || "");
+    customStore.appendChild(wrap);
+    if (marketIn) marketIn.value = "";
+    if (pickIn) pickIn.value = "";
+    if (lineIn) lineIn.value = "";
+    refreshSlip();
+  }
+
+  // Catalog sport / league / event clicks
+  sportBtns().forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      selectSport(
+        btn.getAttribute("data-sport"),
+        btn.getAttribute("data-sport-label") || ""
+      );
+    });
+  });
+  leagueBtns().forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      selectLeague(
+        btn.getAttribute("data-league"),
+        btn.getAttribute("data-league-label") || ""
+      );
+    });
+  });
+  eventBtns().forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      selectEvent(btn.getAttribute("data-event-id"));
+    });
+  });
+  if (searchEl) searchEl.addEventListener("input", showEvents);
+
+  // Custom league UI
+  if (addLeagueBtn) {
+    addLeagueBtn.addEventListener("click", function () {
+      if (!leagueForm) return;
+      leagueForm.hidden = !leagueForm.hidden;
+      if (eventForm) eventForm.hidden = true;
+      syncLeagueFormVisibility();
+      if (!leagueForm.hidden) {
+        const focusEl = selectedSport ? customLeagueName : customSportName;
+        if (focusEl) focusEl.focus();
+      }
+    });
+  }
+  const leagueCancel = document.getElementById("tg-custom-league-cancel");
+  if (leagueCancel) {
+    leagueCancel.addEventListener("click", function () {
+      if (leagueForm) leagueForm.hidden = true;
+    });
+  }
+  const leagueSave = document.getElementById("tg-custom-league-save");
+  if (leagueSave) {
+    leagueSave.addEventListener("click", function () {
+      let sportKey = selectedSport;
+      let sportLabel = selectedSportLabel;
+      if (!sportKey) {
+        sportLabel = ((customSportName && customSportName.value) || "").trim();
+        if (!sportLabel) {
+          if (customSportName) customSportName.focus();
+          return;
+        }
+        sportKey = "custom_sport_" + slugify(sportLabel);
+      } else if (!sportLabel) {
+        const sb = sportBtns().find(function (b) {
+          return b.getAttribute("data-sport") === sportKey;
+        });
+        sportLabel = (sb && sb.getAttribute("data-sport-label")) || sportKey;
+      }
+      const leagueLabel = ((customLeagueName && customLeagueName.value) || "").trim();
+      if (!leagueLabel) {
+        if (customLeagueName) customLeagueName.focus();
+        return;
+      }
+      const created = addCustomLeague(sportKey, sportLabel, leagueLabel);
+      if (customLeagueName) customLeagueName.value = "";
+      if (customSportName) customSportName.value = "";
+      if (leagueForm) leagueForm.hidden = true;
+      selectSport(sportKey, sportLabel);
+      selectLeague(created.leagueId, leagueLabel);
+    });
+  }
+
+  // Custom event UI
+  if (addEventBtn) {
+    addEventBtn.addEventListener("click", function () {
+      if (!selectedLeague || !eventForm) return;
+      eventForm.hidden = !eventForm.hidden;
+      if (leagueForm) leagueForm.hidden = true;
+      if (!eventForm.hidden && customEventName) customEventName.focus();
+    });
+  }
+  const eventCancel = document.getElementById("tg-custom-event-cancel");
+  if (eventCancel) {
+    eventCancel.addEventListener("click", function () {
+      if (eventForm) eventForm.hidden = true;
+    });
+  }
+  const eventSave = document.getElementById("tg-custom-event-save");
+  if (eventSave) {
+    eventSave.addEventListener("click", function () {
+      if (!selectedSport || !selectedLeague) return;
+      const matchup = ((customEventName && customEventName.value) || "").trim();
+      if (!matchup) {
+        if (customEventName) customEventName.focus();
+        return;
+      }
+      const eventId = addCustomEvent(matchup);
+      if (customEventName) customEventName.value = "";
+      if (eventForm) eventForm.hidden = true;
+      showEvents();
+      selectEvent(eventId);
+    });
+  }
+
+  form.querySelectorAll('input[name="slip_mode"]').forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      if (nWrap) nWrap.hidden = slipMode() !== "multi";
+      if (slipMode() === "single" && legCount() > 1) {
+        let kept = false;
+        form.querySelectorAll(".tg-pick-cb:checked").forEach(function (cb) {
+          if (!kept) { kept = true; return; }
+          cb.checked = false;
+        });
+        customLegs().forEach(function (wrap) { wrap.remove(); });
+      }
+      refreshSlip();
+    });
+  });
+  if (nInput) nInput.addEventListener("change", refreshSlip);
+
+  form.addEventListener("change", function (e) {
+    if (e.target && e.target.classList.contains("tg-pick-cb")) {
+      enforceSingle(e.target);
+      refreshSlip();
+    }
+  });
+
+  // Delegation so dynamically created custom-event market panes work too
+  form.addEventListener("click", function (e) {
+    const btn = e.target && e.target.closest ? e.target.closest(".tg-add-custom") : null;
+    if (!btn || !form.contains(btn)) return;
+    const pane = btn.closest(".tg-markets-pane");
+    const eventBtn = eventBtns().find(function (b) {
+      return b.getAttribute("data-event-id") === btn.getAttribute("data-event-id");
+    });
+    addCustomLegFromPane(pane, eventBtn);
+  });
+
+  form.addEventListener("submit", function (e) {
+    const action = (e.submitter && e.submitter.value) || "send_custom";
+    if (action !== "send_custom" && action !== "send_picks") return;
+    // Sync OCR/edit legs if present; catalog checkboxes stay intact.
+    if (editLegCount() > 0) {
+      syncEditLegsToCustomStore();
+      syncModeToLegCount();
+    }
+    const n = legCount();
+    const want = targetN();
+    if (n === 0) {
+      e.preventDefault();
+      if (slipHint) slipHint.textContent = "Add at least one leg before sending";
+      return;
+    }
+    if (n !== want) {
+      e.preventDefault();
+      if (slipHint) {
+        slipHint.textContent = slipMode() === "single"
+          ? "Single needs exactly 1 leg"
+          : ("Multi needs exactly " + want + " legs (you have " + n + ")");
+      }
+      const tray = document.getElementById("tg-slip-tray");
+      if (tray) tray.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  });
+
+  // ── Paste any # of slip images (ephemeral) → append legs → edit freely ──
+  const pasteZone = document.getElementById("tg-paste-zone");
+  const pastePreviews = document.getElementById("tg-paste-previews");
+  const parseBtn = document.getElementById("tg-slip-parse-btn");
+  const clearPasteBtn = document.getElementById("tg-slip-clear-btn");
+  const clearLegsBtn = document.getElementById("tg-clear-legs-btn");
+  const addBlankLegBtn = document.getElementById("tg-add-blank-leg-btn");
+  const fileInput = document.getElementById("tg-slip-file");
+  const ocrTextEl = document.getElementById("tg-slip-ocr-text");
+  const uploadStatus = document.getElementById("tg-upload-status");
+  const reviewBanner = document.getElementById("tg-review-banner");
+  const editLegs = document.getElementById("tg-edit-legs");
+  const editLegsList = document.getElementById("tg-edit-legs-list");
+  const editLegsCount = document.getElementById("tg-edit-legs-count");
+
+  let pendingQueue = []; // { blob, url }
+  let parseBusy = false;
+
+  function setStatus(msg) {
+    if (uploadStatus) uploadStatus.textContent = msg || "";
+  }
+
+  function editLegCount() {
+    return editLegsList ? editLegsList.querySelectorAll(".tg-edit-leg").length : 0;
+  }
+
+  function renumberEditLegs() {
+    if (!editLegsList) return;
+    const rows = Array.from(editLegsList.querySelectorAll(".tg-edit-leg"));
+    rows.forEach(function (row, idx) {
+      const head = row.querySelector(".tg-edit-leg-head strong");
+      if (head) head.textContent = "Leg " + (idx + 1);
+    });
+    if (editLegsCount) editLegsCount.textContent = rows.length + " leg" + (rows.length === 1 ? "" : "s");
+    if (editLegs) editLegs.hidden = rows.length === 0;
+    if (reviewBanner) reviewBanner.hidden = rows.length === 0;
+  }
+
+  function syncModeToLegCount() {
+    const n = editLegCount();
+    if (n <= 1) {
+      setSlipMode("single", 1);
+    } else {
+      setSlipMode("multi", Math.min(12, n));
+    }
+  }
+
+  function clearQueue() {
+    pendingQueue.forEach(function (item) {
+      if (item.url) {
+        try { URL.revokeObjectURL(item.url); } catch (err) { /* ignore */ }
+      }
+    });
+    pendingQueue = [];
+    if (pastePreviews) {
+      pastePreviews.innerHTML = "";
+      pastePreviews.hidden = true;
+    }
+    if (fileInput) fileInput.value = "";
+  }
+
+  function renderQueuePreviews() {
+    if (!pastePreviews) return;
+    pastePreviews.innerHTML = "";
+    if (!pendingQueue.length) {
+      pastePreviews.hidden = true;
+      return;
+    }
+    pastePreviews.hidden = false;
+    pendingQueue.forEach(function (item) {
+      const img = document.createElement("img");
+      img.className = "tg-paste-preview";
+      img.alt = "";
+      img.src = item.url;
+      pastePreviews.appendChild(img);
+    });
+  }
+
+  function enqueueImage(blob) {
+    if (!blob || !String(blob.type || "").startsWith("image/")) return false;
+    const url = URL.createObjectURL(blob);
+    pendingQueue.push({ blob: blob, url: url });
+    renderQueuePreviews();
+    setStatus(pendingQueue.length + " image(s) queued (memory only) — parsing…");
+    return true;
+  }
+
+  function clearCustomLegInputs() {
+    // Only remove free-text/OCR custom legs — never uncheck catalog markets.
+    customLegs().forEach(function (wrap) { wrap.remove(); });
+  }
+
+  function clearCustomLegsOnly() {
+    clearCustomLegInputs();
+    form.querySelectorAll(".tg-pick-cb:checked").forEach(function (cb) {
+      cb.checked = false;
+    });
+  }
+
+  function setSlipMode(mode, n) {
+    const want = mode === "multi" ? "multi" : "single";
+    form.querySelectorAll('input[name="slip_mode"]').forEach(function (radio) {
+      radio.checked = radio.value === want;
+    });
+    if (nWrap) nWrap.hidden = want !== "multi";
+    if (want === "multi" && nInput) {
+      const nn = Math.max(2, Math.min(12, parseInt(n, 10) || 2));
+      nInput.value = String(nn);
+    }
+  }
+
+  function syncEditLegsToCustomStore() {
+    // Push OCR/editable legs into hidden custom_* fields.
+    // Must NOT wipe Sport→League→Event catalog checkbox picks — that made
+    // admin Telegram send look broken for the normal hierarchy flow.
+    if (!editLegsList || !customStore) return;
+    const rows = Array.from(editLegsList.querySelectorAll(".tg-edit-leg"));
+    clearCustomLegInputs();
+    rows.forEach(function (row) {
+      const sport = (row.querySelector('[data-f="sport"]') || {}).value || "";
+      const league = (row.querySelector('[data-f="league"]') || {}).value || "";
+      const matchup = (row.querySelector('[data-f="matchup"]') || {}).value || "";
+      const market = (row.querySelector('[data-f="market"]') || {}).value || "";
+      const pick = (row.querySelector('[data-f="pick"]') || {}).value || "";
+      if (!matchup.trim() || !pick.trim()) return;
+      customSeq += 1;
+      const wrap = document.createElement("div");
+      wrap.className = "tg-custom-leg";
+      function hidden(name, value) {
+        const inp = document.createElement("input");
+        inp.type = "hidden";
+        inp.name = name;
+        inp.value = value;
+        wrap.appendChild(inp);
+      }
+      hidden("custom_matchup", matchup.trim());
+      hidden("custom_market", (market || "Custom").trim());
+      hidden("custom_pick", pick.trim());
+      hidden("custom_sport", sport.trim() || "Custom");
+      hidden("custom_league", league.trim());
+      customStore.appendChild(wrap);
+    });
+    renumberEditLegs();
+    refreshSlip();
+  }
+
+  function appendEditableLeg(leg) {
+    if (!editLegsList) return;
+    const row = document.createElement("div");
+    row.className = "tg-edit-leg";
+    row.innerHTML =
+      '<div class="tg-edit-leg-head"><strong>Leg</strong>' +
+      '<button type="button" class="tg-slip-remove tg-edit-remove" aria-label="Remove leg">×</button></div>' +
+      '<div class="tg-edit-grid">' +
+      '<label>Sport<input class="input" data-f="sport" autocomplete="off"></label>' +
+      '<label>League<input class="input" data-f="league" autocomplete="off"></label>' +
+      '<label class="tg-edit-span">Event<input class="input" data-f="matchup" autocomplete="off"></label>' +
+      '<label>Market<input class="input" data-f="market" autocomplete="off"></label>' +
+      '<label>Selection<input class="input" data-f="pick" autocomplete="off"></label>' +
+      "</div>";
+    const map = {
+      sport: (leg && (leg.sport || leg.sport_label)) || "",
+      league: (leg && (leg.league || leg.league_label)) || "",
+      matchup: (leg && (leg.event || leg.matchup)) || "",
+      market: (leg && leg.market) || "",
+      pick: (leg && (leg.pick || leg.selection)) || ""
+    };
+    Object.keys(map).forEach(function (k) {
+      const inp = row.querySelector('[data-f="' + k + '"]');
+      if (inp) inp.value = map[k];
+    });
+    row.querySelector(".tg-edit-remove").addEventListener("click", function () {
+      row.remove();
+      syncEditLegsToCustomStore();
+    });
+    row.querySelectorAll("input").forEach(function (inp) {
+      inp.addEventListener("input", syncEditLegsToCustomStore);
+    });
+    editLegsList.appendChild(row);
+  }
+
+  function appendParsedLegs(legs) {
+    (legs || []).forEach(function (leg) { appendEditableLeg(leg); });
+    syncEditLegsToCustomStore();
+    syncModeToLegCount();
+    const tray = document.getElementById("tg-slip-tray");
+    if (tray) tray.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  async function ensureTesseract() {
+    if (window.Tesseract) return window.Tesseract;
+    await new Promise(function (resolve, reject) {
+      const s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js";
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = function () { reject(new Error("tesseract_cdn")); };
+      document.head.appendChild(s);
+    });
+    return window.Tesseract;
+  }
+
+  async function preprocessForOcr(blob) {
+    // Invert dark bookie UIs so Tesseract sees dark text on light bg.
+    try {
+      const bmp = await createImageBitmap(blob);
+      const canvas = document.createElement("canvas");
+      const maxEdge = 1600;
+      let w = bmp.width;
+      let h = bmp.height;
+      if (Math.max(w, h) > maxEdge) {
+        const scale = maxEdge / Math.max(w, h);
+        w = Math.round(w * scale);
+        h = Math.round(h * scale);
+      }
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(bmp, 0, 0, w, h);
+      const img = ctx.getImageData(0, 0, w, h);
+      const d = img.data;
+      let dark = 0;
+      let light = 0;
+      for (let i = 0; i < d.length; i += 16) {
+        const y = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+        if (y < 64) dark += 1;
+        else if (y > 192) light += 1;
+      }
+      if (dark > light * 1.1) {
+        for (let i = 0; i < d.length; i += 4) {
+          d[i] = 255 - d[i];
+          d[i + 1] = 255 - d[i + 1];
+          d[i + 2] = 255 - d[i + 2];
+        }
+        ctx.putImageData(img, 0, 0);
+      }
+      bmp.close && bmp.close();
+      const out = await new Promise(function (resolve) {
+        canvas.toBlob(function (b) { resolve(b || blob); }, "image/png");
+      });
+      return out;
+    } catch (err) {
+      return blob;
+    }
+  }
+
+  async function ocrBlobInBrowser(blob) {
+    const Tesseract = await ensureTesseract();
+    const prepared = await preprocessForOcr(blob);
+    const result = await Tesseract.recognize(prepared, "eng", {
+      logger: function () { /* quiet */ }
+    });
+    return ((result && result.data && result.data.text) || "").trim();
+  }
+
+  function csrfHeaders() {
+    const meta = document.querySelector('meta[name="csrf-token"]');
+    const tok = (meta && meta.getAttribute("content")) || "";
+    return tok ? { "X-CSRF-Token": tok } : {};
+  }
+
+  async function parseOneBlob(blob, label) {
+    // Prefer in-browser OCR so the image never hits the server (and works
+    // even when server vision/tesseract is unavailable). Fall back to server.
+    let text = "";
+    try {
+      setStatus("Reading slip in your browser (image not uploaded)…");
+      text = await ocrBlobInBrowser(blob);
+    } catch (err) {
+      text = "";
+    }
+    if (text && text.length >= 8) {
+      const fd = new FormData();
+      fd.append("ocr_text", text);
+      const resp = await fetch("/admin/telegram-parse-slip", {
+        method: "POST",
+        body: fd,
+        credentials: "same-origin",
+        headers: csrfHeaders()
+      });
+      const data = await resp.json();
+      if (data) data.engine = data.engine || "browser-tesseract";
+      // If structure parse failed, still surface OCR text for manual edit
+      if (data && !(data.legs && data.legs.length) && text) {
+        data.ocr_text = text;
+        data.message = (data.message || "Could not structure legs") +
+          " — OCR text is in the fallback box; edit legs manually.";
+      }
+      return data;
+    }
+    // Server fallback (image bytes, still not stored)
+    const fd = new FormData();
+    fd.append("image", blob, label || "paste.png");
+    const resp = await fetch("/admin/telegram-parse-slip", {
+      method: "POST",
+      body: fd,
+      credentials: "same-origin",
+      headers: csrfHeaders()
+    });
+    return resp.json();
+  }
+
+  function uniqueBlobs(blobs) {
+    const seen = {};
+    const out = [];
+    (blobs || []).forEach(function (b) {
+      if (!b) return;
+      const key = String(b.size) + ":" + String(b.type || "");
+      if (seen[key]) return;
+      seen[key] = true;
+      out.push(b);
+    });
+    return out;
+  }
+
+  async function parseQueueAndText(opts) {
+    opts = opts || {};
+    const auto = !!opts.auto;
+    const text = ((ocrTextEl && ocrTextEl.value) || "").trim();
+    const queue = pendingQueue.slice();
+    if (!queue.length && !(fileInput && fileInput.files && fileInput.files.length) && !text) {
+      if (!auto) setStatus("Paste image(s) first (or choose files / text).");
+      return;
+    }
+    if (parseBusy) {
+      setStatus("Still parsing… wait for this batch, then paste again.");
+      return;
+    }
+    parseBusy = true;
+    if (parseBtn) parseBtn.disabled = true;
+
+    let blobs = uniqueBlobs(queue.map(function (q) { return q.blob; }));
+    // Do NOT also re-read fileInput here when queue came from paste — that
+    // double-counted. Only use file input when queue is empty.
+    if (!blobs.length && fileInput && fileInput.files && fileInput.files.length) {
+      blobs = uniqueBlobs(Array.from(fileInput.files));
+    }
+
+    let added = 0;
+    let failed = 0;
+    let lastMsg = "";
+    try {
+      setStatus("Parsing " + (blobs.length || (text ? 1 : 0)) + " slip(s)…");
+      for (let i = 0; i < blobs.length; i++) {
+        try {
+          setStatus("Parsing slip " + (i + 1) + "/" + blobs.length + "…");
+          const data = await parseOneBlob(blobs[i], "paste-" + (i + 1) + ".png");
+          const legs = (data && data.legs) || [];
+          if (data && data.ocr_text && ocrTextEl) {
+            ocrTextEl.value = data.ocr_text;
+            const details = ocrTextEl.closest("details");
+            if (details) details.open = true;
+          }
+          if (legs.length) {
+            appendParsedLegs(legs);
+            added += legs.length;
+          } else {
+            failed += 1;
+            lastMsg = (data && data.message) || lastMsg;
+          }
+        } catch (err) {
+          failed += 1;
+          lastMsg = "Parse error — try again or use text fallback.";
+        }
+      }
+      if (text) {
+        try {
+          const fd = new FormData();
+          fd.append("ocr_text", text);
+          const resp = await fetch("/admin/telegram-parse-slip", {
+            method: "POST",
+            body: fd,
+            credentials: "same-origin",
+            headers: csrfHeaders()
+          });
+          const data = await resp.json();
+          const legs = (data && data.legs) || [];
+          if (legs.length) {
+            appendParsedLegs(legs);
+            added += legs.length;
+            if (ocrTextEl) ocrTextEl.value = "";
+          } else {
+            failed += 1;
+            lastMsg = (data && data.message) || lastMsg;
+          }
+        } catch (err) {
+          failed += 1;
+        }
+      }
+      clearQueue();
+      if (added === 0 && failed > 0 && editLegCount() === 0) {
+        appendEditableLeg({ sport: "Soccer", league: "", event: "", market: "", pick: "" });
+      }
+      setStatus(
+        added
+          ? ("Added " + added + " leg(s) to betslip" +
+            (failed ? (" · " + failed + " failed") : "") +
+            ". Edit below, then Send.")
+          : ((lastMsg || "Could not read the slip.") +
+            " Use + Blank leg or the text fallback.")
+      );
+    } finally {
+      parseBusy = false;
+      if (parseBtn) parseBtn.disabled = false;
+    }
+  }
+
+  function collectClipboardImages(e) {
+    // Windows/Chrome often exposes the SAME screenshot as multiple image/*
+    // clipboard items (png + jpeg + dib…). One paste → at most ONE image.
+    const items = (e.clipboardData && e.clipboardData.items) || [];
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].type && items[i].type.indexOf("image/") === 0) {
+        const blob = items[i].getAsFile();
+        if (blob) return [blob];
+      }
+    }
+    const files = (e.clipboardData && e.clipboardData.files) || [];
+    for (let j = 0; j < files.length; j++) {
+      if (files[j] && String(files[j].type || "").startsWith("image/")) {
+        return [files[j]];
+      }
+    }
+    return [];
+  }
+
+  function onPasteImages(e) {
+    if (e.__tgSlipPasteHandled) return false;
+    const imgs = collectClipboardImages(e);
+    if (!imgs.length) return false;
+    e.__tgSlipPasteHandled = true;
+    e.preventDefault();
+    if (typeof e.stopImmediatePropagation === "function") e.stopImmediatePropagation();
+    e.stopPropagation();
+    // Replace queue with this single paste image (avoid stacking duplicates)
+    clearQueue();
+    if (enqueueImage(imgs[0])) parseQueueAndText({ auto: true });
+    return true;
+  }
+
+  if (pasteZone) {
+    pasteZone.addEventListener("click", function () { pasteZone.focus(); });
+    pasteZone.addEventListener("paste", onPasteImages);
+  }
+  document.addEventListener("paste", function (e) {
+    const section = document.querySelector('.admin-section[data-admin-section="telegram"]');
+    if (!section || !section.classList.contains("is-visible")) return;
+    if (e.__tgSlipPasteHandled) return;
+    const t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA")) {
+      if (t.id === "tg-slip-ocr-text" || (t.classList && t.classList.contains("input"))) return;
+    }
+    if (pasteZone && e.target && pasteZone.contains(e.target)) return;
+    onPasteImages(e);
+  }, true);
+
+  if (fileInput) {
+    fileInput.addEventListener("change", function () {
+      const files = uniqueBlobs(fileInput.files ? Array.from(fileInput.files) : []);
+      clearQueue();
+      files.forEach(function (f) { enqueueImage(f); });
+      if (files.length) parseQueueAndText({ auto: true });
+    });
+  }
+  if (parseBtn) parseBtn.addEventListener("click", function () { parseQueueAndText(); });
+    if (addBlankLegBtn) {
+    addBlankLegBtn.addEventListener("click", function () {
+      appendEditableLeg({ sport: "", league: "", event: "", market: "", pick: "" });
+      syncEditLegsToCustomStore();
+      syncModeToLegCount();
+      setStatus("Blank leg added — fill fields, then Send.");
+    });
+  }
+  if (clearLegsBtn) {
+    clearLegsBtn.addEventListener("click", function () {
+      if (editLegsList) editLegsList.innerHTML = "";
+      clearCustomLegsOnly();
+      renumberEditLegs();
+      syncModeToLegCount();
+      refreshSlip();
+      setStatus("All legs cleared. Paste more images anytime.");
+    });
+  }
+  if (clearPasteBtn) {
+    clearPasteBtn.addEventListener("click", function () {
+      clearQueue();
+      if (ocrTextEl) ocrTextEl.value = "";
+      setStatus("Queue cleared. Legs kept. Nothing stored.");
+    });
+  }
+
+  showLeagues();
+  showEvents();
+  selectEvent("");
+  if (nWrap) nWrap.hidden = true;
+  updateCrumb();
+  refreshSlip();
+})();
+</script>

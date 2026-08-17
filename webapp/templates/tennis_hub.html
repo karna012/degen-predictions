@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Tennis Predictions — ATP Men{% if full_slate_acc %} {{ full_slate_acc }} Full-Slate OOS{% endif %} | Degen Predictions{% endblock %}
+{% block description %}Free tennis predictions for men's ATP{% if full_slate_acc %} — {{ full_slate_acc }} full-slate out-of-sample match-winner accuracy{% endif %}. Surface Elo (hard/clay/grass), fixtures, Today's Picks, and public results. Estimates — not betting advice.{% endblock %}
+{% block keywords %}tennis predictions, ATP predictions, ATP ML forecasts, men's tennis predictions, degen predictions tennis{% endblock %}
+{% block body_class %} sport-atmosphere tennis-page{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+{{ nav_back('/sports', 'Sports') }}
+<div class="leagues-hero">
+    <h1>Tennis Predictions (ATP Men)</h1>
+    <p class="muted">Free ML tennis predictions for tour-level men's singles (Grand Slam, Masters 1000, 500, 250).{% if full_slate_acc %} Full-slate OOS match-winner accuracy: <strong>{{ full_slate_acc }}</strong>.{% endif %} Surface Elo — hard, clay, grass — is baked into the model. Challengers, doubles, and WTA are out of scope for v1.</p>
+    <div class="leagues-hero-ctas cricket-quick-links">
+        <a class="league-cta" href="/tennis/fixtures">Fixtures</a>
+        <a class="league-cta" href="/tennis/results">Results</a>
+        <a class="league-cta" href="/todays-picks/tennis/atp">Today's Picks</a>
+        <a class="league-cta is-secondary" href="/todays-picks/combos">Best Combos</a>
+    </div>
+</div>
+<div class="league-grid">
+    <a class="league-card" href="/tennis/fixtures" style="--league-color: #c4a35a;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>ATP MEN</h2>
+            <p class="league-desc">{{ fixture_count }} upcoming / live · {{ player_count }} rated players · {% if full_slate_acc %}full-slate {{ full_slate_acc }}{% else %}holdout calibrating{% endif %}</p>
+            <span class="league-cta">Open board</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">ATP</span></div>
+    </a>
+</div>
+<section class="cricket-hub-notes" style="margin-top:2rem;">
+    <h2>What's included</h2>
+    <ul class="muted">
+        <li><strong>Fixtures</strong> — live and upcoming ATP singles with Unlock prediction match pages</li>
+        <li><strong>Model</strong> — overall + surface Elo, rank/form/H2H, calibrated ML match winner</li>
+        <li><strong>Picks / Combos</strong> — match winner, total games, and related markets on Today's Picks</li>
+        <li><strong>Track record</strong> — <a href="/tennis/results">ATP results</a>{% if full_slate_acc %} ({{ full_slate_acc }} full-slate OOS){% endif %}</li>
+    </ul>
+</section>
+{% endblock %}

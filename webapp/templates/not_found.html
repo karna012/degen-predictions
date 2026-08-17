@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Not found{% endblock %}
 {% block content %}
-<a href="/">&larr; Back to fixtures</a>
+{% from "macros.html" import nav_back %}
+{{ nav_back('/', 'Home') }}
 <h1>Match not found</h1>
 <p>No prediction found for {{ home }} vs {{ away }}.</p>
 {% endblock %}

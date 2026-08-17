@@ -1,0 +1,17 @@
+{# Team crest monogram. Expects: name, optional size ('lg'), optional rgb "r, g, b" #}
+{% macro team_crest(name, size='', rgb=none) -%}
+{% set parts = (name or '?').split() %}
+{% set initials = (parts[0][0] ~ (parts[1][0] if parts|length > 1 else (parts[0][1] if parts[0]|length > 1 else '')))|upper %}
+<span class="team-crest{% if size %} team-crest--{{ size }}{% endif %}"
+      style="{% if rgb %}--crest-rgb: {{ rgb }};{% endif %}"
+      title="{{ name }}"
+      aria-hidden="true">{{ initials[:2] }}</span>
+{%- endmacro %}
+
+{% macro team_pair(team1, team2, rgb1=none, rgb2=none, size='') %}
+<div class="team-pair">
+  {{ team_crest(team1, size=size, rgb=rgb1) }}
+  <span class="vs">VS</span>
+  {{ team_crest(team2, size=size, rgb=rgb2) }}
+</div>
+{% endmacro %}

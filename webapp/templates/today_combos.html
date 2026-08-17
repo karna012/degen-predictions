@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% block title %}Multi Bet Prediction — Best Combos Today | Degen Predictions{% endblock %}
+{% block description %}Multi bet prediction board: best 2-leg and 3-leg combo picks today across soccer, MLB, tennis, and cricket — selective high-probability legs only. Free Best Combos. Not betting advice.{% endblock %}
+{% block keywords %}multi bet prediction, best combo picks today, parlays, 2 leg, 3 leg, accumulator tips, mixed sports combo, MLB Premier League combo, cross sport picks, todays picks{% endblock %}
+{% block og_image %}{{ page_og_image or ('https://degenpredictions.com' ~ url_for('static', filename='logo.png')) }}{% endblock %}
+{% block twitter_card %}summary_large_image{% endblock %}
+{% block twitter_image %}{{ page_og_image or ('https://degenpredictions.com' ~ url_for('static', filename='logo.png')) }}{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back, breadcrumb_jsonld %}
+{{ breadcrumb_jsonld([
+    {"label": "Home", "href": "/"},
+    {"label": "Today's Picks", "href": "/todays-picks"},
+    {"label": "Best Combos", "href": "/todays-picks/combos"},
+]) }}
+<div class="board-skeleton" id="board-skeleton" aria-hidden="true">
+    <div class="skel-line"></div><div class="skel-line skel-short"></div>
+    <div class="skel-cards"><span></span><span></span><span></span></div>
+</div>
+<div class="board-ready" id="board-ready">
+{% macro combo_card(c, size, idx, max_n) %}
+{% set _legs = c.legs or [] %}
+{% set _unlock_event = (size ~ '-leg ' ~ (c.mix_kind or 'mix') ~ ' · ' ~ ((_legs[0].matchup if _legs else 'combo')|string)) ~ ((' + ' ~ (_legs[1].matchup|string)) if _legs|length > 1 else '') %}
+<div class="fixture-card ok-confidence digest-slip" style="--card-index: {{ idx }}; cursor:pointer; display:flex; flex-direction:column; gap:0.75rem; padding:1.1rem 1.15rem;"
+     data-lock="1" data-unlock-kind="combo" data-unlock-event="{{ _unlock_event|e }}">
+    <div class="fixture-card-head">
+        <div style="font-size:0.78rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--accent);">
+            {{ size }}-leg{% if c.mix_kind %} · {{ c.mix_kind }}{% endif %}
+        </div>
+        <button type="button" class="predict-btn js-unlock-slate">Unlock combo</button>
+    </div>
+    <div class="fixture-empty">
+        <span class="fixture-empty-label">Combo locked</span>
+        <span class="fixture-empty-hint">Tap Unlock combo to reveal the legs and joint %</span>
+    </div>
+    <div class="fixture-outcomes" hidden>
+        <div style="font-size:0.78rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--accent);">
+            {{ size }}-leg · {{ ((c.joint_prob or 0) * 100) | round | int }}%
+        </div>
+        {% for leg in _legs %}
+        <div style="padding-top:0.65rem; border-top:1px solid rgba(148,175,200,0.14);">
+            <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--accent); margin-bottom:0.2rem;">
+                {{ leg.sport_label or leg.sport_key or 'Sport' }}{% if leg.league_label %} · {{ leg.league_label }}{% endif %}
+            </div>
+            <div style="font-size:1.02rem; font-weight:600; line-height:1.35; overflow-wrap:anywhere;">
+                {% if leg.url %}<a href="{{ leg.url }}" style="color:inherit; text-decoration:none;">{% endif %}
+                {{ leg.matchup }}
+                {% if leg.url %}</a>{% endif %}
+            </div>
+            <div class="muted" style="margin-top:0.28rem; font-size:0.88rem; line-height:1.35; color:var(--text);">
+                {{ leg.pick }}{% if leg.market %} · {{ leg.market }}{% endif %} · {{ (leg.confidence * 100) | round(0) | int }}%
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
+
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/todays-picks', "Today's picks") }}
+    <a class="page-nav-link" href="/todays-picks">Browse leagues</a>
+</nav>
+
+<div class="leagues-hero">
+    <h1>Multi Bet Prediction — Best Combos Today</h1>
+    <p class="muted">
+        Selective multi-bet / accumulator-style sports cards: high-probability mixed markets from independent
+        fixtures, plus a dedicated board that mixes different sports and leagues.
+        Daily target: {{ min_combos }}–{{ max_combos }} slips for both 2-leg and 3-leg
+        (soft-fill may reuse fixtures on thin days). Joint % = product of leg probs.
+        Correlation flags shared risk — estimates, not betting advice.
+    </p>
+    {% include "partials/updated_stamp.html" %}
+</div>
+{% set share_text = "Degen Predictions — Best Combo Picks Today: high-probability 2-leg & 3-leg mixes across sports" %}
+{% include "partials/share_bar.html" %}
+{% include "partials/telegram_cta.html" %}
+
+{% if not combos_2 and not combos_3 and not mixed_2 and not mixed_3 %}
+<div class="fixture-card low-confidence" style="cursor:default; max-width:40rem; margin-top:1.5rem;">
+    <p style="margin:0; font-size:1.15rem;"><strong>No combo picks today</strong></p>
+    <p class="muted" style="margin:0.75rem 0 0;">
+        {% if legs|length < 2 %}
+        Need at least two high-probability legs across today's sports to build a combo.
+        {% else %}
+        Not enough distinct fixtures cleared the bar for a 2-leg or 3-leg mix.
+        {% endif %}
+        Check individual league pages under Today's Picks.
+    </p>
+</div>
+{% else %}
+
+{% if mixed_2 or mixed_3 %}
+<section style="margin-top:1.75rem;">
+    <h2 style="margin-bottom:0.35rem;">Mixed sports &amp; leagues</h2>
+    <p class="muted" style="margin-top:0;">
+        Cross-sport preferred, else cross-league — legs from different competitions
+        so one slate cannot wipe the slip. Target {{ min_combos }}–{{ max_mixed }} slips per size.
+    </p>
+    {% if mixed_2 %}
+    <h3 style="margin:1.1rem 0 0.35rem; font-size:1.05rem;">Mixed 2-leg</h3>
+    <div class="fixture-grid" style="margin-top:0.75rem;">
+        {% for c in mixed_2 %}
+        {{ combo_card(c, 2, loop.index0, max_mixed) }}
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if mixed_3 %}
+    <h3 style="margin:1.35rem 0 0.35rem; font-size:1.05rem;">Mixed 3-leg</h3>
+    <div class="fixture-grid" style="margin-top:0.75rem;">
+        {% for c in mixed_3 %}
+        {{ combo_card(c, 3, loop.index0, max_mixed) }}
+        {% endfor %}
+    </div>
+    {% elif mixed_2 %}
+    <p class="muted" style="margin-top:1rem;">Not enough distinct fixtures across sports/leagues for a mixed 3-leg today.</p>
+    {% endif %}
+</section>
+{% endif %}
+
+{% if combos_2 %}
+<section style="margin-top:2rem;">
+    <h2 style="margin-bottom:0.35rem;">Best 2-leg</h2>
+    <p class="muted" style="margin-top:0;">{{ min_combos }}–{{ max_combos }} slips daily · market-mixed · highest joint probability from two different fixtures.</p>
+    <div class="fixture-grid" style="margin-top:1rem;">
+        {% for c in combos_2 %}
+        {{ combo_card(c, 2, loop.index0, max_combos) }}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if combos_3 %}
+<section style="margin-top:2rem;">
+    <h2 style="margin-bottom:0.35rem;">Best 3-leg</h2>
+    <p class="muted" style="margin-top:0;">{{ min_combos }}–{{ max_combos }} slips daily · market-mixed · highest joint probability from three different fixtures.</p>
+    <div class="fixture-grid" style="margin-top:1rem;">
+        {% for c in combos_3 %}
+        {{ combo_card(c, 3, loop.index0, max_combos) }}
+        {% endfor %}
+    </div>
+</section>
+{% elif combos_2 %}
+<p class="muted" style="margin-top:1.5rem;">Not enough distinct fixtures for a 3-leg combo today.</p>
+{% endif %}
+
+{% endif %}
+
+<p class="muted" style="margin-top:2rem;">
+    Pool: {{ legs|length }} high-probability leg{{ 's' if legs|length != 1 else '' }} across today's sports.
+    <a href="/todays-picks">Browse by league</a>
+</p>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kickoff-when[data-iso]").forEach(function (el) {
+        var raw = el.dataset.iso;
+        if (!raw) return;
+        if (!/[zZ]|[+-]\d{2}:?\d{2}$/.test(raw)) {
+            raw = raw.replace(" ", "T") + (raw.indexOf("T") >= 0 ? "Z" : "");
+        }
+        var d = new Date(raw);
+        if (isNaN(d.getTime())) return;
+        try {
+            el.textContent = d.toLocaleString(undefined, {
+                weekday: "short", month: "short", day: "numeric",
+                hour: "numeric", minute: "2-digit",
+            });
+        } catch (e) {}
+    });
+});
+(function () {
+    var sk = document.getElementById("board-skeleton");
+    var ready = document.getElementById("board-ready");
+    if (sk) sk.hidden = true;
+    if (ready) ready.classList.add("is-visible");
+})();
+</script>
+{% set habit_title = "Share Best Combos" %}
+{% set habit_blurb = "Bookmark Best Combos and share the slate. Degen Predictions refreshes high-probability mixes daily." %}
+{% set share_text = "Degen Predictions — Best Combo Picks Today across sports" %}
+{% include "partials/daily_habit.html" %}
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}American Football Predictions -- NFL | Degen Predictions{% endblock %}
+{% block description %}Free machine-learning NFL predictions -- winner, total points, and spread, updated from live ESPN fixtures. Educational estimates, not betting advice.{% endblock %}
+{% block keywords %}NFL predictions, NFL predictions today, American football predictions, NFL spread prediction, NFL totals, NFL moneyline{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+{{ nav_back('/sports', 'Sports') }}
+<div class="leagues-hero">
+    <h1>Pick Your American Football League</h1>
+    <p class="muted">Open Today's Picks for the NFL, or browse the full fixture list below.</p>
+    <div class="leagues-hero-ctas">
+        <a class="league-cta" href="/todays-picks/american_football">American football today's picks</a>
+        <a class="league-cta is-secondary" href="/todays-picks/combos">Best Combos</a>
+    </div>
+    <div class="leagues-hero-links">
+        <a href="/nfl/fixtures" class="muted">NFL fixtures</a>
+        <a href="/nfl/results" class="muted">NFL track record</a>
+    </div>
+</div>
+
+{% macro football_card(info, href) %}
+    {% if info.available %}
+    <a class="league-card" href="{{ href }}" style="--league-color: {{ info.color }};">
+    {% else %}
+    <div class="league-card league-card-disabled" style="--league-color: {{ info.color }};">
+    {% endif %}
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>{{ info.label|upper }}</h2>
+            {% if info.available %}
+            <p class="league-desc">{{ info.country }} &middot; {{ info.fixture_count }} upcoming fixtures.</p>
+            <span class="league-cta">See fixtures</span>
+            {% else %}
+            <p class="league-desc">{{ info.country }} &middot; Coming soon.</p>
+            {% endif %}
+        </div>
+        <div class="league-badge">
+            <span class="league-monogram">{{ info.monogram }}</span>
+        </div>
+    {% if info.available %}
+    </a>
+    {% else %}
+    </div>
+    {% endif %}
+{% endmacro %}
+
+<div class="league-grid">
+    {{ football_card(nfl_info, "/nfl/fixtures") }}
+</div>
+{% endblock %}

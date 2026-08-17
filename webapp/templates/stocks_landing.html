@@ -1,32 +1,36 @@
 {% extends "base.html" %}
-{% block title %}Stock Rankings -- US & India | Degen Predictions{% endblock %}
-{% block description %}Predicted 6-month forward return rankings for US and India stocks, from a walk-forward-validated machine-learning model.{% endblock %}
-{% block keywords %}stock predictions, stock market predictions, AI stock predictions, US stock rankings, India stock rankings, S&P 500 predictions, Nifty 50 predictions, machine learning stock picks, best stocks to invest in, stock forecast{% endblock %}
+{% block title %}Stock Predictions — US S&amp;P &amp; India Nifty ML Rankings | Degen Predictions{% endblock %}
+{% block description %}Free stock predictions for US (S&amp;P 500) and India (Nifty 50): ML rankings by predicted return for investment windows from 6 months to 25 years. Walk-forward models — not investment advice.{% endblock %}
+{% block keywords %}stock predictions, US stock predictions, India stock predictions, S&amp;P predictions, Nifty predictions, stock forecast, ML stock rankings, degen predictions stocks{% endblock %}
 {% block content %}
-<a href="/">&larr; Back</a>
+{% from "macros.html" import nav_back %}
+{{ nav_back('/', 'Home') }}
 <div class="leagues-hero">
-    <h1>Pick a Market</h1>
-    <p class="muted">Choose a market to see ranked stocks.</p>
+    <h1>Stock Predictions</h1>
+    <p class="muted">Choose a market, then set your investment timeframe (6 months → 25 years). Each board shows the model’s <strong>predicted return</strong> for that window — ML rankings, not guarantees.</p>
 </div>
-
 <div class="league-grid">
     <a class="league-card" href="/stocks/us" style="--league-color: #1565c0;">
         <div class="league-card-glow"></div>
         <div class="league-card-content">
-            <h2>US STOCKS</h2>
-            <p class="league-desc">S&amp;P 500 constituents, ranked by predicted 6-month return.</p>
-            <span class="league-cta">See Rankings</span>
+            <h2>US STOCK PREDICTIONS</h2>
+            <p class="league-desc">S&amp;P 500 · 6m–25y · predicted return + walk-forward model per window.</p>
+            <span class="league-cta">Open US rankings</span>
         </div>
         <div class="league-badge"><span class="league-monogram">US</span></div>
     </a>
-    <a class="league-card" href="/stocks/india" style="--league-color: #ff9933;">
+    <a class="league-card" href="/stocks/india" style="--league-color: #c45c14;">
         <div class="league-card-glow"></div>
         <div class="league-card-content">
-            <h2>INDIA STOCKS</h2>
-            <p class="league-desc">NIFTY 50 constituents, ranked by predicted 6-month return.</p>
-            <span class="league-cta">See Rankings</span>
+            <h2>INDIA STOCK PREDICTIONS</h2>
+            <p class="league-desc">Nifty 50 · 6m–25y · same predicted-return board.</p>
+            <span class="league-cta">Open India rankings</span>
         </div>
         <div class="league-badge"><span class="league-monogram">IN</span></div>
     </a>
 </div>
+<section style="max-width: 40rem; margin: 2rem auto 0; padding: 0 0.5rem;">
+    <h2 style="font-size: 1.05rem; margin-bottom: 0.6rem;">How to read rankings</h2>
+    <p class="muted" style="line-height: 1.7;">We pick the best walk-forward model per horizon (Ridge / XGBoost / LSTM / GRU for stocks; crypto uses its own sequence-aware board). The headline number on each card is the predicted return for that investment window. Outperform % (Beat BTC on crypto) is the chance of beating the benchmark — not the same thing as the absolute forecast — with data confidence underneath.</p>
+</section>
 {% endblock %}

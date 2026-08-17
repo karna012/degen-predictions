@@ -1,0 +1,216 @@
+{
+  "sport": "tennis",
+  "league": "atp",
+  "target_accuracy": 0.7,
+  "oos_n": 4343,
+  "full_slate_acc": 0.6495510016117891,
+  "model_name": "xgb_logistic_vote",
+  "shipped_holdout_accuracy": 0.6495510016117891,
+  "markets": {
+    "match_winner": {
+      "best": {
+        "threshold": 0.6,
+        "n": 2854,
+        "acc": 0.701822004204625,
+        "coverage": 0.6571494358738199,
+        "met_target": true
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.86,
+          "n": 281,
+          "acc": 0.8896797153024911,
+          "coverage": 0.06470181901911122
+        },
+        {
+          "threshold": 0.87,
+          "n": 248,
+          "acc": 0.9112903225806451,
+          "coverage": 0.05710338475708036
+        },
+        {
+          "threshold": 0.88,
+          "n": 215,
+          "acc": 0.9302325581395349,
+          "coverage": 0.04950495049504951
+        },
+        {
+          "threshold": 0.89,
+          "n": 187,
+          "acc": 0.946524064171123,
+          "coverage": 0.04305779415150818
+        },
+        {
+          "threshold": 0.9,
+          "n": 152,
+          "acc": 0.9671052631578947,
+          "coverage": 0.03499884872208151
+        }
+      ]
+    },
+    "total_sets": {
+      "best": {
+        "threshold": 0.68,
+        "n": 270,
+        "acc": 0.7074074074074074,
+        "coverage": 0.06428571428571428,
+        "met_target": true
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.86,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.87,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.88,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.89,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.9,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        }
+      ]
+    },
+    "player_win_set": {
+      "best": {
+        "threshold": 0.63,
+        "n": 1793,
+        "acc": 0.7038482989403235,
+        "coverage": 0.4269047619047619,
+        "met_target": true
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.86,
+          "n": 20,
+          "acc": null,
+          "coverage": 0.004761904761904762
+        },
+        {
+          "threshold": 0.87,
+          "n": 16,
+          "acc": null,
+          "coverage": 0.0038095238095238095
+        },
+        {
+          "threshold": 0.88,
+          "n": 12,
+          "acc": null,
+          "coverage": 0.002857142857142857
+        },
+        {
+          "threshold": 0.89,
+          "n": 7,
+          "acc": null,
+          "coverage": 0.0016666666666666668
+        },
+        {
+          "threshold": 0.9,
+          "n": 5,
+          "acc": null,
+          "coverage": 0.0011904761904761906
+        }
+      ]
+    },
+    "total_games": {
+      "best": {
+        "threshold": 0.5,
+        "n": 4200,
+        "acc": 0.5119047619047619,
+        "coverage": 1.0,
+        "met_target": false
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.86,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.87,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.88,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.89,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        },
+        {
+          "threshold": 0.9,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        }
+      ]
+    },
+    "handicap": {
+      "best": {
+        "threshold": 0.7,
+        "n": 1356,
+        "acc": 0.700589970501475,
+        "coverage": 0.32285714285714284,
+        "met_target": true
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.86,
+          "n": 57,
+          "acc": 0.8771929824561403,
+          "coverage": 0.013571428571428571
+        },
+        {
+          "threshold": 0.87,
+          "n": 42,
+          "acc": 0.8571428571428571,
+          "coverage": 0.01
+        },
+        {
+          "threshold": 0.88,
+          "n": 27,
+          "acc": null,
+          "coverage": 0.0064285714285714285
+        },
+        {
+          "threshold": 0.89,
+          "n": 17,
+          "acc": null,
+          "coverage": 0.004047619047619047
+        },
+        {
+          "threshold": 0.9,
+          "n": 9,
+          "acc": null,
+          "coverage": 0.002142857142857143
+        }
+      ]
+    }
+  }
+}

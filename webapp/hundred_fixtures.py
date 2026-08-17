@@ -8,13 +8,14 @@ client-side-only, fixturedownload.com's cricket section covers BBL/IPL/
 WBBL/World Cups but not The Hundred or MLC, cricapi.com-style APIs are
 key-gated).
 
-Wikipedia's season article turns out to have a very regular, actively
-edited "Fixtures > Men" section: one {{Single-innings cricket match}}
-template per game, with date/team1/team2/venue always populated and
-score/result populated only once a match has actually finished -- exactly
-the completed-vs-upcoming distinction needed, with no scraping of
-JavaScript-rendered pages required (this is the wikitext, from the public
-action=parse API, not the rendered page).
+Wikipedia's season article has a very regular, actively edited
+"Fixtures > Men" section for the league stage, plus a separate
+"Knockout stages > Men" section (Eliminator + Final) once the group
+stage ends. Each game is a {{Single-innings cricket match}} template
+with date/team1/team2/venue always populated and score/result filled
+only once the match finishes -- exactly the completed-vs-upcoming
+distinction needed, with no scraping of JavaScript-rendered pages
+(this is the wikitext from the public action=parse API).
 
 2026 SEASON REBRAND: three of the eight men's teams were renamed under new
 private ownership ahead of the 2026 season -- Oval Invincibles -> MI
@@ -40,6 +41,7 @@ logger = logging.getLogger(__name__)
 
 WIKI_API = "https://en.wikipedia.org/w/api.php"
 CACHE_TTL_SECONDS = 20 * 60  # fixtures/results change at most a few times a day
+LIVE_CACHE_TTL_SECONDS = 3 * 60  # finished scores land on Wikipedia within minutes
 _cache = {}
 # Wikimedia's API blocks requests without a descriptive User-Agent (their
 # policy, not a key -- see https://meta.wikimedia.org/wiki/User-Agent_policy).
@@ -70,12 +72,52 @@ def _strip_wikilinks(text):
     return WIKILINK_RE.sub(r"\1", text or "").strip()
 
 
+def _find_child_section_index(sections, parent_line, child_line="Men"):
+    """Return the MediaWiki section index for ``parent > child`` (e.g.
+    Fixtures > Men, or Knockout stages > Men). Parent must be level 2;
+    child level 3. Returns None if either is missing."""
+    parent_idx = None
+    for s in sections:
+        if s["line"] == parent_line and s["level"] == "2":
+            parent_idx = s["index"]
+            break
+    if parent_idx is None:
+        return None
+    seen_parent = False
+    for s in sections:
+        if s["index"] == parent_idx:
+            seen_parent = True
+            continue
+        if not seen_parent:
+            continue
+        if s["level"] == "2":
+            break  # left the parent section
+        if s["level"] == "3" and s["line"] == child_line:
+            return s["index"]
+    return None
+
+
+def _section_wikitext(pageid, section_idx):
+    wt_resp = requests.get(WIKI_API, params={
+        "action": "parse", "pageid": pageid, "format": "json",
+        "prop": "wikitext", "section": section_idx,
+    }, timeout=20, headers=WIKI_HEADERS)
+    wt_resp.raise_for_status()
+    return wt_resp.json().get("parse", {}).get("wikitext", {}).get("*") or ""
+
+
 def _fetch_fixtures_section_wikitext(year):
     """Finds this year's "<year> The Hundred season" article and returns
-    the wikitext of its "Fixtures > Men" subsection specifically (not the
-    whole article) -- resolved by title search + section index each call
-    (cached) rather than a hardcoded page ID, so this keeps working next
-    year without a code change."""
+    concatenated wikitext for every men's Single-innings match:
+
+    * Fixtures > Men (league / group stage)
+    * Knockout stages > Men (Eliminator + Final — these live OUTSIDE
+      Fixtures and were previously dropped, which emptied the board once
+      the group stage ended)
+
+    Resolved by title search + section index each call (cached) rather
+    than a hardcoded page ID, so this keeps working next year without a
+    code change."""
     search_resp = requests.get(WIKI_API, params={
         "action": "query", "list": "search", "srsearch": f"{year} The Hundred season",
         "format": "json",
@@ -93,33 +135,17 @@ def _fetch_fixtures_section_wikitext(year):
     sections_resp.raise_for_status()
     sections = sections_resp.json().get("parse", {}).get("sections", [])
 
-    # Find "Fixtures" (top-level), then its "Men" child subsection.
-    fixtures_idx = None
-    for s in sections:
-        if s["line"] == "Fixtures" and s["level"] == "2":
-            fixtures_idx = s["index"]
-            break
-    if fixtures_idx is None:
-        return None
-    men_section_idx = None
-    seen_fixtures = False
-    for s in sections:
-        if s["index"] == fixtures_idx:
-            seen_fixtures = True
+    chunks = []
+    for parent in ("Fixtures", "Knockout stages"):
+        idx = _find_child_section_index(sections, parent, "Men")
+        if idx is None:
             continue
-        if seen_fixtures and s["level"] == "3" and s["line"] == "Men":
-            men_section_idx = s["index"]
-            break
-        if seen_fixtures and s["level"] == "2":
-            break  # left the Fixtures section without finding "Men"
-    if men_section_idx is None:
+        chunk = _section_wikitext(pageid, idx)
+        if chunk:
+            chunks.append(chunk)
+    if not chunks:
         return None
-
-    wt_resp = requests.get(WIKI_API, params={
-        "action": "parse", "pageid": pageid, "format": "json", "prop": "wikitext", "section": men_section_idx,
-    }, timeout=20, headers=WIKI_HEADERS)
-    wt_resp.raise_for_status()
-    return wt_resp.json().get("parse", {}).get("wikitext", {}).get("*")
+    return "\n".join(chunks)
 
 
 def _parse_date(date_str, time_str):
@@ -159,7 +185,7 @@ def _parse_fixtures(wikitext):
             "date": match_dt.strftime("%Y-%m-%d") if match_dt else fields.get("date", ""),
             "time": fields.get("time", ""),
             "venue": venue,
-            "completed": bool(result),
+            "completed": bool(result) or bool(score1 and score2),
             "result": result or None,
             "score1": score1 or None, "score2": score2 or None,
         })
@@ -175,8 +201,17 @@ def get_hundred_fixtures():
     cache_key = year
     now = time.time()
     cached = _cache.get(cache_key)
-    if cached and now - cached["fetched_at"] < CACHE_TTL_SECONDS:
-        return cached["data"]
+    ttl = CACHE_TTL_SECONDS
+    if cached:
+        today = datetime.datetime.now().strftime("%Y-%m-%d")
+        if any(
+            (f.get("date") or "")[:10] == today and not f.get("completed")
+            for f in cached["data"]
+        ):
+            ttl = LIVE_CACHE_TTL_SECONDS
+        from live_cache_bust import is_fresh
+        if is_fresh(cached["fetched_at"], ttl):
+            return cached["data"]
 
     try:
         wikitext = _fetch_fixtures_section_wikitext(year)
@@ -214,7 +249,10 @@ def get_upcoming_and_live(fixtures=None):
     matches, sorted chronologically -- what the /hundred/fixtures page
     actually shows."""
     fixtures = fixtures if fixtures is not None else get_hundred_fixtures()
-    today_str = datetime.datetime.now().strftime("%Y-%m-%d")
-    upcoming = [f for f in fixtures if not f["completed"] and f["date"] >= today_str]
+    import today_picks
+    upcoming = [
+        f for f in fixtures
+        if today_picks.fixture_is_upcoming_or_live(f, sport_key="cricket")
+    ]
     upcoming.sort(key=lambda f: (f["date"], f.get("time") or ""))
     return upcoming

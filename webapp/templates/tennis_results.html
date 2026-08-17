@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}ATP Tennis Results &amp; Prediction Accuracy{% if full_slate_acc %} ({{ full_slate_acc }} OOS){% endif %} | Degen Predictions{% endblock %}
+{% block description %}ATP tennis prediction track record{% if full_slate_acc %}: {{ full_slate_acc }} full-slate out-of-sample match-winner accuracy{% endif %}. Recent men's singles with model win probability vs actual result.{% endblock %}
+{% block keywords %}ATP results, tennis prediction accuracy, tennis predictions track record{% endblock %}
+{% block body_class %} sport-atmosphere tennis-page{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+{{ nav_back('/sports/tennis', 'Tennis') }}
+<div class="leagues-hero">
+    <h1>ATP Tennis Results</h1>
+    <p class="muted">Recent tour-level matches with replayed model probabilities.{% if full_slate_acc %} Full-slate OOS accuracy: <strong>{{ full_slate_acc }}</strong>.{% endif %}</p>
+    <p class="cricket-quick-links">
+        <a class="league-cta" href="/tennis/fixtures">Fixtures</a>
+        <a class="league-cta" href="/todays-picks/tennis/atp">Today's Picks</a>
+    </p>
+</div>
+{% if results %}
+<div class="fixture-grid">
+{% for m in results %}
+    <article class="fixture-card {{ 'ok-confidence' if m.correct else 'low-confidence' }}">
+        <div class="fixture-card-head">
+            <div class="fixture-matchup">
+                <span class="fixture-teams">{{ m.player1 }} vs {{ m.player2 }}</span>
+                <div class="fixture-date">{{ m.date }} · {{ m.tournament }} · {{ m.surface }} · {{ m.level }}</div>
+            </div>
+        </div>
+        <div class="fixture-outcomes">
+            {% if m.player1_win_prob is not none %}
+            <div><span>Model P({{ m.player1 }}): {{ (m.player1_win_prob * 100)|round(1) }}%</span></div>
+            {% endif %}
+            <div><span>Actual: {% if m.actual_player1_win %}{{ m.player1 }}{% else %}{{ m.player2 }}{% endif %} won{% if m.score %} ({{ m.score }}){% endif %}</span></div>
+            {% if m.correct is not none %}
+            <span class="insight-chip">{% if m.correct %}Correct{% else %}Miss{% endif %}</span>
+            {% endif %}
+        </div>
+    </article>
+{% endfor %}
+</div>
+{% else %}
+<p class="muted">No tennis results available yet.</p>
+{% endif %}
+{% endblock %}

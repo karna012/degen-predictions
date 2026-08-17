@@ -15,7 +15,7 @@ cd "$REPO_DIR"
 
 echo "==> Installing system packages"
 sudo apt-get update -y
-sudo apt-get install -y python3-venv python3-pip nginx certbot python3-certbot-nginx
+sudo apt-get install -y python3-venv python3-pip nginx certbot python3-certbot-nginx fail2ban
 
 echo "==> Creating virtualenv"
 python3 -m venv venv
@@ -40,12 +40,18 @@ sudo systemctl daemon-reload
 sudo systemctl enable degen-predictions
 sudo systemctl restart degen-predictions
 
-echo "==> Configuring nginx"
+echo "==> Configuring nginx (rate limits + site)"
+sudo cp deploy/nginx-limits.conf /etc/nginx/conf.d/degen-limits.conf
 sudo cp deploy/nginx.conf /etc/nginx/sites-available/degen-predictions
 sudo ln -sf /etc/nginx/sites-available/degen-predictions /etc/nginx/sites-enabled/degen-predictions
 sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t
 sudo systemctl restart nginx
+
+echo "==> Configuring fail2ban"
+sudo cp deploy/jail.local /etc/fail2ban/jail.local
+sudo systemctl enable fail2ban
+sudo systemctl restart fail2ban
 
 echo ""
 echo "==> Done. Next steps:"

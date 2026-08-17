@@ -1,0 +1,234 @@
+{
+  "base": "https://degenpredictions.com",
+  "total": 25,
+  "passed": 25,
+  "failed": 0,
+  "failures": [],
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1207,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/crypto",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 418,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/faq",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1145,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 357,
+      "ctype": "text/plain; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/mlb/",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 2048,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/npb/",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 4158,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1923,
+      "ctype": "text/plain; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1436,
+      "ctype": "application/xml; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/sports",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1239,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/sports/cricket",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1257,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/sports/soccer",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1166,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/static/asset-logos/AAPL.png",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 822,
+      "ctype": "image/png",
+      "detail": ""
+    },
+    {
+      "path": "/static/asset-logos/ETERNAL.NS.png",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 3148,
+      "ctype": "image/png",
+      "detail": ""
+    },
+    {
+      "path": "/static/asset-logos/INDIGO.NS.png",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1066,
+      "ctype": "image/png",
+      "detail": ""
+    },
+    {
+      "path": "/static/asset-logos/M_M.NS.png",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1487,
+      "ctype": "image/png",
+      "detail": ""
+    },
+    {
+      "path": "/static/asset-logos/TMPV.NS.png",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 792,
+      "ctype": "image/png",
+      "detail": ""
+    },
+    {
+      "path": "/static/asset-logos/TRENT.NS.png",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1008,
+      "ctype": "image/png",
+      "detail": ""
+    },
+    {
+      "path": "/static/asset-logos/bitcoin.png",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1038,
+      "ctype": "image/png",
+      "detail": ""
+    },
+    {
+      "path": "/static/asset-logos/ethereum.png",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1124,
+      "ctype": "image/png",
+      "detail": ""
+    },
+    {
+      "path": "/static/mobile.css",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 51,
+      "ctype": "text/css",
+      "detail": ""
+    },
+    {
+      "path": "/static/ui-pro.css",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 782,
+      "ctype": "text/css",
+      "detail": ""
+    },
+    {
+      "path": "/stocks",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 292,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/stocks/india",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 370,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/stocks/us",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 645,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    },
+    {
+      "path": "/todays-picks",
+      "status": 200,
+      "expect": 200,
+      "ok": true,
+      "ms": 1242,
+      "ctype": "text/html; charset=utf-8",
+      "detail": ""
+    }
+  ]
+}

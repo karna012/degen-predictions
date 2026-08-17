@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-08T15:11:35.012206+00:00",
+  "rule": {
+    "name": "Safer Result",
+    "double_chance_threshold": 0.7,
+    "exact_win_threshold": 0.75,
+    "minimum_raw_exact_win": 0.75,
+    "minimum_evaluation_picks": 40,
+    "calibration": "Platt scaling fitted on the earlier half of the existing chronological model holdout",
+    "evaluation": "Fixed rule scored on the later half; thresholds were not searched on evaluation results",
+    "inputs": "Pre-kickoff model probabilities and Elo favourite only",
+    "model_strategy_note": "Uses each league's already-deployed model strategy, frozen before the Safer Result rule was specified"
+  },
+  "leagues": {
+    "premier_league": {
+      "label": "Premier League",
+      "available": true,
+      "met_target": true,
+      "holdout_n": 529,
+      "calibration_n": 264,
+      "evaluation_n": 265,
+      "evaluation_start": "2025-11-22",
+      "evaluation_end": "2026-05-24",
+      "n": 174,
+      "correct": 142,
+      "accuracy": 0.8160919540229885,
+      "coverage": 0.6566037735849056,
+      "exact_n": 1,
+      "exact_correct": 1,
+      "double_chance_n": 173,
+      "double_chance_correct": 141,
+      "calibration": {
+        "favorite_win": {
+          "intercept": 0.09065999747752614,
+          "slope": 1.2031336406743904
+        },
+        "favorite_avoids_defeat": {
+          "intercept": 0.2891732133642159,
+          "slope": 0.9067053217873766
+        }
+      },
+      "model_strategies": {
+        "result": "stacked",
+        "favorite_avoids_defeat": "rf"
+      }
+    },
+    "la_liga": {
+      "label": "La Liga",
+      "available": true,
+      "met_target": true,
+      "holdout_n": 529,
+      "calibration_n": 264,
+      "evaluation_n": 265,
+      "evaluation_start": "2025-11-09",
+      "evaluation_end": "2026-05-24",
+      "n": 194,
+      "correct": 144,
+      "accuracy": 0.7422680412371134,
+      "coverage": 0.7320754716981132,
+      "exact_n": 2,
+      "exact_correct": 2,
+      "double_chance_n": 192,
+      "double_chance_correct": 142,
+      "calibration": {
+        "favorite_win": {
+          "intercept": 0.19233882852205558,
+          "slope": 1.0831219716010678
+        },
+        "favorite_avoids_defeat": {
+          "intercept": 0.07672889079798789,
+          "slope": 1.010537791418559
+        }
+      },
+      "model_strategies": {
+        "result": "catboost",
+        "favorite_avoids_defeat": "rf"
+      }
+    },
+    "serie_a": {
+      "label": "Serie A",
+      "available": true,
+      "met_target": true,
+      "holdout_n": 528,
+      "calibration_n": 264,
+      "evaluation_n": 264,
+      "evaluation_start": "2025-11-23",
+      "evaluation_end": "2026-05-24",
+      "n": 261,
+      "correct": 200,
+      "accuracy": 0.7662835249042146,
+      "coverage": 0.9886363636363636,
+      "exact_n": 1,
+      "exact_correct": 1,
+      "double_chance_n": 260,
+      "double_chance_correct": 199,
+      "calibration": {
+        "favorite_win": {
+          "intercept": -0.13754842558954553,
+          "slope": 1.148321192018968
+        },
+        "favorite_avoids_defeat": {
+          "intercept": 0.6183561299770944,
+          "slope": 0.5678108945108533
+        }
+      },
+      "model_strategies": {
+        "result": "stacked",
+        "favorite_avoids_defeat": "rf"
+      }
+    },
+    "bundesliga": {
+      "label": "Bundesliga",
+      "available": true,
+      "met_target": true,
+      "holdout_n": 425,
+      "calibration_n": 212,
+      "evaluation_n": 213,
+      "evaluation_start": "2025-11-22",
+      "evaluation_end": "2026-05-16",
+      "n": 195,
+      "correct": 157,
+      "accuracy": 0.8051282051282052,
+      "coverage": 0.9154929577464789,
+      "exact_n": 10,
+      "exact_correct": 6,
+      "double_chance_n": 185,
+      "double_chance_correct": 151,
+      "calibration": {
+        "favorite_win": {
+          "intercept": 0.1287566809104397,
+          "slope": 0.8907900183201929
+        },
+        "favorite_avoids_defeat": {
+          "intercept": 0.711854499960234,
+          "slope": 0.3809141358417434
+        }
+      },
+      "model_strategies": {
+        "result": "catboost",
+        "favorite_avoids_defeat": "rf"
+      }
+    },
+    "ligue_1": {
+      "label": "Ligue 1",
+      "available": true,
+      "met_target": true,
+      "holdout_n": 464,
+      "calibration_n": 232,
+      "evaluation_n": 232,
+      "evaluation_start": "2025-10-25",
+      "evaluation_end": "2026-05-17",
+      "n": 118,
+      "correct": 93,
+      "accuracy": 0.788135593220339,
+      "coverage": 0.5086206896551724,
+      "exact_n": 0,
+      "exact_correct": 0,
+      "double_chance_n": 118,
+      "double_chance_correct": 93,
+      "calibration": {
+        "favorite_win": {
+          "intercept": 0.4435508775418931,
+          "slope": 1.9067712849200684
+        },
+        "favorite_avoids_defeat": {
+          "intercept": -0.7722434013469512,
+          "slope": 1.5121776430057956
+        }
+      },
+      "model_strategies": {
+        "result": "xgb",
+        "favorite_avoids_defeat": "xgb"
+      }
+    },
+    "mls": {
+      "label": "MLS",
+      "available": true,
+      "met_target": true,
+      "holdout_n": 708,
+      "calibration_n": 354,
+      "evaluation_n": 354,
+      "evaluation_start": "2025-09-22",
+      "evaluation_end": "2026-08-02",
+      "n": 175,
+      "correct": 139,
+      "accuracy": 0.7942857142857143,
+      "coverage": 0.4943502824858757,
+      "exact_n": 0,
+      "exact_correct": 0,
+      "double_chance_n": 175,
+      "double_chance_correct": 139,
+      "calibration": {
+        "favorite_win": {
+          "intercept": 0.019123240280551547,
+          "slope": 0.7920593135441093
+        },
+        "favorite_avoids_defeat": {
+          "intercept": 0.35527181094826804,
+          "slope": 0.6564707898315411
+        }
+      },
+      "model_strategies": {
+        "result": "rf",
+        "favorite_avoids_defeat": "xgb"
+      }
+    }
+  },
+  "aggregate": {
+    "evaluation_n": 1593,
+    "n": 1117,
+    "correct": 875,
+    "accuracy": 0.7833482542524619,
+    "coverage": 0.7011927181418707,
+    "exact_n": 14,
+    "exact_correct": 10,
+    "double_chance_n": 1103,
+    "double_chance_correct": 865,
+    "met_target": true
+  }
+}

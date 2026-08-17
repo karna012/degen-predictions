@@ -11,6 +11,7 @@ block on a live news fetch.
 """
 import logging
 import time
+import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 import feedparser
@@ -20,15 +21,24 @@ logger = logging.getLogger(__name__)
 
 _analyzer = SentimentIntensityAnalyzer()
 _cache = {}
+_inflight = set()
+_executor = ThreadPoolExecutor(max_workers=6, thread_name_prefix="sentiment")
 SENTIMENT_CACHE_TTL_SECONDS = 6 * 3600  # 6 hours -- team news doesn't need to be fresher than this
 MAX_HEADLINES = 10
+FETCH_TIMEOUT_SECONDS = 2.5
 GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={query}&hl=en-US&gl=US&ceid=US:en"
 
 
 def _fetch_and_score(team_name):
     try:
         url = GOOGLE_NEWS_RSS.format(query=team_name.replace(" ", "+"))
-        feed = feedparser.parse(url)
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": "DegenPredictions/1.0 (+https://degenpredictions.com)"},
+        )
+        with urllib.request.urlopen(req, timeout=FETCH_TIMEOUT_SECONDS) as resp:
+            raw = resp.read()
+        feed = feedparser.parse(raw)
         headlines = [e.title for e in feed.entries[:MAX_HEADLINES]]
         if not headlines:
             return None
@@ -39,33 +49,51 @@ def _fetch_and_score(team_name):
         return None
 
 
+def _store(team_name, score):
+    _cache[team_name] = {"score": score, "fetched_at": time.time()}
+    _inflight.discard(team_name)
+
+
+def _schedule_fetch(team_name):
+    """Background fill -- never awaited from a request handler."""
+    if team_name in _inflight:
+        return
+    _inflight.add(team_name)
+
+    def _job():
+        try:
+            score = _fetch_and_score(team_name)
+            _store(team_name, score)
+        except Exception:
+            _inflight.discard(team_name)
+
+    _executor.submit(_job)
+
+
 def get_team_sentiment(team_name):
     """Returns a float in [-1, 1], or None if no headlines were found /
-    the fetch failed -- callers must treat None as "no signal", not 0.0
-    (which would look like real neutral sentiment)."""
+    the fetch failed / cache is cold -- callers must treat None as "no signal",
+    not 0.0 (which would look like real neutral sentiment).
+
+    Cold misses schedule a background fetch and return immediately so page
+    TTFB never waits on Google News RSS.
+    """
     now = time.time()
     cached = _cache.get(team_name)
     if cached and now - cached["fetched_at"] < SENTIMENT_CACHE_TTL_SECONDS:
         return cached["score"]
-    score = _fetch_and_score(team_name)
-    _cache[team_name] = {"score": score, "fetched_at": now}
-    return score
+    _schedule_fetch(team_name)
+    return cached["score"] if cached else None
 
 
 def prefetch_team_sentiments(team_names, max_workers=10):
-    """Resolves every not-yet-cached team's sentiment in parallel before
-    the caller starts its own loop -- pages like /results that call
-    get_team_sentiment() once per team across dozens of past games were
-    paying for each fetch sequentially on a cold cache (e.g. right after a
-    deploy restarts the worker process), the exact same slow-page-load
-    failure mode the NPB pitcher-name and geoip lookups hit earlier in this
-    project -- same fix applies here."""
+    """Kick off background fetches for not-yet-cached teams.
+
+    Does not block the caller -- previously this waited on a thread pool and
+    could stall MLB/NPB boards for many seconds on a cold worker.
+    """
+    del max_workers  # kept for call-site compatibility
     now = time.time()
-    uncached = [
-        t for t in set(team_names)
-        if not (t in _cache and now - _cache[t]["fetched_at"] < SENTIMENT_CACHE_TTL_SECONDS)
-    ]
-    if not uncached:
-        return
-    with ThreadPoolExecutor(max_workers=max_workers) as pool:
-        list(pool.map(get_team_sentiment, uncached))
+    for t in set(team_names):
+        if not (t in _cache and now - _cache[t]["fetched_at"] < SENTIMENT_CACHE_TTL_SECONDS):
+            _schedule_fetch(t)

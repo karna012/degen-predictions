@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block title %}Accuracy Hub — Holdout & 70% Tier | Degen Predictions{% endblock %}
+{% block description %}Honest out-of-sample accuracy for soccer, MLB, NPB, and cricket, including the selective Safer Result rule used on soccer predictions.{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back, breadcrumb_jsonld %}
+{{ breadcrumb_jsonld([
+    {"label": "Home", "href": "/"},
+    {"label": "Accuracy", "href": "/accuracy"},
+]) }}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/sports', 'Sports') }}
+    <a class="page-nav-link" href="/todays-picks">Today's picks</a>
+    <a class="page-nav-link" href="/todays-picks/combos">Combos</a>
+</nav>
+<div class="leagues-hero">
+    <h1>Accuracy hub</h1>
+    <p class="muted">Chronological out-of-sample measurements with sample size and coverage. Numbers are research estimates, not guarantees.</p>
+    {% include "partials/updated_stamp.html" %}
+</div>
+
+{% if accuracy_highlights %}
+<section class="accuracy-snapshot" aria-labelledby="oos-snapshot">
+    <h2 id="oos-snapshot">Full-slate OOS snapshot</h2>
+    <p class="muted">Match-winner holdout hit rate from calibrated threshold files. Prefer this table when citing Degen Predictions accuracy.</p>
+    <div class="table-wrap" style="overflow-x:auto;">
+        <table class="rankings-table">
+            <thead>
+                <tr>
+                    <th>League</th>
+                    <th>Full-slate OOS</th>
+                    <th>Board</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in accuracy_highlights %}
+                <tr>
+                    <td>{{ row.label }}</td>
+                    <td><strong>{{ row.pct }}</strong></td>
+                    <td>
+                        {% if row.track_url %}<a href="{{ row.track_url }}">Results</a>{% endif %}
+                        {% if row.picks_url %} · <a href="{{ row.picks_url }}">Picks</a>{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endif %}
+
+{% if published_track %}
+{% set team = published_track.team or {} %}
+{% set board = published_track.board or {} %}
+<section class="accuracy-snapshot" aria-labelledby="published-track" style="margin-top:1.75rem;">
+    <h2 id="published-track">Published slips (last 30 days)</h2>
+    <p class="muted">Graded channel / Best Combos tickets after games finish — not the same as model holdout OOS above.</p>
+    <div class="league-grid" style="margin-top:0.75rem;">
+        <div class="league-card" style="--league-color:#2dd4bf;cursor:default;">
+            <div class="league-card-content">
+                <h3>Channel slips</h3>
+                <p class="league-desc">
+                    {% if team.hit_rate is not none %}
+                    <strong>{{ (team.hit_rate * 100)|round(1) }}%</strong>
+                    {% else %}—{% endif %}
+                    · {{ team.won or 0 }}W / {{ team.lost or 0 }}L
+                    ({{ team.decided or 0 }} decided)
+                </p>
+            </div>
+        </div>
+        <div class="league-card" style="--league-color:#fbbf24;cursor:default;">
+            <div class="league-card-content">
+                <h3>Best Combos board</h3>
+                <p class="league-desc">
+                    {% if board.hit_rate is not none %}
+                    <strong>{{ (board.hit_rate * 100)|round(1) }}%</strong>
+                    {% else %}—{% endif %}
+                    · {{ board.won or 0 }}W / {{ board.lost or 0 }}L
+                    ({{ board.decided or 0 }} decided)
+                </p>
+            </div>
+        </div>
+    </div>
+    <p class="muted" style="margin-top:0.75rem;">
+        Also see league ledgers:
+        <a href="/mlb/results">MLB</a> ·
+        <a href="/nfl/results">NFL</a> ·
+        <a href="/tennis/results">Tennis</a> ·
+        <a href="/todays-picks">Today's Picks</a>
+    </p>
+</section>
+{% endif %}
+
+<section style="margin-top:1.75rem;">
+    <h2>Soccer OOS accuracy</h2>
+    <p class="muted">Safer Result is selective: favourite-or-draw at calibrated probability ≥70%, upgraded to an exact favourite win only when both its calibrated probability and underlying 1X2 score are ≥75%; otherwise no pick. Calibration uses the earlier half of the model holdout and the accuracy below uses the later half.</p>
+    <div class="table-wrap" style="overflow-x:auto;">
+        <table class="rankings-table">
+            <thead>
+                <tr>
+                    <th>League</th>
+                    <th>Safer Result</th>
+                    <th>BTTS</th>
+                    <th>O/U 2.5</th>
+                    <th>Corners</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in soccer_rows %}
+                <tr>
+                    <td><a href="/{{ row.key }}/backtest">{{ row.label }}</a></td>
+                    <td><strong>{{ row.safer }}</strong></td>
+                    <td>{{ row.btts }}</td>
+                    <td>{{ row.over25 }}</td>
+                    <td>{{ row.corners }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="5" class="muted">Metrics unavailable.</td></tr>
+                {% endfor %}
+                {% if soccer_aggregate %}
+                <tr>
+                    <td><strong>All leagues</strong></td>
+                    <td><strong>{{ soccer_aggregate }}</strong></td>
+                    <td colspan="3" class="muted">Selective-rule aggregate</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section style="margin-top:2rem;">
+    <h2>Baseball &amp; cricket</h2>
+    <div class="table-wrap" style="overflow-x:auto;">
+        <table class="rankings-table">
+            <thead>
+                <tr>
+                    <th>League</th>
+                    <th>Full-slate OOS</th>
+                    <th>70% tier</th>
+                    <th>Track record</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in other_rows %}
+                <tr>
+                    <td>{{ row.label }}</td>
+                    <td>{{ row.full_slate }}</td>
+                    <td>{{ row.tier }}</td>
+                    <td>{% if row.track_url %}<a href="{{ row.track_url }}">Results</a>{% else %}—{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% endblock %}

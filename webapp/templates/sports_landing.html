@@ -1,19 +1,28 @@
 {% extends "base.html" %}
-{% block title %}Sports Predictions -- Football, Baseball & Cricket | Degen Predictions{% endblock %}
-{% block description %}Free ML & AI-powered sports predictions -- football match results, both-teams-to-score and goals forecasts for the Premier League, La Liga, Serie A, Bundesliga and Ligue 1, plus MLB, NPB, and cricket match predictions.{% endblock %}
-{% block keywords %}football predictions, soccer predictions, Premier League predictions, MLB predictions, NPB predictions, cricket predictions, both teams to score, match result predictions, AI sports predictions, machine learning sports forecasts{% endblock %}
+{% block title %}Sports Predictions — MLB, NFL, Tennis, EPL, La Liga, CPL | Degen Predictions{% endblock %}
+{% block description %}Free sports predictions: MLB predictions, NFL predictions, tennis match today, football predictions (EPL &amp; La Liga), CPL &amp; IPL cricket, Today's Picks, and multi-bet Best Combos — fixtures plus public track records.{% endblock %}
+{% block keywords %}sports predictions, MLB predictions, NFL predictions, tennis predictions, tennis match today, football predictions, EPL predictions, La Liga predictions, CPL predictions, IPL predictions, todays picks, multi bet prediction{% endblock %}
 {% block content %}
+{% from "macros.html" import breadcrumb_jsonld %}
+{{ breadcrumb_jsonld([
+    {"label": "Home", "href": "/"},
+    {"label": "Sports", "href": "/sports"},
+]) }}
 <div class="leagues-hero">
-    <h1>Pick a Sport</h1>
-    <p class="muted">Choose a sport to see leagues and predictions.</p>
+    <h1>Sports Predictions</h1>
+    <p class="muted">MLB predictions, NFL forecasts, tennis match forecasts, EPL &amp; La Liga football tips, CPL cricket, and more — full fixtures, or <strong>Today's Picks</strong> and <a href="/todays-picks/combos">multi-bet Best Combos</a>. Estimates, not betting advice.</p>
 </div>
-
+{% set accuracy_strip_mode = 'sports' %}
+{% include "partials/accuracy_strip.html" %}
+{% include "partials/telegram_cta.html" %}
+{% set popular_leagues_title = "Top searched leagues" %}
+{% include "partials/popular_leagues.html" %}
 <div class="league-grid">
     <a class="league-card" href="/sports/soccer" style="--league-color: #2e7d32;">
         <div class="league-card-glow"></div>
         <div class="league-card-content">
             <h2>SOCCER</h2>
-            <p class="league-desc">Premier League, La Liga, Serie A, Bundesliga, Ligue 1.</p>
+            <p class="league-desc">Premier League, La Liga, Serie A, Bundesliga, Ligue 1, MLS, Primeira Liga.</p>
             <span class="league-cta">Get Predictions</span>
         </div>
         <div class="league-badge"><span class="league-monogram">&#9917;</span></div>
@@ -22,7 +31,7 @@
         <div class="league-card-glow"></div>
         <div class="league-card-content">
             <h2>BASEBALL</h2>
-            <p class="league-desc">MLB and NPB.</p>
+            <p class="league-desc">MLB predictions and NPB — daily high-probability leans + public MLB track record.</p>
             <span class="league-cta">Get Predictions</span>
         </div>
         <div class="league-badge"><span class="league-monogram">&#9918;</span></div>
@@ -31,10 +40,45 @@
         <div class="league-card-glow"></div>
         <div class="league-card-content">
             <h2>CRICKET</h2>
-            <p class="league-desc">The Hundred and Major League Cricket.</p>
+            <p class="league-desc">IPL predictions, CPL predictions, BBL, The Hundred, MLC — fixtures, results, analysis.</p>
             <span class="league-cta">Get Predictions</span>
         </div>
         <div class="league-badge"><span class="league-monogram">&#127951;</span></div>
     </a>
+    <a class="league-card" href="/sports/tennis" style="--league-color: #c4a35a;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>TENNIS</h2>
+            <p class="league-desc">Tennis predictions (ATP men) — public full-slate OOS with surface Elo.</p>
+            <span class="league-cta">Get Predictions</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">ATP</span></div>
+    </a>
+    <a class="league-card" href="/sports/american-football" style="--league-color: #013369;">
+        <div class="league-card-glow"></div>
+        <div class="league-card-content">
+            <h2>AMERICAN FOOTBALL</h2>
+            <p class="league-desc">NFL predictions — winner, total points, and spread from live ESPN fixtures.</p>
+            <span class="league-cta">Get Predictions</span>
+        </div>
+        <div class="league-badge"><span class="league-monogram">NFL</span></div>
+    </a>
 </div>
+<section style="max-width: 720px; margin: 2.5rem auto 0; padding: 0 1rem;">
+    <h2 style="font-size: 1.15rem; margin-bottom: 0.75rem;">Track record pages</h2>
+    <p class="muted" style="margin-bottom: 1rem;">See how past predictions compared to real results (public pages -- no login):</p>
+    <ul class="muted" style="line-height: 1.9; padding-left: 1.25rem;">
+        <li><a href="/mlb/results">MLB track record</a> — predicted vs actual ledger · <a href="/npb/results">NPB results</a></li>
+        <li><a href="/nfl/results">NFL track record</a> — winner, totals, and spread ledger</li>
+        <li><a href="/ipl/results">IPL predictions results</a>, <a href="/cpl/results">CPL predictions results</a>, <a href="/bbl/results">BBL</a>, <a href="/hundred/results">The Hundred</a>, <a href="/mlc/results">MLC</a></li>
+        <li><a href="/tennis/results">ATP tennis predictions</a> results</li>
+        <li><a href="/premier_league/backtest">Premier League</a>, <a href="/la_liga/backtest">La Liga</a>, <a href="/mls/backtest">MLS</a> soccer backtests</li>
+        <li><a href="/accuracy">Accuracy hub</a> · <a href="/todays-picks/combos">Best Combos</a> · Today's Picks</li>
+    </ul>
+</section>
+{% set habit_title = "Follow daily sports picks" %}
+{% set habit_blurb = "Bookmark Sports or Today's Picks and share the slate. Degen Predictions publishes free high-probability boards — no account." %}
+{% set share_text = "Degen Predictions — Sports predictions with public OOS track record. Today's Picks:" %}
+{% include "partials/daily_habit.html" %}
+{% include "partials/seo_hub_links.html" %}
 {% endblock %}

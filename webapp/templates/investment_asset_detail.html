@@ -1,114 +1,234 @@
 {% extends "base.html" %}
-{% block title %}{{ asset.ticker }} Prediction | {{ category_label }} | Degen Predictions{% endblock %}
-{% block description %}{{ asset.ticker }} predicted 6-month forward return from a walk-forward-validated machine-learning model.{% endblock %}
-{% block keywords %}{{ asset.ticker }} prediction, {{ asset.ticker }} price prediction, {{ asset.ticker }} forecast, {{ category_label|lower }} predictions, {{ asset.ticker }} 6 month forecast{% endblock %}
+{% block title %}{{ asset.ticker }}{% if asset.name %} ({{ asset.name }}){% endif %} {{ horizon_label if horizon_label is defined else '6-Month' }} ML Forecast | {{ category_label }} | Degen Predictions{% endblock %}
+{% block description %}{% if market == 'crypto' %}{{ asset.ticker }} crypto forecast for {{ horizon_label if horizon_label is defined else 'this horizon' }}: ML rank #{{ asset.rank_within_asset_class }}{% if total_in_class %} of {{ total_in_class }}{% endif %}, Beat BTC / peer lean when absolute returns are withheld. Research only — not investment advice.{% else %}{{ asset.ticker }} stock forecast for {{ horizon_label if horizon_label is defined else 'this horizon' }}: ML rank #{{ asset.rank_within_asset_class }}{% if total_in_class %} of {{ total_in_class }}{% endif %} on the {{ category_label }} board with walk-forward confidence notes. Not investment advice.{% endif %}{% endblock %}
+{% block keywords %}{{ asset.ticker }} prediction, {{ asset.ticker }} price prediction, {{ asset.ticker }} forecast, {{ category_label|lower }} predictions, degen predictions{% endblock %}
+{% block og_image %}https://degenpredictions.com/og/share.png?kind={{ 'crypto' if market == 'crypto' else 'stock' }}&title={{ asset.ticker|urlencode }}&sub={{ (horizon_label ~ ' ML lean · rank #' ~ asset.rank_within_asset_class)|urlencode }}{% endblock %}
+{% block twitter_card %}summary_large_image{% endblock %}
 {% block content %}
-<a href="{{ back_href }}">&larr; Back to {{ category_label }} rankings</a>
-<h1>
-    {% if asset.logo_url %}
-    <img src="{{ asset.logo_url }}" alt="" width="36" height="36" style="border-radius:6px; vertical-align:middle; margin-right:0.5rem;"
-         onerror="this.style.display='none';">
-    {% endif %}
-    {{ asset.ticker }}
-</h1>
-<p class="muted">{{ category_label }} &middot; Rank #{{ asset.rank_within_asset_class }}{% if total_in_class %} of {{ total_in_class }}{% endif %}</p>
+{% from "macros.html" import nav_back %}
+{% set range_only = market == 'crypto' and asset.forecast_mode == 'range_only' %}
+{{ nav_back(back_href, category_label) }}
+<p style="margin:0 0 0.75rem;">
+    <button type="button" class="btn btn-sm watch-toggle"
+            data-kind="{{ 'crypto' if market == 'crypto' else 'stock' }}"
+            data-key="{{ asset.ticker }}"
+            data-label="{{ asset.ticker }}"
+            data-href="{{ request.path }}">★ Watch</button>
+</p>
 
-<div class="card" style="margin-top: 1rem;">
-    <h2>Analysis</h2>
-    <p>{{ asset.ticker }} ranks #{{ asset.rank_within_asset_class }}{% if total_in_class %} out of {{ total_in_class }}{% endif %} in {{ category_label }} by this model's composite score, with a predicted {{ (asset.predicted_forward_return * 100) | round(1) }}% return over the 6 months from {{ asset.as_of_date }} to {{ asset.hold_until_date }} and a {{ (asset.predicted_outperform_probability * 100) | round(1) }}% estimated probability of beating the benchmark over that window.</p>
-    <p>
-        {%- if asset.sentiment_score is not none and asset.sentiment_score == asset.sentiment_score -%}
-        Recent news sentiment is {{ "positive" if asset.sentiment_score > 0.05 else ("negative" if asset.sentiment_score < -0.05 else "neutral") }} ({{ asset.sentiment_score | round(2) }} on a -1 to +1 scale, from {{ asset.sentiment_headline_count|int }} recent headlines).
-        {%- else -%}
-        No recent headlines were found for this asset, so news sentiment isn't factored into this prediction.
-        {%- endif %}
-        Data confidence for this ranking is <strong>{{ asset.data_confidence }}</strong>{% if asset.data_confidence != "high" %}, meaning some of the underlying inputs were imputed (sector/peer median) rather than directly observed -- treat the prediction with more caution than a high-confidence pick{% endif %}.
-    </p>
-    <p class="muted" style="font-size: 0.85rem;">Rank, predicted return, and sentiment are the model's actual computed outputs for this asset, refreshed each time the ranking pipeline runs -- not a template estimate.</p>
-</div>
-
-<div id="not-financial-advice-overlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:999; display:flex; align-items:center; justify-content:center; padding:1rem;">
+<div id="not-financial-advice-overlay"
+     data-dismiss-key="dismissed-not-financial-advice-{{ market }}"
+     style="position:fixed; top:0; right:0; bottom:0; left:0; inset:0; background:rgba(0,0,0,0.55); z-index:10050; display:flex; align-items:center; justify-content:center; padding:1rem;">
     <div class="disclaimer" id="not-financial-advice-banner" style="max-width:70ch; max-height:85vh; overflow-y:auto; border:2px solid #c0392b; padding:1.25rem; border-radius:8px; position:relative; background:var(--bg, #0d0d16);">
         <button type="button" onclick="dismissDisclaimer()" aria-label="Dismiss"
                 style="position:absolute; top:0.5rem; right:0.6rem; background:none; border:none; color:inherit; font-size:1.4rem; line-height:1; cursor:pointer; opacity:0.7;">&times;</button>
-        <strong>&#9888; NOT FINANCIAL ADVICE.</strong> This is the output of an experimental
-        machine-learning model, for educational/research purposes only -- not a recommendation to buy or sell,
-        not investment advice, not a solicitation. The site owner is not a registered investment advisor.
-        Investing carries risk of total loss; you are solely responsible for your own decisions. Full terms:
-        <a href="/terms">/terms</a>.
+        <strong>&#9888; NOT FINANCIAL ADVICE.</strong> Experimental ML output for education/research only.
+        Full terms: <a href="/terms">/terms</a>.
     </div>
 </div>
 <script>
 (function() {
     var overlay = document.getElementById("not-financial-advice-overlay");
     if (!overlay) return;
-    if (sessionStorage.getItem("dismissed-not-financial-advice")) {
-        overlay.style.display = "none";
+    var key = overlay.getAttribute("data-dismiss-key") || "dismissed-not-financial-advice";
+    if (sessionStorage.getItem(key)) {
+        overlay.classList.add("is-dismissed");
         return;
     }
-    var timer = setTimeout(dismissDisclaimer, 7000);
-    overlay.addEventListener("click", function(e) {
-        if (e.target === overlay) { clearTimeout(timer); dismissDisclaimer(); }
-    });
+    if (overlay.parentNode !== document.body) document.body.appendChild(overlay);
+    var timer = null;
+    function armDismiss() {
+        timer = setTimeout(dismissDisclaimer, 6000);
+        overlay.addEventListener("click", function(e) {
+            if (e.target === overlay) { clearTimeout(timer); dismissDisclaimer(); }
+        });
+    }
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", armDismiss);
+    } else {
+        armDismiss();
+    }
 })();
 function dismissDisclaimer() {
     var overlay = document.getElementById("not-financial-advice-overlay");
-    if (overlay) overlay.style.display = "none";
-    sessionStorage.setItem("dismissed-not-financial-advice", "1");
+    if (!overlay) return;
+    overlay.classList.add("is-dismissed");
+    var key = overlay.getAttribute("data-dismiss-key") || "dismissed-not-financial-advice";
+    sessionStorage.setItem(key, "1");
 }
 </script>
 
-<div class="card-grid">
-    {% if asset.as_of_date %}
+<h1 style="display:flex; align-items:center; gap:0.55rem; flex-wrap:wrap;">
+    {% if asset.logo_url %}
+    <img class="asset-logo" src="{{ asset.logo_url }}" alt="" width="36" height="36"
+         style="border-radius:6px; vertical-align:middle;"
+         onerror="this.style.display='none'; var m=this.nextElementSibling; if(m) m.style.display='inline-flex';">
+    <span class="asset-monogram" style="display:none; width:36px; height:36px; border-radius:6px; background:rgba(255,255,255,0.08); align-items:center; justify-content:center; font-size:0.75rem; font-weight:700;">{{ asset.ticker[:2]|upper }}</span>
+    {% else %}
+    <span class="asset-monogram" style="display:inline-flex; width:36px; height:36px; border-radius:6px; background:rgba(255,255,255,0.08); align-items:center; justify-content:center; font-size:0.75rem; font-weight:700;">{{ asset.ticker[:2]|upper }}</span>
+    {% endif %}
+    {{ asset.ticker }}
+</h1>
+<p class="muted">{{ category_label }} &middot; Rank #{{ asset.rank_within_asset_class }}{% if total_in_class %} of {{ total_in_class }}{% endif %}
+    {% if horizon_label is defined %} &middot; {{ horizon_label }}{% endif %}
+    {% if asset.selected_model %} &middot; model: {{ asset.selected_model|replace('_',' ') }}{% endif %}
+    {% if asset.as_of_date %} &middot; as of {{ asset.as_of_date }}{% endif %}
+</p>
+
+<div class="edge-callout" style="margin-top:1rem;">
+    <strong>Walk-forward note</strong>
+    <p style="margin:0.35rem 0 0; color:var(--muted);">
+        {% if range_only %}
+        Absolute USD return direction failed purged OOS checks, so this page shows a downside probability and empirical range instead of a point forecast.
+        {% else %}
+        Measured overfitting on holdout folds — treat this as a rough lean, not a precise forecast.
+        {% endif %}
+        Data confidence: <strong>{{ asset.data_confidence }}</strong>{% if asset.data_confidence != "high" %} (some inputs imputed){% endif %}.
+        Not investment advice.
+    </p>
+</div>
+
+{# Forecast first #}
+<div class="card-grid" style="margin-top:1rem;">
+    {% if range_only %}
     <div class="card">
-        <h2>Recommended Investment Window</h2>
-        <p class="big">{{ asset.as_of_date }} &rarr; {{ asset.hold_until_date }}</p>
-        <p class="muted">A ~6-month hold, matching the model's prediction horizon -- the return below is
-            what the model expects over exactly this window, not an open-ended forecast.</p>
+        <h2>Estimated downside probability</h2>
+        <p class="big" style="color: {{ '#ff6b6b' if (asset.predicted_downside_probability or 0) >= 0.5 else '#f6c85f' }};">
+            {{ '%.0f'|format((asset.predicted_downside_probability or 0) * 100) }}%
+        </p>
+        <p class="muted">Empirical frequency of a negative {{ horizon_label }} outcome after applying the selected model to purged OOS residuals.</p>
+    </div>
+
+    <div class="card">
+        <h2>80% estimated return range</h2>
+        <p class="big">
+            {{ '%+.0f'|format((asset.prediction_interval_low or 0) * 100) }}%
+            <span class="muted">&nbsp;to&nbsp;</span>
+            {{ '%+.0f'|format((asset.prediction_interval_high or 0) * 100) }}%
+        </p>
+        <p class="muted">Uncertainty range, not a guaranteed floor or ceiling.</p>
+    </div>
+    {% else %}
+    <div class="card">
+        <h2>Vs board</h2>
+        <p class="big" style="color: {{ '#3ddc97' if (asset.display_edge or 0) >= 0 else '#ff6b6b' }};">
+            {{ '%+.1f'|format(((asset.display_edge if asset.display_edge is not none else 0) * 100)) }}%
+        </p>
+        <p class="muted">Gap vs the typical name on this board. Green / red is relative, not a buy/sell.</p>
+    </div>
+    <div class="card">
+        <h2>Estimated {{ horizon_label if horizon_label is defined else '6-Month' }} return</h2>
+        <p class="big">
+            {{ '%+.1f'|format(((asset.predicted_forward_return if asset.predicted_forward_return is not none else 0) * 100)) }}%
+        </p>
+        <p class="muted">Absolute window estimate{% if asset.annualized_return is not none %} ({{ '%+.1f'|format(asset.annualized_return * 100) }}%/yr implied){% endif %}. Equity drift is usually positive.</p>
     </div>
     {% endif %}
 
     <div class="card">
-        <h2>Predicted 6-Month Return</h2>
-        <p class="big">{{ (asset.predicted_forward_return * 100) | round(1) }}%</p>
-        <p class="muted">Model's expected return over the next 6 months.</p>
-    </div>
-
-    <div class="card">
-        <h2>Outperform Probability</h2>
-        <div class="bar"><div class="bar-fill home" style="width: {{ asset.predicted_outperform_probability * 100 }}%"></div></div>
-        <p>{{ (asset.predicted_outperform_probability * 100) | round(1) }}% chance of beating the benchmark
+        <h2>{% if market is defined and market == 'crypto' %}Beat BTC Probability{% else %}Outperform Probability{% endif %}</h2>
+        <div class="bar"><div class="bar-fill home" style="width: {{ ((asset.predicted_outperform_probability or 0) * 100) }}%"></div></div>
+        <p>{{ ((asset.predicted_outperform_probability or 0) * 100) | round(1) }}% chance of beating
+            {% if market is defined and market == 'crypto' %}Bitcoin (BTC){% else %}the benchmark{% endif %}
             over the same window.</p>
     </div>
 
+    {% if asset.as_of_date %}
+    <div class="card">
+        <h2>Recommended Investment Window</h2>
+        <p class="big">{{ asset.as_of_date }} &rarr; {{ asset.hold_until_date }}</p>
+        <p class="muted">A {{ horizon_label if horizon_label is defined else '~6-month' }} hold matching the model horizon.</p>
+    </div>
+    {% endif %}
+
     <div class="card">
         <h2>Composite Score</h2>
-        <p>{{ asset.final_score | round(3) }}</p>
-        <p class="muted">Z-scored relative to peers in {{ category_label }}. Stocks blend in a fundamentals
-            composite (P/E, margins, growth, etc.); crypto and low-fundamentals-coverage assets rely on the
-            price/momentum model alone.</p>
-    </div>
-
-    <div class="card">
-        <h2>Data Confidence</h2>
-        <p><strong>{{ asset.data_confidence }}</strong></p>
-        <p class="muted">"low" or "medium" means some of this asset's underlying data was imputed
-            (sector/peer median) rather than directly observed -- treat the prediction with more caution.</p>
-    </div>
-
-    <div class="card">
-        <h2>News Sentiment</h2>
-        {% if asset.sentiment_score is not none and asset.sentiment_score == asset.sentiment_score %}
-        <p>{{ asset.sentiment_score | round(2) }} <span class="muted">(from {{ asset.sentiment_headline_count|int }} recent headlines, VADER score -1 to +1)</span></p>
-        {% else %}
-        <p class="muted">No recent headlines found for this asset.</p>
-        {% endif %}
+        <p>{{ (asset.final_score or 0) | round(3) }}</p>
+        <p class="muted">Z-scored ranking signal in {{ category_label }}.</p>
     </div>
 </div>
 
+{% if endpoint_chart %}
+<section class="card" style="margin-top:1.25rem;">
+    <h2 style="margin-bottom:0.35rem;">Horizon endpoint estimate — not a price path</h2>
+    <p class="muted" style="margin-top:0;">
+        The model estimates only the return at {{ horizon_label }}. It does not predict a straight month-by-month trajectory.
+    </p>
+    <div role="img"
+         aria-label="Estimated {{ horizon_label }} return range from {{ '%+.0f'|format(endpoint_chart.low * 100) }} percent to {{ '%+.0f'|format(endpoint_chart.high * 100) }} percent"
+         style="position:relative; height:76px; margin:1.2rem 0 0.2rem;">
+        <div style="position:absolute; left:0; right:0; top:30px; height:2px; background:rgba(255,255,255,0.18);"></div>
+        <div style="position:absolute; left:{{ endpoint_chart.low_position }}%; width:{{ endpoint_chart.interval_width }}%; top:22px; height:18px; border-radius:999px; background:linear-gradient(90deg,#ff6b6b,#f6c85f,#3ddc97); opacity:0.8;"></div>
+        <div style="position:absolute; left:{{ endpoint_chart.zero_position }}%; top:13px; width:2px; height:36px; background:#fff; opacity:0.72;"></div>
+        {% if endpoint_chart.scenario_position is not none %}
+        <div style="position:absolute; left:calc({{ endpoint_chart.scenario_position }}% - 5px); top:26px; width:10px; height:10px; border-radius:50%; background:#fff; box-shadow:0 0 0 3px rgba(255,255,255,0.18);"></div>
+        {% endif %}
+        <span class="muted" style="position:absolute; left:0; top:52px;">{{ '%+.0f'|format(endpoint_chart.axis_low * 100) }}%</span>
+        <span class="muted" style="position:absolute; right:0; top:52px;">{{ '%+.0f'|format(endpoint_chart.axis_high * 100) }}%</span>
+        <span class="muted" style="position:absolute; left:calc({{ endpoint_chart.zero_position }}% - 14px); top:0;">0%</span>
+    </div>
+    <p class="muted" style="font-size:0.8rem; margin-bottom:0;">
+        Colored band: central 80% OOS-residual estimate. White dot: bias-adjusted median scenario. Both are estimates, not guarantees.
+    </p>
+</section>
+{% endif %}
+
+{% if tv_symbol %}
+<h2 style="font-size:1.05rem; margin:1.5rem 0 0.6rem;">Historical/live market price</h2>
+<div class="tradingview-widget-container table-wrap" style="min-height:360px; overflow:hidden;">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+    "symbol": {{ tv_symbol|tojson }},
+    "width": "100%",
+    "height": "360",
+    "locale": "en",
+    "dateRange": "12M",
+    "colorTheme": "dark",
+    "isTransparent": true,
+    "autosize": true,
+    "largeChartUrl": ""
+  }
+  </script>
+</div>
+<p class="muted" style="font-size:0.8rem;">TradingView market history — context only. This is not a model-generated future path.</p>
+{% endif %}
+
+<details class="analysis-accordion">
+    <summary>Full analysis &amp; sentiment</summary>
+    <p>{{ asset.ticker }} ranks #{{ asset.rank_within_asset_class }}{% if total_in_class %} out of {{ total_in_class }}{% endif %} in {{ category_label }}.
+        {% if range_only %}
+        A deterministic point return is withheld because absolute direction failed the purged OOS guardrails; the rank signal remains useful only for relative ordering.
+        {% else %}
+        Estimated return over {{ horizon_label if horizon_label is defined else '6 months' }} is
+        <strong>{{ '%+.1f'|format(((asset.predicted_forward_return if asset.predicted_forward_return is not none else 0) * 100)) }}%</strong>.
+        {% endif %}
+    </p>
+    <p>
+        {%- if asset.sentiment_score is defined and asset.sentiment_score is not none -%}
+        Recent news sentiment is {{ "positive" if asset.sentiment_score > 0.05 else ("negative" if asset.sentiment_score < -0.05 else "neutral") }} ({{ asset.sentiment_score | round(2) }} on a -1 to +1 scale{% if asset.sentiment_headline_count is defined and asset.sentiment_headline_count is not none %}, from {{ asset.sentiment_headline_count|int }} recent headlines{% endif %}).
+        {%- else -%}
+        No recent headlines were found for this asset, so news sentiment isn't factored into this prediction.
+        {%- endif %}
+    </p>
+    <div class="card-grid" style="margin-top:0.75rem;">
+        <div class="card">
+            <h2>Data Confidence</h2>
+            <p><strong>{{ asset.data_confidence }}</strong></p>
+            <p class="muted">"low" or "medium" means some inputs were imputed rather than observed.</p>
+        </div>
+        <div class="card">
+            <h2>News Sentiment</h2>
+            {% if asset.sentiment_score is defined and asset.sentiment_score is not none %}
+            <p>{{ asset.sentiment_score | round(2) }}{% if asset.sentiment_headline_count is defined and asset.sentiment_headline_count is not none %} <span class="muted">(from {{ asset.sentiment_headline_count|int }} recent headlines)</span>{% endif %}</p>
+            {% else %}
+            <p class="muted">No recent headlines found for this asset.</p>
+            {% endif %}
+        </div>
+    </div>
+</details>
+
 <div class="tips-card">
-    <p class="disclaimer">This is a machine-learning estimate with measured, real overfitting on
-        walk-forward testing (see the rankings page) -- treat it as a rough lean, not a precise
-        forecast. Not financial advice.</p>
+    <p class="disclaimer">Machine-learning estimate with measured walk-forward uncertainty — range/probability, not a guaranteed trajectory. Not financial advice.</p>
 </div>
 {% endblock %}

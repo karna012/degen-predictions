@@ -1,0 +1,382 @@
+{# Admin Security — enable / manage TOTP 2FA. #}
+<section class="admin-section {{ 'is-visible' if admin_section == 'security' else '' }}" data-admin-section="security">
+    {% set tfa = admin_2fa or {} %}
+    {% set setup = admin_2fa_setup or {} %}
+
+    {% if admin_2fa_flash %}
+    <div class="src-toast {% if admin_2fa_flash == 'err' %}is-err{% else %}is-ok{% endif %}">
+        <strong>
+            {% if admin_2fa_flash == 'enabled' %}2FA enabled
+            {% elif admin_2fa_flash == 'disabled' %}2FA disabled
+            {% elif admin_2fa_flash == 'backups' %}Backup codes refreshed
+            {% elif admin_2fa_flash == 'setup' %}Scan the QR below
+            {% elif admin_2fa_flash == 'cancelled' %}Setup cancelled
+            {% elif admin_2fa_flash == 'err' %}Error
+            {% else %}Updated{% endif %}
+        </strong>
+        {% if admin_2fa_flash_msg %}<span>{{ admin_2fa_flash_msg }}</span>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="src-hero">
+        <div class="src-hero-copy">
+            <h2 class="src-hero-title">Admin security</h2>
+            <p class="src-hero-sub">
+                Protect the admin console with an authenticator app (Google Authenticator, Authy, 1Password, etc.).
+            </p>
+        </div>
+        <div class="src-hero-kpis" style="grid-template-columns: repeat(2, minmax(72px, 1fr));">
+            <div class="src-kpi {% if tfa.enabled %}is-ok{% else %}is-bad{% endif %}">
+                <span class="src-kpi-n">{% if tfa.enabled %}ON{% else %}OFF{% endif %}</span>
+                <span class="src-kpi-l">2FA</span>
+            </div>
+            <div class="src-kpi is-info">
+                <span class="src-kpi-n">{{ tfa.backup_remaining or 0 }}</span>
+                <span class="src-kpi-l">Backups left</span>
+            </div>
+        </div>
+    </div>
+
+    {% if admin_2fa_backup_codes %}
+    <div class="panel tfa-backup-panel">
+        <div class="panel-head">
+            <h3>Save these backup codes</h3>
+            <span class="muted">Shown once · store offline</span>
+        </div>
+        <div class="panel-body">
+            <p class="muted" style="margin:0 0 0.85rem;">
+                Each code works once if you lose your phone. Copy them somewhere safe now.
+            </p>
+            <ul class="tfa-backup-list">
+                {% for code in admin_2fa_backup_codes %}
+                <li><code>{{ code }}</code></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if not tfa.enabled %}
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Turn on 2FA</h3>
+            <span class="muted">Recommended</span>
+        </div>
+        <div class="panel-body">
+            {% if not setup.secret %}
+            <p class="muted" style="margin:0 0 1rem;">
+                After you enable this, every admin login needs your password <em>and</em> a rotating 6-digit code.
+            </p>
+            <ol class="tfa-steps">
+                <li>Install an authenticator app on your phone</li>
+                <li>Click <strong>Start setup</strong> and scan the QR code</li>
+                <li>Enter the 6-digit code to confirm</li>
+                <li>Save the backup codes we show you</li>
+            </ol>
+            <form method="post" action="/admin/2fa/setup">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <button type="submit" class="btn btn-primary">Start setup</button>
+            </form>
+            {% else %}
+            <div class="tfa-setup-grid">
+                <div class="tfa-qr-card">
+                    <img src="{{ setup.qr_data_uri }}" alt="2FA QR code" width="220" height="220" class="tfa-qr">
+                    <p class="muted">Scan with your authenticator app</p>
+                </div>
+                <div>
+                    <p class="muted" style="margin:0 0 0.65rem;">Or enter this key manually:</p>
+                    <code class="tfa-secret">{{ setup.secret }}</code>
+                    <p class="muted" style="margin:0.75rem 0 1rem;">
+                        Account: <strong>{{ setup.account }}</strong>
+                        · Issuer: <strong>{{ setup.issuer }}</strong>
+                    </p>
+                    <form method="post" action="/admin/2fa/confirm" class="tfa-confirm-form">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <label class="admin-login-field" for="tfa-confirm-code">
+                            <span>Enter the 6-digit code from the app</span>
+                            <input id="tfa-confirm-code" class="select" type="text" name="code"
+                                   required inputmode="numeric" pattern="[0-9]{6}" maxlength="6"
+                                   autocomplete="one-time-code" autofocus placeholder="123456">
+                        </label>
+                        <div class="sources-actions" style="margin-top:0.85rem;">
+                            <button type="submit" class="btn btn-primary">Confirm &amp; enable</button>
+                        </div>
+                    </form>
+                    <form method="post" action="/admin/2fa/cancel-setup" style="margin-top:0.65rem;">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <button type="submit" class="btn btn-sm">Cancel setup</button>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <div class="panel">
+        <div class="panel-head">
+            <h3>2FA is active</h3>
+            <span class="src-badge src-working">protected</span>
+        </div>
+        <div class="panel-body">
+            <p class="muted" style="margin:0 0 0.85rem;">
+                Enrolled {% if tfa.enrolled_at %}{{ tfa.enrolled_at }}{% else %}—{% endif %}
+                {% if tfa.last_verified_at %} · last verify {{ tfa.last_verified_at }}{% endif %}
+                · {{ tfa.backup_remaining or 0 }} backup code{{ 's' if (tfa.backup_remaining or 0) != 1 else '' }} left
+            </p>
+            <p class="muted" style="margin:0 0 1rem;">
+                Scripts using Basic Auth must send <code>password|123456</code> or header <code>X-Admin-OTP</code>.
+            </p>
+
+            <div class="tfa-manage-grid">
+                <form method="post" action="/admin/2fa/regenerate-backups" class="tfa-manage-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <strong>New backup codes</strong>
+                    <p class="muted">Invalidates old backups. Enter a current app code.</p>
+                    <input class="select" type="text" name="code" required maxlength="16"
+                           placeholder="6-digit or backup code" autocomplete="one-time-code">
+                    <button type="submit" class="btn">Regenerate backups</button>
+                </form>
+                <form method="post" action="/admin/2fa/disable" class="tfa-manage-card is-danger">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <strong>Disable 2FA</strong>
+                    <p class="muted">Only if you are sure. Enter a current app or backup code.</p>
+                    <input class="select" type="text" name="code" required maxlength="16"
+                           placeholder="6-digit or backup code" autocomplete="one-time-code">
+                    <button type="submit" class="btn">Disable 2FA</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% set sec = admin_security_cfg or {} %}
+    <div class="panel" style="margin-top:1rem;">
+        <div class="panel-head">
+            <h3>Access policy</h3>
+            <span class="muted">IP allowlist · idle timeout · down alerts · you are {{ admin_role or 'full' }}</span>
+        </div>
+        <div class="panel-body">
+            {% if admin_2fa_flash == 'policy' %}
+            <div class="src-toast is-ok" style="margin-bottom:0.85rem;"><strong>Saved</strong> Access policy updated</div>
+            {% endif %}
+            {% if admin_2fa_flash == 'password' %}
+            <div class="src-toast is-ok" style="margin-bottom:0.85rem;"><strong>Password updated</strong></div>
+            {% endif %}
+            {% if admin_2fa_flash == 'flask' %}
+            <div class="src-toast is-ok" style="margin-bottom:0.85rem;"><strong>Flask secret rotated</strong> <span>{{ admin_2fa_flash_msg }}</span></div>
+            {% endif %}
+            <p class="muted" style="margin:0 0 0.85rem;">
+                Your current IP: <code>{{ admin_client_ip or '—' }}</code>
+                — include it before enabling the allowlist or you’ll lock yourself out.
+            </p>
+            <form method="post" action="/admin/security/save" class="sources-form">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <div class="sources-grid">
+                    <label style="grid-column:1 / -1;">
+                        Allowed IPs / CIDRs (one per line · empty = allow all)
+                        <textarea name="ip_allowlist" class="select sources-notes" rows="4"
+                                  placeholder="203.0.113.10&#10;10.0.0.0/8">{{ (sec.ip_allowlist or [])|join('\n') }}</textarea>
+                    </label>
+                    <label>
+                        Idle logout (minutes · 0 = off)
+                        <input type="number" min="0" max="1440" name="idle_timeout_minutes" class="select"
+                               value="{{ sec.idle_timeout_minutes or 0 }}">
+                    </label>
+                    <label>
+                        Down-source alert cooldown (minutes)
+                        <input type="number" min="5" max="1440" name="alert_cooldown_minutes" class="select"
+                               value="{{ sec.alert_cooldown_minutes or 60 }}">
+                    </label>
+                    <label class="tg-market-row sources-check">
+                        <input type="checkbox" name="alert_telegram_on_down" value="1"
+                               {{ 'checked' if sec.alert_telegram_on_down else '' }}>
+                        <span>Telegram me when a primary source breaks</span>
+                    </label>
+                    <label class="tg-market-row sources-check">
+                        <input type="checkbox" name="alert_telegram_on_stale_rankings" value="1"
+                               {{ 'checked' if sec.alert_telegram_on_stale_rankings else '' }}>
+                        <span>Telegram me when stocks/crypto CSV is missing or stale (&gt;45d)</span>
+                    </label>
+                </div>
+                <div class="sources-actions">
+                    <button type="submit" class="btn btn-primary">Save access policy</button>
+                </div>
+            </form>
+            <form method="post" action="/admin/security/logout-all" class="tfa-manage-card is-danger" style="margin-top:1rem;"
+                  onsubmit="return confirm('Sign out every admin browser session?');">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <strong>Sign out all sessions</strong>
+                <p class="muted">Bumps the session epoch — every other open admin tab must log in again (including this one).</p>
+                <button type="submit" class="btn">Log out everyone</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel" style="margin-top:1rem;">
+        <div class="panel-head">
+            <h3>Password &amp; secrets hygiene</h3>
+            <span class="muted">primary admin only</span>
+        </div>
+        <div class="panel-body">
+            <div class="tfa-manage-grid">
+                <form method="post" action="/admin/security/change-password" class="tfa-manage-card">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <strong>Change admin password</strong>
+                    <p class="muted">Updates production.env + live process. Min 10 characters.</p>
+                    <input class="select" type="password" name="current_password" required placeholder="Current password" autocomplete="current-password">
+                    <input class="select" type="password" name="new_password" required minlength="10" placeholder="New password" autocomplete="new-password">
+                    <input class="select" type="password" name="confirm_password" required minlength="10" placeholder="Confirm new password" autocomplete="new-password">
+                    <button type="submit" class="btn btn-primary">Update password</button>
+                </form>
+                <form method="post" action="/admin/security/rotate-flask-secret" class="tfa-manage-card"
+                      onsubmit="return confirm('Rotate Flask secret? All sessions will die after service restart.');">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <strong>Rotate Flask secret key</strong>
+                    <p class="muted">Writes a new key to production.env. Restart the web service to apply.</p>
+                    <button type="submit" class="btn">Generate &amp; save new key</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel" style="margin-top:1rem;">
+        <div class="panel-head">
+            <h3>Operators (roles)</h3>
+            <span class="muted">viewer · poster · full</span>
+        </div>
+        <div class="panel-body">
+            <p class="muted" style="margin:0 0 0.85rem;">
+                <strong>viewer</strong> = read only ·
+                <strong>poster</strong> = Telegram/X/results + safe jobs ·
+                <strong>full</strong> = everything. Primary admin always stays full.
+            </p>
+            <form method="post" action="/admin/security/operator" class="sources-form" style="margin-bottom:1rem;">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <input type="hidden" name="action" value="upsert">
+                <div class="sources-grid">
+                    <label>Username
+                        <input class="select" type="text" name="username" required maxlength="80" autocomplete="off">
+                    </label>
+                    <label>Password (min 8)
+                        <input class="select" type="password" name="password" required minlength="8" autocomplete="new-password">
+                    </label>
+                    <label>Role
+                        <select class="select" name="role">
+                            <option value="viewer">viewer</option>
+                            <option value="poster" selected>poster</option>
+                            <option value="full">full</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="sources-actions">
+                    <button type="submit" class="btn btn-primary">Add / update operator</button>
+                </div>
+            </form>
+            {% if admin_operators %}
+            <div class="table-wrap">
+                <table class="admin-table">
+                    <thead><tr><th>User</th><th>Role</th><th>Created</th><th></th></tr></thead>
+                    <tbody>
+                        {% for op in admin_operators %}
+                        <tr>
+                            <td><code>{{ op.username }}</code></td>
+                            <td><span class="src-badge src-needs_key">{{ op.role }}</span></td>
+                            <td class="muted">{{ op.created_at or '—' }}</td>
+                            <td>
+                                <form method="post" action="/admin/security/operator" class="lifecycle-inline-form"
+                                      onsubmit="return confirm('Remove {{ op.username }}?');">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="username" value="{{ op.username }}">
+                                    <button type="submit" class="btn btn-sm">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="muted">No extra operators yet.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="panel" style="margin-top:1rem;">
+        <div class="panel-head">
+            <h3>Active sessions</h3>
+            <span class="muted">browser logins</span>
+        </div>
+        <div class="panel-body">
+            {% if admin_sessions %}
+            <div class="table-wrap">
+                <table class="admin-table">
+                    <thead><tr><th>Actor</th><th>Role</th><th>IP</th><th>Last seen</th><th></th></tr></thead>
+                    <tbody>
+                        {% for s in admin_sessions %}
+                        <tr {% if s.id == admin_session_id %}style="background:rgba(45,212,191,0.06)"{% endif %}>
+                            <td>
+                                <code>{{ s.actor }}</code>
+                                {% if s.id == admin_session_id %}<span class="src-badge src-working">you</span>{% endif %}
+                            </td>
+                            <td class="muted">{{ s.role }}</td>
+                            <td class="muted">{{ s.ip or '—' }}</td>
+                            <td class="muted">{{ s.last_seen or s.created_at or '—' }}</td>
+                            <td>
+                                <form method="post" action="/admin/security/revoke-session" class="lifecycle-inline-form">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                                    <input type="hidden" name="session_id" value="{{ s.id }}">
+                                    <button type="submit" class="btn btn-sm">Revoke</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="muted">No tracked sessions yet — sign in again to populate this list.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="panel" style="margin-top:1rem;">
+        <div class="panel-head">
+            <h3>Audit log</h3>
+            <span class="muted">recent admin actions</span>
+        </div>
+        <div class="panel-body">
+            {% if admin_audit_rows %}
+            <div class="table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>When</th>
+                            <th>Action</th>
+                            <th>OK</th>
+                            <th>IP</th>
+                            <th>Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in admin_audit_rows %}
+                        <tr>
+                            <td class="muted">{{ row.ts }}</td>
+                            <td><code>{{ row.action }}</code></td>
+                            <td>
+                                {% if row.ok %}<span class="src-badge src-working">ok</span>
+                                {% else %}<span class="src-badge src-down">fail</span>{% endif %}
+                            </td>
+                            <td class="muted">{{ row.ip or '—' }}</td>
+                            <td class="muted">{{ row.detail or '' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="muted">No events yet — logins, source switches, and secret saves will show here.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>

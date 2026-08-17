@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block title %}MLB Predictions Today -- Daily Picks &amp; Live Board | Degen Predictions{% endblock %}
+{% block description %}Today's MLB slate with free ML picks already filled in -- predicted winners, win probabilities, and total-runs leans for every live and upcoming game. Not betting advice.{% endblock %}
+{% block keywords %}MLB predictions today, MLB picks today, baseball predictions today, MLB live predictions, MLB moneyline picks, MLB total runs prediction{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/sports/baseball', 'Baseball') }}
+    <a class="page-nav-link" href="/mlb/fixtures">Full fixtures</a>
+    <a class="page-nav-link" href="/mlb/results">Track record</a>
+</nav>
+
+<div class="leagues-hero" style="margin-top:1rem;">
+    <h1>MLB Today</h1>
+    <p class="muted">{{ today_et }} (ET) &middot;
+        {% if live_count %}{{ live_count }} live &middot; {% endif %}
+        {{ upcoming_count }} upcoming
+        {% if finished_count %} &middot; {{ finished_count }} final{% endif %}
+        &mdash; picks are pre-loaded. Estimates, not betting advice.</p>
+</div>
+
+{% if top_picks %}
+<section style="margin:1.5rem 0 2rem;">
+    <h2 style="font-size:1.15rem; margin-bottom:0.75rem;">Daily picks</h2>
+    <p class="muted" style="margin-bottom:1rem;">Highest model confidence among today's unfinished games.</p>
+    <div class="fixture-grid">
+        {% for e in top_picks %}
+        {% set m = e.fixture %}
+        {% set p = e.prediction %}
+        <a class="fixture-card ok-confidence" style="--card-index: {{ loop.index0 }}; text-decoration:none; color:inherit;"
+           href="{{ e.match_url }}">
+            <div class="fixture-card-head">
+                <div>
+                    <span class="fixture-teams">{{ m.away_team }} @ {{ m.home_team }}</span>
+                    <div class="fixture-date">
+                        {% if m.status == 'in' %}Live &mdash; {{ m.status_detail }} ({{ m.away_score }}-{{ m.home_score }})
+                        {% else %}<span class="countdown muted" data-kickoff="{{ m.date }}"></span>{% endif %}
+                    </div>
+                </div>
+                <span class="league-cta" style="pointer-events:none;">{{ (e.confidence * 100) | round(0) | int }}%</span>
+            </div>
+            <div class="fixture-outcomes" style="margin-top:0.5rem;">
+                <div class="outcome-row"><span class="outcome-label">Pick</span><span><strong>{{ e.winner_name }}</strong></span></div>
+                <div class="outcome-row"><span class="outcome-label">Win probs</span>
+                    <span>{{ m.away_team.split(' ')[-1] }} {{ (p.away_prob * 100) | round(1) }}% / {{ m.home_team.split(' ')[-1] }} {{ (p.home_prob * 100) | round(1) }}%</span>
+                </div>
+                <div class="outcome-row"><span class="outcome-label">Total runs</span>
+                    <span>{{ p.total_runs_pick }} {{ p.total_runs_line }}</span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section>
+    <h2 style="font-size:1.15rem; margin-bottom:0.75rem;">Full slate</h2>
+    {% if not board %}
+    <p class="muted">No MLB games on today's slate yet -- check <a href="/mlb/fixtures">upcoming fixtures</a>.</p>
+    {% else %}
+    <div class="fixture-grid">
+        {% for e in board %}
+        {% set m = e.fixture %}
+        {% set p = e.prediction %}
+        <div class="fixture-card {{ 'ok-confidence' if e.prediction else 'low-confidence' }}"
+             style="--card-index: {{ loop.index0 }};{% if e.match_url %} cursor:pointer;{% endif %}"
+             {% if e.match_url %}onclick="window.location.href='{{ e.match_url }}'"{% endif %}>
+            <div class="fixture-card-head">
+                <div>
+                    <span class="fixture-teams">{{ m.away_team }} @ {{ m.home_team }}</span>
+                    <div class="fixture-date">
+                        {% if m.home_pitcher or m.away_pitcher %}
+                        {{ m.away_pitcher.name if m.away_pitcher else 'TBD' }}
+                        {% if m.away_pitcher and m.away_pitcher.era %}({{ m.away_pitcher.era }} ERA){% endif %}
+                        vs {{ m.home_pitcher.name if m.home_pitcher else 'TBD' }}
+                        {% if m.home_pitcher and m.home_pitcher.era %}({{ m.home_pitcher.era }} ERA){% endif %}
+                        {% endif %}
+                        {% if not m.completed and m.status != 'in' %}
+                        <span class="countdown muted" data-kickoff="{{ m.date }}"></span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if m.completed %}
+                <span class="muted">Final {{ m.away_score }}-{{ m.home_score }}</span>
+                {% elif m.status == 'in' %}
+                <span class="confidence-alert">Live {{ m.away_score }}-{{ m.home_score }}</span>
+                {% elif e.confidence %}
+                <span class="muted">{{ (e.confidence * 100) | round(0) | int }}% lean</span>
+                {% else %}
+                <span class="muted">No rating yet</span>
+                {% endif %}
+            </div>
+
+            {% if p %}
+            <div class="fixture-outcomes" style="margin-top:0.4rem;">
+                <div class="outcome-row"><span class="outcome-label">Predicted winner</span>
+                    <span><strong>{{ e.winner_name }}</strong>
+                        {% if e.winner_correct == true %} &#10003;{% elif e.winner_correct == false %} &#10007;{% endif %}
+                    </span>
+                </div>
+                <div class="outcome-row"><span class="outcome-label">Win probability</span>
+                    <span>{{ (p.away_prob * 100) | round(1) }}% / {{ (p.home_prob * 100) | round(1) }}%</span>
+                </div>
+                <div class="outcome-row"><span class="outcome-label">Total runs</span>
+                    <span>{{ p.total_runs_pick }} {{ p.total_runs_line }} (proj {{ p.predicted_total_runs }})</span>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if m.status == 'in' %}
+            <div class="fixture-card-foot"><span class="confidence-alert">&#9918; {{ m.status_detail }}</span></div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>
+
+<p class="muted" style="margin-top:2rem; max-width:40rem;">
+    Model blends Elo, head-to-head, starter ERA proxies, and a trained ML ensemble.
+    See the public <a href="/mlb/results">accuracy ledger</a> for recent predicted-vs-actual.
+</p>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    scheduleSoftReload({
+        hasLive: {{ 'true' if live_count else 'false' }},
+        liveMs: 180000,
+        idleMs: 900000,
+    });
+});
+
+function updateCountdowns() {
+    const now = Date.now();
+    document.querySelectorAll(".countdown[data-kickoff]").forEach(el => {
+        const kickoff = new Date(el.dataset.kickoff).getTime();
+        if (isNaN(kickoff)) return;
+        const diff = kickoff - now;
+        if (diff <= 0) { el.textContent = "-- first pitch imminent"; return; }
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        if (days > 0) el.textContent = `-- first pitch in ${days}d ${hours}h`;
+        else if (hours > 0) el.textContent = `-- first pitch in ${hours}h ${mins}m`;
+        else el.textContent = `-- first pitch in ${mins}m`;
+    });
+}
+updateCountdowns();
+setInterval(updateCountdowns, 60000);
+</script>
+{% endblock %}

@@ -127,16 +127,29 @@ def h2h_sentence(home, away, h2h):
     )
 
 
-def build_match_context(league_key, league_label, home, away, match_date):
-    """Everything match.html needs for the written analysis paragraph. Never raises -- returns
-    None fields if historical data is missing (e.g. a newly promoted team), so the template can
-    render whatever's actually available instead of nothing at all."""
+def build_match_context(league_key, league_label, home, away, match_date, match=None, lineup_info=None):
+    """Everything match.html needs for written analysis. Never raises.
+
+    Includes classic form/H2H sentences plus the richer scout-style report from
+    soccer_match_analysis (explain-only; does not alter ML odds).
+    """
     home_form = get_recent_form(league_key, home, match_date)
     away_form = get_recent_form(league_key, away, match_date)
     h2h = get_head_to_head(league_key, home, away, match_date)
+
+    analysis = None
+    try:
+        import soccer_match_analysis
+        analysis = soccer_match_analysis.build_match_analysis(
+            league_key, league_label, home, away, match_date,
+            match=match, lineup_info=lineup_info,
+        )
+    except Exception:
+        analysis = None
 
     return {
         "home_form_sentence": form_sentence(home, home_form, league_label),
         "away_form_sentence": form_sentence(away, away_form, league_label),
         "h2h_sentence": h2h_sentence(home, away, h2h),
+        "analysis": analysis,
     }

@@ -1,0 +1,3285 @@
+{
+  "meta": {
+    "data_version": "1.2.0",
+    "created": "2020-02-03",
+    "revision": 2
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Adelaide",
+    "dates": [
+      "2020-02-01"
+    ],
+    "event": {
+      "name": "Big Bash League",
+      "stage": "Knockout"
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "officials": {
+      "match_referees": [
+        "RL Parry"
+      ],
+      "reserve_umpires": [
+        "GC Joshua"
+      ],
+      "tv_umpires": [
+        "JD Ward"
+      ],
+      "umpires": [
+        "P Wilson",
+        "SAJ Craig"
+      ]
+    },
+    "outcome": {
+      "winner": "Sydney Thunder",
+      "by": {
+        "runs": 8
+      }
+    },
+    "overs": 20,
+    "player_of_match": [
+      "AD Hales"
+    ],
+    "players": {
+      "Sydney Thunder": [
+        "UT Khawaja",
+        "AD Hales",
+        "CJ Ferguson",
+        "AI Ross",
+        "AJ Nair",
+        "CH Morris",
+        "DR Sams",
+        "JS Lenton",
+        "CP Tremain",
+        "JD Cook",
+        "B Doggett"
+      ],
+      "Adelaide Strikers": [
+        "J Weatherald",
+        "PD Salt",
+        "TM Head",
+        "AT Carey",
+        "JW Wells",
+        "Rashid Khan",
+        "MW Short",
+        "MG Neser",
+        "PM Siddle",
+        "WA Agar",
+        "B Stanlake"
+      ]
+    },
+    "registry": {
+      "people": {
+        "AD Hales": "92aeac25",
+        "AI Ross": "fb0d68b4",
+        "AJ Nair": "4ba2c04d",
+        "AT Carey": "69d03465",
+        "B Doggett": "898e628d",
+        "B Stanlake": "6834d1f2",
+        "CH Morris": "fb66ce1f",
+        "CJ Ferguson": "9b4935c8",
+        "CJ Green": "19b9f399",
+        "CP Tremain": "96824e68",
+        "DR Sams": "caf69bf7",
+        "GC Joshua": "4c47ebf2",
+        "J Weatherald": "edc7ddb6",
+        "JD Cook": "45f56920",
+        "JD Ward": "511299c1",
+        "JS Lenton": "8820c9ef",
+        "JW Wells": "8bdac857",
+        "MG Neser": "0164b064",
+        "MW Short": "a90e53ec",
+        "P Wilson": "68304a36",
+        "PD Salt": "3d284ca3",
+        "PM Siddle": "bd93fea4",
+        "RL Parry": "86d151dc",
+        "Rashid Khan": "5f547c8b",
+        "SAJ Craig": "689f2eed",
+        "TM Head": "12b610c2",
+        "UT Khawaja": "331ea488",
+        "WA Agar": "15de1f5d"
+      }
+    },
+    "season": "2019/20",
+    "team_type": "club",
+    "teams": [
+      "Adelaide Strikers",
+      "Sydney Thunder"
+    ],
+    "toss": {
+      "decision": "field",
+      "winner": "Adelaide Strikers"
+    },
+    "venue": "Adelaide Oval"
+  },
+  "innings": [
+    {
+      "team": "Sydney Thunder",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "UT Khawaja",
+              "bowler": "B Stanlake",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "UT Khawaja",
+              "bowler": "B Stanlake",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "UT Khawaja",
+              "bowler": "B Stanlake",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "UT Khawaja",
+              "bowler": "B Stanlake",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "UT Khawaja",
+              "bowler": "B Stanlake",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "UT Khawaja",
+              "bowler": "B Stanlake",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "AD Hales",
+              "bowler": "MG Neser",
+              "non_striker": "UT Khawaja",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "AD Hales",
+              "bowler": "MG Neser",
+              "non_striker": "UT Khawaja",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "AD Hales",
+              "bowler": "MG Neser",
+              "non_striker": "UT Khawaja",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "AD Hales",
+              "bowler": "MG Neser",
+              "non_striker": "UT Khawaja",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "AD Hales",
+              "bowler": "MG Neser",
+              "non_striker": "UT Khawaja",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "UT Khawaja",
+              "bowler": "MG Neser",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "UT Khawaja",
+              "bowler": "PM Siddle",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "UT Khawaja",
+              "bowler": "PM Siddle",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "UT Khawaja",
+              "bowler": "PM Siddle",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "AD Hales",
+              "bowler": "PM Siddle",
+              "non_striker": "UT Khawaja",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "AD Hales",
+              "bowler": "PM Siddle",
+              "non_striker": "UT Khawaja",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "AD Hales",
+              "bowler": "PM Siddle",
+              "non_striker": "UT Khawaja",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "UT Khawaja",
+              "bowler": "MG Neser",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "UT Khawaja",
+              "bowler": "MG Neser",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "AD Hales",
+              "bowler": "MG Neser",
+              "extras": {
+                "legbyes": 1
+              },
+              "non_striker": "UT Khawaja",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "UT Khawaja",
+              "bowler": "MG Neser",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "UT Khawaja"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "CJ Ferguson",
+              "bowler": "MG Neser",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "AD Hales",
+              "bowler": "MG Neser",
+              "non_striker": "CJ Ferguson",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "CJ Ferguson",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "CJ Ferguson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "CJ Ferguson",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "CJ Ferguson",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "CJ Ferguson",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "CJ Ferguson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "CJ Ferguson",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "CJ Ferguson",
+              "bowler": "PM Siddle",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "CJ Ferguson",
+              "bowler": "PM Siddle",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "CJ Ferguson",
+              "bowler": "PM Siddle",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "CJ Ferguson",
+              "bowler": "PM Siddle",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "lbw",
+                  "player_out": "CJ Ferguson"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "AI Ross",
+              "bowler": "PM Siddle",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "AD Hales",
+              "bowler": "PM Siddle",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "AI Ross",
+              "bowler": "WA Agar",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "AI Ross",
+              "bowler": "WA Agar",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "AD Hales",
+              "bowler": "B Stanlake",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "AI Ross",
+              "bowler": "B Stanlake",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "AD Hales",
+              "bowler": "B Stanlake",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "AD Hales",
+              "bowler": "B Stanlake",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "AD Hales",
+              "bowler": "B Stanlake",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "AI Ross",
+              "bowler": "B Stanlake",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "AI Ross",
+              "bowler": "MG Neser",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "AI Ross",
+              "bowler": "MG Neser",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "AD Hales",
+              "bowler": "MG Neser",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "AD Hales",
+              "bowler": "MG Neser",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "AI Ross",
+              "bowler": "MG Neser",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "AI Ross",
+              "bowler": "MG Neser",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "AI Ross",
+              "bowler": "Rashid Khan",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "AD Hales",
+              "bowler": "Rashid Khan",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "AI Ross",
+              "bowler": "Rashid Khan",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "AI Ross",
+              "bowler": "Rashid Khan",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "AD Hales",
+              "bowler": "Rashid Khan",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "AI Ross",
+              "bowler": "Rashid Khan",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "AI Ross",
+              "bowler": "WA Agar",
+              "non_striker": "AD Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "AD Hales",
+              "bowler": "WA Agar",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "AD Hales",
+              "bowler": "Rashid Khan",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "AD Hales",
+                  "fielders": [
+                    {
+                      "name": "PM Siddle"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "AJ Nair",
+              "bowler": "Rashid Khan",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "AJ Nair",
+              "bowler": "Rashid Khan",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "AJ Nair",
+              "bowler": "Rashid Khan",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "AI Ross",
+              "bowler": "Rashid Khan",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "AI Ross",
+              "bowler": "Rashid Khan",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "AJ Nair",
+              "bowler": "B Stanlake",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "AI Ross",
+              "bowler": "B Stanlake",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "AI Ross",
+              "bowler": "B Stanlake",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "AJ Nair",
+              "bowler": "B Stanlake",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "AJ Nair",
+              "bowler": "B Stanlake",
+              "non_striker": "AI Ross",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "AI Ross",
+              "bowler": "B Stanlake",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "AI Ross",
+              "bowler": "TM Head",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "AI Ross",
+                  "fielders": [
+                    {
+                      "name": "JW Wells"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "AJ Nair",
+              "bowler": "TM Head",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "CH Morris",
+              "bowler": "TM Head",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "AJ Nair",
+              "bowler": "TM Head",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "CH Morris",
+              "bowler": "TM Head",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "CH Morris",
+              "bowler": "TM Head",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "AJ Nair",
+              "bowler": "MG Neser",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "AJ Nair",
+              "bowler": "MG Neser",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "CH Morris",
+              "bowler": "MG Neser",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "AJ Nair",
+              "bowler": "MG Neser",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "AJ Nair",
+              "bowler": "MG Neser",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "CH Morris",
+              "bowler": "MG Neser",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "AJ Nair",
+              "bowler": "Rashid Khan",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "CH Morris",
+              "bowler": "Rashid Khan",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "AJ Nair",
+              "bowler": "Rashid Khan",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "AJ Nair",
+              "bowler": "Rashid Khan",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "AJ Nair",
+              "bowler": "Rashid Khan",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "CH Morris",
+              "bowler": "Rashid Khan",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "AJ Nair",
+              "bowler": "PM Siddle",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "AJ Nair",
+              "bowler": "PM Siddle",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "CH Morris",
+              "bowler": "PM Siddle",
+              "non_striker": "AJ Nair",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "AJ Nair"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "CH Morris",
+              "bowler": "PM Siddle",
+              "non_striker": "DR Sams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "DR Sams",
+              "bowler": "PM Siddle",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "CH Morris",
+              "bowler": "PM Siddle",
+              "non_striker": "DR Sams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "CH Morris",
+              "bowler": "Rashid Khan",
+              "non_striker": "DR Sams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "DR Sams",
+              "bowler": "Rashid Khan",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "DR Sams",
+              "bowler": "Rashid Khan",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "CH Morris",
+              "bowler": "Rashid Khan",
+              "non_striker": "DR Sams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "DR Sams",
+              "bowler": "Rashid Khan",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "DR Sams",
+              "bowler": "Rashid Khan",
+              "non_striker": "CH Morris",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "CH Morris",
+              "bowler": "WA Agar",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "DR Sams",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.1",
+              "batter": "CH Morris",
+              "bowler": "WA Agar",
+              "non_striker": "DR Sams",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "CH Morris",
+              "bowler": "WA Agar",
+              "non_striker": "DR Sams",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "CH Morris",
+                  "fielders": [
+                    {
+                      "name": "AT Carey"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "JS Lenton",
+              "bowler": "WA Agar",
+              "non_striker": "DR Sams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.4",
+              "batter": "DR Sams",
+              "bowler": "WA Agar",
+              "non_striker": "JS Lenton",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "DR Sams",
+              "bowler": "WA Agar",
+              "non_striker": "JS Lenton",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "18.6",
+              "batter": "DR Sams",
+              "bowler": "WA Agar",
+              "non_striker": "JS Lenton",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "actual_delivery": "19.1",
+              "batter": "JS Lenton",
+              "bowler": "PM Siddle",
+              "non_striker": "DR Sams",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.2",
+              "batter": "DR Sams",
+              "bowler": "PM Siddle",
+              "non_striker": "JS Lenton",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "19.3",
+              "batter": "DR Sams",
+              "bowler": "PM Siddle",
+              "non_striker": "JS Lenton",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "DR Sams"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "19.4",
+              "batter": "CP Tremain",
+              "bowler": "PM Siddle",
+              "non_striker": "JS Lenton",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "actual_delivery": "19.5",
+              "batter": "JS Lenton",
+              "bowler": "PM Siddle",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "CP Tremain",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.5",
+              "batter": "JS Lenton",
+              "bowler": "PM Siddle",
+              "non_striker": "CP Tremain",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "19.6",
+              "batter": "JS Lenton",
+              "bowler": "PM Siddle",
+              "non_striker": "CP Tremain",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.6,
+          "type": "mandatory"
+        }
+      ]
+    },
+    {
+      "team": "Adelaide Strikers",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "actual_delivery": "0.1",
+              "batter": "J Weatherald",
+              "bowler": "DR Sams",
+              "non_striker": "PD Salt",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.2",
+              "batter": "PD Salt",
+              "bowler": "DR Sams",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "0.3",
+              "batter": "PD Salt",
+              "bowler": "DR Sams",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.4",
+              "batter": "J Weatherald",
+              "bowler": "DR Sams",
+              "non_striker": "PD Salt",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "0.5",
+              "batter": "PD Salt",
+              "bowler": "DR Sams",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "0.6",
+              "batter": "PD Salt",
+              "bowler": "DR Sams",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "PD Salt",
+                  "fielders": [
+                    {
+                      "name": "AD Hales"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "actual_delivery": "1.1",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.2",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "1.3",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.4",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "1.5",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "1.6",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "actual_delivery": "2.1",
+              "batter": "TM Head",
+              "bowler": "AJ Nair",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.2",
+              "batter": "J Weatherald",
+              "bowler": "AJ Nair",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.3",
+              "batter": "J Weatherald",
+              "bowler": "AJ Nair",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "2.4",
+              "batter": "J Weatherald",
+              "bowler": "AJ Nair",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.5",
+              "batter": "TM Head",
+              "bowler": "AJ Nair",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "2.6",
+              "batter": "J Weatherald",
+              "bowler": "AJ Nair",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "actual_delivery": "3.1",
+              "batter": "J Weatherald",
+              "bowler": "B Doggett",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.2",
+              "batter": "J Weatherald",
+              "bowler": "B Doggett",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.3",
+              "batter": "TM Head",
+              "bowler": "B Doggett",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.4",
+              "batter": "TM Head",
+              "bowler": "B Doggett",
+              "non_striker": "J Weatherald",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "3.5",
+              "batter": "J Weatherald",
+              "bowler": "B Doggett",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "3.6",
+              "batter": "J Weatherald",
+              "bowler": "B Doggett",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "actual_delivery": "4.1",
+              "batter": "J Weatherald",
+              "bowler": "CP Tremain",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.2",
+              "batter": "J Weatherald",
+              "bowler": "CP Tremain",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.3",
+              "batter": "J Weatherald",
+              "bowler": "CP Tremain",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "4.4",
+              "batter": "J Weatherald",
+              "bowler": "CP Tremain",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "J Weatherald",
+                  "fielders": [
+                    {
+                      "name": "CJ Ferguson"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "actual_delivery": "4.5",
+              "batter": "AT Carey",
+              "bowler": "CP Tremain",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "4.6",
+              "batter": "AT Carey",
+              "bowler": "CP Tremain",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "actual_delivery": "5.1",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.2",
+              "batter": "AT Carey",
+              "bowler": "JD Cook",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.3",
+              "batter": "AT Carey",
+              "bowler": "JD Cook",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "5.4",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "5.5",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "5.6",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "actual_delivery": "6.1",
+              "batter": "TM Head",
+              "bowler": "CH Morris",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "6.2",
+              "batter": "TM Head",
+              "bowler": "CH Morris",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.3",
+              "batter": "TM Head",
+              "bowler": "CH Morris",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "6.4",
+              "batter": "AT Carey",
+              "bowler": "CH Morris",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.5",
+              "batter": "AT Carey",
+              "bowler": "CH Morris",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "6.6",
+              "batter": "AT Carey",
+              "bowler": "CH Morris",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "actual_delivery": "7.1",
+              "batter": "TM Head",
+              "bowler": "AJ Nair",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.2",
+              "batter": "AT Carey",
+              "bowler": "AJ Nair",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "7.3",
+              "batter": "AT Carey",
+              "bowler": "AJ Nair",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "7.4",
+              "batter": "AT Carey",
+              "bowler": "AJ Nair",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "7.5",
+              "batter": "AT Carey",
+              "bowler": "AJ Nair",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "7.6",
+              "batter": "TM Head",
+              "bowler": "AJ Nair",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "actual_delivery": "8.1",
+              "batter": "AT Carey",
+              "bowler": "CP Tremain",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "8.2",
+              "batter": "AT Carey",
+              "bowler": "CP Tremain",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.3",
+              "batter": "TM Head",
+              "bowler": "CP Tremain",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.4",
+              "batter": "AT Carey",
+              "bowler": "CP Tremain",
+              "non_striker": "TM Head",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "8.5",
+              "batter": "TM Head",
+              "bowler": "CP Tremain",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "8.6",
+              "batter": "TM Head",
+              "bowler": "CP Tremain",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "actual_delivery": "9.1",
+              "batter": "TM Head",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "TM Head"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "9.2",
+              "batter": "JW Wells",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "9.3",
+              "batter": "JW Wells",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.4",
+              "batter": "JW Wells",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.5",
+              "batter": "JW Wells",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "9.6",
+              "batter": "JW Wells",
+              "bowler": "JD Cook",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "actual_delivery": "10.1",
+              "batter": "JW Wells",
+              "bowler": "DR Sams",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.2",
+              "batter": "AT Carey",
+              "bowler": "DR Sams",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.3",
+              "batter": "JW Wells",
+              "bowler": "DR Sams",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "actual_delivery": "10.4",
+              "batter": "AT Carey",
+              "bowler": "DR Sams",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.5",
+              "batter": "JW Wells",
+              "bowler": "DR Sams",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "10.6",
+              "batter": "AT Carey",
+              "bowler": "DR Sams",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "actual_delivery": "11.1",
+              "batter": "AT Carey",
+              "bowler": "B Doggett",
+              "extras": {
+                "wides": 5
+              },
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 5,
+                "total": 5
+              }
+            },
+            {
+              "actual_delivery": "11.1",
+              "batter": "AT Carey",
+              "bowler": "B Doggett",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "11.2",
+              "batter": "AT Carey",
+              "bowler": "B Doggett",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.3",
+              "batter": "JW Wells",
+              "bowler": "B Doggett",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.4",
+              "batter": "AT Carey",
+              "bowler": "B Doggett",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.5",
+              "batter": "JW Wells",
+              "bowler": "B Doggett",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "11.6",
+              "batter": "AT Carey",
+              "bowler": "B Doggett",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "actual_delivery": "12.1",
+              "batter": "AT Carey",
+              "bowler": "CH Morris",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "12.2",
+              "batter": "AT Carey",
+              "bowler": "CH Morris",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "12.3",
+              "batter": "AT Carey",
+              "bowler": "CH Morris",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.4",
+              "batter": "JW Wells",
+              "bowler": "CH Morris",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.5",
+              "batter": "AT Carey",
+              "bowler": "CH Morris",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "12.6",
+              "batter": "JW Wells",
+              "bowler": "CH Morris",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "actual_delivery": "13.1",
+              "batter": "AT Carey",
+              "bowler": "DR Sams",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.2",
+              "batter": "JW Wells",
+              "bowler": "DR Sams",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "AT Carey",
+              "bowler": "DR Sams",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.3",
+              "batter": "AT Carey",
+              "bowler": "DR Sams",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "13.4",
+              "batter": "AT Carey",
+              "bowler": "DR Sams",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.5",
+              "batter": "JW Wells",
+              "bowler": "DR Sams",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "13.6",
+              "batter": "AT Carey",
+              "bowler": "DR Sams",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "actual_delivery": "14.1",
+              "batter": "AT Carey",
+              "bowler": "CP Tremain",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "14.2",
+              "batter": "AT Carey",
+              "bowler": "CP Tremain",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.3",
+              "batter": "JW Wells",
+              "bowler": "CP Tremain",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "14.4",
+              "batter": "JW Wells",
+              "bowler": "CP Tremain",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "14.5",
+              "batter": "JW Wells",
+              "bowler": "CP Tremain",
+              "non_striker": "AT Carey",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "14.6",
+              "batter": "AT Carey",
+              "bowler": "CP Tremain",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "AT Carey"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "actual_delivery": "15.1",
+              "batter": "Rashid Khan",
+              "bowler": "JD Cook",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.2",
+              "batter": "Rashid Khan",
+              "bowler": "JD Cook",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Rashid Khan",
+                  "fielders": [
+                    {
+                      "name": "CJ Green",
+                      "substitute": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "actual_delivery": "15.3",
+              "batter": "JW Wells",
+              "bowler": "JD Cook",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.4",
+              "batter": "JW Wells",
+              "bowler": "JD Cook",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "15.5",
+              "batter": "MW Short",
+              "bowler": "JD Cook",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "15.6",
+              "batter": "MW Short",
+              "bowler": "JD Cook",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "actual_delivery": "16.1",
+              "batter": "JW Wells",
+              "bowler": "CH Morris",
+              "non_striker": "MW Short",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.2",
+              "batter": "MW Short",
+              "bowler": "CH Morris",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.3",
+              "batter": "MW Short",
+              "bowler": "CH Morris",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "lbw",
+                  "player_out": "MW Short"
+                }
+              ]
+            },
+            {
+              "actual_delivery": "16.4",
+              "batter": "MG Neser",
+              "bowler": "CH Morris",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "16.5",
+              "batter": "MG Neser",
+              "bowler": "CH Morris",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "16.6",
+              "batter": "JW Wells",
+              "bowler": "CH Morris",
+              "non_striker": "MG Neser",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "actual_delivery": "17.1",
+              "batter": "MG Neser",
+              "bowler": "CP Tremain",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.1",
+              "batter": "MG Neser",
+              "bowler": "CP Tremain",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "MG Neser",
+              "bowler": "CP Tremain",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "MG Neser",
+              "bowler": "CP Tremain",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.2",
+              "batter": "MG Neser",
+              "bowler": "CP Tremain",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "17.3",
+              "batter": "MG Neser",
+              "bowler": "CP Tremain",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "MG Neser",
+              "bowler": "CP Tremain",
+              "extras": {
+                "wides": 1
+              },
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.4",
+              "batter": "MG Neser",
+              "bowler": "CP Tremain",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "actual_delivery": "17.5",
+              "batter": "MG Neser",
+              "bowler": "CP Tremain",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "17.6",
+              "batter": "JW Wells",
+              "bowler": "CP Tremain",
+              "non_striker": "MG Neser",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "actual_delivery": "18.1",
+              "batter": "JW Wells",
+              "bowler": "DR Sams",
+              "non_striker": "MG Neser",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.2",
+              "batter": "MG Neser",
+              "bowler": "DR Sams",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "MG Neser",
+                  "fielders": [
+                    {
+                      "name": "AJ Nair"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "actual_delivery": "18.3",
+              "batter": "JW Wells",
+              "bowler": "DR Sams",
+              "non_striker": "PM Siddle",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "18.4",
+              "batter": "PM Siddle",
+              "bowler": "DR Sams",
+              "non_striker": "JW Wells",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "PM Siddle",
+                  "fielders": [
+                    {
+                      "name": "AD Hales"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "actual_delivery": "18.5",
+              "batter": "JW Wells",
+              "bowler": "DR Sams",
+              "non_striker": "WA Agar",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "18.6",
+              "batter": "JW Wells",
+              "bowler": "DR Sams",
+              "non_striker": "WA Agar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "actual_delivery": "19.1",
+              "batter": "JW Wells",
+              "bowler": "CH Morris",
+              "non_striker": "WA Agar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "JW Wells",
+                  "fielders": [
+                    {
+                      "name": "JS Lenton"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "actual_delivery": "19.2",
+              "batter": "B Stanlake",
+              "bowler": "CH Morris",
+              "non_striker": "WA Agar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "19.3",
+              "batter": "B Stanlake",
+              "bowler": "CH Morris",
+              "non_striker": "WA Agar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "actual_delivery": "19.4",
+              "batter": "WA Agar",
+              "bowler": "CH Morris",
+              "non_striker": "B Stanlake",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "actual_delivery": "19.5",
+              "batter": "WA Agar",
+              "bowler": "CH Morris",
+              "non_striker": "B Stanlake",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "actual_delivery": "19.6",
+              "batter": "WA Agar",
+              "bowler": "CH Morris",
+              "non_striker": "B Stanlake",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        }
+      ],
+      "powerplays": [
+        {
+          "from": 0.1,
+          "to": 5.6,
+          "type": "mandatory"
+        }
+      ],
+      "target": {
+        "overs": 20,
+        "runs": 152
+      }
+    }
+  ]
+}

@@ -17,14 +17,40 @@ football_preds/
 webapp/users.db
 webapp/analytics.db
 webapp/feedback.db
+webapp/combo_results.db
+webapp/degen_test_analytics.db
+webapp/degen_test_feedback.db
 webapp/sitemap_cache.xml
+webapp/sitemap_cache/
 webapp/results_cache.html
 deploy/logs/
 deploy/soccer_retrain_state.json
 webapp/deposit_config.json
 *.log
-webapp/__pycache__/
-scripts/__pycache__/
-webapp/tests/__pycache__/
-automation/__pycache__/
+**/__pycache__/
 .pytest_cache/
+
+# Same-shape disk caches as combo_fast/combo_full.pkl above -- admin
+# full-markets board and a live-fixtures snapshot, both rebuilt on demand.
+webapp/admin_full_markets.pkl
+webapp/live_fixtures.pkl
+data/daily_digest/
+data/live_feeds/
+data/admin/
+output_tables/daily_drafts/
+
+# Combo-picks disk cache -- atomic-write temp files (random suffix) plus the
+# stable final names they get renamed to; regenerated on every rebuild,
+# never meant to be reusable across machines (same exclusion list sync.sh
+# already uses for deploys).
+webapp/.combo_*.pkl
+webapp/.combo_*.lock
+webapp/combo_fast.pkl
+webapp/combo_full.pkl
+
+# One-off debugging/deploy scratch scripts (leading underscore) and SSM
+# parameter payloads -- disposable, tied to a specific past incident, not
+# reusable infra. Real deploy scripts/services/timers are named without
+# these prefixes and stay tracked.
+deploy/_*
+deploy/ssm_*

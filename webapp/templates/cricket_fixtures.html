@@ -1,63 +1,81 @@
 {% extends "base.html" %}
-{% block title %}{{ competition_label }} Fixtures | Degen Predictions{% endblock %}
-{% block description %}{{ competition_label }} upcoming and live fixtures with model predictions -- each team's innings total, total match runs, and winner.{% endblock %}
-{% block keywords %}{{ competition_label }} fixtures, cricket predictions, T20 predictions{% endblock %}
+{% block title %}{% if league_slug == 'ipl' %}IPL Predictions — Fixtures &amp; Match Forecasts | Degen Predictions{% elif league_slug == 'cpl' %}CPL Predictions{% if full_slate_acc %} — {{ full_slate_acc }} Full-Slate OOS{% endif %} | Caribbean Premier League | Degen Predictions{% else %}{{ competition_label }} Predictions — Fixtures{% if full_slate_acc %} ({{ full_slate_acc }} OOS){% endif %} | Degen Predictions{% endif %}{% endblock %}
+{% block description %}{% if league_slug == 'ipl' %}Free IPL predictions and IPL match predictions: upcoming fixtures with ML forecasts for innings totals, total runs, pitch/player analysis, and winner estimates.{% if full_slate_acc %} Full-slate OOS match-winner accuracy {{ full_slate_acc }} — tips prefer totals/team runs.{% endif %} Not betting advice.{% elif league_slug == 'cpl' %}Free CPL predictions and Caribbean Premier League match predictions{% if full_slate_acc %} — {{ full_slate_acc }} full-slate out-of-sample match-winner accuracy{% endif %}. Fixtures with ML innings totals, total runs, and analysis. Not betting advice.{% else %}{{ competition_label }} predictions for upcoming and live fixtures{% if full_slate_acc %} — {{ full_slate_acc }} full-slate OOS{% endif %}: innings totals, total match runs, pitch/player analysis. Free forecasts.{% endif %}{% endblock %}
+{% block keywords %}{% if league_slug == 'ipl' %}IPL predictions, IPL match predictions, Indian Premier League predictions, cricket predictions, T20 predictions{% elif league_slug == 'cpl' %}CPL predictions, Caribbean Premier League predictions, CPL match predictions, cricket predictions, T20 predictions{% else %}{{ competition_label }} predictions, cricket predictions, T20 predictions, IPL predictions, BBL predictions, CPL predictions{% endif %}{% endblock %}
+{% block body_class %} sport-atmosphere sport-{{ league_slug }} cricket-page{% endblock %}
 {% block content %}
-<a href="/sports/cricket">&larr; Back to Cricket</a>
-<h1>{{ competition_label }}</h1>
-<p class="muted">Live and upcoming matches only, sourced from Wikipedia's season schedule (updated as real
-    results come in -- see back of this page for source notes). Completed matches, with our model's pre-match
-    prediction compared against the real result, are on the
-    <a href="/{{ league_slug }}/results">results &amp; accuracy page</a>.</p>
-
+{% from "macros.html" import nav_back %}
+{% from "partials/team_crest.html" import team_crest %}
+{{ nav_back('/sports/cricket', 'Cricket') }}
+{% include "partials/cricket_league_nav.html" %}
+<div class="leagues-hero cricket-hero">
+    {% if league_slug == 'ipl' %}
+    <h1>IPL Predictions — Fixtures</h1>
+    <p class="muted">Indian Premier League match predictions for live and upcoming fixtures.
+        {% if full_slate_acc %}Full-slate OOS match-winner accuracy: <strong>{{ full_slate_acc }}</strong> (tips prefer totals / team runs).{% endif %}
+        {% if source_note %}{{ source_note }}{% endif %}
+        Track record on the <a href="/ipl/results">IPL results</a> page.</p>
+    {% elif league_slug == 'cpl' %}
+    <h1>CPL Predictions — Fixtures</h1>
+    <p class="muted">Caribbean Premier League predictions for live and upcoming fixtures.
+        {% if full_slate_acc %}Full-slate OOS match-winner accuracy: <strong>{{ full_slate_acc }}</strong>.{% endif %}
+        {% if source_note %}{{ source_note }}{% endif %}
+        Track record on the <a href="/cpl/results">CPL results</a> page.</p>
+    {% else %}
+    <h1>{{ competition_label }} Predictions</h1>
+    <p class="muted">Live and upcoming matches only.
+        {% if full_slate_acc %}Full-slate OOS: <strong>{{ full_slate_acc }}</strong>.{% endif %}
+        {% if source_note %}{{ source_note }}{% endif %}
+        Completed matches on the <a href="/{{ league_slug }}/results">results &amp; accuracy page</a>.</p>
+    {% endif %}
+    <p class="cricket-quick-links">
+        <a class="league-cta" href="/{{ league_slug }}/results">Results</a>
+        <a class="league-cta" href="/todays-picks/cricket/{{ league_slug }}">Today's Picks</a>
+    </p>
+</div>
 {% if fixtures %}
-<div class="fixture-grid">
+<div class="fixture-grid cricket-fixture-grid">
 {% for m in fixtures %}
-    <div class="fixture-card {{ 'ok-confidence' if m.prediction else 'low-confidence' }}"
-         style="--card-index: {{ loop.index0 }}; cursor:pointer;"
-         onclick="window.location.href='/hundred/fixture/{{ m.slug }}'">
+    {% set href = ('/' ~ league_slug ~ '/fixture/' ~ m.slug) if m.slug else None %}
+    <article class="fixture-card {{ 'ok-confidence' if m.prediction else 'low-confidence' }}"
+         style="--card-index: {{ loop.index0 }};{% if href %} cursor:pointer;{% endif %}"
+         {% if href %}data-lock="1"{% endif %}>
         <div class="fixture-card-head">
-            <div>
+            <div class="fixture-matchup">
+                <div class="team-pair" style="margin-bottom:0.35rem;">
+                    {{ team_crest(m.team1, rgb=m.crest_rgb1) }}
+                    <span class="vs">VS</span>
+                    {{ team_crest(m.team2, rgb=m.crest_rgb2) }}
+                </div>
                 <span class="fixture-teams">{{ m.team1 }} vs {{ m.team2 }}</span>
-                <div class="fixture-date">{{ m.date }}{% if m.time %} &middot; {{ m.time }} BST{% endif %} &middot; {{ m.venue }}</div>
+                <div class="fixture-date">{{ m.date }}{% if m.time %} &middot; {{ m.time }}{% endif %}{% if m.venue %} &middot; {{ m.venue }}{% endif %}</div>
             </div>
-            <a class="predict-btn" href="/hundred/fixture/{{ m.slug }}" onclick="event.stopPropagation();">Get Prediction</a>
-        </div>
-        {% if m.prediction %}
-        <div class="fixture-outcomes">
-            <div class="outcome-row"><span class="outcome-label">Win Probability</span>
-                <span>{{ m.team1 }}: {{ (m.prediction.team1_win_prob * 100) | round(1) }}% &middot;
-                    {{ m.team2 }}: {{ (m.prediction.team2_win_prob * 100) | round(1) }}%</span></div>
-            {% if m.prediction.predicted_total_runs %}
-            <div class="outcome-row"><span class="outcome-label">Predicted Innings Totals</span>
-                <span>{{ m.team1 }}: {{ m.prediction.predicted_team1_runs }} &middot;
-                    {{ m.team2 }}: {{ m.prediction.predicted_team2_runs }}</span></div>
-            <div class="outcome-row"><span class="outcome-label">Predicted Total Runs</span>
-                <span>{{ m.prediction.predicted_total_runs }}</span></div>
+            {% if m.completed %}
+            <span class="muted fixture-final-score">Final{% if m.result %} · {{ m.result }}{% endif %}</span>
+            {% endif %}
+            {% if href %}
+            <a class="predict-btn" href="/go/gp{{ href }}" onclick="event.stopPropagation();">Unlock prediction</a>
             {% endif %}
         </div>
-        <p class="muted" style="font-size:0.85em; margin-top:0.5rem;">Live estimate from team Elo{% if m.prediction.venue_known %} + this
-            ground's historical scoring{% endif %} -- click through for the full breakdown (pitch report,
-            weather) or see the <a href="/{{ league_slug }}/results">results page</a> for our full-model
-            predictions on completed matches.</p>
-        {% else %}
-        <p class="muted">No prediction available for this fixture yet -- one or both teams don't have enough
-            rating history under their current name.</p>
+        {% if href %}
+        <div class="fixture-empty">
+            <span class="fixture-empty-label">Markets locked</span>
+            <span class="fixture-empty-hint">Tap Unlock prediction for win probs, totals &amp; insights</span>
+        </div>
+        {% elif not m.prediction %}
+        <p class="muted">No prediction available yet — one or both teams lack rating history under the current name.</p>
         {% endif %}
-    </div>
+    </article>
 {% endfor %}
 </div>
 {% else %}
-<div class="fixture-card" style="cursor:default;">
-    <p><strong>No upcoming {{ competition_label }} matches scheduled right now.</strong></p>
-    {% if season_window %}
-    <p class="muted">{{ competition_label }} has historically played around {{ season_window }} each year --
-        check back closer to then for the next season's fixtures.</p>
-    {% else %}
-    <p class="muted">Check back once the next season's schedule is announced.</p>
-    {% endif %}
-    <p class="muted">In the meantime, see how our model performed on real recent matches on the
-        <a href="/{{ league_slug }}/results">results &amp; accuracy page</a>.</p>
-</div>
+{% set title = "No upcoming " ~ competition_label ~ " matches right now" %}
+{% set body = "The board clears between seasons. Browse results for the model track record, or open Today's Picks when legs are live." %}
+{% set actions = [
+  {"href": "/" ~ league_slug ~ "/results", "label": "Results"},
+  {"href": "/todays-picks/cricket/" ~ league_slug, "label": "Today's Picks"},
+  {"href": "/sports/cricket", "label": "All cricket"},
+] %}
+{% include "partials/empty_state.html" %}
 {% endif %}
 {% endblock %}

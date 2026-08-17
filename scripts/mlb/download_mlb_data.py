@@ -18,12 +18,13 @@ from mlb_config import DATA_DIR, GAMELOG_URL, YEARS  # noqa: E402
 RAW_DIR = os.path.join(DATA_DIR, "raw")
 
 # Column indices in Retrosheet's gamelog format (documented at
-# retrosheet.org/gamelogs/glfields.txt) -- only what the Elo model needs.
+# retrosheet.org/gamelogs/glfields.txt) -- 0-based = field_number - 1.
 COLS = {
     0: "Date", 3: "VisitorTeam", 6: "HomeTeam", 9: "VisitorScore", 10: "HomeScore",
-    12: "DayNight", 14: "ForfeitInfo", 15: "ProtestInfo",
+    12: "DayNight", 14: "ForfeitInfo", 15: "ProtestInfo", 16: "ParkID",
     22: "VisitorHits", 25: "VisitorHR", 32: "VisitorSO",
     50: "HomeHits", 53: "HomeHR", 60: "HomeSO",
+    101: "VisitorStartingPitcherID", 103: "HomeStartingPitcherID",
 }
 
 

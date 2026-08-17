@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
-# Daily feedback loop: pulls each day's newly-finished MLB/NPB games and
-# rebuilds Elo ratings/history from them, so every prediction from tomorrow
-# on already reflects today's actual results (win/loss, runs, hits, HR, K).
-# This is intentionally cheap (no model retraining) so it's safe to run
-# straight on the small EC2 instance -- the heavy ML ensemble retrain
-# (scripts/mlb/train_ml_models.py) is a separate, occasional, manual step
-# that should run on a machine with more RAM, not this one, since it once
-# exhausted this instance's memory and took the site down.
+# Daily data + feedback loop on the EXISTING degen-refresh-data.timer (every 3h):
+# pulls finished MLB/NPB games, rebuilds Elo, settles published picks/combos,
+# and writes data/feedback/*.json. Cheap on purpose (no model retrain, no new
+# instance/timer) so EC2 billing stays the same. Heavy retrain stays on PC.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 source venv/bin/activate
@@ -20,5 +16,10 @@ echo "==> Refreshing NPB data"
 python scripts/npb/download_npb_data.py
 echo "==> Rebuilding NPB Elo ratings"
 python scripts/npb/build_elo.py > /dev/null
+
+# Feedback loop (settle + score). Cheap SQLite/JSON only — no model retrain.
+# Piggybacked on this existing timer so we do not add a new billed service.
+echo "==> Settling published picks + writing feedback metrics"
+python scripts/run_ec2_feedback_loop.py
 
 echo "==> Done: $(date -u +%Y-%m-%dT%H:%M:%SZ)"

@@ -34,4 +34,14 @@ LEAGUE_DISPLAY = {
         "keywords": "Ligue 1 predictions, French football predictions, soccer predictions, "
                     "Ligue 1 tips, PSG match predictions",
     },
+    "mls": {
+        "monogram": "MLS", "flag": "\U0001F1FA\U0001F1F8", "color": "#c39e6d", "country": "USA",
+        "keywords": "MLS predictions, Major League Soccer predictions, MLS tips, "
+                    "Inter Miami predictions, soccer predictions USA",
+    },
+    "primeira_liga": {
+        "monogram": "PPL", "flag": "\U0001F1F5\U0001F1F9", "color": "#006600", "country": "Portugal",
+        "keywords": "Primeira Liga predictions, Portuguese football predictions, soccer predictions, "
+                    "Primeira Liga tips, Benfica Porto Sporting predictions",
+    },
 }

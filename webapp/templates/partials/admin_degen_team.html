@@ -1,0 +1,197 @@
+{# Telegram channel slips — settle + post RESULT replies back to the channel. #}
+<section class="admin-section {{ 'is-visible' if admin_section == 'degen_team' else '' }}" data-admin-section="degen_team">
+    {% set dts = degen_team_summary or {} %}
+    {% set dti = degen_team_items or {} %}
+    <div class="panel">
+        <div class="panel-head">
+            <h3>Results — Telegram &amp; X</h3>
+            <span class="muted">Only slips you already sent to Telegram appear here. Tick the ones you want, then send RESULT cards.</span>
+        </div>
+        <div class="panel-body">
+            {% set mon = board_monitor or {} %}
+            {% if mon.updated_at %}
+            <p class="muted" style="margin:0 0 0.85rem;">
+                Monitor {{ mon.updated_at }}
+                · overdue {{ mon.overdue_count or 0 }}
+                · waiting TG {{ (mon.results_waiting or {}).telegram or 0 }} / X {{ (mon.results_waiting or {}).twitter or 0 }}
+            </p>
+            {% endif %}
+            {% if dt_flash %}
+            <p style="margin:0 0 0.85rem;">
+                {% if dt_flash.startswith('ok_') %}
+                <strong class="badge badge-human">{{ dt_flash.replace('ok_', '')|upper }}</strong>
+                {% if dt_flash_msg %}<span class="muted"> — {{ dt_flash_msg }}</span>{% endif %}
+                {% else %}
+                <strong class="badge badge-bot">Action failed</strong>
+                {% if dt_flash_msg %}<span class="muted"> — {{ dt_flash_msg }}</span>{% endif %}
+                {% endif %}
+            </p>
+            {% endif %}
+
+            <div class="tools-grid" style="margin-bottom:1rem;">
+                <div class="tool-card">
+                    <h4>Channel hit rate (30d)</h4>
+                    <p style="font-size:1.6rem; margin:0.25rem 0;">
+                        {% if dts.hit_rate is not none %}
+                        <strong>{{ (dts.hit_rate * 100)|round(1) }}%</strong>
+                        {% else %}—{% endif %}
+                    </p>
+                    <p class="muted" style="margin:0;">{{ dts.won or 0 }} won / {{ dts.lost or 0 }} lost</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Pending</h4>
+                    <p style="font-size:1.6rem; margin:0.25rem 0;"><strong>{{ dts.pending or 0 }}</strong></p>
+                    <p class="muted" style="margin:0;">Waiting on finals or manual grade</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Actions</h4>
+                    <p class="muted">Grade if needed, tick slips below, then send only the selected RESULT cards.</p>
+                    <a class="btn btn-sm" href="/admin?section=degen_team&settle=1&filter={{ visitor_filter }}">Settle now</a>
+                </div>
+            </div>
+
+            {% set combos = dti.combos or [] %}
+            {% set singles = dti.singles or [] %}
+            {% if combos or singles %}
+            <form method="post" action="/admin/telegram-results-post" id="admin-results-send-form">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <input type="hidden" name="select_mode" value="1">
+                <div class="tg-send-row" style="margin-bottom:0.85rem;">
+                    <label class="tg-market-row">
+                        <input type="checkbox" name="channel_telegram" value="1" checked>
+                        <span>Telegram</span>
+                    </label>
+                    <label class="tg-market-row">
+                        <input type="checkbox" name="channel_x" value="1" checked>
+                        <span>X</span>
+                    </label>
+                    <button type="button" class="btn btn-sm" id="admin-results-select-all">Select all</button>
+                    <button type="button" class="btn btn-sm" id="admin-results-select-none">Select none</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Send selected results</button>
+                </div>
+            </form>
+            <div class="table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Send</th>
+                        <th>Date</th>
+                        <th>#</th>
+                        <th>Slip</th>
+                        <th>Status</th>
+                        <th>Legs</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for s in combos %}
+                <tr>
+                    <td>
+                        <input type="checkbox" class="admin-result-cb" form="admin-results-send-form"
+                               name="result_key" value="combo:{{ s.id }}"
+                               {% if s.status in ('won', 'lost', 'void', 'push') and s.telegram_message_ids and not s.telegram_result_posted_at %}checked{% endif %}>
+                    </td>
+                    <td>{{ s.slate_date }}</td>
+                    <td class="mono">
+                        {% if s.telegram_serial %}#T-{{ '%05d'|format(s.telegram_serial) }}{% else %}—{% endif %}
+                        {% if s.result_serial %}<br><span class="muted">#R-{{ '%05d'|format(s.result_serial) }}</span>{% endif %}
+                    </td>
+                    <td>
+                        <strong>{{ s.title or (s.size ~ '-leg') }}</strong>
+                        {% if s.telegram_message_ids %}<br><span class="muted">tg msg saved</span>{% endif %}
+                        {% if s.telegram_result_posted_at %}<br><span class="muted">result posted</span>{% endif %}
+                    </td>
+                    <td>
+                        {% if s.status == 'won' %}<span class="badge badge-human">WON</span>
+                        {% elif s.status == 'lost' %}<span class="badge badge-bot">LOST</span>
+                        {% elif s.status in ('void', 'push') %}<span class="badge">VOID</span>
+                        {% else %}<span class="badge">Pending</span>{% endif %}
+                    </td>
+                    <td style="min-width:240px;">
+                        {% for leg in s.legs or [] %}
+                        <div style="margin-bottom:0.35rem;">
+                            <strong>{{ leg.pick }}</strong>
+                            <span class="muted">· {{ leg.market }}</span><br>
+                            <span class="muted">{{ leg.matchup }}{% if leg.actual_note %} · {{ leg.actual_note }}{% endif %}</span>
+                        </div>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% if s.status == 'pending' %}
+                        <form method="post" action="/admin/degen-team/settle" class="tg-settle-form">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <input type="hidden" name="kind" value="combo">
+                            <input type="hidden" name="id" value="{{ s.id }}">
+                            <button class="btn btn-sm" name="status" value="won" type="submit">Won</button>
+                            <button class="btn btn-sm" name="status" value="lost" type="submit">Lost</button>
+                            <button class="btn btn-sm" name="status" value="void" type="submit">Void</button>
+                        </form>
+                        {% else %}—{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                {% for p in singles %}
+                <tr>
+                    <td>
+                        <input type="checkbox" class="admin-result-cb" form="admin-results-send-form"
+                               name="result_key" value="single:{{ p.id }}"
+                               {% if p.status in ('won', 'lost', 'void', 'push') and p.telegram_message_ids and not p.telegram_result_posted_at %}checked{% endif %}>
+                    </td>
+                    <td>{{ p.slate_date }}</td>
+                    <td class="mono">
+                        {% if p.telegram_serial %}#T-{{ '%05d'|format(p.telegram_serial) }}{% else %}—{% endif %}
+                        {% if p.result_serial %}<br><span class="muted">#R-{{ '%05d'|format(p.result_serial) }}</span>{% endif %}
+                    </td>
+                    <td>
+                        <strong>{{ p.title or 'Single' }}</strong>
+                        {% if p.telegram_message_ids %}<br><span class="muted">tg msg saved</span>{% endif %}
+                        {% if p.telegram_result_posted_at %}<br><span class="muted">result posted</span>{% endif %}
+                    </td>
+                    <td>
+                        {% if p.status == 'won' %}<span class="badge badge-human">WON</span>
+                        {% elif p.status == 'lost' %}<span class="badge badge-bot">LOST</span>
+                        {% elif p.status in ('void', 'push') %}<span class="badge">VOID</span>
+                        {% else %}<span class="badge">Pending</span>{% endif %}
+                    </td>
+                    <td>
+                        <strong>{{ p.pick }}</strong>
+                        <span class="muted">· {{ p.market }}</span><br>
+                        <span class="muted">{{ p.matchup }}{% if p.actual_note %} · {{ p.actual_note }}{% endif %}</span>
+                    </td>
+                    <td>
+                        {% if p.status == 'pending' %}
+                        <form method="post" action="/admin/degen-team/settle" class="tg-settle-form">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <input type="hidden" name="kind" value="single">
+                            <input type="hidden" name="id" value="{{ p.id }}">
+                            <button class="btn btn-sm" name="status" value="won" type="submit">Won</button>
+                            <button class="btn btn-sm" name="status" value="lost" type="submit">Lost</button>
+                            <button class="btn btn-sm" name="status" value="void" type="submit">Void</button>
+                        </form>
+                        {% else %}—{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            <script>
+            (function () {
+              var allBtn = document.getElementById('admin-results-select-all');
+              var noneBtn = document.getElementById('admin-results-select-none');
+              if (!allBtn || !noneBtn) return;
+              function setAll(on) {
+                document.querySelectorAll('.admin-result-cb').forEach(function (cb) {
+                  cb.checked = !!on;
+                });
+              }
+              allBtn.addEventListener('click', function () { setAll(true); });
+              noneBtn.addEventListener('click', function () { setAll(false); });
+            })();
+            </script>
+            {% else %}
+            <p class="empty">No Telegram-sent slips yet. Send Today's Picks or custom slips from <a href="/admin?section=telegram">Send to Telegram &amp; X</a> (Telegram must succeed) — settled results wait here for you to select and send.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
