@@ -30,7 +30,7 @@ def _current_season_hash():
         current_season = seasons[-1]
         resolved = resolve_league_paths(cfg)
         path = os.path.join(
-            resolved["data_dir"], f"{cfg['fd_code']}_{current_season}.csv"
+            resolved["data_dir"], f"{cfg['fd_code']}_{current_season.replace('/', '-')}.csv"
         )
         if os.path.exists(path):
             with open(path, "rb") as f:

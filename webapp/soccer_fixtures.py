@@ -24,8 +24,18 @@ FEED_URL = "https://fixturedownload.com/feed/json/{slug}"
 FD_ORG_MATCHES = "https://api.football-data.org/v4/competitions/{code}/matches"
 API_SPORTS_FIXTURES = "https://v3.football.api-sports.io/fixtures"
 OPENFOOTBALL_URL = "https://raw.githubusercontent.com/openfootball/football.json/master/{season}/{slug}.json"
+ESPN_SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard"
 CACHE_TTL_SECONDS = 5 * 60
 HEADERS = {"User-Agent": "DegenPredictions/1.0 (https://degenpredictions.com)"}
+
+# ESPN soccer league slugs -- only for leagues with no fixturedownload.com or
+# openfootball coverage (currently just Liga MX; fixturedownload has no
+# Mexico feed at all, and openfootball's football.json repo doesn't cover
+# it either). Sits at the end of the provider fallback chain (see
+# _provider_order()), so it's a genuine no-op for every other league.
+ESPN_SLUGS = {
+    "liga_mx": "mex.1",
+}
 
 # football-data.org competition codes
 FD_ORG_CODES = {
@@ -46,6 +56,7 @@ API_SPORTS_LEAGUE_IDS = {
     "ligue_1": 61,
     "mls": 253,
     "primeira_liga": 94,
+    "liga_mx": 262,
 }
 
 # openfootball/football.json slugs -- no MLS coverage (public domain, no key,
@@ -415,6 +426,75 @@ def _fetch_openfootball(league_key: str, cfg: dict, correct_date) -> list[dict]:
     return out
 
 
+def _fetch_espn(league_key: str, cfg: dict, correct_date) -> list[dict]:
+    slug = ESPN_SLUGS.get(league_key)
+    if not slug:
+        return []
+    import feed_store
+    from datetime import timedelta
+
+    # One wide-window call (45 days back/ahead) so recent results and
+    # upcoming fixtures both come back together, same span openfootball
+    # guards against above.
+    start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    date_range = f"{(start - timedelta(days=45)):%Y%m%d}-{(start + timedelta(days=45)):%Y%m%d}"
+    data = feed_store.get_json(
+        f"soccer:espn:{slug}",
+        ESPN_SCOREBOARD_URL.format(slug=slug),
+        params={"dates": date_range},
+        # ESPN's soccer scoreboard 403s the site's normal identifying UA
+        # specifically when a "dates" range is present (confirmed: works
+        # fine with no dates param, or with a generic UA even with dates --
+        # verified from this project's own EC2 IP, so it's UA-content
+        # specific, not IP reputation). Override just for this call rather
+        # than touching feed_store's shared default, which other sports'
+        # ESPN calls rely on unchanged.
+        headers={"User-Agent": "python-requests/2.31.0"},
+        timeout=8,
+        retries=2,
+        ttl=CACHE_TTL_SECONDS,
+        count_items=lambda d: len((d or {}).get("events") or []) if isinstance(d, dict) else 0,
+    )
+    events = (data or {}).get("events") if isinstance(data, dict) else None
+    if not isinstance(events, list):
+        return []
+
+    name_map = cfg.get("fixture_name_map") or {}
+    out: list[dict] = []
+    for e in events:
+        comp = (e.get("competitions") or [{}])[0]
+        competitors = comp.get("competitors") or []
+        home_c = next((c for c in competitors if c.get("homeAway") == "home"), None)
+        away_c = next((c for c in competitors if c.get("homeAway") == "away"), None)
+        if not home_c or not away_c:
+            continue
+        home = _map_name((home_c.get("team") or {}).get("displayName") or "", name_map)
+        away = _map_name((away_c.get("team") or {}).get("displayName") or "", name_map)
+        if not home or not away:
+            continue
+        # ESPN dates are ISO8601 UTC, e.g. "2026-08-18T01:00Z" (no seconds).
+        try:
+            dt_utc = datetime.strptime((e.get("date") or "").strip(), "%Y-%m-%dT%H:%MZ")
+        except ValueError:
+            continue
+        date_utc = dt_utc.strftime("%Y-%m-%d %H:%M:%S") + "Z"
+        completed = bool(((comp.get("status") or {}).get("type") or {}).get("completed"))
+        home_score = _score_value(home_c.get("score")) if completed else None
+        away_score = _score_value(away_c.get("score")) if completed else None
+        date_utc = correct_date(league_key, date_utc, home, away)
+        out.append(_normalize_row(
+            league_key,
+            home=home,
+            away=away,
+            date_utc=date_utc,
+            home_score=home_score,
+            away_score=away_score,
+            round_num=None,
+            completed=completed,
+        ))
+    return out
+
+
 def _provider_order() -> list[str]:
     try:
         import source_settings
@@ -423,7 +503,7 @@ def _provider_order() -> list[str]:
             return order
     except Exception:
         pass
-    return ["fixturedownload", "openfootball", "football_data_org", "api_sports"]
+    return ["fixturedownload", "openfootball", "football_data_org", "api_sports", "espn"]
 
 
 def get_feed(league_key: str) -> list[dict]:
@@ -453,6 +533,8 @@ def get_feed(league_key: str) -> list[dict]:
                 out = _fetch_football_data_org(league_key, cfg, correct_date)
             elif name == "api_sports":
                 out = _fetch_api_sports(league_key, cfg, correct_date)
+            elif name == "espn":
+                out = _fetch_espn(league_key, cfg, correct_date)
             elif name == "football_data_csv":
                 # Results/history CSV — not a live fixture feed.
                 continue

@@ -64,6 +64,8 @@ def default_url_list() -> list[str]:
         f"{SITE_ORIGIN}/mls/predictions-today",
         f"{SITE_ORIGIN}/primeira_liga/",
         f"{SITE_ORIGIN}/primeira_liga/predictions-today",
+        f"{SITE_ORIGIN}/liga_mx/",
+        f"{SITE_ORIGIN}/liga_mx/predictions-today",
         f"{SITE_ORIGIN}/ipl/",
         f"{SITE_ORIGIN}/cpl/",
         f"{SITE_ORIGIN}/mlb/",

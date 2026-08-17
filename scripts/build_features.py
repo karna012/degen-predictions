@@ -28,7 +28,9 @@ def load_matches(cfg):
     fd_code = cfg["fd_code"]
     frames = []
     for s in league_seasons(cfg):
-        path = f"{data_dir}/{fd_code}_{s}.csv"
+        # Season codes spanning two calendar years (Liga MX's "2019/2020")
+        # contain a "/" -- must match download_data.py's filename sanitizing.
+        path = f"{data_dir}/{fd_code}_{str(s).replace('/', '-')}.csv"
         if not os.path.exists(path):
             continue
         df = pd.read_csv(path)

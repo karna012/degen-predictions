@@ -570,6 +570,9 @@ TODAY_SPORTS = {
             "primeira_liga": {
                 "label": "Primeira Liga", "tz": "Asia/Kolkata", "kind": "soccer", "color": "#006600",
             },
+            "liga_mx": {
+                "label": "Liga MX", "tz": "Asia/Kolkata", "kind": "soccer", "color": "#0b6e4f",
+            },
         },
     },
     "baseball": {

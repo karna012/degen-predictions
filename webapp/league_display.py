@@ -44,4 +44,9 @@ LEAGUE_DISPLAY = {
         "keywords": "Primeira Liga predictions, Portuguese football predictions, soccer predictions, "
                     "Primeira Liga tips, Benfica Porto Sporting predictions",
     },
+    "liga_mx": {
+        "monogram": "LMX", "flag": "\U0001F1F2\U0001F1FD", "color": "#0b6e4f", "country": "Mexico",
+        "keywords": "Liga MX predictions, Mexican football predictions, soccer predictions, "
+                    "Liga MX tips, Club America Chivas Cruz Azul predictions",
+    },
 }

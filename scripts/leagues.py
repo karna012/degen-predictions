@@ -291,4 +291,38 @@ LEAGUES = {
             "Orlando City": "Orlando City",
         },
     },
+    # Same football-data.co.uk /new/ shape as MLS (calendar-spanning season
+    # codes, since Liga MX runs Apertura+Clausura within one labeled season
+    # rather than Europe's single continuous season) -- results+odds only,
+    # no shot/corner/card stats, same as MLS. No Understat coverage either.
+    # Live fixtures have no fixturedownload.com or openfootball coverage for
+    # Mexico at all, so this is the one soccer league that falls all the way
+    # through to the ESPN provider (see soccer_fixtures.py's ESPN_SLUGS).
+    "liga_mx": {
+        "label": "Liga MX",
+        "country": "Mexico",
+        "fd_code": "MEX",
+        "data_format": "fd_new",
+        "fd_new_url": "https://www.football-data.co.uk/new/MEX.csv",
+        "fd_new_league": "Liga MX",
+        "data_dir": "data/ligamx_5yr",
+        "model_dir": "model/ligamx",
+        "output_name": "LigaMX",
+        "understat_league": None,
+        "asa_league": None,
+        "espn_slug": "mex.1",
+        "seasons": [
+            "2019/2020", "2020/2021", "2021/2022", "2022/2023",
+            "2023/2024", "2024/2025", "2025/2026", "2026/2027",
+        ],
+        "display_seasons": ["2023/2024", "2024/2025", "2025/2026", "2026/2027"],
+        "name_map": {},
+        "fixture_name_map": {
+            "América": "Club America", "Atlético de San Luis": "Atl. San Luis",
+            "FC Juarez": "Juarez", "Guadalajara": "Guadalajara Chivas",
+            "León": "Club Leon", "Pumas UNAM": "UNAM Pumas",
+            "Querétaro": "Queretaro", "Santos": "Santos Laguna",
+            "Tijuana": "Club Tijuana", "Mazatlán FC": "Mazatlan FC",
+        },
+    },
 }

@@ -64,7 +64,7 @@ def test_sports_landing_links_to_soccer_and_baseball(client):
     assert 'href="/accuracy"' in body
     assert "Track record" in body
     assert 'class="accuracy-strip"' in body or "OOS" in body
-    assert 'href="/premier_league/backtest"' in body
+    assert 'href="/premier_league/results"' in body
     assert 'href="/mlb/results"' in body
     assert "high-probability" in body.lower() or "Today's Picks" in body
     assert 'class="popular-leagues"' in body

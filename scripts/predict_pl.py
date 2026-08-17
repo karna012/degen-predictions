@@ -14,6 +14,7 @@ League.
 """
 import os
 import pickle
+from datetime import datetime
 
 import numpy as np
 import pandas as pd
@@ -29,6 +30,9 @@ DATA_DIR = os.path.join(REPO_ROOT, "data/pl_5yr")
 MODEL_DIR = os.path.join(REPO_ROOT, "model/pl")
 OUTPUT_PATH = os.path.join(REPO_ROOT, "output_tables/PremierLeague_ml_predictions.csv")
 FIXTURE_SLUG = "epl-2026"
+# Set instead of FIXTURE_SLUG for leagues fixturedownload.com doesn't cover
+# (currently just Liga MX) -- see get_upcoming_fixtures().
+FIXTURE_ESPN_SLUG = None
 FIXTURE_NAME_MAP = LEAGUES["premier_league"]["fixture_name_map"]
 CURRENT_LEAGUE_KEY = "premier_league"
 
@@ -57,13 +61,14 @@ def configure_league(league_key, base_dir=None):
     webapp passes its BASE_DIR). This prevents train/predict writing under
     ``scripts/model`` when cwd is ``scripts/``.
     """
-    global DATA_DIR, MODEL_DIR, OUTPUT_PATH, FIXTURE_SLUG, FIXTURE_NAME_MAP, CURRENT_LEAGUE_KEY
+    global DATA_DIR, MODEL_DIR, OUTPUT_PATH, FIXTURE_SLUG, FIXTURE_ESPN_SLUG, FIXTURE_NAME_MAP, CURRENT_LEAGUE_KEY
     cfg = LEAGUES[league_key]
     root = base_dir if base_dir is not None else REPO_ROOT
     DATA_DIR = os.path.join(root, cfg["data_dir"])
     MODEL_DIR = os.path.join(root, cfg["model_dir"])
     OUTPUT_PATH = os.path.join(root, "output_tables", f"{cfg['output_name']}_ml_predictions.csv")
-    FIXTURE_SLUG = cfg["fixturedownload_slug"]
+    FIXTURE_SLUG = cfg.get("fixturedownload_slug")
+    FIXTURE_ESPN_SLUG = cfg.get("espn_slug")
     FIXTURE_NAME_MAP = cfg["fixture_name_map"]
     CURRENT_LEAGUE_KEY = league_key
 
@@ -153,10 +158,70 @@ def build_feature_row(home_row, away_row, feature_cols, h2h_history, home, away)
     return pd.DataFrame([data])[feature_cols]
 
 
-def get_upcoming_fixtures():
-    resp = requests.get(f"https://fixturedownload.com/feed/json/{FIXTURE_SLUG}")
+def _get_upcoming_fixtures_espn():
+    """ESPN fallback for leagues fixturedownload.com doesn't cover (Liga MX).
+    Normalizes to the same HomeTeam/AwayTeam/HomeTeamScore shape fixturedownload
+    returns, so the rest of predict_all() doesn't need two code paths.
+
+    ESPN's default (no "dates" param) scoreboard only returns a few days --
+    pass an explicit +/-45-day window instead so this returns a full slate
+    like fixturedownload.com's whole-season feed does for other leagues.
+    Note: this only works with requests' own default User-Agent -- ESPN's
+    soccer scoreboard 403s this project's usual identifying UA specifically
+    when "dates" is present (see soccer_fixtures.py's _fetch_espn), so this
+    call must NOT set a custom User-Agent header.
+    """
+    from datetime import timedelta
+    start = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    date_range = f"{(start - timedelta(days=45)):%Y%m%d}-{(start + timedelta(days=45)):%Y%m%d}"
+    resp = requests.get(
+        f"https://site.api.espn.com/apis/site/v2/sports/soccer/{FIXTURE_ESPN_SLUG}/scoreboard",
+        params={"dates": date_range},
+    )
     resp.raise_for_status()
-    fixtures = resp.json()
+    events = resp.json().get("events", [])
+    out = []
+    for e in events:
+        comp = (e.get("competitions") or [{}])[0]
+        competitors = comp.get("competitors") or []
+        home = next((c for c in competitors if c.get("homeAway") == "home"), None)
+        away = next((c for c in competitors if c.get("homeAway") == "away"), None)
+        if not home or not away:
+            continue
+        completed = bool(((comp.get("status") or {}).get("type") or {}).get("completed"))
+        # ESPN dates are ISO8601 UTC ("2026-08-18T01:00Z") -- fixturedownload's
+        # DateUtc is space-separated with seconds ("2026-08-18 01:00:00Z"),
+        # which is what correct_fixture_dateutc()/downstream code expects.
+        raw_date = (e.get("date") or "").strip()
+        try:
+            date_utc = datetime.strptime(raw_date, "%Y-%m-%dT%H:%MZ").strftime("%Y-%m-%d %H:%M:%S") + "Z"
+        except ValueError:
+            date_utc = raw_date
+        out.append({
+            # ESPN exposes no matchday/round number for Liga MX (its "week"
+            # field is always null for this league) -- ISO calendar week is
+            # a reasonable stand-in so the app's round selector still has a
+            # real int to group/step through, since Liga MX plays roughly
+            # one round per week same as any other league.
+            "RoundNumber": (
+                datetime.strptime(raw_date, "%Y-%m-%dT%H:%MZ").isocalendar()[1]
+                if raw_date else 1
+            ),
+            "DateUtc": date_utc,
+            "HomeTeam": (home.get("team") or {}).get("displayName"),
+            "AwayTeam": (away.get("team") or {}).get("displayName"),
+            "HomeTeamScore": None if not completed else home.get("score"),
+        })
+    return out
+
+
+def get_upcoming_fixtures():
+    if FIXTURE_ESPN_SLUG:
+        fixtures = _get_upcoming_fixtures_espn()
+    else:
+        resp = requests.get(f"https://fixturedownload.com/feed/json/{FIXTURE_SLUG}")
+        resp.raise_for_status()
+        fixtures = resp.json()
     return [f for f in fixtures if f.get("HomeTeamScore") is None]
 
 

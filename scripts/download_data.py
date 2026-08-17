@@ -65,7 +65,12 @@ def download_matches_fd_new(league_key, cfg):
     print(f"  [{league_key}] fetched {url}: {len(raw)} {league_name} rows")
 
     for season in seasons:
-        path = os.path.join(cfg["data_dir"], f"{cfg['fd_code']}_{season}.csv")
+        # Season codes that span two calendar years (e.g. Liga MX's
+        # "2019/2020", vs MLS's plain "2019") contain a "/" -- sanitize for
+        # the filename only, so it doesn't get read as a subdirectory. The
+        # raw season string is still what's matched against the CSV below.
+        season_file = str(season).replace("/", "-")
+        path = os.path.join(cfg["data_dir"], f"{cfg['fd_code']}_{season_file}.csv")
         if os.path.exists(path) and season != current_season:
             continue
         sub = raw[raw["Season"] == str(season)]
