@@ -2435,16 +2435,19 @@ def admin_telegram_send():
     want_tg, want_x = _admin_channel_targets(request.form)
     notes = []
 
-    # Record channel slips only after a successful Telegram post so Results
-    # (Telegram & X) lists real channel messages with message ids — never
-    # X-only drafts or failed sends.
-    if want_x:
-        try:
-            daily_digest.save_last_telegram_send(slips, day=day)
-            notes.append(f"{len(slips)} slip(s) queued for X")
-        except Exception:
-            logging.getLogger(__name__).exception("save last telegram send failed")
-            notes.append("X queue save failed")
+    # Always snapshot for the X queue, regardless of the checkbox above --
+    # this only writes a local JSON file the admin "X / Twitter posts" page
+    # reads from, nothing auto-posts from it. Gating this on want_x meant a
+    # slip sent with "X" left unticked (easy to do by accident) silently
+    # never showed up there, with no error and no way to recover it short of
+    # a manual DB-backed rebuild -- happened in production (2026-08-18,
+    # "3 Leg Multi , Odds 1.70").
+    try:
+        daily_digest.save_last_telegram_send(slips, day=day)
+        notes.append(f"{len(slips)} slip(s) queued for X")
+    except Exception:
+        logging.getLogger(__name__).exception("save last telegram send failed")
+        notes.append("X queue save failed")
 
     ok = True
     msg = ""
