@@ -198,7 +198,7 @@
         <nav id="site-nav" class="site-nav" aria-label="Primary">
             {% set p = request.path %}
             {% set picks_active = p.startswith('/todays-picks') %}
-            {% set sports_active = p.startswith('/sports') or p.startswith('/mlb') or p.startswith('/npb') or p.startswith('/nfl') or p.startswith('/nba') or p.startswith('/hundred') or p.startswith('/mlc') or p.startswith('/ipl') or p.startswith('/bbl') or p.startswith('/cpl') or p.startswith('/tennis') or p.startswith('/premier_league') or p.startswith('/la_liga') or p.startswith('/serie_a') or p.startswith('/bundesliga') or p.startswith('/ligue_1') or p.startswith('/mls') or p.startswith('/primeira_liga') or p.startswith('/liga_mx') %}
+            {% set sports_active = p.startswith('/sports') or p.startswith('/mlb') or p.startswith('/npb') or p.startswith('/nfl') or p.startswith('/nba') or p.startswith('/nhl') or p.startswith('/hundred') or p.startswith('/mlc') or p.startswith('/ipl') or p.startswith('/bbl') or p.startswith('/cpl') or p.startswith('/tennis') or p.startswith('/premier_league') or p.startswith('/la_liga') or p.startswith('/serie_a') or p.startswith('/bundesliga') or p.startswith('/ligue_1') or p.startswith('/mls') or p.startswith('/primeira_liga') or p.startswith('/liga_mx') %}
             <a href="/" class="nav-link{% if p == '/' %} is-active{% endif %}">Home</a>
             <div class="nav-dropdown{% if picks_active %} is-active{% endif %}" id="todays-picks-nav">
                 <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="todays-picks-menu" id="todays-picks-toggle">

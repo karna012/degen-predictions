@@ -236,6 +236,10 @@ def clean_nba_match_url(home_code: str, away_code: str) -> str:
     return f"{SITE_ORIGIN}/nba/match/{quote(str(home_code))}/{quote(str(away_code))}"
 
 
+def clean_nhl_match_url(home_code: str, away_code: str) -> str:
+    return f"{SITE_ORIGIN}/nhl/match/{quote(str(home_code))}/{quote(str(away_code))}"
+
+
 def clean_npb_match_url(home_id: int | str, away_id: int | str) -> str:
     return f"{SITE_ORIGIN}/npb/match/{home_id}/{away_id}"
 

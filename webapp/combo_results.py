@@ -2036,6 +2036,39 @@ def _lookup_nba(leg: dict) -> dict | None:
     }
 
 
+def _lookup_nhl(leg: dict) -> dict | None:
+    try:
+        from nhl_fixtures import get_fixtures
+        days_back = _lookback_days_for(leg.get("kickoff_iso") or "", floor=2)
+        fixtures = get_fixtures(days_back=days_back)
+    except Exception:
+        return None
+    home = leg.get("home") or ""
+    away = leg.get("away") or ""
+    hits = []
+    for m in fixtures or []:
+        if not (
+            _names_match(m.get("home_team") or "", home)
+            and _names_match(m.get("away_team") or "", away)
+        ):
+            if not (
+                _names_match(m.get("home_abbr") or "", home)
+                and _names_match(m.get("away_abbr") or "", away)
+            ):
+                continue
+        hits.append(m)
+    m = _pick_fixture_near_kickoff(hits, leg.get("kickoff_iso") or "")
+    if not m:
+        return None
+    return {
+        "home": m.get("home_team"),
+        "away": m.get("away_team"),
+        "home_score": m.get("home_score"),
+        "away_score": m.get("away_score"),
+        "completed": bool(m.get("completed")),
+    }
+
+
 def _lookup_nfl(leg: dict) -> dict | None:
     try:
         from nfl_fixtures import get_fixtures
@@ -2252,6 +2285,8 @@ def lookup_score_for_leg(leg: dict) -> dict | None:
         return _lookup_nfl(leg)
     if league == "nba" or sport == "basketball":
         return _lookup_nba(leg)
+    if league == "nhl" or sport == "hockey":
+        return _lookup_nhl(leg)
     if league == "npb":
         return _lookup_npb(leg)
     if sport == "cricket" or league in ("ipl", "bbl", "hundred", "mlc", "cpl"):

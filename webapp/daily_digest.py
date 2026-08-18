@@ -1472,6 +1472,7 @@ _HASHTAG_BY_LEAGUE = {
     "npb": ("#NPB",),
     "nfl": ("#NFL",),
     "nba": ("#NBA",),
+    "nhl": ("#NHL",),
     "atp": ("#ATP", "#Tennis"),
     "wta": ("#WTA", "#Tennis"),
     "hundred": ("#TheHundred",),
@@ -1498,6 +1499,7 @@ _HASHTAG_BY_SPORT = {
     "tennis": ("#Tennis",),
     "american_football": ("#NFL", "#NFLFootball"),
     "basketball": ("#NBA", "#Basketball"),
+    "hockey": ("#NHL", "#Hockey"),
 }
 
 

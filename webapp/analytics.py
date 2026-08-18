@@ -258,6 +258,7 @@ _GP_LEAGUE_LABELS = {
     "npb": "NPB",
     "nfl": "NFL",
     "nba": "NBA",
+    "nhl": "NHL",
     "ipl": "IPL",
     "cpl": "CPL",
     "hundred": "The Hundred",
@@ -268,7 +269,7 @@ _GP_LEAGUE_LABELS = {
 _GP_PATH_SQL = (
     "(path LIKE '%/api/predict/%' OR path LIKE '%/api/predict?%' "
     "OR path = '/mlb/api/predict' OR path = '/npb/api/predict' "
-    "OR path = '/nfl/api/predict' OR path = '/nba/api/predict' "
+    "OR path = '/nfl/api/predict' OR path = '/nba/api/predict' OR path = '/nhl/api/predict' "
     "OR path LIKE '/go/gp/%/fixture/%' "
     "OR path LIKE '/api/unlock/%')"
 )

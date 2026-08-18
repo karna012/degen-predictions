@@ -188,6 +188,8 @@ _SPORT_MARKET_KEYS = {
     "Total points": "total_points",
     "Team points": "team_points",
     "Spread": "spread",
+    "Total goals": "total_goals",
+    "Team goals": "team_goals",
 }
 
 
@@ -612,6 +614,21 @@ TODAY_SPORTS = {
             },
         },
     },
+    "hockey": {
+        "label": "Hockey",
+        "color": "#041e42",
+        "leagues": {
+            "nhl": {
+                "label": "NHL", "tz": "Asia/Kolkata", "kind": "nhl", "color": "#041e42",
+                "empty_hint": (
+                    "NHL moneyline is skipped here — full-slate winners are near a coin-flip (~56%), "
+                    "one of the least predictable sports on this site (real, measured on holdout — "
+                    "not a guess). Tips prefer totals / team goals; close games can also show an "
+                    "Upset lean (underdog) outside the 70% tier."
+                ),
+            },
+        },
+    },
     "cricket": {
         "label": "Cricket",
         "color": "#7b2ff7",
@@ -753,6 +770,7 @@ _SPORT_DURATION = {
     "tennis": datetime.timedelta(hours=3),
     "american_football": datetime.timedelta(hours=3, minutes=30),
     "basketball": datetime.timedelta(hours=2, minutes=30),
+    "hockey": datetime.timedelta(hours=2, minutes=30),
 }
 
 # Fixture pages / Today's Picks: do not dump the rest of the season.
@@ -1083,6 +1101,27 @@ def _nba_today_fixtures(league_id: str, tz_name: str) -> list[dict]:
     return out
 
 
+def _nhl_today_fixtures(league_id: str, tz_name: str) -> list[dict]:
+    import nhl_fixtures
+    today = today_in_tz(tz_name)
+    out = []
+    for m in nhl_fixtures.get_fixtures() or []:
+        kickoff = m.get("date") or ""
+        is_live = (m.get("status") or "") == "in"
+        if local_date(kickoff, tz_name) != today and not is_live:
+            continue
+        out.append(_fx_row(
+            sport_key="hockey",
+            league_id=league_id,
+            home_names=[m.get("home_team"), m.get("home_abbr")],
+            away_names=[m.get("away_team"), m.get("away_abbr")],
+            kickoff_iso=str(kickoff or ""),
+            completed=bool(m.get("completed")),
+            is_live=is_live,
+        ))
+    return out
+
+
 def _npb_today_fixtures(league_id: str, tz_name: str) -> list[dict]:
     import npb_fixtures
     today = today_in_tz(tz_name)
@@ -1167,6 +1206,7 @@ _FIXTURE_DAY_TZ = {
     "nfl": "America/New_York",
     "npb": "Asia/Tokyo",
     "nba": "America/New_York",
+    "nhl": "America/New_York",
 }
 
 
@@ -1178,6 +1218,7 @@ def todays_live_fixtures() -> list[dict]:
         "npb": _npb_today_fixtures,
         "nfl": _nfl_today_fixtures,
         "nba": _nba_today_fixtures,
+        "nhl": _nhl_today_fixtures,
         "cricket": _cricket_today_fixtures,
         "tennis": _tennis_today_fixtures,
     }
@@ -2022,6 +2063,158 @@ def normalize_nba_slate(slate, *, max_n=MAX_PICKS_PER_LEAGUE, min_conf=None):
                 wise_bar = tip_sport_min_conf("nba", tip["market"])
                 bar = _combo_gather_bar(floor, wise_bar, min_conf=min_conf)
                 wise = sport_market_min_conf("nba", tip["market"]) is None
+            prob = float(tip["probability"])
+            if status == "final" or prob < bar:
+                continue
+            detail = [
+                {"label": "Market", "value": tip["market"]},
+                {"label": "Prob", "value": f"{prob * 100:.0f}%"},
+                {"label": "Bar", "value": f"≥ {bar * 100:.0f}%"},
+            ]
+            if tip["market"] == "Upset lean":
+                detail.append({
+                    "label": "Note",
+                    "value": "Coin-flip game — underdog lean, not 70% tier",
+                })
+            picks.append(_pick(
+                away=away_name,
+                home=home_name,
+                matchup=f"{home_name} vs {away_name}",
+                kickoff_iso=m.get("date") or "",
+                when=(m.get("date") or "")[:16],
+                status=status,
+                status_label=(
+                    status_label if status != "upcoming"
+                    else _tier_status_label(calibrated and not wise, wise=wise)
+                ),
+                pick=tip["pick"],
+                market=tip["market"],
+                detail_rows=detail,
+                confidence=prob,
+                url=e.get("match_url"),
+            ))
+
+    props = [p for p in picks if p["market"] != "Upset lean"]
+    dogs = [p for p in picks if p["market"] == "Upset lean"]
+    selected = select_high_confidence(props, min_conf=0.0, max_n=max_n)
+    if allow_upset and len(selected) < max_n:
+        dog_slots = min(BASEBALL_MAX_UPSET_LEANS, max_n - len(selected))
+        selected.extend(select_high_confidence(dogs, min_conf=0.0, max_n=dog_slots))
+    return today, selected, fixtures_today
+
+
+def _nhl_market_tips(
+    pred,
+    *,
+    home_name,
+    away_name,
+    include_moneyline=True,
+    include_upset_lean=False,
+):
+    """Tips from an NHL prediction dict -- same shape as _baseball_market_tips
+    (moneyline optional + upset lean), goals instead of runs. NHL's real
+    holdout accuracy (~56%) is close to MLB's, not NBA's, so it gets the
+    same coin-flip-skip treatment as baseball rather than always-on
+    moneyline like NBA/NFL."""
+    tips = []
+    if not pred:
+        return tips
+
+    home_p = float(pred.get("home_prob") or 0)
+    away_p = float(pred.get("away_prob") or 0)
+    if include_moneyline:
+        if home_p >= away_p:
+            tips.append({
+                "market": "Moneyline",
+                "pick": home_name,
+                "probability": _shrink_favorite_cover_prob(home_p),
+            })
+        else:
+            tips.append({
+                "market": "Moneyline",
+                "pick": away_name,
+                "probability": _shrink_favorite_cover_prob(away_p),
+            })
+
+    if include_upset_lean:
+        if home_p >= away_p:
+            fav_p, dog_p, dog_name = home_p, away_p, away_name
+        else:
+            fav_p, dog_p, dog_name = away_p, home_p, home_name
+        if fav_p <= BASEBALL_COINFLIP_FAV_MAX and dog_p >= BASEBALL_UPSET_LEAN_MIN and dog_name:
+            tips.append({
+                "market": "Upset lean",
+                "pick": dog_name,
+                "probability": dog_p,
+            })
+
+    total_p = _pct_to_prob(pred.get("total_goals_pick_probability"))
+    if total_p is not None and pred.get("total_goals_pick") and pred.get("total_goals_line") is not None:
+        pick = f"{pred['total_goals_pick']} {pred['total_goals_line']}"
+        if _is_under_pick(pred["total_goals_pick"]):
+            total_p = _shrink_under_prob(total_p)
+        tips.append({
+            "market": "Total goals",
+            "pick": pick,
+            "probability": total_p,
+        })
+
+    for name, pick_key, line_key, prob_key in (
+        (home_name, "home_goals_pick", "home_goals_line", "home_goals_pick_probability"),
+        (away_name, "away_goals_pick", "away_goals_line", "away_goals_pick_probability"),
+    ):
+        tp = _pct_to_prob(pred.get(prob_key))
+        if tp is None or not pred.get(pick_key) or pred.get(line_key) is None:
+            continue
+        pick = f"{name} {pred[pick_key]} {pred[line_key]}"
+        if _is_under_pick(pred[pick_key]) or _is_under_pick(pick):
+            tp = _shrink_under_prob(tp)
+        tips.append({
+            "market": "Team goals",
+            "pick": pick,
+            "probability": tp,
+        })
+    return tips
+
+
+def normalize_nhl_slate(slate, *, max_n=MAX_PICKS_PER_LEAGUE, min_conf=None):
+    """Convert build_nhl_today_slate() into multi-market high-prob picks --
+    same shape as normalize_mlb_slate."""
+    floor = effective_high_prob_min() if min_conf is None else float(min_conf)
+    today = slate.get("today_et") or today_in_tz("America/New_York")
+    thr = load_sport_thresholds("nhl")
+    calibrated = bool(thr.get("calibrated"))
+    allow_upset = min_conf is None
+    include_ml = min_conf is not None
+    picks = []
+    fixtures_today = 0
+    for e in slate.get("board") or []:
+        m = e["fixture"]
+        fixtures_today += 1
+        if m.get("status") == "in":
+            status, status_label = "live", f"Live — {m.get('status_detail', '')} ({m.get('away_score')}-{m.get('home_score')})"
+        elif m.get("completed"):
+            status, status_label = "final", f"Final {m.get('away_score')}-{m.get('home_score')}"
+        else:
+            status, status_label = "upcoming", _tier_status_label(calibrated)
+
+        pred = e.get("prediction")
+        home_name = m.get("home_team", "")
+        away_name = m.get("away_team", "")
+        for tip in _nhl_market_tips(
+            pred,
+            home_name=home_name,
+            away_name=away_name,
+            include_moneyline=include_ml,
+            include_upset_lean=allow_upset,
+        ):
+            if tip["market"] == "Upset lean":
+                bar = BASEBALL_UPSET_LEAN_MIN
+                wise = True
+            else:
+                wise_bar = tip_sport_min_conf("nhl", tip["market"])
+                bar = _combo_gather_bar(floor, wise_bar, min_conf=min_conf)
+                wise = sport_market_min_conf("nhl", tip["market"]) is None
             prob = float(tip["probability"])
             if status == "final" or prob < bar:
                 continue

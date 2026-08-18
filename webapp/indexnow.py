@@ -71,6 +71,7 @@ def default_url_list() -> list[str]:
         f"{SITE_ORIGIN}/mlb/",
         f"{SITE_ORIGIN}/nfl/",
         f"{SITE_ORIGIN}/nba/",
+        f"{SITE_ORIGIN}/nhl/",
         f"{SITE_ORIGIN}/tennis/",
         f"{SITE_ORIGIN}/sitemap.xml",
         f"{SITE_ORIGIN}/sitemap-leagues.xml",
