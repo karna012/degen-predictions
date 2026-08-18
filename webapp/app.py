@@ -21,6 +21,7 @@ import analytics
 import asset_logos
 import auth
 import combo_results
+import crawler_verify
 import feedback
 import geoip
 import investment_sources
@@ -33,6 +34,8 @@ import safer_result
 import slip_ocr
 import soccer_players
 import source_settings
+import telegram_gate
+import unlocks
 from llms_txt_content import build_llms_txt
 from tv_symbols import CRYPTO_TV_SYMBOLS, STOCK_TV_SYMBOLS
 from fotmob_lineup import get_live_matchday_info
@@ -1243,6 +1246,10 @@ try:
     feedback.init_db()
 except Exception:
     logging.getLogger(__name__).exception("feedback.init_db failed (continuing)")
+try:
+    unlocks.init_db()
+except Exception:
+    logging.getLogger(__name__).exception("unlocks.init_db failed (continuing)")
 
 
 def get_client_ip():
@@ -1272,6 +1279,197 @@ def log_visit(response):
     except Exception:
         logging.getLogger(__name__).exception("analytics log_visit failed (ignored)")
     return response
+
+
+# ---------------------------------------------------------------------------
+# Sports prediction unlock gate — join the Telegram channel once, unlock
+# every sport's prediction pages. Today's Picks / Best Combos stay free.
+# ---------------------------------------------------------------------------
+
+VISITOR_COOKIE = "dp_vid"
+VISITOR_COOKIE_MAX_AGE = 400 * 24 * 3600  # ~13 months
+_CRICKET_GATE_COMPS = ("hundred", "mlc", "ipl", "bbl", "cpl")
+_CRICKET_FIXTURE_DETAIL_COMPS = ("hundred", "ipl", "bbl", "cpl")  # mlc has no /fixture/<slug> route
+
+
+def _build_sports_gate_rules():
+    exact_pages = set()
+    prefix_pages = []
+    exact_apis = set()
+    prefix_apis = []
+
+    for lk in LEAGUES:
+        exact_pages.add(f"/{lk}/")
+        exact_pages.add(f"/{lk}/predictions-today")
+        prefix_pages.append(f"/{lk}/match/")
+        prefix_apis.append(f"/{lk}/api/predict/")
+
+    exact_pages.update({"/mlb/", "/mlb/today", "/nfl/", "/npb/"})
+    prefix_pages.extend(["/mlb/match/", "/nfl/match/", "/npb/match/"])
+    exact_apis.update({"/mlb/api/predict", "/nfl/api/predict", "/npb/api/predict"})
+
+    for ck in _CRICKET_GATE_COMPS:
+        exact_pages.add(f"/{ck}/")
+        prefix_pages.append(f"/{ck}/match/")
+    for ck in _CRICKET_FIXTURE_DETAIL_COMPS:
+        prefix_pages.append(f"/{ck}/fixture/")
+
+    exact_pages.add("/tennis/")
+    prefix_pages.append("/tennis/fixture/")
+
+    return exact_pages, tuple(prefix_pages), exact_apis, tuple(prefix_apis)
+
+
+_GATE_EXACT_PAGES, _GATE_PREFIX_PAGES, _GATE_EXACT_APIS, _GATE_PREFIX_APIS = _build_sports_gate_rules()
+
+
+def _sports_gate_kind(path: str) -> str | None:
+    """'api' -> JSON 403; 'page' -> HTML gate; None -> not gated."""
+    if path in _GATE_EXACT_APIS or path.startswith(_GATE_PREFIX_APIS):
+        return "api"
+    if path in _GATE_EXACT_PAGES or path.startswith(_GATE_PREFIX_PAGES):
+        return "page"
+    return None
+
+
+def _visitor_cookie_signer():
+    from itsdangerous import URLSafeTimedSerializer
+    return URLSafeTimedSerializer(app.secret_key, salt="sports-gate-visitor")
+
+
+def _read_visitor_id() -> str:
+    raw = request.cookies.get(VISITOR_COOKIE)
+    if not raw:
+        return ""
+    try:
+        return _visitor_cookie_signer().loads(raw, max_age=VISITOR_COOKIE_MAX_AGE)
+    except Exception:
+        return ""
+
+
+def _set_visitor_cookie(resp, visitor_id: str):
+    resp.set_cookie(
+        VISITOR_COOKIE,
+        _visitor_cookie_signer().dumps(visitor_id),
+        max_age=VISITOR_COOKIE_MAX_AGE,
+        samesite="Lax",
+        path="/",
+        httponly=True,
+    )
+    return resp
+
+
+@app.before_request
+def sports_unlock_gate():
+    # The whole existing test suite predates this gate and expects direct
+    # access to prediction pages; forcing every one of those tests to also
+    # unlock first would be a huge, low-value mechanical rewrite. Off under
+    # TESTING by default -- tests/test_sports_gate.py flips SPORTS_GATE_FORCE
+    # on to exercise the gate itself.
+    if app.config.get("TESTING") and not app.config.get("SPORTS_GATE_FORCE"):
+        return None
+    kind = _sports_gate_kind(request.path)
+    if kind is None:
+        return None
+    try:
+        if crawler_verify.is_verified_crawler(
+            request.headers.get("User-Agent", ""), get_client_ip(),
+        ):
+            return None
+    except Exception:
+        logging.getLogger(__name__).exception("crawler verification failed (treating as human)")
+
+    visitor_id = _read_visitor_id() or unlocks.new_visitor_id()
+    try:
+        if unlocks.is_unlocked(visitor_id):
+            return None
+    except Exception:
+        # DB unreadable -- fail closed (show the gate) rather than leak predictions.
+        logging.getLogger(__name__).exception("unlocks.is_unlocked failed")
+
+    if kind == "api":
+        resp = make_response(jsonify({
+            "error": "locked",
+            "message": "Join our Telegram channel to unlock this prediction.",
+        }), 403)
+        return _set_visitor_cookie(resp, visitor_id)
+
+    try:
+        code = unlocks.get_or_create_code(visitor_id)
+    except Exception:
+        logging.getLogger(__name__).exception("unlocks.get_or_create_code failed")
+        code = ""
+    resp = make_response(render_template(
+        "sports_gate.html",
+        verify_url=telegram_gate.deep_link(code) if code else "",
+    ), 403)
+    return _set_visitor_cookie(resp, visitor_id)
+
+
+@app.route("/api/unlock-status")
+def api_unlock_status():
+    visitor_id = _read_visitor_id()
+    unlocked = bool(visitor_id and unlocks.is_unlocked(visitor_id))
+    return jsonify({"unlocked": unlocked})
+
+
+@app.route("/telegram/webhook", methods=["POST"])
+def telegram_webhook():
+    if not telegram_gate.verify_webhook_secret(
+        request.headers.get("X-Telegram-Bot-Api-Secret-Token", ""),
+    ):
+        abort(403)
+    update = request.get_json(silent=True) or {}
+    message = update.get("message") or {}
+    text = (message.get("text") or "").strip()
+    if not text.startswith("/start "):
+        return jsonify({"ok": True})
+    code = text.split(" ", 1)[1].strip()
+    from_user = message.get("from") or {}
+    user_id = from_user.get("id")
+    username = from_user.get("username") or ""
+    if not code or not user_id:
+        return jsonify({"ok": True})
+
+    row = unlocks.resolve_code(code)
+    if not row:
+        telegram_gate.send_dm(
+            user_id,
+            "That verification link expired -- go back to the site and tap Join again.",
+        )
+        return jsonify({"ok": True})
+
+    member = telegram_gate.is_chat_member(user_id)
+    if member is True:
+        unlocks.mark_unlocked(
+            row["visitor_id"], telegram_user_id=str(user_id), telegram_username=username,
+        )
+        telegram_gate.send_dm(
+            user_id,
+            "You're verified! Go back to the site and refresh -- predictions are unlocked.",
+        )
+    elif member is False:
+        telegram_gate.send_dm(
+            user_id,
+            "Looks like you haven't joined the channel yet -- join first, then tap Verify again.",
+        )
+    else:
+        telegram_gate.send_dm(
+            user_id, "Couldn't check your membership right now -- please try again in a minute.",
+        )
+    return jsonify({"ok": True})
+
+
+@app.route("/admin/telegram-register-webhook", methods=["POST"])
+@admin_required
+@csrf_protect
+def admin_register_telegram_webhook():
+    ok, detail = telegram_gate.register_webhook(request.url_root)
+    flash(
+        ("Telegram webhook registered." if ok else f"Webhook registration failed: {detail}"),
+        "success" if ok else "error",
+    )
+    return redirect("/admin?section=telegram")
 
 
 def _fixture_dates_naive(df):

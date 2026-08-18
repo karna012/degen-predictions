@@ -18,6 +18,7 @@ webapp/users.db
 webapp/analytics.db
 webapp/feedback.db
 webapp/combo_results.db
+webapp/unlocks.db
 webapp/degen_test_analytics.db
 webapp/degen_test_feedback.db
 webapp/sitemap_cache.xml
@@ -39,6 +40,7 @@ webapp/live_fixtures.pkl
 data/daily_digest/
 data/live_feeds/
 data/admin/
+data/telegram_gate.json
 output_tables/daily_drafts/
 
 # Combo-picks disk cache -- atomic-write temp files (random suffix) plus the

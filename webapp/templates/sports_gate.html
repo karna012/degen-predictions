@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Join to unlock predictions{% endblock %}
+{% block description %}Join the Degen Predictions Telegram channel to unlock sports predictions -- free, one-time.{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+{{ nav_back('/', 'Home') }}
+<div class="leagues-hero">
+    <h1>Unlock this prediction</h1>
+    <p class="muted">Join our Telegram channel once -- every sport's predictions unlock for good. Today's Picks and Best Combos are always free and don't need this.</p>
+</div>
+
+<div class="card" style="max-width:60ch; margin-top:1rem;" id="gate-card">
+    <h2>Step 1 &mdash; Join the channel</h2>
+    <p class="muted">
+        <a href="/go/telegram" target="_blank" rel="noopener noreferrer">Join the Telegram channel &rarr;</a>
+    </p>
+
+    <h2 style="margin-top:1.25rem;">Step 2 &mdash; Verify</h2>
+    {% if verify_url %}
+    <p class="muted">
+        <a href="{{ verify_url }}" target="_blank" rel="noopener noreferrer" id="gate-verify-btn">Verify with our bot &rarr;</a>
+        <br><span style="font-size:0.9em;">Opens a chat with our bot &mdash; tap Start/Send. It checks your membership and confirms in seconds.</span>
+    </p>
+    {% else %}
+    <p class="muted">Verification is temporarily unavailable &mdash; please try again shortly.</p>
+    {% endif %}
+
+    <p class="muted" id="gate-status" style="margin-top:1rem;"></p>
+</div>
+
+<script>
+(function () {
+    var statusEl = document.getElementById("gate-status");
+    var checking = false;
+    function checkUnlock() {
+        if (checking) return;
+        checking = true;
+        fetch("/api/unlock-status", {credentials: "same-origin"})
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                checking = false;
+                if (data && data.unlocked) {
+                    if (statusEl) statusEl.textContent = "Verified! Reloading...";
+                    window.location.reload();
+                }
+            })
+            .catch(function () { checking = false; });
+    }
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") checkUnlock();
+    });
+    window.addEventListener("focus", checkUnlock);
+    var verifyBtn = document.getElementById("gate-verify-btn");
+    if (verifyBtn) {
+        verifyBtn.addEventListener("click", function () {
+            setTimeout(checkUnlock, 4000);
+        });
+    }
+})();
+</script>
+{% endblock %}

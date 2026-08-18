@@ -23,7 +23,7 @@ fi
 echo "==> Packing: ${DIRS_TO_SYNC[*]}"
 tar --exclude='__pycache__' --exclude='*.pyc' --exclude='*.log' \
     --exclude='webapp/users.db' --exclude='webapp/analytics.db' --exclude='webapp/feedback.db' \
-    --exclude='webapp/combo_results.db' \
+    --exclude='webapp/combo_results.db' --exclude='webapp/unlocks.db' \
     --exclude='webapp/degen_test_analytics.db' --exclude='webapp/degen_test_feedback.db' \
     --exclude='webapp/sitemap_cache.xml' --exclude='webapp/results_cache.html' \
     --exclude='webapp/mlb_results_cache.html' \
