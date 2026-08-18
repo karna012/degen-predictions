@@ -42,12 +42,19 @@ Telegram daily slips: https://degenpredictions.com/go/telegram
 - Today's Picks: https://degenpredictions.com/todays-picks
 - Multi bet / Best Combos: https://degenpredictions.com/todays-picks/combos
 - MLB predictions: https://degenpredictions.com/mlb/fixtures · Today's MLB picks https://degenpredictions.com/todays-picks/baseball/mlb · results https://degenpredictions.com/mlb/results
+- NPB (Japanese pro baseball) predictions: https://degenpredictions.com/npb/fixtures · results https://degenpredictions.com/npb/results
 - NFL predictions: https://degenpredictions.com/nfl/fixtures · hub https://degenpredictions.com/sports/american-football · Today's Picks https://degenpredictions.com/todays-picks/american_football/nfl
 - Tennis match today / ATP: https://degenpredictions.com/tennis/fixtures · hub https://degenpredictions.com/sports/tennis · Today's Picks https://degenpredictions.com/todays-picks/tennis/atp
-- EPL / Premier League predictions: https://degenpredictions.com/premier_league/
-- La Liga predictions: https://degenpredictions.com/la_liga/
 - Football predictions hub: https://degenpredictions.com/sports/soccer
-- IPL: https://degenpredictions.com/ipl/fixtures · CPL predictions: https://degenpredictions.com/cpl/fixtures
+- EPL / Premier League predictions: https://degenpredictions.com/premier_league/ · results https://degenpredictions.com/premier_league/results
+- La Liga predictions: https://degenpredictions.com/la_liga/ · results https://degenpredictions.com/la_liga/results
+- Serie A predictions: https://degenpredictions.com/serie_a/ · results https://degenpredictions.com/serie_a/results
+- Bundesliga predictions: https://degenpredictions.com/bundesliga/ · results https://degenpredictions.com/bundesliga/results
+- Ligue 1 predictions: https://degenpredictions.com/ligue_1/ · results https://degenpredictions.com/ligue_1/results
+- MLS predictions: https://degenpredictions.com/mls/ · results https://degenpredictions.com/mls/results
+- Primeira Liga (Portugal) predictions: https://degenpredictions.com/primeira_liga/ · results https://degenpredictions.com/primeira_liga/results
+- Liga MX (Mexico) predictions: https://degenpredictions.com/liga_mx/ · results https://degenpredictions.com/liga_mx/results
+- Cricket: IPL https://degenpredictions.com/ipl/fixtures · CPL https://degenpredictions.com/cpl/fixtures · BBL https://degenpredictions.com/bbl/fixtures · The Hundred https://degenpredictions.com/hundred/fixtures · MLC https://degenpredictions.com/mlc/fixtures
 - Accuracy hub: https://degenpredictions.com/accuracy
 - FAQ: https://degenpredictions.com/faq
 
