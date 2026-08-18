@@ -23,6 +23,8 @@ webapp/degen_test_feedback.db
 webapp/sitemap_cache.xml
 webapp/sitemap_cache/
 webapp/results_cache.html
+webapp/mlb_results_cache.html
+webapp/nfl_results_cache.html
 deploy/logs/
 deploy/soccer_retrain_state.json
 webapp/deposit_config.json

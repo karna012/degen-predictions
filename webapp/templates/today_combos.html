@@ -19,18 +19,18 @@
 <div class="board-ready" id="board-ready">
 {% macro combo_card(c, size, idx, max_n) %}
 {% set _legs = c.legs or [] %}
-{% set _unlock_event = (size ~ '-leg ' ~ (c.mix_kind or 'mix') ~ ' · ' ~ ((_legs[0].matchup if _legs else 'combo')|string)) ~ ((' + ' ~ (_legs[1].matchup|string)) if _legs|length > 1 else '') %}
+{% set _combo_label = (size ~ '-leg ' ~ (c.mix_kind or 'mix') ~ ' · ' ~ ((_legs[0].matchup if _legs else 'combo')|string)) ~ ((' + ' ~ (_legs[1].matchup|string)) if _legs|length > 1 else '') %}
 <div class="fixture-card ok-confidence digest-slip" style="--card-index: {{ idx }}; cursor:pointer; display:flex; flex-direction:column; gap:0.75rem; padding:1.1rem 1.15rem;"
-     data-lock="1" data-unlock-kind="combo" data-unlock-event="{{ _unlock_event|e }}">
+     data-href="/go/telegram" tabindex="0" role="link" aria-label="Join Telegram for {{ _combo_label|e }}">
     <div class="fixture-card-head">
         <div style="font-size:0.78rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--accent);">
             {{ size }}-leg{% if c.mix_kind %} · {{ c.mix_kind }}{% endif %}
         </div>
-        <button type="button" class="predict-btn js-unlock-slate">Unlock combo</button>
+        <a class="predict-btn" href="/go/telegram" target="_blank" rel="noopener noreferrer">Join Telegram</a>
     </div>
     <div class="fixture-empty">
-        <span class="fixture-empty-label">Combo locked</span>
-        <span class="fixture-empty-hint">Tap Unlock combo to reveal the legs and joint %</span>
+        <span class="fixture-empty-label">Combo on Telegram</span>
+        <span class="fixture-empty-hint">Join Telegram to see the legs and joint %</span>
     </div>
     <div class="fixture-outcomes" hidden>
         <div style="font-size:0.78rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--accent);">

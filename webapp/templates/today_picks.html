@@ -35,7 +35,7 @@
 <div class="board-ready" id="board-ready">
 <div class="leagues-hero">
     <h1>{{ league.label }} — Today's Picks</h1>
-    <p class="muted">{{ today_local }} ({{ league.tz }}) · tap Unlock prediction on a match card. Estimates, not betting advice.</p>
+    <p class="muted">{{ today_local }} ({{ league.tz }}) · picks are posted on Telegram — tap Join Telegram on a match card. Estimates, not betting advice.</p>
     {% include "partials/updated_stamp.html" %}
     {% if schedule_url %}
     <p class="leagues-hero-ctas">
@@ -72,17 +72,10 @@
     {% for p in picks %}
     <article class="fixture-card {% if p.market == 'Upset lean' %}low-confidence{% else %}ok-confidence{% endif %}"
          style="--card-index: {{ loop.index0 }}; cursor:pointer;"
-         data-unlock-kind="pick"
-         data-unlock-event="{{ league.label }} · {{ p.matchup }} · {{ p.market or 'pick' }}"
-         data-lock="1"
-         {% if p.url or schedule_url %}data-href="{{ p.url or schedule_url }}" tabindex="0" role="link" aria-label="{{ p.matchup }}"{% endif %}>
+         data-href="/go/telegram" tabindex="0" role="link" aria-label="Join Telegram for {{ p.matchup }}">
         <div class="fixture-card-head">
             <div>
-                {% if p.url %}
-                <a class="fixture-teams" href="{{ p.url }}">{{ p.matchup }}</a>
-                {% else %}
                 <span class="fixture-teams">{{ p.matchup }}</span>
-                {% endif %}
                 <div class="fixture-date">
                     {% if p.kickoff_iso %}
                     <span class="kickoff-when muted" data-iso="{{ p.kickoff_iso }}">{{ p.when }}</span>
@@ -97,11 +90,11 @@
             {% if p.status == 'live' %}
             <span class="confidence-alert">{{ p.status_label }}</span>
             {% endif %}
-            <button type="button" class="predict-btn js-unlock-slate">Unlock prediction</button>
+            <a class="predict-btn" href="/go/telegram" target="_blank" rel="noopener noreferrer">Join Telegram</a>
         </div>
         <div class="fixture-empty">
-            <span class="fixture-empty-label">Pick locked</span>
-            <span class="fixture-empty-hint">Tap Unlock prediction to reveal the market</span>
+            <span class="fixture-empty-label">Pick on Telegram</span>
+            <span class="fixture-empty-hint">Join Telegram to see this pick</span>
         </div>
         <div class="fixture-outcomes" hidden style="margin-top:0.4rem;">
             {% if p.market == 'Upset lean' %}

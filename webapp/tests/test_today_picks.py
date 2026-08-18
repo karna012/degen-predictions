@@ -84,11 +84,11 @@ def test_combo_picks_page_loads(client):
         or ("Mixed sports" in body)
         or ("No combo picks today" in body)
     )
-    assert "Unlock combo" in body or "No combo picks today" in body
+    assert "Join Telegram" in body or "No combo picks today" in body
     if "No combo picks today" not in body:
-        assert "js-unlock-slate" in body
-        assert "Combo locked" in body
-        assert 'data-lock="1"' in body
+        assert "js-unlock-slate" not in body
+        assert "Combo on Telegram" in body
+        assert 'data-href="/go/telegram"' in body
 
 
 def test_unlock_gate_asks_to_unlock_first():
@@ -702,19 +702,18 @@ def test_every_league_today_page_loads(client):
             assert "Today's Picks" in body
             assert sport["label"] in body
             assert sport["leagues"][league_id]["label"] in body
-            # Pick card, no-match, or no high-probability empty state.
+            # Pick card, no-match, or no high-probability empty state. Picks
+            # forward to Telegram now -- no on-site unlock/reveal at all.
             assert (
-                ("Unlock prediction" in body)
+                ("Join Telegram" in body)
                 or ("No match today" in body)
                 or ("No high-probability picks today" in body)
                 or ("No high-confidence picks today" in body)
             )
             if "fixture-card" in body and "No match today" not in body and "No high-probability" not in body:
-                assert "Unlock prediction" in body
+                assert "Join Telegram" in body
             assert 'class="predict-btn">See fixtures' not in body
-            if "js-unlock-slate" in body:
-                assert "Unlock prediction" in body
-                assert '<a class="predict-btn"' not in body
+            assert "js-unlock-slate" not in body
 
 
 def test_soccer_offseason_shows_no_match_today(client):
