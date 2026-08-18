@@ -1499,7 +1499,7 @@ _HASHTAG_BY_SPORT = {
     "tennis": ("#Tennis",),
     "american_football": ("#NFL", "#NFLFootball"),
     "basketball": ("#NBA", "#Basketball"),
-    "hockey": ("#NHL", "#Hockey"),
+    "hockey": ("#NHL", "#IceHockey"),
 }
 
 
@@ -1572,6 +1572,15 @@ def _copy_slip_image(src: Path | str | None, dest: Path) -> bool:
         return False
 
 
+def _slip_image_key(item: dict) -> str:
+    """Stable short id for a slip's image, independent of its position in
+    whatever list it's currently rendered in -- the X queue accumulates
+    across sends and gets filtered as games finish, so list position drifts
+    and can't be used to address a specific slip's image reliably."""
+    fp = _legs_only_fingerprint(item) or (item.get("title") or "")
+    return hashlib.sha1(fp.encode("utf-8")).hexdigest()[:16]
+
+
 def ensure_twitter_slip_images(
     slips: list[dict],
     *,
@@ -1587,7 +1596,8 @@ def ensure_twitter_slip_images(
         pub = _slip_social_public(slip)
         if not pub.get("legs"):
             continue
-        dest = out_dir / f"{i:02d}.png"
+        key = _slip_image_key(pub)
+        dest = out_dir / f"{key}.png"
         ok = False
         try:
             rendered = render_slip_card_png(
@@ -1602,19 +1612,41 @@ def ensure_twitter_slip_images(
             ok = _copy_slip_image(pub.get("image_path") or slip.get("path"), dest)
         pub["image_path"] = str(dest.resolve()) if ok else ""
         pub["image_index"] = i
+        pub["slip_key"] = key
         ready.append(pub)
     return ready
 
 
 def save_last_telegram_send(slips: list[dict], *, day: str | None = None) -> Path:
-    """Remember the slips just posted to Telegram so X copy can match them."""
+    """Remember slips just posted to Telegram, accumulating across separate
+    sends (rather than overwriting) so every slip sent stays available in
+    the X queue -- not just the most recent send. De-duped by content key
+    (a re-send of the same slip refreshes it, not a duplicate entry);
+    capped at LAST_TELEGRAM_SEND_MAX_SLIPS, oldest dropped on overflow.
+    Stale slips age out via twitter_queue()'s "still upcoming" filter at
+    read time, not here -- this only remembers what was sent.
+    """
     _ensure_dirs()
     LAST_TELEGRAM_SEND_PATH.parent.mkdir(parents=True, exist_ok=True)
     day = day or today_key()
-    rows = ensure_twitter_slip_images(
+    new_rows = ensure_twitter_slip_images(
         [s for s in (slips or []) if isinstance(s, dict)],
         day=day,
-    )[:LAST_TELEGRAM_SEND_MAX_SLIPS]
+    )
+
+    existing = load_last_telegram_send()
+    prior_rows = list(existing.get("slips") or []) if existing else []
+
+    seen: set[str] = set()
+    rows: list[dict] = []
+    for row in new_rows + prior_rows:
+        key = row.get("slip_key") or _slip_image_key(row)
+        if key in seen:
+            continue
+        seen.add(key)
+        rows.append(row)
+    rows = rows[:LAST_TELEGRAM_SEND_MAX_SLIPS]
+
     payload = {
         "date": day,
         "sent_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -1816,8 +1848,9 @@ def build_twitter_posts(
         image_path = (slip.get("image_path") or pub.get("image_path") or "").strip()
         has_image = bool(image_path and Path(image_path).is_file())
         image_url = ""
+        slip_key = slip.get("slip_key") or _slip_image_key(pub)
         if has_image:
-            image_url = f"/admin/twitter-image/{i}.png?day={urllib.parse.quote(day)}"
+            image_url = f"/admin/twitter-image/{slip_key}.png?day={urllib.parse.quote(day)}"
         posts.append({
             "index": i,
             "title": pub["title"],
@@ -1982,22 +2015,18 @@ def twitter_queue(
     }
 
 
-def twitter_image_path(index: int, *, day: str | None = None) -> Path | None:
-    """Resolve ``x_queue/NN.png`` for an admin image route."""
-    try:
-        n = int(index)
-    except (TypeError, ValueError):
-        return None
-    if n < 1 or n > LAST_TELEGRAM_SEND_MAX_SLIPS:
+def twitter_image_path(key: str, *, day: str | None = None) -> Path | None:
+    """Resolve a slip's PNG for an admin image route by its stable content
+    key (see _slip_image_key) -- not by list position, which drifts as the
+    X queue accumulates across sends and items drop out as games finish."""
+    key = (key or "").strip()
+    if not key:
         return None
 
     last = load_last_telegram_send()
     if last:
         for slip in last.get("slips") or []:
-            try:
-                if int(slip.get("image_index") or 0) != n:
-                    continue
-            except (TypeError, ValueError):
+            if (slip.get("slip_key") or "") != key:
                 continue
             raw = (slip.get("image_path") or "").strip()
             if raw:
@@ -2016,7 +2045,7 @@ def twitter_image_path(index: int, *, day: str | None = None) -> Path | None:
         if not d or d in seen:
             continue
         seen.add(d)
-        path = _x_queue_dir(d) / f"{n:02d}.png"
+        path = _x_queue_dir(d) / f"{key}.png"
         if path.is_file():
             return path
     return None

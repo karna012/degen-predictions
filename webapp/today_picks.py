@@ -615,7 +615,7 @@ TODAY_SPORTS = {
         },
     },
     "hockey": {
-        "label": "Hockey",
+        "label": "Ice Hockey",
         "color": "#041e42",
         "leagues": {
             "nhl": {
