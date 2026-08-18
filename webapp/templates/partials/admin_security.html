@@ -160,7 +160,7 @@
             <div class="src-toast is-ok" style="margin-bottom:0.85rem;"><strong>Saved</strong> Access policy updated</div>
             {% endif %}
             {% if admin_2fa_flash == 'password' %}
-            <div class="src-toast is-ok" style="margin-bottom:0.85rem;"><strong>Password updated</strong></div>
+            <div class="src-toast is-ok" style="margin-bottom:0.85rem;"><strong>Password updated</strong> <span>{{ admin_2fa_flash_msg }}</span></div>
             {% endif %}
             {% if admin_2fa_flash == 'flask' %}
             <div class="src-toast is-ok" style="margin-bottom:0.85rem;"><strong>Flask secret rotated</strong> <span>{{ admin_2fa_flash_msg }}</span></div>

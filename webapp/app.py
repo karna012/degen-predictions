@@ -5928,7 +5928,17 @@ def admin_security_change_password():
     except Exception:
         pass
     admin_audit.log_event("password_change", ok=True, ip=get_client_ip(), detail="primary admin")
-    return redirect(url_for("admin_dashboard", section="security", tfa="password"))
+    # Other gunicorn workers (--workers 3) keep the old ADMIN_PASSWORD in
+    # their own process memory until they restart or recycle
+    # (--max-requests) -- same class of issue rotate-flask-secret already
+    # warns about below. Login attempts landing on a stale worker in that
+    # window will wrongly report "Current password is wrong".
+    return redirect(url_for(
+        "admin_dashboard",
+        section="security",
+        tfa="password",
+        tfam="Password changed — restart degen-predictions.service so every worker picks it up immediately (otherwise it applies gradually as workers recycle).",
+    ))
 
 
 @app.route("/admin/security/rotate-flask-secret", methods=["POST"])
