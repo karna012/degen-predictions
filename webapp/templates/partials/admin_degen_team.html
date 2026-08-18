@@ -126,7 +126,15 @@
                             <button class="btn btn-sm" name="status" value="lost" type="submit">Lost</button>
                             <button class="btn btn-sm" name="status" value="void" type="submit">Void</button>
                         </form>
-                        {% else %}—{% endif %}
+                        {% else %}
+                        <form method="post" action="/admin/degen-team/settle" class="tg-settle-form"
+                              onsubmit="return confirm('Revert this slip to Pending? You can re-grade it after.');">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <input type="hidden" name="kind" value="combo">
+                            <input type="hidden" name="id" value="{{ s.id }}">
+                            <button class="btn btn-sm" name="status" value="pending" type="submit" title="Undo grading -- back to Pending">↺ Revert</button>
+                        </form>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}
@@ -168,7 +176,15 @@
                             <button class="btn btn-sm" name="status" value="lost" type="submit">Lost</button>
                             <button class="btn btn-sm" name="status" value="void" type="submit">Void</button>
                         </form>
-                        {% else %}—{% endif %}
+                        {% else %}
+                        <form method="post" action="/admin/degen-team/settle" class="tg-settle-form"
+                              onsubmit="return confirm('Revert this pick to Pending? You can re-grade it after.');">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <input type="hidden" name="kind" value="single">
+                            <input type="hidden" name="id" value="{{ p.id }}">
+                            <button class="btn btn-sm" name="status" value="pending" type="submit" title="Undo grading -- back to Pending">↺ Revert</button>
+                        </form>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

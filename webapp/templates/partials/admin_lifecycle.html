@@ -209,6 +209,15 @@
                             <button class="btn btn-sm" name="status" value="lost" type="submit">L</button>
                             <button class="btn btn-sm" name="status" value="void" type="submit">V</button>
                         </form>
+                        {% elif r.channel_sent and r.settle_status and r.settle_status != 'pending' and r.id %}
+                        <form method="post" action="/admin/degen-team/settle" class="lifecycle-inline-form"
+                              onsubmit="return confirm('Revert this grade to Pending? You can re-grade it after.');">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <input type="hidden" name="kind" value="{{ r.kind }}">
+                            <input type="hidden" name="id" value="{{ r.id }}">
+                            <input type="hidden" name="next_section" value="lifecycle">
+                            <button class="btn btn-sm" name="status" value="pending" type="submit" title="Undo grading -- back to Pending">↺</button>
+                        </form>
                         {% endif %}
                         {% if r.channel_sent and r.id and r.kind %}
                         <form method="post" action="/admin/lifecycle/block" class="lifecycle-inline-form">
