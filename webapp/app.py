@@ -23,6 +23,7 @@ import auth
 import combo_results
 import feedback
 import geoip
+import investment_sources
 import sentiment
 import live_predict
 import match_context
@@ -31,6 +32,7 @@ import daily_digest
 import safer_result
 import slip_ocr
 import soccer_players
+import source_settings
 from llms_txt_content import build_llms_txt
 from tv_symbols import CRYPTO_TV_SYMBOLS, STOCK_TV_SYMBOLS
 from fotmob_lineup import get_live_matchday_info
