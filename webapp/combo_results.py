@@ -567,10 +567,38 @@ def record_degen_team_slip(
     uid: str | None = None,
     telegram_serial: int | None = None,
 ) -> dict:
-    """Persist a channel slip for settle + Telegram result replies.
+    """Persist a channel slip for settle + Telegram result replies -- retries
+    on transient SQLite lock contention rather than losing an already-posted
+    Telegram slip's ledger record over a single busy-database moment (seen
+    in production: the Telegram post succeeds, this silently doesn't)."""
+    import time
 
-    ``source=degen_team`` stays excluded from public/board model feedback.
-    """
+    last_exc = None
+    for attempt in range(4):
+        try:
+            return _record_degen_team_slip_once(
+                legs, title=title, telegram_message_ids=telegram_message_ids,
+                slate_date=slate_date, uid=uid, telegram_serial=telegram_serial,
+            )
+        except sqlite3.OperationalError as exc:
+            last_exc = exc
+            logger.warning(
+                "record_degen_team_slip: attempt %d hit %s, retrying",
+                attempt + 1, exc,
+            )
+            time.sleep(0.3 * (attempt + 1))
+    raise last_exc
+
+
+def _record_degen_team_slip_once(
+    legs: list[dict] | None,
+    *,
+    title: str = "",
+    telegram_message_ids: list | None = None,
+    slate_date: str | None = None,
+    uid: str | None = None,
+    telegram_serial: int | None = None,
+) -> dict:
     init_db()
     cleaned = [_normalize_leg_for_store(leg) for leg in (legs or [])]
     cleaned = [leg for leg in cleaned if leg.get("pick") or leg.get("matchup")]
