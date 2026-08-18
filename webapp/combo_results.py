@@ -889,6 +889,47 @@ def list_telegram_results_due(*, limit: int = 40, channel: str = "telegram") -> 
     return out[:limit]
 
 
+def get_results_by_keys(keys: list[tuple[str, int]]) -> list[dict]:
+    """Settled slips/picks fetched directly by (kind, id) -- for explicit
+    admin selection only, never the automatic bulk queue.
+
+    Unlike list_telegram_results_due(), this ignores
+    telegram_result_posted_at / twitter_result_posted_at / result_blocked_at
+    entirely, so an admin can deliberately resend something already posted,
+    and includes VOID/PUSH (list_telegram_results_due's caller,
+    select_telegram_results_for_channel, would otherwise silently route
+    those to "skip and mark posted without sending" -- appropriate for the
+    automatic wins+capped-losses digest, wrong for "the admin picked this
+    exact row and clicked Send").
+    """
+    init_db()
+    out: list[dict] = []
+    with get_db() as conn:
+        for kind, row_id in keys or []:
+            kind = (kind or "").strip().lower()
+            table = "combo_slips" if kind == "combo" else "published_picks"
+            row = conn.execute(
+                f"SELECT * FROM {table} WHERE id=?", (int(row_id),),
+            ).fetchone()
+            if not row:
+                continue
+            item = dict(row)
+            if (item.get("status") or "").strip().lower() not in SETTLE_STATUSES:
+                continue
+            item["kind"] = "combo" if kind == "combo" else "single"
+            if kind == "combo":
+                item["legs"] = [
+                    dict(r) for r in conn.execute(
+                        "SELECT * FROM combo_legs WHERE slip_id=? ORDER BY leg_index",
+                        (int(row_id),),
+                    ).fetchall()
+                ]
+            else:
+                item["legs"] = [dict(row)]
+            out.append(item)
+    return out
+
+
 def mark_telegram_result_posted(kind: str, row_id: int) -> None:
     """Mark a settled channel row as having had its Telegram result reply sent."""
     init_db()
@@ -1081,7 +1122,13 @@ def manual_settle_combo_slip(
     note: str = "",
     leg_statuses: list[str] | None = None,
 ) -> dict:
-    """Admin grades a Degen Team (or any) combo slip Won/Lost/Void.
+    """Admin grades a Degen Team (or any) combo slip Won/Lost/Void, or
+    reverts a mis-grade back to pending (status="pending") so a mis-click
+    isn't permanent -- every leg reverts to pending regardless of
+    ``leg_statuses``. Reverting does not touch telegram_result_posted_at /
+    twitter_result_posted_at -- if a RESULT already went out under the wrong
+    grade, re-grade correctly and use the Results tab's explicit resend
+    (select the row, Send) to correct what was posted.
 
     If ``leg_statuses`` is provided (same length as legs), each leg is set
     individually and the slip status is rolled up; otherwise every pending
@@ -1089,7 +1136,7 @@ def manual_settle_combo_slip(
     """
     init_db()
     want = _normalize_status(status)
-    if want not in SETTLE_STATUSES:
+    if want not in SETTLE_STATUSES and want != PENDING:
         return {"ok": False, "error": "bad_status"}
     now = datetime.datetime.now(datetime.timezone.utc).isoformat()
     note = (note or "").strip()
@@ -1105,6 +1152,21 @@ def manual_settle_combo_slip(
         ).fetchall()
         if not legs:
             return {"ok": False, "error": "no_legs"}
+        if want == PENDING:
+            for leg in legs:
+                conn.execute(
+                    """
+                    UPDATE combo_legs
+                    SET status='pending', actual_note=?, settled_at=NULL
+                    WHERE id=?
+                    """,
+                    (note or "admin: reverted to pending", leg["id"]),
+                )
+            conn.execute(
+                "UPDATE combo_slips SET status='pending', settled_at=NULL WHERE id=?",
+                (int(slip_id),),
+            )
+            return {"ok": True, "kind": "combo", "id": int(slip_id), "status": PENDING}
         statuses: list[str] = []
         for i, leg in enumerate(legs):
             if leg_statuses is not None and i < len(leg_statuses):
@@ -1133,13 +1195,23 @@ def manual_settle_combo_slip(
 
 
 def manual_settle_pick(pick_id: int, status: str, *, note: str = "") -> dict:
-    """Admin grades a published single pick (incl. Degen Team singles)."""
+    """Admin grades a published single pick (incl. Degen Team singles), or
+    reverts a mis-grade back to pending (status="pending") so a mis-click
+    isn't permanent. Reverting does not touch telegram_result_posted_at /
+    twitter_result_posted_at -- if a RESULT already went out under the wrong
+    grade, re-grade correctly and use the Results tab's explicit resend
+    (select the row, Send) to correct what was posted."""
     init_db()
     want = _normalize_status(status)
-    if want not in SETTLE_STATUSES:
+    if want not in SETTLE_STATUSES and want != PENDING:
         return {"ok": False, "error": "bad_status"}
     now = datetime.datetime.now(datetime.timezone.utc).isoformat()
-    note = (note or "").strip() or f"admin:{want}"
+    if want == PENDING:
+        note = (note or "").strip() or "admin: reverted to pending"
+        settled_at = None
+    else:
+        note = (note or "").strip() or f"admin:{want}"
+        settled_at = now
     with get_db() as conn:
         row = conn.execute(
             "SELECT id FROM published_picks WHERE id=?", (int(pick_id),)
@@ -1152,7 +1224,7 @@ def manual_settle_pick(pick_id: int, status: str, *, note: str = "") -> dict:
             SET status=?, actual_note=?, settled_at=?
             WHERE id=?
             """,
-            (want, note, now, int(pick_id)),
+            (want, note, settled_at, int(pick_id)),
         )
     return {"ok": True, "kind": "single", "id": int(pick_id), "status": want}
 
@@ -1931,6 +2003,39 @@ def _lookup_mlb(leg: dict) -> dict | None:
     }
 
 
+def _lookup_nba(leg: dict) -> dict | None:
+    try:
+        from nba_fixtures import get_fixtures
+        days_back = _lookback_days_for(leg.get("kickoff_iso") or "", floor=2)
+        fixtures = get_fixtures(days_back=days_back)
+    except Exception:
+        return None
+    home = leg.get("home") or ""
+    away = leg.get("away") or ""
+    hits = []
+    for m in fixtures or []:
+        if not (
+            _names_match(m.get("home_team") or "", home)
+            and _names_match(m.get("away_team") or "", away)
+        ):
+            if not (
+                _names_match(m.get("home_abbr") or "", home)
+                and _names_match(m.get("away_abbr") or "", away)
+            ):
+                continue
+        hits.append(m)
+    m = _pick_fixture_near_kickoff(hits, leg.get("kickoff_iso") or "")
+    if not m:
+        return None
+    return {
+        "home": m.get("home_team"),
+        "away": m.get("away_team"),
+        "home_score": m.get("home_score"),
+        "away_score": m.get("away_score"),
+        "completed": bool(m.get("completed")),
+    }
+
+
 def _lookup_nfl(leg: dict) -> dict | None:
     try:
         from nfl_fixtures import get_fixtures
@@ -2145,6 +2250,8 @@ def lookup_score_for_leg(leg: dict) -> dict | None:
         return _lookup_mlb(leg)
     if league == "nfl" or sport == "american_football":
         return _lookup_nfl(leg)
+    if league == "nba" or sport == "basketball":
+        return _lookup_nba(leg)
     if league == "npb":
         return _lookup_npb(leg)
     if sport == "cricket" or league in ("ipl", "bbl", "hundred", "mlc", "cpl"):

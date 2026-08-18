@@ -1471,6 +1471,7 @@ _HASHTAG_BY_LEAGUE = {
     "mlb": ("#MLB",),
     "npb": ("#NPB",),
     "nfl": ("#NFL",),
+    "nba": ("#NBA",),
     "atp": ("#ATP", "#Tennis"),
     "wta": ("#WTA", "#Tennis"),
     "hundred": ("#TheHundred",),
@@ -1496,6 +1497,7 @@ _HASHTAG_BY_SPORT = {
     "cricket": ("#Cricket",),
     "tennis": ("#Tennis",),
     "american_football": ("#NFL", "#NFLFootball"),
+    "basketball": ("#NBA", "#Basketball"),
 }
 
 
@@ -2667,13 +2669,17 @@ def post_due_telegram_results(
     missing, RESULT cards are queued for the admin X page.
 
     ``only_keys`` is an optional list of ``(kind, id)`` pairs — when set,
-    only those selected slips are considered.
+    only those selected slips are considered, fetched directly (ignoring
+    the "already posted" / win-loss-void curation used by the automatic
+    queue below) so an admin can explicitly resend or send a VOID result.
+    Empty selection from admin = send nothing (do not fall back to all due).
     """
     import combo_results
 
     max_losses = TELEGRAM_RESULT_MAX_LOSSES if max_losses is None else int(max_losses)
-    key_set = None
-    if only_keys is not None:
+    explicit = only_keys is not None
+
+    if explicit:
         key_set = set()
         for item in only_keys:
             try:
@@ -2683,30 +2689,18 @@ def post_due_telegram_results(
             kind = (kind or "").strip().lower()
             if kind in ("combo", "single"):
                 key_set.add((kind, row_id))
-        # Empty selection from admin = send nothing (do not fall back to all due).
-
-    def _filter(rows: list[dict]) -> list[dict]:
-        if only_keys is None:
-            return rows
-        out = []
-        for item in rows:
-            kind = (item.get("kind") or "single").strip().lower()
-            try:
-                row_id = int(item.get("id"))
-            except (TypeError, ValueError):
-                continue
-            if (kind, row_id) in key_set:
-                out.append(item)
-        return out
-
-    tg_items = _filter(
-        combo_results.list_telegram_results_due(limit=limit, channel="telegram")
-        if do_telegram else []
-    )
-    x_items = _filter(
-        combo_results.list_telegram_results_due(limit=limit, channel="twitter")
-        if do_twitter else []
-    )
+        explicit_items = combo_results.get_results_by_keys(list(key_set))
+        tg_items = list(explicit_items) if do_telegram else []
+        x_items = list(explicit_items) if do_twitter else []
+    else:
+        tg_items = (
+            combo_results.list_telegram_results_due(limit=limit, channel="telegram")
+            if do_telegram else []
+        )
+        x_items = (
+            combo_results.list_telegram_results_due(limit=limit, channel="twitter")
+            if do_twitter else []
+        )
 
     stats = _empty_result_post_stats(max_losses=max_losses)
     stats["checked"] = len(tg_items)
@@ -2745,12 +2739,17 @@ def post_due_telegram_results(
         })
 
     for day, day_items in _by_day(tg_items).items():
-        already = combo_results.count_telegram_loss_results_posted(day=day)
-        to_post, to_skip = combo_results.select_telegram_results_for_channel(
-            day_items,
-            max_losses=max_losses,
-            losses_already_posted=already,
-        )
+        if explicit:
+            # Admin picked these exact rows -- send all of them, no
+            # win/loss curation and no VOID/PUSH skip.
+            to_post, to_skip = day_items, []
+        else:
+            already = combo_results.count_telegram_loss_results_posted(day=day)
+            to_post, to_skip = combo_results.select_telegram_results_for_channel(
+                day_items,
+                max_losses=max_losses,
+                losses_already_posted=already,
+            )
         for item in to_skip:
             _mark_result_channels(item, telegram=True, twitter=True)
             skipped += 1
@@ -2805,12 +2804,15 @@ def post_due_telegram_results(
     stats["checked"] = int(stats.get("checked") or 0) + len(remaining_x)
 
     for day, day_items in _by_day(remaining_x).items():
-        already = combo_results.count_twitter_loss_results_posted(day=day)
-        to_post, to_skip = combo_results.select_telegram_results_for_channel(
-            day_items,
-            max_losses=max_losses,
-            losses_already_posted=already,
-        )
+        if explicit:
+            to_post, to_skip = day_items, []
+        else:
+            already = combo_results.count_twitter_loss_results_posted(day=day)
+            to_post, to_skip = combo_results.select_telegram_results_for_channel(
+                day_items,
+                max_losses=max_losses,
+                losses_already_posted=already,
+            )
         for item in to_skip:
             _mark_result_channels(item, twitter=True)
             skipped += 1

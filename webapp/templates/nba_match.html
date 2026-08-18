@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}{{ away_name }} vs {{ home_name }} Prediction{% if match_date %} {{ match_date }}{% endif %} | NBA{% endblock %}
+{% block description %}{{ away_name }} vs {{ home_name }} NBA ML prediction{% if match_date %} for {{ match_date }}{% endif %}: winner and total points from our Elo/H2H/rest model. Free forecast -- not betting advice.{% endblock %}
+{% block keywords %}{{ away_name }} vs {{ home_name }} prediction, NBA predictions, NBA total points prediction, NBA moneyline predictions, basketball predictions today{% endblock %}
+{% block canonical %}{{ page_canonical or ('https://degenpredictions.com' ~ request.path) }}{% endblock %}
+{% block content %}
+{% include "partials/breadcrumbs.html" %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": {{ (away_name ~ " vs " ~ home_name) | tojson }},
+    {% if match_date %}"startDate": {{ match_date | tojson }},{% endif %}
+    {% if match_end_date %}"endDate": {{ match_end_date | tojson }},{% endif %}
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+        "@type": "Place",
+        "name": {{ (home_name ~ " Home Arena") | tojson }},
+        "address": {"@type": "PostalAddress", "addressCountry": "USA"}
+    },
+    "image": "https://degenpredictions.com{{ url_for('static', filename='logo.png') }}",
+    "organizer": {"@type": "Organization", "name": "Degen Predictions", "url": "https://degenpredictions.com"},
+    "sport": "Basketball",
+    "competitor": [
+        {"@type": "SportsTeam", "name": {{ home_name | tojson }}},
+        {"@type": "SportsTeam", "name": {{ away_name | tojson }}}
+    ],
+    "description": "NBA match prediction: winner and total points."
+}
+</script>
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/todays-picks/basketball/nba', "Today's picks") }}
+    <a class="page-nav-link" href="/nba/fixtures">Fixtures</a>
+    <a class="page-nav-link" href="/todays-picks/combos">Best Combos</a>
+</nav>
+<h1>{{ away_name }} vs {{ home_name }} prediction</h1>
+<p class="muted">{{ match_date }}</p>
+
+{% macro streak_phrase(streak) -%}
+{% if streak > 0 %}on a {{ streak }}-game winning streak{% elif streak < 0 %}on a {{ -streak }}-game losing streak{% else %}without an active streak{% endif %}
+{%- endmacro %}
+<div class="card" style="margin-top: 1rem;">
+    <h2>Match Context</h2>
+    <p>{{ away_name }} come into this game at {{ match.away_season_record }}, {{ streak_phrase(match.away_streak) }}.
+        {{ home_name }} sit at {{ match.home_season_record }}, {{ streak_phrase(match.home_streak) }}.</p>
+    <p>{{ home_name }} carry a {{ match.elo_home }} Elo rating to {{ away_name }}'s {{ match.elo_away }}
+        {%- if match.elo_home != match.elo_away %}, a gap of {{ (match.elo_home - match.elo_away) | abs | round }} points{% endif %}.
+        {%- if match.away_days_rest is not none and match.home_days_rest is not none %}
+        {{ away_name }} are on {{ match.away_days_rest | int }} day{{ 's' if match.away_days_rest | int != 1 else '' }} rest, {{ home_name }} on {{ match.home_days_rest | int }}.
+        {%- endif %}</p>
+    {% if match.h2h_meetings > 0 %}
+    <p>These two have met {{ match.h2h_meetings }} time{{ 's' if match.h2h_meetings != 1 else '' }} in the data this model was trained on, with {{ home_name }} winning {{ match.h2h_home_wins }} to {{ away_name }}'s {{ match.h2h_away_wins }}.</p>
+    {% else %}
+    <p>These two haven't met in the data this model was trained on, so the prediction is Elo-and-form-only, with no head-to-head input.</p>
+    {% endif %}
+    <p class="muted" style="font-size: 0.85rem;">Season records, streaks, Elo, and head-to-head are computed directly from this season's actual game results -- the same inputs the prediction model uses, not a separate estimate.</p>
+</div>
+
+<div class="card-grid">
+    <div class="card">
+        <h2>Win Probability</h2>
+        <div class="bar"><div class="bar-fill away" style="width: {{ match.away_prob * 100 }}%"></div></div>
+        <p>{{ away_name }} win: {{ (match.away_prob * 100) | round(1) }}%</p>
+        <div class="bar"><div class="bar-fill home" style="width: {{ match.home_prob * 100 }}%"></div></div>
+        <p>{{ home_name }} win: {{ (match.home_prob * 100) | round(1) }}%</p>
+        <p class="predicted">Predicted winner: <strong>{{ home_name if match.favourite == match.home else away_name }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Total Points</h2>
+        <p class="big">{{ match.total_points_pick }} {{ match.total_points_line }}</p>
+        <p class="muted">Model confidence: {{ match.total_points_pick_probability }}%</p>
+        <p>{{ away_name }}: {{ match.away_points_pick }} <strong>{{ match.away_points_line }}</strong> ({{ match.away_points_pick_probability }}%)
+            &middot; {{ home_name }}: {{ match.home_points_pick }} <strong>{{ match.home_points_line }}</strong> ({{ match.home_points_pick_probability }}%)</p>
+    </div>
+
+    <div class="card">
+        <h2>Predicted Score</h2>
+        <p class="big">{{ match.away_predicted_points }} &ndash; {{ match.home_predicted_points }}</p>
+        <p>{{ away_name }}: <strong>{{ match.away_predicted_points }}</strong> &middot; {{ home_name }}: <strong>{{ match.home_predicted_points }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Rest / Back-to-Back</h2>
+        <p>{{ away_name }}: <strong>{{ match.away_days_rest | int }} day{{ 's' if match.away_days_rest | int != 1 else '' }}</strong> rest
+            &middot; {{ home_name }}: <strong>{{ match.home_days_rest | int }} day{{ 's' if match.home_days_rest | int != 1 else '' }}</strong> rest</p>
+        <p class="muted" style="font-size: 0.85rem;">A team on 0 days' rest (second night of a back-to-back) is a real, measurable NBA disadvantage the model accounts for.</p>
+    </div>
+
+    <div class="card">
+        <h2>Form &amp; Streak</h2>
+        <p>{{ away_name }}: <strong>{{ match.away_season_record }}</strong> this season,
+            {{ 'won ' ~ match.away_streak ~ ' straight' if match.away_streak > 0 else ('lost ' ~ (-match.away_streak) ~ ' straight' if match.away_streak < 0 else 'no active streak') }}</p>
+        <p>{{ home_name }}: <strong>{{ match.home_season_record }}</strong> this season,
+            {{ 'won ' ~ match.home_streak ~ ' straight' if match.home_streak > 0 else ('lost ' ~ (-match.home_streak) ~ ' straight' if match.home_streak < 0 else 'no active streak') }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Elo Rating</h2>
+        <p>{{ away_name }}: <strong>{{ match.elo_away }}</strong> &middot; {{ home_name }}: <strong>{{ match.elo_home }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Head-to-Head</h2>
+        {% if match.h2h_meetings > 0 %}
+        <p>{{ home_name }} {{ match.h2h_home_wins }} &ndash; {{ match.h2h_away_wins }} {{ away_name }}
+            <span class="muted">({{ match.h2h_meetings }} meeting{{ 's' if match.h2h_meetings != 1 else '' }})</span></p>
+        {% else %}
+        <p class="muted">No previous meetings on record -- prediction is Elo-only.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="tips-card">
+    <h2>Prediction Insights</h2>
+    {% for insight in match.insights %}
+    <div class="tip-row">
+        <span class="tip-note">{{ insight }}</span>
+    </div>
+    {% else %}
+    <p class="muted">No insights available for this fixture.</p>
+    {% endfor %}
+    <p class="disclaimer">These are model-derived probability leans, not guaranteed outcomes -- injuries,
+        rotations, and rest decisions can swing an NBA game fast, and even well-calibrated models miss
+        regularly. For research/educational use only; this is not betting advice.</p>
+</div>
+{% endblock %}

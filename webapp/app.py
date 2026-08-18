@@ -64,6 +64,24 @@ from mlb_predict import (
     total_runs_range as mlb_total_runs_range,
 )
 from mlb_predict import TEAM_RUNS_STD_DEV as MLB_TEAM_RUNS_STD_DEV
+from nba_fixtures import get_fixtures as get_nba_fixtures
+from nba_predict import (
+    blend_with_h2h as nba_blend_with_h2h,
+    blend_with_rest as nba_blend_with_rest,
+    blend_with_sentiment as nba_blend_with_sentiment,
+    blend_with_streak as nba_blend_with_streak,
+    build_nba_ml_features,
+    generate_insights as nba_generate_insights,
+    get_h2h_record as nba_get_h2h_record,
+    load_home_advantage as nba_load_home_advantage,
+    load_nba_elo,
+    load_nba_history,
+    nba_win_probability,
+    predict_total_points as nba_predict_total_points,
+    total_points_over_under as nba_total_points_over_under,
+    total_points_range as nba_total_points_range,
+)
+from nba_predict import TEAM_POINTS_STD_DEV as NBA_TEAM_POINTS_STD_DEV
 from npb_fixtures import get_fixtures as get_npb_fixtures
 from npb_predict import (
     blend_with_h2h as npb_blend_with_h2h,
@@ -757,6 +775,7 @@ def _load_ml_ensemble(path):
 
 MLB_ML_MODEL = _load_ml_ensemble(os.path.join(BASE_DIR, "data", "mlb", "ml_ensemble_model.joblib"))
 NPB_ML_MODEL = _load_ml_ensemble(os.path.join(BASE_DIR, "data", "npb", "ml_ensemble_model.joblib"))
+NBA_ML_MODEL = _load_ml_ensemble(os.path.join(BASE_DIR, "data", "nba", "ml_ensemble_model.joblib"))
 
 
 def _ml_win_probability(bundle, feature_row):
@@ -2935,6 +2954,10 @@ def todays_picks_league(sport_key, league_id):
         today_local, picks, fixtures_today = today_picks.normalize_nfl_slate(
             build_nfl_today_slate(),
         )
+    elif kind == "nba":
+        today_local, picks, fixtures_today = today_picks.normalize_nba_slate(
+            build_nba_today_slate(),
+        )
     elif kind == "npb":
         today_local, picks, fixtures_today = today_picks.build_npb_today(
             compute_npb_prediction, get_npb_fixtures, load_npb_elo, tz_name,
@@ -4342,6 +4365,255 @@ def mlb_match_detail(home_code, away_code):
     )
 
 
+def compute_nba_prediction(home_code, away_code, as_of_date=None):
+    """Shared by the JSON predict API and the full match-detail page --
+    returns None if either team doesn't have enough rated games yet."""
+    df = load_nba_elo()
+    row_home = df[df["Team"] == home_code]
+    row_away = df[df["Team"] == away_code]
+    if row_home.empty or row_away.empty:
+        return None
+
+    home_row, away_row = row_home.iloc[0], row_away.iloc[0]
+    elo_home = float(home_row["Elo"])
+    elo_away = float(away_row["Elo"])
+    home_advantage = nba_load_home_advantage()
+    history = load_nba_history()
+    h2h = nba_get_h2h_record(history, home_code, away_code)
+    home_streak = int(home_row.get("CurrentStreak", 0))
+    away_streak = int(away_row.get("CurrentStreak", 0))
+    as_of = pd.to_datetime(as_of_date).date() if as_of_date else datetime.date.today()
+    home_rest = min(max((as_of - pd.to_datetime(home_row.get("LastGameDate")).date()).days, 0), 10) \
+        if home_row.get("LastGameDate") else 2.0
+    away_rest = min(max((as_of - pd.to_datetime(away_row.get("LastGameDate")).date()).days, 0), 10) \
+        if away_row.get("LastGameDate") else 2.0
+
+    prob_home = nba_win_probability(elo_home, elo_away, home_advantage)
+    prob_home = nba_blend_with_h2h(prob_home, h2h)
+    prob_home = nba_blend_with_streak(prob_home, home_streak, away_streak)
+    prob_home = nba_blend_with_rest(prob_home, home_rest, away_rest)
+
+    home_sentiment = sentiment.get_team_sentiment(str(home_row["TeamName"]))
+    away_sentiment = sentiment.get_team_sentiment(str(away_row["TeamName"]))
+    prob_home = nba_blend_with_sentiment(prob_home, home_sentiment, away_sentiment)
+
+    ml_features = build_nba_ml_features(home_row, away_row, h2h, as_of_date=as_of_date)
+    ml_prob_home = _ml_win_probability(NBA_ML_MODEL, ml_features)
+    prob_home = blend_with_ml_model(prob_home, ml_prob_home)
+
+    home_pts, away_pts = nba_predict_total_points(home_row, away_row)
+    favourite = home_code if prob_home >= 0.5 else away_code
+    total_pts = round(home_pts + away_pts, 1)
+    pts_low, pts_high = nba_total_points_range(total_pts)
+    pts_ou = nba_total_points_over_under(total_pts)
+    home_pts_ou = nba_total_points_over_under(home_pts, std_dev=NBA_TEAM_POINTS_STD_DEV)
+    away_pts_ou = nba_total_points_over_under(away_pts, std_dev=NBA_TEAM_POINTS_STD_DEV)
+    insights = nba_generate_insights(
+        home_code, away_code, home_row, away_row, h2h,
+        home_streak, away_streak, favourite, total_pts,
+        home_rest, away_rest,
+        home_prob=prob_home, away_prob=1 - prob_home,
+    )
+
+    return {
+        "home": home_code, "away": away_code,
+        "home_prob": prob_home, "away_prob": 1 - prob_home,
+        "elo_home": round(elo_home, 1), "elo_away": round(elo_away, 1),
+        "h2h_home_wins": h2h["home_wins"], "h2h_away_wins": h2h["away_wins"], "h2h_meetings": h2h["meetings"],
+        "favourite": favourite,
+        "home_streak": home_streak, "away_streak": away_streak,
+        "home_season_record": f"{int(home_row.get('SeasonWins', 0))}-{int(home_row.get('SeasonLosses', 0))}",
+        "away_season_record": f"{int(away_row.get('SeasonWins', 0))}-{int(away_row.get('SeasonLosses', 0))}",
+        "home_days_rest": home_rest, "away_days_rest": away_rest,
+        "predicted_total_points": total_pts,
+        "predicted_total_points_low": pts_low, "predicted_total_points_high": pts_high,
+        "total_points_line": pts_ou["line"], "total_points_pick": pts_ou["pick"],
+        "total_points_pick_probability": pts_ou["probability"],
+        "home_predicted_points": home_pts, "away_predicted_points": away_pts,
+        "home_points_line": home_pts_ou["line"], "home_points_pick": home_pts_ou["pick"],
+        "home_points_pick_probability": home_pts_ou["probability"],
+        "away_points_line": away_pts_ou["line"], "away_points_pick": away_pts_ou["pick"],
+        "away_points_pick_probability": away_pts_ou["probability"],
+        "insights": insights,
+    }
+
+
+def build_nba_today_slate():
+    """Today's NBA board (ET): live + upcoming + finished, with model picks
+    already filled in -- same shape as build_mlb_today_slate()."""
+    cached = _page_cache.get("nba_slate")
+    if cached is not None:
+        return cached
+
+    fixtures = get_nba_fixtures()
+    elo_df = load_nba_elo()
+    elo_teams = set(elo_df["Team"]) if not elo_df.empty else set()
+    today_et = _mlb_today_et()
+
+    candidates = []
+    for m in fixtures:
+        m = dict(m)
+        m["home_code"] = m.get("home_abbr")
+        m["away_code"] = m.get("away_abbr")
+        m["has_rating"] = bool(m["home_code"] in elo_teams and m["away_code"] in elo_teams)
+        m["et_date"] = _mlb_et_date(m.get("date") or "")
+        is_live = m.get("status") == "in"
+        if m["et_date"] == today_et or is_live:
+            candidates.append(m)
+
+    names = []
+    for m in candidates:
+        if m["has_rating"]:
+            for code in (m["home_code"], m["away_code"]):
+                row = elo_df[elo_df["Team"] == code]
+                if not row.empty:
+                    names.append(str(row.iloc[0]["TeamName"]))
+    if names:
+        sentiment.prefetch_team_sentiments(names)
+
+    board, top_picks = [], []
+    for m in candidates:
+        entry = {
+            "fixture": m,
+            "prediction": None,
+            "confidence": None,
+            "winner_name": None,
+            "winner_correct": None,
+            "match_url": None,
+        }
+        if m["has_rating"]:
+            pred = compute_nba_prediction(
+                m["home_code"], m["away_code"],
+                as_of_date=(m.get("date") or "")[:10] or None,
+            )
+            if pred is not None:
+                entry["prediction"] = pred
+                conf = max(pred["home_prob"], pred["away_prob"])
+                entry["confidence"] = conf
+                entry["winner_name"] = (
+                    m["home_team"] if pred["favourite"] == m["home_code"] else m["away_team"]
+                )
+                entry["match_url"] = (
+                    f"/nba/match/{m['home_code']}/{m['away_code']}"
+                    f"?home_name={quote(m['home_team'])}&away_name={quote(m['away_team'])}"
+                    f"&date={quote(m.get('date') or '')}"
+                )
+                if m.get("completed"):
+                    try:
+                        actual_home = float(m.get("home_score"))
+                        actual_away = float(m.get("away_score"))
+                        actual_winner = m["home_code"] if actual_home > actual_away else m["away_code"]
+                        entry["winner_correct"] = pred["favourite"] == actual_winner
+                    except (TypeError, ValueError):
+                        entry["winner_correct"] = None
+                if not m.get("completed"):
+                    top_picks.append(entry)
+        board.append(entry)
+
+    top_picks.sort(key=lambda e: e["confidence"] or 0, reverse=True)
+    board.sort(key=lambda e: (
+        0 if e["fixture"].get("status") == "in" else 1 if not e["fixture"].get("completed") else 2,
+        e["fixture"].get("date") or "",
+    ))
+    out = {
+        "today_et": today_et,
+        "board": board,
+        "top_picks": top_picks[:5],
+        "live_count": sum(1 for e in board if e["fixture"].get("status") == "in"),
+        "upcoming_count": sum(
+            1 for e in board
+            if not e["fixture"].get("completed") and e["fixture"].get("status") != "in"
+        ),
+        "finished_count": sum(1 for e in board if e["fixture"].get("completed")),
+    }
+    _page_cache.set("nba_slate", out)
+    return out
+
+
+@app.route("/nba/")
+def nba_home():
+    return redirect("/todays-picks/basketball/nba")
+
+
+@app.route("/nba/fixtures")
+def nba_fixtures_page():
+    fixtures = get_nba_fixtures()
+    elo_df = load_nba_elo()
+    elo_teams = set(elo_df["Team"]) if not elo_df.empty else set()
+
+    for m in fixtures:
+        m["home_code"] = m.get("home_abbr")
+        m["away_code"] = m.get("away_abbr")
+        m["has_rating"] = bool(m["home_code"] in elo_teams and m["away_code"] in elo_teams)
+
+    live_or_upcoming, postponed, finished = today_picks.split_fixture_board(
+        fixtures, sport_key="basketball",
+    )
+    del finished
+
+    grouped_by_date = {}
+    for m in live_or_upcoming:
+        day = (m["date"] or "")[:10]
+        grouped_by_date.setdefault(day, []).append(m)
+
+    return render_template(
+        "nba_fixtures.html", fixtures=live_or_upcoming,
+        grouped_by_date=grouped_by_date, grouped_finished={},
+        postponed=postponed,
+        feed_stale=_feed_stale_for("nba:", "espn"),
+    )
+
+
+@app.route("/nba/api/predict")
+def nba_api_predict():
+    home_code = request.args.get("home", "").strip()
+    away_code = request.args.get("away", "").strip()
+    match_date = request.args.get("date", "")
+
+    result = compute_nba_prediction(home_code, away_code, as_of_date=match_date or None)
+    if result is None:
+        return jsonify({"error": "One or both teams don't have enough rated games yet."}), 404
+    return jsonify(result)
+
+
+@app.route("/nba/match/<home_code>/<away_code>")
+def nba_match_detail(home_code, away_code):
+    home_name = request.args.get("home_name", "")
+    away_name = request.args.get("away_name", "")
+    match_date = request.args.get("date", "")
+
+    if not home_name or not away_name or home_name == home_code or away_name == away_code:
+        try:
+            for m in get_nba_fixtures() or []:
+                if m.get("home_abbr") == home_code and m.get("away_abbr") == away_code:
+                    home_name = home_name or m.get("home_team") or home_code
+                    away_name = away_name or m.get("away_team") or away_code
+                    match_date = match_date or (m.get("date") or "")
+                    break
+        except Exception:
+            pass
+    home_name = home_name or home_code
+    away_name = away_name or away_code
+
+    result = compute_nba_prediction(home_code, away_code, as_of_date=match_date or None)
+    if result is None:
+        return render_template("not_found.html", home=home_name, away=away_name), 404
+
+    crumbs = seo_pages.breadcrumbs(
+        ("Sports", "/sports"),
+        ("NBA", "/nba/fixtures"),
+        (f"{away_name} vs {home_name}", f"/nba/match/{home_code}/{away_code}"),
+    )
+    return render_template(
+        "nba_match.html", match=result, home_name=home_name, away_name=away_name,
+        match_date=match_date,
+        match_end_date=estimated_end_iso(match_date, hours=3),
+        breadcrumbs=crumbs,
+        breadcrumb_jsonld=seo_pages.breadcrumb_jsonld(crumbs),
+        page_canonical=f"https://degenpredictions.com/nba/match/{home_code}/{away_code}",
+    )
+
+
 def build_nfl_today_slate():
     """Today's NFL board (ET): live + upcoming + finished, with model picks."""
     cached = _page_cache.get("nfl_slate")
@@ -5035,8 +5307,9 @@ def _build_sitemap_static() -> str:
         "todays-picks/cricket/cpl",
         "todays-picks/tennis", "todays-picks/tennis/atp",
         "todays-picks/american_football", "todays-picks/american_football/nfl",
+        "todays-picks/basketball", "todays-picks/basketball/nba",
         "mlb/today", "mlb/fixtures", "mlb/results", "npb/fixtures", "npb/results",
-        "nfl/fixtures", "nfl/results",
+        "nfl/fixtures", "nfl/results", "nba/fixtures",
         "hundred/fixtures", "hundred/results", "mlc/fixtures", "mlc/results",
         "ipl/fixtures", "ipl/results", "bbl/fixtures", "bbl/results",
         "cpl/fixtures", "cpl/results",
@@ -5098,6 +5371,16 @@ def _build_sitemap_matches() -> str:
             away_code = (m.get("away_abbr") or "").strip().upper()
             if home_code and away_code:
                 entries.append((seo_pages.clean_nfl_match_url(home_code, away_code), datetime.date.today().isoformat()))
+    except Exception:
+        pass
+
+    try:
+        nba_elo_teams = set(load_nba_elo()["Team"]) if not load_nba_elo().empty else set()
+        for m in get_nba_fixtures():
+            home_code = (m.get("home_abbr") or "").strip().upper()
+            away_code = (m.get("away_abbr") or "").strip().upper()
+            if home_code in nba_elo_teams and away_code in nba_elo_teams:
+                entries.append((seo_pages.clean_nba_match_url(home_code, away_code), datetime.date.today().isoformat()))
     except Exception:
         pass
 
