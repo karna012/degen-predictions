@@ -3050,19 +3050,22 @@ def admin_x_queue_json():
     return resp
 
 
-@app.route("/admin/twitter-image/<int:index>.png")
+@app.route("/admin/twitter-image/<key>.png")
 @admin_required
-def admin_twitter_image(index):
-    """Serve the slip PNG for the X queue (admin only)."""
+def admin_twitter_image(key):
+    """Serve the slip PNG for the X queue (admin only). ``key`` is a stable
+    content-derived id (see daily_digest._slip_image_key), not a list
+    position -- the queue accumulates across sends and can be filtered, so
+    a positional index would drift and serve the wrong slip's image."""
     day = (request.args.get("day") or "").strip() or None
-    path = daily_digest.twitter_image_path(index, day=day)
+    path = daily_digest.twitter_image_path(key, day=day)
     if path is None:
         abort(404)
     return send_file(
         path,
         mimetype="image/png",
         as_attachment=False,
-        download_name=f"degen-x-{index:02d}.png",
+        download_name=f"degen-x-{key}.png",
         max_age=60,
     )
 

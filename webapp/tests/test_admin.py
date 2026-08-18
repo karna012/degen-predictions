@@ -290,6 +290,7 @@ def test_admin_twitter_queue_one_by_one(client, monkeypatch, tmp_path):
              "mixed_2": [], "mixed_3": []}
     monkeypatch.setattr(app_module, "_live_digest_and_legs", lambda: (empty, None))
     monkeypatch.setattr(app_module, "_live_digest_payload", lambda: empty)
+    key = daily_digest.load_last_telegram_send()["slips"][0]["slip_key"]
     auth = _basic_auth_header("admin", "secret123")
     resp = client.get("/admin?section=twitter", headers=auth)
     assert resp.status_code == 200
@@ -298,9 +299,9 @@ def test_admin_twitter_queue_one_by_one(client, monkeypatch, tmp_path):
     assert "Auto-post this slip" in body or 'tw-ext-post-page' in body
     assert "#DegenPredictions" in body
     assert "#NPB" in body
-    assert "/admin/twitter-image/1.png" in body
+    assert f"/admin/twitter-image/{key}.png" in body
     assert "Giants vs Tigers" in body
-    img = client.get("/admin/twitter-image/1.png?day=2026-08-11", headers=auth)
+    img = client.get(f"/admin/twitter-image/{key}.png?day=2026-08-11", headers=auth)
     assert img.status_code == 200
     assert img.mimetype == "image/png"
 
@@ -326,13 +327,14 @@ def test_admin_x_queue_json(client, monkeypatch, tmp_path):
              "mixed_2": [], "mixed_3": []}
     monkeypatch.setattr(app_module, "_live_digest_and_legs", lambda: (empty, None))
     monkeypatch.setattr(app_module, "_live_digest_payload", lambda: empty)
+    key = daily_digest.load_last_telegram_send()["slips"][0]["slip_key"]
     auth = _basic_auth_header("admin", "secret123")
     resp = client.get("/admin/x-queue.json?prefer=telegram", headers=auth)
     assert resp.status_code == 200
     data = resp.get_json()
     assert data["count"] == 1
     assert data["posts"][0]["text"]
-    assert "/admin/twitter-image/1.png" in data["posts"][0]["image_url"]
+    assert f"/admin/twitter-image/{key}.png" in data["posts"][0]["image_url"]
 
 
 def test_filter_pick_legs_and_combos():

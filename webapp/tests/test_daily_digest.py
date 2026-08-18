@@ -1,6 +1,7 @@
 """Daily digest: Top-3 selection over existing Today's Picks legs."""
 import base64
 import json
+import re
 import datetime as dt
 from pathlib import Path
 
@@ -851,11 +852,71 @@ def test_twitter_posts_from_telegram_slips_are_short_and_tagged(tmp_path, monkey
     assert "utm_source=twitter" in post["text"]
     assert post["intent_url"].startswith("https://twitter.com/intent/tweet?")
     assert post["has_image"] is True
-    assert "/admin/twitter-image/1.png" in post["image_url"]
-    assert (tmp_path / "cards" / "2026-08-11" / "x_queue" / "01.png").is_file()
+    # Image is addressed by a stable content key, not list position -- the
+    # queue accumulates across sends and gets filtered as games finish, so
+    # a positional filename would drift and serve the wrong slip's image.
+    assert re.match(r"^/admin/twitter-image/[0-9a-f]{16}\.png\?day=", post["image_url"])
+    png_files = list((tmp_path / "cards" / "2026-08-11" / "x_queue").glob("*.png"))
+    assert len(png_files) == 1
     assert "BOS vs NYY" in post["text"]
     assert "Sinner vs Alcaraz" in post["text"]
     assert "more on site" not in post["text"]
+
+
+def test_save_last_telegram_send_accumulates_across_separate_sends(tmp_path, monkeypatch):
+    """Real bug: sending a second thing to Telegram used to overwrite the
+    first, so it silently vanished from the X queue even though it was
+    still upcoming and still postable. Every distinct slip sent should
+    stay available until it ages out (game finishes), not just the most
+    recent send."""
+    monkeypatch.setattr(daily_digest, "LAST_TELEGRAM_SEND_PATH", tmp_path / "last_tg.json")
+    monkeypatch.setattr(daily_digest, "CARDS_DIR", tmp_path / "cards")
+    monkeypatch.setattr(daily_digest, "DIGEST_DIR", tmp_path / "digest")
+
+    first = [{
+        "title": "Today's Picks", "kind": "picks",
+        "legs": [_leg(league_id="mlb", league_label="MLB", sport_key="baseball",
+                      sport_label="Baseball", matchup="NYY @ BOS", away="NYY",
+                      home="BOS", pick="Under 8.5", market="Total runs")],
+    }]
+    second = [{
+        "title": "Custom slip", "kind": "picks",
+        "legs": [_leg(league_id="atp", league_label="ATP", sport_key="tennis",
+                      sport_label="Tennis", matchup="Alcaraz vs Sinner",
+                      away="Alcaraz", home="Sinner", pick="Alcaraz",
+                      market="Match winner")],
+    }]
+
+    daily_digest.save_last_telegram_send(first, day="2026-08-11")
+    daily_digest.save_last_telegram_send(second, day="2026-08-11")
+
+    saved = daily_digest.load_last_telegram_send()
+    assert len(saved["slips"]) == 2
+    texts = {s["title"] for s in saved["slips"]}
+    assert texts == {"Today's Picks", "Custom slip"}
+
+    queue = daily_digest.twitter_queue(digest={"date": "2026-08-11", "picks": []})
+    assert queue["count"] == 2
+    combined_text = " ".join(p["text"] for p in queue["posts"])
+    assert "BOS vs NYY" in combined_text
+    assert "Sinner vs Alcaraz" in combined_text
+
+
+def test_save_last_telegram_send_resend_refreshes_not_duplicates(tmp_path, monkeypatch):
+    monkeypatch.setattr(daily_digest, "LAST_TELEGRAM_SEND_PATH", tmp_path / "last_tg.json")
+    monkeypatch.setattr(daily_digest, "CARDS_DIR", tmp_path / "cards")
+    monkeypatch.setattr(daily_digest, "DIGEST_DIR", tmp_path / "digest")
+
+    slip = [{
+        "title": "Today's Picks", "kind": "picks",
+        "legs": [_leg(league_id="mlb", league_label="MLB", sport_key="baseball",
+                      sport_label="Baseball", matchup="NYY @ BOS", away="NYY",
+                      home="BOS", pick="Under 8.5", market="Total runs")],
+    }]
+    daily_digest.save_last_telegram_send(slip, day="2026-08-11")
+    daily_digest.save_last_telegram_send(slip, day="2026-08-11")
+    saved = daily_digest.load_last_telegram_send()
+    assert len(saved["slips"]) == 1
 
 
 def test_twitter_text_shows_all_legs_never_truncated(tmp_path, monkeypatch):
@@ -938,7 +999,8 @@ def test_twitter_queue_falls_back_to_digest(tmp_path, monkeypatch):
     assert queue["count"] == 1
     assert "#NPB" in queue["posts"][0]["text"]
     assert queue["posts"][0]["has_image"] is True
-    assert (tmp_path / "cards" / "2026-08-11" / "x_queue" / "01.png").is_file()
+    png_files = list((tmp_path / "cards" / "2026-08-11" / "x_queue").glob("*.png"))
+    assert len(png_files) == 1
 
 
 def test_admin_twitter_image_route(client, monkeypatch, tmp_path):
@@ -955,9 +1017,10 @@ def test_admin_twitter_image_route(client, monkeypatch, tmp_path):
                       sport_label="Baseball", matchup="Tigers @ Giants",
                       pick="Tigers", market="Moneyline")],
     }], day="2026-08-11")
+    key = daily_digest.load_last_telegram_send()["slips"][0]["slip_key"]
     auth = _basic_auth_header("admin", "secret123")
-    assert client.get("/admin/twitter-image/1.png").status_code == 302
-    resp = client.get("/admin/twitter-image/1.png?day=2026-08-11", headers=auth)
+    assert client.get(f"/admin/twitter-image/{key}.png").status_code == 302
+    resp = client.get(f"/admin/twitter-image/{key}.png?day=2026-08-11", headers=auth)
     assert resp.status_code == 200
     assert resp.mimetype == "image/png"
     assert resp.data[:8] == b"\x89PNG\r\n\x1a\n"
