@@ -1918,7 +1918,16 @@ def _slip_still_upcoming(slip: dict | None, upcoming_keys: set[str] | None) -> b
     for leg in legs:
         if _leg_is_finished(leg):
             return False
-        if upcoming_keys is not None and _leg_board_key(leg) not in upcoming_keys:
+        # Free-text custom/OCR legs (no league_id, no home/away) were never
+        # on today's priced board to begin with, so they can never match a
+        # board key -- checking upcoming_keys for them would drop every
+        # custom slip from the X queue unconditionally. _leg_is_finished
+        # above already covers staleness for these via kickoff_iso when
+        # it's set.
+        is_board_leg = bool(
+            (leg.get("league_id") or "").strip() or leg.get("home") or leg.get("away")
+        )
+        if is_board_leg and upcoming_keys is not None and _leg_board_key(leg) not in upcoming_keys:
             return False
     return True
 
