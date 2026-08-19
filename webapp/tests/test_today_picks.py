@@ -379,7 +379,13 @@ def test_combo_slate_does_not_reuse_one_tennis_favorite():
 
 
 def test_favorite_cover_and_under_are_shrunk_on_all_sports():
-    """90% pedigree is not a lock — soccer / baseball / cricket / tennis."""
+    """90% pedigree is not a lock — soccer / cricket / tennis.
+
+    Baseball Moneyline is the one deliberate exception: it is a combo-only
+    market (never shown on the public baseball Today's Picks page) meant to
+    be the genuine, medium-risk team-to-win leg, so it is left unshrunk —
+    see test_baseball_moneyline_is_not_shrunk_in_combos.
+    """
     soccer = today_picks._soccer_high_confidence_tips(__import__("pandas").Series({
         "HomeTeam": "Arsenal", "AwayTeam": "Chelsea",
         "P_Home_Win": 0.48, "P_Draw": 0.30, "P_Away_Win": 0.22,
@@ -403,12 +409,25 @@ def test_favorite_cover_and_under_are_shrunk_on_all_sports():
         away_name="Red Sox",
         include_hits_so=False,
     )
-    ml = next(t for t in bb if t["market"] == "Moneyline")
     under_r = next(t for t in bb if t["market"] == "Total runs")
-    assert ml["probability"] <= today_picks.FAVORITE_COVER_CAP
-    assert ml["probability"] < 0.90
     assert str(under_r["pick"]).startswith("Under")
     assert under_r["probability"] <= today_picks.UNDER_CAP
+
+
+def test_baseball_moneyline_is_not_shrunk_in_combos():
+    """Combo-only leg: genuine model probability, meant to be the medium-risk
+    team-to-win pick that replaces the ultra-safe dog run line in combos."""
+    bb = today_picks._baseball_market_tips(
+        {"home_prob": 0.90, "away_prob": 0.10},
+        home_name="Yankees",
+        away_name="Red Sox",
+        include_hits_so=False,
+        include_moneyline=True,
+    )
+    ml = next(t for t in bb if t["market"] == "Moneyline")
+    assert ml["pick"] == "Yankees"
+    assert ml["probability"] == 0.90
+    assert not any(t["market"] == "Handicap" for t in bb)
 
     tennis = today_picks._tennis_market_tips(
         {
@@ -1221,6 +1240,8 @@ def test_baseball_dog_handicap_tip_run_line():
 
 
 def test_baseball_market_tips_include_dog_handicap():
+    """Dog run line is a public Today's Picks tip (include_moneyline=False) —
+    kept off the combo pool so it doesn't crowd out Moneyline there."""
     tips = today_picks._baseball_market_tips(
         {
             "home_prob": 0.58, "away_prob": 0.42,
@@ -1230,14 +1251,28 @@ def test_baseball_market_tips_include_dog_handicap():
         },
         home_name="Yankees",
         away_name="Red Sox",
-        include_moneyline=True,
+        include_moneyline=False,
         include_hits_so=False,
     )
     markets = {t["market"] for t in tips}
-    assert "Moneyline" in markets
+    assert "Moneyline" not in markets
     assert "Handicap" in markets
     hc = next(t for t in tips if t["market"] == "Handicap")
     assert hc["pick"] == "Red Sox +1.5"
+
+    combo_tips = today_picks._baseball_market_tips(
+        {
+            "home_prob": 0.58, "away_prob": 0.42,
+            "home_predicted_runs": 4.7, "away_predicted_runs": 4.3,
+        },
+        home_name="Yankees",
+        away_name="Red Sox",
+        include_moneyline=True,
+        include_hits_so=False,
+    )
+    combo_markets = {t["market"] for t in combo_tips}
+    assert "Moneyline" in combo_markets
+    assert "Handicap" not in combo_markets
 
 
 def test_baseball_market_tips_include_totals():
@@ -1264,11 +1299,12 @@ def test_baseball_market_tips_include_totals():
     assert "Total hits" in markets
     assert "Total strikeouts" in markets
     assert "Total home runs" not in markets
-    assert "Handicap" in markets
+    # Dog run line (+1.5 Handicap) is combo-only-excluded — Moneyline (this
+    # default include_moneyline=True call) takes its place in the combo pool.
+    assert "Handicap" not in markets
     ml = next(t for t in tips if t["market"] == "Moneyline")
     assert ml["pick"] == "Yankees"
-    assert ml["probability"] <= today_picks.FAVORITE_COVER_CAP
-    assert abs(ml["probability"] - today_picks._shrink_favorite_cover_prob(0.71)) < 1e-9
+    assert ml["probability"] == 0.71
 
 
 def test_baseball_market_tips_never_emit_total_home_runs():

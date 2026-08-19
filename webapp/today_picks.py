@@ -1622,17 +1622,23 @@ def _baseball_market_tips(
     home_p = float(pred.get("home_prob") or 0)
     away_p = float(pred.get("away_prob") or 0)
     if include_moneyline:
+        # Combo-only market (never shown on the public baseball Today's Picks
+        # page). Left unshrunk, unlike other sports' favorite-covers: the
+        # dog run line already covers the ultra-safe side, so Moneyline here
+        # is meant to be the genuine, medium-risk team-to-win leg — shrinking
+        # it to the same "lock" bar as other sports left it clearing almost
+        # nothing and ceded every combo slot to the +1.5 run line.
         if home_p >= away_p:
             tips.append({
                 "market": "Moneyline",
                 "pick": home_name,
-                "probability": _shrink_favorite_cover_prob(home_p),
+                "probability": home_p,
             })
         else:
             tips.append({
                 "market": "Moneyline",
                 "pick": away_name,
-                "probability": _shrink_favorite_cover_prob(away_p),
+                "probability": away_p,
             })
 
     if include_upset_lean:
@@ -1647,9 +1653,13 @@ def _baseball_market_tips(
                 "probability": dog_p,
             })
 
-    dog_hc = _baseball_dog_handicap_tip(pred, home_name, away_name)
-    if dog_hc:
-        tips.append(dog_hc)
+    if not include_moneyline:
+        # Best Combos already carries Moneyline (medium-risk team-to-win);
+        # keep the ultra-safe dog run line off combo slips so it doesn't
+        # crowd Moneyline out. Still shown on the public Today's Picks page.
+        dog_hc = _baseball_dog_handicap_tip(pred, home_name, away_name)
+        if dog_hc:
+            tips.append(dog_hc)
 
     total_p = _pct_to_prob(pred.get("total_runs_pick_probability"))
     if total_p is not None and pred.get("total_runs_pick") and pred.get("total_runs_line") is not None:
