@@ -1,5 +1,5 @@
 # Weekly full retrain on THIS machine (never on the small EC2 box).
-# Covers: soccer (all leagues), MLB, NPB, NBA, NHL, cricket, tennis, crypto + stocks.
+# Covers: soccer (all leagues), MLB, NPB, NFL, NBA, NHL, cricket, tennis, crypto + stocks.
 # Slim model stack: calibrated XGBoost (+ logistic/ridge), LSTM only if it
 # clearly beats tabular IC. Then pytest gate + promote-if-better + sync.
 #
@@ -8,7 +8,17 @@
 #
 # EC2 still runs the cheap settle/feedback loop every 3h (no model train).
 
-$ErrorActionPreference = "Stop"
+# NOT "Stop": every native training/test/deploy call below pipes through
+# 2>&1 so its output lands in the log file, and PowerShell turns each
+# redirected stderr line from a native process into an ErrorRecord --
+# including harmless pandas/sklearn warnings, not just real errors. Under
+# "Stop" the very first such warning anywhere (e.g. build_features.py's
+# routine PerformanceWarning) aborts the whole retrain immediately, before
+# the script's own explicit $LASTEXITCODE checks below ever get a chance to
+# run. Every real failure path here already uses an explicit exit-code
+# check plus throw/exit, not implicit PowerShell error propagation, so
+# "Continue" changes nothing about actual failure detection.
+$ErrorActionPreference = "Continue"
 $RepoRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $RepoRoot
 
@@ -63,7 +73,7 @@ print('' if acc is None else acc)
 }
 
 try {
-    Log "==> Weekly full retrain starting (soccer + baseball + NBA + NHL + cricket + tennis + crypto/stocks)"
+    Log "==> Weekly full retrain starting (soccer + baseball + NFL + NBA + NHL + cricket + tennis + crypto/stocks)"
     Log "==> Rule: only ship models that beat (or tie) the previous holdout -- never ship a regression"
 
     Log "==> Pulling EC2 feedback baseline (informational)"
@@ -102,6 +112,13 @@ try {
     Run-Py $Python @("scripts\npb\build_training_dataset.py")
     Run-Py $Python @("scripts\npb\train_ml_models.py")
 
+    # ---- NFL ----
+    Log "==> NFL: refresh + Elo + train"
+    Run-Py $Python @("download_nfl_data.py") "$RepoRoot\scripts\nfl"
+    & $Python scripts\nfl\build_elo.py 2>&1 | Out-Null
+    Run-Py $Python @("build_training_dataset.py") "$RepoRoot\scripts\nfl"
+    Run-Py $Python @("train_ml_models.py") "$RepoRoot\scripts\nfl"
+
     # ---- NBA ----
     Log "==> NBA: refresh + Elo + train"
     Run-Py $Python @("download_nba_data.py") "$RepoRoot\scripts\nba"
@@ -117,8 +134,8 @@ try {
     Run-Py $Python @("train_ml_models.py") "$RepoRoot\scripts\nhl"
 
     if (Test-Path "$RepoRoot\scripts\calibrate_sports_confidence.py") {
-        Log "==> NBA/NHL: recalibrate confidence thresholds"
-        Run-Py $Python @("scripts\calibrate_sports_confidence.py", "nba", "nhl") "$RepoRoot"
+        Log "==> NFL/NBA/NHL: recalibrate confidence thresholds"
+        Run-Py $Python @("scripts\calibrate_sports_confidence.py", "nfl", "nba", "nhl") "$RepoRoot"
     }
 
     # ---- Cricket (Hundred / MLC / IPL / BBL / CPL) ----
@@ -186,7 +203,7 @@ try {
         @{
             mlb_holdout_accuracy = $newAcc
             promoted_at = (Get-Date).ToUniversalTime().ToString("o")
-            scope = "soccer+mlb+npb+nba+nhl+cricket+tennis+investment"
+            scope = "soccer+mlb+npb+nfl+nba+nhl+cricket+tennis+investment"
             promote_gate = "per-category holdout (no regressions shipped)"
         } | ConvertTo-Json | Set-Content -Path $ScorePath -Encoding utf8
         Log "==> Recorded promoted score $newAcc -> $ScorePath"

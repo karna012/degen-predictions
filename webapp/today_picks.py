@@ -166,6 +166,7 @@ _MARKET_THRESHOLD_KEYS = {
 _SPORT_THRESHOLD_PATHS = {
     "mlb": ("data", "mlb", "confidence_thresholds.json"),
     "npb": ("data", "npb", "confidence_thresholds.json"),
+    "nfl": ("data", "nfl", "confidence_thresholds.json"),
     "nba": ("data", "nba", "confidence_thresholds.json"),
     "nhl": ("data", "nhl", "confidence_thresholds.json"),
     "hundred": ("data", "cricket", "confidence_thresholds.json"),

@@ -1,0 +1,52 @@
+{
+  "sport": "baseball",
+  "league": "nfl",
+  "target_accuracy": 0.7,
+  "oos_n": 415,
+  "full_slate_acc": 0.6650602409638554,
+  "model_name": "XGBoost (calibrated)",
+  "shipped_holdout_accuracy": 0.6650602409638554,
+  "markets": {
+    "moneyline": {
+      "best": {
+        "threshold": 0.57,
+        "n": 344,
+        "acc": 0.7005813953488372,
+        "coverage": 0.8289156626506025,
+        "met_target": true
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.86,
+          "n": 2,
+          "acc": null,
+          "coverage": 0.004819277108433735
+        },
+        {
+          "threshold": 0.87,
+          "n": 2,
+          "acc": null,
+          "coverage": 0.004819277108433735
+        },
+        {
+          "threshold": 0.88,
+          "n": 1,
+          "acc": null,
+          "coverage": 0.0024096385542168677
+        },
+        {
+          "threshold": 0.89,
+          "n": 1,
+          "acc": null,
+          "coverage": 0.0024096385542168677
+        },
+        {
+          "threshold": 0.9,
+          "n": 0,
+          "acc": null,
+          "coverage": 0.0
+        }
+      ]
+    }
+  }
+}

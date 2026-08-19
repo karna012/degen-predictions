@@ -179,6 +179,13 @@ def categories():
         "score": lambda: _joblib_acc(os.path.join(REPO, "data", "npb", "ml_ensemble_model.joblib")),
     })
     cats.append({
+        "key": "nfl",
+        "label": "NFL",
+        "paths": [os.path.join(REPO, "data", "nfl", "ml_ensemble_model.joblib")],
+        "higher_better": True,
+        "score": lambda: _joblib_acc(os.path.join(REPO, "data", "nfl", "ml_ensemble_model.joblib")),
+    })
+    cats.append({
         "key": "nba",
         "label": "NBA",
         "paths": [os.path.join(REPO, "data", "nba", "ml_ensemble_model.joblib")],
@@ -273,7 +280,7 @@ def _score_from_backup(cat, score_fn_live):
         return _joblib_acc(_backup_path(cat["paths"][0]))
     if key == "npb":
         return _joblib_acc(_backup_path(cat["paths"][0]))
-    if key in ("nba", "nhl"):
+    if key in ("nfl", "nba", "nhl"):
         return _joblib_acc(_backup_path(cat["paths"][0]))
     if key == "cricket_winner":
         bak_dir = _backup_path(os.path.join(REPO, "data", "cricket"))

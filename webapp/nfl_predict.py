@@ -1,10 +1,14 @@
 """NFL prediction helpers: team Elo win probability (home-field edge),
-head-to-head blending, totals, and a spread from the Elo gap.
+head-to-head blending, totals, a spread from the Elo gap, and a trained
+ML model blend on top.
 
-Ratings are built from ESPN completed games (same unofficial read-only
-scoreboard as nfl_fixtures.py) and persisted under data/nfl/. There is no
-Retrosheet-style archive, so the public ledger is "current model vs recent
-finals", same honesty framing as MLB results.
+Elo/history are normally built offline by scripts/nfl/build_elo.py (from
+nflverse-data, years of real history) and just read here -- the in-process
+ensure_nfl_ratings()/rebuild_ratings() ESPN-completed-games rebuild below
+still exists purely as a resilience fallback for a fresh checkout with no
+data/nfl/*.csv yet, same role a missing-file check plays for MLB/NBA. It
+writes the exact same schema the offline pipeline does, so either source
+is a drop-in for the other.
 """
 from __future__ import annotations
 
@@ -20,19 +24,108 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data", "nfl")
 ELO_PATH = os.path.join(DATA_DIR, "elo_ratings.csv")
 HISTORY_PATH = os.path.join(DATA_DIR, "game_history.csv")
+HOME_ADVANTAGE_PATH = os.path.join(DATA_DIR, "home_advantage.txt")
 
 START_ELO = 1500.0
 K_FACTOR = 20.0
-HOME_ADVANTAGE = 55.0  # ~2.2 points at 25 Elo per point
+HOME_ADVANTAGE = 55.0  # ~2.2 points at 25 Elo per point -- fallback seed when
+                        # home_advantage.txt doesn't exist yet; see
+                        # load_home_advantage() below for the real, empirically
+                        # derived value once scripts/nfl/build_elo.py has run.
 ELO_PER_POINT = 25.0
 TOTAL_POINTS_STD_DEV = 13.5
 TEAM_POINTS_STD_DEV = 10.0
 SPREAD_MARGIN_STD = 13.5
 LEAGUE_AVG_POINTS = 22.5
 RATINGS_TTL_SECONDS = 6 * 60 * 60
+MAX_REST_DAYS = 14.0
+DEFAULT_REST_DAYS = 7.0
+SHORT_WEEK_MAX_DAYS = 5.0
+
+NFL_ML_FEATURE_NAMES = [
+    "EloDiff", "HomeLast10WinRate", "AwayLast10WinRate", "HomeStreak", "AwayStreak",
+    "H2HMeetings", "HomeH2HWinRate", "PointsForDiff", "PointsAllowedDiff",
+    "HomeDaysRest", "AwayDaysRest", "HomeShortWeek", "AwayShortWeek",
+]
 
 _lock = threading.Lock()
 _ratings_built_at = 0.0
+
+
+def load_home_advantage() -> float:
+    if not os.path.exists(HOME_ADVANTAGE_PATH):
+        return HOME_ADVANTAGE
+    try:
+        with open(HOME_ADVANTAGE_PATH, "r", encoding="utf-8") as f:
+            return float(f.read().strip())
+    except (OSError, ValueError):
+        return HOME_ADVANTAGE
+
+
+def _load_ml_ensemble(path):
+    """Loads a trained win/loss ensemble saved by train_ml_models.py, if
+    present. Returns None if the model file doesn't exist yet, so callers
+    fall back to the Elo-only blend instead of erroring -- same contract
+    as app.py's _load_ml_ensemble() for MLB/NPB/NBA/NHL. Self-contained here
+    (not imported from app.py) since nfl_predict.py's whole prediction
+    pipeline already lives independently of app.py, unlike those sports.
+    """
+    if not os.path.exists(path):
+        return None
+    import joblib
+    return joblib.load(path)
+
+
+NFL_ML_MODEL = _load_ml_ensemble(os.path.join(DATA_DIR, "ml_ensemble_model.joblib"))
+
+
+def _ml_win_probability(bundle, feature_row):
+    if bundle is None:
+        return None
+    X = pd.DataFrame([feature_row], columns=bundle["features"])
+    if bundle.get("uses_scaled_features"):
+        X = pd.DataFrame(bundle["scaler"].transform(X), columns=bundle["features"])
+    return float(bundle["model"].predict_proba(X)[0][1])
+
+
+def blend_with_ml_model(prob_home, ml_prob, weight=0.5):
+    if ml_prob is None:
+        return prob_home
+    return (1 - weight) * prob_home + weight * ml_prob
+
+
+def _days_rest_from_last_game(last_game_date, as_of):
+    if not last_game_date:
+        return DEFAULT_REST_DAYS
+    try:
+        prev = pd.to_datetime(last_game_date).date()
+    except (ValueError, TypeError):
+        return DEFAULT_REST_DAYS
+    return float(min(max((as_of - prev).days, 0), MAX_REST_DAYS))
+
+
+def build_nfl_ml_features(home_row, away_row, h2h, home_rest, away_rest):
+    """Feature vector matching scripts/nfl/train_ml_models.py FEATURES."""
+    h2h_meetings = h2h["meetings"]
+    h2h_home_rate = (h2h["home_wins"] / h2h_meetings) if h2h_meetings else 0.5
+    home_last10_rate = (home_row.get("Last10Wins", 0) / home_row["Last10Played"]) if home_row.get("Last10Played") else 0.5
+    away_last10_rate = (away_row.get("Last10Wins", 0) / away_row["Last10Played"]) if away_row.get("Last10Played") else 0.5
+
+    return {
+        "EloDiff": float(home_row["Elo"]) - float(away_row["Elo"]),
+        "HomeLast10WinRate": float(home_last10_rate),
+        "AwayLast10WinRate": float(away_last10_rate),
+        "HomeStreak": int(home_row.get("CurrentStreak", 0) or 0),
+        "AwayStreak": int(away_row.get("CurrentStreak", 0) or 0),
+        "H2HMeetings": h2h_meetings,
+        "HomeH2HWinRate": h2h_home_rate,
+        "PointsForDiff": float(home_row["AvgPointsScored"]) - float(away_row["AvgPointsScored"]),
+        "PointsAllowedDiff": float(away_row["AvgPointsAllowed"]) - float(home_row["AvgPointsAllowed"]),
+        "HomeDaysRest": home_rest,
+        "AwayDaysRest": away_rest,
+        "HomeShortWeek": 1.0 if home_rest < SHORT_WEEK_MAX_DAYS else 0.0,
+        "AwayShortWeek": 1.0 if away_rest < SHORT_WEEK_MAX_DAYS else 0.0,
+    }
 
 
 def _ensure_data_dir():
@@ -68,8 +161,9 @@ def get_h2h_record(history, home, away):
     return {"home_wins": home_wins, "away_wins": meetings - home_wins, "meetings": meetings}
 
 
-def nfl_win_probability(elo_home, elo_away):
-    return 1.0 / (1.0 + 10 ** (-((elo_home + HOME_ADVANTAGE) - elo_away) / 400.0))
+def nfl_win_probability(elo_home, elo_away, home_advantage=None):
+    ha = load_home_advantage() if home_advantage is None else home_advantage
+    return 1.0 / (1.0 + 10 ** (-((elo_home + ha) - elo_away) / 400.0))
 
 
 def blend_with_h2h(prob_home, h2h):
@@ -121,9 +215,10 @@ def total_points_over_under(predicted_total, std_dev=TOTAL_POINTS_STD_DEV):
     return {"line": line, "pick": "Under", "probability": round((1 - prob_over) * 100, 1)}
 
 
-def elo_to_spread(elo_home, elo_away):
+def elo_to_spread(elo_home, elo_away, home_advantage=None):
     """Home spread (negative = home favoured). Rounded to a .5 line."""
-    points = -((elo_home + HOME_ADVANTAGE) - elo_away) / ELO_PER_POINT
+    ha = load_home_advantage() if home_advantage is None else home_advantage
+    points = -((elo_home + ha) - elo_away) / ELO_PER_POINT
     line = round(points * 2) / 2.0
     if abs(line) < 0.5:
         line = -0.5 if points < 0 else 0.5
@@ -371,7 +466,6 @@ def generate_insights(home_code, away_code, home_row, away_row, h2h,
 
 def compute_nfl_prediction(home_code, away_code, as_of_date=None):
     """Shared by the JSON predict API, match page, and Today's Picks."""
-    del as_of_date  # Elo is current-model, same honesty note as MLB
     df = load_nfl_elo()
     if df.empty:
         df = ensure_nfl_ratings()
@@ -387,12 +481,16 @@ def compute_nfl_prediction(home_code, away_code, as_of_date=None):
     home_row, away_row = row_home.iloc[0], row_away.iloc[0]
     elo_home = float(home_row["Elo"])
     elo_away = float(away_row["Elo"])
+    home_advantage = load_home_advantage()
     history = load_nfl_history()
     h2h = get_h2h_record(history, home_code, away_code)
     home_streak = int(home_row.get("CurrentStreak", 0) or 0)
     away_streak = int(away_row.get("CurrentStreak", 0) or 0)
+    as_of = pd.to_datetime(as_of_date).date() if as_of_date else date.today()
+    home_rest = _days_rest_from_last_game(home_row.get("LastGameDate"), as_of)
+    away_rest = _days_rest_from_last_game(away_row.get("LastGameDate"), as_of)
 
-    prob_home = nfl_win_probability(elo_home, elo_away)
+    prob_home = nfl_win_probability(elo_home, elo_away, home_advantage)
     prob_home = blend_with_h2h(prob_home, h2h)
     prob_home = blend_with_streak(prob_home, home_streak, away_streak)
 
@@ -404,6 +502,10 @@ def compute_nfl_prediction(home_code, away_code, as_of_date=None):
     except Exception:
         pass
 
+    ml_features = build_nfl_ml_features(home_row, away_row, h2h, home_rest, away_rest)
+    ml_prob_home = _ml_win_probability(NFL_ML_MODEL, ml_features)
+    prob_home = blend_with_ml_model(prob_home, ml_prob_home)
+
     home_pts, away_pts = predict_team_points(home_row, away_row)
     favourite = home_code if prob_home >= 0.5 else away_code
     total_pts = round(home_pts + away_pts, 1)
@@ -411,7 +513,7 @@ def compute_nfl_prediction(home_code, away_code, as_of_date=None):
     pts_ou = total_points_over_under(total_pts)
     home_ou = total_points_over_under(home_pts, std_dev=TEAM_POINTS_STD_DEV)
     away_ou = total_points_over_under(away_pts, std_dev=TEAM_POINTS_STD_DEV)
-    spread_home = elo_to_spread(elo_home, elo_away)
+    spread_home = elo_to_spread(elo_home, elo_away, home_advantage)
     predicted_margin = home_pts - away_pts
     # Home covers home spread_home (e.g. -3.5) if home_margin > -spread_home.
     home_cover_p = _cover_probability(predicted_margin, -spread_home)
@@ -436,6 +538,7 @@ def compute_nfl_prediction(home_code, away_code, as_of_date=None):
         "h2h_meetings": h2h["meetings"],
         "favourite": favourite,
         "home_streak": home_streak, "away_streak": away_streak,
+        "home_days_rest": home_rest, "away_days_rest": away_rest,
         "home_season_record": f"{int(home_row.get('SeasonWins', 0) or 0)}-{int(home_row.get('SeasonLosses', 0) or 0)}",
         "away_season_record": f"{int(away_row.get('SeasonWins', 0) or 0)}-{int(away_row.get('SeasonLosses', 0) or 0)}",
         "predicted_total_points": total_pts,
