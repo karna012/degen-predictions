@@ -9,6 +9,7 @@ import json
 import os
 import sys
 import time
+from datetime import datetime, timedelta, timezone
 
 import numpy as np
 import pandas as pd
@@ -92,9 +93,98 @@ def download_matches_fd_new(league_key, cfg):
         print(f"  [{league_key}] {season}: saved {path} ({len(out)} matches)")
 
 
+def download_matches_espn_historical(league_key, cfg):
+    """Historical results scraped from ESPN's soccer scoreboard, for a
+    league with zero football-data.co.uk coverage at all (currently just
+    the Saudi Pro League -- see leagues.py's comment there). Produces the
+    same per-season CSV shape as download_matches_fd_new: stat columns are
+    NaN (ESPN's scoreboard has neither shot/corner/card stats nor odds).
+
+    No custom User-Agent on these requests: ESPN 403s this project's usual
+    identifying UA specifically when a "dates" param is present (same
+    finding documented in predict_pl.py's ESPN fallback).
+    """
+    os.makedirs(cfg["data_dir"], exist_ok=True)
+    slug = cfg["espn_slug"]
+    seasons = league_seasons(cfg)
+    current_season = seasons[-1]
+    today = datetime.now(timezone.utc).replace(tzinfo=None)
+    url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard"
+
+    for season in seasons:
+        season_file = str(season).replace("/", "-")
+        path = os.path.join(cfg["data_dir"], f"{cfg['fd_code']}_{season_file}.csv")
+        if os.path.exists(path) and season != current_season:
+            continue
+
+        start_year, end_year = season.split("/")
+        start = datetime(int(start_year), 8, 1)
+        end = min(datetime(int(end_year), 6, 15), today)
+        if start > end:
+            print(f"  [{league_key}] {season}: not started yet, skipping")
+            continue
+
+        rows_by_id = {}
+        cur = start
+        while cur <= end:
+            chunk_end = min(cur + timedelta(days=29), end)
+            date_range = f"{cur:%Y%m%d}-{chunk_end:%Y%m%d}"
+            try:
+                resp = requests.get(url, params={"dates": date_range}, timeout=20)
+                resp.raise_for_status()
+                events = resp.json().get("events") or []
+            except (requests.RequestException, ValueError) as exc:
+                print(f"  [{league_key}] {season} {date_range}: fetch failed ({exc}), skipping chunk")
+                events = []
+            for e in events:
+                comp = (e.get("competitions") or [{}])[0]
+                status = (comp.get("status") or {}).get("type") or {}
+                if not status.get("completed"):
+                    continue
+                competitors = comp.get("competitors") or []
+                home = next((c for c in competitors if c.get("homeAway") == "home"), None)
+                away = next((c for c in competitors if c.get("homeAway") == "away"), None)
+                if not home or not away:
+                    continue
+                try:
+                    hg, ag = int(home.get("score")), int(away.get("score"))
+                except (TypeError, ValueError):
+                    continue
+                eid = e.get("id") or f"{e.get('date')}-{home.get('team', {}).get('displayName')}"
+                try:
+                    dt_obj = datetime.strptime((e.get("date") or "").strip(), "%Y-%m-%dT%H:%MZ")
+                except ValueError:
+                    continue
+                rows_by_id[eid] = {
+                    "dt": dt_obj,
+                    "HomeTeam": (home.get("team") or {}).get("displayName"),
+                    "AwayTeam": (away.get("team") or {}).get("displayName"),
+                    "FTHG": hg, "FTAG": ag,
+                    "FTR": "H" if hg > ag else ("A" if ag > hg else "D"),
+                }
+            time.sleep(0.25)
+            cur = chunk_end + timedelta(days=1)
+
+        if not rows_by_id:
+            print(f"  [{league_key}] {season}: no completed matches found, skipping")
+            continue
+
+        out = pd.DataFrame(sorted(rows_by_id.values(), key=lambda r: r["dt"]))
+        out["Date"] = out["dt"].dt.strftime("%d/%m/%Y")
+        out = out[["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR"]]
+        for col in _STAT_FILL_COLS:
+            out[col] = np.nan
+        out["Referee"] = "Unknown"
+        out.to_csv(path, index=False)
+        print(f"  [{league_key}] {season}: saved {path} ({len(out)} matches)")
+
+
 def download_matches(league_key, cfg):
-    if cfg.get("data_format") == "fd_new":
+    fmt = cfg.get("data_format")
+    if fmt == "fd_new":
         download_matches_fd_new(league_key, cfg)
+    elif fmt == "espn_historical":
+        download_matches_espn_historical(league_key, cfg)
     else:
         download_matches_mmz(league_key, cfg)
 

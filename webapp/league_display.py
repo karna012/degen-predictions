@@ -49,4 +49,9 @@ LEAGUE_DISPLAY = {
         "keywords": "Liga MX predictions, Mexican football predictions, soccer predictions, "
                     "Liga MX tips, Club America Chivas Cruz Azul predictions",
     },
+    "saudi_pro_league": {
+        "monogram": "SPL", "flag": "\U0001F1F8\U0001F1E6", "color": "#1b6b3d", "country": "Saudi Arabia",
+        "keywords": "Saudi Pro League predictions, Roshn Saudi League predictions, soccer predictions, "
+                    "Saudi league tips, Al Hilal Al Nassr Al Ittihad predictions",
+    },
 }

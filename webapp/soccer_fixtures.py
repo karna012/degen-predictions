@@ -35,6 +35,7 @@ HEADERS = {"User-Agent": "DegenPredictions/1.0 (https://degenpredictions.com)"}
 # _provider_order()), so it's a genuine no-op for every other league.
 ESPN_SLUGS = {
     "liga_mx": "mex.1",
+    "saudi_pro_league": "ksa.1",
 }
 
 # football-data.org competition codes

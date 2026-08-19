@@ -577,6 +577,9 @@ TODAY_SPORTS = {
             "liga_mx": {
                 "label": "Liga MX", "tz": "Asia/Kolkata", "kind": "soccer", "color": "#0b6e4f",
             },
+            "saudi_pro_league": {
+                "label": "Saudi Pro League", "tz": "Asia/Kolkata", "kind": "soccer", "color": "#1b6b3d",
+            },
         },
     },
     "baseball": {

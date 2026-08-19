@@ -2277,6 +2277,7 @@ def lookup_score_for_leg(leg: dict) -> dict | None:
     league = (leg.get("league_id") or "").lower()
     if sport == "soccer" or league in (
         "premier_league", "la_liga", "serie_a", "bundesliga", "ligue_1", "mls", "primeira_liga", "liga_mx",
+        "saudi_pro_league",
     ):
         return _lookup_soccer(leg)
     if league == "mlb" or (sport == "baseball" and league != "npb"):

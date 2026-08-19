@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-08T15:11:35.012206+00:00",
+  "generated_at": "2026-08-19T06:10:02.269435+00:00",
   "rule": {
     "name": "Safer Result",
     "double_chance_threshold": 0.7,
@@ -22,22 +22,22 @@
       "evaluation_n": 265,
       "evaluation_start": "2025-11-22",
       "evaluation_end": "2026-05-24",
-      "n": 174,
-      "correct": 142,
-      "accuracy": 0.8160919540229885,
-      "coverage": 0.6566037735849056,
+      "n": 154,
+      "correct": 131,
+      "accuracy": 0.8506493506493507,
+      "coverage": 0.5811320754716981,
       "exact_n": 1,
       "exact_correct": 1,
-      "double_chance_n": 173,
-      "double_chance_correct": 141,
+      "double_chance_n": 153,
+      "double_chance_correct": 130,
       "calibration": {
         "favorite_win": {
-          "intercept": 0.09065999747752614,
-          "slope": 1.2031336406743904
+          "intercept": 0.0018883554082963524,
+          "slope": 1.0754156511996593
         },
         "favorite_avoids_defeat": {
-          "intercept": 0.2891732133642159,
-          "slope": 0.9067053217873766
+          "intercept": 0.023249795566337692,
+          "slope": 0.9598689137846977
         }
       },
       "model_strategies": {
@@ -54,26 +54,26 @@
       "evaluation_n": 265,
       "evaluation_start": "2025-11-09",
       "evaluation_end": "2026-05-24",
-      "n": 194,
-      "correct": 144,
-      "accuracy": 0.7422680412371134,
-      "coverage": 0.7320754716981132,
-      "exact_n": 2,
-      "exact_correct": 2,
-      "double_chance_n": 192,
-      "double_chance_correct": 142,
+      "n": 180,
+      "correct": 133,
+      "accuracy": 0.7388888888888889,
+      "coverage": 0.6792452830188679,
+      "exact_n": 19,
+      "exact_correct": 16,
+      "double_chance_n": 161,
+      "double_chance_correct": 117,
       "calibration": {
         "favorite_win": {
-          "intercept": 0.19233882852205558,
-          "slope": 1.0831219716010678
+          "intercept": 0.1608420638106844,
+          "slope": 1.0341236514342282
         },
         "favorite_avoids_defeat": {
-          "intercept": 0.07672889079798789,
-          "slope": 1.010537791418559
+          "intercept": 0.08719117322620161,
+          "slope": 0.958194806603937
         }
       },
       "model_strategies": {
-        "result": "catboost",
+        "result": "rf",
         "favorite_avoids_defeat": "rf"
       }
     },
@@ -90,22 +90,22 @@
       "correct": 200,
       "accuracy": 0.7662835249042146,
       "coverage": 0.9886363636363636,
-      "exact_n": 1,
-      "exact_correct": 1,
-      "double_chance_n": 260,
-      "double_chance_correct": 199,
+      "exact_n": 2,
+      "exact_correct": 2,
+      "double_chance_n": 259,
+      "double_chance_correct": 198,
       "calibration": {
         "favorite_win": {
-          "intercept": -0.13754842558954553,
-          "slope": 1.148321192018968
+          "intercept": -0.05216141270888684,
+          "slope": 1.0843604572076826
         },
         "favorite_avoids_defeat": {
-          "intercept": 0.6183561299770944,
-          "slope": 0.5678108945108533
+          "intercept": 0.580333031467146,
+          "slope": 0.5862283599463944
         }
       },
       "model_strategies": {
-        "result": "stacked",
+        "result": "rf",
         "favorite_avoids_defeat": "rf"
       }
     },
@@ -118,26 +118,26 @@
       "evaluation_n": 213,
       "evaluation_start": "2025-11-22",
       "evaluation_end": "2026-05-16",
-      "n": 195,
-      "correct": 157,
-      "accuracy": 0.8051282051282052,
-      "coverage": 0.9154929577464789,
-      "exact_n": 10,
-      "exact_correct": 6,
-      "double_chance_n": 185,
-      "double_chance_correct": 151,
+      "n": 205,
+      "correct": 163,
+      "accuracy": 0.7951219512195122,
+      "coverage": 0.9624413145539906,
+      "exact_n": 14,
+      "exact_correct": 11,
+      "double_chance_n": 191,
+      "double_chance_correct": 152,
       "calibration": {
         "favorite_win": {
-          "intercept": 0.1287566809104397,
-          "slope": 0.8907900183201929
+          "intercept": 0.07363516414841553,
+          "slope": 0.834545527059644
         },
         "favorite_avoids_defeat": {
-          "intercept": 0.711854499960234,
-          "slope": 0.3809141358417434
+          "intercept": 0.7368784331413804,
+          "slope": 0.3580250969653305
         }
       },
       "model_strategies": {
-        "result": "catboost",
+        "result": "xgb",
         "favorite_avoids_defeat": "rf"
       }
     },
@@ -150,27 +150,59 @@
       "evaluation_n": 232,
       "evaluation_start": "2025-10-25",
       "evaluation_end": "2026-05-17",
-      "n": 118,
-      "correct": 93,
-      "accuracy": 0.788135593220339,
-      "coverage": 0.5086206896551724,
-      "exact_n": 0,
-      "exact_correct": 0,
-      "double_chance_n": 118,
-      "double_chance_correct": 93,
+      "n": 145,
+      "correct": 113,
+      "accuracy": 0.7793103448275862,
+      "coverage": 0.625,
+      "exact_n": 3,
+      "exact_correct": 2,
+      "double_chance_n": 142,
+      "double_chance_correct": 111,
       "calibration": {
         "favorite_win": {
-          "intercept": 0.4435508775418931,
-          "slope": 1.9067712849200684
+          "intercept": 0.16696592628487736,
+          "slope": 1.4404790644022825
         },
         "favorite_avoids_defeat": {
-          "intercept": -0.7722434013469512,
-          "slope": 1.5121776430057956
+          "intercept": -0.634530902385062,
+          "slope": 1.439938610435322
         }
       },
       "model_strategies": {
-        "result": "xgb",
+        "result": "rf",
         "favorite_avoids_defeat": "xgb"
+      }
+    },
+    "primeira_liga": {
+      "label": "Primeira Liga",
+      "available": true,
+      "met_target": true,
+      "holdout_n": 425,
+      "calibration_n": 212,
+      "evaluation_n": 213,
+      "evaluation_start": "2025-11-08",
+      "evaluation_end": "2026-05-16",
+      "n": 212,
+      "correct": 168,
+      "accuracy": 0.7924528301886793,
+      "coverage": 0.9953051643192489,
+      "exact_n": 33,
+      "exact_correct": 30,
+      "double_chance_n": 179,
+      "double_chance_correct": 138,
+      "calibration": {
+        "favorite_win": {
+          "intercept": 0.3195036842111458,
+          "slope": 0.7070924388022728
+        },
+        "favorite_avoids_defeat": {
+          "intercept": 1.0306027672795823,
+          "slope": 0.4825934253128422
+        }
+      },
+      "model_strategies": {
+        "result": "stacked",
+        "favorite_avoids_defeat": "stacked"
       }
     },
     "mls": {
@@ -182,40 +214,104 @@
       "evaluation_n": 354,
       "evaluation_start": "2025-09-22",
       "evaluation_end": "2026-08-02",
-      "n": 175,
-      "correct": 139,
-      "accuracy": 0.7942857142857143,
-      "coverage": 0.4943502824858757,
-      "exact_n": 0,
-      "exact_correct": 0,
-      "double_chance_n": 175,
-      "double_chance_correct": 139,
+      "n": 168,
+      "correct": 132,
+      "accuracy": 0.7857142857142857,
+      "coverage": 0.4745762711864407,
+      "exact_n": 2,
+      "exact_correct": 1,
+      "double_chance_n": 166,
+      "double_chance_correct": 131,
       "calibration": {
         "favorite_win": {
-          "intercept": 0.019123240280551547,
-          "slope": 0.7920593135441093
+          "intercept": -0.09836937571270561,
+          "slope": 0.7124042026719746
         },
         "favorite_avoids_defeat": {
-          "intercept": 0.35527181094826804,
-          "slope": 0.6564707898315411
+          "intercept": 0.3912460851031666,
+          "slope": 0.6148221013845893
         }
       },
       "model_strategies": {
-        "result": "rf",
+        "result": "xgb",
+        "favorite_avoids_defeat": "rf"
+      }
+    },
+    "liga_mx": {
+      "label": "Liga MX",
+      "available": true,
+      "met_target": true,
+      "holdout_n": 467,
+      "calibration_n": 233,
+      "evaluation_n": 234,
+      "evaluation_start": "2025-10-26",
+      "evaluation_end": "2026-08-03",
+      "n": 225,
+      "correct": 160,
+      "accuracy": 0.7111111111111111,
+      "coverage": 0.9615384615384616,
+      "exact_n": 2,
+      "exact_correct": 2,
+      "double_chance_n": 223,
+      "double_chance_correct": 158,
+      "calibration": {
+        "favorite_win": {
+          "intercept": 0.17178719049581828,
+          "slope": 1.4779293449717839
+        },
+        "favorite_avoids_defeat": {
+          "intercept": -0.7844034766833523,
+          "slope": 1.2384861571576071
+        }
+      },
+      "model_strategies": {
+        "result": "avg_ensemble",
+        "favorite_avoids_defeat": "xgb"
+      }
+    },
+    "saudi_pro_league": {
+      "label": "Saudi Pro League",
+      "available": true,
+      "met_target": true,
+      "holdout_n": 230,
+      "calibration_n": 115,
+      "evaluation_n": 115,
+      "evaluation_start": "2026-02-23",
+      "evaluation_end": "2026-08-15",
+      "n": 101,
+      "correct": 81,
+      "accuracy": 0.801980198019802,
+      "coverage": 0.8782608695652174,
+      "exact_n": 26,
+      "exact_correct": 24,
+      "double_chance_n": 75,
+      "double_chance_correct": 57,
+      "calibration": {
+        "favorite_win": {
+          "intercept": 0.2131609860374972,
+          "slope": 1.0512921419001475
+        },
+        "favorite_avoids_defeat": {
+          "intercept": -0.01609074382237726,
+          "slope": 0.9921427676989998
+        }
+      },
+      "model_strategies": {
+        "result": "logistic",
         "favorite_avoids_defeat": "xgb"
       }
     }
   },
   "aggregate": {
-    "evaluation_n": 1593,
-    "n": 1117,
-    "correct": 875,
-    "accuracy": 0.7833482542524619,
-    "coverage": 0.7011927181418707,
-    "exact_n": 14,
-    "exact_correct": 10,
-    "double_chance_n": 1103,
-    "double_chance_correct": 865,
+    "evaluation_n": 2155,
+    "n": 1651,
+    "correct": 1281,
+    "accuracy": 0.775893397940642,
+    "coverage": 0.7661252900232018,
+    "exact_n": 102,
+    "exact_correct": 89,
+    "double_chance_n": 1549,
+    "double_chance_correct": 1192,
     "met_target": true
   }
 }

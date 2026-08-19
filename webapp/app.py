@@ -5868,6 +5868,7 @@ def _build_sitemap_static() -> str:
         "todays-picks/soccer/premier_league", "todays-picks/soccer/la_liga",
         "todays-picks/soccer/serie_a", "todays-picks/soccer/bundesliga", "todays-picks/soccer/ligue_1",
         "todays-picks/soccer/mls", "todays-picks/soccer/primeira_liga", "todays-picks/soccer/liga_mx",
+        "todays-picks/soccer/saudi_pro_league",
         "todays-picks/baseball/mlb", "todays-picks/baseball/npb",
         "todays-picks/cricket/hundred", "todays-picks/cricket/mlc",
         "todays-picks/cricket/ipl", "todays-picks/cricket/bbl",

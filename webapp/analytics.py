@@ -239,7 +239,7 @@ def recent_visits(limit=100, filter="all"):
 # ---- Get Prediction clicks (human fixture unlocks) ----------------------
 
 _GP_API_RE = re.compile(
-    r"^/(premier_league|la_liga|serie_a|bundesliga|ligue_1|mls|primeira_liga|liga_mx|mlb|npb|nfl)"
+    r"^/(premier_league|la_liga|serie_a|bundesliga|ligue_1|mls|primeira_liga|liga_mx|saudi_pro_league|mlb|npb|nfl)"
     r"/api/predict(?:/|$|\?)",
 )
 _GP_GO_RE = re.compile(
@@ -254,6 +254,7 @@ _GP_LEAGUE_LABELS = {
     "mls": "MLS",
     "primeira_liga": "Primeira Liga",
     "liga_mx": "Liga MX",
+    "saudi_pro_league": "Saudi Pro League",
     "mlb": "MLB",
     "npb": "NPB",
     "nfl": "NFL",

@@ -1488,6 +1488,7 @@ _HASHTAG_BY_LEAGUE = {
     "ligue_1": ("#Ligue1",),
     "primeira_liga": ("#PrimeiraLiga",),
     "liga_mx": ("#LigaMX",),
+    "saudi_pro_league": ("#SaudiProLeague", "#RoshnSaudiLeague"),
     "eredivisie": ("#Eredivisie",),
     "championship": ("#EFL",),
 }

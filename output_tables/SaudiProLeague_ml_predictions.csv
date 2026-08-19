@@ -1,0 +1,64 @@
+RoundNumber,DateUtc,HomeTeam,AwayTeam,P_Home_Win,P_Draw,P_Away_Win,Predicted_Result,P_BTTS_Yes,BTTS_Prediction,P_Over_2.5_Goals,Goals_Prediction,Exp_Total_Corners,P_Home_More_Corners,More_Corners_Prediction,Favorite_Team,P_Favorite_Avoids_Defeat,Favorite_Avoids_Defeat_Prediction,Data_Confidence
+34,2026-08-20 18:00:00Z,Al Fayha,Al Hilal,0.004,0.946,0.05,Draw,0.561,Yes,0.655,Over 2.5,,,,Al Hilal,0.789,Yes,OK
+34,2026-08-21 16:00:00Z,Al Riyadh,Al Nassr,0.003,0.578,0.42,Draw,0.624,Yes,0.66,Over 2.5,,,,Al Nassr,0.859,Yes,OK
+34,2026-08-21 16:15:00Z,Al Hazem,Al Diriyah,0.391,0.582,0.028,Draw,0.638,Yes,0.655,Over 2.5,,,,Al Diriyah,0.725,Yes,OK
+34,2026-08-21 18:00:00Z,Al Qadsiah,Al Ittihad,0.324,0.665,0.011,Draw,0.566,Yes,0.648,Over 2.5,,,,Al Qadsiah,0.913,Yes,OK
+34,2026-08-21 18:00:00Z,Al-Faisaly,Neom SC,0.055,0.754,0.191,Draw,0.558,Yes,0.645,Over 2.5,,,,Neom SC,0.551,Yes,OK
+34,2026-08-22 15:45:00Z,Al Fateh,Al Ettifaq,0.002,0.957,0.041,Draw,0.543,Yes,0.647,Over 2.5,,,,Al Ettifaq,0.741,Yes,OK
+34,2026-08-22 16:10:00Z,Al Kholood,Al Taawoun,0.23,0.611,0.159,Draw,0.597,Yes,0.652,Over 2.5,,,,Al Taawoun,0.747,Yes,OK
+34,2026-08-22 18:00:00Z,Al Ahli,Abha,0.81,0.187,0.003,Al Ahli,0.589,Yes,0.658,Over 2.5,,,,Al Ahli,0.881,Yes,OK
+34,2026-08-22 18:00:00Z,Al Khaleej,Al Shabab,0.375,0.615,0.01,Draw,0.585,Yes,0.658,Over 2.5,,,,Al Shabab,0.764,Yes,OK
+35,2026-08-24 16:40:00Z,Neom SC,Al Qadsiah,0.08,0.854,0.066,Draw,0.589,Yes,0.645,Over 2.5,,,,Al Qadsiah,0.776,Yes,OK
+35,2026-08-24 18:00:00Z,Al Ittihad,Al Hazem,0.133,0.813,0.054,Draw,0.568,Yes,0.652,Over 2.5,,,,Al Ittihad,0.769,Yes,OK
+35,2026-08-25 16:05:00Z,Abha,Al Khaleej,0.174,0.558,0.268,Draw,0.615,Yes,0.659,Over 2.5,,,,Al Khaleej,0.798,Yes,OK
+35,2026-08-25 16:10:00Z,Al Taawoun,Al Fayha,0.25,0.724,0.027,Draw,0.611,Yes,0.656,Over 2.5,,,,Al Taawoun,0.747,Yes,OK
+35,2026-08-25 18:00:00Z,Al Ettifaq,Al Nassr,0.01,0.952,0.038,Draw,0.6,Yes,0.654,Over 2.5,,,,Al Nassr,0.811,Yes,OK
+35,2026-08-25 18:00:00Z,Al Shabab,Al Riyadh,0.029,0.966,0.004,Draw,0.574,Yes,0.656,Over 2.5,,,,Al Shabab,0.769,Yes,OK
+35,2026-08-26 16:00:00Z,Al-Faisaly,Al Fateh,0.342,0.647,0.011,Draw,0.595,Yes,0.659,Over 2.5,,,,Al-Faisaly,0.655,Yes,OK
+35,2026-08-26 18:00:00Z,Al Diriyah,Al Kholood,0.249,0.547,0.204,Draw,0.604,Yes,0.653,Over 2.5,,,,Al Diriyah,0.662,Yes,OK
+35,2026-08-28 15:50:00Z,Al Riyadh,Neom SC,0.012,0.849,0.138,Draw,0.594,Yes,0.646,Over 2.5,,,,Neom SC,0.605,Yes,OK
+35,2026-08-28 16:00:00Z,Al Fayha,Abha,0.197,0.726,0.076,Draw,0.571,Yes,0.654,Over 2.5,,,,Al Fayha,0.568,Yes,OK
+35,2026-08-28 18:00:00Z,Al Khaleej,Al Hilal,0.021,0.94,0.039,Draw,0.546,Yes,0.656,Over 2.5,,,,Al Hilal,0.773,Yes,OK
+35,2026-08-28 18:00:00Z,Al Nassr,Al Taawoun,0.446,0.54,0.013,Draw,0.558,Yes,0.658,Over 2.5,,,,Al Nassr,0.887,Yes,OK
+35,2026-08-29 16:05:00Z,Al Kholood,Al Ahli,0.157,0.59,0.253,Draw,0.635,Yes,0.658,Over 2.5,,,,Al Ahli,0.78,Yes,OK
+35,2026-08-29 18:00:00Z,Al Ettifaq,Al Diriyah,0.164,0.822,0.014,Draw,0.588,Yes,0.651,Over 2.5,,,,Al Ettifaq,0.705,Yes,OK
+35,2026-08-29 18:00:00Z,Al Fateh,Al Ittihad,0.041,0.76,0.199,Draw,0.557,Yes,0.654,Over 2.5,,,,Al Ittihad,0.774,Yes,OK
+35,2026-08-30 16:05:00Z,Al Hazem,Al Shabab,0.179,0.819,0.002,Draw,0.586,Yes,0.647,Over 2.5,,,,Al Shabab,0.798,Yes,OK
+35,2026-08-30 18:00:00Z,Al Qadsiah,Al-Faisaly,0.174,0.825,0.001,Draw,0.57,Yes,0.655,Over 2.5,,,,Al Qadsiah,0.922,Yes,OK
+36,2026-09-01 18:00:00Z,Al Hilal,Al Ahli,0.122,0.854,0.024,Draw,0.633,Yes,0.658,Over 2.5,,,,Al Hilal,0.811,Yes,OK
+36,2026-09-03 15:55:00Z,Al Fayha,Al Kholood,0.062,0.8,0.137,Draw,0.599,Yes,0.653,Over 2.5,,,,Al Fayha,0.564,Yes,OK
+36,2026-09-03 16:30:00Z,Neom SC,Al Khaleej,0.414,0.546,0.041,Draw,0.597,Yes,0.649,Over 2.5,,,,Neom SC,0.887,Yes,OK
+36,2026-09-03 18:00:00Z,Al Diriyah,Al Qadsiah,0.054,0.525,0.421,Draw,0.575,Yes,0.649,Over 2.5,,,,Al Qadsiah,0.805,Yes,OK
+36,2026-09-04 16:00:00Z,Abha,Al Ettifaq,0.006,0.946,0.049,Draw,0.58,Yes,0.656,Over 2.5,,,,Al Ettifaq,0.833,Yes,OK
+36,2026-09-04 18:00:00Z,Al Ahli,Al Riyadh,0.255,0.745,0.0,Draw,0.58,Yes,0.657,Over 2.5,,,,Al Ahli,0.887,Yes,OK
+36,2026-09-04 18:00:00Z,Al Shabab,Al Hilal,0.004,0.95,0.046,Draw,0.568,Yes,0.655,Over 2.5,,,,Al Hilal,0.853,Yes,OK
+36,2026-09-05 15:50:00Z,Al-Faisaly,Al Hazem,0.071,0.775,0.154,Draw,0.558,Yes,0.646,Over 2.5,,,,Al-Faisaly,0.722,Yes,OK
+36,2026-09-05 15:55:00Z,Al Taawoun,Al Fateh,0.541,0.455,0.004,Al Taawoun,0.578,Yes,0.657,Over 2.5,,,,Al Taawoun,0.747,Yes,OK
+36,2026-09-05 18:00:00Z,Al Ittihad,Al Nassr,0.031,0.698,0.271,Draw,0.567,Yes,0.658,Over 2.5,,,,Al Nassr,0.83,Yes,OK
+37,2026-09-07 15:30:00Z,Al Khaleej,Al Riyadh,0.22,0.776,0.004,Draw,0.555,Yes,0.656,Over 2.5,,,,Al Khaleej,0.765,Yes,OK
+37,2026-09-07 18:00:00Z,Al Hilal,Neom SC,0.021,0.974,0.004,Draw,0.575,Yes,0.658,Over 2.5,,,,Al Hilal,0.881,Yes,OK
+37,2026-09-08 15:30:00Z,Al Ettifaq,Al-Faisaly,0.033,0.966,0.001,Draw,0.533,Yes,0.653,Over 2.5,,,,Al Ettifaq,0.805,Yes,OK
+37,2026-09-08 15:55:00Z,Al Hazem,Al Taawoun,0.277,0.684,0.038,Draw,0.626,Yes,0.652,Over 2.5,,,,Al Taawoun,0.794,Yes,OK
+37,2026-09-08 18:00:00Z,Al Ittihad,Al Fayha,0.236,0.745,0.019,Draw,0.579,Yes,0.657,Over 2.5,,,,Al Ittihad,0.846,Yes,OK
+37,2026-09-08 18:00:00Z,Al Qadsiah,Al Ahli,0.33,0.639,0.031,Draw,0.621,Yes,0.658,Over 2.5,,,,Al Ahli,0.811,Yes,OK
+37,2026-09-09 15:55:00Z,Al Kholood,Al Shabab,0.16,0.833,0.008,Draw,0.602,Yes,0.654,Over 2.5,,,,Al Shabab,0.747,Yes,OK
+37,2026-09-09 18:00:00Z,Al Fateh,Al Diriyah,0.08,0.675,0.245,Draw,0.611,Yes,0.651,Over 2.5,,,,Al Diriyah,0.574,Yes,OK
+37,2026-09-09 18:00:00Z,Al Nassr,Abha,0.654,0.343,0.002,Al Nassr,0.575,Yes,0.655,Over 2.5,,,,Al Nassr,0.859,Yes,OK
+37,2026-09-10 18:00:00Z,Al Ahli,Al Hazem,0.224,0.766,0.01,Draw,0.582,Yes,0.656,Over 2.5,,,,Al Ahli,0.881,Yes,OK
+37,2026-09-10 18:00:00Z,Al Diriyah,Abha,0.496,0.415,0.089,Al Diriyah,0.588,Yes,0.657,Over 2.5,,,,Al Diriyah,0.568,Yes,OK
+37,2026-09-10 18:00:00Z,Al Khaleej,Al Nassr,0.035,0.559,0.406,Draw,0.579,Yes,0.655,Over 2.5,,,,Al Nassr,0.83,Yes,OK
+37,2026-09-10 18:00:00Z,Al Qadsiah,Al Ettifaq,0.023,0.973,0.004,Draw,0.594,Yes,0.657,Over 2.5,,,,Al Qadsiah,0.887,Yes,OK
+37,2026-09-10 18:00:00Z,Al Riyadh,Al Kholood,0.027,0.868,0.105,Draw,0.603,Yes,0.654,Over 2.5,,,,Al Kholood,0.718,Yes,OK
+37,2026-09-10 18:00:00Z,Al Shabab,Al Fayha,0.038,0.93,0.032,Draw,0.61,Yes,0.658,Over 2.5,,,,Al Shabab,0.747,Yes,OK
+37,2026-09-10 18:00:00Z,Al Taawoun,Al Hilal,0.015,0.953,0.031,Draw,0.558,Yes,0.654,Over 2.5,,,,Al Hilal,0.741,Yes,OK
+37,2026-09-10 18:00:00Z,Al-Faisaly,Al Ittihad,0.118,0.672,0.21,Draw,0.567,Yes,0.647,Over 2.5,,,,Al Ittihad,0.714,Yes,OK
+37,2026-09-10 18:00:00Z,Neom SC,Al Fateh,0.582,0.417,0.001,Neom SC,0.633,Yes,0.651,Over 2.5,,,,Neom SC,0.765,Yes,OK
+38,2026-09-17 18:00:00Z,Abha,Al-Faisaly,0.066,0.916,0.018,Draw,0.563,Yes,0.646,Over 2.5,,,,Al-Faisaly,0.798,Yes,OK
+38,2026-09-17 18:00:00Z,Al Ettifaq,Al Khaleej,0.16,0.822,0.018,Draw,0.568,Yes,0.661,Over 2.5,,,,Al Ettifaq,0.887,Yes,OK
+38,2026-09-17 18:00:00Z,Al Fateh,Al Ahli,0.035,0.558,0.407,Draw,0.632,Yes,0.657,Over 2.5,,,,Al Ahli,0.798,Yes,OK
+38,2026-09-17 18:00:00Z,Al Fayha,Al Riyadh,0.054,0.94,0.006,Draw,0.547,Yes,0.656,Over 2.5,,,,Al Fayha,0.714,Yes,OK
+38,2026-09-17 18:00:00Z,Al Hazem,Neom SC,0.096,0.879,0.025,Draw,0.622,Yes,0.65,Over 2.5,,,,Neom SC,0.714,Yes,OK
+38,2026-09-17 18:00:00Z,Al Hilal,Al Ittihad,0.088,0.905,0.007,Draw,0.577,Yes,0.654,Over 2.5,,,,Al Hilal,0.887,Yes,OK
+38,2026-09-17 18:00:00Z,Al Kholood,Al Qadsiah,0.039,0.766,0.195,Draw,0.607,Yes,0.645,Over 2.5,,,,Al Qadsiah,0.839,Yes,OK
+38,2026-09-17 18:00:00Z,Al Nassr,Al Diriyah,0.517,0.473,0.01,Al Nassr,0.594,Yes,0.658,Over 2.5,,,,Al Nassr,0.839,Yes,OK
+38,2026-09-17 18:00:00Z,Al Shabab,Al Taawoun,0.077,0.67,0.253,Draw,0.635,Yes,0.658,Over 2.5,,,,Al Taawoun,0.743,Yes,OK

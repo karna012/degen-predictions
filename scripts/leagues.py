@@ -325,4 +325,35 @@ LEAGUES = {
             "Tijuana": "Club Tijuana", "Mazatlán FC": "Mazatlan FC",
         },
     },
+    # ESPN-only, both directions: unlike Liga MX (still has real
+    # football-data.co.uk history, ESPN only fills in live fixtures),
+    # football-data.co.uk has zero Saudi Arabia coverage at all -- no
+    # /new/ file, no mmz4281 code (spot-checked; requesting one returns an
+    # unrelated league's data). ESPN's own scoreboard history for this
+    # league only goes back to ~August 2022 (spot-checked; earlier ranges
+    # return zero events), so this trains on ~4 seasons instead of the
+    # usual 7, and has no betting-odds columns at all (ESPN's scoreboard
+    # doesn't carry odds, unlike football-data.co.uk's normal exports).
+    # Team names come from the same ESPN "displayName" field on both the
+    # historical and live-fixture side, so no name_map/fixture_name_map
+    # translation is needed (contrast Liga MX, which bridges two different
+    # sources' naming).
+    "saudi_pro_league": {
+        "label": "Saudi Pro League",
+        "country": "Saudi Arabia",
+        "fd_code": "KSA",
+        "data_format": "espn_historical",
+        "data_dir": "data/saudipl_5yr",
+        "model_dir": "model/saudipl",
+        "output_name": "SaudiProLeague",
+        "understat_league": None,
+        "asa_league": None,
+        "espn_slug": "ksa.1",
+        "seasons": [
+            "2022/2023", "2023/2024", "2024/2025", "2025/2026", "2026/2027",
+        ],
+        "display_seasons": ["2023/2024", "2024/2025", "2025/2026", "2026/2027"],
+        "name_map": {},
+        "fixture_name_map": {},
+    },
 }
