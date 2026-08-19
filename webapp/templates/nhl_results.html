@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}NHL Prediction Track Record -- Predicted vs Actual | Degen Predictions{% endblock %}
+{% block description %}Public NHL accuracy ledger: how our ML winner and total-goals picks compared to real results on recent finished games. Educational estimates -- not betting advice.{% endblock %}
+{% block keywords %}NHL prediction accuracy, NHL model track record, hockey predictions results, predicted vs actual NHL{% endblock %}
+{% block content %}
+{% from "macros.html" import nav_back %}
+<nav class="page-nav" aria-label="Page">
+    {{ nav_back('/todays-picks/hockey/nhl', "Today's picks") }}
+    <a class="page-nav-link" href="/nhl/fixtures">Fixtures</a>
+</nav>
+
+<h1>NHL Track Record</h1>
+<p class="muted">Predicted vs actual on the last {{ nhl_summary.n or 0 }} finished games.
+    Last updated: {{ results_generated_at }} &middot; refreshes about every 3 hours.
+    Finished games leave <a href="/nhl/fixtures">fixtures</a> as soon as they are final.</p>
+
+{% if latest_scores %}
+<h2>Latest scores</h2>
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    {% for m in latest_scores %}
+    <article class="card">
+        <p class="muted" style="margin:0 0 0.35rem;">{{ (m.date or "")[:16] }}</p>
+        <p style="margin:0;"><strong>{{ m.away_team }} vs {{ m.home_team }}</strong></p>
+        {% if m.home_score not in (none, '') and m.away_score not in (none, '') %}
+        <p class="muted fixture-final-score" style="margin:0.35rem 0 0;">Final: {{ m.away_score }}-{{ m.home_score }}</p>
+        {% endif %}
+    </article>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="card" style="margin:1rem 0 1.5rem; max-width:42rem;">
+    <p style="margin:0;">These numbers apply <strong>today's</strong> model and Elo/stats to recent finished games --
+        useful as a public ledger of how the current model leans, not a strict point-in-time backtest
+        frozen before each puck drop. Real, measured holdout accuracy for the ML ensemble is ~56% on
+        winners -- close to a coin-flip full-slate, honestly one of the harder sports to call on this
+        site; treat every pick as a lean, not a guarantee.</p>
+</div>
+
+{% if nhl_rows %}
+<div class="card-grid" style="margin-bottom:1.5rem;">
+    <div class="card">
+        <h2>Summary</h2>
+        <p class="muted">{{ nhl_summary.n }} games</p>
+        <p>Winner accuracy: <strong>{{ (nhl_summary.winner_acc * 100) | round(1) }}%</strong></p>
+        <p>Total goals pick: <strong>{{ (nhl_summary.goals_acc * 100) | round(1) }}%</strong></p>
+    </div>
+</div>
+<div class="table-wrap">
+<table>
+    <thead><tr>
+        <th>Date</th><th>Matchup</th><th>Predicted</th><th>Actual</th><th>✓</th>
+        <th>Total Goals Pick</th><th>Actual Total</th><th>✓</th>
+    </tr></thead>
+    <tbody>
+    {% for r in nhl_rows %}
+    <tr>
+        <td>{{ r.date }}</td>
+        <td>{{ r.away }} @ {{ r.home }}</td>
+        <td>{{ r.predicted_winner }}</td>
+        <td>{{ r.actual_winner }}</td>
+        <td>{{ "Y" if r.winner_correct else "N" }}</td>
+        <td>{{ r.total_goals_pick }} {{ r.total_goals_line }}</td>
+        <td>{{ r.actual_total_goals | int }}</td>
+        <td>{{ "Y" if r.goals_correct else "N" }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="muted">No finished games to compare yet.</p>
+{% endif %}
+
+<p class="muted" style="margin-top:2rem;">Want tonight's slate? <a href="/todays-picks/hockey/nhl">Today's NHL picks</a></p>
+{% endblock %}

@@ -1,0 +1,52 @@
+{
+  "sport": "baseball",
+  "league": "nba",
+  "target_accuracy": 0.7,
+  "oos_n": 2126,
+  "full_slate_acc": 0.6749764816556915,
+  "model_name": "Logistic",
+  "shipped_holdout_accuracy": 0.6749764816556915,
+  "markets": {
+    "moneyline": {
+      "best": {
+        "threshold": 0.55,
+        "n": 1783,
+        "acc": 0.702187324733595,
+        "coverage": 0.8386641580432738,
+        "met_target": true
+      },
+      "curve_tail": [
+        {
+          "threshold": 0.86,
+          "n": 124,
+          "acc": 0.8387096774193549,
+          "coverage": 0.05832549388523048
+        },
+        {
+          "threshold": 0.87,
+          "n": 103,
+          "acc": 0.8737864077669902,
+          "coverage": 0.04844778927563499
+        },
+        {
+          "threshold": 0.88,
+          "n": 80,
+          "acc": 0.875,
+          "coverage": 0.03762935089369708
+        },
+        {
+          "threshold": 0.89,
+          "n": 55,
+          "acc": 0.8727272727272727,
+          "coverage": 0.025870178739416744
+        },
+        {
+          "threshold": 0.9,
+          "n": 49,
+          "acc": 0.8775510204081632,
+          "coverage": 0.023047977422389464
+        }
+      ]
+    }
+  }
+}

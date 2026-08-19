@@ -44,8 +44,8 @@ Telegram daily slips: https://degenpredictions.com/go/telegram
 - MLB predictions: https://degenpredictions.com/mlb/fixtures · Today's MLB picks https://degenpredictions.com/todays-picks/baseball/mlb · results https://degenpredictions.com/mlb/results
 - NPB (Japanese pro baseball) predictions: https://degenpredictions.com/npb/fixtures · results https://degenpredictions.com/npb/results
 - NFL predictions: https://degenpredictions.com/nfl/fixtures · hub https://degenpredictions.com/sports/american-football · Today's Picks https://degenpredictions.com/todays-picks/american_football/nfl
-- NBA predictions: https://degenpredictions.com/nba/fixtures · Today's Picks https://degenpredictions.com/todays-picks/basketball/nba
-- NHL predictions: https://degenpredictions.com/nhl/fixtures · Today's Picks https://degenpredictions.com/todays-picks/hockey/nhl
+- NBA predictions: https://degenpredictions.com/nba/fixtures · Today's Picks https://degenpredictions.com/todays-picks/basketball/nba · results https://degenpredictions.com/nba/results
+- NHL predictions: https://degenpredictions.com/nhl/fixtures · Today's Picks https://degenpredictions.com/todays-picks/hockey/nhl · results https://degenpredictions.com/nhl/results
 - Tennis match today / ATP: https://degenpredictions.com/tennis/fixtures · hub https://degenpredictions.com/sports/tennis · Today's Picks https://degenpredictions.com/todays-picks/tennis/atp
 - Football predictions hub: https://degenpredictions.com/sports/soccer
 - EPL / Premier League predictions: https://degenpredictions.com/premier_league/ · results https://degenpredictions.com/premier_league/results

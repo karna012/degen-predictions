@@ -327,17 +327,20 @@ def full_slate_acc_str(acc):
 
 
 def main():
-    keys = sys.argv[1:] or ["mlb", "npb", "cricket", "tennis"]
+    keys = sys.argv[1:] or ["mlb", "npb", "nba", "nhl", "cricket", "tennis"]
     summary = {}
     for key in keys:
-        if key in ("mlb", "npb"):
+        if key in ("mlb", "npb", "nba", "nhl"):
+            # NBA/NHL use the exact same Elo+ML/moneyline shape as MLB/NPB
+            # (HomeWin label, "Date" column, bundle["features"] selects the
+            # right columns) -- calibrate_baseball() needs no changes.
             summary[key] = calibrate_baseball(key)
         elif key == "cricket":
             summary[key] = calibrate_cricket()
         elif key == "tennis":
             summary[key] = calibrate_tennis()
         else:
-            print(f"Unknown key: {key} (use mlb|npb|cricket|tennis)")
+            print(f"Unknown key: {key} (use mlb|npb|nba|nhl|cricket|tennis)")
     print("\n=== High-confidence OOS (target 70%) ===")
     for key, rep in summary.items():
         if not rep:

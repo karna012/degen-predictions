@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Accuracy Hub — Holdout & 70% Tier | Degen Predictions{% endblock %}
-{% block description %}Honest out-of-sample accuracy for soccer, MLB, NPB, and cricket, including the selective Safer Result rule used on soccer predictions.{% endblock %}
+{% block description %}Honest out-of-sample accuracy for soccer, MLB, NPB, NFL, NBA, NHL, and cricket, including the selective Safer Result rule used on soccer predictions.{% endblock %}
 {% block content %}
 {% from "macros.html" import nav_back, breadcrumb_jsonld %}
 {{ breadcrumb_jsonld([
@@ -84,6 +84,8 @@
         Also see league ledgers:
         <a href="/mlb/results">MLB</a> ·
         <a href="/nfl/results">NFL</a> ·
+        <a href="/nba/results">NBA</a> ·
+        <a href="/nhl/results">NHL</a> ·
         <a href="/tennis/results">Tennis</a> ·
         <a href="/todays-picks">Today's Picks</a>
     </p>
@@ -129,7 +131,7 @@
 </section>
 
 <section style="margin-top:2rem;">
-    <h2>Baseball &amp; cricket</h2>
+    <h2>More sports</h2>
     <div class="table-wrap" style="overflow-x:auto;">
         <table class="rankings-table">
             <thead>

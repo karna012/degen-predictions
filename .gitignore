@@ -8,6 +8,12 @@ ipython_config.py
 # Folders
 data/*.csv
 
+# hoopR's full un-trimmed bulk download (~37MB) -- download_nba_data.py's
+# local cache of the upstream source so re-runs don't re-hit GitHub's raw
+# CDN; data/nba/raw/games.csv (the trimmed, actually-used output) is
+# committed, this giant scratch copy is not.
+data/nba/raw/nba_schedule_master.csv
+
 # Deployment secrets -- never commit real production env values
 deploy/production.env
 *.pem
@@ -26,6 +32,8 @@ webapp/sitemap_cache/
 webapp/results_cache.html
 webapp/mlb_results_cache.html
 webapp/nfl_results_cache.html
+webapp/nba_results_cache.html
+webapp/nhl_results_cache.html
 deploy/logs/
 deploy/soccer_retrain_state.json
 webapp/deposit_config.json

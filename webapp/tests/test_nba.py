@@ -27,6 +27,20 @@ def test_nba_fixtures_page_loads(client):
     assert resp.status_code == 200
 
 
+def test_nba_results_page_is_public(client):
+    resp = client.get("/nba/results?refresh=1")
+    assert resp.status_code == 200
+    body = resp.data.decode()
+    assert "Track Record" in body or "track record" in body.lower()
+
+
+def test_nba_accuracy_hub_lists_nba(client):
+    resp = client.get("/accuracy")
+    assert resp.status_code == 200
+    assert b"NBA" in resp.data
+    assert b'href="/nba/results"' in resp.data
+
+
 def test_nav_has_nba_link(client):
     resp = client.get("/sports")
     body = resp.data.decode()

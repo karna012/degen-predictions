@@ -27,6 +27,20 @@ def test_nhl_fixtures_page_loads(client):
     assert resp.status_code == 200
 
 
+def test_nhl_results_page_is_public(client):
+    resp = client.get("/nhl/results?refresh=1")
+    assert resp.status_code == 200
+    body = resp.data.decode()
+    assert "Track Record" in body or "track record" in body.lower()
+
+
+def test_nhl_accuracy_hub_lists_nhl(client):
+    resp = client.get("/accuracy")
+    assert resp.status_code == 200
+    assert b"NHL" in resp.data
+    assert b'href="/nhl/results"' in resp.data
+
+
 def test_nav_has_nhl_link(client):
     resp = client.get("/sports")
     body = resp.data.decode()

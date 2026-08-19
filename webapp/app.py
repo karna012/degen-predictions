@@ -1928,6 +1928,8 @@ def _public_accuracy_highlights(limit=6):
         ("npb", "NPB", "/todays-picks/baseball/npb", "/npb/results", "/sports/baseball"),
         ("nfl", "NFL", "/todays-picks/american_football/nfl", "/nfl/results", "/sports/american-football"),
         ("mlc", "MLC", "/todays-picks/cricket/mlc", "/mlc/results", "/mlc/fixtures"),
+        ("nba", "NBA", "/todays-picks/basketball/nba", "/nba/results", "/nba/fixtures"),
+        ("nhl", "NHL", "/todays-picks/hockey/nhl", "/nhl/results", "/nhl/fixtures"),
     )
     items = []
     for league_id, label, picks_url, track_url, hub_url in specs:
@@ -2347,11 +2349,13 @@ def _build_accuracy_hub():
         ("cpl", "CPL", "/cpl/results"),
         ("atp", "ATP (Men)", "/tennis/results"),
         ("nfl", "NFL", "/nfl/results"),
+        ("nba", "NBA", "/nba/results"),
+        ("nhl", "NHL", "/nhl/results"),
     ):
         thr = today_picks.load_sport_thresholds(league_id)
         full = thr.get("full_slate_acc")
         full_s = f"{100 * float(full):.1f}%" if isinstance(full, (int, float)) else "—"
-        key = "moneyline" if league_id in ("mlb", "npb", "nfl") else "match_winner"
+        key = "moneyline" if league_id in ("mlb", "npb", "nfl", "nba", "nhl") else "match_winner"
         avail = thr.get("available", {}).get(key)
         bar = thr.get("markets", {}).get(key)
         if thr.get("calibrated") and avail and bar is not None:
@@ -4788,6 +4792,51 @@ def nba_fixtures_page():
     )
 
 
+NBA_RESULTS_CACHE_PATH = os.path.join(WEBAPP_DIR, "nba_results_cache.html")
+NBA_RESULTS_CACHE_TTL_SECONDS = 3 * 60 * 60
+
+
+def _build_nba_results_page():
+    fixtures = get_nba_fixtures()
+    _upcoming, _postponed, latest_scores = today_picks.split_fixture_board(
+        fixtures, sport_key="basketball",
+    )
+    latest_scores = sorted(
+        latest_scores, key=lambda m: str(m.get("date") or ""), reverse=True,
+    )[:40]
+    nba_rows, nba_summary = nba_track_record(n=40)
+    return render_template(
+        "nba_results.html",
+        latest_scores=latest_scores,
+        nba_rows=nba_rows,
+        nba_summary=nba_summary,
+        results_generated_at=today_picks.format_kickoff_ist(
+            datetime.datetime.now(datetime.timezone.utc).isoformat()
+        ),
+    )
+
+
+@app.route("/nba/results")
+def nba_results_page():
+    """Public NBA accuracy ledger -- habit/trust page, not admin-gated."""
+    force_refresh = request.args.get("refresh") == "1"
+    try:
+        age = datetime.datetime.now(datetime.timezone.utc).timestamp() - os.path.getmtime(NBA_RESULTS_CACHE_PATH)
+        if not force_refresh and age <= NBA_RESULTS_CACHE_TTL_SECONDS:
+            with open(NBA_RESULTS_CACHE_PATH, "r", encoding="utf-8") as f:
+                return f.read()
+    except OSError:
+        pass
+
+    html = _build_nba_results_page()
+    try:
+        with open(NBA_RESULTS_CACHE_PATH, "w", encoding="utf-8") as f:
+            f.write(html)
+    except OSError:
+        pass
+    return html
+
+
 @app.route("/nba/api/predict")
 def nba_api_predict():
     home_code = request.args.get("home", "").strip()
@@ -5085,6 +5134,51 @@ def nhl_fixtures_page():
         postponed=postponed,
         feed_stale=_feed_stale_for("nhl:", "nhlapi"),
     )
+
+
+NHL_RESULTS_CACHE_PATH = os.path.join(WEBAPP_DIR, "nhl_results_cache.html")
+NHL_RESULTS_CACHE_TTL_SECONDS = 3 * 60 * 60
+
+
+def _build_nhl_results_page():
+    fixtures = get_nhl_fixtures()
+    _upcoming, _postponed, latest_scores = today_picks.split_fixture_board(
+        fixtures, sport_key="hockey",
+    )
+    latest_scores = sorted(
+        latest_scores, key=lambda m: str(m.get("date") or ""), reverse=True,
+    )[:40]
+    nhl_rows, nhl_summary = nhl_track_record(n=40)
+    return render_template(
+        "nhl_results.html",
+        latest_scores=latest_scores,
+        nhl_rows=nhl_rows,
+        nhl_summary=nhl_summary,
+        results_generated_at=today_picks.format_kickoff_ist(
+            datetime.datetime.now(datetime.timezone.utc).isoformat()
+        ),
+    )
+
+
+@app.route("/nhl/results")
+def nhl_results_page():
+    """Public NHL accuracy ledger -- habit/trust page, not admin-gated."""
+    force_refresh = request.args.get("refresh") == "1"
+    try:
+        age = datetime.datetime.now(datetime.timezone.utc).timestamp() - os.path.getmtime(NHL_RESULTS_CACHE_PATH)
+        if not force_refresh and age <= NHL_RESULTS_CACHE_TTL_SECONDS:
+            with open(NHL_RESULTS_CACHE_PATH, "r", encoding="utf-8") as f:
+                return f.read()
+    except OSError:
+        pass
+
+    html = _build_nhl_results_page()
+    try:
+        with open(NHL_RESULTS_CACHE_PATH, "w", encoding="utf-8") as f:
+            f.write(html)
+    except OSError:
+        pass
+    return html
 
 
 def build_nfl_today_slate():
@@ -5783,7 +5877,7 @@ def _build_sitemap_static() -> str:
         "todays-picks/basketball", "todays-picks/basketball/nba",
         "todays-picks/hockey", "todays-picks/hockey/nhl",
         "mlb/today", "mlb/fixtures", "mlb/results", "npb/fixtures", "npb/results",
-        "nfl/fixtures", "nfl/results", "nba/fixtures", "nhl/fixtures",
+        "nfl/fixtures", "nfl/results", "nba/fixtures", "nba/results", "nhl/fixtures", "nhl/results",
         "hundred/fixtures", "hundred/results", "mlc/fixtures", "mlc/results",
         "ipl/fixtures", "ipl/results", "bbl/fixtures", "bbl/results",
         "cpl/fixtures", "cpl/results",
@@ -6137,6 +6231,86 @@ def mlb_track_record(n=20):
         "runs_acc": (sum(r["runs_correct"] for r in rows) / len(rows)) if rows else None,
         "team_runs_acc": (sum(r["home_runs_correct"] + r["away_runs_correct"] for r in rows) / (2 * len(rows)))
             if rows else None,
+    }
+    return rows, summary
+
+
+def nba_track_record(n=20):
+    """Same idea as mlb_track_record() -- see its docstring."""
+    history = load_nba_history()
+    if history.empty:
+        return [], {}
+
+    recent = history.tail(n).iloc[::-1]
+
+    elo_df = load_nba_elo()
+    team_names = set(recent["HomeTeam"]).union(recent["VisitorTeam"])
+    full_names = elo_df[elo_df["Team"].isin(team_names)]["TeamName"].astype(str).tolist()
+    sentiment.prefetch_team_sentiments(full_names)
+
+    rows = []
+    for _, g in recent.iterrows():
+        home_code, away_code = g["HomeTeam"], g["VisitorTeam"]
+        pred = compute_nba_prediction(home_code, away_code)
+        if pred is None:
+            continue
+        actual_home_pts, actual_away_pts = float(g["HomeScore"]), float(g["VisitorScore"])
+        actual_total_pts = actual_home_pts + actual_away_pts
+        actual_winner = home_code if actual_home_pts > actual_away_pts else away_code
+        line, pick = pred["total_points_line"], pred["total_points_pick"]
+        pts_correct = (actual_total_pts > line) if pick == "Over" else (actual_total_pts < line)
+        rows.append({
+            "date": g["Date"], "home": home_code, "away": away_code,
+            "predicted_winner": pred["favourite"], "actual_winner": actual_winner,
+            "winner_correct": pred["favourite"] == actual_winner,
+            "total_points_line": line, "total_points_pick": pick,
+            "actual_total_points": actual_total_pts, "points_correct": pts_correct,
+        })
+
+    summary = {
+        "n": len(rows),
+        "winner_acc": (sum(r["winner_correct"] for r in rows) / len(rows)) if rows else None,
+        "points_acc": (sum(r["points_correct"] for r in rows) / len(rows)) if rows else None,
+    }
+    return rows, summary
+
+
+def nhl_track_record(n=20):
+    """Same idea as mlb_track_record() -- see its docstring."""
+    history = load_nhl_history()
+    if history.empty:
+        return [], {}
+
+    recent = history.tail(n).iloc[::-1]
+
+    elo_df = load_nhl_elo()
+    team_names = set(recent["HomeTeam"]).union(recent["VisitorTeam"])
+    full_names = elo_df[elo_df["Team"].isin(team_names)]["TeamName"].astype(str).tolist()
+    sentiment.prefetch_team_sentiments(full_names)
+
+    rows = []
+    for _, g in recent.iterrows():
+        home_code, away_code = g["HomeTeam"], g["VisitorTeam"]
+        pred = compute_nhl_prediction(home_code, away_code)
+        if pred is None:
+            continue
+        actual_home_goals, actual_away_goals = float(g["HomeScore"]), float(g["VisitorScore"])
+        actual_total_goals = actual_home_goals + actual_away_goals
+        actual_winner = home_code if actual_home_goals > actual_away_goals else away_code
+        line, pick = pred["total_goals_line"], pred["total_goals_pick"]
+        goals_correct = (actual_total_goals > line) if pick == "Over" else (actual_total_goals < line)
+        rows.append({
+            "date": g["Date"], "home": home_code, "away": away_code,
+            "predicted_winner": pred["favourite"], "actual_winner": actual_winner,
+            "winner_correct": pred["favourite"] == actual_winner,
+            "total_goals_line": line, "total_goals_pick": pick,
+            "actual_total_goals": actual_total_goals, "goals_correct": goals_correct,
+        })
+
+    summary = {
+        "n": len(rows),
+        "winner_acc": (sum(r["winner_correct"] for r in rows) / len(rows)) if rows else None,
+        "goals_acc": (sum(r["goals_correct"] for r in rows) / len(rows)) if rows else None,
     }
     return rows, summary
 

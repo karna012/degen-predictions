@@ -1,0 +1,33 @@
+Team,TeamName,Elo,GamesPlayed,AvgGoalsFor,AvgGoalsAllowed,Last10Wins,Last10Played,CurrentStreak,SeasonWins,SeasonLosses,LastGameDate
+CAR,Carolina Hurricanes,1698.0,888,3.63,2.57,8,10,3,69,32,2026-06-14
+BUF,Buffalo Sabres,1596.8,794,3.54,2.93,5,10,-1,57,38,2026-05-18
+COL,Colorado Avalanche,1592.2,883,3.4,2.61,5,10,-4,63,32,2026-05-26
+MTL,Montreal Canadiens,1586.3,845,3.11,2.97,4,10,-4,57,44,2026-05-29
+VGK,Vegas Golden Knights,1575.2,829,3.31,2.9,6,10,-3,53,51,2026-06-14
+TBL,Tampa Bay Lightning,1564.5,897,3.22,2.81,5,10,-1,53,36,2026-05-03
+DAL,Dallas Stars,1553.8,890,3.2,2.97,6,10,-3,52,36,2026-04-30
+WSH,Washington Capitals,1545.5,858,3.24,3.02,8,10,4,43,39,2026-04-14
+MIN,Minnesota Wild,1543.0,831,3.44,3.19,4,10,-2,51,42,2026-05-13
+PHI,Philadelphia Flyers,1531.0,813,2.86,2.77,4,10,-4,47,45,2026-05-09
+OTT,Ottawa Senators,1529.6,812,3.17,2.75,5,10,-4,44,42,2026-04-25
+STL,St. Louis Blues,1524.5,852,3.17,2.86,6,10,4,37,45,2026-04-16
+BOS,Boston Bruins,1519.0,881,3.04,3.01,4,10,-1,47,41,2026-05-01
+FLA,Florida Panthers,1498.9,869,3.15,3.36,5,10,3,41,42,2026-04-15
+NJD,New Jersey Devils,1498.4,803,2.89,3.17,5,10,-1,42,40,2026-04-14
+PIT,Pittsburgh Penguins,1494.5,845,3.44,3.38,3,10,-1,43,45,2026-04-29
+CBJ,Columbus Blue Jackets,1491.8,813,2.98,2.96,2,10,-2,40,42,2026-04-14
+UTA,Utah Mammoth,1490.7,797,3.33,3.22,3,10,-3,45,43,2026-05-01
+EDM,Edmonton Oilers,1488.5,885,3.44,3.33,4,10,-1,43,46,2026-04-30
+NYI,New York Islanders,1487.1,840,2.7,3.08,3,10,-3,43,39,2026-04-14
+ANA,Anaheim Ducks,1482.8,816,3.2,3.53,5,10,-2,49,45,2026-05-14
+NSH,Nashville Predators,1474.4,842,3.08,3.17,4,10,-2,38,44,2026-04-16
+DET,Detroit Red Wings,1461.9,783,2.86,3.3,2,10,-3,41,41,2026-04-15
+WPG,Winnipeg Jets,1460.4,841,2.72,3.25,5,10,-4,35,47,2026-04-16
+CGY,Calgary Flames,1454.6,813,2.67,3.22,4,10,1,34,48,2026-04-16
+SJS,San Jose Sharks,1449.8,818,2.99,3.64,5,10,1,39,43,2026-04-16
+NYR,New York Rangers,1443.7,840,3.13,3.05,6,10,1,34,48,2026-04-15
+LAK,Los Angeles Kings,1431.3,814,2.7,3.09,4,10,-6,35,51,2026-04-26
+SEA,Seattle Kraken,1406.7,424,2.71,3.41,2,10,-3,34,48,2026-04-16
+TOR,Toronto Maple Leafs,1406.1,852,2.93,3.83,2,10,-7,32,50,2026-04-15
+CHI,Chicago Blackhawks,1369.8,795,2.49,3.57,2,10,1,29,53,2026-04-15
+VAN,Vancouver Canucks,1349.3,811,2.63,3.98,4,10,-1,25,57,2026-04-16
