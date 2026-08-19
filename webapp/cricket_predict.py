@@ -688,7 +688,16 @@ def predict_live_fixture(fixture, competition=None):
         "sentiment_team1": sent1,
         "sentiment_team2": sent2,
         "sentiment_diff": round(sent_diff, 3) if sent_diff is not None else None,
-        "data_confidence": "medium" if (use_ml or venue_known) else "low",
+        # MLC is genuinely too young to trust yet -- confirmed against Cricsheet
+        # directly, only 109 matches have ever been played, and the trained
+        # model's real holdout accuracy (48.3% full-slate) never clears even a
+        # relaxed confidence bar. use_ml/venue_known being True here means the
+        # model *ran*, not that its picks are reliable -- always show "low"
+        # for this one competition regardless, rather than a "medium" badge
+        # implying more confidence than the calibration data actually supports.
+        "data_confidence": (
+            "low" if competition == "mlc_male" else ("medium" if (use_ml or venue_known) else "low")
+        ),
     }
 
 

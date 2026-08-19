@@ -535,6 +535,30 @@ def test_predict_live_fixture_uses_rebrand_alias_for_elo_lookup():
     assert pred["team1_win_prob"] + pred["team2_win_prob"] == pytest.approx(1.0)
 
 
+def test_mlc_always_reports_low_data_confidence():
+    """MLC has only 109 matches ever played (confirmed against Cricsheet
+    directly) and its trained model's real holdout accuracy never clears a
+    confidence bar -- data_confidence must stay "low" regardless of whether
+    the ML model technically ran for this specific matchup, so the match
+    page's existing "thin rolling history" caveat always shows."""
+    elo_df = cricket_predict.load_elo()
+    if elo_df.empty:
+        pytest.skip("no cricket Elo ratings available")
+    teams = set(elo_df["Team"])
+    for pair in (("MI New York", "Washington Freedom"), ("San Francisco Unicorns", "Seattle Orcas")):
+        if pair[0] in teams and pair[1] in teams:
+            fixture = {
+                "team1": pair[0], "team2": pair[1],
+                "team1_elo_name": pair[0], "team2_elo_name": pair[1],
+                "venue": "Grand Prairie Stadium",
+            }
+            pred = cricket_predict.predict_live_fixture(fixture, competition="mlc_male")
+            assert pred is not None
+            assert pred["data_confidence"] == "low"
+            return
+    pytest.skip("no known MLC team pair found in current Elo ratings")
+
+
 def test_cricket_match_page_renders_without_weather_for_historical_match(client):
     """The dormant weather section must not break rendering for the
     historical-only matches this pipeline currently has."""
