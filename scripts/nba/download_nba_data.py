@@ -6,6 +6,7 @@ Run from repo root: python scripts/nba/download_nba_data.py
 """
 import os
 import sys
+import time
 
 import pandas as pd
 import requests
@@ -18,12 +19,18 @@ COLS = [
     "game_date", "season", "season_type", "status_type_completed",
     "home_abbreviation", "away_abbreviation", "home_score", "away_score",
 ]
+# Re-download once the cached copy is this old, so scheduled retrains pick up
+# new games -- hoopR's bulk file updates continuously through the season.
+# Anything fresher just re-uses the local copy (avoids re-hitting GitHub's
+# raw CDN, which rate-limited a burst of test requests during development).
+CACHE_MAX_AGE_SECONDS = 20 * 60 * 60
 
 
 def main():
     cache_path = os.path.join(RAW_DIR, "nba_schedule_master.csv")
-    if os.path.exists(cache_path):
-        print(f"Using already-downloaded {cache_path}")
+    cache_age = time.time() - os.path.getmtime(cache_path) if os.path.exists(cache_path) else None
+    if cache_age is not None and cache_age < CACHE_MAX_AGE_SECONDS:
+        print(f"Using already-downloaded {cache_path} ({cache_age / 3600:.1f}h old)")
         df = pd.read_csv(cache_path, usecols=COLS, low_memory=False)
     else:
         print(f"Downloading {SCHEDULE_URL} ...")

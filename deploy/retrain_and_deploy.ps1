@@ -1,5 +1,5 @@
 # Weekly full retrain on THIS machine (never on the small EC2 box).
-# Covers: soccer (all leagues), MLB, NPB, cricket, crypto + stocks.
+# Covers: soccer (all leagues), MLB, NPB, NBA, NHL, cricket, tennis, crypto + stocks.
 # Slim model stack: calibrated XGBoost (+ logistic/ridge), LSTM only if it
 # clearly beats tabular IC. Then pytest gate + promote-if-better + sync.
 #
@@ -63,7 +63,7 @@ print('' if acc is None else acc)
 }
 
 try {
-    Log "==> Weekly full retrain starting (soccer + baseball + cricket + crypto/stocks)"
+    Log "==> Weekly full retrain starting (soccer + baseball + NBA + NHL + cricket + tennis + crypto/stocks)"
     Log "==> Rule: only ship models that beat (or tie) the previous holdout -- never ship a regression"
 
     Log "==> Pulling EC2 feedback baseline (informational)"
@@ -79,13 +79,13 @@ try {
 
     # ---- Soccer (all configured leagues) ----
     Log "==> Soccer: download + features + train + predict"
-    Run-Py $Python @("scripts\download_data.py") "$RepoRoot\scripts"
-    Run-Py $Python @("scripts\build_features.py") "$RepoRoot\scripts"
-    Run-Py $Python @("scripts\train_models.py") "$RepoRoot\scripts"
-    Run-Py $Python @("scripts\predict_pl.py") "$RepoRoot\scripts"
+    Run-Py $Python @("download_data.py") "$RepoRoot\scripts"
+    Run-Py $Python @("build_features.py") "$RepoRoot\scripts"
+    Run-Py $Python @("train_models.py") "$RepoRoot\scripts"
+    Run-Py $Python @("predict_pl.py") "$RepoRoot\scripts"
     if (Test-Path "$RepoRoot\scripts\calibrate_confidence.py") {
         Log "==> Soccer: recalibrate confidence thresholds"
-        Run-Py $Python @("scripts\calibrate_confidence.py") "$RepoRoot\scripts"
+        Run-Py $Python @("calibrate_confidence.py") "$RepoRoot\scripts"
     }
 
     # ---- MLB ----
@@ -101,6 +101,25 @@ try {
     & $Python scripts\npb\build_elo.py 2>&1 | Out-Null
     Run-Py $Python @("scripts\npb\build_training_dataset.py")
     Run-Py $Python @("scripts\npb\train_ml_models.py")
+
+    # ---- NBA ----
+    Log "==> NBA: refresh + Elo + train"
+    Run-Py $Python @("download_nba_data.py") "$RepoRoot\scripts\nba"
+    & $Python scripts\nba\build_elo.py 2>&1 | Out-Null
+    Run-Py $Python @("build_training_dataset.py") "$RepoRoot\scripts\nba"
+    Run-Py $Python @("train_ml_models.py") "$RepoRoot\scripts\nba"
+
+    # ---- NHL ----
+    Log "==> NHL: refresh + Elo + train"
+    Run-Py $Python @("download_nhl_data.py") "$RepoRoot\scripts\nhl"
+    & $Python scripts\nhl\build_elo.py 2>&1 | Out-Null
+    Run-Py $Python @("build_training_dataset.py") "$RepoRoot\scripts\nhl"
+    Run-Py $Python @("train_ml_models.py") "$RepoRoot\scripts\nhl"
+
+    if (Test-Path "$RepoRoot\scripts\calibrate_sports_confidence.py") {
+        Log "==> NBA/NHL: recalibrate confidence thresholds"
+        Run-Py $Python @("scripts\calibrate_sports_confidence.py", "nba", "nhl") "$RepoRoot"
+    }
 
     # ---- Cricket (Hundred / MLC / IPL / BBL / CPL) ----
     Log "==> Cricket: download + Elo + train"
@@ -167,7 +186,7 @@ try {
         @{
             mlb_holdout_accuracy = $newAcc
             promoted_at = (Get-Date).ToUniversalTime().ToString("o")
-            scope = "soccer+mlb+npb+cricket+investment"
+            scope = "soccer+mlb+npb+nba+nhl+cricket+tennis+investment"
             promote_gate = "per-category holdout (no regressions shipped)"
         } | ConvertTo-Json | Set-Content -Path $ScorePath -Encoding utf8
         Log "==> Recorded promoted score $newAcc -> $ScorePath"

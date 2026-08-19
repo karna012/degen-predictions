@@ -178,6 +178,20 @@ def categories():
         "higher_better": True,
         "score": lambda: _joblib_acc(os.path.join(REPO, "data", "npb", "ml_ensemble_model.joblib")),
     })
+    cats.append({
+        "key": "nba",
+        "label": "NBA",
+        "paths": [os.path.join(REPO, "data", "nba", "ml_ensemble_model.joblib")],
+        "higher_better": True,
+        "score": lambda: _joblib_acc(os.path.join(REPO, "data", "nba", "ml_ensemble_model.joblib")),
+    })
+    cats.append({
+        "key": "nhl",
+        "label": "NHL",
+        "paths": [os.path.join(REPO, "data", "nhl", "ml_ensemble_model.joblib")],
+        "higher_better": True,
+        "score": lambda: _joblib_acc(os.path.join(REPO, "data", "nhl", "ml_ensemble_model.joblib")),
+    })
     cricket_dir = os.path.join(REPO, "data", "cricket")
     cats.append({
         "key": "cricket_winner",
@@ -258,6 +272,8 @@ def _score_from_backup(cat, score_fn_live):
     if key == "mlb":
         return _joblib_acc(_backup_path(cat["paths"][0]))
     if key == "npb":
+        return _joblib_acc(_backup_path(cat["paths"][0]))
+    if key in ("nba", "nhl"):
         return _joblib_acc(_backup_path(cat["paths"][0]))
     if key == "cricket_winner":
         bak_dir = _backup_path(os.path.join(REPO, "data", "cricket"))

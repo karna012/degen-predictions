@@ -32,6 +32,7 @@ tar --exclude='__pycache__' --exclude='*.pyc' --exclude='*.log' \
     --exclude='webapp/tests/__pycache__' \
     --exclude='data/feedback' \
     --exclude='data/feedback/*' \
+    --exclude='data/nba/raw/nba_schedule_master.csv' \
     -czf "$BUNDLE" "${DIRS_TO_SYNC[@]}"
 
 echo "==> Uploading"
