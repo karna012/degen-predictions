@@ -1,5 +1,15 @@
 # Degen Predictions
 
+**Public source / portfolio snapshot.** This GitHub branch is older than the
+currently deployed sports website; the historical feature and hosting notes
+below are not a description of the current live configuration. Newer local and
+production changes are not automatically uploaded to this repository.
+
+Production credentials, account databases, payment records and private backups
+are not part of this source release. Configure your own environment using
+placeholder-only examples. Read [SECURITY.md](SECURITY.md) before running or
+deploying the application. Never use example credentials on an exposed server.
+
 A free ML/AI prediction platform focused on **Sports**, **Crypto**, and **Stocks** (US & India). No paywall — every prediction tool is free, with account/login optional (Google or email/password) and not required to use anything.
 
 > Educational/research project. Not betting or financial advice (see `/terms`, `/privacy`, `/faq` in the running app).
